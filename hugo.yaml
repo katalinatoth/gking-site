@@ -6,6 +6,9 @@ enableGitInfo: false
 enableEmoji: true
 hasCSSJSConfigInAssets: true
 
+build:
+  writeStats: true
+
 module:
   imports:
     - path: github.com/HugoBlox/hugo-blox-builder/modules/blox-plugin-netlify
