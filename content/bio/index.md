@@ -3,6 +3,10 @@ title: "Bio & CV"
 type: "bio"
 ---
 
+<div style="float:right;margin:0 0 1.5rem 2rem;max-width:280px;">
+  <img src="/gking-site/images/gking-bio-photo.jpg" alt="Gary King" style="width:100%;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+</div>
+
 Gary King is the Albert J. Weatherhead III University Professor at Harvard University -- one of 25 with Harvard's most distinguished faculty title -- and Director of the [Institute for Quantitative Social Science](https://iq.harvard.edu/). King develops and applies empirical methods in many areas of social science, focusing on innovations that span the range from statistical theory to practical application.
 
 King is an elected Fellow in 8 honorary societies (National Academy of Sciences, American Statistical Association, American Association for the Advancement of Science, American Academy of Arts and Sciences, Society for Political Methodology, National Academy of Social Insurance, American Academy of Political and Social Science, and the Guggenheim Foundation) and has won more than [55 prizes and awards](https://scholar.harvard.edu/files/gking/files/vitae.pdf) for his work. King was elected President of the Society for Political Methodology and Vice President of the American Political Science Association. He has been a member of the Senior Editorial Board at *Science*, Visiting Fellow at Oxford, and Senior Science Adviser to the World Health Organization. He has written more than 190 journal articles, 30 open source software packages, and 8 books.
