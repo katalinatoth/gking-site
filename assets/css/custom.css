@@ -1,0 +1,33 @@
+/* Harvard crimson-inspired color scheme */
+:root {
+  --hbx-primary-600: #A51C30;
+  --hbx-primary-700: #8C1A28;
+  --hbx-primary-500: #C62535;
+}
+
+/* Clean, academic typography */
+.prose {
+  max-width: 75ch;
+}
+
+/* Better hero section spacing */
+.hbx-hero {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+/* Publication citation list improvements */
+.pub-list-item {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.dark .pub-list-item {
+  border-bottom: 1px solid #333;
+}
+
+/* Reduce footer branding visibility */
+footer .powered-by {
+  opacity: 0.5;
+  font-size: 0.75rem;
+}

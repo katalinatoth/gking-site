@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="og: https://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8" />
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-54H3JRQQ');
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-52MDQDLC');
+</script>
+<link rel="canonical" href="/files/abs/pr-abs.shtml" />
+<link rel="image_src" href="https://gking.harvard.edu/sites/g/files/omnuum7116/files/gking/files/blue.png" />
+<meta property="og:type" content="Reference" />
+<meta property="og:url" content="https://gking.harvard.edu/files/abs/pr-abs.shtml" />
+<meta property="og:title" content="What to do About Missing Values in Time Series Cross-Section Data | GARY KING" />
+<meta property="og:image" content="https://gking.harvard.edu/sites/g/files/omnuum7116/files/gking/files/blue.png" />
+<meta property="og:image:alt" content="blue.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://gking.harvard.edu/sites/g/files/omnuum7116/files/styles/hwp_1_1__800x800/public/gking/files/blue.png?itok=nv3DnXJJ" />
+<meta name="twitter:image:alt" content="blue.png" />
+<meta name="Generator" content="Drupal 10 (https://www.drupal.org)" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=overlays-content" />
+<link rel="stylesheet" id="font-merriweather-css" href="//fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" type="text/css" media="all" />
+<link rel="stylesheet" id="font-roboto-css" href="//fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&amp;display=swap" type="text/css" media="all" />
+<link rel="stylesheet" id="font-material-icons-css" href="//fonts.googleapis.com/icon?family=Material+Icons" type="text/css" media="all" />
+<link rel="stylesheet" id="font-material-icons-outlined-css" href="//fonts.googleapis.com/icon?family=Material+Icons+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" type="text/css" media="all" />
+<link rel="stylesheet" id="font-postgrotesk-css" href="/profiles/hwp_dstan/themes/hwp_hyard/hwp-goldin/fonts/postgrotesk.css" type="text/css" media="all" />
+<link rel="stylesheet" id="font-brandontext-css" href="/profiles/hwp_dstan/themes/hwp_hyard/hwp-goldin/fonts/brandontext.css" type="text/css" media="all" />
+<link rel="stylesheet" id="font-arial-css" href="/profiles/hwp_dstan/themes/hwp_hyard/hwp-goldin/fonts/arial.css" type="text/css" media="all" />
+<link rel="stylesheet" id="font-treehouse-css" href="/profiles/hwp_dstan/themes/hwp_hyard/hwp-goldin/fonts/treehouse.css" type="text/css" media="all" />
+<link rel="stylesheet" id="font-sanomat-css" href="/profiles/hwp_dstan/themes/hwp_hyard/hwp-goldin/fonts/sanomat.css" type="text/css" media="all" />
+<link rel="stylesheet" id="font-questrial-css" href="//fonts.googleapis.com/css2?family=Questrial&amp;display=swap" type="text/css" media="all" />
+<link rel="stylesheet" id="font-montserrat-css" href="//fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&amp;display=swap" type="text/css" media="all" />
+<link rel="icon" href="/profiles/hwp_dstan/themes/hwp_hyard/favicon.ico" type="image/vnd.microsoft.icon" />
+
+    <title lang="en">What to do About Missing Values in Time Series Cross-Section Data | GARY KING</title>
+    <link rel="stylesheet" media="all" href="/sites/g/files/omnuum7116/files/css/css_-NB7OZacHg1Qscc5KfYQ7uIlvMtFlt_GRVcLgjY6LOI.css?delta=0&amp;language=en&amp;theme=hwp_hyard&amp;include=eJxdjEsOgCAMRC9EJJyIFNsIsXwCJcrtRd0Yl_PmzdApHNKusfYCvNAblT-K9QMqasIguQYwZnzoxtkBqwhCs2Mb1pyadtBozunPc79fCVUbTSg-3gVGYi9P" />
+<link rel="stylesheet" media="all" href="//fonts.googleapis.com/icon?family=Material+Icons" />
+<link rel="stylesheet" media="all" href="//fonts.googleapis.com/icon?family=Material+Icons+Outlined" />
+<link rel="stylesheet" media="all" href="/sites/g/files/omnuum7116/files/css/css_ddXGq4g3q-K3VniVe61xVtg9qGcIyVeQvLoglo9b6lk.css?delta=3&amp;language=en&amp;theme=hwp_hyard&amp;include=eJxdjEsOgCAMRC9EJJyIFNsIsXwCJcrtRd0Yl_PmzdApHNKusfYCvNAblT-K9QMqasIguQYwZnzoxtkBqwhCs2Mb1pyadtBozunPc79fCVUbTSg-3gVGYi9P" />
+
+    
+  
+                              <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="GBUU5-S9S78-P7UW2-BSS9F-LR483",function(){function e(){if(!o){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,i.parentNode.appendChild(e),o=!0}}function t(e){o=!0;var n,t,a,r,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./))return window.BOOMR.snippetMethod="s",void t(i.parentNode,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",r=(a.frameElement||a).style,r.width=0,r.height=0,r.border=0,r.display="none",i.parentNode.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void(0);",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document._boomrl();'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=12,window.BOOMR.url=n+"GBUU5-S9S78-P7UW2-BSS9F-LR483";var i=document.currentScript||document.getElementsByTagName("script")[0],o=!1,r=document.createElement("link");if(r.relList&&"function"==typeof r.relList.supports&&r.relList.supports("preload")&&"as"in r)window.BOOMR.snippetMethod="p",r.href=window.BOOMR.url,r.rel="preload",r.as="script",r.addEventListener("load",e),r.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!o)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),i.parentNode.appendChild(r);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n=""=="true"?1:0,t="",a="rt3xieyx2oegk2owtqwq-f-a5001b63e-clientnsv4-s.akamaihd.net",i="false"=="true"?2:1,o={"ak.v":"39","ak.cp":"1597782","ak.ai":parseInt("841065",10),"ak.ol":"0","ak.cr":9,"ak.ipv":4,"ak.proto":"http/1.1","ak.rid":"385bcdcf","ak.r":52917,"ak.a2":n,"ak.m":"b","ak.n":"ff","ak.bpcip":"140.247.116.0","ak.cport":56860,"ak.gh":"23.209.127.101","ak.quicv":"","ak.tlsv":"tls1.3","ak.0rtt":"","ak.0rtt.ed":"","ak.csrc":"-","ak.acc":"bbr","ak.t":"1775672365","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==QoFWdGPrf4TMaBHOXeA7tfsMl5ZIHXuk4f6JGe08eauNczy6qKkXwqpH75lOl2QBbde2yXhD0sxVVeTjbM+SaxUl2bBhFSD62ag2MJTUxu32T4Y/KntZbDpaCJ9zN8xDIxB+BQ2pLFvCirkta8glnAVMIQbpUMVNzE8c2kQ+tdv2TJxPS88NXxMvwvVipKWnLXruIlxs7AEvi5vzwMhvruCCgFaCDvNyHtodopZMhlsM7R4N5TuOdcf1SItBV4ergMMc9UR2Jm2X+TJAMmFbhNzxUCNSe8pqJXJ348R0m+ujoacVZF/fSI8haEaG419Khm0FM6F2f8sEYMJJH5Q3/WsAD5oeMohWVbACEPufe3fU6E+L7qCmp7X9stSJlzYCMqtOqbLVG6D7/rp1tD/FzCXVsCLQFyg7N1CyUbK7+OI=","ak.pv":"442","ak.dpoabenc":"","ak.tf":i};if(""!==t)o["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))o["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(o)},rv:function(){var e=["ak.bpcip","ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.0rtt.ed","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:o,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script></head>
+  <body class="tex2jax_ignore hwp-font-group-questrial hwp-icons-outline hwp-style-default">
+        <a href="#main-content" class="hwp-skip-to-content visually-hidden">
+      <div class="hwp-relative hwp-button hwp-button--large hwp-bg-button-light-primary">
+        <span class="hwp-button__text">Skip to main content</span>
+        <span  class="material-icon material-icon--arrow-circle-down tex2jax_ignore hwp-font-group-questrial hwp-icons-outline hwp-style-default" aria-hidden="true">arrow_circle_down</span>
+      </div>
+    </a>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-54H3JRQQ" height="0" width="0" style="display:none;visibility:hidden;"></iframe>
+</noscript><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-52MDQDLC" height="0" width="0" style="display:none;visibility:hidden;"></iframe>
+</noscript>
+      <div class="dialog-off-canvas-main-canvas" data-off-canvas-main-canvas>
+    <div class="layout-container">
+
+  <header role="banner">
+      <div>
+    <div id="block-hwp-announcement-banners">
+  
+    
+      
+
+
+
+  </div>
+<div id="block-hwp-globalheader">
+  
+    
+      
+
+<div  class="header-global header-global--compact hwp-bg-dark-core">
+  <div class="hwp-container hwp-container-px">
+          <a class="header-global__logo"
+         href="https://www.harvard.edu/">
+        <img alt="Harvard University" src="/profiles/hwp_dstan/themes/hwp_hyard/hwp-goldin/images/svg/header-logo-horizontal.svg" />
+
+      </a>
+              <div class="header-site__utils">
+                <search role="search" class="header-site__search hwp-mb-0">
+              <form class="hwp-search-form-header" data-drupal-selector="hwp-search-form-header" action="/files/abs/pr-abs.shtml" method="post" id="hwp-search-form-header" accept-charset="UTF-8">
+  <div class="hwp-form-type-search hwp-form-item js-form-item form-item form-type-search js-form-type-search form-item-search js-form-item-search form-no-label">
+      <label for="edit-search" class="visually-hidden">Search</label>
+        <input data-drupal-selector="edit-search" type="search" id="edit-search" name="search" value="" size="60" maxlength="128" class="form-search" />
+
+        </div>
+
+  
+
+
+<button  data-twig-suggestion="header_site_search_submit" data-drupal-selector="edit-submit" type="submit" id="edit-submit" name="op" value="Search" class="hwp-button hwp-button--small button js-form-submit form-submit" >
+      <span class="hwp-button__text">Search</span>
+        <span class="material-icon" aria-hidden="true">search</span>
+  </button>
+<input autocomplete="off" data-drupal-selector="form-4odpm1cf8upq5gi4wu3wks-f24y2us9o9viczw5gxic" type="hidden" name="form_build_id" value="form-4odpm1CF8UPQ5GI4wU3Wks-f24y2Us9o9vICZW5GXic" />
+<input data-drupal-selector="edit-hwp-search-form-header" type="hidden" name="form_id" value="hwp_search_form_header" />
+
+</form>
+
+          </search>
+      </div>
+      </div>
+</div>
+
+  </div>
+<div id="block-hwp-siteheader">
+  
+    
+      
+
+
+
+
+<div  class="header-site header-site--compact header-site--light-core">
+  <div class="hwp-bg-light-core">
+    <div class="header-site__main hwp-container">
+      <div class="header-site__brand">
+          <a href="/">
+                <div class="header-site__title">GARY KING</div>
+            </a>
+
+      </div>
+
+      <button class="header-site__menu-trigger js-header-site__menu-trigger" aria-expanded="false">
+        <span class="material-icon material-icon--menu" aria-hidden="true">menu</span>
+        <span class="material-icon material-icon--close" aria-hidden="true">close</span>
+        <span class="header-site__menu-trigger-label">Menu</span>
+      </button>
+      <div class="header-site__utils hwp-shrink-0">
+        <search role="search" class="header-site__search">
+                    <form class="hwp-search-form-header" data-drupal-selector="hwp-search-form-header-2" action="/files/abs/pr-abs.shtml" method="post" id="hwp-search-form-header--2" accept-charset="UTF-8">
+  <div class="hwp-form-type-search hwp-form-item js-form-item form-item form-type-search js-form-type-search form-item-search js-form-item-search form-no-label">
+      <label for="edit-search--2" class="visually-hidden">Search</label>
+        <input data-drupal-selector="edit-search" type="search" id="edit-search--2" name="search" value="" size="60" maxlength="128" class="form-search" />
+
+        </div>
+
+  
+
+
+<button  data-twig-suggestion="header_site_search_submit" data-drupal-selector="edit-submit" type="submit" id="edit-submit--2" name="op" value="Search" class="hwp-button hwp-button--small button js-form-submit form-submit" >
+      <span class="hwp-button__text">Search</span>
+        <span class="material-icon" aria-hidden="true">search</span>
+  </button>
+<input autocomplete="off" data-drupal-selector="form-kszbl8hyfmnx1b7kalmy6md5vtpel-szdar5xevdtuk" type="hidden" name="form_build_id" value="form-kSZBL8HyfMNx1b7KaLMY6MD5VtpEL_SzDaR5xEvDtuk" />
+<input data-drupal-selector="edit-hwp-search-form-header-2" type="hidden" name="form_id" value="hwp_search_form_header" />
+
+</form>
+
+              </search>
+              </div>
+    </div>
+  </div>
+  <div class="hwp-bg-light-core lg:hwp-bg-light-core">
+    <div class="header-site__navigation">
+      <div class="header-site__brand">
+          <a href="/">
+                <div class="header-site__title">GARY KING</div>
+            </a>
+
+      </div>
+          
+
+<nav  class="hwp-main-menu" aria-label="Main">
+  <div class="hwp-main-menu__container">
+                      <ul class="hwp-main-menu__list" >
+                      
+        
+        
+        
+        
+        <li class="hwp-main-menu__item">
+                      <a href="/biocv" lang="en" class="hwp-main-menu__link" id="menu_link_content:a5bcce11-eabf-41df-b4d2-71a176d93aeb" data-drupal-link-system-path="node/287251">Bio &amp; C.V.</a>
+                                      </li>
+                      
+        
+        
+        
+        
+        <li class="hwp-main-menu__item">
+                      <a href="/publications" lang="en" class="hwp-main-menu__link" id="menu_link_content:0655d89b-4f43-4760-83ce-7a987cf1b130" data-drupal-link-system-path="node/812616">Writings</a>
+                                      </li>
+                      
+        
+        
+        
+        
+        <li class="hwp-main-menu__item">
+                      <a href="/research-areas" title="" lang="en" class="hwp-main-menu__link" id="menu_link_content:a8f6f1dd-e03a-4b76-ad94-f675a0b3f2e0" data-drupal-link-system-path="node/507576">Research Areas</a>
+                                      </li>
+                      
+        
+        
+        
+        
+        <li class="hwp-main-menu__item">
+                      <a href="/software" lang="en" class="hwp-main-menu__link" id="menu_link_content:50e63f0f-7386-4803-91e7-74e427cc4be2" data-drupal-link-system-path="node/107346">Software</a>
+                                      </li>
+                      
+        
+        
+        
+        
+        <li class="hwp-main-menu__item">
+                      <a href="/data" lang="en" class="hwp-main-menu__link" id="menu_link_content:649d0a00-d054-4092-a2da-6bb7a6080361" data-drupal-link-system-path="node/249171">Dataverse</a>
+                                      </li>
+                      
+        
+        
+        
+        
+        <li class="hwp-main-menu__item">
+                      <a href="/people?f%5B0%5D=hwp_c_vocabulary_175%3A1589" data-show-in-main-navigation="1" data-show-in-section-navigation="1" lang="en" class="hwp-main-menu__link" id="menu_link_content:ceb4b16b-0052-44e9-8c7e-376ff9f777ce" data-drupal-link-query="{&quot;f&quot;:[&quot;hwp_c_vocabulary_175:1589&quot;]}" data-drupal-link-system-path="node/812621">Research Group</a>
+                                      </li>
+                      
+        
+        
+        
+        
+        <li class="hwp-main-menu__item">
+                      <a href="/classes" lang="en" class="hwp-main-menu__link" id="menu_link_content:f1000afe-d666-43f2-993e-c2a4634bc287" data-drupal-link-system-path="node/812626">Teaching</a>
+                                      </li>
+                      
+        
+        
+        
+        
+        <li class="hwp-main-menu__item">
+                      <a href="/pages/contact" lang="en" class="hwp-main-menu__link" id="menu_link_content:bfcd8094-9c6a-4f8a-a867-7701105d87d1" data-drupal-link-system-path="node/3794">Contact</a>
+                                      </li>
+          </ul>
+                                                                                                                                  
+    </div>
+</nav>
+
+      </div>
+  </div>
+</div>
+
+  </div>
+<div id="block-hwp-breadcrumbs">
+  
+    
+      
+  <nav  class="hwp-breadcrumbs hwp-bg-light-core" aria-labelledby="system-breadcrumb">
+    <div class="hwp-container hwp-container-px">
+      <p id="system-breadcrumb" hidden>Breadcrumbs</p>
+      <ol>
+                  <li>
+                          <a href="/">Home</a>
+                                      <span  class="material-icon material-icon--chevron-right" aria-hidden="true">chevron_right</span>
+                      </li>
+                  <li>
+                          <a href="/publications">Publications</a>
+                                      <span  class="material-icon material-icon--chevron-right" aria-hidden="true">chevron_right</span>
+                      </li>
+                  <li>
+                          <span>What to do About Missing Values in Time Series Cross-Section Data</span>
+                                  </li>
+              </ol>
+    </div>
+  </nav>
+
+  </div>
+<style>:root {
+    --hwp-font-light-text: #FFFFFF;
+    --hwp-font-light-link: #FFFFFF;
+    --hwp-font-dark-text: #1E1E1E;
+    --hwp-font-dark-link: #2B416E;
+    --hwp-bg-light-base: #ECF2F8;
+    --hwp-bg-light-alternative: #F5F5F5;
+    --hwp-bg-light-core: #FFFFFF;
+    --hwp-bg-dark-base: #BF5803;
+    --hwp-bg-dark-alternative: #3C72B4;
+    --hwp-bg-dark-core: #1E1E1E;
+    --hwp-button-light-primary: #FFFFFF;
+    --hwp-button-light-secondary: #ECF2F8;
+    --hwp-button-dark-primary: #BF5803;
+    --hwp-button-dark-secondary: #2B416E;
+    --hwp-button-strong-primary: #A51C30;
+    --hwp-button-strong-secondary: #A51C30;
+    --hwp-accent-light-regular: #ECF2F8;
+    --hwp-accent-light-vibrant: #FFFFFF;
+    --hwp-accent-dark-regular: #BF5803;
+    --hwp-accent-dark-vibrant: #2B416E;
+  }</style>
+
+  </div>
+
+  </header>
+
+  
+  
+
+  
+
+  
+
+  
+
+  <main lang="en" id="main-content" role="main" aria-labelledby="page-title" tabindex="-1">
+    <div class="layout-content">
+        <div>
+    <div data-drupal-messages-fallback class="hidden"></div>
+
+
+
+<div class="biblio-details">
+  <div  lang="en" class="hwp-page-title bibcite-reference">
+  <div class="hwp-container hwp-container-px hwp-py-32">
+    
+    <h1 class="text-large" >
+      What to do About Missing Values in Time Series Cross-Section Data     </h1>
+    
+     </div>
+</div>
+
+  <div class="hwp-biblio--content-area">
+    <div class="hwp-biblio--info">
+      <div  class="publication-info" data-component-name="publication-info">
+  <div class="publication-info__image">
+          
+            <div class="field field--name-hwp-bibcite-thumbnail field--type-entity-reference field--label-hidden"><div class="hwp-media hwp-media--4-5-small">
+  
+  
+            <div class="field field--name-field-media-image field--type-image field--label-hidden">    <picture>
+                  <source srcset="/sites/g/files/omnuum7116/files/styles/hwp_4_5__480x600/public/gking/files/blue.png?itok=yGlBFVyP 1x, /sites/g/files/omnuum7116/files/styles/hwp_4_5__960x1200/public/gking/files/blue.png?itok=2HL0w0NO 2x" media="all and (min-width: 0)" type="image/png" width="480" height="600"/>
+                  <img loading="eager" width="480" height="600" src="/sites/g/files/omnuum7116/files/styles/hwp_4_5__480x600/public/gking/files/blue.png?itok=yGlBFVyP" alt="blue.png" />
+
+  </picture>
+
+</div>
+      
+</div>
+</div>
+      
+      </div>
+  <div class="publication-info__text">
+    <h4 class="h4 hwp-mb-8">Publication information:</h4>
+    <div class="publication-info__body">
+      <div class="bibcite-citation">
+      <div class="csl-bib-body"><div class="csl-entry">James Honaker and Gary King. 2010. “What to Do About Missing Values in Time Series Cross-Section Data”. American Journal of Political Science, 54, 3, Pp. 561-81.</div></div>
+  </div>
+
+    </div>
+    <ul class="publication-info__actions">
+              <li>
+          <div class="button-dropdown" data-component-name="button-dropdown">
+  
+
+
+
+
+<button
+   class="hwp-text-link hwp-text-link--icon-left"
+    id="publication_citation_download">
+  <span class="material-icon" aria-hidden="true">download_for_offline</span>
+<span class="hwp-text-link__text">Download citation</span>
+</button>
+
+  
+  <ul class="button-dropdown__items" role="menu" aria-labelledby="publication_citation_download">
+          <li role="menuitem">
+        <a class="analytics-cta" href="/bibcite/export?content_filter%5B0%5D=3636&amp;format=bibtex">BibTeX</a>
+      </li>
+          <li role="menuitem">
+        <a class="analytics-cta" href="/bibcite/export?content_filter%5B0%5D=3636&amp;format=endnote8">EndNote X3 XML</a>
+      </li>
+          <li role="menuitem">
+        <a class="analytics-cta" href="/bibcite/export?content_filter%5B0%5D=3636&amp;format=endnote7">EndNote 7 XML</a>
+      </li>
+          <li role="menuitem">
+        <a class="analytics-cta" href="/bibcite/export?content_filter%5B0%5D=3636&amp;format=tagged">Endnote tagged</a>
+      </li>
+          <li role="menuitem">
+        <a class="analytics-cta" href="/bibcite/export?content_filter%5B0%5D=3636&amp;format=marc">Marc</a>
+      </li>
+          <li role="menuitem">
+        <a class="analytics-cta" href="/bibcite/export?content_filter%5B0%5D=3636&amp;format=pubmed_id">PubMedId</a>
+      </li>
+          <li role="menuitem">
+        <a class="analytics-cta" href="/bibcite/export?content_filter%5B0%5D=3636&amp;format=ris">RIS</a>
+      </li>
+      </ul>
+</div>
+        </li>
+                    <li>
+          
+
+
+
+  
+<a
+   class="hwp-text-link hwp-text-link--icon-left analytics-cta"
+  href="http://gking.harvard.edu/files/abs/pr-abs.shtml"  >
+  <span class="material-icon" aria-hidden="true">description</span>
+<span class="hwp-text-link__text">Publisher's Version</span>
+</a>
+        </li>
+              <li>
+          
+
+
+
+  
+<a
+   class="hwp-text-link hwp-text-link--icon-left analytics-cta"
+  href="/sites/g/files/omnuum7116/files/gking/files/pr.pdf"  >
+  <span class="material-icon" aria-hidden="true">picture_as_pdf</span>
+<span class="hwp-text-link__text">Article</span>
+</a>
+        </li>
+          </ul>
+  </div>
+</div>
+    </div>
+
+                  <div class="hwp-biblio--abstract">
+          <div  class="hwp-citations-group">
+      <h3 class="hwp-citations-group--title h3">Abstract</h3>
+  
+  <div class="hwp-citations-group__inner">
+                  
+
+
+<div  class="hwp-citation hwp-citation--text-additional hwp-bg-light-base js-hwp-citation"
+  data-component-name="citation"
+  data-toggle="false"
+>
+  <div class="hwp-citation__text">
+    
+    <div class="hwp-text-block">
+      <p>	Applications of modern methods for analyzing data with missing values, based primarily on multiple imputation, have in the last half-decade become common in American politics and political behavior. Scholars in these fields have thus increasingly avoided the biases and inefficiencies caused by ad hoc methods like listwise deletion and best guess imputation. However, researchers in much of comparative politics and international relations, and others with similar data, have been unable to do the same because the best available imputation methods work poorly with the time-series cross-section data structures common in these fields. We attempt to rectify this situation. First, we build a multiple imputation model that allows smooth time trends, shifts across cross-sectional units, and correlations over time and space, resulting in far more accurate imputations. Second, we build nonignorable missingness models by enabling analysts to incorporate knowledge from area studies experts via priors on individual missing cell values, rather than on difficult-to-interpret model parameters. Third, since these tasks could not be accomplished within existing imputation algorithms, in that they cannot handle as many variables as needed even in the simpler cross-sectional data for which they were designed, we also develop a new algorithm that substantially expands the range of computationally feasible data types and sizes for which multiple imputation can be used. These developments also made it possible to implement the methods introduced here in freely available open source software that is considerably more reliable than existing strategies.</p><p>	Replication data at the Harvard Dataverse: <a href="https://doi.org/10.7910/DVN/GGUR0P" target="_blank">https://doi.org/10.7910/DVN/GGUR0P</a>.</p>
+    </div>
+  </div>
+
+  
+      
+      </div>
+            </div>
+</div>
+          <hr class="hwp-hr-delimiter"/>
+        </div>
+      
+      
+          
+  
+            </div>
+
+  </div>
+
+      
+
+<div class="hwp-news-footer hwp-pt-24 lg:hwp-pt-64">
+          
+      <div class="field field--name-hwp-bibcite-file-upload field--type-entity-reference field--label-hidden">
+              <div>  <div  class="hwp-attachments" data-component-name="attachments">
+    <hr class="hwp-text-button-light-secondary hwp-my-32">
+    
+          <span>Attachments</span>
+        
+          <ul class="lg:hwp-grid hwp-attachments__items" aria-label="Attachments">
+                  <li>
+            
+  
+
+
+
+  
+<a
+   class="hwp-icon-link hwp-icon-link--x-large hwp-icon-link--has-bg hwp-icon-link--dark-primary analytics-cta"
+  href="/sites/g/files/omnuum7116/files/gking/files/pr.pdf"  >
+      <span class="hwp-icon-link__icon">
+      <span class="material-icon" aria-hidden="true">picture_as_pdf</span>
+    </span>
+        <span class="hwp-icon-link__text">Article</span>
+  </a>
+          </li>
+              </ul>
+        <hr class="hwp-text-button-light-secondary hwp-my-24">
+  </div>
+</div>
+          </div>
+  
+      
+  <div class="page-tags">
+    
+      <span class="hwp-mb-16 hwp-block">See also:</span>
+        <ul class="hwp-news-footer__tags hwp-flex hwp-flex-wrap hwp-gap-16 hwp-mb-24">
+                        <li class="max-sm:hwp-w-full">
+            <a href="/category/research-interests/methods/missing-data/methods" class="hwp-button-tag hwp-button-tag--dark">
+              Missing Data, Measurement Error
+            </a>
+          </li>
+                  </ul>
+  </div>
+
+                    
+<div class="a2a_kit" data-a2a-url="" data-a2a-title="">
+  <span class="hwp-mb-16 hwp-block">Share on:</span>
+  <ul class="md:hwp-inline-flex md:hwp-flex-wrap" aria-label="Share on:">
+                <li class="md:hwp-mr-40 last:md:hwp-mr-0 max-md:hwp-mb-16">
+        <a
+          href="#"
+          class="a2a_button_facebook hwp-icon-link hwp-icon-link--dark-primary"
+        >
+          <span class="hwp-icon-link__icon">
+            
+
+<svg  class="hwp-icon hwp-h-24 hwp-w-24"
+
+      aria-hidden="true"
+  
+  
+  >
+      <use xlink:href="/profiles/hwp_dstan/themes/hwp_hyard/hwp-goldin/dist/icons.svg#hwp-facebook"></use>
+</svg>
+          </span>
+          <span class="hwp-icon-link__text">Facebook</span>
+        </a>
+      </li>
+                <li class="md:hwp-mr-40 last:md:hwp-mr-0 max-md:hwp-mb-16">
+        <a
+          href="#"
+          class="a2a_button_twitter hwp-icon-link hwp-icon-link--dark-primary"
+        >
+          <span class="hwp-icon-link__icon">
+            
+
+<svg  class="hwp-icon hwp-h-24 hwp-w-24"
+
+      aria-hidden="true"
+  
+  
+  >
+      <use xlink:href="/profiles/hwp_dstan/themes/hwp_hyard/hwp-goldin/dist/icons.svg#hwp-twitter"></use>
+</svg>
+          </span>
+          <span class="hwp-icon-link__text">Twitter</span>
+        </a>
+      </li>
+                <li class="md:hwp-mr-40 last:md:hwp-mr-0 max-md:hwp-mb-16">
+        <a
+          href="#"
+          class="a2a_button_linkedin hwp-icon-link hwp-icon-link--dark-primary"
+        >
+          <span class="hwp-icon-link__icon">
+            
+
+<svg  class="hwp-icon hwp-h-24 hwp-w-24"
+
+      aria-hidden="true"
+  
+  
+  >
+      <use xlink:href="/profiles/hwp_dstan/themes/hwp_hyard/hwp-goldin/dist/icons.svg#hwp-linkedin"></use>
+</svg>
+          </span>
+          <span class="hwp-icon-link__text">Linkedin</span>
+        </a>
+      </li>
+      </ul>
+</div>
+
+              
+  </div>
+  
+        </div>
+
+  </div>
+
+    </div>
+    
+      </main>
+
+      <footer role="contentinfo">
+        <div>
+    <div id="block-hwp-footer-content">
+  
+    
+      
+
+  
+<div  class="footer-site footer-site--stacked hwp-bg-dark-alternative hwp-text-16 hwp-leading-150">
+      <div class="hwp-container hwp-container-px hwp-pt-24 hwp-pb-32 lg:hwp-pt-40">
+      <div class="hwp-mb-24 lg:hwp-mb-32 hwp-footer__logo-container lg:hwp-text-center">
+                                            <div class="hwp-flex hwp-flex-col ">
+                <span class="hwp-text-20 lg:hwp-text-24">GARY KING</span>
+                              </div>
+                                    </div>
+      <div class="hwp-flex-wrap hwp-justify-center hwp-footer__left-aligned lg:hwp-flex">
+        <div class="hwp-w-full lg:hwp-text-center lg:hwp-max-w-[45.5rem]">
+          <div class="hwp-flex hwp-flex-col hwp-gap-24 lg:hwp-mb-16">
+                          <div><p>&nbsp;<a href="https://gking.harvard.edu/blog" lang="en"><strong>BLOG</strong></a><strong> &nbsp;| &nbsp;</strong><a href="https://gking.harvard.edu/advice-and-suggestions" lang="en"><strong>ADVICE AND SUGGESTIONS</strong></a> &nbsp;| &nbsp;<a href="https://gking.harvard.edu/miscellaneous" lang="en"><strong>MISCELLANEA</strong></a> &nbsp;| &nbsp;<a href="https://www.iq.harvard.edu/" lang="en"><strong>IQSS</strong></a> &nbsp;| &nbsp;<a href="http://twitter.com/kinggary" lang="en"><strong>@KingGary on Twitter</strong></a><br>&nbsp;</p></div>
+                                    <div class="hwp-gap-24 hwp-grid lg:hwp-grid-flow-col lg:hwp-justify-center lg:hwp-gap-32 lg:hwp-items-center">
+                                                                    </div>
+          </div>
+        </div>
+        <div class="hwp-mt-32 hwp-w-full">
+              
+                                <div class="lg:hwp-text-center">
+            <a href="/login" class="hwp-py-8 hwp-mt-16 hwp-inline-flex">Admin login</a>
+          </div>
+        </div>
+      </div>
+    </div>
+        
+
+<div  class="hwp-global-footer hwp-bg-dark-core hwp-py-12 md:hwp-pb-20">
+  <div
+    class="hwp-container hwp-container-px hwp-text-16 hwp-text-white xl:hwp-flex
+     xl:hwp-gap-x-24 hwp-flex-wrap xl:hwp-items-center xl:hwp-justify-between">
+    <div class="hwp-global-footer__logo">
+      <a href="https://www.harvard.edu" class="hwp-inline-flex hwp-py-12">
+        
+<img
+   class="image"
+      src="/profiles/hwp_dstan/themes/hwp_hyard/hwp-goldin/images/svg/footer-logo.svg"
+  alt="Harvard University"
+        />
+      </a>
+    </div>
+    <div class="hwp-global-footer__copyright hwp-py-20 md:hwp-py-0">
+      Copyright © 2026 The President and Fellows of Harvard College
+    </div>
+    <div class="hwp-global-footer__menu hwp-flex hwp-flex-col md:hwp-flex-row md:hwp-gap-x-32 xl:hwp-ml-auto">
+                        <a href="https://accessibility.harvard.edu/" class="hwp-py-12">Accessibility</a>
+                  <a href="https://accessibility.huit.harvard.edu/digital-accessibility-policy" class="hwp-py-12">Digital Accessibility</a>
+                  <a href="https://www.harvard.edu/copyright-issue/" class="hwp-py-12">Report Copyright Infringement</a>
+                  <a href="https://hwp.harvard.edu/harvardsites-platform-information-gathering-statement" class="hwp-py-12">Info Practices</a>
+                  </div>
+  </div>
+</div>
+  </div>
+
+  </div>
+
+  </div>
+
+    </footer>
+  
+</div>
+  </div>
+
+    <script>window.dataLayer = window.dataLayer || []; window.dataLayer.push({"drupalLanguage":"en","drupalCountry":null,"siteName":"GARY KING","entityCreated":"1279857600","entityType":"bibcite_reference","content_type":"journal_article","entityId":"3636","content_title":"What to do About Missing Values in Time Series Cross-Section Data","primaryCategory":"files","subCategory1":"abs","subCategory2":"pr-abs.shtml","userUid":0,"harvard_affiliation_name":"faculty of arts and sciences","harvard_affiliation_short_name":"FAS","site_type":"department_initiative_center_program","site_section":"external public facing","platform_name":"harvardsites_drupal","site_page_count_level":"1,001-2,500"});</script>
+
+    <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","pathPrefix":"","currentPath":"bibcite\/reference\/3636","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"dataLayer":{"defaultLang":"en","languages":{"en":{"id":"en","name":"English","direction":"ltr","weight":0}}},"mathjax":{"config_type":1,"config":{"tex2jax":{"inlineMath":[["{$","$}"],["\\(","\\)"]],"processEscapes":"true","processClass":"tex2jax_process","ignoreClass":"tex2jax_ignore","displayMath":[["$$","$$"],["\\[","\\]"]]},"showProcessingMessages":"false","messageStyle":"none"}},"data":{"extlink":{"extTarget":false,"extTargetAppendNewWindowDisplay":true,"extTargetAppendNewWindowLabel":"","extTargetNoOverride":true,"extNofollow":true,"extTitleNoOverride":false,"extNoreferrer":true,"extFollowNoOverride":true,"extClass":"0","extLabel":"(link is external)","extImgClass":false,"extSubdomains":false,"extExclude":"","extInclude":"","extCssExclude":"","extCssInclude":"","extCssExplicit":"","extAlert":false,"extAlertText":"This link will take you to an external web site. We are not responsible for their content.","extHideIcons":false,"mailtoClass":"0","telClass":"0","mailtoLabel":"(link sends email)","telLabel":"","extUseFontAwesome":false,"extIconPlacement":"append","extPreventOrphan":false,"extFaLinkClasses":"open-in-new","extFaMailtoClasses":"fa fa-envelope-o","extAdditionalLinkClasses":"","extAdditionalMailtoClasses":"","extAdditionalTelClasses":"","extFaTelClasses":"fa fa-phone","allowedDomains":[],"extExcludeNoreferrer":""}},"ajaxTrustedUrl":{"form_action_p_pvdeGsVG5zNF_XLGPTvYSKCf43t8qZYSwcfZl2uzM":true},"baseFullUrl":"https:\/\/gking.harvard.edu\/files\/abs\/pr-abs.shtml","user":{"uid":0,"permissionsHash":"a906a8c0f519651827079bb56c7c8b3271450ccdaeec7ede107df4a76c2d8c34"}}</script>
+<script src="/sites/g/files/omnuum7116/files/js/js_WtItqM6ATAFNoFVAjMIwI0mpMuci5ksff5Yns4U7g6Q.js?scope=footer&amp;delta=0&amp;language=en&amp;theme=hwp_hyard&amp;include=eJxlzOsKwzAIBeAXWsgjldMqJFujwZhe3n6lMMi2P4Lf0UNwrDjZ4swJW1Zrj7TXiZpDpkWNI4hcIeev0-d14o3F__748DXL6-Z0wihCRLssXK7zMF8b25DO3V0lkGkl3WVIluzwrCMVZAlXTx-sZeeQGPRVe2su1XTjkdUc88rhno8CT08csbH3-gaJcG0P"></script>
+<script src="https://static.addtoany.com/menu/page.js" async></script>
+<script src="/sites/g/files/omnuum7116/files/js/js_cKh1Rh3ExlPoKlePStUIG-FSn7Bnlhe7oBMe2lub_us.js?scope=footer&amp;delta=2&amp;language=en&amp;theme=hwp_hyard&amp;include=eJxlzOsKwzAIBeAXWsgjldMqJFujwZhe3n6lMMi2P4Lf0UNwrDjZ4swJW1Zrj7TXiZpDpkWNI4hcIeev0-d14o3F__748DXL6-Z0wihCRLssXK7zMF8b25DO3V0lkGkl3WVIluzwrCMVZAlXTx-sZeeQGPRVe2su1XTjkdUc88rhno8CT08csbH3-gaJcG0P"></script>
+<script src="//siteimproveanalytics.com/js/siteanalyze_2992.js"></script>
+<script src="/sites/g/files/omnuum7116/files/js/js_xA7jxsJgascTTSFbN9CiFLt5VObMl2pW5b28PrI3eIk.js?scope=footer&amp;delta=4&amp;language=en&amp;theme=hwp_hyard&amp;include=eJxlzOsKwzAIBeAXWsgjldMqJFujwZhe3n6lMMi2P4Lf0UNwrDjZ4swJW1Zrj7TXiZpDpkWNI4hcIeev0-d14o3F__748DXL6-Z0wihCRLssXK7zMF8b25DO3V0lkGkl3WVIluzwrCMVZAlXTx-sZeeQGPRVe2su1XTjkdUc88rhno8CT08csbH3-gaJcG0P"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML&amp;config=default"></script>
+<script src="/sites/g/files/omnuum7116/files/js/js_m1fLVWQ-d0-Azvvwna1YJVjChulYyu8Sw38CsGlNAYQ.js?scope=footer&amp;delta=6&amp;language=en&amp;theme=hwp_hyard&amp;include=eJxlzOsKwzAIBeAXWsgjldMqJFujwZhe3n6lMMi2P4Lf0UNwrDjZ4swJW1Zrj7TXiZpDpkWNI4hcIeev0-d14o3F__748DXL6-Z0wihCRLssXK7zMF8b25DO3V0lkGkl3WVIluzwrCMVZAlXTx-sZeeQGPRVe2su1XTjkdUc88rhno8CT08csbH3-gaJcG0P"></script>
+
+  </body>
+</html>

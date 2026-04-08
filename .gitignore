@@ -1,0 +1,16 @@
+# Hugo build output
+public/
+resources/_gen/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node modules
+node_modules/
+
+# Scraped data (large, not needed for Hugo build)
+../scraped_data/
+
+# Hugo temporary
+.hugo_build.lock

@@ -1,0 +1,12 @@
+---
+title: "Matching Methods for Causal Inference"
+date: "2018-01-01"
+authors:
+  - "Gary King"
+publication_types:
+  - "speech"
+abstract: "This presentation shows how to use matching in causal inference to ameliorate model dependence -- where small, indefensible changes in model specification have large impacts on our conclusions. We introduce matching methods that are simpler, more powerful, and easier to understand. We also show that the most commonly used existing method, propensity score matching, should rarely be used. Easy-to-use software is available to implement all methods discussed."
+links:
+  - type: pdf
+    url: "/files/matching-msft.pdf"
+---
