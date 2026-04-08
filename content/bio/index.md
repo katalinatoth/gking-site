@@ -1,6 +1,6 @@
 ---
 title: "Bio & CV"
-type: "page"
+type: "bio"
 ---
 
 Gary King is the Albert J. Weatherhead III University Professor at Harvard University -- one of 25 with Harvard's most distinguished faculty title -- and Director of the [Institute for Quantitative Social Science](https://iq.harvard.edu/). King develops and applies empirical methods in many areas of social science, focusing on innovations that span the range from statistical theory to practical application.

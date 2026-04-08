@@ -1,0 +1,34 @@
+{{ define "main" }}
+
+<div class="max-w-3xl mx-auto px-6 py-12">
+  <h1 class="text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100 mb-10">{{ .Title }}</h1>
+  {{ .Content }}
+
+  {{ $paginator := .Paginate .Pages.ByDate.Reverse }}
+
+  <div class="flex flex-col space-y-2">
+    {{ range $paginator.Pages }}
+    <div class="pub-list-item py-3 border-b border-slate-200 dark:border-slate-700">
+      <i class="far fa-file-alt pub-icon" aria-hidden="true"></i>
+      <span class="text-slate-600 dark:text-slate-300 text-sm">
+        {{ partial "page_metadata_authors" . }}
+      </span>
+      ({{ .Date.Format "2006" }}).
+      <a href="{{ .RelPermalink }}" class="underline font-medium">{{ .Title }}</a>.
+      {{ with .Params.publication }}
+        <em>{{ . | markdownify }}</em>.
+      {{ end }}
+
+      {{ if partial "functions/has_attachments" . }}
+      <div class="flex flex-wrap gap-x-3 mt-1">
+        {{ partial "page_links" (dict "page" . "is_list" 1) }}
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+
+  {{ partial "components/paginator" . }}
+</div>
+
+{{ end }}

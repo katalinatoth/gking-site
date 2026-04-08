@@ -5,25 +5,32 @@
   --hbx-primary-500: #C62535;
 }
 
-/* Clean, academic typography */
-.prose {
-  max-width: 75ch;
+/* Force citation views to single column */
+.pub-list-item {
+  display: block !important;
+  width: 100% !important;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.dark .pub-list-item {
+  border-bottom: 1px solid #334155;
+}
+
+/* Prevent grid layout on citation list containers */
+.view-citation {
+  display: block !important;
+}
+
+/* Ensure prose content has proper spacing */
+.prose p {
+  margin-bottom: 1.25em;
 }
 
 /* Better hero section spacing */
 .hbx-hero {
   padding-top: 3rem;
   padding-bottom: 3rem;
-}
-
-/* Publication citation list improvements */
-.pub-list-item {
-  padding: 0.75rem 0;
-  border-bottom: 1px solid #eee;
-}
-
-.dark .pub-list-item {
-  border-bottom: 1px solid #333;
 }
 
 /* Reduce footer branding visibility */
