@@ -1,5 +1,5 @@
 ---
-title: Publications
+title: Writings
 view: citation
 cascade:
   - target:

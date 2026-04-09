@@ -73,21 +73,30 @@ taxonomies:
 
 menus:
   main:
-    - name: Home
-      url: /
-      weight: 10
-    - name: Bio & CV
+    - name: Bio & C.V.
       url: /bio/
-      weight: 20
-    - name: Publications
+      weight: 10
+    - name: Writings
       url: /publication/
+      weight: 20
+    - name: Research Areas
+      url: /research-areas/
       weight: 30
     - name: Software
       url: /software/
       weight: 40
-    - name: Presentations
-      url: /talk/
+    - name: Dataverse
+      url: /dataverse/
       weight: 50
+    - name: Research Group
+      url: /research-group/
+      weight: 60
+    - name: Teaching
+      url: /teaching/
+      weight: 70
+    - name: Contact
+      url: /contact/
+      weight: 80
 
 permalinks:
   publication: /publication/:slug/
