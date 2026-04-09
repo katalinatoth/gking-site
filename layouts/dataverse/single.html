@@ -74,7 +74,7 @@
             </div>
           </div>
           <div id="dv-results">
-            <div class="dv-loading">Loading datasets from Harvard Dataverse...</div>
+            <div class="dv-loading">Initializing...</div>
           </div>
           <div id="dv-pagination"></div>
         </div>
@@ -341,36 +341,17 @@
 
 <script>
 (function() {
-  var API = 'https://dataverse.harvard.edu/api/search';
-  var SUBTREE = 'king';
   var PER_PAGE = 10;
 
   var state = {
-    q: '*', sort: 'date', order: 'desc', start: 0,
+    q: '', sort: 'date', order: 'desc', start: 0,
     facets: { year: null, subject: null, author: null, keyword: null }
   };
 
-  var allItems = null;
+  var ALL_DATA = {{ $.Site.Data.dataverse | jsonify | safeJS }};
+  var allItems = ALL_DATA;
   var FACET_LIMIT = 5;
   var expandedFacets = { year: false, subject: false, author: false, keyword: false };
-
-  function fetchAll(callback) {
-    var items = [];
-    function page(start) {
-      var url = API + '?q=' + encodeURIComponent(state.q || '*') +
-        '&subtree=' + SUBTREE + '&type=dataset&per_page=50&start=' + start +
-        '&sort=' + state.sort + '&order=' + state.order;
-      fetch(url).then(function(r) { return r.json(); }).then(function(d) {
-        items = items.concat(d.data.items);
-        if (items.length < d.data.total_count && d.data.items.length > 0) page(start + 50);
-        else callback(items);
-      }).catch(function() {
-        document.getElementById('dv-results').innerHTML =
-          '<div class="dv-loading">Unable to load. <a href="https://dataverse.harvard.edu/dataverse/king" target="_blank">Visit Harvard Dataverse directly</a>.</div>';
-      });
-    }
-    page(0);
-  }
 
   function countBy(items, fn) {
     var m = {};
@@ -428,8 +409,18 @@
     }
   }
 
+  function matchesSearch(it, q) {
+    if (!q) return true;
+    var ql = q.toLowerCase();
+    return (it.name || '').toLowerCase().indexOf(ql) !== -1 ||
+      (it.description || '').toLowerCase().indexOf(ql) !== -1 ||
+      (it.authors || []).join(' ').toLowerCase().indexOf(ql) !== -1 ||
+      (it.keywords || []).join(' ').toLowerCase().indexOf(ql) !== -1;
+  }
+
   function filter(items) {
     return items.filter(function(it) {
+      if (!matchesSearch(it, state.q)) return false;
       var f = state.facets;
       if (f.year) {
         var y = it.published_at ? it.published_at.substring(0, 4) : null;
@@ -557,17 +548,15 @@
   }
 
   function doSearch() {
-    var q = document.getElementById('dv-search').value.trim();
-    state.q = q || '*';
+    state.q = document.getElementById('dv-search').value.trim();
     state.start = 0;
     state.facets = { year: null, subject: null, author: null, keyword: null };
     expandedFacets = { year: false, subject: false, author: false, keyword: false };
-    document.getElementById('dv-results').innerHTML = '<div class="dv-loading">Searching...</div>';
-    fetchAll(function(items) { allItems = items; render(); });
+    render();
   }
 
   function init() {
-    fetchAll(function(items) { allItems = items; render(); });
+    render();
 
     document.getElementById('dv-search-btn').addEventListener('click', doSearch);
     document.getElementById('dv-search').addEventListener('keydown', function(e) {
