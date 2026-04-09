@@ -1,0 +1,182 @@
+{{ define "main" }}
+
+<!-- Hero Section: split layout with text left, photo right -->
+<section id="hero" style="background:#ECF2F8;">
+  <div style="max-width:1200px;margin:0 auto;display:flex;align-items:stretch;min-height:420px;">
+    <div style="flex:1;padding:60px 50px 60px 40px;display:flex;flex-direction:column;justify-content:center;">
+      <p style="font-size:1.15rem;line-height:1.7;color:#1E1E1E;margin:0 0 28px 0;">
+        Gary King is the Weatherhead University Professor at Harvard University. He also serves as Director of the Institute for Quantitative Social Science. He and his research group develop and apply empirical methods in many areas of social science research.
+      </p>
+      <div>
+        <a href="{{ "bio/" | relURL }}" style="display:inline-flex;align-items:center;gap:8px;background:#BF5803;color:#fff;padding:14px 28px;border-radius:50px;text-decoration:none;font-size:1rem;font-weight:500;transition:background 0.2s;">
+          Full Bio and CV
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16l4-4-4-4"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        </a>
+      </div>
+    </div>
+    <div style="flex:1.2;overflow:hidden;">
+      <img src="{{ "images/gary-hp-image.jpg" | relURL }}" alt="Gary King" style="width:100%;height:100%;object-fit:cover;display:block;">
+    </div>
+  </div>
+</section>
+
+<!-- Research Areas Section -->
+<section style="max-width:1200px;margin:0 auto;padding:60px 40px;">
+  <h2 style="font-size:2rem;font-weight:400;color:#1E1E1E;margin:0 0 40px 0;">Research Areas</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;">
+    <div>
+      <div style="text-align:center;margin-bottom:20px;">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" stroke="#333" stroke-width="1.5">
+          <line x1="15" y1="65" x2="15" y2="15"/>
+          <line x1="15" y1="65" x2="70" y2="65"/>
+          <path d="M20 55 Q30 20 40 40 Q50 55 60 25" fill="none" stroke-width="2"/>
+          <line x1="35" y1="15" x2="35" y2="55" stroke-dasharray="2,2" stroke-width="1"/>
+          <path d="M25 48 L35 15 L45 48" fill="none" stroke-width="1"/>
+        </svg>
+      </div>
+      <h3 style="text-align:center;font-size:1.3rem;font-weight:600;margin:0 0 16px 0;">Methods</h3>
+      <p style="font-size:0.95rem;line-height:1.7;color:#444;">
+        Methods for interpersonal incomparability, when respondents (from different cultures, genders, countries, or ethnic groups) understand survey questions in different ways; for developing theoretical definitions of complicated concepts apparently definable only by example (i.e., "you know it when you see it").
+      </p>
+    </div>
+    <div>
+      <div style="text-align:center;margin-bottom:20px;">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" stroke="#333" stroke-width="1.5">
+          <circle cx="40" cy="28" r="10"/>
+          <path d="M28 42 Q40 50 52 42"/>
+          <circle cx="22" cy="50" r="8"/>
+          <circle cx="58" cy="50" r="8"/>
+          <path d="M14 62 Q22 68 30 62"/>
+          <path d="M50 62 Q58 68 66 62"/>
+          <line x1="30" y1="46" x2="35" y2="38" stroke-width="1"/>
+          <line x1="50" y1="46" x2="45" y2="38" stroke-width="1"/>
+        </svg>
+      </div>
+      <h3 style="text-align:center;font-size:1.3rem;font-weight:600;margin:0 0 16px 0;">Applications</h3>
+      <p style="font-size:0.95rem;line-height:1.7;color:#444;">
+        The accuracy of U.S. Social Security Administration (SSA) demographic and financial forecasts is crucial for the solvency of its Trust Funds, government programs comprising greater than 50% of all federal government expenditures, industry decision making, and the evidence base of many scholarly articles.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Stats bar -->
+<section style="background:#f8f9fa;padding:30px 40px;">
+  <div style="max-width:1200px;margin:0 auto;display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;">
+    <div style="text-align:center;min-width:120px;">
+      <div style="font-size:1.5rem;font-weight:700;color:#BF5803;">190+</div>
+      <div style="font-size:0.85rem;color:#666;">Journal Articles</div>
+    </div>
+    <div style="text-align:center;min-width:120px;">
+      <div style="font-size:1.5rem;font-weight:700;color:#BF5803;">8</div>
+      <div style="font-size:0.85rem;color:#666;">Books</div>
+    </div>
+    <div style="text-align:center;min-width:120px;">
+      <div style="font-size:1.5rem;font-weight:700;color:#BF5803;">55+</div>
+      <div style="font-size:0.85rem;color:#666;">Awards</div>
+    </div>
+    <div style="text-align:center;min-width:120px;">
+      <div style="font-size:1.5rem;font-weight:700;color:#BF5803;">8</div>
+      <div style="font-size:0.85rem;color:#666;">Honorary Societies</div>
+    </div>
+    <div style="text-align:center;min-width:120px;">
+      <div style="font-size:1.5rem;font-weight:700;color:#BF5803;">30+</div>
+      <div style="font-size:0.85rem;color:#666;">Software Packages</div>
+    </div>
+  </div>
+</section>
+
+<!-- Recent Publications -->
+<section style="max-width:1200px;margin:0 auto;padding:60px 40px;">
+  <h2 style="font-size:2rem;font-weight:400;color:#1E1E1E;margin:0 0 24px 0;">Recent Writings</h2>
+  <div style="border-top:1px solid #eee;">
+    {{ $pubs := where .Site.RegularPages "Section" "publication" }}
+    {{ $pubs = sort $pubs ".Date" "desc" }}
+    {{ range first 10 $pubs }}
+    <div style="padding:12px 0;border-bottom:1px solid #eee;">
+      <a href="{{ .RelPermalink }}" style="color:#337ab7;text-decoration:none;font-size:0.95rem;">{{ .Title }}</a>
+      {{ with .Params.authors }}
+      <div style="font-size:0.85rem;color:#666;margin-top:2px;">{{ delimit . ", " }}</div>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+  <div style="margin-top:16px;">
+    <a href="{{ "publication/" | relURL }}" style="color:#337ab7;font-size:0.9rem;">See all publications →</a>
+  </div>
+</section>
+
+<!-- Video Presentations -->
+<section style="background:#f8f9fa;padding:60px 40px;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <h2 style="font-size:2rem;font-weight:400;color:#1E1E1E;margin:0 0 24px 0;">Video Presentations</h2>
+    <div style="max-width:720px;margin:0 auto 2rem;">
+      <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;">
+        <iframe src="https://www.youtube.com/embed/piyOAcUq2mU" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allowfullscreen title="Interview with Gary King"></iframe>
+      </div>
+      <p style="text-align:center;margin-top:0.75rem;font-size:0.9rem;color:#666;">Interview with Gary King on Science and Inference</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:2rem;">
+      <a href="https://www.youtube.com/playlist?list=PL0n492lUg2sg9atDiK-ysPF43Wotuk4TU" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
+        <div style="border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;background:#fff;">
+          <img src="{{ "images/garythumbnail_3.jpg" | relURL }}" alt="Research Talks" style="width:100%;display:block;">
+          <div style="padding:0.75rem 1rem;">
+            <strong>Research Talks by Gary King</strong><br>
+            <span style="font-size:0.85rem;color:#666;">Recorded by me</span>
+          </div>
+        </div>
+      </a>
+      <a href="https://www.youtube.com/playlist?list=PL0n492lUg2sjYNAtpfatEm-AuGkAmCz4G" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
+        <div style="border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;background:#fff;">
+          <img src="{{ "images/garythumbnail_seminar.jpg" | relURL }}" alt="Seminar Talks" style="width:100%;display:block;">
+          <div style="padding:0.75rem 1rem;">
+            <strong>Research Talks by Gary King</strong><br>
+            <span style="font-size:0.85rem;color:#666;">Recorded by others</span>
+          </div>
+        </div>
+      </a>
+      <a href="https://www.youtube.com/playlist?list=PL0n492lUg2sgSevEQ3bLilGbFph4l92gH" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
+        <div style="border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;background:#fff;">
+          <img src="{{ "images/garythumbnail_lecture.jpg" | relURL }}" alt="Lectures" style="width:100%;display:block;">
+          <div style="padding:0.75rem 1rem;">
+            <strong>Lectures for QSS Methods I</strong><br>
+            <span style="font-size:0.85rem;color:#666;">Full course playlist</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Recent Software -->
+<section style="max-width:1200px;margin:0 auto;padding:60px 40px;">
+  <h2 style="font-size:2rem;font-weight:400;color:#1E1E1E;margin:0 0 24px 0;">Software</h2>
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;">
+    {{ $sw := where .Site.RegularPages "Section" "software" }}
+    {{ $sw = sort $sw ".Date" "desc" }}
+    {{ range first 6 $sw }}
+    <a href="{{ .RelPermalink }}" style="text-decoration:none;color:inherit;">
+      <div style="border:1px solid #e2e8f0;border-radius:8px;padding:20px;background:#fff;height:100%;transition:box-shadow 0.2s;">
+        <h3 style="font-size:1rem;color:#337ab7;margin:0 0 8px 0;">{{ .Title }}</h3>
+        {{ with .Params.summary }}
+        <p style="font-size:0.88rem;color:#666;line-height:1.5;margin:0;">{{ . | truncate 150 }}</p>
+        {{ end }}
+      </div>
+    </a>
+    {{ end }}
+  </div>
+  <div style="margin-top:20px;">
+    <a href="{{ "software/" | relURL }}" style="color:#337ab7;font-size:0.9rem;">See all software →</a>
+  </div>
+</section>
+
+<style>
+  #hero a:hover { background: #a54d03 !important; }
+  @media (max-width: 768px) {
+    #hero > div { flex-direction: column !important; }
+    #hero > div > div:first-child { padding: 40px 24px !important; }
+    #hero > div > div:last-child { max-height: 300px; }
+  }
+</style>
+
+{{ end }}

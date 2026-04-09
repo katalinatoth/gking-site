@@ -3,9 +3,7 @@
   "baseUrl": ".",
   "paths": {
    "*": [
-    "../../../../../../var/folders/vl/qpyhn3td10d2z9n96s22w01r0000gq/T/cursor-sandbox-cache/480c941423851287637e3c9aee911838/go-mod/github.com/!hugo!blox/hugo-blox-builder/modules/blox-tailwind@v0.10.0/assets/*",
-    "../../../../../../var/folders/vl/qpyhn3td10d2z9n96s22w01r0000gq/T/cursor-sandbox-cache/480c941423851287637e3c9aee911838/go-mod/github.com/!hugo!blox/hugo-blox-builder/modules/blox-tailwind@v0.10.0/blox/*",
-    "../../../../../../var/folders/vl/qpyhn3td10d2z9n96s22w01r0000gq/T/cursor-sandbox-cache/480c941423851287637e3c9aee911838/go-mod/github.com/!hugo!blox/hugo-blox-builder/modules/blox-tailwind@v0.10.0/blox/shared/js/*"
+    "../../../../../../var/folders/vl/qpyhn3td10d2z9n96s22w01r0000gq/T/cursor-sandbox-cache/480c941423851287637e3c9aee911838/go-mod/github.com/!hugo!blox/hugo-blox-builder/modules/blox-tailwind@v0.10.0/assets/*"
    ]
   }
  }
