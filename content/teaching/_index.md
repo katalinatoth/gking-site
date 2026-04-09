@@ -58,5 +58,5 @@ An undergraduate course on designing political research.
 ### Related Links
 
 - [Political Methodology in the Government Department](https://projects.iq.harvard.edu/government-methods)
-- [What to do if you want me to write you a letter of recommendation](/recs/)
-- [Are you applying to our Ph.D. program at Harvard?](/apply/)
+- [What to do if you want me to write you a letter of recommendation](/gking-site/recs/)
+- [Are you applying to our Ph.D. program at Harvard?](/gking-site/apply/)
