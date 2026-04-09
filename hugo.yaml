@@ -38,6 +38,8 @@ outputs:
 params:
   appearance:
     theme_day: custom
+    theme_night: custom
+    color_mode: light
     font: native
     font_size: L
   marketing:

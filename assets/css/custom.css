@@ -5,6 +5,27 @@
   --hbx-primary-500: #C62535;
 }
 
+/* Force light mode — override dark mode regardless of system preference */
+html.dark,
+html.dark body,
+html.dark .page-wrapper {
+  background-color: #fff !important;
+  color: #1a1a1a !important;
+  color-scheme: light !important;
+}
+html.dark .dark\:bg-hb-dark { background-color: #fff !important; }
+html.dark .dark\:bg-zinc-900\/90 { background-color: rgba(255,255,255,0.95) !important; }
+html.dark .dark\:bg-gray-700 { background-color: #f3f4f6 !important; }
+html.dark .dark\:bg-neutral-700 { background-color: #f5f5f5 !important; }
+html.dark .dark\:text-white { color: #1a1a1a !important; }
+html.dark .dark\:text-neutral-300 { color: #555 !important; }
+html.dark .dark\:text-slate-100 { color: #1e293b !important; }
+html.dark .dark\:border-zinc-700\/50,
+html.dark .dark\:border-zinc-800,
+html.dark .dark\:border-neutral-600,
+html.dark .dark\:border-slate-700 { border-color: #e2e8f0 !important; }
+html.dark .dark\:prose-invert { --tw-prose-body: #374151 !important; --tw-prose-headings: #111827 !important; }
+
 /* Force citation views to single column */
 .pub-list-item {
   display: block !important;
