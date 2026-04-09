@@ -12,5 +12,5 @@ links:
   - type: pdf
     url: "/files/making-abs.shtml"
   - type: source
-    url: "http://gking.harvard.edu/files/abs/making-abs.shtml"
+    url: "/files/abs/making-abs.shtml"
 ---

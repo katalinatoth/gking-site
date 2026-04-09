@@ -10,5 +10,5 @@ links:
   - type: pdf
     url: "/files/paperspub.pdf"
   - type: source
-    url: "http://gking.harvard.edu/papers"
+    url: "/publication/"
 ---

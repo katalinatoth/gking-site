@@ -8,7 +8,7 @@ bio: "Gary King's Bio"
 social:
   - icon: globe
     icon_pack: fas
-    link: https://gking.harvard.edu/
+    link: /
 superuser: true
 ---
 

@@ -12,5 +12,5 @@ links:
   - type: pdf
     url: "/files/jss-paper.pdf"
   - type: source
-    url: "http://gking.harvard.edu/cem"
+    url: "/software/cem-coarsened-exact-matching-software/"
 ---

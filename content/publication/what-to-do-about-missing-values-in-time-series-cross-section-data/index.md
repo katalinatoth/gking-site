@@ -11,5 +11,5 @@ links:
   - type: pdf
     url: "/files/pr-abs.shtml"
   - type: source
-    url: "http://gking.harvard.edu/files/abs/pr-abs.shtml"
+    url: "/files/abs/pr-abs.shtml"
 ---

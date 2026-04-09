@@ -1,0 +1,7 @@
+---
+title: "Ben Bishin"
+type: "people"
+---
+
+Member of Gary King's research group.
+

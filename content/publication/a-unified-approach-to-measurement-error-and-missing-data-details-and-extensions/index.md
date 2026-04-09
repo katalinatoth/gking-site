@@ -12,5 +12,5 @@ links:
   - type: pdf
     url: "/files/measured.pdf"
   - type: source
-    url: "https://gking.harvard.edu/sites/g/files/omnuum7116/files/gking/files/measured.pdf"
+    url: "#"
 ---

@@ -9,5 +9,5 @@ links:
   - type: pdf
     url: "/files/apsa-dataverse-gk.pdf"
   - name: "Replication Data"
-    url: "https://gking.harvard.edu/sites/g/files/omnuum7116/files/gking/files/apsa-dataverse-gk.pdf"
+    url: "#"
 ---

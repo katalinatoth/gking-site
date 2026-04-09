@@ -11,5 +11,5 @@ publication_types:
   - "software"
 links:
   - type: source
-    url: "http://gking.harvard.edu/amelia"
+    url: "/software/amelia-ii-a-program-for-missing-data/"
 ---

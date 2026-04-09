@@ -1,0 +1,19 @@
+{{ define "main" }}
+
+<div class="max-w-4xl mx-auto px-6 py-12">
+  <h1 class="text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100 mb-2">{{ .Title }}</h1>
+
+  {{ with .Params.role }}
+  <p class="text-lg text-slate-600 dark:text-slate-400 mb-8">{{ . }}</p>
+  {{ end }}
+
+  <div class="prose prose-slate lg:prose-lg dark:prose-invert max-w-none">
+    {{ .Content }}
+  </div>
+
+  <div class="mt-8">
+    <a href="{{ "research-group/" | relURL }}" class="text-blue-600 hover:underline">← Back to Research Group</a>
+  </div>
+</div>
+
+{{ end }}

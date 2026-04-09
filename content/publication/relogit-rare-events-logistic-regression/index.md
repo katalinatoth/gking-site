@@ -9,5 +9,5 @@ publication_types:
   - "software"
 links:
   - type: source
-    url: "http://gking.harvard.edu/relogit"
+    url: "/software/relogit-rare-events-logistic-regression/"
 ---
