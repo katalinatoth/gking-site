@@ -1,7 +1,7 @@
 ---
 title: "Pamela Ban"
 type: "people"
+role: "Harvard University"
 ---
 
-Member of Gary King's research group.
-
+<p>Graduate Student in Political Economy and Governent, Harvard University.</p>

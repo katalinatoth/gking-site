@@ -1,7 +1,7 @@
 ---
 title: "Sebastian Bauhoff"
 type: "people"
+role: "Harvard University"
 ---
 
-Member of Gary King's research group.
-
+<p>Ph.D. candidate in Health Policy (Economics track) at Harvard University. He is interested in applying empirical methods to health policy, particularly to topics at the intersection of health, labor and public economics.</p>

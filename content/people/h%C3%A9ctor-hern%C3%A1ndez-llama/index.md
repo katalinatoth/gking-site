@@ -1,7 +1,7 @@
 ---
 title: "Héctor Hernández Llama"
 type: "people"
+role: "Secretaría de Salud (Ministry of Health, Mexico)"
 ---
 
 Member of Gary King's research group.
-
