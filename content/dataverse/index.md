@@ -5,10 +5,38 @@ type: "dataverse"
 
 Below is my Dataverse collection, which is comprised of data sets and replication data sets associated with my published articles and books. For information about the Dataverse project (which I created and run), see [this article](https://gking.harvard.edu/files/abs/dvn-abs.shtml) and the [Dataverse.org](https://dataverse.org/) project website.
 
-<div style="margin:1.5rem 0;padding:1rem 1.5rem;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
-  <span><strong>69 datasets</strong> in the <a href="https://dataverse.harvard.edu/dataverse/king" target="_blank" rel="noopener">Gary King Dataverse</a></span>
-  <a href="https://dataverse.harvard.edu/dataverse/king" target="_blank" rel="noopener" style="display:inline-block;padding:0.5rem 1.25rem;background:#A51C30;color:white;border-radius:6px;text-decoration:none;font-weight:600;font-size:0.9rem;">Browse on Harvard Dataverse &rarr;</a>
+<iframe id="dataverse-widget" src="https://dataverse.harvard.edu/dataverse/king?widget=dataverse@king" width="100%" height="800" style="border:0; background:url(https://dataverse.harvard.edu/resources/images/ajax-loading.gif) no-repeat 50% 50%;" title="Dataverse listing"></iframe>
+
+<noscript>
+<div style="margin:1.5rem 0;padding:1rem 1.5rem;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;text-align:center;">
+  <p>The interactive Dataverse widget requires JavaScript. <a href="https://dataverse.harvard.edu/dataverse/king" target="_blank" rel="noopener">Browse the collection directly on Harvard Dataverse</a>.</p>
 </div>
+</noscript>
+
+<div id="dataverse-fallback" style="display:none;margin:1.5rem 0;padding:1rem 1.5rem;background:#fff8f0;border:1px solid #e2c8a0;border-radius:8px;">
+  <p style="margin:0 0 0.5rem 0;"><strong>Having trouble viewing the embedded Dataverse?</strong></p>
+  <p style="margin:0;">If the widget above shows a security challenge, <a href="https://dataverse.harvard.edu/dataverse/king" target="_blank" rel="noopener">visit the collection directly on Harvard Dataverse</a>, then refresh this page. Alternatively, browse the dataset listing below.</p>
+</div>
+
+<script>
+(function() {
+  var iframe = document.getElementById('dataverse-widget');
+  var fallback = document.getElementById('dataverse-fallback');
+  var timer = setTimeout(function() {
+    if (fallback) fallback.style.display = 'block';
+  }, 8000);
+  iframe.addEventListener('load', function() {
+    try {
+      if (iframe.contentDocument && iframe.contentDocument.title) {
+        clearTimeout(timer);
+      }
+    } catch(e) {
+      // cross-origin - iframe loaded something, clear timer
+      clearTimeout(timer);
+    }
+  });
+})();
+</script>
 
 <div style="padding:1rem 0;border-bottom:1px solid #e2e8f0;">
   <a href="https://doi.org/10.7910/DVN/NU8OZQ" target="_blank" rel="noopener" style="font-weight:600;font-size:1.05rem;">Archive of the Controversy Involving Wendy K. Tam Cho, Brian J. Gaines, and the American Political Science Review</a>
