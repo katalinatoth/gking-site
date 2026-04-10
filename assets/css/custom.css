@@ -59,7 +59,7 @@ html.dark .dark\:prose-invert { --tw-prose-body: #374151 !important; --tw-prose-
   display: flex !important;
   align-items: center !important;
   padding-right: 1rem !important;
-  margin-right: 1rem !important;
+  margin-right: 0.75rem !important;
   border-right: 2px solid #cbd5e1 !important;
 }
 .navbar-brand::after {
@@ -69,6 +69,11 @@ html.dark .dark\:prose-invert { --tw-prose-body: #374151 !important; --tw-prose-
   letter-spacing: 0.04em;
   color: #1e293b;
   white-space: nowrap;
+}
+
+/* Fix navbar layout: theme CSS sets space-between, override to flex-start */
+.navbar {
+  justify-content: flex-start !important;
 }
 
 /* Hide dark mode toggle */
