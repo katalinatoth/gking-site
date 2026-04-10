@@ -5,5 +5,5 @@ authors:
   - "Gary King"
   - "Salil Vadhan"
 publication_types:
-  - "article-journal"
+  - "software"
 ---

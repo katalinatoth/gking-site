@@ -4,7 +4,7 @@ date: "2012-01-01"
 authors:
   - "Gary King"
 publication_types:
-  - "speech"
+  - "presentation"
 abstract: "See also the associatedarticle."
 links:
   - type: pdf

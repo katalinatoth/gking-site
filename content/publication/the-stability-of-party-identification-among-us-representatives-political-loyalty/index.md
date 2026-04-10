@@ -5,7 +5,7 @@ authors:
   - "Gerald Benjamin"
   - "Gary King"
 publication_types:
-  - "chapter"
+  - "unpublished"
 abstract: "This paper describes, explains, and predicts the practice of party switching among members of the U.S. House of Representatives.The data for this study is availablein my dataverse."
 links:
   - type: pdf

@@ -4,7 +4,7 @@ date: "2010-01-01"
 authors:
   - "Gary King"
 publication_types:
-  - "speech"
+  - "presentation"
 abstract: "3-part talk at Washington University, St. Louis"
 links:
   - type: pdf

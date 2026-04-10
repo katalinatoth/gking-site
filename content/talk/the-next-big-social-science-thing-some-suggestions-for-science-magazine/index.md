@@ -4,7 +4,7 @@ date: "2015-01-01"
 authors:
   - "Gary King"
 publication_types:
-  - "speech"
+  - "presentation"
 abstract: "Slides for my part of a presentation by members of the Senior Editorial Board during the annual Science Magazine Editorial Strategic Planning Retreat."
 links:
   - type: pdf

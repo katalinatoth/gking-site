@@ -5,6 +5,6 @@ authors:
   - "Gary King"
   - "Benjamin Schneer"
 publication_types:
-  - "chapter"
+  - "working_paper"
 abstract: "Expert reports about Arizona congressional elections and legislative elections, filed with the US Department of JusticeReplication data at the Harvard Dataverse:https://doi.org/10.7910/DVN/27453."
 ---

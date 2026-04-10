@@ -7,5 +7,5 @@ authors:
   - "Margaret Schwenzfeier"
   - "Abhradeep Thakurta"
 publication_types:
-  - "article-journal"
+  - "software"
 ---

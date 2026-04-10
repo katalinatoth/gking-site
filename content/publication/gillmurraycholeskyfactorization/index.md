@@ -5,5 +5,5 @@ authors:
   - "Jeff Gill"
   - "Gary King"
 publication_types:
-  - "article-journal"
+  - "software"
 ---

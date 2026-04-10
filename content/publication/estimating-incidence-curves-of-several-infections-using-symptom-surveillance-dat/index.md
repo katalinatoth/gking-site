@@ -10,7 +10,7 @@ authors:
   - "Ying Lu"
   - "Marc Lipsitch"
 publication_types:
-  - "chapter"
+  - "journal_article"
 abstract: "We introduce a method for estimating incidence curves of several co-circulating infectious pathogens, where each infection has its own probabilities of particular symptom profiles. Our deconvolution method utilizes weekly surveillance data on symptoms from a defined population as well as additional data on symptoms from a sample of virologically confirmed infectious episodes. We illustrate this method by numerical simulations and by using data from a survey conducted on the University of Michigan campus. Last, we describe the data needs to make such estimates accurate.Link to PLoS version"
 links:
   - type: pdf

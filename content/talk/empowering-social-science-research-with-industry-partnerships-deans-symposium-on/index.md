@@ -4,7 +4,7 @@ date: "2021-01-01"
 authors:
   - "Gary King"
 publication_types:
-  - "speech"
+  - "presentation"
 abstract: "My talk is at 28:30."
 links:
   - type: pdf

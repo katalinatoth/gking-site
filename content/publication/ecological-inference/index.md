@@ -6,7 +6,7 @@ authors:
   - "Ori Rosen"
   - "Martin Tanner"
 publication_types:
-  - "book"
+  - "book_chapter"
 abstract: "Dictionary entry on the definition of \"ecological inference,\" and a brief summary of the history of ecological inference research."
 links:
   - type: pdf

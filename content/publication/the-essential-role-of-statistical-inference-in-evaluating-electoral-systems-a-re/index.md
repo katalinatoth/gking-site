@@ -6,7 +6,7 @@ authors:
   - "Gary King"
   - "Elizabeth Rosenblatt"
 publication_types:
-  - "chapter"
+  - "journal_article"
 abstract: "Katz, King, and Rosenblatt (2020) introduces a theoretical framework for understanding redistricting and electoral systems, built on basic statistical and social science principles of inference. DeFord et al. (Forthcoming, 2021) instead focuses solely on descriptive measures, which lead to the problems identified in our arti- cle. In this paper, we illustrate the essential role of these basic principles and then offer statistical, mathematical, and substantive corrections required to apply DeFord et al.’s calculations to social science questions of interest, while also showing how to easily resolve all claimed paradoxes and problems. We are grateful to the authors for their interest in our work and for this opportunity to clarify these principles and our theoretical framework.Replication data at the Harvard Dataverse:https://doi.org/10.7910/DVN/AFTR6W."
 links:
   - type: pdf

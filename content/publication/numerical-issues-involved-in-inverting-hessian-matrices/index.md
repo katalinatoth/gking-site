@@ -5,7 +5,7 @@ authors:
   - "Jeff Gill"
   - "Gary King"
 publication_types:
-  - "chapter"
+  - "book_chapter"
 links:
   - type: pdf
     url: "/files/numhess.pdf"

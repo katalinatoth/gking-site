@@ -4,7 +4,7 @@ date: "2007-01-01"
 authors:
   - "Gary King"
 publication_types:
-  - "speech"
+  - "presentation"
 links:
   - type: pdf
     url: "/files/vign-bank_1.pdf"

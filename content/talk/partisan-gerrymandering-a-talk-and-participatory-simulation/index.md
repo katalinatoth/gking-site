@@ -4,7 +4,7 @@ date: "2011-01-01"
 authors:
   - "Gary King"
 publication_types:
-  - "speech"
+  - "presentation"
 abstract: "(A presentation, and participatory simulation)"
 links:
   - type: pdf

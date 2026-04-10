@@ -4,7 +4,7 @@ date: "2022-01-01"
 authors:
   - "Gary King"
 publication_types:
-  - "speech"
+  - "presentation"
 abstract: "Talk at the Workshop on the Analysis of Census Noisy Measurement Files and Differential Privacy"
 links:
   - type: pdf

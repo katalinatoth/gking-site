@@ -9,7 +9,7 @@
       <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.75rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;">Publication Type</h3>
       <div id="gk-type-filters" style="margin-bottom:1.25rem;"></div>
 
-      <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.75rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;">Year</h3>
+      <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.75rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;">Year of Publication</h3>
       <div id="gk-year-filters" style="max-height:200px;overflow-y:auto;margin-bottom:1.25rem;"></div>
 
       <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.5rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;">Search Within Results</h3>
@@ -19,15 +19,15 @@
     <!-- Results -->
     <div style="flex:1;min-width:0;">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem;">
-        <span id="gk-result-count" style="font-size:0.9rem;color:#666;"></span>
+        <span id="gk-result-count" style="font-size:1.05rem;font-weight:600;color:#333;"></span>
         <div style="display:flex;gap:1rem;align-items:center;">
           <select id="gk-sort" style="padding:4px 8px;border:1px solid #ccc;border-radius:4px;font-size:0.85rem;">
-            <option value="year-desc">Year (newest first)</option>
+            <option value="year-desc">Sort by Year of Publication</option>
             <option value="year-asc">Year (oldest first)</option>
             <option value="alpha-az">Alphabetical A–Z</option>
             <option value="alpha-za">Alphabetical Z–A</option>
           </select>
-          <button id="gk-download-bib" style="padding:4px 12px;background:#337ab7;color:#fff;border:none;border-radius:4px;font-size:0.85rem;cursor:pointer;">Download citations</button>
+          <button id="gk-download-bib" style="padding:6px 14px;background:#337ab7;color:#fff;border:none;border-radius:4px;font-size:0.85rem;cursor:pointer;display:flex;align-items:center;gap:6px;">Download citations ⬇</button>
         </div>
       </div>
       <div id="gk-results"></div>
@@ -35,10 +35,15 @@
   </div>
 </div>
 
-<!-- Render all publications as JSON data -->
-{{ $pages := .Pages.ByDate.Reverse }}
+<!-- Build combined data from publications AND talks -->
+{{ $pubPages := (where .Site.RegularPages "Section" "publication") }}
+{{ $talkPages := (where .Site.RegularPages "Section" "talk") }}
 {{ $entries := slice }}
-{{ range $pages }}
+{{ range $pubPages }}
+  {{ $entry := dict "title" .Title "url" .RelPermalink "year" (.Date.Format "2006") "authors" (.Params.authors | default slice) "types" (.Params.publication_types | default slice) "publication" (.Params.publication | default "") "abstract" (.Params.abstract | default "") }}
+  {{ $entries = $entries | append $entry }}
+{{ end }}
+{{ range $talkPages }}
   {{ $entry := dict "title" .Title "url" .RelPermalink "year" (.Date.Format "2006") "authors" (.Params.authors | default slice) "types" (.Params.publication_types | default slice) "publication" (.Params.publication | default "") "abstract" (.Params.abstract | default "") }}
   {{ $entries = $entries | append $entry }}
 {{ end }}
@@ -47,21 +52,41 @@
 (function() {
   var data = {{ $entries | jsonify | safeJS }};
   var typeLabels = {
-    "article-journal": "Journal Article",
+    "journal_article": "Journal Article",
     "book": "Book",
-    "chapter": "Book Chapter",
-    "software": "Software",
-    "speech": "Presentation",
+    "book_chapter": "Book Chapter",
+    "conference_paper": "Conference Paper",
+    "conference_proceedings": "Conference Proceedings",
+    "data": "Data",
+    "miscellaneous": "Miscellaneous",
+    "newspaper_article": "Newspaper Article",
     "patent": "Patent",
+    "presentation": "Presentation",
+    "report": "Report",
+    "software": "Software",
+    "unpublished": "Unpublished",
+    "web_article": "Web Article",
+    "website": "Website",
+    "working_paper": "Working Paper",
+    "article-journal": "Journal Article",
+    "chapter": "Book Chapter",
+    "speech": "Presentation",
     "manuscript": "Manuscript",
-    "dataset": "Dataset"
+    "dataset": "Data"
   };
+
+  var typeSortOrder = [
+    "book", "book_chapter", "conference_paper", "conference_proceedings",
+    "data", "dataset", "journal_article", "article-journal", "miscellaneous",
+    "newspaper_article", "patent", "presentation", "speech",
+    "report", "software", "unpublished", "web_article", "website", "working_paper", "manuscript"
+  ];
+
   var activeTypes = {};
   var activeYears = {};
   var searchTerm = "";
   var sortMode = "year-desc";
 
-  // Gather unique types and years
   var allTypes = {};
   var allYears = {};
   data.forEach(function(d) {
@@ -69,31 +94,29 @@
     allYears[d.year] = (allYears[d.year] || 0) + 1;
   });
 
-  // Build type filter checkboxes
   var typeContainer = document.getElementById("gk-type-filters");
-  Object.keys(allTypes).sort().forEach(function(t) {
+  typeSortOrder.forEach(function(t) {
+    if (!allTypes[t]) return;
     var label = typeLabels[t] || t;
     var div = document.createElement("div");
     div.style.cssText = "padding:2px 0;font-size:0.88rem;";
     div.innerHTML = '<label style="cursor:pointer;display:flex;align-items:center;gap:6px;">' +
-      '<input type="checkbox" data-type="' + t + '" checked> ' + label + ' <span style="color:#999;">(' + allTypes[t] + ')</span></label>';
+      '<input type="checkbox" data-type="' + t + '"> ' + label + ' <span style="color:#999;">(' + allTypes[t] + ')</span></label>';
     typeContainer.appendChild(div);
-    activeTypes[t] = true;
+    activeTypes[t] = false;
   });
 
-  // Build year filter checkboxes
   var yearContainer = document.getElementById("gk-year-filters");
   var years = Object.keys(allYears).sort().reverse();
   years.forEach(function(y) {
     var div = document.createElement("div");
     div.style.cssText = "padding:1px 0;font-size:0.85rem;";
     div.innerHTML = '<label style="cursor:pointer;display:flex;align-items:center;gap:6px;">' +
-      '<input type="checkbox" data-year="' + y + '" checked> ' + y + ' <span style="color:#999;">(' + allYears[y] + ')</span></label>';
+      '<input type="checkbox" data-year="' + y + '"> ' + y + ' <span style="color:#999;">(' + allYears[y] + ')</span></label>';
     yearContainer.appendChild(div);
-    activeYears[y] = true;
+    activeYears[y] = false;
   });
 
-  // Event listeners
   typeContainer.addEventListener("change", function(e) {
     var t = e.target.dataset.type;
     if (t) { activeTypes[t] = e.target.checked; render(); }
@@ -112,11 +135,21 @@
   });
   document.getElementById("gk-download-bib").addEventListener("click", downloadBib);
 
+  function noFiltersActive() {
+    var anyType = Object.keys(activeTypes).some(function(t) { return activeTypes[t]; });
+    var anyYear = Object.keys(activeYears).some(function(y) { return activeYears[y]; });
+    return !anyType && !anyYear;
+  }
+
   function getFiltered() {
     var q = searchTerm;
+    var showAll = noFiltersActive() && !q;
     return data.filter(function(d) {
-      var typeMatch = d.types.some(function(t) { return activeTypes[t]; });
-      var yearMatch = activeYears[d.year];
+      if (showAll) return true;
+      var anyTypeChecked = Object.keys(activeTypes).some(function(t) { return activeTypes[t]; });
+      var typeMatch = anyTypeChecked ? d.types.some(function(t) { return activeTypes[t]; }) : true;
+      var anyYearChecked = Object.keys(activeYears).some(function(y) { return activeYears[y]; });
+      var yearMatch = anyYearChecked ? activeYears[d.year] : true;
       if (!typeMatch || !yearMatch) return false;
       if (q) {
         var haystack = (d.title + " " + d.authors.join(" ") + " " + (d.publication || "") + " " + (d.abstract || "")).toLowerCase();
@@ -150,7 +183,7 @@
     countEl.textContent = filtered.length + " result" + (filtered.length !== 1 ? "s" : "");
 
     var btn = document.getElementById("gk-download-bib");
-    btn.textContent = "Download " + filtered.length + " citation" + (filtered.length !== 1 ? "s" : "");
+    btn.innerHTML = "Download " + filtered.length + " citation" + (filtered.length !== 1 ? "s" : "") + " ⬇";
 
     var container = document.getElementById("gk-results");
     var html = "";
@@ -160,21 +193,34 @@
     filtered.forEach(function(d) {
       if (grouped && d.year !== currentYear) {
         currentYear = d.year;
-        html += '<h3 style="font-size:1.1rem;font-weight:600;margin:1.5rem 0 0.5rem;padding-bottom:4px;border-bottom:2px solid #337ab7;color:#337ab7;">' + currentYear + '</h3>';
+        html += '<h3 style="font-size:1.3rem;font-weight:700;margin:1.5rem 0 0.75rem;padding-bottom:4px;border-bottom:2px solid #337ab7;color:#333;">' + currentYear + '</h3>';
       }
-      html += '<div style="padding:8px 0;border-bottom:1px solid #eee;">';
-      html += '<div><a href="' + d.url + '" style="color:#337ab7;text-decoration:none;font-weight:500;">' + escapeHtml(d.title) + '</a></div>';
-      html += '<div style="font-size:0.85rem;color:#666;margin-top:2px;">';
-      if (d.authors.length) html += escapeHtml(d.authors.join(", "));
-      if (d.publication) html += '. <em>' + escapeHtml(d.publication) + '</em>';
+      html += '<div style="padding:10px 12px;margin-bottom:6px;background:#f0f5fa;border-radius:6px;">';
+      var authLine = d.authors.length ? escapeHtml(d.authors.join(", ")) + ". " : "";
+      html += '<div>' + authLine + d.year + '. "<a href="' + d.url + '" style="color:#337ab7;text-decoration:none;font-weight:500;">' + escapeHtml(d.title) + '</a>."';
+      if (d.publication) html += ' <em>' + escapeHtml(d.publication) + '</em>.';
       html += '</div>';
       if (d.abstract) {
-        html += '<details style="margin-top:4px;"><summary style="font-size:0.82rem;color:#337ab7;cursor:pointer;">Abstract</summary>';
-        html += '<p style="font-size:0.85rem;color:#555;margin:4px 0 0;line-height:1.5;">' + escapeHtml(d.abstract) + '</p></details>';
+        html += '<div style="margin-top:6px;"><a href="#" class="gk-abstract-toggle" style="font-size:0.85rem;color:#337ab7;text-decoration:none;display:inline-flex;align-items:center;gap:4px;">⊕ Abstract</a>';
+        html += '<p class="gk-abstract-text" style="font-size:0.85rem;color:#555;margin:6px 0 0;line-height:1.5;display:none;">' + escapeHtml(d.abstract) + '</p></div>';
       }
       html += '</div>';
     });
     container.innerHTML = html;
+
+    container.querySelectorAll(".gk-abstract-toggle").forEach(function(toggle) {
+      toggle.addEventListener("click", function(e) {
+        e.preventDefault();
+        var text = this.nextElementSibling;
+        if (text.style.display === "none") {
+          text.style.display = "block";
+          this.innerHTML = "⊖ Abstract";
+        } else {
+          text.style.display = "none";
+          this.innerHTML = "⊕ Abstract";
+        }
+      });
+    });
   }
 
   function escapeHtml(s) {
@@ -189,10 +235,14 @@
     filtered.forEach(function(d, i) {
       var key = d.authors.length ? d.authors[0].split(" ").pop().toLowerCase() : "unknown";
       key += d.year + "_" + i;
-      var entryType = "article";
-      if (d.types.indexOf("book") >= 0) entryType = "book";
-      else if (d.types.indexOf("chapter") >= 0) entryType = "incollection";
-      else if (d.types.indexOf("software") >= 0) entryType = "misc";
+      var t = d.types[0] || "";
+      var entryType = "misc";
+      if (t === "journal_article" || t === "article-journal") entryType = "article";
+      else if (t === "book") entryType = "book";
+      else if (t === "book_chapter" || t === "chapter") entryType = "incollection";
+      else if (t === "conference_paper") entryType = "inproceedings";
+      else if (t === "conference_proceedings") entryType = "proceedings";
+      else if (t === "unpublished" || t === "working_paper" || t === "manuscript") entryType = "unpublished";
       bib += "@" + entryType + "{" + key + ",\n";
       bib += "  title = {" + d.title + "},\n";
       bib += "  author = {" + d.authors.join(" and ") + "},\n";

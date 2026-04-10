@@ -9,7 +9,7 @@ authors:
   - "Jonathan Ullman"
   - "Salil Vadhan"
 publication_types:
-  - "article-journal"
+  - "software"
 abstract: "We provide an overview of PSI (\"a Private data Sharing Interface\"), a system we are developing to enable researchers in the social sciences and other fields to share and explore privacy-sensitive datasets with the strong privacy protections of differential privacy.(See softwarehereand ourOpenDP.orgproject which builds on this paper.)"
 links:
   - type: pdf

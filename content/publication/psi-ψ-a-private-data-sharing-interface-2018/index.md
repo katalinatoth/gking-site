@@ -9,5 +9,5 @@ authors:
   - "Jonathan Ullman"
   - "Salil Vadhan"
 publication_types:
-  - "article-journal"
+  - "software"
 ---

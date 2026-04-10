@@ -6,5 +6,5 @@ authors:
   - "Michael Tomz"
   - "Langche Zeng"
 publication_types:
-  - "article-journal"
+  - "software"
 ---

@@ -11,7 +11,7 @@ authors:
   - "Sidney Verba"
   - "Daniel Kiskis"
 publication_types:
-  - "software"
+  - "journal_article"
 links:
   - type: pdf
     url: "/files/jcdl01.pdf"

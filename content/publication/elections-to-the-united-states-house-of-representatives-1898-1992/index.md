@@ -4,7 +4,7 @@ date: "1994-01-01"
 authors:
   - "Gary King"
 publication_types:
-  - "article-journal"
+  - "data"
 links:
   - type: source
     url: "http://hdl.handle.net/1902.1/TQDSSPRDDZ"

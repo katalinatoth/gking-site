@@ -93,7 +93,7 @@
     {{ $count := 0 }}
     {{ range $pubs }}
       {{ $types := .Params.publication_types | default slice }}
-      {{ $is_article := or (in $types "article-journal") (in $types "chapter") }}
+      {{ $is_article := or (in $types "article-journal") (in $types "chapter") (in $types "journal_article") (in $types "book_chapter") (in $types "working_paper") }}
       {{ if and $is_article (lt $count 9) }}
         {{ $count = add $count 1 }}
     <div style="padding:10px 0;border-bottom:1px solid #eee;">

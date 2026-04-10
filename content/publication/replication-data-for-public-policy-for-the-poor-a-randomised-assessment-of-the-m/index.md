@@ -15,7 +15,7 @@ authors:
   - "Mauricio Hernández Ávila"
   - "Héctor Hernández Llamas"
 publication_types:
-  - "dataset"
+  - "data"
 links:
   - type: source
     url: "http://hdl.handle.net/1902.1/11044"

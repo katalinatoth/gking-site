@@ -18,7 +18,7 @@ authors:
   - "Deb Roy"
   - "Marshall Van Alstyne"
 publication_types:
-  - "article-journal"
+  - "journal_article"
 abstract: "A field is emerging that leverages the capacity to collect and analyze data at a scale that may reveal patterns of individual and group behaviors."
 links:
   - type: pdf

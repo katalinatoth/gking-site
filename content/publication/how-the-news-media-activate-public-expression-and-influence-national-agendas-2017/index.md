@@ -6,7 +6,7 @@ authors:
   - "Benjamin Schneer"
   - "Ariel White"
 publication_types:
-  - "chapter"
+  - "journal_article"
 abstract: "We demonstrate that exposure to the news media causes Americans to take public stands on specific issues, join national policy conversations, and express themselves publicly—all key components of democratic politics—more often than they would otherwise. After recruiting 48 mostly small media outlets, we chose groups of these outlets to write and publish articles on subjects we approved, on dates we randomly assigned. We estimated the causal effect on proximal measures, such as website pageviews and Twitter discussion of the articles’ specific subjects, and distal ones, such as national Twitter conversation in broad policy areas. Our intervention increased discussion in each broad policy area by approximately 62.7% (relative to a day’s volume), accounting for 13,166 additional posts over the treatment week, with similar effects across population subgroups.On theSciencewebsite:Abstract,Reprint,Full text, and a comment (by Matthew Gentzkow) \"Small media, big impact\".Replication Data at the Harvard Dataverse:https://doi.org/10.7910/DVN/1EMHTK."
 links:
   - type: pdf

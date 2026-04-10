@@ -4,6 +4,6 @@ date: "2007-01-01"
 authors:
   - "Gary King"
 publication_types:
-  - "article-journal"
+  - "miscellaneous"
 abstract: "The story in10 tweets."
 ---

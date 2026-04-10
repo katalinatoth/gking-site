@@ -6,7 +6,7 @@ authors:
   - "Ori Rosen"
   - "Martin Tanner"
 publication_types:
-  - "book"
+  - "book_chapter"
 links:
   - type: pdf
     url: "/files/eiintro.pdf"

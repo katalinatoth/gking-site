@@ -4,7 +4,7 @@ date: "2013-01-01"
 authors:
   - "Gary King"
 publication_types:
-  - "speech"
+  - "presentation"
 links:
   - type: pdf
     url: "/files/spi-hsph13_0.pdf"

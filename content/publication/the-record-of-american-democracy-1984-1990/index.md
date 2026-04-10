@@ -5,7 +5,7 @@ authors:
   - "Gary King"
   - "Bradley Palmquist"
 publication_types:
-  - "article-journal"
+  - "journal_article"
 links:
   - type: source
     url: "http://www.hmdc.harvard.edu/ROAD"

@@ -5,7 +5,7 @@ authors:
   - "Georgina Evans"
   - "Gary King"
 publication_types:
-  - "manuscript"
+  - "journal_article"
 abstract: "We extendEvans and King (Forthcoming, 2021)to nonlinear transformations, using proportions and weighted averages as our running examples."
 links:
   - type: pdf

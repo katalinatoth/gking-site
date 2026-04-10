@@ -5,7 +5,7 @@ authors:
   - "Christopher Adolph"
   - "Gary King"
 publication_types:
-  - "article-journal"
+  - "journal_article"
 links:
   - type: pdf
     url: "/files/ss.pdf"

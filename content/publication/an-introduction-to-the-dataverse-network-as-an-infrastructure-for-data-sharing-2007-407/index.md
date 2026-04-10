@@ -4,7 +4,7 @@ date: "2007-01-01"
 authors:
   - "Gary King"
 publication_types:
-  - "article-journal"
+  - "journal_article"
 abstract: "We introduce a set of integrated developments in web application software, networking, data citation standards, and statistical methods designed to put some of the universe of data and data sharing practices on somewhat firmer ground. We have focused on social science data, but aspects of what we have developed may apply more widely. The idea is to facilitate the public distribution of persistent, authorized, and verifiable data, with powerful but easy-to-use technology, even when the data are confidential or proprietary. We intend to solve some of the sociological problems of data sharing via technological means, with the result intended to benefit both the scientific community and the sometimes apparently contradictory goals of individual researchers.Winner of theBest Instructional Political Science Website Award, for Dataverse, ITP Section of the American Political Science Association."
 links:
   - type: pdf

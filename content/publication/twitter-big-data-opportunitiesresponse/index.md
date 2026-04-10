@@ -7,7 +7,7 @@ authors:
   - "Gary King"
   - "Alessandro Vespignani"
 publication_types:
-  - "article-journal"
+  - "journal_article"
 abstract: "WE THANK BRONIATOWSKI, Paul, and Dredze for giving us the opportunity to reemphasize the potential of big data and make the more obvious point that not all big data projects have the problems currently plaguing Google Flu Trends (GFT), nor are these problems inherent to the field in general.See our original papers: \"The Parable of Google Flu: Traps in Big Data Analysis,\" and \"Google Flu Trends Still Appears Sick: An Evaluation of the 2013‐2014 Flu Season\""
 links:
   - type: pdf

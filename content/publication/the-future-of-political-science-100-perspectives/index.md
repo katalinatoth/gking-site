@@ -6,5 +6,5 @@ authors:
   - "Kay Schlozman"
   - "Norman Nie"
 publication_types:
-  - "article-journal"
+  - "book"
 ---

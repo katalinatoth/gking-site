@@ -13,7 +13,7 @@ authors:
   - "Gary King"
   - "Hanspeter Pfister"
 publication_types:
-  - "chapter"
+  - "journal_article"
 abstract: "Information hierarchies are difficult to express when real-world space or time constraints force traversing the hierarchy in linear presentations, such as in educational books and classroom courses. We present booc.io, which allows linear and non-linear presentation and navigation of educational concepts and material. To support a breadth of material for each concept, booc.io is Web based, which allows adding material such as lecture slides, book chapters, videos, and LTIs. A visual interface assists the creation of the needed hierarchical structures. The goals of our system were formed in expert interviews, and we explain how our design meets these goals. We adapt a real-world course into booc.io, and perform introductory qualitative evaluation with students."
 links:
   - type: source

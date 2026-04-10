@@ -5,5 +5,5 @@ authors:
   - "Gary King"
   - "Ying Lu"
 publication_types:
-  - "article-journal"
+  - "software"
 ---

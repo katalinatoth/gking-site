@@ -6,7 +6,7 @@ authors:
   - "Ruth Greenwood"
   - "Gary King"
 publication_types:
-  - "article-journal"
+  - "newspaper_article"
 abstract: "We offer a solution to debates over the use of differential privacy in releasing US Census Data."
 links:
   - type: pdf

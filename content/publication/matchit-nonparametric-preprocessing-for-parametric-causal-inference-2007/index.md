@@ -7,5 +7,5 @@ authors:
   - "Daniel Ho"
   - "Elizabeth A. Stuart"
 publication_types:
-  - "article-journal"
+  - "software"
 ---

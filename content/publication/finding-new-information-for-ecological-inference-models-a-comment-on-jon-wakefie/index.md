@@ -4,5 +4,5 @@ date: "2004-01-01"
 authors:
   - "Gary King"
 publication_types:
-  - "chapter"
+  - "journal_article"
 ---

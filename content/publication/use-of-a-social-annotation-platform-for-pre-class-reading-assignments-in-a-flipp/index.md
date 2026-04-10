@@ -7,7 +7,7 @@ authors:
   - "Gary King"
   - "Eric Mazur"
 publication_types:
-  - "chapter"
+  - "journal_article"
 abstract: "In this paper, we illustrate the successful implementation of pre-class reading assignments through a social learning platform that allows students to discuss the reading online with their classmates. We show how the platform can be used to understand how students are reading before class. We find that, with this platform, students spend an above average amount of time reading (compared to that reported in the literature) and that most students complete their reading assignments before class. We identify specific reading behaviors that are predictive of in-class exam performance. We also demonstrate ways that the platform promotes active reading strategies and produces high-quality learning interactions between students outside class. Finally, we compare the exam performance of two cohorts of students, where the only difference between them is the use of the platform; we show that students do significantly better on exams when using the platform.Reprinted in Cassidy, R., Charles, E. S., Slotta, J. D., Lasry, N., eds. (2019).Active Learning: Theoretical Perspectives, Empirical Studies and Design Profiles. Lausanne: Frontiers Media. doi: 10.3389/978-2-88945-885-1"
 links:
   - type: pdf

@@ -5,5 +5,5 @@ authors:
   - "Andrew Gelman"
   - "Gary King"
 publication_types:
-  - "chapter"
+  - "journal_article"
 ---

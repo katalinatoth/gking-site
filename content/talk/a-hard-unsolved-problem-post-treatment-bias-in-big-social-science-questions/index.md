@@ -4,7 +4,7 @@ date: "2010-01-01"
 authors:
   - "Gary King"
 publication_types:
-  - "speech"
+  - "presentation"
 abstract: "These are slides for a talk I gave about post-treatment bias.  Here's avideo of the talk."
 links:
   - type: pdf

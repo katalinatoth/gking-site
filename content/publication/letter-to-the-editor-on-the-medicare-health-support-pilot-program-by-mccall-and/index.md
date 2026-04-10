@@ -6,7 +6,7 @@ authors:
   - "Richard Nielsen"
   - "Aaron Wells"
 publication_types:
-  - "article-journal"
+  - "journal_article"
 links:
   - type: pdf
     url: "/files/medhealth-nejm.pdf"

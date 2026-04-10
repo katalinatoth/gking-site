@@ -6,7 +6,7 @@ authors:
   - "Gary King"
   - "Samir Soneji"
 publication_types:
-  - "chapter"
+  - "data"
 links:
   - type: source
     url: "http://dx.doi.org/10.7910/DVN/28323"

@@ -5,7 +5,7 @@ authors:
   - "Gary King"
   - "Lyn Ragsdale"
 publication_types:
-  - "chapter"
+  - "book"
 links:
   - type: source
     url: "http://www.amazon.com/exec/obidos/tg/detail/-/0871874326/ref=lpr_g_1/102-2774965-4828120?v=glance&s=books"
