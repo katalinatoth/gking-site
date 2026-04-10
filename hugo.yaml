@@ -75,6 +75,9 @@ taxonomies:
 
 menus:
   main:
+    - name: Gary King
+      url: /
+      weight: 1
     - name: Bio & C.V.
       url: /bio/
       weight: 10
