@@ -71,9 +71,13 @@ html.dark .dark\:prose-invert { --tw-prose-body: #374151 !important; --tw-prose-
   white-space: nowrap;
 }
 
-/* Navbar: brand + links pack left, search pushes right via ml-auto */
+/* Navbar: brand + links pack left, search pushes to far right */
 .navbar {
   justify-content: flex-start !important;
+}
+/* Theme adds lg:ml-0 which kills ml-auto on desktop — restore it */
+nav.navbar > div:last-of-type {
+  margin-left: auto !important;
 }
 
 /* Hide dark mode toggle */
