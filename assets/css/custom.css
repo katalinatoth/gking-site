@@ -71,7 +71,7 @@ html.dark .dark\:prose-invert { --tw-prose-body: #374151 !important; --tw-prose-
   white-space: nowrap;
 }
 
-/* Fix navbar layout: theme CSS sets space-between, override to flex-start */
+/* Navbar: brand + links pack left, search pushes right via ml-auto */
 .navbar {
   justify-content: flex-start !important;
 }
