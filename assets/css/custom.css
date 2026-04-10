@@ -54,15 +54,21 @@ html.dark .dark\:prose-invert { --tw-prose-body: #374151 !important; --tw-prose-
   padding-bottom: 3rem;
 }
 
-/* "Gary King" nav brand: larger, bolder, separated from other items */
-.navbar-nav > .nav-item:first-child .nav-link {
-  font-size: 1.35rem !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 0.04em !important;
+/* "GARY KING" site brand in navbar */
+.navbar-brand {
+  display: flex !important;
+  align-items: center !important;
   padding-right: 1.5rem !important;
   margin-right: 1rem !important;
   border-right: 2px solid #cbd5e1 !important;
+}
+.navbar-brand::after {
+  content: "GARY KING";
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #1e293b;
+  white-space: nowrap;
 }
 
 /* Reduce footer branding visibility */
