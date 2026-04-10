@@ -36,34 +36,25 @@
 </div>
 
 <!-- Render all publications as JSON data -->
-<script id="gk-pub-data" type="application/json">
-[
-  {{ $pages := .Pages.ByDate.Reverse }}
-  {{ range $i, $p := $pages }}
-  {{ if $i }},{{ end }}
-  {
-    "title": {{ $p.Title | jsonify }},
-    "url": {{ $p.RelPermalink | jsonify }},
-    "year": {{ $p.Date.Format "2006" | jsonify }},
-    "authors": {{ ($p.Params.authors | default slice) | jsonify }},
-    "types": {{ ($p.Params.publication_types | default slice) | jsonify }},
-    "publication": {{ ($p.Params.publication | default "") | jsonify }},
-    "abstract": {{ ($p.Params.abstract | default "") | jsonify }}
-  }
-  {{ end }}
-]
-</script>
+{{ $pages := .Pages.ByDate.Reverse }}
+{{ $entries := slice }}
+{{ range $pages }}
+  {{ $entry := dict "title" .Title "url" .RelPermalink "year" (.Date.Format "2006") "authors" (.Params.authors | default slice) "types" (.Params.publication_types | default slice) "publication" (.Params.publication | default "") "abstract" (.Params.abstract | default "") }}
+  {{ $entries = $entries | append $entry }}
+{{ end }}
 
 <script>
 (function() {
-  var data = JSON.parse(document.getElementById("gk-pub-data").textContent);
+  var data = {{ $entries | jsonify | safeJS }};
   var typeLabels = {
     "article-journal": "Journal Article",
     "book": "Book",
     "chapter": "Book Chapter",
     "software": "Software",
     "speech": "Presentation",
-    "patent": "Patent"
+    "patent": "Patent",
+    "manuscript": "Manuscript",
+    "dataset": "Dataset"
   };
   var activeTypes = {};
   var activeYears = {};

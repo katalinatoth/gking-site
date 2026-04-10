@@ -6,12 +6,15 @@
 
   <div style="display:flex;gap:2rem;align-items:flex-start;">
     <!-- Sidebar Filters -->
-    <div style="min-width:220px;max-width:240px;flex-shrink:0;border:1px solid #e2e8f0;border-radius:8px;padding:1.25rem;background:#fafafa;position:sticky;top:5rem;">
+    <div id="gk-sidebar" style="min-width:220px;max-width:260px;flex-shrink:0;border:1px solid #e2e8f0;border-radius:8px;padding:1.25rem;background:#fafafa;position:sticky;top:5rem;">
       <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.75rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;">Last Name</h3>
       <div id="gk-name-filters" style="margin-bottom:1.25rem;"></div>
 
+      <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.75rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;">University / Affiliation</h3>
+      <div id="gk-univ-filters" style="max-height:200px;overflow-y:auto;margin-bottom:1.25rem;"></div>
+
       <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.5rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;">Search</h3>
-      <input type="text" id="gk-people-search" placeholder="Type to filter..." style="width:100%;padding:6px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9rem;box-sizing:border-box;">
+      <input type="text" id="gk-people-search" placeholder="Name or affiliation..." style="width:100%;padding:6px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9rem;box-sizing:border-box;">
     </div>
 
     <!-- Results -->
@@ -28,26 +31,20 @@
   </div>
 </div>
 
-<script id="gk-people-data" type="application/json">
-[
-  {{ $people := where .Site.RegularPages "Type" "people" }}
-  {{ range $i, $p := $people }}
-  {{ if $i }},{{ end }}
-  {
-    "name": {{ $p.Title | jsonify }},
-    "url": {{ $p.RelPermalink | jsonify }},
-    "role": {{ ($p.Params.role | default "") | jsonify }}
-  }
-  {{ end }}
-]
-</script>
+{{ $people := where .Site.RegularPages "Type" "people" }}
+{{ $entries := slice }}
+{{ range $people }}
+  {{ $entry := dict "name" .Title "url" .RelPermalink "role" (.Params.role | default "") }}
+  {{ $entries = $entries | append $entry }}
+{{ end }}
 
 <script>
 (function() {
-  var data = JSON.parse(document.getElementById("gk-people-data").textContent);
+  var data = {{ $entries | jsonify | safeJS }};
   var searchTerm = "";
   var sortMode = "az";
   var activeRanges = {};
+  var activeUnivs = {};
   var ranges = ["A-C","D-F","G-I","J-L","M-O","P-R","S-U","V-Z"];
   ranges.forEach(function(r) { activeRanges[r] = true; });
 
@@ -60,12 +57,17 @@
     var c = getLastName(name).charAt(0).toUpperCase();
     for (var i = 0; i < ranges.length; i++) {
       var r = ranges[i];
-      var start = r.charAt(0);
-      var end = r.charAt(2);
-      if (c >= start && c <= end) return r;
+      if (c >= r.charAt(0) && c <= r.charAt(2)) return r;
     }
     return ranges[ranges.length - 1];
   }
+
+  // Gather unique affiliations
+  var univCounts = {};
+  data.forEach(function(d) {
+    var u = d.role || "Unknown";
+    univCounts[u] = (univCounts[u] || 0) + 1;
+  });
 
   // Build name range filters
   var nameContainer = document.getElementById("gk-name-filters");
@@ -74,13 +76,34 @@
     var div = document.createElement("div");
     div.style.cssText = "padding:2px 0;font-size:0.88rem;";
     div.innerHTML = '<label style="cursor:pointer;display:flex;align-items:center;gap:6px;">' +
-      '<input type="checkbox" data-range="' + r + '" checked> ' + r + ' <span style="color:#999;">(' + count + ')</span></label>';
+      '<input type="checkbox" data-range="' + r + '" checked> ' + r +
+      ' <span style="color:#999;">(' + count + ')</span></label>';
     nameContainer.appendChild(div);
   });
 
+  // Build university filters (sorted by count descending, top affiliations)
+  var univContainer = document.getElementById("gk-univ-filters");
+  var sortedUnivs = Object.keys(univCounts).sort(function(a, b) {
+    return univCounts[b] - univCounts[a];
+  });
+  sortedUnivs.forEach(function(u) {
+    activeUnivs[u] = true;
+    var div = document.createElement("div");
+    div.style.cssText = "padding:1px 0;font-size:0.85rem;";
+    div.innerHTML = '<label style="cursor:pointer;display:flex;align-items:center;gap:6px;">' +
+      '<input type="checkbox" data-univ="' + escapeAttr(u) + '" checked> ' +
+      escapeHtml(u) + ' <span style="color:#999;">(' + univCounts[u] + ')</span></label>';
+    univContainer.appendChild(div);
+  });
+
+  // Event listeners
   nameContainer.addEventListener("change", function(e) {
     var r = e.target.dataset.range;
     if (r) { activeRanges[r] = e.target.checked; render(); }
+  });
+  univContainer.addEventListener("change", function(e) {
+    var u = e.target.dataset.univ;
+    if (u !== undefined) { activeUnivs[u] = e.target.checked; render(); }
   });
   document.getElementById("gk-people-search").addEventListener("input", function(e) {
     searchTerm = e.target.value.toLowerCase();
@@ -94,6 +117,8 @@
   function render() {
     var filtered = data.filter(function(d) {
       if (!activeRanges[getRange(d.name)]) return false;
+      var u = d.role || "Unknown";
+      if (!activeUnivs[u]) return false;
       if (searchTerm) {
         var haystack = (d.name + " " + d.role).toLowerCase();
         if (haystack.indexOf(searchTerm) === -1) return false;
@@ -125,14 +150,18 @@
     return div.innerHTML;
   }
 
+  function escapeAttr(s) {
+    return s.replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  }
+
   render();
 })();
 </script>
 
 <style>
-  #gk-name-filters input[type="checkbox"] { accent-color: #337ab7; }
+  #gk-sidebar input[type="checkbox"] { accent-color: #337ab7; }
   @media (max-width: 768px) {
-    #gk-name-filters { display: none; }
+    #gk-sidebar { display: none; }
   }
 </style>
 

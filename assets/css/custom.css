@@ -58,8 +58,8 @@ html.dark .dark\:prose-invert { --tw-prose-body: #374151 !important; --tw-prose-
 .navbar-brand {
   display: flex !important;
   align-items: center !important;
-  padding-right: 2.5rem !important;
-  margin-right: 2rem !important;
+  padding-right: 1rem !important;
+  margin-right: 1rem !important;
   border-right: 2px solid #cbd5e1 !important;
 }
 .navbar-brand::after {
