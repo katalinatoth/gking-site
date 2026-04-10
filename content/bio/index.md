@@ -18,3 +18,12 @@ King's work is widely read across scholarly fields and beyond academia. He was l
 King is also co-founder and an inventor of the original technology for [Crimson Hexagon](http://crimsonhexagon.com/) (merged with Brandwatch, acquired by Cision), [Learning Catalytics](http://learningcatalytics.com/) (acquired by Pearson), [Thresher](http://thresher.io/) (acquired by Two Six Technologies, a Carlyle Company), [OpenScholar](https://theopenscholar.com/) (acquired by Monomyth Group), [Perusall](http://perusall.com/), and [QuickCode](http://quickcode.ai/). He has received 17 patents for these technologies.
 
 King is a proud graduate of SUNY New Paltz (B.A., 1980) and the University of Wisconsin-Madison (M.A., Ph.D., 1984). He taught at NYU for three years before coming to Harvard in 1987.
+
+---
+
+<div style="text-align:center;margin-top:2rem;">
+  <a href="/gking-site/files/vitae.pdf" style="display:inline-flex;align-items:center;gap:8px;background:#337ab7;color:#fff;padding:12px 24px;border-radius:6px;text-decoration:none;font-size:1rem;font-weight:500;">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+    Download CV (PDF)
+  </a>
+</div>

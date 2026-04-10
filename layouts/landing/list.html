@@ -1,6 +1,6 @@
 {{ define "main" }}
 
-<!-- Hero Section: split layout with text left, photo right -->
+<!-- Hero Section -->
 <section id="hero" style="background:#ECF2F8;">
   <div style="max-width:1200px;margin:0 auto;display:flex;align-items:stretch;min-height:420px;">
     <div style="flex:1;padding:60px 50px 60px 40px;display:flex;flex-direction:column;justify-content:center;">
@@ -25,7 +25,7 @@
   <h2 style="font-size:2rem;font-weight:400;color:#1E1E1E;margin:0 0 40px 0;">Research Areas</h2>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;">
     <div>
-      <div style="text-align:center;margin-bottom:20px;">
+      <div style="display:flex;justify-content:center;margin-bottom:20px;">
         <svg width="80" height="80" viewBox="0 0 80 80" fill="none" stroke="#333" stroke-width="1.5">
           <line x1="15" y1="65" x2="15" y2="15"/>
           <line x1="15" y1="65" x2="70" y2="65"/>
@@ -38,9 +38,21 @@
       <p style="font-size:0.95rem;line-height:1.7;color:#444;">
         Methods for interpersonal incomparability, when respondents (from different cultures, genders, countries, or ethnic groups) understand survey questions in different ways; for developing theoretical definitions of complicated concepts apparently definable only by example (i.e., "you know it when you see it").
       </p>
+      <ul style="list-style:none;padding:0;margin:12px 0 0 0;">
+        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#anchoring-vignettes" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Anchoring Vignettes (for interpersonal incomparability)</a></li>
+        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#automated-text-analysis" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Automated Text Analysis</a></li>
+        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#causal-inference" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Causal Inference</a></li>
+        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#event-counts-and-durations" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Event Counts and Durations</a></li>
+        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#ecological-inference" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Ecological Inference</a></li>
+        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#missing-data" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Missing Data, Measurement Error, Differential Privacy</a></li>
+        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#qualitative-research" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Qualitative Research</a></li>
+        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#rare-events" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Rare Events</a></li>
+        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#survey-research" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Survey Research</a></li>
+        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#unifying-statistical-analysis" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Unifying Statistical Analysis</a></li>
+      </ul>
     </div>
     <div>
-      <div style="text-align:center;margin-bottom:20px;">
+      <div style="display:flex;justify-content:center;margin-bottom:20px;">
         <svg width="80" height="80" viewBox="0 0 80 80" fill="none" stroke="#333" stroke-width="1.5">
           <circle cx="40" cy="28" r="10"/>
           <path d="M28 42 Q40 50 52 42"/>
@@ -56,67 +68,143 @@
       <p style="font-size:0.95rem;line-height:1.7;color:#444;">
         The accuracy of U.S. Social Security Administration (SSA) demographic and financial forecasts is crucial for the solvency of its Trust Funds, government programs comprising greater than 50% of all federal government expenditures, industry decision making, and the evidence base of many scholarly articles.
       </p>
+      <ul style="list-style:none;padding:0;margin:12px 0 0 0;">
+        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#evaluating-social-security-forecasts" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Evaluating Social Security Forecasts</a></li>
+        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#incumbency-advantage" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Incumbency Advantage</a></li>
+        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#chinese-censorship" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Chinese Censorship</a></li>
+        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#mexican-health-care-evaluation" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Mexican Health Care Evaluation</a></li>
+        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#presidency-research" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Presidency Research; Voting Behavior</a></li>
+        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#informatics-and-data-sharing" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Informatics and Data Sharing</a></li>
+        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#international-conflict" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">International Conflict</a></li>
+        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#legislative-redistricting" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Legislative Redistricting</a></li>
+        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#mortality-studies" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Mortality Studies</a></li>
+        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#teaching-and-administration" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Teaching and Administration</a></li>
+      </ul>
     </div>
   </div>
 </section>
 
-<!-- Stats bar -->
-<section style="background:#f8f9fa;padding:30px 40px;">
-  <div style="max-width:1200px;margin:0 auto;display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;">
-    <div style="text-align:center;min-width:120px;">
-      <div style="font-size:1.5rem;font-weight:700;color:#BF5803;">190+</div>
-      <div style="font-size:0.85rem;color:#666;">Journal Articles</div>
-    </div>
-    <div style="text-align:center;min-width:120px;">
-      <div style="font-size:1.5rem;font-weight:700;color:#BF5803;">8</div>
-      <div style="font-size:0.85rem;color:#666;">Books</div>
-    </div>
-    <div style="text-align:center;min-width:120px;">
-      <div style="font-size:1.5rem;font-weight:700;color:#BF5803;">55+</div>
-      <div style="font-size:0.85rem;color:#666;">Awards</div>
-    </div>
-    <div style="text-align:center;min-width:120px;">
-      <div style="font-size:1.5rem;font-weight:700;color:#BF5803;">8</div>
-      <div style="font-size:0.85rem;color:#666;">Honorary Societies</div>
-    </div>
-    <div style="text-align:center;min-width:120px;">
-      <div style="font-size:1.5rem;font-weight:700;color:#BF5803;">30+</div>
-      <div style="font-size:0.85rem;color:#666;">Software Packages</div>
-    </div>
-  </div>
-</section>
-
-<!-- Recent Publications -->
-<section style="max-width:1200px;margin:0 auto;padding:60px 40px;">
-  <h2 style="font-size:2rem;font-weight:400;color:#1E1E1E;margin:0 0 24px 0;">Recent Writings</h2>
+<!-- Recent Papers -->
+<section style="max-width:1200px;margin:0 auto;padding:0 40px 40px;">
+  <h2 style="font-size:2rem;font-weight:400;color:#1E1E1E;margin:0 0 24px 0;">Recent Papers</h2>
   <div style="border-top:1px solid #eee;">
     {{ $pubs := where .Site.RegularPages "Section" "publication" }}
     {{ $pubs = sort $pubs ".Date" "desc" }}
-    {{ range first 10 $pubs }}
-    <div style="padding:12px 0;border-bottom:1px solid #eee;">
+    {{ $count := 0 }}
+    {{ range $pubs }}
+      {{ $types := .Params.publication_types | default slice }}
+      {{ $is_article := or (in $types "article-journal") (in $types "chapter") }}
+      {{ if and $is_article (lt $count 9) }}
+        {{ $count = add $count 1 }}
+    <div style="padding:10px 0;border-bottom:1px solid #eee;">
       <a href="{{ .RelPermalink }}" style="color:#337ab7;text-decoration:none;font-size:0.95rem;">{{ .Title }}</a>
-      {{ with .Params.authors }}
-      <div style="font-size:0.85rem;color:#666;margin-top:2px;">{{ delimit . ", " }}</div>
-      {{ end }}
     </div>
+      {{ end }}
     {{ end }}
   </div>
-  <div style="margin-top:16px;">
-    <a href="{{ "publication/" | relURL }}" style="color:#337ab7;font-size:0.9rem;">See all publications →</a>
+  <div style="margin-top:12px;text-align:right;">
+    <a href="{{ "publication/" | relURL }}" style="color:#337ab7;font-size:0.9rem;">All publications &gt;</a>
   </div>
 </section>
 
-<!-- Video Presentations -->
-<section style="background:#f8f9fa;padding:60px 40px;">
-  <div style="max-width:1200px;margin:0 auto;">
-    <h2 style="font-size:2rem;font-weight:400;color:#1E1E1E;margin:0 0 24px 0;">Video Presentations</h2>
-    <div style="max-width:720px;margin:0 auto 2rem;">
-      <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;">
-        <iframe src="https://www.youtube.com/embed/piyOAcUq2mU" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allowfullscreen title="Interview with Gary King"></iframe>
-      </div>
-      <p style="text-align:center;margin-top:0.75rem;font-size:0.9rem;color:#666;">Interview with Gary King on Science and Inference</p>
+<!-- Presentations -->
+<section style="max-width:1200px;margin:0 auto;padding:0 40px 40px;">
+  <h2 style="font-size:2rem;font-weight:400;color:#1E1E1E;margin:0 0 24px 0;">Presentations</h2>
+  <div style="border-top:1px solid #eee;">
+    {{ $talks := where .Site.RegularPages "Section" "talk" }}
+    {{ $talks = sort $talks ".Date" "desc" }}
+    {{ range first 4 $talks }}
+    <div style="padding:10px 0;border-bottom:1px solid #eee;">
+      <a href="{{ .RelPermalink }}" style="color:#337ab7;text-decoration:none;font-size:0.95rem;">{{ .Title }}</a>
+      <span style="color:#666;font-size:0.85rem;">, {{ .Date.Format "January 2, 2006" }}</span>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:2rem;">
+    {{ end }}
+  </div>
+  <div style="margin-top:12px;text-align:right;">
+    <a href="{{ "talk/" | relURL }}" style="color:#337ab7;font-size:0.9rem;">All presentations &gt;</a>
+  </div>
+</section>
+
+<!-- Books -->
+<section style="max-width:1200px;margin:0 auto;padding:0 40px 40px;">
+  <h2 style="font-size:2rem;font-weight:400;color:#1E1E1E;margin:0 0 24px 0;">Books</h2>
+  <div style="border-top:1px solid #eee;">
+    {{ range $pubs }}
+      {{ $types := .Params.publication_types | default slice }}
+      {{ if in $types "book" }}
+    <div style="padding:10px 0;border-bottom:1px solid #eee;">
+      <a href="{{ .RelPermalink }}" style="color:#337ab7;text-decoration:none;font-size:0.95rem;">{{ .Title }}</a>
+    </div>
+      {{ end }}
+    {{ end }}
+  </div>
+</section>
+
+<!-- Startups / Patents / Software Projects -->
+<section style="background:#f8f9fa;padding:40px;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;">
+      <!-- Startups -->
+      <div>
+        <h2 style="font-size:1.5rem;font-weight:400;color:#1E1E1E;margin:0 0 16px 0;">Startups</h2>
+        <ul style="list-style:disc;padding-left:20px;margin:0;">
+          <li style="padding:4px 0;"><a href="https://www.quickcode.ai/" target="_blank" style="color:#337ab7;text-decoration:none;">QuickCode</a></li>
+          <li style="padding:4px 0;"><a href="https://www.perusall.com/" target="_blank" style="color:#337ab7;text-decoration:none;">Perusall</a></li>
+          <li style="padding:4px 0;"><a href="https://theopenscholar.com/" target="_blank" style="color:#337ab7;text-decoration:none;">OpenScholar</a> <span style="font-size:0.85rem;color:#666;">(acquired by Monomyth Group)</span></li>
+          <li style="padding:4px 0;"><a href="https://www.thresher.io/" target="_blank" style="color:#337ab7;text-decoration:none;">Thresher</a> <span style="font-size:0.85rem;color:#666;">(acquired by Two Six Technologies)</span></li>
+          <li style="padding:4px 0;"><a href="https://www.brandwatch.com/" target="_blank" style="color:#337ab7;text-decoration:none;">Crimson Hexagon</a> <span style="font-size:0.85rem;color:#666;">(merged with Brandwatch, acquired by Cision)</span></li>
+          <li style="padding:4px 0;"><a href="https://www.pearson.com/us/higher-education/products-services-teaching/learning-engagement-tools/learning-catalytics.html" target="_blank" style="color:#337ab7;text-decoration:none;">Learning Catalytics</a> <span style="font-size:0.85rem;color:#666;">(acquired by Pearson)</span></li>
+        </ul>
+      </div>
+      <!-- Patents -->
+      <div>
+        <h2 style="font-size:1.5rem;font-weight:400;color:#1E1E1E;margin:0 0 16px 0;">Patents</h2>
+        <ul style="list-style:disc;padding-left:20px;margin:0;font-size:0.9rem;">
+          {{ $allpubs := where .Site.RegularPages "Section" "publication" }}
+          {{ range $allpubs }}
+            {{ if or (in (lower .Title) "patent") (in (.Params.publication_types | default slice) "patent") }}
+          <li style="padding:3px 0;"><a href="{{ .RelPermalink }}" style="color:#337ab7;text-decoration:none;">{{ .Title }}</a></li>
+            {{ end }}
+          {{ end }}
+        </ul>
+      </div>
+      <!-- Software Projects -->
+      <div>
+        <h2 style="font-size:1.5rem;font-weight:400;color:#1E1E1E;margin:0 0 16px 0;">Software Projects</h2>
+        <ul style="list-style:disc;padding-left:20px;margin:0;font-size:0.9rem;">
+          {{ $swcount := 0 }}
+          {{ $allpubs2 := where .Site.RegularPages "Section" "publication" }}
+          {{ $allpubs2 = sort $allpubs2 ".Date" "desc" }}
+          {{ range $allpubs2 }}
+            {{ if and (in (.Params.publication_types | default slice) "software") (lt $swcount 5) }}
+              {{ $swcount = add $swcount 1 }}
+          <li style="padding:3px 0;"><a href="{{ .RelPermalink }}" style="color:#337ab7;text-decoration:none;">{{ .Title }}</a></li>
+            {{ end }}
+          {{ end }}
+        </ul>
+        <div style="margin-top:8px;">
+          <a href="{{ "software/" | relURL }}" style="color:#337ab7;font-size:0.9rem;">All software projects &gt;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- An Interview with Gary -->
+<section style="max-width:1200px;margin:0 auto;padding:60px 40px 30px;">
+  <h2 style="font-size:2rem;font-weight:400;color:#1E1E1E;margin:0 0 24px 0;text-align:center;">An Interview with Gary</h2>
+  <div style="max-width:720px;margin:0 auto;">
+    <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;">
+      <iframe src="https://www.youtube.com/embed/piyOAcUq2mU" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allowfullscreen title="Interview with Gary King"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- Video Conversations and Lectures -->
+<section style="background:#f8f9fa;padding:40px;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <h2 style="font-size:2rem;font-weight:400;color:#1E1E1E;margin:0 0 24px 0;text-align:center;">Video Conversations and Lectures</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;">
       <a href="https://www.youtube.com/playlist?list=PL0n492lUg2sg9atDiK-ysPF43Wotuk4TU" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
         <div style="border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;background:#fff;">
           <img src="{{ "images/garythumbnail_3.jpg" | relURL }}" alt="Research Talks" style="width:100%;display:block;">
@@ -145,28 +233,6 @@
         </div>
       </a>
     </div>
-  </div>
-</section>
-
-<!-- Recent Software -->
-<section style="max-width:1200px;margin:0 auto;padding:60px 40px;">
-  <h2 style="font-size:2rem;font-weight:400;color:#1E1E1E;margin:0 0 24px 0;">Software</h2>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;">
-    {{ $sw := where .Site.RegularPages "Section" "software" }}
-    {{ $sw = sort $sw ".Date" "desc" }}
-    {{ range first 6 $sw }}
-    <a href="{{ .RelPermalink }}" style="text-decoration:none;color:inherit;">
-      <div style="border:1px solid #e2e8f0;border-radius:8px;padding:20px;background:#fff;height:100%;transition:box-shadow 0.2s;">
-        <h3 style="font-size:1rem;color:#337ab7;margin:0 0 8px 0;">{{ .Title }}</h3>
-        {{ with .Params.summary }}
-        <p style="font-size:0.88rem;color:#666;line-height:1.5;margin:0;">{{ . | truncate 150 }}</p>
-        {{ end }}
-      </div>
-    </a>
-    {{ end }}
-  </div>
-  <div style="margin-top:20px;">
-    <a href="{{ "software/" | relURL }}" style="color:#337ab7;font-size:0.9rem;">See all software →</a>
   </div>
 </section>
 

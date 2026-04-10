@@ -1,11 +1,139 @@
 {{ define "main" }}
 
-<div class="max-w-4xl mx-auto px-6 py-12">
-  <h1 class="text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100 mb-8">{{ .Title }}</h1>
+<div style="max-width:1200px;margin:0 auto;padding:2rem 1.5rem;">
+  <h1 style="font-size:2.5rem;font-weight:700;margin:0 0 0.5rem;">{{ .Title }}</h1>
+  <p style="color:#666;margin:0 0 1.5rem;">A list of current and former research associates, students, post-docs, and collaborators.</p>
 
-  <div class="prose prose-slate lg:prose-lg dark:prose-invert max-w-none">
-    {{ .Content }}
+  <div style="display:flex;gap:2rem;align-items:flex-start;">
+    <!-- Sidebar Filters -->
+    <div style="min-width:220px;max-width:240px;flex-shrink:0;border:1px solid #e2e8f0;border-radius:8px;padding:1.25rem;background:#fafafa;position:sticky;top:5rem;">
+      <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.75rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;">Last Name</h3>
+      <div id="gk-name-filters" style="margin-bottom:1.25rem;"></div>
+
+      <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.5rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;">Search</h3>
+      <input type="text" id="gk-people-search" placeholder="Type to filter..." style="width:100%;padding:6px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9rem;box-sizing:border-box;">
+    </div>
+
+    <!-- Results -->
+    <div style="flex:1;min-width:0;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem;">
+        <span id="gk-people-count" style="font-size:0.9rem;color:#666;"></span>
+        <select id="gk-people-sort" style="padding:4px 8px;border:1px solid #ccc;border-radius:4px;font-size:0.85rem;">
+          <option value="az">Last Name A–Z</option>
+          <option value="za">Last Name Z–A</option>
+        </select>
+      </div>
+      <div id="gk-people-results" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1rem;"></div>
+    </div>
   </div>
 </div>
+
+<script id="gk-people-data" type="application/json">
+[
+  {{ $people := where .Site.RegularPages "Type" "people" }}
+  {{ range $i, $p := $people }}
+  {{ if $i }},{{ end }}
+  {
+    "name": {{ $p.Title | jsonify }},
+    "url": {{ $p.RelPermalink | jsonify }},
+    "role": {{ ($p.Params.role | default "") | jsonify }}
+  }
+  {{ end }}
+]
+</script>
+
+<script>
+(function() {
+  var data = JSON.parse(document.getElementById("gk-people-data").textContent);
+  var searchTerm = "";
+  var sortMode = "az";
+  var activeRanges = {};
+  var ranges = ["A-C","D-F","G-I","J-L","M-O","P-R","S-U","V-Z"];
+  ranges.forEach(function(r) { activeRanges[r] = true; });
+
+  function getLastName(name) {
+    var parts = name.trim().split(/\s+/);
+    return parts[parts.length - 1];
+  }
+
+  function getRange(name) {
+    var c = getLastName(name).charAt(0).toUpperCase();
+    for (var i = 0; i < ranges.length; i++) {
+      var r = ranges[i];
+      var start = r.charAt(0);
+      var end = r.charAt(2);
+      if (c >= start && c <= end) return r;
+    }
+    return ranges[ranges.length - 1];
+  }
+
+  // Build name range filters
+  var nameContainer = document.getElementById("gk-name-filters");
+  ranges.forEach(function(r) {
+    var count = data.filter(function(d) { return getRange(d.name) === r; }).length;
+    var div = document.createElement("div");
+    div.style.cssText = "padding:2px 0;font-size:0.88rem;";
+    div.innerHTML = '<label style="cursor:pointer;display:flex;align-items:center;gap:6px;">' +
+      '<input type="checkbox" data-range="' + r + '" checked> ' + r + ' <span style="color:#999;">(' + count + ')</span></label>';
+    nameContainer.appendChild(div);
+  });
+
+  nameContainer.addEventListener("change", function(e) {
+    var r = e.target.dataset.range;
+    if (r) { activeRanges[r] = e.target.checked; render(); }
+  });
+  document.getElementById("gk-people-search").addEventListener("input", function(e) {
+    searchTerm = e.target.value.toLowerCase();
+    render();
+  });
+  document.getElementById("gk-people-sort").addEventListener("change", function(e) {
+    sortMode = e.target.value;
+    render();
+  });
+
+  function render() {
+    var filtered = data.filter(function(d) {
+      if (!activeRanges[getRange(d.name)]) return false;
+      if (searchTerm) {
+        var haystack = (d.name + " " + d.role).toLowerCase();
+        if (haystack.indexOf(searchTerm) === -1) return false;
+      }
+      return true;
+    });
+
+    filtered.sort(function(a, b) {
+      var la = getLastName(a.name).toLowerCase();
+      var lb = getLastName(b.name).toLowerCase();
+      return sortMode === "za" ? lb.localeCompare(la) : la.localeCompare(lb);
+    });
+
+    document.getElementById("gk-people-count").textContent = filtered.length + " member" + (filtered.length !== 1 ? "s" : "");
+
+    var html = "";
+    filtered.forEach(function(d) {
+      html += '<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">';
+      html += '<strong><a href="' + d.url + '" style="color:#337ab7;text-decoration:none;">' + escapeHtml(d.name) + '</a></strong>';
+      if (d.role) html += '<div style="font-size:0.82rem;color:#666;margin-top:2px;">' + escapeHtml(d.role) + '</div>';
+      html += '</div>';
+    });
+    document.getElementById("gk-people-results").innerHTML = html;
+  }
+
+  function escapeHtml(s) {
+    var div = document.createElement("div");
+    div.appendChild(document.createTextNode(s));
+    return div.innerHTML;
+  }
+
+  render();
+})();
+</script>
+
+<style>
+  #gk-name-filters input[type="checkbox"] { accent-color: #337ab7; }
+  @media (max-width: 768px) {
+    #gk-name-filters { display: none; }
+  }
+</style>
 
 {{ end }}

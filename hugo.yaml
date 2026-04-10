@@ -53,6 +53,7 @@ params:
       enable: true
       fixed: true
       highlight_active_link: true
+      show_search: true
   footer:
     copyright:
       notice: "© {year} Gary King. All rights reserved."
