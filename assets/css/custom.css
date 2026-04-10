@@ -54,32 +54,6 @@ html.dark .dark\:prose-invert { --tw-prose-body: #374151 !important; --tw-prose-
   padding-bottom: 3rem;
 }
 
-/* "GARY KING" site brand in navbar */
-.navbar-brand {
-  display: flex !important;
-  align-items: center !important;
-  padding-right: 1rem !important;
-  margin-right: 0.75rem !important;
-  border-right: 2px solid #cbd5e1 !important;
-}
-.navbar-brand::after {
-  content: "GARY KING";
-  font-size: 1.35rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: #1e293b;
-  white-space: nowrap;
-}
-
-/* Navbar: brand + links pack left, search pushes to far right */
-.navbar {
-  justify-content: flex-start !important;
-}
-/* Theme adds lg:ml-0 which kills ml-auto on desktop — restore it */
-nav.navbar > div:last-of-type {
-  margin-left: auto !important;
-}
-
 /* Hide dark mode toggle */
 .theme-toggle,
 button[accesskey="t"] {
