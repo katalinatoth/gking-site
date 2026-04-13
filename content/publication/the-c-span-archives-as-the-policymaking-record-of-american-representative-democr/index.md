@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/JN2MOV"
+dataverse_name: "Record of American Democracy, All Key Data Files"
 title: "The C-SPAN Archives As The Policymaking Record of American Representative Democracy: A Foreword"
 date: "2016-01-01"
 authors:

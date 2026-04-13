@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/NDS9AT"
+dataverse_name: "Replication data for: A Statistical Model of Multiparty Electoral Data"
 title: "A Statistical Model for Multiparty Electoral Data"
 date: "1999-01-01"
 authors:

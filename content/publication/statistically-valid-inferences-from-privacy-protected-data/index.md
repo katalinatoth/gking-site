@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/ASUFTY"
+dataverse_name: "Replication Data for: Statistically Valid Inferences from Privacy Protected Data"
 related_talks:
   - "statistically-valid-inferences-from-privacy-protected-data-deloitte"
   - "statistically-valid-inferences-from-privacy-protected-data-google"

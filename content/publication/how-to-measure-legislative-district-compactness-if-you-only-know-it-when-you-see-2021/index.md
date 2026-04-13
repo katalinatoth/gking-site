@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/FA8FVF"
+dataverse_name: "Replication Data for: How to Measure Legislative District Compactness If You Only Know It When You See It"
 title: "How to Measure Legislative District Compactness If You Only Know It When You See It"
 date: "2021-01-01"
 authors:

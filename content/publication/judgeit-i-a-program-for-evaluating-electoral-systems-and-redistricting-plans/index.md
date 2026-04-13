@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.3886/ICPSR01047.V1"
+dataverse_name: "JudgeIT: A Program for Evaluating Electoral Systems and Redistricting Plans Version 1"
 title: "JudgeIt I: A Program for Evaluating Electoral Systems and Redistricting Plans"
 date: "1992-01-01"
 authors:

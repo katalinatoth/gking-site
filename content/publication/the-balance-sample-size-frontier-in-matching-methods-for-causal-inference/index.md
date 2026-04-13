@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/TRTXLP"
+dataverse_name: "Replication Data for: The Balance-Sample Size Frontier in Matching Methods for Causal Inference"
 title: "The Balance-Sample Size Frontier in Matching Methods for Causal Inference"
 date: "2017-01-01"
 authors:

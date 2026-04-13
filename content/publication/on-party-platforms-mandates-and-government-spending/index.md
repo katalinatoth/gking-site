@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/KGMQBX"
+dataverse_name: "Replication data for: On Party Platforms, Mandates, and Government Spending"
 title: "On Party Platforms, Mandates, and Government Spending"
 date: "1993-01-01"
 authors:

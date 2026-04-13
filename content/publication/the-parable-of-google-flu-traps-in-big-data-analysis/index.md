@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/24823"
+dataverse_name: "Replication data for: The Parable of Google Flu: Traps in Big Data Analysis"
 title: "The Parable of Google Flu: Traps in Big Data Analysis"
 date: "2014-01-01"
 authors:

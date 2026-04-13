@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/QQ1AGU"
+dataverse_name: "Replication data for: Enhancing Democracy Through Legislative Redistricting"
 title: "Enhancing Democracy Through Legislative Redistricting"
 date: "1994-01-01"
 authors:

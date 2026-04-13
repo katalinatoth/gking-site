@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/I7GIKD"
+dataverse_name: "Replication data for: Why Are American Presidential Election Campaign Polls So Variable When Votes are So Predictable?"
 title: "Why Are American Presidential Election Campaign Polls so Variable When Votes Are so Predictable?"
 date: "1993-01-01"
 authors:

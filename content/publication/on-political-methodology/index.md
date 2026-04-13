@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/TTW7YI"
+dataverse_name: "Replication data for: On Political Methodology"
 title: "On Political Methodology"
 date: "1991-01-01"
 authors:

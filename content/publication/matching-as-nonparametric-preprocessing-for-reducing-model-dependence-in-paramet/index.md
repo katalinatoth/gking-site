@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/RWUY8G"
+dataverse_name: "Replication data for: Matching as Nonparametric Preprocessing for Reducing Model Dependence in Parametric Causal Inference"
 title: "Matching As Nonparametric Preprocessing for Reducing Model Dependence in Parametric Causal Inference"
 date: "2007-01-01"
 authors:

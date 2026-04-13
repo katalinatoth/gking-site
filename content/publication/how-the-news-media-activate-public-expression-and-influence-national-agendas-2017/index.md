@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/1EMHTK"
+dataverse_name: "Replication Data for: How the News Media Activates Public Expression and Influences National Agendas"
 related_talks:
   - "how-the-news-media-activate-public-expression-and-influence-national-agendas"
   - "how-the-news-media-activate-public-expression-and-influence-national-agendas-2018"

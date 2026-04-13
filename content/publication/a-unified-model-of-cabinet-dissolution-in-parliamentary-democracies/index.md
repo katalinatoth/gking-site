@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/CVJPAN"
+dataverse_name: "Replication data for: A Unified Model of Cabinet Dissolution in Parliamentary Democracies"
 title: "A Unified Model of Cabinet Dissolution in Parliamentary Democracies"
 date: "1990-01-01"
 authors:

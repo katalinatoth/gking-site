@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/YHZG5M"
+dataverse_name: "Replication Data for: Designing Social Inquiry: Scientific Inference for Qualitative Research"
 title: "Designing Social Inquiry: Scientific Inference in Qualitative Research"
 date: "1994-01-01"
 authors:

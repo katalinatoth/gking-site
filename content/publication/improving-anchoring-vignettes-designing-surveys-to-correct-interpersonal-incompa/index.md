@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/UU5EUI"
+dataverse_name: "Replication data for: Improving Anchoring Vignettes: Designing Surveys to Correct Interpersonal Incomparability"
 title: "Improving Anchoring Vignettes: Designing Surveys to Correct Interpersonal Incomparability"
 date: "2010-01-01"
 authors:

@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/OLD7MB"
+dataverse_name: "Replication data for: The Supreme Court During Crisis: How War Affects Only Nonwar Cases"
 title: "The Supreme Court During Crisis: How War Affects only Non-War Cases"
 date: "2005-01-01"
 authors:

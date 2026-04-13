@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/28323"
+dataverse_name: "Replication data for: Explaining Systematic Bias and Nontransparency in US Social Security  Administration Forecasts"
 related_dataset: "replication-data-for-explaining-systematic-bias-and-nontransparency-in-us-social"
 related_talks:
   - "discovering-and-explaining-systematic-bias-and-nontransparency-in-us-social-secu"

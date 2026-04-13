@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/EK886K"
+dataverse_name: "Replication data for: When Can History be Our Guide? The Pitfalls of Counterfactual Inference"
 title: "When Can History Be Our Guide? The Pitfalls of Counterfactual Inference"
 date: "2007-01-01"
 authors:

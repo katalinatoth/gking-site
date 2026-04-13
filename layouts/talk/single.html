@@ -137,6 +137,13 @@
           {{ with .Params.publication }}
             <div style="color:#888;font-size:0.85rem;font-style:italic;">{{ . }}</div>
           {{ end }}
+          {{/* Show Dataverse link if the related paper has one */}}
+          {{ with .Params.dataverse_url }}
+          <div style="margin-top:8px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2d6a1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:4px;"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
+            <a href="{{ . }}" target="_blank" rel="noopener" style="color:#337ab7;font-size:0.85rem;">Replication Data on Harvard Dataverse</a>
+          </div>
+          {{ end }}
         </div>
         {{ end }}
       {{ end }}

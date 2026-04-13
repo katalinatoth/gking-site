@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/NKCJK6"
+dataverse_name: "Replication data for: Constituency Service and Incumbency Advantage"
 title: "Constituency Service and Incumbency Advantage"
 date: "1991-01-01"
 authors:

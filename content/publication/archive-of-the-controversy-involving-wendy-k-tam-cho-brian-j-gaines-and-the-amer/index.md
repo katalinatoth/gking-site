@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/NU8OZQ"
+dataverse_name: "Archive of the Controversy Involving Wendy K. Tam Cho, Brian J. Gaines, and the American Political Science Review"
 title: "Archive of the Controversy Involving Wendy K. Tam Cho, Brian J. Gaines, and the American Political Science Review"
 date: "2002-01-01"
 authors:

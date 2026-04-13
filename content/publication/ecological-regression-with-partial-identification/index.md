@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/W7KZVL"
+dataverse_name: "Replication Data for: Ecological Regression with Partial Identification"
 title: "Ecological Regression With Partial Identification"
 date: "2019-01-01"
 authors:

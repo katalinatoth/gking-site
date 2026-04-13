@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/26935"
+dataverse_name: "Replication data for: How Robust Standard Errors Expose Methodological Problems They Do Not Fix, and What to Do About It"
 title: "How Robust Standard Errors Expose Methodological Problems They Do Not Fix, and What to Do About It"
 date: "2015-01-01"
 authors:

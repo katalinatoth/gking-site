@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/VL7QMO"
+dataverse_name: "Replication data for: Empirical vs. Theoretical Claims about Extreme Counterfactuals: A Response"
 title: "Empirical versus Theoretical Claims about Extreme Counterfactuals: A Response"
 date: "2009-01-01"
 authors:

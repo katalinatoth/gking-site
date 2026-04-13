@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/CNTKLY"
+dataverse_name: "Stanford Data"
 related_paper: "correcting-measurement-error-bias-in-conjoint-survey-experiments"
 title: "Correcting Measurement Error Bias in Conjoint Survey Experiments (Stanford University)"
 date: "2023-01-01"

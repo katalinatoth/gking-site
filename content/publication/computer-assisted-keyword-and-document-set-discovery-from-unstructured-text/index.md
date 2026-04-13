@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/FMJDCD"
+dataverse_name: "Replication Data for: Computer-Assisted Keyword and Document Set Discovery from Unstructured Text"
 title: "Computer-Assisted Keyword and Document Set Discovery from Unstructured Text"
 date: "2017-01-01"
 authors:

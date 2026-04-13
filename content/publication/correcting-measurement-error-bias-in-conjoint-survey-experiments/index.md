@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/NJ0XCI"
+dataverse_name: "Replication Data for: Correcting Measurement Error Bias in Conjoint Survey Experiments"
 related_talks:
   - "correcting-measurement-error-bias-in-conjoint-survey-experiments-harvard-experim"
   - "correcting-measurement-error-bias-in-conjoint-survey-experiments-stanford-univer"

@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.3886/ICPSR01054"
+dataverse_name: "Unified Method of Evaluating Electoral Systems and Redistricting Plans: United States House of Representatives and Ohio State Legislature Archival Version"
 title: "A Unified Method of Evaluating Electoral Systems and Redistricting Plans"
 date: "1994-01-01"
 authors:

@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/70SNIS"
+dataverse_name: "Replication Data for: Do Nonpartisan Programmatic Policies Generate Partisan Electoral Effects? Evidence from Two Large Scale Experiments"
 title: "Do Nonpartisan Programmatic Policies Have Partisan Electoral Effects? Evidence from Two Large Scale Experiments"
 date: "2020-01-01"
 authors:

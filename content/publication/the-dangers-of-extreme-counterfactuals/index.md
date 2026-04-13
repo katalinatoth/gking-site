@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/MJ1YCL"
+dataverse_name: "Replication data for: The Dangers of Extreme Counterfactuals"
 title: "The Dangers of Extreme Counterfactuals"
 date: "2006-01-01"
 authors:

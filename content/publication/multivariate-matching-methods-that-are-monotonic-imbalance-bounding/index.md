@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/OMHQFP"
+dataverse_name: "Replication data for: Multivariate Matching Methods That are Monotonic Imbalance Bounding"
 title: "Multivariate Matching Methods That Are Monotonic Imbalance Bounding"
 date: "2011-01-01"
 authors:

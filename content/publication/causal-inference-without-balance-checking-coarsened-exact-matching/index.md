@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/NMMYYW"
+dataverse_name: "Replication data for: Causal Inference Without Balance Checking: Coarsened Exact Matching"
 related_talks:
   - "matching-for-causal-inference-without-balance-checking"
   - "matching-for-causal-inference-without-balance-checking-2008"

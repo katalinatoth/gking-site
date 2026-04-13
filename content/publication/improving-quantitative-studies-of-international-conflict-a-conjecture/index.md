@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/ZGDYNQ"
+dataverse_name: "Replication data for: Improving Quantitative Studies of International Conflict: A Conjecture"
 title: "Improving Quantitative Studies of International Conflict: A Conjecture"
 date: "2000-01-01"
 authors:

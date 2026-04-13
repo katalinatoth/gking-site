@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/IEANXM"
+dataverse_name: "Replication data for: The Future of Death in America"
 title: "The Future of Death in America"
 date: "2011-01-01"
 authors:

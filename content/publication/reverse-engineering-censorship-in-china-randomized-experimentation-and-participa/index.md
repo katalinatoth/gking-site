@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/26212"
+dataverse_name: "Replication data for: Reverse Engineering Chinese Censorship: Randomized Experimentation and Participant Observation"
 title: "Reverse-Engineering Censorship in China: Randomized Experimentation and Participant Observation"
 date: "2014-01-01"
 authors:

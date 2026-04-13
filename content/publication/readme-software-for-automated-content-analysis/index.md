@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/OVS1PC"
+dataverse_name: "README"
 title: "ReadMe: Software for Automated Content Analysis"
 date: "2010-01-01"
 authors:

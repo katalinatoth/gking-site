@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/RNSU7V"
+dataverse_name: "Replication data for: Explaining Rare Events in International Relations"
 title: "Explaining Rare Events in International Relations"
 date: "2001-01-01"
 authors:

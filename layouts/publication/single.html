@@ -144,7 +144,7 @@
       </div>
       {{ end }}
 
-      {{/* RELATED DATASET */}}
+      {{/* RELATED DATASET (local content page) */}}
       {{ with $.Params.related_dataset }}
         {{ $ds := $.Site.GetPage (printf "/publication/%s" .) }}
         {{ with $ds }}
@@ -158,6 +158,17 @@
           {{ end }}
         </div>
         {{ end }}
+      {{ end }}
+
+      {{/* HARVARD DATAVERSE DATASET (external link) */}}
+      {{ with $.Params.dataverse_url }}
+      <div style="margin:2rem 0;padding:1rem 1.5rem;background:#f0f7ee;border-radius:8px;border:1px solid #c3ddb8;display:flex;align-items:center;gap:0.75rem;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2d6a1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
+        <div>
+          <strong style="color:#2d6a1e;">Harvard Dataverse:</strong>
+          <a href="{{ . }}" target="_blank" rel="noopener" style="color:#337ab7;text-decoration:none;margin-left:0.5rem;font-weight:500;">{{ with $.Params.dataverse_name }}{{ . }}{{ else }}View Dataset{{ end }}</a>
+        </div>
+      </div>
       {{ end }}
 
       <div class="prose prose-slate lg:prose-xl dark:prose-invert">

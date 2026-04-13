@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/BDWIC3"
+dataverse_name: "Replication data for: Making the Most of Statistical Analyses: Improving Interpretation and Presentation"
 title: "Making the Most of Statistical Analyses: Improving Interpretation and Presentation"
 date: "2000-01-01"
 authors:

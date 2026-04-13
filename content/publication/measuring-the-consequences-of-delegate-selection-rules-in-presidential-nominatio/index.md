@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/AJL7ZZ"
+dataverse_name: "Replication data for: Measuring the Consequences of Delegate Selection Rules in Presidential Nominations"
 title: "Measuring the Consequences of Delegate Selection Rules in Presidential Nominations"
 date: "1990-01-01"
 authors:

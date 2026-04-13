@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/TFPPA2"
+dataverse_name: "Replication data for: Death by Survey: Estimating Adult Mortality without Selection Bias from Sibling Survival Data"
 title: "Death by Survey: Estimating Adult Mortality Without Selection Bias from Sibling Survival Data"
 date: "2006-01-01"
 authors:

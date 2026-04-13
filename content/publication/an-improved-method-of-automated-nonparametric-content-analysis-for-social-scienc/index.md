@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/AVNZR6"
+dataverse_name: "Replication Data for: An Improved Method of Automated Nonparametric Content Analysis for Social Science"
 title: "An Improved Method of Automated Nonparametric Content Analysis for Social Science"
 date: "2022-01-01"
 authors:

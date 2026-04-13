@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/0FT6ZL"
+dataverse_name: "Replication data for: Estimating the Probability of Events That have Never Occurred: When Is Your Vote Decisive?"
 title: "Estimating the Probability of Events That Have Never Occurred: When Is Your Vote Decisive?"
 date: "1998-01-01"
 authors:

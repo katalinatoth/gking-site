@@ -1,4 +1,6 @@
 ---
+dataverse_url: "https://doi.org/10.7910/DVN/29610"
+dataverse_name: "Replication data for: A Unified Approach To Measurement Error And Missing Data: Details And Extensions."
 title: "A Unified Approach to Measurement Error and Missing Data: Details and Extensions"
 date: "2017-01-01"
 authors:
