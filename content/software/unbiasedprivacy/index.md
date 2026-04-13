@@ -8,5 +8,5 @@ authors:
   - "Abhradeep Thakurta"
 links:
   - type: site
-    url: "https://github.com/schwenzfeier/udp"
+    url: "https://gking.harvard.edu/privacy"
 ---
