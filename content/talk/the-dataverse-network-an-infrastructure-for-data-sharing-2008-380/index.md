@@ -8,5 +8,5 @@ publication_types:
   - "presentation"
 links:
   - type: pdf
-    url: "/files/dvn-niss.pdf"
+    url: "files/dvn-niss.pdf"
 ---

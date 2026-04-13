@@ -7,5 +7,5 @@ publication_types:
   - "presentation"
 links:
   - type: pdf
-    url: "/files/censored-emory_0.pdf"
+    url: "files/censored-emory_0.pdf"
 ---

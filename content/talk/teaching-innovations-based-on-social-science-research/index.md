@@ -8,5 +8,5 @@ publication_types:
 abstract: "This video(with my talk beginning at 1:11) builds on one article about teaching (How Social Science Research Can Improve Teaching)and one about universities (The Troubled Future of Colleges and Universities),both with Maya Sen."
 links:
   - type: pdf
-    url: "/files/innovt.pdf"
+    url: "files/innovt.pdf"
 ---

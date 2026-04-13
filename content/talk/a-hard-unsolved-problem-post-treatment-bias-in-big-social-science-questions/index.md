@@ -8,5 +8,5 @@ publication_types:
 abstract: "These are slides for a talk I gave about post-treatment bias.  Here's avideo of the talk."
 links:
   - type: pdf
-    url: "/files/bigprob.pdf"
+    url: "files/bigprob.pdf"
 ---

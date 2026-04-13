@@ -8,5 +8,5 @@ publication_types:
   - "journal_article"
 links:
   - type: pdf
-    url: "/files/ss.pdf"
+    url: "files/ss.pdf"
 ---

@@ -7,5 +7,5 @@ publication_types:
   - "presentation"
 links:
   - type: pdf
-    url: "/files/mw-jh_4.pdf"
+    url: "files/mw-jh_4.pdf"
 ---

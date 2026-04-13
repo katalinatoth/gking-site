@@ -8,5 +8,5 @@ publication_types:
 abstract: "In this talk, Gary King introduces methods of matching for causal inference that are simpler, more powerful, and easier to understand than prior approaches. Software is available to implement everything discussed. Copies of some of his papers on the subject are available at his web siteGaryKing.org."
 links:
   - type: pdf
-    url: "/files/matching-penn.pdf"
+    url: "files/matching-penn.pdf"
 ---

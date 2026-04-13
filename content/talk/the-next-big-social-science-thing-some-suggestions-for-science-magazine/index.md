@@ -8,5 +8,5 @@ publication_types:
 abstract: "Slides for my part of a presentation by members of the Senior Editorial Board during the annual Science Magazine Editorial Strategic Planning Retreat."
 links:
   - type: pdf
-    url: "/files/evbase-scimag.pdf"
+    url: "files/evbase-scimag.pdf"
 ---

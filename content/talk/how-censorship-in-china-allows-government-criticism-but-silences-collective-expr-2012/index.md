@@ -8,5 +8,5 @@ publication_types:
 abstract: "See also the associatedarticle."
 links:
   - type: pdf
-    url: "/files/censored-ucb.pdf"
+    url: "files/censored-ucb.pdf"
 ---

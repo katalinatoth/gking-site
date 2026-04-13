@@ -10,5 +10,5 @@ publication_types:
 abstract: "Textual responses to open-ended (i.e., free-response) items provided by participants (e.g., by means of mobile wireless devices) are automatically classified, enabling an instructor to assess the responses in a convenient, organized fashion and adjust instruction accordingly."
 links:
   - type: pdf
-    url: "/files/4120_patent_10388177_b2_8-20-19_2.pdf"
+    url: "files/4120_patent_10388177_b2_8-20-19_2.pdf"
 ---

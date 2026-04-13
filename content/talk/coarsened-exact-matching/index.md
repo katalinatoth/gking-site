@@ -7,5 +7,5 @@ publication_types:
   - "presentation"
 links:
   - type: pdf
-    url: "/files/cem-washu.pdf"
+    url: "files/cem-washu.pdf"
 ---

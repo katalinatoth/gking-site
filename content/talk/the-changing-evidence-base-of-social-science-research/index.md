@@ -8,5 +8,5 @@ publication_types:
   - "book_chapter"
 links:
   - type: pdf
-    url: "/files/evbase-um.pdf"
+    url: "files/evbase-um.pdf"
 ---

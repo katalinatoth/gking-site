@@ -8,5 +8,5 @@ publication_types:
   - "presentation"
 links:
   - type: pdf
-    url: "/files/evbase-mcgill.pdf"
+    url: "files/evbase-mcgill.pdf"
 ---

@@ -7,5 +7,5 @@ publication_types:
   - "presentation"
 links:
   - type: pdf
-    url: "/files/wordstlk-milan.pdf"
+    url: "files/wordstlk-milan.pdf"
 ---

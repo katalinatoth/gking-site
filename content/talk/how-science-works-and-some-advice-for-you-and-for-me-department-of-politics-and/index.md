@@ -8,5 +8,5 @@ publication_types:
 abstract: "A brief introduction to a Q&A session on advice about succeeding in and after graduate school. All advice follows from a book I'm writing, tentatively calledThe Social Science of Science(with Casey Petroff) and a course I am planning (\"The Hidden Curriculum,\" seeGaryKing.org/Gov2001), both of which we'll also discuss."
 links:
   - type: pdf
-    url: "/files/sci-oxford.pdf"
+    url: "files/sci-oxford.pdf"
 ---

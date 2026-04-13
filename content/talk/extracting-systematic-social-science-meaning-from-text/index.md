@@ -7,5 +7,5 @@ publication_types:
   - "presentation"
 links:
   - type: pdf
-    url: "/files/wordstlk-hu.pdf"
+    url: "files/wordstlk-hu.pdf"
 ---

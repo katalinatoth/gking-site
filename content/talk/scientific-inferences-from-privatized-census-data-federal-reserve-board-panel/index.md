@@ -7,5 +7,5 @@ publication_types:
   - "presentation"
 links:
   - type: pdf
-    url: "/files/qois-fed.pdf"
+    url: "files/qois-fed.pdf"
 ---

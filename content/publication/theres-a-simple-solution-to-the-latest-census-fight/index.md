@@ -10,7 +10,7 @@ publication_types:
 abstract: "We offer a solution to debates over the use of differential privacy in releasing US Census Data."
 links:
   - type: pdf
-    url: "/files/censussolution.pdf"
+    url: "files/censussolution.pdf"
   - type: source
     url: "https://www.bostonglobe.com/2021/07/26/opinion/theres-simple-solution-latest-census-fight/"
 ---

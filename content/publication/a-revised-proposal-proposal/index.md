@@ -7,5 +7,5 @@ publication_types:
   - "journal_article"
 links:
   - type: pdf
-    url: "/files/replresp.pdf"
+    url: "files/replresp.pdf"
 ---

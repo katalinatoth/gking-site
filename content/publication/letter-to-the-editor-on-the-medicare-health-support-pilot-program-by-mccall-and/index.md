@@ -9,7 +9,7 @@ publication_types:
   - "journal_article"
 links:
   - type: pdf
-    url: "/files/medhealth-nejm.pdf"
+    url: "files/medhealth-nejm.pdf"
   - type: source
     url: "http://www.nejm.org/doi/full/10.1056/NEJMc1114006"
 ---

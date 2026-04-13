@@ -8,5 +8,5 @@ publication_types:
 abstract: "(A presentation, and participatory simulation)"
 links:
   - type: pdf
-    url: "/files/red-bhs.pdf"
+    url: "files/red-bhs.pdf"
 ---

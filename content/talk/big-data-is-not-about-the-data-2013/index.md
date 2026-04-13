@@ -8,5 +8,5 @@ publication_types:
   - "presentation"
 links:
   - type: pdf
-    url: "/files/evbase-techtarget.pdf"
+    url: "files/evbase-techtarget.pdf"
 ---

@@ -9,5 +9,5 @@ publication_types:
   - "book"
 links:
   - type: pdf
-    url: "/files/part1.pdf"
+    url: "files/part1.pdf"
 ---

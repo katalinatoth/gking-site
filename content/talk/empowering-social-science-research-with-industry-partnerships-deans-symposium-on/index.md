@@ -8,5 +8,5 @@ publication_types:
 abstract: "My talk is at 28:30."
 links:
   - type: pdf
-    url: "/files/indusacad.pdf"
+    url: "files/indusacad.pdf"
 ---

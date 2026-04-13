@@ -9,5 +9,5 @@ publication_types:
 abstract: "The directional and proximity models offer dramatically different theories for how voters make decisions and fundamentally divergent views of the supposed microfoundations on which vast bodies of literature in theoretical rational choice and empirical political behavior have been built. We demonstrate here that the empirical tests in the large and growing body of literature on this subject amount to theoretical debates about which statistical assumption is right. The key statistical assumptions have not been empirically tested and, indeed, turn out to be effectively untestable with exiting methods and data. Unfortunately, these assumptions are also crucial since changing them leads to different conclusions about voter processes.Replication data at the Harvard Dataverse:https://doi.org/10.7910/DVN/TS0UJQ."
 links:
   - type: pdf
-    url: "/files/spatial.pdf"
+    url: "files/spatial.pdf"
 ---

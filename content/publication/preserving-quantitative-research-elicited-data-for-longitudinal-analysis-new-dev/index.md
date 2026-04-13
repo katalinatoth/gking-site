@@ -12,5 +12,5 @@ publication_types:
 abstract: "Social science data collected in the United States, both historically and at present, have often not been placed in any public archive -- even when the data collection was supported by government grants.  The availability of the data for future use is, therefore, in jeopardy.  Enforcing archiving norms may be the only way to increase data preservation and availability in the future."
 links:
   - type: pdf
-    url: "/files/historical_social_research_-__preserving_quantitative_research.pdf"
+    url: "files/historical_social_research_-__preserving_quantitative_research.pdf"
 ---

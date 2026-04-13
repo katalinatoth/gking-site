@@ -7,5 +7,5 @@ publication_types:
   - "presentation"
 links:
   - type: pdf
-    url: "/files/pspara-popc.pdf"
+    url: "files/pspara-popc.pdf"
 ---

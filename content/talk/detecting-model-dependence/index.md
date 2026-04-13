@@ -8,5 +8,5 @@ publication_types:
 abstract: "3-part talk at Washington University, St. Louis"
 links:
   - type: pdf
-    url: "/files/modeldependence-washu.pdf"
+    url: "files/modeldependence-washu.pdf"
 ---

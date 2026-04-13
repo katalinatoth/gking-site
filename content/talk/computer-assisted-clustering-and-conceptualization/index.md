@@ -9,5 +9,5 @@ publication_types:
 abstract: "Parthemos Lecture"
 links:
   - type: pdf
-    url: "/files/discov-uga.pdf"
+    url: "files/discov-uga.pdf"
 ---

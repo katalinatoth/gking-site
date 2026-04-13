@@ -11,5 +11,5 @@ publication_types:
 abstract: "Two features of quantitative political methodology make teaching and learning especially difficult: (1) Each new concept in probability, statistics, and inference builds on all previous (and sometimes all other relevant) concepts; and (2) motivating substantively oriented students, by teaching these abstract theories simultaneously with the practical details of a statistical programming language (such as R), makes learning each subject harder. We address both problems through a new type of automated teaching tool that helps students see the big theoretical picture and all its separate parts at the same time without having to simultaneously learn to program. This tool, which we make available viaone click in a web browser, can be used in a traditional methods class, but is also designed to work without instructor supervision."
 links:
   - type: pdf
-    url: "/files/statistical-intuition-without-coding-or-teachers.pdf"
+    url: "files/statistical-intuition-without-coding-or-teachers.pdf"
 ---

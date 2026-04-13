@@ -8,5 +8,5 @@ publication_types:
 abstract: "This is a book review of Steven J. Rosenstone,Forecasting Presidential Elections, New Haven: Yale University Press, 1983."
 links:
   - type: pdf
-    url: "/files/rosenstonebookreview.pdf"
+    url: "files/rosenstonebookreview.pdf"
 ---

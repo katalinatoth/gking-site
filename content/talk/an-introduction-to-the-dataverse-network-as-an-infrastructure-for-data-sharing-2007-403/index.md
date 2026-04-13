@@ -8,5 +8,5 @@ publication_types:
   - "journal_article"
 links:
   - type: pdf
-    url: "/files/dvn-nsf.pdf"
+    url: "files/dvn-nsf.pdf"
 ---

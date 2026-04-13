@@ -7,5 +7,5 @@ publication_types:
   - "presentation"
 links:
   - type: pdf
-    url: "/files/discov-umassa_0_0.pdf"
+    url: "files/discov-umassa_0_0.pdf"
 ---

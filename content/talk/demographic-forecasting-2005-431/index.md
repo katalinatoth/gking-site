@@ -7,5 +7,5 @@ publication_types:
   - "presentation"
 links:
   - type: pdf
-    url: "/files/wharton_0_0.pdf"
+    url: "files/wharton_0_0.pdf"
 ---

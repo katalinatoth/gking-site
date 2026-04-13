@@ -7,5 +7,5 @@ publication_types:
   - "presentation"
 links:
   - type: pdf
-    url: "/files/spi-hsph13_0.pdf"
+    url: "files/spi-hsph13_0.pdf"
 ---

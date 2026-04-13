@@ -7,5 +7,5 @@ publication_types:
   - "presentation"
 links:
   - type: pdf
-    url: "/files/vign-gmmc_1.pdf"
+    url: "files/vign-gmmc_1.pdf"
 ---

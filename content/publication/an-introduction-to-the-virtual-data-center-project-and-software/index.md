@@ -14,5 +14,5 @@ publication_types:
   - "journal_article"
 links:
   - type: pdf
-    url: "/files/jcdl01.pdf"
+    url: "files/jcdl01.pdf"
 ---

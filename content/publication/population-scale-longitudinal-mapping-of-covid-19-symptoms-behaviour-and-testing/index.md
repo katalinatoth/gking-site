@@ -43,7 +43,7 @@ publication_types:
 abstract: "Despite the widespread implementation of public health measures, coronavirus disease 2019 (COVID-19) continues to spread in the United States. To facilitate an agile response to the pandemic, we developed How We Feel, a web and mobile application that collects longitudinal self-reported survey responses on health, behaviour and demographics. Here, we report results from over 500,000 users in the United States from 2 April 2020 to 12 May 2020. We show that self-reported surveys can be used to build predictive models to identify likely COVID-19-positive individuals. We find evidence among our users for asymptomatic or presymptomatic presentation; show a variety of exposure, occupational and demographic risk factors for COVID-19 beyond symptoms; reveal factors for which users have been SARS-CoV-2 PCR tested; and highlight the temporal dynamics of symptoms and self-isolation behaviour. These results highlight the utility of collecting a diverse set of symptomatic, demographic, exposure and behavioural self-reported data to fight the COVID-19 pandemic."
 links:
   - type: pdf
-    url: "/files/s41562-020-00944-2_1600098038_1.pdf"
+    url: "files/s41562-020-00944-2_1600098038_1.pdf"
   - type: source
     url: "https://rdcu.be/b7dA6"
 ---

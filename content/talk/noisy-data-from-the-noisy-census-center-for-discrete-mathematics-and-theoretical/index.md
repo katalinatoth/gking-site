@@ -8,5 +8,5 @@ publication_types:
 abstract: "Talk at the Workshop on the Analysis of Census Noisy Measurement Files and Differential Privacy"
 links:
   - type: pdf
-    url: "/files/noisymeas.pdf"
+    url: "files/noisymeas.pdf"
 ---

@@ -9,5 +9,5 @@ publication_types:
   - "book_chapter"
 links:
   - type: pdf
-    url: "/files/eiintro.pdf"
+    url: "files/eiintro.pdf"
 ---

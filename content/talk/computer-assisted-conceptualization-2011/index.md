@@ -7,5 +7,5 @@ publication_types:
   - "presentation"
 links:
   - type: pdf
-    url: "/files/discov-gsas.pdf"
+    url: "files/discov-gsas.pdf"
 ---

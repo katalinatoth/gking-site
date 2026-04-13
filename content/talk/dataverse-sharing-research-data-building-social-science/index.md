@@ -7,7 +7,7 @@ publication_types:
   - "presentation"
 links:
   - type: pdf
-    url: "/files/apsa-dataverse-gk.pdf"
+    url: "files/apsa-dataverse-gk.pdf"
   - name: "Replication Data"
     url: "#"
 ---

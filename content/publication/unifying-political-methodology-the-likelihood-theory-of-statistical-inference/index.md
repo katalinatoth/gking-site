@@ -7,7 +7,7 @@ publication_types:
   - "book"
 links:
   - type: pdf
-    url: "/files/uoschg_0.pdf"
+    url: "files/uoschg_0.pdf"
   - type: source
     url: "http://www.press.umich.edu/titleDetailDesc.do?id=23784"
 ---

@@ -11,5 +11,5 @@ publication_types:
 abstract: "For context, see Bernard Grofman and Gary King. 2008. “The Future of Partisan Symmetry as a Judicial Test for Partisan Gerrymandering after LULAC v. Perry.”Election Law Journal, 6, 1, Pp. 2-35."
 links:
   - type: pdf
-    url: "/files/amicus-sym_01.pdf"
+    url: "files/amicus-sym_01.pdf"
 ---

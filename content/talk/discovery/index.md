@@ -7,5 +7,5 @@ publication_types:
   - "presentation"
 links:
   - type: pdf
-    url: "/files/discov-iqmr.pdf"
+    url: "files/discov-iqmr.pdf"
 ---

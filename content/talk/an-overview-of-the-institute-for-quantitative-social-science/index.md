@@ -7,5 +7,5 @@ publication_types:
   - "presentation"
 links:
   - type: pdf
-    url: "/files/iqss_dec2011.pdf"
+    url: "files/iqss_dec2011.pdf"
 ---
