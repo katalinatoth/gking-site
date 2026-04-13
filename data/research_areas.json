@@ -1,0 +1,1614 @@
+{
+  "methods": [
+    {
+      "name": "Anchoring Vignettes (for interpersonal incomparability)",
+      "subcategories": [
+        {
+          "name": "Anchoring Vignettes Overview",
+          "papers": [
+            {
+              "title": "Anchoring Vignettes (for interpersonal incomparability)",
+              "section": "talk",
+              "slug": "anchoring-vignettes-for-interpersonal-and-cross-cultural-incomparability-in-surv"
+            },
+            {
+              "title": "Ecological Inference",
+              "section": "publication",
+              "slug": "ecological-inference"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Automated Text Analysis",
+      "subcategories": [
+        {
+          "name": "Content Analysis",
+          "papers": [
+            {
+              "title": "A Method of Automated Nonparametric Content Analysis for Social Science",
+              "section": "publication",
+              "slug": "a-method-of-automated-nonparametric-content-analysis-for-social-science"
+            },
+            {
+              "title": "An Automated Information Extraction Tool For International Conflict Data With Performance As Good As Human Coders: A Rare Events Evaluation Design",
+              "section": "publication",
+              "slug": "an-automated-information-extraction-tool-for-international-conflict-data-with-pe"
+            },
+            {
+              "title": "An Improved Method of Automated Nonparametric Content Analysis for Social Science",
+              "section": "publication",
+              "slug": "an-improved-method-of-automated-nonparametric-content-analysis-for-social-scienc"
+            },
+            {
+              "title": "Computer-Assisted Keyword and Document Set Discovery from Unstructured Text",
+              "section": "publication",
+              "slug": "computer-assisted-keyword-and-document-set-discovery-from-unstructured-text"
+            },
+            {
+              "title": "General Purpose Computer-Assisted Clustering and Conceptualization",
+              "section": "publication",
+              "slug": "general-purpose-computer-assisted-clustering-and-conceptualization"
+            },
+            {
+              "title": "How Censorship in China Allows Government Criticism But Silences Collective Expression",
+              "section": "publication",
+              "slug": "how-censorship-in-china-allows-government-criticism-but-silences-collective-expr-2013"
+            },
+            {
+              "title": "Method and Apparatus for Selecting Clusterings to Classify A Predetermined Data Set",
+              "section": "publication",
+              "slug": "method-and-apparatus-for-selecting-clusterings-to-classify-a-predetermined-data"
+            },
+            {
+              "title": "Participant Grouping for Enhanced Interactive Experience",
+              "section": "publication",
+              "slug": "participant-grouping-for-enhanced-interactive-experience"
+            },
+            {
+              "title": "Reverse-Engineering Censorship in China: Randomized Experimentation and Participant Observation",
+              "section": "publication",
+              "slug": "reverse-engineering-censorship-in-china-randomized-experimentation-and-participa"
+            },
+            {
+              "title": "Some Statistical Methods for Evaluating Information Extraction Systems",
+              "section": "publication",
+              "slug": "some-statistical-methods-for-evaluating-information-extraction-systems"
+            },
+            {
+              "title": "System for Estimating a Distribution of Message Content Categories in Source Data",
+              "section": "publication",
+              "slug": "system-for-estimating-a-distribution-of-message-content-categories-in-source-dat-2012"
+            },
+            {
+              "title": "System for Estimating a Distribution of Message Content Categories in Source Data (2nd)",
+              "section": "publication",
+              "slug": "system-for-estimating-a-distribution-of-message-content-categories-in-source-dat"
+            },
+            {
+              "title": "Systems and Methods for Calculating Category Proportions",
+              "section": "publication",
+              "slug": "systems-and-methods-for-calculating-category-proportions"
+            },
+            {
+              "title": "You Lie! Patterns of Partisan Taunting in the U.S. Senate (Poster)",
+              "section": "publication",
+              "slug": "you-lie-patterns-of-partisan-taunting-in-the-us-senate-poster"
+            }
+          ]
+        },
+        {
+          "name": "Software",
+          "papers": [
+            {
+              "title": "ReadMe: Software for Automated Content Analysis",
+              "section": "publication",
+              "slug": "readme-software-for-automated-content-analysis"
+            }
+          ]
+        },
+        {
+          "name": "Data",
+          "papers": [
+            {
+              "title": "10 Million International Dyadic Events",
+              "section": "publication",
+              "slug": "10-million-international-dyadic-events"
+            },
+            {
+              "title": "Anchoring Vignettes (for interpersonal incomparability)",
+              "section": "talk",
+              "slug": "anchoring-vignettes-for-interpersonal-and-cross-cultural-incomparability-in-surv"
+            },
+            {
+              "title": "Ecological Inference",
+              "section": "publication",
+              "slug": "ecological-inference"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Causal Inference",
+      "subcategories": [
+        {
+          "name": "Evaluating Model Dependence",
+          "papers": [
+            {
+              "title": "The Dangers of Extreme Counterfactuals",
+              "section": "publication",
+              "slug": "the-dangers-of-extreme-counterfactuals"
+            },
+            {
+              "title": "When Can History Be Our Guide? The Pitfalls of Counterfactual Inference",
+              "section": "publication",
+              "slug": "when-can-history-be-our-guide-the-pitfalls-of-counterfactual-inference"
+            }
+          ]
+        },
+        {
+          "name": "Matching Methods",
+          "papers": [
+            {
+              "title": "A Theory of Statistical Inference for Matching Methods in Causal Research",
+              "section": "publication",
+              "slug": "a-theory-of-statistical-inference-for-matching-methods-in-causal-research"
+            },
+            {
+              "title": "Causal Inference Without Balance Checking: Coarsened Exact Matching",
+              "section": "publication",
+              "slug": "causal-inference-without-balance-checking-coarsened-exact-matching"
+            },
+            {
+              "title": "CEM: Coarsened Exact Matching in Stata",
+              "section": "publication",
+              "slug": "cem-coarsened-exact-matching-in-stata"
+            },
+            {
+              "title": "CEM: Software for Coarsened Exact Matching",
+              "section": "publication",
+              "slug": "cem-software-for-coarsened-exact-matching"
+            },
+            {
+              "title": "Comparative Effectiveness of Matching Methods for Causal Inference",
+              "section": "publication",
+              "slug": "comparative-effectiveness-of-matching-methods-for-causal-inference"
+            },
+            {
+              "title": "Matching As Nonparametric Preprocessing for Reducing Model Dependence in Parametric Causal Inference",
+              "section": "publication",
+              "slug": "matching-as-nonparametric-preprocessing-for-reducing-model-dependence-in-paramet"
+            },
+            {
+              "title": "MatchIt: Nonparametric Preprocessing for Parametric Causal Inference",
+              "section": "publication",
+              "slug": "matchit-nonparametric-preprocessing-for-parametric-causal-inference-2007"
+            },
+            {
+              "title": "Multivariate Matching Methods That Are Monotonic Imbalance Bounding",
+              "section": "publication",
+              "slug": "multivariate-matching-methods-that-are-monotonic-imbalance-bounding"
+            },
+            {
+              "title": "The Balance-Sample Size Frontier in Matching Methods for Causal Inference",
+              "section": "publication",
+              "slug": "the-balance-sample-size-frontier-in-matching-methods-for-causal-inference"
+            },
+            {
+              "title": "Why Propensity Scores Should Not Be Used for Matching",
+              "section": "publication",
+              "slug": "why-propensity-scores-should-not-be-used-for-matching"
+            }
+          ]
+        },
+        {
+          "name": "Additional Approaches",
+          "papers": [
+            {
+              "title": "\u2019Truth\u2019 Is Stranger Than Prediction, More Questionable Than Causal Inference",
+              "section": "publication",
+              "slug": "truth-is-stranger-than-prediction-more-questionable-than-causal-inference"
+            },
+            {
+              "title": "Designing Social Inquiry: Scientific Inference in Qualitative Research",
+              "section": "publication",
+              "slug": "designing-social-inquiry-scientific-inference-in-qualitative-research"
+            },
+            {
+              "title": "Estimating Risk and Rate Levels, Ratios, and Differences in Case-Control Studies",
+              "section": "publication",
+              "slug": "estimating-risk-and-rate-levels-ratios-and-differences-in-case-control-studies"
+            }
+          ]
+        },
+        {
+          "name": "Software",
+          "papers": [
+            {
+              "title": "CEM: Coarsened Exact Matching in Stata",
+              "section": "publication",
+              "slug": "cem-coarsened-exact-matching-in-stata"
+            },
+            {
+              "title": "CLARIFY: Software for Interpreting and Presenting Statistical Results",
+              "section": "publication",
+              "slug": "clarify-software-for-interpreting-and-presenting-statistical-results"
+            },
+            {
+              "title": "MatchingFrontier: R Package for Calculating the Balance-Sample Size Frontier",
+              "section": "publication",
+              "slug": "matchingfrontier-r-package-for-calculating-the-balance-sample-size-frontier"
+            },
+            {
+              "title": "MatchIt: Nonparametric Preprocessing for Parametric Causal Inference",
+              "section": "publication",
+              "slug": "matchit-nonparametric-preprocessing-for-parametric-causal-inference-2007"
+            },
+            {
+              "title": "WhatIf: Software for Evaluating Counterfactuals",
+              "section": "publication",
+              "slug": "whatif-software-for-evaluating-counterfactuals-2005"
+            },
+            {
+              "title": "Zelig: Everyone\u2019s Statistical Software",
+              "section": "publication",
+              "slug": "zelig-everyones-statistical-software"
+            },
+            {
+              "title": "The Effect of War on the Supreme Court",
+              "section": "publication",
+              "slug": "the-effect-of-war-on-the-supreme-court"
+            },
+            {
+              "title": "The Supreme Court During Crisis: How War Affects only Non-War Cases",
+              "section": "publication",
+              "slug": "the-supreme-court-during-crisis-how-war-affects-only-non-war-cases"
+            },
+            {
+              "title": "Anchoring Vignettes (for interpersonal incomparability)",
+              "section": "talk",
+              "slug": "anchoring-vignettes-for-interpersonal-and-cross-cultural-incomparability-in-surv"
+            },
+            {
+              "title": "Ecological Inference",
+              "section": "publication",
+              "slug": "ecological-inference"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Event Counts and Durations",
+      "subcategories": [
+        {
+          "name": "Event Counts",
+          "papers": [
+            {
+              "title": "A Correction for an Underdispersed Event Count Probability Distribution",
+              "section": "publication",
+              "slug": "a-correction-for-an-underdispersed-event-count-probability-distribution"
+            },
+            {
+              "title": "A Seemingly Unrelated Poisson Regression Model",
+              "section": "publication",
+              "slug": "a-seemingly-unrelated-poisson-regression-model"
+            },
+            {
+              "title": "Demographic Forecasting",
+              "section": "publication",
+              "slug": "demographic-forecasting-2008"
+            },
+            {
+              "title": "Event Count Models for International Relations: Generalizations and Applications",
+              "section": "publication",
+              "slug": "event-count-models-for-international-relations-generalizations-and-applications"
+            },
+            {
+              "title": "Presidential Appointments to the Supreme Court: Adding Systematic Explanation to Probabilistic Description",
+              "section": "publication",
+              "slug": "presidential-appointments-to-the-supreme-court-adding-systematic-explanation-to"
+            },
+            {
+              "title": "Statistical Models for Political Science Event Counts: Bias in Conventional Procedures and Evidence for The Exponential Poisson Regression Model",
+              "section": "publication",
+              "slug": "statistical-models-for-political-science-event-counts-bias-in-conventional-proce"
+            },
+            {
+              "title": "The Generalization in the Generalized Event Count Model, With Comments on Achen, Amato, and Londregan",
+              "section": "publication",
+              "slug": "the-generalization-in-the-generalized-event-count-model-with-comments-on-achen-a"
+            },
+            {
+              "title": "Unifying Political Methodology: The Likelihood Theory of Statistical Inference",
+              "section": "publication",
+              "slug": "unifying-political-methodology-the-likelihood-theory-of-statistical-inference"
+            },
+            {
+              "title": "Variance Specification in Event Count Models: From Restrictive Assumptions to a Generalized Estimator",
+              "section": "publication",
+              "slug": "variance-specification-in-event-count-models-from-restrictive-assumptions-to-a-g"
+            }
+          ]
+        },
+        {
+          "name": "Duration of Parliamentary Governments",
+          "papers": [
+            {
+              "title": "A Unified Model of Cabinet Dissolution in Parliamentary Democracies",
+              "section": "publication",
+              "slug": "a-unified-model-of-cabinet-dissolution-in-parliamentary-democracies"
+            },
+            {
+              "title": "Aggregation Among Binary, Count, and Duration Models: Estimating the Same Quantities from Different Levels of Data",
+              "section": "publication",
+              "slug": "aggregation-among-binary-count-and-duration-models-estimating-the-same-quantitie"
+            },
+            {
+              "title": "Transfers of Governmental Power: The Meaning of Time Dependence",
+              "section": "publication",
+              "slug": "transfers-of-governmental-power-the-meaning-of-time-dependence"
+            }
+          ]
+        },
+        {
+          "name": "Software",
+          "papers": [
+            {
+              "title": "COUNT: A Program for Estimating Event Count and Duration Regressions",
+              "section": "publication",
+              "slug": "count-a-program-for-estimating-event-count-and-duration-regressions"
+            },
+            {
+              "title": "Zelig: Everyone\u2019s Statistical Software",
+              "section": "publication",
+              "slug": "zelig-everyones-statistical-software"
+            }
+          ]
+        },
+        {
+          "name": "Related Data",
+          "papers": [
+            {
+              "title": "10 Million International Dyadic Events",
+              "section": "publication",
+              "slug": "10-million-international-dyadic-events"
+            },
+            {
+              "title": "Anchoring Vignettes (for interpersonal incomparability)",
+              "section": "talk",
+              "slug": "anchoring-vignettes-for-interpersonal-and-cross-cultural-incomparability-in-surv"
+            },
+            {
+              "title": "Ecological Inference",
+              "section": "publication",
+              "slug": "ecological-inference"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ecological Inference",
+      "subcategories": [
+        {
+          "name": "Software",
+          "papers": [
+            {
+              "title": "EI: A Program for Ecological Inference",
+              "section": "publication",
+              "slug": "ei-a-program-for-ecological-inference"
+            },
+            {
+              "title": "EzI: A(n Easy) Program for Ecological Inference",
+              "section": "publication",
+              "slug": "ezi-an-easy-program-for-ecological-inference"
+            },
+            {
+              "title": "Zelig: Everyone\u2019s Statistical Software",
+              "section": "publication",
+              "slug": "zelig-everyones-statistical-software"
+            }
+          ]
+        },
+        {
+          "name": "Discussions and Extensions",
+          "papers": [
+            {
+              "title": "A Consensus on Second Stage Analyses in Ecological Inference Models",
+              "section": "publication",
+              "slug": "a-consensus-on-second-stage-analyses-in-ecological-inference-models"
+            },
+            {
+              "title": "Analyzing Second Stage Ecological Regressions",
+              "section": "publication",
+              "slug": "analyzing-second-stage-ecological-regressions"
+            },
+            {
+              "title": "Finding New Information for Ecological Inference Models: A Comment on Jon Wakefield, \u2019Ecological Inference in 2X2 Tables\u2019",
+              "section": "publication",
+              "slug": "finding-new-information-for-ecological-inference-models-a-comment-on-jon-wakefie"
+            },
+            {
+              "title": "Geography, Statistics, and Ecological Inference",
+              "section": "publication",
+              "slug": "geography-statistics-and-ecological-inference"
+            },
+            {
+              "title": "Isolating Spatial Autocorrelation, Aggregation Bias, and Distributional Violations in Ecological Inference",
+              "section": "publication",
+              "slug": "isolating-spatial-autocorrelation-aggregation-bias-and-distributional-violations"
+            },
+            {
+              "title": "The Future of Ecological Inference Research: A Reply to Freedman et Al.",
+              "section": "publication",
+              "slug": "the-future-of-ecological-inference-research-a-reply-to-freedman-et-al"
+            },
+            {
+              "title": "Anchoring Vignettes (for interpersonal incomparability)",
+              "section": "talk",
+              "slug": "anchoring-vignettes-for-interpersonal-and-cross-cultural-incomparability-in-surv"
+            },
+            {
+              "title": "Ecological Inference",
+              "section": "publication",
+              "slug": "ecological-inference"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Missing Data, Measurement Error, Differential Privacy",
+      "subcategories": [
+        {
+          "name": "Differential Privacy",
+          "papers": [
+            {
+              "title": "Differentially Private Survey Research",
+              "section": "publication",
+              "slug": "differentially-private-survey-research"
+            },
+            {
+              "title": "Letter to US Census Bureau: \u2018Request for Release of \u2018noisy Measurements File\u2019 by September 30 Along With Redistricting Data Products\u2019",
+              "section": "publication",
+              "slug": "letter-to-us-census-bureau-request-for-release-of-noisy-measurements-file-by-sep"
+            },
+            {
+              "title": "Statistically Valid Inferences from Differentially Private Data Releases, With Application to the Facebook URLs Dataset",
+              "section": "publication",
+              "slug": "statistically-valid-inferences-from-differentially-private-data-releases-with-ap"
+            },
+            {
+              "title": "Statistically Valid Inferences from Privacy Protected Data",
+              "section": "publication",
+              "slug": "statistically-valid-inferences-from-privacy-protected-data"
+            },
+            {
+              "title": "There\u2019s a Simple Solution to the Latest Census Fight",
+              "section": "publication",
+              "slug": "theres-a-simple-solution-to-the-latest-census-fight"
+            }
+          ]
+        },
+        {
+          "name": "Missing Data, Measurement Error",
+          "papers": [
+            {
+              "title": "A Fast, Easy, and Efficient Estimator for Multiparty Electoral Data",
+              "section": "publication",
+              "slug": "a-fast-easy-and-efficient-estimator-for-multiparty-electoral-data"
+            },
+            {
+              "title": "A Statistical Model for Multiparty Electoral Data",
+              "section": "publication",
+              "slug": "a-statistical-model-for-multiparty-electoral-data"
+            },
+            {
+              "title": "A Unified Approach to Measurement Error and Missing Data: Details and Extensions",
+              "section": "publication",
+              "slug": "a-unified-approach-to-measurement-error-and-missing-data-details-and-extensions"
+            },
+            {
+              "title": "A Unified Approach to Measurement Error and Missing Data: Overview and Applications",
+              "section": "publication",
+              "slug": "a-unified-approach-to-measurement-error-and-missing-data-overview-and-applicatio"
+            },
+            {
+              "title": "Analyzing Incomplete Political Science Data: An Alternative Algorithm for Multiple Imputation",
+              "section": "publication",
+              "slug": "analyzing-incomplete-political-science-data-an-alternative-algorithm-for-multipl"
+            },
+            {
+              "title": "Not Asked and Not Answered: Multiple Imputation for Multiple Surveys",
+              "section": "publication",
+              "slug": "not-asked-and-not-answered-multiple-imputation-for-multiple-surveys"
+            },
+            {
+              "title": "Statistically Valid Inferences from Privacy Protected Data",
+              "section": "publication",
+              "slug": "statistically-valid-inferences-from-privacy-protected-data"
+            },
+            {
+              "title": "What to Do About Missing Values in Time Series Cross-Section Data",
+              "section": "publication",
+              "slug": "what-to-do-about-missing-values-in-time-series-cross-section-data"
+            }
+          ]
+        },
+        {
+          "name": "Software",
+          "papers": [
+            {
+              "title": "AMELIA II: A Program for Missing Data",
+              "section": "publication",
+              "slug": "amelia-ii-a-program-for-missing-data"
+            },
+            {
+              "title": "CLARIFY: Software for Interpreting and Presenting Statistical Results",
+              "section": "publication",
+              "slug": "clarify-software-for-interpreting-and-presenting-statistical-results"
+            },
+            {
+              "title": "Zelig: Everyone\u2019s Statistical Software",
+              "section": "publication",
+              "slug": "zelig-everyones-statistical-software"
+            }
+          ]
+        },
+        {
+          "name": "How Surveys Work",
+          "papers": [
+            {
+              "title": "Pre-Election Survey Methodology: Details From Nine Polling Organizations, 1988 and 1992",
+              "section": "publication",
+              "slug": "pre-election-survey-methodology-details-from-nine-polling-organizations-1988-and"
+            },
+            {
+              "title": "Anchoring Vignettes (for interpersonal incomparability)",
+              "section": "talk",
+              "slug": "anchoring-vignettes-for-interpersonal-and-cross-cultural-incomparability-in-surv"
+            },
+            {
+              "title": "Ecological Inference",
+              "section": "publication",
+              "slug": "ecological-inference"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Qualitative Research",
+      "subcategories": [
+        {
+          "name": "Scientific Inference in Qualitative Research",
+          "papers": [
+            {
+              "title": "Designing Social Inquiry: Scientific Inference in Qualitative Research",
+              "section": "publication",
+              "slug": "designing-social-inquiry-scientific-inference-in-qualitative-research"
+            },
+            {
+              "title": "Designing Social Inquiry: Scientific Inference in Qualitative Research, New Edition",
+              "section": "publication",
+              "slug": "designing-social-inquiry-scientific-inference-in-qualitative-research-new-editio"
+            },
+            {
+              "title": "How Not to Lie Without Statistics",
+              "section": "publication",
+              "slug": "how-not-to-lie-without-statistics"
+            },
+            {
+              "title": "The Importance of Research Design in Political Science",
+              "section": "publication",
+              "slug": "the-importance-of-research-design-in-political-science"
+            }
+          ]
+        },
+        {
+          "name": "In Legal Research",
+          "papers": [
+            {
+              "title": "Building An Infrastructure for Empirical Research in the Law",
+              "section": "publication",
+              "slug": "building-an-infrastructure-for-empirical-research-in-the-law"
+            },
+            {
+              "title": "The Rules of Inference",
+              "section": "publication",
+              "slug": "the-rules-of-inference"
+            },
+            {
+              "title": "Anchoring Vignettes (for interpersonal incomparability)",
+              "section": "talk",
+              "slug": "anchoring-vignettes-for-interpersonal-and-cross-cultural-incomparability-in-surv"
+            },
+            {
+              "title": "Ecological Inference",
+              "section": "publication",
+              "slug": "ecological-inference"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Rare Events",
+      "subcategories": [
+        {
+          "name": "Bias Correction",
+          "papers": [
+            {
+              "title": "Explaining Rare Events in International Relations",
+              "section": "publication",
+              "slug": "explaining-rare-events-in-international-relations"
+            },
+            {
+              "title": "Logistic Regression in Rare Events Data",
+              "section": "publication",
+              "slug": "logistic-regression-in-rare-events-data"
+            }
+          ]
+        },
+        {
+          "name": "Estimating Base Probabilities",
+          "papers": [
+            {
+              "title": "Estimating Risk and Rate Levels, Ratios, and Differences in Case-Control Studies",
+              "section": "publication",
+              "slug": "estimating-risk-and-rate-levels-ratios-and-differences-in-case-control-studies"
+            },
+            {
+              "title": "Inference in Case-Control Studies",
+              "section": "publication",
+              "slug": "inference-in-case-control-studies-2004"
+            }
+          ]
+        },
+        {
+          "name": "Hidden Region 1",
+          "papers": [
+            {
+              "title": "Improving Forecasts of State Failure",
+              "section": "publication",
+              "slug": "improving-forecasts-of-state-failure"
+            }
+          ]
+        },
+        {
+          "name": "Hidden Region 2",
+          "papers": [
+            {
+              "title": "Aggregation Among Binary, Count, and Duration Models: Estimating the Same Quantities from Different Levels of Data",
+              "section": "publication",
+              "slug": "aggregation-among-binary-count-and-duration-models-estimating-the-same-quantitie"
+            },
+            {
+              "title": "Estimating the Probability of Events That Have Never Occurred: When Is Your Vote Decisive?",
+              "section": "publication",
+              "slug": "estimating-the-probability-of-events-that-have-never-occurred-when-is-your-vote"
+            }
+          ]
+        },
+        {
+          "name": "Software",
+          "papers": [
+            {
+              "title": "ReLogit: Rare Events Logistic Regression",
+              "section": "publication",
+              "slug": "relogit-rare-events-logistic-regression-2003"
+            },
+            {
+              "title": "Zelig: Everyone\u2019s Statistical Software",
+              "section": "publication",
+              "slug": "zelig-everyones-statistical-software"
+            }
+          ]
+        },
+        {
+          "name": "Data",
+          "papers": [
+            {
+              "title": "10 Million International Dyadic Events",
+              "section": "publication",
+              "slug": "10-million-international-dyadic-events"
+            },
+            {
+              "title": "Anchoring Vignettes (for interpersonal incomparability)",
+              "section": "talk",
+              "slug": "anchoring-vignettes-for-interpersonal-and-cross-cultural-incomparability-in-surv"
+            },
+            {
+              "title": "Ecological Inference",
+              "section": "publication",
+              "slug": "ecological-inference"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Survey Research",
+      "subcategories": [
+        {
+          "name": "Survey Research",
+          "papers": [
+            {
+              "title": "Automated Cognitive Debriefing",
+              "section": "publication",
+              "slug": "automated-cognitive-debriefing"
+            },
+            {
+              "title": "Death by Survey: Estimating Adult Mortality Without Selection Bias from Sibling Survival Data",
+              "section": "publication",
+              "slug": "death-by-survey-estimating-adult-mortality-without-selection-bias-from-sibling-s"
+            },
+            {
+              "title": "Designing Verbal Autopsy Studies",
+              "section": "publication",
+              "slug": "designing-verbal-autopsy-studies"
+            },
+            {
+              "title": "Differentially Private Survey Research",
+              "section": "publication",
+              "slug": "differentially-private-survey-research"
+            },
+            {
+              "title": "Evaluating COVID-19 Public Health Messaging in Italy: Self-Reported Compliance and Growing Mental Health Concerns",
+              "section": "publication",
+              "slug": "evaluating-covid-19-public-health-messaging-in-italy-self-reported-compliance-an"
+            },
+            {
+              "title": "How to Measure Legislative District Compactness If You Only Know It When You See It",
+              "section": "publication",
+              "slug": "how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-2021"
+            },
+            {
+              "title": "Measuring Total Health Inequality: Adding Individual Variation to Group-Level Differences",
+              "section": "publication",
+              "slug": "measuring-total-health-inequality-adding-individual-variation-to-group-level-dif"
+            },
+            {
+              "title": "Pre-Election Survey Methodology: Details From Nine Polling Organizations, 1988 and 1992",
+              "section": "publication",
+              "slug": "pre-election-survey-methodology-details-from-nine-polling-organizations-1988-and"
+            },
+            {
+              "title": "Verbal Autopsy Methods With Multiple Causes of Death",
+              "section": "publication",
+              "slug": "verbal-autopsy-methods-with-multiple-causes-of-death"
+            },
+            {
+              "title": "Why Are American Presidential Election Campaign Polls so Variable When Votes Are so Predictable?",
+              "section": "publication",
+              "slug": "why-are-american-presidential-election-campaign-polls-so-variable-when-votes-are"
+            },
+            {
+              "title": "Anchoring Vignettes (for interpersonal incomparability)",
+              "section": "talk",
+              "slug": "anchoring-vignettes-for-interpersonal-and-cross-cultural-incomparability-in-surv"
+            },
+            {
+              "title": "Ecological Inference",
+              "section": "publication",
+              "slug": "ecological-inference"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Unifying Statistical Analysis",
+      "subcategories": [
+        {
+          "name": "Unifying Approaches to Statistical Analysis",
+          "papers": [
+            {
+              "title": "Calculating Standard Errors of Predicted Values Based on Nonlinear Functional Forms",
+              "section": "publication",
+              "slug": "calculating-standard-errors-of-predicted-values-based-on-nonlinear-functional-fo"
+            },
+            {
+              "title": "CLARIFY: Software for Interpreting and Presenting Statistical Results",
+              "section": "publication",
+              "slug": "clarify-software-for-interpreting-and-presenting-statistical-results"
+            },
+            {
+              "title": "Google Flu Trends Still Appears Sick: An Evaluation of the 2013\u20102014 Flu Season",
+              "section": "publication",
+              "slug": "google-flu-trends-still-appears-sick-an-evaluation-of-the-20132014-flu-season"
+            },
+            {
+              "title": "How Robust Standard Errors Expose Methodological Problems They Do Not Fix, and What to Do About It",
+              "section": "publication",
+              "slug": "how-robust-standard-errors-expose-methodological-problems-they-do-not-fix-and-wh"
+            },
+            {
+              "title": "Making the Most of Statistical Analyses: Improving Interpretation and Presentation",
+              "section": "publication",
+              "slug": "making-the-most-of-statistical-analyses-improving-interpretation-and-presentatio"
+            },
+            {
+              "title": "The Parable of Google Flu: Traps in Big Data Analysis",
+              "section": "publication",
+              "slug": "the-parable-of-google-flu-traps-in-big-data-analysis"
+            },
+            {
+              "title": "Toward A Common Framework for Statistical Analysis and Development",
+              "section": "publication",
+              "slug": "toward-a-common-framework-for-statistical-analysis-and-development"
+            },
+            {
+              "title": "Twitter: Big Data Opportunities\u2014Response",
+              "section": "publication",
+              "slug": "twitter-big-data-opportunitiesresponse"
+            },
+            {
+              "title": "Unifying Political Methodology: The Likelihood Theory of Statistical Inference",
+              "section": "publication",
+              "slug": "unifying-political-methodology-the-likelihood-theory-of-statistical-inference"
+            },
+            {
+              "title": "Zelig: Everyone\u2019s Statistical Software",
+              "section": "publication",
+              "slug": "zelig-everyones-statistical-software"
+            }
+          ]
+        },
+        {
+          "name": "Related Materials",
+          "papers": [
+            {
+              "title": "How Not to Lie With Statistics: Avoiding Common Mistakes in Quantitative Political Science",
+              "section": "publication",
+              "slug": "how-not-to-lie-with-statistics-avoiding-common-mistakes-in-quantitative-politica"
+            },
+            {
+              "title": "Numerical Issues Involved in Inverting Hessian Matrices",
+              "section": "publication",
+              "slug": "numerical-issues-involved-in-inverting-hessian-matrices"
+            },
+            {
+              "title": "On Political Methodology",
+              "section": "publication",
+              "slug": "on-political-methodology"
+            },
+            {
+              "title": "The Changing Evidence Base of Social Science Research",
+              "section": "publication",
+              "slug": "the-changing-evidence-base-of-social-science-research-2009"
+            },
+            {
+              "title": "What to Do When Your Hessian Is Not Invertible: Alternatives to Model Respecification in Nonlinear Estimation",
+              "section": "publication",
+              "slug": "what-to-do-when-your-hessian-is-not-invertible-alternatives-to-model-respecifica"
+            },
+            {
+              "title": "Anchoring Vignettes (for interpersonal incomparability)",
+              "section": "talk",
+              "slug": "anchoring-vignettes-for-interpersonal-and-cross-cultural-incomparability-in-surv"
+            },
+            {
+              "title": "Ecological Inference",
+              "section": "publication",
+              "slug": "ecological-inference"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "applications": [
+    {
+      "name": "Evaluating Social Security Forecasts",
+      "subcategories": []
+    },
+    {
+      "name": "Incumbency Advantage",
+      "subcategories": [
+        {
+          "name": "How to Estimate the Electoral Advantage of Incumbency",
+          "papers": [
+            {
+              "title": "A Fast, Easy, and Efficient Estimator for Multiparty Electoral Data",
+              "section": "publication",
+              "slug": "a-fast-easy-and-efficient-estimator-for-multiparty-electoral-data"
+            },
+            {
+              "title": "A Statistical Model for Multiparty Electoral Data",
+              "section": "publication",
+              "slug": "a-statistical-model-for-multiparty-electoral-data"
+            },
+            {
+              "title": "Estimating Incumbency Advantage Without Bias",
+              "section": "publication",
+              "slug": "estimating-incumbency-advantage-without-bias"
+            }
+          ]
+        },
+        {
+          "name": "Causes and Consequences",
+          "papers": [
+            {
+              "title": "Constituency Service and Incumbency Advantage",
+              "section": "publication",
+              "slug": "constituency-service-and-incumbency-advantage"
+            },
+            {
+              "title": "Systemic Consequences of Incumbency Advantage in the U.S. House",
+              "section": "publication",
+              "slug": "systemic-consequences-of-incumbency-advantage-in-the-us-house"
+            }
+          ]
+        },
+        {
+          "name": "Data",
+          "papers": [
+            {
+              "title": "Elections to the United States House of Representatives, 1898-1992",
+              "section": "publication",
+              "slug": "elections-to-the-united-states-house-of-representatives-1898-1992"
+            },
+            {
+              "title": "The Record of American Democracy, 1984-1990",
+              "section": "publication",
+              "slug": "the-record-of-american-democracy-1984-1990"
+            },
+            {
+              "title": "Anchoring Vignettes (for interpersonal incomparability)",
+              "section": "talk",
+              "slug": "anchoring-vignettes-for-interpersonal-and-cross-cultural-incomparability-in-surv"
+            },
+            {
+              "title": "Ecological Inference",
+              "section": "publication",
+              "slug": "ecological-inference"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Chinese Censorship",
+      "subcategories": []
+    },
+    {
+      "name": "Mexican Health Care Evaluation",
+      "subcategories": [
+        {
+          "name": "Publications",
+          "papers": [
+            {
+              "title": "A \u2018Politically Robust\u2019 Experimental Design for Public Policy Evaluation, With Application to the Mexican Universal Health Insurance Program",
+              "section": "publication",
+              "slug": "a-politically-robust-experimental-design-for-public-policy-evaluation-with-appli-2007"
+            },
+            {
+              "title": "Do Nonpartisan Programmatic Policies Have Partisan Electoral Effects? Evidence from Two Large Scale Experiments",
+              "section": "publication",
+              "slug": "do-nonpartisan-programmatic-policies-have-partisan-electoral-effects-evidence-fr"
+            },
+            {
+              "title": "Matched Pairs and the Future of Cluster-Randomized Experiments: A Rejoinder",
+              "section": "publication",
+              "slug": "matched-pairs-and-the-future-of-cluster-randomized-experiments-a-rejoinder"
+            },
+            {
+              "title": "Public Policy for the Poor? A Randomised Assessment of the Mexican Universal Health Insurance Programme",
+              "section": "publication",
+              "slug": "public-policy-for-the-poor-a-randomised-assessment-of-the-mexican-universal-heal"
+            },
+            {
+              "title": "Replication Data For: Public Policy for the Poor? A Randomised Assessment of the Mexican Universal Health Insurance Programme",
+              "section": "publication",
+              "slug": "replication-data-for-public-policy-for-the-poor-a-randomised-assessment-of-the-m"
+            },
+            {
+              "title": "The Essential Role of Pair Matching in Cluster-Randomized Experiments, With Application to the Mexican Universal Health Insurance Evaluation",
+              "section": "publication",
+              "slug": "the-essential-role-of-pair-matching-in-cluster-randomized-experiments-with-appli"
+            },
+            {
+              "title": "Anchoring Vignettes (for interpersonal incomparability)",
+              "section": "talk",
+              "slug": "anchoring-vignettes-for-interpersonal-and-cross-cultural-incomparability-in-surv"
+            },
+            {
+              "title": "Ecological Inference",
+              "section": "publication",
+              "slug": "ecological-inference"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Presidency Research; Voting Behavior",
+      "subcategories": [
+        {
+          "name": "Voting Behavior",
+          "papers": [
+            {
+              "title": "Book Review of `Forecasting Presidential Elections\u2019",
+              "section": "publication",
+              "slug": "book-review-of-forecasting-presidential-elections"
+            },
+            {
+              "title": "Did Illegal Overseas Absentee Ballots Decide the 2000 U.S. Presidential Election?",
+              "section": "publication",
+              "slug": "did-illegal-overseas-absentee-ballots-decide-the-2000-us-presidential-election"
+            },
+            {
+              "title": "Do Nonpartisan Programmatic Policies Have Partisan Electoral Effects? Evidence from Two Large Scale Experiments",
+              "section": "publication",
+              "slug": "do-nonpartisan-programmatic-policies-have-partisan-electoral-effects-evidence-fr"
+            },
+            {
+              "title": "Estimating Partisan Bias of the Electoral College Under Proposed Changes in Elector Apportionment",
+              "section": "publication",
+              "slug": "estimating-partisan-bias-of-the-electoral-college-under-proposed-changes-in-elec"
+            },
+            {
+              "title": "Estimating the Probability of Events That Have Never Occurred: When Is Your Vote Decisive?",
+              "section": "publication",
+              "slug": "estimating-the-probability-of-events-that-have-never-occurred-when-is-your-vote"
+            },
+            {
+              "title": "No Evidence on Directional Vs. Proximity Voting",
+              "section": "publication",
+              "slug": "no-evidence-on-directional-vs-proximity-voting"
+            },
+            {
+              "title": "On Party Platforms, Mandates, and Government Spending",
+              "section": "publication",
+              "slug": "on-party-platforms-mandates-and-government-spending"
+            },
+            {
+              "title": "Ordinary Economic Voting Behavior in the Extraordinary Election of Adolf Hitler",
+              "section": "publication",
+              "slug": "ordinary-economic-voting-behavior-in-the-extraordinary-election-of-adolf-hitler"
+            },
+            {
+              "title": "Party Competition and Media Messages in U.S. Presidential Election Campaigns",
+              "section": "publication",
+              "slug": "party-competition-and-media-messages-in-us-presidential-election-campaigns"
+            },
+            {
+              "title": "The City\u2019s Losing Clout",
+              "section": "publication",
+              "slug": "the-citys-losing-clout"
+            },
+            {
+              "title": "Why Are American Presidential Election Campaign Polls so Variable When Votes Are so Predictable?",
+              "section": "publication",
+              "slug": "why-are-american-presidential-election-campaign-polls-so-variable-when-votes-are"
+            }
+          ]
+        },
+        {
+          "name": "Presidency Research",
+          "papers": [
+            {
+              "title": "Many Publications, But Still No Evidence",
+              "section": "publication",
+              "slug": "many-publications-but-still-no-evidence"
+            },
+            {
+              "title": "The Elusive Executive: Discovering Statistical Patterns in the Presidency",
+              "section": "publication",
+              "slug": "the-elusive-executive-discovering-statistical-patterns-in-the-presidency"
+            },
+            {
+              "title": "The Methodology of Presidential Research",
+              "section": "publication",
+              "slug": "the-methodology-of-presidential-research"
+            },
+            {
+              "title": "The Presidency in American Politics",
+              "section": "publication",
+              "slug": "the-presidency-in-american-politics"
+            },
+            {
+              "title": "Anchoring Vignettes (for interpersonal incomparability)",
+              "section": "talk",
+              "slug": "anchoring-vignettes-for-interpersonal-and-cross-cultural-incomparability-in-surv"
+            },
+            {
+              "title": "Ecological Inference",
+              "section": "publication",
+              "slug": "ecological-inference"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Informatics and Data Sharing",
+      "subcategories": [
+        {
+          "name": "Informatics and Data Sharing",
+          "papers": [
+            {
+              "title": "A New Model for Industry-Academic Partnerships",
+              "section": "publication",
+              "slug": "a-new-model-for-industry-academic-partnerships"
+            },
+            {
+              "title": "A Revised Proposal, Proposal",
+              "section": "publication",
+              "slug": "a-revised-proposal-proposal"
+            },
+            {
+              "title": "Precision Mapping Child Undernutrition for Nearly 600,000 Inhabited Census Villages in India",
+              "section": "publication",
+              "slug": "precision-mapping-child-undernutrition-for-nearly-600000-inhabited-census-villag"
+            },
+            {
+              "title": "Preface: Big Data Is Not About the Data!",
+              "section": "publication",
+              "slug": "preface-big-data-is-not-about-the-data"
+            },
+            {
+              "title": "Publication, Publication",
+              "section": "publication",
+              "slug": "publication-publication"
+            },
+            {
+              "title": "Replication, Replication",
+              "section": "publication",
+              "slug": "replication-replication"
+            }
+          ]
+        },
+        {
+          "name": "Related Papers on New Forms of Data",
+          "papers": [
+            {
+              "title": "Computational Social Science",
+              "section": "publication",
+              "slug": "computational-social-science"
+            },
+            {
+              "title": "Ensuring the Data Rich Future of the Social Sciences",
+              "section": "publication",
+              "slug": "ensuring-the-data-rich-future-of-the-social-sciences"
+            },
+            {
+              "title": "Preserving Quantitative Research-Elicited Data for Longitudinal Analysis. New Developments in Archiving Survey Data in the U.S.",
+              "section": "publication",
+              "slug": "preserving-quantitative-research-elicited-data-for-longitudinal-analysis-new-dev"
+            },
+            {
+              "title": "The Changing Evidence Base of Social Science Research",
+              "section": "publication",
+              "slug": "the-changing-evidence-base-of-social-science-research-2009"
+            },
+            {
+              "title": "Anchoring Vignettes (for interpersonal incomparability)",
+              "section": "talk",
+              "slug": "anchoring-vignettes-for-interpersonal-and-cross-cultural-incomparability-in-surv"
+            },
+            {
+              "title": "Ecological Inference",
+              "section": "publication",
+              "slug": "ecological-inference"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "International Conflict",
+      "subcategories": [
+        {
+          "name": "International Conflict",
+          "papers": [
+            {
+              "title": "An Automated Information Extraction Tool For International Conflict Data With Performance As Good As Human Coders: A Rare Events Evaluation Design",
+              "section": "publication",
+              "slug": "an-automated-information-extraction-tool-for-international-conflict-data-with-pe"
+            },
+            {
+              "title": "Armed Conflict As a Public Health Problem",
+              "section": "publication",
+              "slug": "armed-conflict-as-a-public-health-problem"
+            },
+            {
+              "title": "Event Count Models for International Relations: Generalizations and Applications",
+              "section": "publication",
+              "slug": "event-count-models-for-international-relations-generalizations-and-applications"
+            },
+            {
+              "title": "Explaining Rare Events in International Relations",
+              "section": "publication",
+              "slug": "explaining-rare-events-in-international-relations"
+            },
+            {
+              "title": "Improving Forecasts of State Failure",
+              "section": "publication",
+              "slug": "improving-forecasts-of-state-failure"
+            },
+            {
+              "title": "Improving Quantitative Studies of International Conflict: A Conjecture",
+              "section": "publication",
+              "slug": "improving-quantitative-studies-of-international-conflict-a-conjecture"
+            },
+            {
+              "title": "Proper Nouns and Methodological Propriety: Pooling Dyads in International Relations Data",
+              "section": "publication",
+              "slug": "proper-nouns-and-methodological-propriety-pooling-dyads-in-international-relatio"
+            },
+            {
+              "title": "Rethinking Human Security",
+              "section": "publication",
+              "slug": "rethinking-human-security"
+            },
+            {
+              "title": "The Supreme Court During Crisis: How War Affects only Non-War Cases",
+              "section": "publication",
+              "slug": "the-supreme-court-during-crisis-how-war-affects-only-non-war-cases"
+            },
+            {
+              "title": "Theory and Evidence in International Conflict: A Response to de Marchi, Gelpi, and Grynaviski",
+              "section": "publication",
+              "slug": "theory-and-evidence-in-international-conflict-a-response-to-de-marchi-gelpi-and"
+            },
+            {
+              "title": "When Can History Be Our Guide? The Pitfalls of Counterfactual Inference",
+              "section": "publication",
+              "slug": "when-can-history-be-our-guide-the-pitfalls-of-counterfactual-inference"
+            },
+            {
+              "title": "Anchoring Vignettes (for interpersonal incomparability)",
+              "section": "talk",
+              "slug": "anchoring-vignettes-for-interpersonal-and-cross-cultural-incomparability-in-surv"
+            },
+            {
+              "title": "Ecological Inference",
+              "section": "publication",
+              "slug": "ecological-inference"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Legislative Redistricting",
+      "subcategories": [
+        {
+          "name": "U.S. Legislatures",
+          "papers": [
+            {
+              "title": "Data, Analyses, and Reports for the Arizona Independent Redistricting Commission, Filed With the U.S. Department of Justice",
+              "section": "publication",
+              "slug": "data-analyses-and-reports-for-the-arizona-independent-redistricting-commission-f"
+            },
+            {
+              "title": "Edited Transcript of a Talk on Partisan Symmetry at the \u2019Redistricting and Representation Forum\u2019",
+              "section": "publication",
+              "slug": "edited-transcript-of-a-talk-on-partisan-symmetry-at-the-redistricting-and-repres"
+            },
+            {
+              "title": "How to Conquer Partisan Gerrymandering",
+              "section": "publication",
+              "slug": "how-to-conquer-partisan-gerrymandering"
+            },
+            {
+              "title": "How to Measure Legislative District Compactness If You Only Know It When You See It",
+              "section": "publication",
+              "slug": "how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-2021"
+            },
+            {
+              "title": "The Future of Partisan Symmetry As a Judicial Test for Partisan Gerrymandering After LULAC V. Perry",
+              "section": "publication",
+              "slug": "the-future-of-partisan-symmetry-as-a-judicial-test-for-partisan-gerrymandering-a"
+            },
+            {
+              "title": "Theoretical Foundations and Empirical Evaluations of Partisan Fairness in District-Based Democracies",
+              "section": "publication",
+              "slug": "theoretical-foundations-and-empirical-evaluations-of-partisan-fairness-in-distri"
+            },
+            {
+              "title": "There\u2019s a Simple Solution to the Latest Census Fight",
+              "section": "publication",
+              "slug": "theres-a-simple-solution-to-the-latest-census-fight"
+            }
+          ]
+        },
+        {
+          "name": "The concept of partisan symmetry",
+          "papers": [
+            {
+              "title": "Brief of Amici Curiae Professors Gary King, Bernard Grofman, Andrew Gelman, and Jonathan Katz in Support of Neither Party",
+              "section": "publication",
+              "slug": "brief-of-amici-curiae-professors-gary-king-bernard-grofman-andrew-gelman-and-jon"
+            },
+            {
+              "title": "The Future of Partisan Symmetry as a Judicial Test for Partisan Gerrymandering after LULAC v. Perry",
+              "section": "publication",
+              "slug": "the-future-of-partisan-symmetry-as-a-judicial-test-for-partisan-gerrymandering-a"
+            },
+            {
+              "title": "Brief of Heather K. Gerken, Jonathan N. Katz, Gary King, Larry J. Sabato, and Samuel S.-H. Wang As Amici Curiae in Support of Appellees",
+              "section": "publication",
+              "slug": "brief-of-heather-k-gerken-jonathan-n-katz-gary-king-larry-j-sabato-and-samuel-s"
+            },
+            {
+              "title": "Democratic Representation and Partisan Bias in Congressional Elections",
+              "section": "publication",
+              "slug": "democratic-representation-and-partisan-bias-in-congressional-elections"
+            },
+            {
+              "title": "Racial Fairness in Legislative Redistricting",
+              "section": "publication",
+              "slug": "racial-fairness-in-legislative-redistricting"
+            },
+            {
+              "title": "Seats, Votes, and Gerrymandering: Measuring Bias and Representation in Legislative Redistricting",
+              "section": "publication",
+              "slug": "seats-votes-and-gerrymandering-measuring-bias-and-representation-in-legislative"
+            }
+          ]
+        },
+        {
+          "name": "Methods for measuring partisan bias and electoral responsiveness",
+          "papers": [
+            {
+              "title": "A Unified Method of Evaluating Electoral Systems and Redistricting Plans",
+              "section": "publication",
+              "slug": "a-unified-method-of-evaluating-electoral-systems-and-redistricting-plans"
+            },
+            {
+              "title": "Estimating the Electoral Consequences of Legislative Redistricting",
+              "section": "publication",
+              "slug": "estimating-the-electoral-consequences-of-legislative-redistricting"
+            },
+            {
+              "title": "Representation Through Legislative Redistricting: A Stochastic Model",
+              "section": "publication",
+              "slug": "representation-through-legislative-redistricting-a-stochastic-model"
+            }
+          ]
+        },
+        {
+          "name": "Paradoxical benefits of redistricting",
+          "papers": [
+            {
+              "title": "Advantages of Conflictual Redistricting",
+              "section": "publication",
+              "slug": "advantages-of-conflictual-redistricting"
+            },
+            {
+              "title": "Enhancing Democracy Through Legislative Redistricting",
+              "section": "publication",
+              "slug": "enhancing-democracy-through-legislative-redistricting"
+            }
+          ]
+        },
+        {
+          "name": "Other Districting Systems",
+          "papers": [
+            {
+              "title": "Electoral Responsiveness and Partisan Bias in Multiparty Democracies",
+              "section": "publication",
+              "slug": "electoral-responsiveness-and-partisan-bias-in-multiparty-democracies"
+            },
+            {
+              "title": "Empirically Evaluating the Electoral College",
+              "section": "publication",
+              "slug": "empirically-evaluating-the-electoral-college"
+            },
+            {
+              "title": "Measuring the Consequences of Delegate Selection Rules in Presidential Nominations",
+              "section": "publication",
+              "slug": "measuring-the-consequences-of-delegate-selection-rules-in-presidential-nominatio"
+            }
+          ]
+        },
+        {
+          "name": "Software",
+          "papers": [
+            {
+              "title": "JudgeIt II: A Program for Evaluating Electoral Systems and Redistricting Plans",
+              "section": "publication",
+              "slug": "judgeit-ii-a-program-for-evaluating-electoral-systems-and-redistricting-plans"
+            }
+          ]
+        },
+        {
+          "name": "Data",
+          "papers": [
+            {
+              "title": "Elections to the United States House of Representatives, 1898-1992",
+              "section": "publication",
+              "slug": "elections-to-the-united-states-house-of-representatives-1898-1992"
+            },
+            {
+              "title": "The Record of American Democracy, 1984-1990",
+              "section": "publication",
+              "slug": "the-record-of-american-democracy-1984-1990"
+            },
+            {
+              "title": "Anchoring Vignettes (for interpersonal incomparability)",
+              "section": "talk",
+              "slug": "anchoring-vignettes-for-interpersonal-and-cross-cultural-incomparability-in-surv"
+            },
+            {
+              "title": "Ecological Inference",
+              "section": "publication",
+              "slug": "ecological-inference"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Mortality Studies",
+      "subcategories": [
+        {
+          "name": "Mortality Studies",
+          "papers": [
+            {
+              "title": "A Simulation-Based Comparative Effectiveness Analysis of Policies to Improve Global Maternal Health Outcomes",
+              "section": "publication",
+              "slug": "a-simulation-based-comparative-effectiveness-analysis-of-policies-to-improve-glo"
+            },
+            {
+              "title": "Assessing Differences in Country-Level Estimates of Maternal Mortality: A Comparison of GMatH, UN, and GBD Model Results for 2020",
+              "section": "publication",
+              "slug": "assessing-differences-in-country-level-estimates-of-maternal-mortality-a-compari"
+            },
+            {
+              "title": "Building an International Consortium for Tracking Coronavirus Health Status",
+              "section": "publication",
+              "slug": "building-an-international-consortium-for-tracking-coronavirus-health-status"
+            },
+            {
+              "title": "Evaluating COVID-19 Public Health Messaging in Italy: Self-Reported Compliance and Growing Mental Health Concerns",
+              "section": "publication",
+              "slug": "evaluating-covid-19-public-health-messaging-in-italy-self-reported-compliance-an"
+            },
+            {
+              "title": "Global Maternal Mortality Projections by Urban Rural Locationand Education Level: A Simulation-Based Analysis",
+              "section": "publication",
+              "slug": "global-maternal-mortality-projections-by-urban-rural-locationand-education-level"
+            }
+          ]
+        },
+        {
+          "name": "Background",
+          "papers": [
+            {
+              "title": "Population-Scale Longitudinal Mapping of COVID-19 Symptoms, Behaviour and Testing",
+              "section": "publication",
+              "slug": "population-scale-longitudinal-mapping-of-covid-19-symptoms-behaviour-and-testing"
+            },
+            {
+              "title": "Precision Mapping Child Undernutrition for Nearly 600,000 Inhabited Census Villages in India",
+              "section": "publication",
+              "slug": "precision-mapping-child-undernutrition-for-nearly-600000-inhabited-census-villag"
+            },
+            {
+              "title": "Simulation-Based Estimates and Projections of Global, Regional and Country-Level Maternal Mortality by Cause, 1990\u20132050",
+              "section": "publication",
+              "slug": "simulation-based-estimates-and-projections-of-global-regional-and-country-level"
+            },
+            {
+              "title": "Survey Data and Human Computation for Improved Flu Tracking",
+              "section": "publication",
+              "slug": "survey-data-and-human-computation-for-improved-flu-tracking"
+            }
+          ]
+        },
+        {
+          "name": "Forecasting Mortality",
+          "papers": [
+            {
+              "title": "Demographic Forecasting",
+              "section": "publication",
+              "slug": "demographic-forecasting-2008"
+            },
+            {
+              "title": "Statistical Security for Social Security",
+              "section": "publication",
+              "slug": "statistical-security-for-social-security"
+            },
+            {
+              "title": "The Future of Death in America",
+              "section": "publication",
+              "slug": "the-future-of-death-in-america"
+            },
+            {
+              "title": "Understanding the Lee-Carter Mortality Forecasting Method",
+              "section": "publication",
+              "slug": "understanding-the-lee-carter-mortality-forecasting-method"
+            }
+          ]
+        },
+        {
+          "name": "Estimating Overall and Cause-Specific Mortality Rates",
+          "papers": [
+            {
+              "title": "Global Maternal Mortality Projections by Urban Rural Locationand Education Level: A Simulation-Based Analysis",
+              "section": "publication",
+              "slug": "global-maternal-mortality-projections-by-urban-rural-locationand-education-level"
+            }
+          ]
+        },
+        {
+          "name": "Uses of Mortality Rates",
+          "papers": [
+            {
+              "title": "Determinants of Inequality in Child Survival: Results from 39 Countries",
+              "section": "publication",
+              "slug": "determinants-of-inequality-in-child-survival-results-from-39-countries"
+            },
+            {
+              "title": "Explaining Systematic Bias and Nontransparency in US Social Security Administration Forecasts",
+              "section": "publication",
+              "slug": "explaining-systematic-bias-and-nontransparency-in-us-social-security-administrat-2015-215"
+            },
+            {
+              "title": "Measuring Total Health Inequality: Adding Individual Variation to Group-Level Differences",
+              "section": "publication",
+              "slug": "measuring-total-health-inequality-adding-individual-variation-to-group-level-dif"
+            },
+            {
+              "title": "Rethinking Human Security",
+              "section": "publication",
+              "slug": "rethinking-human-security"
+            },
+            {
+              "title": "Statistical Security for Social Security",
+              "section": "publication",
+              "slug": "statistical-security-for-social-security"
+            },
+            {
+              "title": "Systematic Bias and Nontransparency in US Social Security Administration Forecasts",
+              "section": "publication",
+              "slug": "systematic-bias-and-nontransparency-in-us-social-security-administration-forecas"
+            },
+            {
+              "title": "The Effects of International Monetary Fund Loans on Health Outcomes",
+              "section": "publication",
+              "slug": "the-effects-of-international-monetary-fund-loans-on-health-outcomes"
+            },
+            {
+              "title": "Anchoring Vignettes (for interpersonal incomparability)",
+              "section": "talk",
+              "slug": "anchoring-vignettes-for-interpersonal-and-cross-cultural-incomparability-in-surv"
+            },
+            {
+              "title": "Ecological Inference",
+              "section": "publication",
+              "slug": "ecological-inference"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Teaching and Administration",
+      "subcategories": [
+        {
+          "name": "Software",
+          "papers": [
+            {
+              "title": "Anchoring Vignettes (for interpersonal incomparability)",
+              "section": "talk",
+              "slug": "anchoring-vignettes-for-interpersonal-and-cross-cultural-incomparability-in-surv"
+            },
+            {
+              "title": "Ecological Inference",
+              "section": "publication",
+              "slug": "ecological-inference"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

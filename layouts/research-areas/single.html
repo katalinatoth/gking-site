@@ -1,11 +1,108 @@
 {{ define "main" }}
 
-<div class="max-w-4xl mx-auto px-6 py-12">
-  <h1 class="text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100 mb-8">{{ .Title }}</h1>
+{{ $data := site.Data.research_areas }}
 
-  <div class="prose prose-slate lg:prose-lg dark:prose-invert max-w-none">
-    {{ .Content }}
-  </div>
+<div style="max-width:960px;margin:0 auto;padding:1.5rem;">
+  <h1 style="font-size:2.2rem;font-weight:700;margin:0 0 1.5rem;">{{ .Title }}</h1>
+
+  <h2 style="font-size:1.6rem;font-weight:700;margin:1.5rem 0 1rem;border-bottom:2px solid #A51C30;padding-bottom:0.4rem;">Methods</h2>
+
+  {{ range $data.methods }}
+    {{ $area := . }}
+    <details id="{{ .name | urlize }}" style="border-bottom:1px solid #e2e8f0;margin-bottom:0.25rem;">
+      <summary style="font-size:1.1rem;font-weight:600;cursor:pointer;padding:10px 0;list-style:none;display:flex;align-items:center;gap:6px;">
+        <span class="gk-ra-arrow">&#9654;</span> {{ .name }}
+        {{ if .subcategories }}
+        <span style="font-size:0.75rem;color:#888;font-weight:400;margin-left:4px;">
+          ({{ $count := 0 }}{{ range .subcategories }}{{ $count = add $count (len .papers) }}{{ end }}{{ $count }} publications)
+        </span>
+        {{ end }}
+      </summary>
+      <div style="padding:0 0 1rem 1.25rem;">
+        {{ range .subcategories }}
+          {{ if gt (len .papers) 0 }}
+          <h4 style="font-size:0.95rem;font-weight:700;color:#555;margin:0.75rem 0 0.5rem;border-bottom:1px solid #eee;padding-bottom:3px;">{{ .name }}</h4>
+          <ul style="list-style:none;padding:0;margin:0;">
+            {{ range .papers }}
+              {{ $page := site.GetPage (printf "/%s/%s" .section .slug) }}
+              {{ with $page }}
+              <li style="padding:4px 0;font-size:0.88rem;">
+                {{ $authors := .Params.authors | default slice }}
+                {{ if gt (len $authors) 0 }}{{ delimit $authors ", " }}. {{ end }}
+                {{ .Date.Format "2006" }}.
+                "<a href="{{ .RelPermalink }}" style="color:#337ab7;text-decoration:none;">{{ .Title }}</a>."
+                {{ with .Params.publication }}<em style="color:#666;">{{ . }}</em>.{{ end }}
+              </li>
+              {{ end }}
+            {{ end }}
+          </ul>
+          {{ end }}
+        {{ end }}
+        {{ if not .subcategories }}
+          <p style="font-size:0.9rem;color:#666;font-style:italic;">No papers cataloged for this area yet.</p>
+        {{ end }}
+      </div>
+    </details>
+  {{ end }}
+
+  <h2 style="font-size:1.6rem;font-weight:700;margin:2rem 0 1rem;border-bottom:2px solid #A51C30;padding-bottom:0.4rem;">Applications</h2>
+
+  {{ range $data.applications }}
+    {{ $area := . }}
+    <details id="{{ .name | urlize }}" style="border-bottom:1px solid #e2e8f0;margin-bottom:0.25rem;">
+      <summary style="font-size:1.1rem;font-weight:600;cursor:pointer;padding:10px 0;list-style:none;display:flex;align-items:center;gap:6px;">
+        <span class="gk-ra-arrow">&#9654;</span> {{ .name }}
+        {{ if .subcategories }}
+        <span style="font-size:0.75rem;color:#888;font-weight:400;margin-left:4px;">
+          ({{ $count := 0 }}{{ range .subcategories }}{{ $count = add $count (len .papers) }}{{ end }}{{ $count }} publications)
+        </span>
+        {{ end }}
+      </summary>
+      <div style="padding:0 0 1rem 1.25rem;">
+        {{ range .subcategories }}
+          {{ if gt (len .papers) 0 }}
+          <h4 style="font-size:0.95rem;font-weight:700;color:#555;margin:0.75rem 0 0.5rem;border-bottom:1px solid #eee;padding-bottom:3px;">{{ .name }}</h4>
+          <ul style="list-style:none;padding:0;margin:0;">
+            {{ range .papers }}
+              {{ $page := site.GetPage (printf "/%s/%s" .section .slug) }}
+              {{ with $page }}
+              <li style="padding:4px 0;font-size:0.88rem;">
+                {{ $authors := .Params.authors | default slice }}
+                {{ if gt (len $authors) 0 }}{{ delimit $authors ", " }}. {{ end }}
+                {{ .Date.Format "2006" }}.
+                "<a href="{{ .RelPermalink }}" style="color:#337ab7;text-decoration:none;">{{ .Title }}</a>."
+                {{ with .Params.publication }}<em style="color:#666;">{{ . }}</em>.{{ end }}
+              </li>
+              {{ end }}
+            {{ end }}
+          </ul>
+          {{ end }}
+        {{ end }}
+        {{ if not .subcategories }}
+          <p style="font-size:0.9rem;color:#666;font-style:italic;">No papers cataloged for this area yet.</p>
+        {{ end }}
+      </div>
+    </details>
+  {{ end }}
 </div>
+
+<style>
+details summary { list-style: none; }
+details summary::-webkit-details-marker { display: none; }
+details .gk-ra-arrow { font-size: 0.7em; color: #999; transition: transform 0.15s; display: inline-block; }
+details[open] .gk-ra-arrow { transform: rotate(90deg); }
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  if (window.location.hash) {
+    var el = document.querySelector(window.location.hash);
+    if (el && el.tagName === "DETAILS") {
+      el.open = true;
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+});
+</script>
 
 {{ end }}

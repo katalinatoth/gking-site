@@ -1,0 +1,5 @@
+- id: btn_pdf
+  translation: Article
+
+- id: btn_source
+  translation: "Publisher's Version"

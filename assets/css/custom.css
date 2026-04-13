@@ -86,3 +86,89 @@ footer .powered-by {
   opacity: 0.5;
   font-size: 0.75rem;
 }
+
+/* Primary article link button */
+.gk-link-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 22px;
+  background: #337ab7;
+  color: #fff !important;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s;
+  margin-right: 8px;
+}
+.gk-link-primary:hover {
+  background: #285f8f;
+  text-decoration: none;
+  color: #fff !important;
+}
+.gk-link-primary svg {
+  stroke: #fff;
+}
+
+/* Compact publication page */
+.gk-citation-line {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+  margin-top: 0.5rem;
+}
+.gk-citation-line em { color: #444; }
+
+.gk-pub-body {
+  display: flex;
+  gap: 1.5rem;
+  margin: 1.25rem 0;
+}
+.gk-pub-image {
+  flex-shrink: 0;
+  width: 200px;
+}
+.gk-pub-image img {
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #e2e8f0;
+}
+.gk-pub-text {
+  flex: 1;
+  min-width: 0;
+}
+@media (max-width: 640px) {
+  .gk-pub-body { flex-direction: column; }
+  .gk-pub-image { width: 100%; max-width: 300px; }
+}
+
+/* See Also section */
+.gk-see-also {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  background: #f8f9fa;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+.gk-see-also h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 0.75rem;
+  color: #333;
+}
+.gk-see-also ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.gk-see-also li {
+  padding: 4px 0;
+}
+.gk-see-also a {
+  color: #337ab7;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.gk-see-also a:hover { text-decoration: underline; }
+.gk-see-also .gk-see-year { color: #888; font-size: 0.8rem; margin-left: 4px; }

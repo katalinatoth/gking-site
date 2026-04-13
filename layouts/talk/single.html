@@ -1,154 +1,100 @@
 {{ define "main" }}
 
-{{ $pub_type_csl := "" }}
-{{ $pub_type_display := "" }}
-{{ if .Params.publication_types }}
-  {{ if reflect.IsSlice .Params.publication_types }}
-    {{ $pub_type_csl = index .Params.publication_types 0 }}
-    {{ $pub_type_display = i18n (printf "pub_%s" (strings.Replace $pub_type_csl "-" "_")) | default (strings.Title $pub_type_csl) }}
-  {{ end }}
-{{ end }}
-
 <div class="mx-auto flex max-w-screen-xl">
   {{ partial "components/sidebar.html" (dict "context" . "no_sidebar" true) }}
   {{ partial "components/toc.html" . }}
   <article class="w-full break-words flex min-h-[calc(100vh-var(--navbar-height))] min-w-0 justify-center pb-8 pr-[calc(env(safe-area-inset-right)-1.5rem)]">
     <main class="w-full min-w-0 max-w-6xl px-6 pt-4 md:px-12">
 
-      {{ if .Params.show_breadcrumb }}
-      <div class="mb-4">
-        {{ partial "components/breadcrumb.html" . }}
-      </div>
-      {{ end }}
-
-      <h1 class="mt-2 text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
+      <h1 class="mt-2 text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100" style="margin-bottom:0.25rem;">
         {{- .Title -}}
       </h1>
 
-      <div class="mt-4 mb-16">
-      <div class="text-gray-500 dark:text-gray-300 text-sm flex items-center flex-wrap gap-y-2">
-        {{- if .Date | and (not .Params.hide_date) -}}
-        <span class="mr-1">{{- .Date | time.Format (site.Params.locale.date_format | default ":date_long") -}}</span>
-        {{- if .Params.authors }}<span class="mx-1">·</span>{{ end -}}
-        {{- end -}}
-
-        {{ $taxonomy := "authors" }}
-        {{ range $i, $author_obj := (.GetTerms $taxonomy) }}
-          {{ $author_page := $author_obj.Page }}
-          {{ $avatar := ($author_page.Resources.ByType "image").GetMatch "*avatar*" }}
-          {{- if and $i (not $avatar) }}<span class="mr-1">,</span>{{ end -}}
-          {{ with $author_page.Params.website }}
-          <a href="{{.}}" target="_blank" rel="noreferrer">
-          {{ end }}
-          <div class="group inline-flex items-center text-current gap-x-1.5 mx-1">
-            {{ with $avatar }}
-              {{ $avatar_32 := $avatar.Process "Fill 32x32 Center webp" }}
-              <img src="{{ $avatar_32.RelPermalink }}" width="16" height="16" alt="{{ $author_page.Title }}" class="inline-block h-4 w-4 rounded-full border border-current" loading="lazy" />
-            {{ end }}
-            <div {{if $author_page.Params.website}}class="group-hover:underline"{{end}}>{{ $author_page.Title }}</div>
-          </div>
-          {{ with $author_page.Params.website }}
-          </a>
-          {{ end }}
-        {{ end }}
-
-        </div>
-
-        <div class="mt-3">
-          {{ partial "page_links_div.html" . }}
-        </div>
+      {{/* Full citation line */}}
+      <div class="gk-citation-line">
+        {{ $authors := .Params.authors | default slice }}
+        {{ if gt (len $authors) 0 }}{{ delimit $authors ", " }}. {{ end -}}
+        {{ .Date.Format "2006" }}.
+        "{{ .Title }}."
+        {{ with .Params.event }} <em>{{ . | markdownify }}</em>.{{ end }}
       </div>
 
+      {{/* Action buttons */}}
+      <div style="margin:1rem 0 0.75rem;display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
+        {{ partial "page_links" (dict "page" . "is_list" 0) }}
+      </div>
+
+      {{/* Body: image + abstract */}}
       {{ $featured := partial "functions/get_featured_image.html" . }}
-      {{ if and $featured (not .Params.image.preview_only) }}
-      {{ $image := $featured }}
-      {{ if ne $featured.MediaType.SubType "gif" }}
-        {{ $fitted_image := $featured.Fit "720x2500" }}
-        {{ $responsive_sizes := slice 320 480 640 720 960 }}
-        {{ $responsive := partial "functions/process_responsive_image.html" (dict "image" $fitted_image "mode" "responsive" "sizes" $responsive_sizes) }}
-        <div class="article-header article-container featured-image-wrapper mt-4 mb-16" style="max-width: {{$fitted_image.Width}}px; max-height: {{$fitted_image.Height}}px;">
-          <div style="position: relative">
-            <img srcset="{{ $responsive.srcset }}" sizes="(max-width: 480px) 100vw, (max-width: 640px) 90vw, (max-width: 720px) 80vw, 720px" src="{{ $responsive.fallback.RelPermalink }}" width="{{ $fitted_image.Width }}" height="{{ $fitted_image.Height }}" alt="{{ with $.Params.image.alt_text }}{{.}}{{ end }}" class="featured-image" fetchpriority="high">
-          </div>
+      {{ $hasImage := and $featured (not .Params.image.preview_only) }}
+      {{ $hasAbstract := .Params.abstract }}
+
+      {{ if or $hasImage $hasAbstract }}
+      <div class="gk-pub-body">
+        {{ if $hasImage }}
+        <div class="gk-pub-image">
+          {{ if ne $featured.MediaType.SubType "gif" }}
+            {{ $fitted := $featured.Fit "400x600" }}
+            <img src="{{ $fitted.RelPermalink }}" width="{{ $fitted.Width }}" height="{{ $fitted.Height }}" alt="{{ with .Params.image.alt_text }}{{.}}{{ end }}" loading="lazy">
+          {{ else }}
+            <img src="{{ $featured.RelPermalink }}" alt="{{ with .Params.image.alt_text }}{{.}}{{ end }}" loading="lazy">
+          {{ end }}
         </div>
-      {{ end }}
-      {{end}}
-
-      {{/* TALK METADATA */}}
-      {{ if .Params.abstract | or (eq .Type "events") }}
-        <div class="max-w-prose grid grid-cols-1 md:grid-cols-[200px_auto] gap-4 my-6">
-
-        {{ if .Params.abstract }}
-          <div class="font-bold text-2xl">{{ i18n "abstract" }}</div>
-          <div>{{ .Params.abstract | markdownify }}</div>
         {{ end }}
 
-        {{ if $pub_type_display }}
-          <div class="font-bold text-2xl">{{ i18n "publication_type" }}</div>
-          <div>
-            {{ if and .Params.publication_types (gt (len .Params.publication_types) 0) }}
-            <a href="{{ range first 1 (.GetTerms "publication_types") }}{{.RelPermalink}}{{end}}">
-            {{ $pub_type_display }}
-            </a>
-            {{ end }}
-          </div>
+        {{ if $hasAbstract }}
+        <div class="gk-pub-text">
+          <h3 style="font-size:1rem;font-weight:700;margin:0 0 0.5rem;color:#333;">Abstract</h3>
+          <div style="font-size:0.9rem;line-height:1.6;color:#444;">{{ .Params.abstract | markdownify }}</div>
+        </div>
         {{ end }}
-
-        {{ if .Params.event }}
-          <div class="font-bold text-2xl">{{ i18n "event" }}</div>
-          <div>
-            {{ with .Params.event_url }}<a href="{{ . }}" target="_blank" rel="noopener">{{ end }}
-            {{ .Params.event | markdownify }}
-            {{ if .Params.event_url }}</a>{{ end }}
-          </div>
-        {{ end }}
-
-        {{ if .Params.location }}
-          <div class="font-bold text-2xl">{{ i18n "location" }}</div>
-          <div>
-            <p>{{ .Params.location | markdownify }}</p>
-            {{ if .Params.address }}
-              <p>{{partial "functions/get_address" (dict "root" . "address" .Params.address) }}</p>
-            {{end}}
-          </div>
-        {{ end }}
-
       </div>
       {{ end }}
 
-      {{/* RELATED PAPER */}}
+      {{/* Event info */}}
+      {{ if or .Params.event .Params.location }}
+      <div style="font-size:0.85rem;color:#666;margin:0.5rem 0;">
+        {{ with .Params.event }}
+        <div><strong>Event:</strong> {{ with $.Params.event_url }}<a href="{{ . }}" target="_blank" rel="noopener" style="color:#337ab7;">{{ end }}{{ $.Params.event | markdownify }}{{ with $.Params.event_url }}</a>{{ end }}</div>
+        {{ end }}
+        {{ with .Params.location }}
+        <div><strong>Location:</strong> {{ . | markdownify }}</div>
+        {{ end }}
+      </div>
+      {{ end }}
+
+      {{/* Page body content */}}
+      {{ if .Content }}
+      <div class="prose prose-slate dark:prose-invert" style="max-width:none;margin:1rem 0;">
+        {{ .Content }}
+      </div>
+      {{ end }}
+
+      {{/* SEE ALSO */}}
       {{ with .Params.related_paper }}
         {{ $paper := $.Site.GetPage (printf "/publication/%s" .) }}
         {{ with $paper }}
-        <div style="margin:2rem 0;padding:1rem 1.5rem;background:#f0f4ff;border-radius:8px;border:1px solid #b8caf0;">
-          <strong style="color:#1e3a8a;">Related Paper:</strong>
-          <a href="{{ .RelPermalink }}" style="color:#337ab7;text-decoration:none;margin-left:0.5rem;font-weight:500;">{{ .Title }}</a>
-          {{ with .Params.authors }}
-            <div style="color:#666;font-size:0.85rem;margin-top:4px;">
-              {{ delimit . ", " }}
-            </div>
-          {{ end }}
-          {{ with .Params.publication }}
-            <div style="color:#888;font-size:0.85rem;font-style:italic;">{{ . }}</div>
-          {{ end }}
-          {{/* Show Dataverse link if the related paper has one */}}
-          {{ with .Params.dataverse_url }}
-          <div style="margin-top:8px;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2d6a1e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline-block;vertical-align:middle;margin-right:4px;"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
-            <a href="{{ . }}" target="_blank" rel="noopener" style="color:#337ab7;font-size:0.85rem;">Replication Data on Harvard Dataverse</a>
-          </div>
-          {{ end }}
+        <div class="gk-see-also">
+          <h3>See Also</h3>
+          <ul>
+            <li>
+              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+              <span class="gk-see-year">({{ .Date.Format "2006" }})</span>
+              {{ with .Params.publication }}<br><span style="font-size:0.8rem;color:#888;font-style:italic;">{{ . }}</span>{{ end }}
+            </li>
+            {{ with .Params.dataverse_url }}
+            <li>
+              <a href="{{ . }}" target="_blank" rel="noopener">Replication Data on Harvard Dataverse</a>
+            </li>
+            {{ end }}
+          </ul>
         </div>
         {{ end }}
       {{ end }}
 
-      <div class="prose prose-slate lg:prose-xl dark:prose-invert">
-        {{ .Content }}
-      </div>
-
       {{ partial "components/last-edited.html" . }}
 
-      <div class="container mx-auto prose prose-slate lg:prose-xl dark:prose-invert mt-5">
+      <div class="container mx-auto prose prose-slate dark:prose-invert mt-3">
         {{ .Scratch.Set "invert_pager" true }}
         {{ partial "page_footer" . }}
       </div>
