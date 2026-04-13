@@ -1,5 +1,7 @@
 {{ define "main" }}
 
+{{ $data := site.Data.research_areas }}
+
 <!-- Hero Section -->
 <section id="hero" style="background:#ECF2F8;">
   <div style="max-width:1200px;margin:0 auto;display:flex;align-items:stretch;min-height:420px;">
@@ -24,6 +26,7 @@
 <section style="max-width:1200px;margin:0 auto;padding:60px 40px;">
   <h2 style="font-size:2rem;font-weight:400;color:#1E1E1E;margin:0 0 40px 0;">Research Areas</h2>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;">
+    <!-- Methods -->
     <div>
       <div style="display:flex;justify-content:center;margin-bottom:20px;">
         <svg width="80" height="80" viewBox="0 0 80 80" fill="none" stroke="#333" stroke-width="1.5">
@@ -35,22 +38,21 @@
         </svg>
       </div>
       <h3 style="text-align:center;font-size:1.3rem;font-weight:600;margin:0 0 16px 0;">Methods</h3>
-      <p style="font-size:0.95rem;line-height:1.7;color:#444;">
-        Methods for interpersonal incomparability, when respondents (from different cultures, genders, countries, or ethnic groups) understand survey questions in different ways; for developing theoretical definitions of complicated concepts apparently definable only by example (i.e., "you know it when you see it").
-      </p>
-      <ul style="list-style:none;padding:0;margin:12px 0 0 0;">
-        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#anchoring-vignettes" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Anchoring Vignettes (for interpersonal incomparability)</a></li>
-        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#automated-text-analysis" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Automated Text Analysis</a></li>
-        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#causal-inference" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Causal Inference</a></li>
-        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#event-counts-and-durations" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Event Counts and Durations</a></li>
-        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#ecological-inference" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Ecological Inference</a></li>
-        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#missing-data" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Missing Data, Measurement Error, Differential Privacy</a></li>
-        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#qualitative-research" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Qualitative Research</a></li>
-        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#rare-events" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Rare Events</a></li>
-        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#survey-research" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Survey Research</a></li>
-        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#unifying-statistical-analysis" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Unifying Statistical Analysis</a></li>
-      </ul>
+      {{ range $data.methods }}
+      <details class="gk-hp-area" style="border-bottom:1px solid #eee;margin-bottom:0;">
+        <summary style="font-size:0.9rem;font-weight:500;cursor:pointer;padding:6px 0;list-style:none;display:flex;align-items:center;gap:5px;color:#337ab7;">
+          <span class="gk-hp-arrow">&#9654;</span> {{ .name }}
+        </summary>
+        <div style="padding:4px 0 10px 16px;">
+          {{ with .description }}
+          <p style="font-size:0.82rem;line-height:1.5;color:#666;margin:0 0 6px;">{{ . }}</p>
+          {{ end }}
+          <a href="{{ "research-areas/" | relURL }}#{{ .name | urlize }}" style="font-size:0.8rem;color:#337ab7;text-decoration:none;">View publications &rarr;</a>
+        </div>
+      </details>
+      {{ end }}
     </div>
+    <!-- Applications -->
     <div>
       <div style="display:flex;justify-content:center;margin-bottom:20px;">
         <svg width="80" height="80" viewBox="0 0 80 80" fill="none" stroke="#333" stroke-width="1.5">
@@ -65,78 +67,106 @@
         </svg>
       </div>
       <h3 style="text-align:center;font-size:1.3rem;font-weight:600;margin:0 0 16px 0;">Applications</h3>
-      <p style="font-size:0.95rem;line-height:1.7;color:#444;">
-        The accuracy of U.S. Social Security Administration (SSA) demographic and financial forecasts is crucial for the solvency of its Trust Funds, government programs comprising greater than 50% of all federal government expenditures, industry decision making, and the evidence base of many scholarly articles.
-      </p>
-      <ul style="list-style:none;padding:0;margin:12px 0 0 0;">
-        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#evaluating-social-security-forecasts" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Evaluating Social Security Forecasts</a></li>
-        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#incumbency-advantage" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Incumbency Advantage</a></li>
-        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#chinese-censorship" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Chinese Censorship</a></li>
-        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#mexican-health-care-evaluation" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Mexican Health Care Evaluation</a></li>
-        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#presidency-research" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Presidency Research; Voting Behavior</a></li>
-        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#informatics-and-data-sharing" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Informatics and Data Sharing</a></li>
-        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#international-conflict" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">International Conflict</a></li>
-        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#legislative-redistricting" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Legislative Redistricting</a></li>
-        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#mortality-studies" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Mortality Studies</a></li>
-        <li style="padding:3px 0;"><a href="{{ "research-areas/" | relURL }}#teaching-and-administration" style="color:#337ab7;text-decoration:none;font-size:0.9rem;">Teaching and Administration</a></li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- Recent Papers -->
-<section style="max-width:1200px;margin:0 auto;padding:0 40px 40px;">
-  <h2 style="font-size:2rem;font-weight:400;color:#1E1E1E;margin:0 0 24px 0;">Recent Papers</h2>
-  <div style="border-top:1px solid #eee;">
-    {{ $pubs := where .Site.RegularPages "Section" "publication" }}
-    {{ $pubs = sort $pubs ".Date" "desc" }}
-    {{ $count := 0 }}
-    {{ range $pubs }}
-      {{ $types := .Params.publication_types | default slice }}
-      {{ $is_article := or (in $types "article-journal") (in $types "chapter") (in $types "journal_article") (in $types "book_chapter") (in $types "working_paper") }}
-      {{ if and $is_article (lt $count 9) }}
-        {{ $count = add $count 1 }}
-    <div style="padding:10px 0;border-bottom:1px solid #eee;">
-      <a href="{{ .RelPermalink }}" style="color:#337ab7;text-decoration:none;font-size:0.95rem;">{{ .Title }}</a>
-    </div>
+      {{ range $data.applications }}
+      <details class="gk-hp-area" style="border-bottom:1px solid #eee;margin-bottom:0;">
+        <summary style="font-size:0.9rem;font-weight:500;cursor:pointer;padding:6px 0;list-style:none;display:flex;align-items:center;gap:5px;color:#337ab7;">
+          <span class="gk-hp-arrow">&#9654;</span> {{ .name }}
+        </summary>
+        <div style="padding:4px 0 10px 16px;">
+          {{ with .description }}
+          <p style="font-size:0.82rem;line-height:1.5;color:#666;margin:0 0 6px;">{{ . }}</p>
+          {{ end }}
+          <a href="{{ "research-areas/" | relURL }}#{{ .name | urlize }}" style="font-size:0.8rem;color:#337ab7;text-decoration:none;">View publications &rarr;</a>
+        </div>
+      </details>
       {{ end }}
-    {{ end }}
-  </div>
-  <div style="margin-top:12px;text-align:right;">
-    <a href="{{ "publication/" | relURL }}" style="color:#337ab7;font-size:0.9rem;">All publications &gt;</a>
+    </div>
   </div>
 </section>
 
-<!-- Presentations -->
-<section style="max-width:1200px;margin:0 auto;padding:0 40px 40px;">
-  <h2 style="font-size:2rem;font-weight:400;color:#1E1E1E;margin:0 0 24px 0;">Presentations</h2>
-  <div style="border-top:1px solid #eee;">
-    {{ $talks := where .Site.RegularPages "Section" "talk" }}
-    {{ $talks = sort $talks ".Date" "desc" }}
-    {{ range first 4 $talks }}
-    <div style="padding:10px 0;border-bottom:1px solid #eee;">
-      <a href="{{ .RelPermalink }}" style="color:#337ab7;text-decoration:none;font-size:0.95rem;">{{ .Title }}</a>
-      <span style="color:#666;font-size:0.85rem;">, {{ .Date.Format "January 2, 2006" }}</span>
-    </div>
-    {{ end }}
-  </div>
-  <div style="margin-top:12px;text-align:right;">
-    <a href="{{ "talk/" | relURL }}" style="color:#337ab7;font-size:0.9rem;">All presentations &gt;</a>
-  </div>
-</section>
+<!-- Recent Papers / Presentations / Books — compact boxes -->
+{{ $pubs := where .Site.RegularPages "Section" "publication" }}
+{{ $pubs = sort $pubs ".Date" "desc" }}
+{{ $talks := where .Site.RegularPages "Section" "talk" }}
+{{ $talks = sort $talks ".Date" "desc" }}
 
-<!-- Books -->
 <section style="max-width:1200px;margin:0 auto;padding:0 40px 40px;">
-  <h2 style="font-size:2rem;font-weight:400;color:#1E1E1E;margin:0 0 24px 0;">Books</h2>
-  <div style="border-top:1px solid #eee;">
-    {{ range $pubs }}
-      {{ $types := .Params.publication_types | default slice }}
-      {{ if in $types "book" }}
-    <div style="padding:10px 0;border-bottom:1px solid #eee;">
-      <a href="{{ .RelPermalink }}" style="color:#337ab7;text-decoration:none;font-size:0.95rem;">{{ .Title }}</a>
-    </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;">
+
+    <!-- Recent Papers -->
+    <div style="background:#f8f9fa;border-radius:8px;padding:20px 24px;border:1px solid #e2e8f0;">
+      <h3 style="font-size:1.2rem;font-weight:600;margin:0 0 12px;color:#1E1E1E;">Recent Papers</h3>
+      {{ $count := 0 }}
+      {{ range $pubs }}
+        {{ $types := .Params.publication_types | default slice }}
+        {{ $is_article := or (in $types "article-journal") (in $types "chapter") (in $types "journal_article") (in $types "book_chapter") (in $types "working_paper") }}
+        {{ if and $is_article (lt $count 9) }}
+          {{ $count = add $count 1 }}
+      <details class="gk-hp-item">
+        <summary style="font-size:0.88rem;cursor:pointer;padding:5px 0;border-bottom:1px solid #eee;list-style:none;display:flex;align-items:baseline;gap:5px;color:#337ab7;line-height:1.4;">
+          <span class="gk-hp-arrow" style="flex-shrink:0;">&#9654;</span>
+          <span>{{ .Title }}</span>
+        </summary>
+        <div style="padding:6px 0 8px 16px;font-size:0.82rem;color:#555;border-bottom:1px solid #eee;">
+          {{ $authors := .Params.authors | default slice }}
+          {{ if gt (len $authors) 0 }}<div style="margin-bottom:3px;">{{ delimit $authors ", " }}</div>{{ end }}
+          {{ with .Params.publication }}<div style="font-style:italic;color:#777;">{{ . }}</div>{{ end }}
+          {{ with .Params.abstract }}<div style="margin-top:4px;line-height:1.4;color:#666;">{{ . | truncate 200 | markdownify }}</div>{{ end }}
+          <div style="margin-top:6px;"><a href="{{ .RelPermalink }}" style="color:#337ab7;text-decoration:none;font-weight:500;">Read more &rarr;</a></div>
+        </div>
+      </details>
+        {{ end }}
       {{ end }}
-    {{ end }}
+      <div style="margin-top:10px;text-align:right;">
+        <a href="{{ "publication/" | relURL }}" style="color:#337ab7;font-size:0.85rem;text-decoration:none;">All publications &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Presentations -->
+    <div style="background:#f8f9fa;border-radius:8px;padding:20px 24px;border:1px solid #e2e8f0;">
+      <h3 style="font-size:1.2rem;font-weight:600;margin:0 0 12px;color:#1E1E1E;">Presentations</h3>
+      {{ range first 8 $talks }}
+      <details class="gk-hp-item">
+        <summary style="font-size:0.88rem;cursor:pointer;padding:5px 0;border-bottom:1px solid #eee;list-style:none;display:flex;align-items:baseline;gap:5px;color:#337ab7;line-height:1.4;">
+          <span class="gk-hp-arrow" style="flex-shrink:0;">&#9654;</span>
+          <span>{{ .Title }}</span>
+        </summary>
+        <div style="padding:6px 0 8px 16px;font-size:0.82rem;color:#555;border-bottom:1px solid #eee;">
+          <div style="color:#888;">{{ .Date.Format "January 2, 2006" }}</div>
+          {{ with .Params.event }}<div style="font-style:italic;color:#777;">{{ . }}</div>{{ end }}
+          {{ with .Params.abstract }}<div style="margin-top:4px;line-height:1.4;color:#666;">{{ . | truncate 200 | markdownify }}</div>{{ end }}
+          <div style="margin-top:6px;"><a href="{{ .RelPermalink }}" style="color:#337ab7;text-decoration:none;font-weight:500;">Read more &rarr;</a></div>
+        </div>
+      </details>
+      {{ end }}
+      <div style="margin-top:10px;text-align:right;">
+        <a href="{{ "talk/" | relURL }}" style="color:#337ab7;font-size:0.85rem;text-decoration:none;">All presentations &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Books -->
+    <div style="background:#f8f9fa;border-radius:8px;padding:20px 24px;border:1px solid #e2e8f0;">
+      <h3 style="font-size:1.2rem;font-weight:600;margin:0 0 12px;color:#1E1E1E;">Books</h3>
+      {{ range $pubs }}
+        {{ $types := .Params.publication_types | default slice }}
+        {{ if in $types "book" }}
+      <details class="gk-hp-item">
+        <summary style="font-size:0.88rem;cursor:pointer;padding:5px 0;border-bottom:1px solid #eee;list-style:none;display:flex;align-items:baseline;gap:5px;color:#337ab7;line-height:1.4;">
+          <span class="gk-hp-arrow" style="flex-shrink:0;">&#9654;</span>
+          <span>{{ .Title }}</span>
+        </summary>
+        <div style="padding:6px 0 8px 16px;font-size:0.82rem;color:#555;border-bottom:1px solid #eee;">
+          {{ $authors := .Params.authors | default slice }}
+          {{ if gt (len $authors) 0 }}<div style="margin-bottom:3px;">{{ delimit $authors ", " }}</div>{{ end }}
+          {{ with .Params.publication }}<div style="font-style:italic;color:#777;">{{ . }}</div>{{ end }}
+          {{ with .Params.abstract }}<div style="margin-top:4px;line-height:1.4;color:#666;">{{ . | truncate 200 | markdownify }}</div>{{ end }}
+          <div style="margin-top:6px;"><a href="{{ .RelPermalink }}" style="color:#337ab7;text-decoration:none;font-weight:500;">Read more &rarr;</a></div>
+        </div>
+      </details>
+        {{ end }}
+      {{ end }}
+    </div>
+
   </div>
 </section>
 
@@ -246,6 +276,15 @@
     #hero > div { flex-direction: column !important; }
     #hero > div > div:first-child { padding: 40px 24px !important; }
     #hero > div > div:last-child { max-height: 300px; }
+  }
+  .gk-hp-area summary { list-style: none; }
+  .gk-hp-area summary::-webkit-details-marker { display: none; }
+  .gk-hp-arrow { font-size: 0.6em; color: #999; transition: transform 0.15s; display: inline-block; }
+  details[open] > summary .gk-hp-arrow { transform: rotate(90deg); }
+  .gk-hp-item summary { list-style: none; }
+  .gk-hp-item summary::-webkit-details-marker { display: none; }
+  @media (max-width: 900px) {
+    section > div > div[style*="grid-template-columns: 1fr 1fr 1fr"] { grid-template-columns: 1fr !important; }
   }
 </style>
 

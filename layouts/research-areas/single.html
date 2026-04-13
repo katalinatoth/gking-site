@@ -8,17 +8,14 @@
   <h2 style="font-size:1.6rem;font-weight:700;margin:1.5rem 0 1rem;border-bottom:2px solid #A51C30;padding-bottom:0.4rem;">Methods</h2>
 
   {{ range $data.methods }}
-    {{ $area := . }}
     <details id="{{ .name | urlize }}" style="border-bottom:1px solid #e2e8f0;margin-bottom:0.25rem;">
       <summary style="font-size:1.1rem;font-weight:600;cursor:pointer;padding:10px 0;list-style:none;display:flex;align-items:center;gap:6px;">
         <span class="gk-ra-arrow">&#9654;</span> {{ .name }}
-        {{ if .subcategories }}
-        <span style="font-size:0.75rem;color:#888;font-weight:400;margin-left:4px;">
-          ({{ $count := 0 }}{{ range .subcategories }}{{ $count = add $count (len .papers) }}{{ end }}{{ $count }} publications)
-        </span>
-        {{ end }}
       </summary>
       <div style="padding:0 0 1rem 1.25rem;">
+        {{ with .description }}
+        <p style="font-size:0.9rem;line-height:1.6;color:#555;margin:0 0 1rem;">{{ . }}</p>
+        {{ end }}
         {{ range .subcategories }}
           {{ if gt (len .papers) 0 }}
           <h4 style="font-size:0.95rem;font-weight:700;color:#555;margin:0.75rem 0 0.5rem;border-bottom:1px solid #eee;padding-bottom:3px;">{{ .name }}</h4>
@@ -48,17 +45,14 @@
   <h2 style="font-size:1.6rem;font-weight:700;margin:2rem 0 1rem;border-bottom:2px solid #A51C30;padding-bottom:0.4rem;">Applications</h2>
 
   {{ range $data.applications }}
-    {{ $area := . }}
     <details id="{{ .name | urlize }}" style="border-bottom:1px solid #e2e8f0;margin-bottom:0.25rem;">
       <summary style="font-size:1.1rem;font-weight:600;cursor:pointer;padding:10px 0;list-style:none;display:flex;align-items:center;gap:6px;">
         <span class="gk-ra-arrow">&#9654;</span> {{ .name }}
-        {{ if .subcategories }}
-        <span style="font-size:0.75rem;color:#888;font-weight:400;margin-left:4px;">
-          ({{ $count := 0 }}{{ range .subcategories }}{{ $count = add $count (len .papers) }}{{ end }}{{ $count }} publications)
-        </span>
-        {{ end }}
       </summary>
       <div style="padding:0 0 1rem 1.25rem;">
+        {{ with .description }}
+        <p style="font-size:0.9rem;line-height:1.6;color:#555;margin:0 0 1rem;">{{ . }}</p>
+        {{ end }}
         {{ range .subcategories }}
           {{ if gt (len .papers) 0 }}
           <h4 style="font-size:0.95rem;font-weight:700;color:#555;margin:0.75rem 0 0.5rem;border-bottom:1px solid #eee;padding-bottom:3px;">{{ .name }}</h4>
