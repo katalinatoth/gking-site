@@ -1,4 +1,5 @@
 ---
+related_paper: "how-american-politics-ensures-electoral-accountability-in-congress"
 title: "How American Politics Ensures Electoral Accountability in Congress (UCLA)"
 date: "2024-01-01"
 authors:

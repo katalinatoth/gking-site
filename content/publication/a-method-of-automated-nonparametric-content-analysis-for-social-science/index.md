@@ -1,4 +1,7 @@
 ---
+related_talks:
+  - "an-improved-method-of-automated-nonparametric-content-analysis-for-social-scienc-2016"
+  - "an-improved-method-of-automated-nonparametric-content-analysis-for-social-scienc-2017"
 title: "A Method of Automated Nonparametric Content Analysis for Social Science"
 date: "2010-01-01"
 authors:

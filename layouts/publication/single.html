@@ -1,0 +1,177 @@
+{{ define "main" }}
+
+{{ $pub_type_csl := "" }}
+{{ $pub_type_display := "" }}
+{{ if .Params.publication_types }}
+  {{ if reflect.IsSlice .Params.publication_types }}
+    {{ $pub_type_csl = index .Params.publication_types 0 }}
+    {{ $pub_type_display = i18n (printf "pub_%s" (strings.Replace $pub_type_csl "-" "_")) | default (strings.Title $pub_type_csl) }}
+  {{ end }}
+{{ end }}
+
+<div class="mx-auto flex max-w-screen-xl">
+  {{ partial "components/sidebar.html" (dict "context" . "no_sidebar" true) }}
+  {{ partial "components/toc.html" . }}
+  <article class="w-full break-words flex min-h-[calc(100vh-var(--navbar-height))] min-w-0 justify-center pb-8 pr-[calc(env(safe-area-inset-right)-1.5rem)]">
+    <main class="w-full min-w-0 max-w-6xl px-6 pt-4 md:px-12">
+
+      {{ if .Params.show_breadcrumb }}
+      <div class="mb-4">
+        {{ partial "components/breadcrumb.html" . }}
+      </div>
+      {{ end }}
+
+      {{/* Dataset banner: link to the paper this dataset replicates */}}
+      {{ if and (in (.Params.publication_types | default slice) "data") .Params.related_paper }}
+        {{ $paper := .Site.GetPage (printf "/publication/%s" .Params.related_paper) }}
+        {{ with $paper }}
+        <div style="background:#e8f4fd;border-left:4px solid #337ab7;padding:12px 16px;margin-bottom:1.5rem;border-radius:4px;">
+          <strong>Replication data for:</strong>
+          <a href="{{ .RelPermalink }}" style="color:#337ab7;text-decoration:none;font-weight:500;">{{ .Title }}</a>
+        </div>
+        {{ end }}
+      {{ end }}
+
+      <h1 class="mt-2 text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
+        {{- .Title -}}
+      </h1>
+
+      <div class="mt-4 mb-16">
+      <div class="text-gray-500 dark:text-gray-300 text-sm flex items-center flex-wrap gap-y-2">
+        {{- if .Date | and (not .Params.hide_date) -}}
+        <span class="mr-1">{{- .Date | time.Format (site.Params.locale.date_format | default ":date_long") -}}</span>
+        {{- if .Params.authors }}<span class="mx-1">·</span>{{ end -}}
+        {{- end -}}
+
+        {{ if isset .Params "author_notes" }}
+          {{ .Store.Set "has_alpine" true }}
+        {{ end }}
+
+        {{ $taxonomy := "authors" }}
+        {{ range $i, $author_obj := (.GetTerms $taxonomy) }}
+          {{ $author_page := $author_obj.Page }}
+          {{ $avatar := ($author_page.Resources.ByType "image").GetMatch "*avatar*" }}
+          {{- if and $i (not $avatar) }}<span class="mr-1">,</span>{{ end -}}
+          {{ with $author_page.Params.website }}
+          <a href="{{.}}" target="_blank" rel="noreferrer">
+          {{ end }}
+          <div class="group inline-flex items-center text-current gap-x-1.5 mx-1">
+            {{ with $avatar }}
+              {{ $avatar_32 := $avatar.Process "Fill 32x32 Center webp" }}
+              <img src="{{ $avatar_32.RelPermalink }}" width="16" height="16" alt="{{ $author_page.Title }}" class="inline-block h-4 w-4 rounded-full border border-current" loading="lazy" />
+            {{ end }}
+            <div {{if $author_page.Params.website}}class="group-hover:underline"{{end}}>{{ $author_page.Title }}</div>
+          </div>
+          {{ with $author_page.Params.website }}
+          </a>
+          {{ end }}
+        {{ end }}
+
+        {{ if ne .Params.reading_time false }}
+        <span class="mx-1">·</span>
+        <span class="mx-1">
+          {{ .ReadingTime }} {{ i18n "minute_read" }}
+        </span>
+        {{ end }}
+        </div>
+
+        <div class="mt-3">
+          {{ partial "page_links_div.html" . }}
+        </div>
+      </div>
+
+      {{ $featured := partial "functions/get_featured_image.html" . }}
+      {{ if and $featured (not .Params.image.preview_only) }}
+      {{ $image := $featured }}
+      {{ $placement := .Params.image.placement | default 1 }}
+      {{ $image_container := "article-container" }}
+      {{ $responsive_sizes := slice 320 480 640 720 960 }}
+      {{ $sizes_attr := "(max-width: 480px) 100vw, (max-width: 640px) 90vw, (max-width: 720px) 80vw, 720px" }}
+      {{ if ne $featured.MediaType.SubType "gif" }}
+        {{ $fitted_image := $featured.Fit "720x2500" }}
+        {{ $responsive := partial "functions/process_responsive_image.html" (dict "image" $fitted_image "mode" "responsive" "sizes" $responsive_sizes) }}
+        <div class="article-header {{$image_container}} featured-image-wrapper mt-4 mb-16" style="max-width: {{$fitted_image.Width}}px; max-height: {{$fitted_image.Height}}px;">
+          <div style="position: relative">
+            <img srcset="{{ $responsive.srcset }}" sizes="{{ $sizes_attr }}" src="{{ $responsive.fallback.RelPermalink }}" width="{{ $fitted_image.Width }}" height="{{ $fitted_image.Height }}" alt="{{ with $.Params.image.alt_text }}{{.}}{{ end }}" class="featured-image" fetchpriority="high">
+          </div>
+        </div>
+      {{ end }}
+      {{end}}
+
+      {{/* PUBLICATION METADATA */}}
+      {{ if .Params.abstract | or (eq .Type "publications") }}
+        <div class="max-w-prose grid grid-cols-1 md:grid-cols-[200px_auto] gap-4 my-6">
+
+        {{ if .Params.abstract }}
+          <div class="font-bold text-2xl">{{ i18n "abstract" }}</div>
+          <div>{{ .Params.abstract | markdownify }}</div>
+        {{ end }}
+
+        {{ if $pub_type_display }}
+          <div class="font-bold text-2xl">{{ i18n "publication_type" }}</div>
+          <div>
+            {{ if and .Params.publication_types (gt (len .Params.publication_types) 0) }}
+            <a href="{{ range first 1 (.GetTerms "publication_types") }}{{.RelPermalink}}{{end}}">
+            {{ $pub_type_display }}
+            </a>
+            {{ end }}
+          </div>
+        {{ end }}
+
+        {{ if .Params.publication }}
+          <div class="font-bold text-2xl">{{ i18n "publication" }}</div>
+          <div>{{ .Params.publication | markdownify }}</div>
+        {{ end }}
+
+      </div>
+      {{ end }}
+
+      {{/* RELATED TALKS */}}
+      {{ with .Params.related_talks }}
+      <div style="margin:2rem 0;padding:1.5rem;background:#f8f9fa;border-radius:8px;border:1px solid #e2e8f0;">
+        <h2 style="font-size:1.3rem;font-weight:700;margin:0 0 1rem;color:#1e293b;">Related Presentations</h2>
+        <ul style="list-style:none;padding:0;margin:0;">
+          {{ range . }}
+            {{ $talk := $.Site.GetPage (printf "/talk/%s" .) }}
+            {{ with $talk }}
+            <li style="padding:8px 0;border-bottom:1px solid #eee;">
+              <a href="{{ .RelPermalink }}" style="color:#337ab7;text-decoration:none;font-weight:500;">{{ .Title }}</a>
+              <span style="color:#666;font-size:0.85rem;margin-left:0.5rem;">{{ .Date.Format "2006" }}</span>
+            </li>
+            {{ end }}
+          {{ end }}
+        </ul>
+      </div>
+      {{ end }}
+
+      {{/* RELATED DATASET */}}
+      {{ with $.Params.related_dataset }}
+        {{ $ds := $.Site.GetPage (printf "/publication/%s" .) }}
+        {{ with $ds }}
+        <div style="margin:2rem 0;padding:1rem 1.5rem;background:#f0f7ee;border-radius:8px;border:1px solid #c3ddb8;">
+          <strong style="color:#2d6a1e;">Replication Data:</strong>
+          <a href="{{ .RelPermalink }}" style="color:#337ab7;text-decoration:none;margin-left:0.5rem;">{{ .Title }}</a>
+          {{ range .Params.links }}
+            {{ if eq .type "source" }}
+              — <a href="{{ .url }}" target="_blank" rel="noopener" style="color:#337ab7;font-size:0.9rem;">Dataverse</a>
+            {{ end }}
+          {{ end }}
+        </div>
+        {{ end }}
+      {{ end }}
+
+      <div class="prose prose-slate lg:prose-xl dark:prose-invert">
+        {{ .Content }}
+      </div>
+
+      {{ partial "components/last-edited.html" . }}
+
+      <div class="container mx-auto prose prose-slate lg:prose-xl dark:prose-invert mt-5">
+        {{ .Scratch.Set "invert_pager" true }}
+        {{ partial "page_footer" . }}
+      </div>
+
+    </main>
+  </article>
+</div>
+{{ end }}

@@ -1,4 +1,8 @@
 ---
+related_talks:
+  - "correcting-measurement-error-bias-in-conjoint-survey-experiments-harvard-experim"
+  - "correcting-measurement-error-bias-in-conjoint-survey-experiments-stanford-univer"
+  - "correcting-measurement-error-bias-in-conjoint-survey-experiments-university-of-c"
 title: "Correcting Measurement Error Bias in Conjoint Survey Experiments"
 date: "2025-01-01"
 authors:

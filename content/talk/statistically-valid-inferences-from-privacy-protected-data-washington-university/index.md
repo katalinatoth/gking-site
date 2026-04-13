@@ -1,4 +1,5 @@
 ---
+related_paper: "statistically-valid-inferences-from-privacy-protected-data"
 title: "Statistically Valid Inferences from Privacy Protected Data (Washington University in St. Louis)"
 date: "2023-01-01"
 authors:

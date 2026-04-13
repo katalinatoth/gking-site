@@ -1,4 +1,9 @@
 ---
+related_dataset: "replication-data-for-explaining-systematic-bias-and-nontransparency-in-us-social"
+related_talks:
+  - "discovering-and-explaining-systematic-bias-and-nontransparency-in-us-social-secu"
+  - "explaining-systematic-bias-and-nontransparency-in-us-social-security-administrat"
+  - "explaining-systematic-bias-and-nontransparency-in-us-social-security-administrat-2015"
 title: "Explaining Systematic Bias and Nontransparency in US Social Security Administration Forecasts"
 date: "2015-01-01"
 authors:

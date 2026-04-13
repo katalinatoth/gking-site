@@ -1,4 +1,21 @@
 ---
+related_talks:
+  - "statistically-valid-inferences-from-privacy-protected-data-deloitte"
+  - "statistically-valid-inferences-from-privacy-protected-data-google"
+  - "statistically-valid-inferences-from-privacy-protected-data-google-inc"
+  - "statistically-valid-inferences-from-privacy-protected-data-harvard-privacy-tools"
+  - "statistically-valid-inferences-from-privacy-protected-data-harvard-university-ap"
+  - "statistically-valid-inferences-from-privacy-protected-data-institute-for-analyti"
+  - "statistically-valid-inferences-from-privacy-protected-data-interagency-arctic-re"
+  - "statistically-valid-inferences-from-privacy-protected-data-microsoft"
+  - "statistically-valid-inferences-from-privacy-protected-data-mit-analytics-lab"
+  - "statistically-valid-inferences-from-privacy-protected-data-pew-research-center"
+  - "statistically-valid-inferences-from-privacy-protected-data-princeton-university"
+  - "statistically-valid-inferences-from-privacy-protected-data-sicss-university-of-r"
+  - "statistically-valid-inferences-from-privacy-protected-data-university-of-chicago"
+  - "statistically-valid-inferences-from-privacy-protected-data-university-of-wiscons"
+  - "statistically-valid-inferences-from-privacy-protected-data-washington-university"
+  - "statistically-valid-inferences-from-privacy-protected-data-webcast-project-tier"
 title: "Statistically Valid Inferences from Privacy Protected Data"
 date: "2023-01-01"
 authors:

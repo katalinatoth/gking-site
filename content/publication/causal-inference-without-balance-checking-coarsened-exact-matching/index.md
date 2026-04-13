@@ -1,4 +1,9 @@
 ---
+related_talks:
+  - "matching-for-causal-inference-without-balance-checking"
+  - "matching-for-causal-inference-without-balance-checking-2008"
+  - "matching-for-causal-inference-without-balance-checking-2008-372"
+  - "matching-for-causal-inference-without-balance-checking-2009"
 title: "Causal Inference Without Balance Checking: Coarsened Exact Matching"
 date: "2012-01-01"
 authors:

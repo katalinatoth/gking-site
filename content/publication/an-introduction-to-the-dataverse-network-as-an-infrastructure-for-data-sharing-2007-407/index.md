@@ -1,4 +1,11 @@
 ---
+related_talks:
+  - "an-introduction-to-the-dataverse-network-as-an-infrastructure-for-data-sharing"
+  - "an-introduction-to-the-dataverse-network-as-an-infrastructure-for-data-sharing-2007"
+  - "an-introduction-to-the-dataverse-network-as-an-infrastructure-for-data-sharing-2007-403"
+  - "the-dataverse-network-an-infrastructure-for-data-sharing"
+  - "the-dataverse-network-an-infrastructure-for-data-sharing-2008"
+  - "the-dataverse-network-an-infrastructure-for-data-sharing-2008-380"
 title: "An Introduction to the Dataverse Network As an Infrastructure for Data Sharing"
 date: "2007-01-01"
 authors:

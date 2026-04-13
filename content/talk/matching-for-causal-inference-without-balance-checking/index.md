@@ -1,4 +1,5 @@
 ---
+related_paper: "causal-inference-without-balance-checking-coarsened-exact-matching"
 title: "Matching for Causal Inference Without Balance Checking"
 date: "2009-01-01"
 authors:

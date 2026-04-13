@@ -1,4 +1,5 @@
 ---
+related_paper: "statistically-valid-inferences-from-privacy-protected-data"
 title: "Statistically Valid Inferences from Privacy Protected Data (Pew Research Center)"
 date: "2025-01-01"
 authors:

@@ -1,4 +1,5 @@
 ---
+related_paper: "how-the-news-media-activate-public-expression-and-influence-national-agendas-2017"
 title: "How the News Media Activate Public Expression and Influence National Agendas (University of Minho)"
 date: "2019-01-01"
 authors:

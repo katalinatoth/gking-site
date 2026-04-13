@@ -1,4 +1,5 @@
 ---
+related_paper: "correcting-measurement-error-bias-in-conjoint-survey-experiments"
 title: "Correcting Measurement Error Bias in Conjoint Survey Experiments (Stanford University)"
 date: "2023-01-01"
 authors:

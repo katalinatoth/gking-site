@@ -1,4 +1,13 @@
 ---
+related_talks:
+  - "how-the-news-media-activate-public-expression-and-influence-national-agendas"
+  - "how-the-news-media-activate-public-expression-and-influence-national-agendas-2018"
+  - "how-the-news-media-activate-public-expression-and-influence-national-agendas-2018-119"
+  - "how-the-news-media-activate-public-expression-and-influence-national-agendas-2018-120"
+  - "how-the-news-media-activate-public-expression-and-influence-national-agendas-2018-121"
+  - "how-the-news-media-activate-public-expression-and-influence-national-agendas-2018-123"
+  - "how-the-news-media-activate-public-expression-and-influence-national-agendas-2018-126"
+  - "how-the-news-media-activate-public-expression-and-influence-national-agendas-uni"
 title: "How the News Media Activate Public Expression and Influence National Agendas"
 date: "2017-01-01"
 authors:

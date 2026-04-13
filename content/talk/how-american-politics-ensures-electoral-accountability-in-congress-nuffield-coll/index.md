@@ -1,4 +1,5 @@
 ---
+related_paper: "how-american-politics-ensures-electoral-accountability-in-congress"
 title: "How American Politics Ensures Electoral Accountability in Congress (Nuffield College, Oxford University)"
 date: "2023-01-01"
 authors:

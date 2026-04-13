@@ -1,4 +1,5 @@
 ---
+related_paper: "how-american-politics-ensures-electoral-accountability-in-congress"
 title: "How American Politics Ensures Electoral Accountability in Congress (Washington University in St. Louis)"
 date: "2023-01-01"
 authors:

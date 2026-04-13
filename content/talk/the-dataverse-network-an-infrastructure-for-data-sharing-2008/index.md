@@ -1,4 +1,5 @@
 ---
+related_paper: "an-introduction-to-the-dataverse-network-as-an-infrastructure-for-data-sharing-2007-407"
 title: "The Dataverse Network: An Infrastructure for Data Sharing"
 date: "2008-01-01"
 authors:

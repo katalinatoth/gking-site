@@ -1,4 +1,6 @@
 ---
+related_talks:
+  - "computer-assisted-clustering-and-conceptualization"
 title: "General Purpose Computer-Assisted Clustering and Conceptualization"
 date: "2011-01-01"
 authors:

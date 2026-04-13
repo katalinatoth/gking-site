@@ -1,4 +1,9 @@
 ---
+related_talks:
+  - "how-american-politics-ensures-electoral-accountability-in-congress-center-for-am"
+  - "how-american-politics-ensures-electoral-accountability-in-congress-nuffield-coll"
+  - "how-american-politics-ensures-electoral-accountability-in-congress-ucla"
+  - "how-american-politics-ensures-electoral-accountability-in-congress-washington-un"
 title: "How American Politics Ensures Electoral Accountability in Congress"
 date: "2025-01-01"
 authors:
