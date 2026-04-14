@@ -34,7 +34,7 @@
         {{ if $hasImage }}
         <div class="gk-pub-image">
           {{ if ne $featured.MediaType.SubType "gif" }}
-            {{ $fitted := $featured.Fit "400x600" }}
+            {{ $fitted := $featured.Fit "680x1000" }}
             <img src="{{ $fitted.RelPermalink }}" width="{{ $fitted.Width }}" height="{{ $fitted.Height }}" alt="{{ with .Params.image.alt_text }}{{.}}{{ end }}" loading="lazy">
           {{ else }}
             <img src="{{ $featured.RelPermalink }}" alt="{{ with .Params.image.alt_text }}{{.}}{{ end }}" loading="lazy">
@@ -45,7 +45,7 @@
         {{ if $hasAbstract }}
         <div class="gk-pub-text">
           <h3 style="font-size:1rem;font-weight:700;margin:0 0 0.5rem;color:#333;">Abstract</h3>
-          <div style="font-size:0.9rem;line-height:1.6;color:#444;">{{ .Params.abstract | markdownify }}</div>
+          <div>{{ .Params.abstract | markdownify }}</div>
         </div>
         {{ end }}
       </div>

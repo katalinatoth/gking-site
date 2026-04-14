@@ -101,26 +101,32 @@ footer .powered-by {
 .gk-citation-line em { color: #444; }
 
 .gk-pub-body {
-  display: flex;
-  gap: 1.5rem;
   margin: 1.25rem 0;
+  overflow: hidden;
 }
 .gk-pub-image {
-  flex-shrink: 0;
-  width: 200px;
+  float: left;
+  margin: 0 1.5rem 1rem 0;
+  max-width: 340px;
 }
 .gk-pub-image img {
   width: 100%;
+  height: auto;
   border-radius: 4px;
   border: 1px solid #e2e8f0;
+  display: block;
 }
 .gk-pub-text {
-  flex: 1;
-  min-width: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #444;
 }
 @media (max-width: 640px) {
-  .gk-pub-body { flex-direction: column; }
-  .gk-pub-image { width: 100%; max-width: 300px; }
+  .gk-pub-image {
+    float: none;
+    max-width: 100%;
+    margin: 0 0 1rem 0;
+  }
 }
 
 /* See Also section */
