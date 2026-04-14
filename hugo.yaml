@@ -83,7 +83,7 @@ menus:
       url: /publication/
       weight: 20
     - name: Research Areas
-      url: /research-areas/
+      url: /#research-areas
       weight: 30
     - name: Software
       url: /software/

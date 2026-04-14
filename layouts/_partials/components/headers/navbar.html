@@ -98,10 +98,11 @@
       {{ $url := "" }}
       {{- if findRE `^#` .URL -}}
         {{- if not $.IsHome -}}
-          {{- $url = site.Home.RelPermalink -}}
-        {{- end }}
-        {{- $url = .URL -}}
+          {{- $url = printf "%s%s" site.Home.RelPermalink .URL -}}
         {{- else -}}
+          {{- $url = .URL -}}
+        {{- end -}}
+      {{- else -}}
         {{- $url = .URL | relLangURL -}}
       {{- end -}}
       <li class="nav-item">

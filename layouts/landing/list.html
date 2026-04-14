@@ -23,7 +23,7 @@
 </section>
 
 <!-- Research Areas Section -->
-<section style="max-width:1200px;margin:0 auto;padding:60px 40px;">
+<section id="research-areas" style="max-width:1200px;margin:0 auto;padding:60px 40px;">
   <h2 style="font-size:2rem;font-weight:400;color:#1E1E1E;margin:0 0 40px 0;">Research Areas</h2>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;">
     <!-- Methods -->
@@ -39,15 +39,36 @@
       </div>
       <h3 style="text-align:center;font-size:1.3rem;font-weight:600;margin:0 0 16px 0;">Methods</h3>
       {{ range $data.methods }}
-      <details class="gk-hp-area" style="border-bottom:1px solid #eee;margin-bottom:0;">
+      <details class="gk-hp-area" id="{{ .name | urlize }}" style="border-bottom:1px solid #eee;margin-bottom:0;">
         <summary style="font-size:0.9rem;font-weight:500;cursor:pointer;padding:6px 0;list-style:none;display:flex;align-items:center;gap:5px;color:#337ab7;">
           <span class="gk-hp-arrow">&#9654;</span> {{ .name }}
         </summary>
         <div style="padding:4px 0 10px 16px;">
           {{ with .description }}
-          <p style="font-size:0.82rem;line-height:1.5;color:#666;margin:0 0 6px;">{{ . }}</p>
+          <p style="font-size:0.82rem;line-height:1.5;color:#666;margin:0 0 8px;">{{ . }}</p>
           {{ end }}
-          <a href="{{ "research-areas/" | relURL }}#{{ .name | urlize }}" style="font-size:0.8rem;color:#337ab7;text-decoration:none;">View publications &rarr;</a>
+          {{ range .subcategories }}
+            {{ if gt (len .papers) 0 }}
+            <h4 style="font-size:0.8rem;font-weight:700;color:#555;margin:0.5rem 0 0.3rem;border-bottom:1px solid #eee;padding-bottom:2px;">{{ .name }}</h4>
+            <ul style="list-style:none;padding:0;margin:0;">
+              {{ range .papers }}
+                {{ $page := site.GetPage (printf "/%s/%s" .section .slug) }}
+                {{ with $page }}
+                <li style="padding:2px 0;font-size:0.78rem;">
+                  {{ $authors := .Params.authors | default slice }}
+                  {{ if gt (len $authors) 0 }}{{ delimit $authors ", " }}. {{ end }}
+                  {{ .Date.Format "2006" }}.
+                  "<a href="{{ .RelPermalink }}" style="color:#337ab7;text-decoration:none;">{{ .Title }}</a>."
+                  {{ with .Params.publication }}<em style="color:#666;">{{ . }}</em>.{{ end }}
+                </li>
+                {{ end }}
+              {{ end }}
+            </ul>
+            {{ end }}
+          {{ end }}
+          {{ if not .subcategories }}
+            <p style="font-size:0.8rem;color:#666;font-style:italic;">No papers cataloged for this area yet.</p>
+          {{ end }}
         </div>
       </details>
       {{ end }}
@@ -68,15 +89,36 @@
       </div>
       <h3 style="text-align:center;font-size:1.3rem;font-weight:600;margin:0 0 16px 0;">Applications</h3>
       {{ range $data.applications }}
-      <details class="gk-hp-area" style="border-bottom:1px solid #eee;margin-bottom:0;">
+      <details class="gk-hp-area" id="{{ .name | urlize }}" style="border-bottom:1px solid #eee;margin-bottom:0;">
         <summary style="font-size:0.9rem;font-weight:500;cursor:pointer;padding:6px 0;list-style:none;display:flex;align-items:center;gap:5px;color:#337ab7;">
           <span class="gk-hp-arrow">&#9654;</span> {{ .name }}
         </summary>
         <div style="padding:4px 0 10px 16px;">
           {{ with .description }}
-          <p style="font-size:0.82rem;line-height:1.5;color:#666;margin:0 0 6px;">{{ . }}</p>
+          <p style="font-size:0.82rem;line-height:1.5;color:#666;margin:0 0 8px;">{{ . }}</p>
           {{ end }}
-          <a href="{{ "research-areas/" | relURL }}#{{ .name | urlize }}" style="font-size:0.8rem;color:#337ab7;text-decoration:none;">View publications &rarr;</a>
+          {{ range .subcategories }}
+            {{ if gt (len .papers) 0 }}
+            <h4 style="font-size:0.8rem;font-weight:700;color:#555;margin:0.5rem 0 0.3rem;border-bottom:1px solid #eee;padding-bottom:2px;">{{ .name }}</h4>
+            <ul style="list-style:none;padding:0;margin:0;">
+              {{ range .papers }}
+                {{ $page := site.GetPage (printf "/%s/%s" .section .slug) }}
+                {{ with $page }}
+                <li style="padding:2px 0;font-size:0.78rem;">
+                  {{ $authors := .Params.authors | default slice }}
+                  {{ if gt (len $authors) 0 }}{{ delimit $authors ", " }}. {{ end }}
+                  {{ .Date.Format "2006" }}.
+                  "<a href="{{ .RelPermalink }}" style="color:#337ab7;text-decoration:none;">{{ .Title }}</a>."
+                  {{ with .Params.publication }}<em style="color:#666;">{{ . }}</em>.{{ end }}
+                </li>
+                {{ end }}
+              {{ end }}
+            </ul>
+            {{ end }}
+          {{ end }}
+          {{ if not .subcategories }}
+            <p style="font-size:0.8rem;color:#666;font-style:italic;">No papers cataloged for this area yet.</p>
+          {{ end }}
         </div>
       </details>
       {{ end }}
