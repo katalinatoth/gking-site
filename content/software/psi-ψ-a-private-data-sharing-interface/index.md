@@ -11,4 +11,11 @@ authors:
 links:
   - type: site
     url: "http://psiprivacy.org/static/about/"
+see_also:
+  - title: "OpenDP: Developing Open Source Tools for Differential Privacy"
+    url: "https://opendp.org/"
+    note: "supersedes this project"
+  - title: "PrivacyUnbiased"
+    section: "software"
+    slug: "privacyunbiased"
 ---
