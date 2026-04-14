@@ -2,17 +2,4 @@
 document.documentElement.dataset.wcThemeDefault = "light";
 document.documentElement.classList.remove("dark");
 document.documentElement.style.colorScheme = "light";
-(function() {
-  var pf = document.querySelector(".page-footer");
-  if (pf) {
-    var bar = document.createElement("div");
-    bar.className = "gk-footer-bar";
-    bar.innerHTML = '<a href="https://gking.harvard.edu/blog">Blog</a><span class="gk-sep">|</span>' +
-      '<a href="https://gking.harvard.edu/advice-and-suggestions">Advice and Suggestions</a><span class="gk-sep">|</span>' +
-      '<a href="https://gking.harvard.edu/miscellaneous">Miscellanea</a><span class="gk-sep">|</span>' +
-      '<a href="https://www.iq.harvard.edu/">IQSS</a><span class="gk-sep">|</span>' +
-      '<a href="https://twitter.com/kinggary">@KingGary on Twitter</a>';
-    pf.insertBefore(bar, pf.firstChild);
-  }
-})();
 </script>

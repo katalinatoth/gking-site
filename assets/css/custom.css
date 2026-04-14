@@ -60,26 +60,6 @@ button[accesskey="t"] {
   display: none !important;
 }
 
-/* Site-wide links bar above footer */
-.gk-footer-bar {
-  text-align: center;
-  padding: 1rem 0;
-  border-top: 1px solid #e2e8f0;
-  border-bottom: 1px solid #e2e8f0;
-  margin-bottom: 1rem;
-  font-size: 0.9rem;
-}
-.gk-footer-bar a {
-  color: #337ab7;
-  text-decoration: none;
-}
-.gk-footer-bar a:hover {
-  text-decoration: underline;
-}
-.gk-footer-bar .gk-sep {
-  margin: 0 0.75rem;
-  color: #999;
-}
 
 /* Reduce footer branding visibility */
 footer .powered-by {

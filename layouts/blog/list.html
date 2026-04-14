@@ -1,0 +1,145 @@
+{{ define "main" }}
+
+<div style="max-width:1100px;margin:0 auto;padding:2rem 1.5rem;">
+  <h1 style="font-size:2.2rem;font-weight:700;margin:0 0 1.5rem;color:#1E1E1E;">Blog</h1>
+
+  <div style="display:flex;gap:2rem;align-items:flex-start;">
+    <!-- Sidebar Filters -->
+    <div style="min-width:200px;max-width:220px;flex-shrink:0;background:#e8f0f8;border-radius:8px;padding:1.25rem;">
+      <h3 style="font-size:1.1rem;font-weight:700;color:#1a3a5c;margin:0 0 1rem;">Filters</h3>
+
+      <details open style="margin-bottom:1rem;">
+        <summary style="font-size:0.9rem;font-weight:600;color:#1a3a5c;cursor:pointer;margin-bottom:0.5rem;">Publish Date</summary>
+        <div id="gk-blog-years" style="font-size:0.85rem;"></div>
+      </details>
+
+      <button id="gk-blog-apply" style="display:block;width:100%;padding:8px;background:#c75b12;color:#fff;border:none;border-radius:4px;font-weight:600;font-size:0.9rem;cursor:pointer;margin-bottom:0.5rem;">Apply</button>
+      <a href="#" id="gk-blog-clear" style="font-size:0.85rem;color:#337ab7;text-decoration:none;">Clear Filters</a>
+
+      <div style="margin-top:1.25rem;">
+        <label style="font-size:0.85rem;font-weight:600;color:#c75b12;">Search Within Results</label>
+        <div style="display:flex;margin-top:0.25rem;">
+          <input type="text" id="gk-blog-search" style="flex:1;padding:6px 8px;border:1px solid #ccc;border-radius:4px 0 0 4px;font-size:0.85rem;box-sizing:border-box;">
+          <button id="gk-blog-search-btn" style="padding:6px 10px;background:#c75b12;color:#fff;border:none;border-radius:0 4px 4px 0;cursor:pointer;">&#128269;</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div style="flex:1;min-width:0;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+        <span id="gk-blog-count" style="font-size:0.95rem;font-weight:500;color:#333;"></span>
+        <select id="gk-blog-sort" style="padding:4px 8px;border:1px solid #ccc;border-radius:4px;font-size:0.85rem;">
+          <option value="desc">Newest</option>
+          <option value="asc">Oldest</option>
+          <option value="az">Alphabetical A–Z</option>
+          <option value="za">Alphabetical Z–A</option>
+        </select>
+      </div>
+      <div id="gk-blog-results"></div>
+    </div>
+  </div>
+</div>
+
+{{ $posts := slice }}
+{{ range .Pages.ByDate.Reverse }}
+  {{ $excerpt := "" }}
+  {{ with .Params.abstract }}{{ $excerpt = . }}{{ end }}
+  {{ if not $excerpt }}{{ $excerpt = .Summary | plainify | truncate 250 }}{{ end }}
+  {{ $post := dict "title" .Title "url" .RelPermalink "date" (.Date.Format "January 2, 2006") "year" (.Date.Format "2006") "excerpt" $excerpt }}
+  {{ $posts = $posts | append $post }}
+{{ end }}
+
+<script>
+(function() {
+  var posts = {{ $posts | jsonify | safeJS }};
+  var checkedYears = {};
+  var searchTerm = "";
+  var sortMode = "desc";
+
+  function buildYears() {
+    var years = {};
+    posts.forEach(function(p) { years[p.year] = (years[p.year] || 0) + 1; });
+    var container = document.getElementById("gk-blog-years");
+    container.innerHTML = "";
+    Object.keys(years).sort().reverse().forEach(function(y) {
+      var div = document.createElement("div");
+      div.style.cssText = "padding:2px 0;";
+      div.innerHTML = '<label style="cursor:pointer;display:flex;align-items:center;gap:6px;">' +
+        '<input type="checkbox" data-year="' + y + '"' + (checkedYears[y] ? ' checked' : '') + '> ' +
+        y + ' (' + years[y] + ')</label>';
+      container.appendChild(div);
+    });
+  }
+
+  function getFiltered() {
+    var anyYear = Object.keys(checkedYears).some(function(y) { return checkedYears[y]; });
+    return posts.filter(function(p) {
+      if (anyYear && !checkedYears[p.year]) return false;
+      if (searchTerm) {
+        var hay = (p.title + " " + p.excerpt + " " + p.date).toLowerCase();
+        if (hay.indexOf(searchTerm) === -1) return false;
+      }
+      return true;
+    });
+  }
+
+  function sortPosts(arr) {
+    var sorted = arr.slice();
+    switch (sortMode) {
+      case "asc": sorted.reverse(); break;
+      case "az": sorted.sort(function(a,b) { return a.title.localeCompare(b.title); }); break;
+      case "za": sorted.sort(function(a,b) { return b.title.localeCompare(a.title); }); break;
+    }
+    return sorted;
+  }
+
+  function render() {
+    var filtered = sortPosts(getFiltered());
+    document.getElementById("gk-blog-count").textContent = filtered.length + " result" + (filtered.length !== 1 ? "s" : "");
+    var html = "";
+    filtered.forEach(function(p) {
+      html += '<div style="background:#e8f0f8;border-radius:8px;padding:1.25rem 1.5rem;margin-bottom:1rem;">';
+      html += '<div style="font-size:0.85rem;color:#666;margin-bottom:4px;">' + p.date + '</div>';
+      html += '<h3 style="margin:0 0 8px;font-size:1.1rem;"><a href="' + p.url + '" style="color:#1a3a5c;text-decoration:none;">' + p.title + '</a></h3>';
+      if (p.excerpt) html += '<p style="font-size:0.9rem;color:#444;line-height:1.5;margin:0;">' + p.excerpt + '</p>';
+      html += '</div>';
+    });
+    document.getElementById("gk-blog-results").innerHTML = html;
+  }
+
+  document.getElementById("gk-blog-apply").addEventListener("click", function() {
+    checkedYears = {};
+    document.querySelectorAll("#gk-blog-years input[type=checkbox]").forEach(function(cb) {
+      if (cb.checked) checkedYears[cb.dataset.year] = true;
+    });
+    render();
+  });
+
+  document.getElementById("gk-blog-clear").addEventListener("click", function(e) {
+    e.preventDefault();
+    checkedYears = {};
+    searchTerm = "";
+    document.getElementById("gk-blog-search").value = "";
+    document.querySelectorAll("#gk-blog-years input[type=checkbox]").forEach(function(cb) { cb.checked = false; });
+    render();
+  });
+
+  document.getElementById("gk-blog-search-btn").addEventListener("click", function() {
+    searchTerm = document.getElementById("gk-blog-search").value.toLowerCase();
+    render();
+  });
+  document.getElementById("gk-blog-search").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") { searchTerm = this.value.toLowerCase(); render(); }
+  });
+  document.getElementById("gk-blog-sort").addEventListener("change", function() {
+    sortMode = this.value;
+    render();
+  });
+
+  buildYears();
+  render();
+})();
+</script>
+
+{{ end }}
