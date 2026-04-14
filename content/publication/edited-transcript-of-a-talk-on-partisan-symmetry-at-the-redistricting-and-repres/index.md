@@ -1,12 +1,13 @@
 ---
-title: "Edited Transcript of a Talk on Partisan Symmetry at the ’Redistricting and Representation Forum’"
-date: "2018-01-01"
+abstract: The origin, meaning, estimation, and application of the concept ofpartisan symmetryin legislative redistricting, and the justiciability of partisan gerrymandering. An edited transcript of a talk at the “Redistricting and Representation Forum,” American Academy of Arts & Sciences, Cambridge, MA 11/8/2017.Here also isa video of the original talk.
 authors:
-  - "Gary King"
-publication_types:
-  - "journal_article"
-abstract: "The origin, meaning, estimation, and application of the concept ofpartisan symmetryin legislative redistricting, and the justiciability of partisan gerrymandering. An edited transcript of a talk at the “Redistricting and Representation Forum,” American Academy of Arts & Sciences, Cambridge, MA 11/8/2017.Here also isa video of the original talk."
+- Gary King
+date: '2018-01-01'
 links:
-  - type: pdf
-    url: "files/redistandrep.pdf"
+- type: pdf
+  url: files/redistandrep.pdf
+publication: Bulletin of the American Academy of Arts and Sciences, Winter, Pp. 55-58
+publication_types:
+- journal_article
+title: Edited Transcript of a Talk on Partisan Symmetry at the ’Redistricting and Representation Forum’
 ---

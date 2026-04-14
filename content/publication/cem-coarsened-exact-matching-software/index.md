@@ -1,10 +1,11 @@
 ---
-title: "CEM: Coarsened Exact Matching Software"
-date: "2009-01-01"
 authors:
-  - "Stefano Iacus"
-  - "Gary King"
-  - "Giuseppe Porro"
+- Stefano Iacus
+- Gary King
+- Giuseppe Porro
+date: '2009-01-01'
+publication: Journal of Statistical Software, 30
 publication_types:
-  - "software"
+- software
+title: 'CEM: Coarsened Exact Matching Software'
 ---

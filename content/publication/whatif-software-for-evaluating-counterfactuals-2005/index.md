@@ -1,10 +1,11 @@
 ---
-title: "WhatIf: Software for Evaluating Counterfactuals"
-date: "2005-01-01"
 authors:
-  - "Heather Stoll"
-  - "Gary King"
-  - "Langche Zeng"
+- Heather Stoll
+- Gary King
+- Langche Zeng
+date: '2005-01-01'
+publication: Journal of Statistical Software, 15, 4, Pp. 1-18
 publication_types:
-  - "software"
+- software
+title: 'WhatIf: Software for Evaluating Counterfactuals'
 ---

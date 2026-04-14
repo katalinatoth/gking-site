@@ -52,7 +52,7 @@
           {{ if gt $totalPapers 0 }}
           <details class="gk-hp-pubs">
             <summary style="font-size:0.8rem;cursor:pointer;color:#337ab7;padding:2px 0;list-style:none;display:flex;align-items:center;gap:4px;">
-              <span class="gk-hp-arrow">&#9654;</span> Publications ({{ $totalPapers }})
+              <span class="gk-hp-arrow">&#9654;</span> Publications
             </summary>
             <div style="padding:4px 0 4px 12px;">
               {{ range .subcategories }}
@@ -111,7 +111,7 @@
           {{ if gt $totalPapers 0 }}
           <details class="gk-hp-pubs">
             <summary style="font-size:0.8rem;cursor:pointer;color:#337ab7;padding:2px 0;list-style:none;display:flex;align-items:center;gap:4px;">
-              <span class="gk-hp-arrow">&#9654;</span> Publications ({{ $totalPapers }})
+              <span class="gk-hp-arrow">&#9654;</span> Publications
             </summary>
             <div style="padding:4px 0 4px 12px;">
               {{ range .subcategories }}
@@ -385,6 +385,17 @@
         </div>
       </a>
     </div>
+  </div>
+</section>
+
+<!-- Footer Links Bar -->
+<section style="background:#333;padding:20px 40px;">
+  <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:center;flex-wrap:wrap;gap:24px;">
+    <a href="{{ "blog/" | relURL }}" style="color:#ccc;text-decoration:none;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.05em;">Blog</a>
+    <a href="{{ "advice/" | relURL }}" style="color:#ccc;text-decoration:none;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.05em;">Advice and Suggestions</a>
+    <a href="{{ "miscellanea/" | relURL }}" style="color:#ccc;text-decoration:none;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.05em;">Miscellanea</a>
+    <a href="https://www.iq.harvard.edu/" target="_blank" rel="noopener" style="color:#ccc;text-decoration:none;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.05em;">IQSS</a>
+    <a href="http://twitter.com/kinggary" target="_blank" rel="noopener" style="color:#ccc;text-decoration:none;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.05em;">@KingGary on Twitter</a>
   </div>
 </section>
 

@@ -1,11 +1,11 @@
 ---
-title: "Comparative Effectiveness of Matching Methods for Causal Inference"
-date: "2010-01-01"
 authors:
-  - "Gary King"
-publication_types:
-  - "presentation"
+- Gary King
+date: '2010-01-01'
 links:
-  - type: pdf
-    url: "files/pspara-pu.pdf"
+- type: pdf
+  url: files/pspara-pu.pdf
+publication_types:
+- presentation
+title: Comparative Effectiveness of Matching Methods for Causal Inference
 ---

@@ -32,7 +32,7 @@
             <option value="alpha-az">Alphabetical A–Z</option>
             <option value="alpha-za">Alphabetical Z–A</option>
           </select>
-          <button id="gk-download-bib" style="padding:6px 14px;background:#337ab7;color:#fff;border:none;border-radius:4px;font-size:0.85rem;cursor:pointer;display:flex;align-items:center;gap:6px;">Download citations ⬇</button>
+          <button id="gk-download-bib" style="padding:6px 14px;background:#337ab7;color:#fff;border:none;border-radius:4px;font-size:0.85rem;cursor:pointer;display:flex;align-items:center;gap:6px;">Download citations</button>
         </div>
       </div>
       <div id="gk-results"></div>
@@ -260,7 +260,7 @@
     document.getElementById("gk-result-count").textContent =
       filtered.length + " result" + (filtered.length !== 1 ? "s" : "");
     document.getElementById("gk-download-bib").innerHTML =
-      "Download " + filtered.length + " citation" + (filtered.length !== 1 ? "s" : "") + " ⬇";
+      "Download " + filtered.length + " citation" + (filtered.length !== 1 ? "s" : "");
 
     var container = document.getElementById("gk-results");
     var html = "";

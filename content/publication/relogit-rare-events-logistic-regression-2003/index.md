@@ -1,10 +1,11 @@
 ---
-title: "ReLogit: Rare Events Logistic Regression"
-date: "2003-01-01"
 authors:
-  - "Gary King"
-  - "Michael Tomz"
-  - "Langche Zeng"
+- Gary King
+- Michael Tomz
+- Langche Zeng
+date: '2003-01-01'
+publication: Journal of Statistical Software, 8
 publication_types:
-  - "software"
+- software
+title: 'ReLogit: Rare Events Logistic Regression'
 ---
