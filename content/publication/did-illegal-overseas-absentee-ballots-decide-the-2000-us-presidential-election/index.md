@@ -10,4 +10,5 @@ abstract: "Although not widely known until much later, Al Gore received 202 more
 links:
   - type: pdf
     url: "files/ballots.pdf"
+publication: "Perspectives on Politics, 2, Pp. 537–549"
 ---

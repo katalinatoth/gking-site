@@ -9,4 +9,5 @@ abstract: "Political science is a community enterprise and the community of empi
 links:
   - type: pdf
     url: "files/replication.pdf"
+publication: "PS: Political Science and Politics, 28, Pp. 444-52"
 ---

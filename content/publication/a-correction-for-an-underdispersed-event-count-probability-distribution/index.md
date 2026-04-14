@@ -11,4 +11,5 @@ abstract: "We demonstrate that the expected value and variance commonly given fo
 links:
   - type: pdf
     url: "files/correction.pdf"
+publication: "Political Analysis, Pp. 215–228"
 ---

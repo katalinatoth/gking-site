@@ -11,4 +11,5 @@ abstract: "We describe some progress toward a common framework for statistical a
 links:
   - type: pdf
     url: "files/z.pdf"
+publication: "Journal of Computational Graphics and Statistics, 17, Pp. 1–22"
 ---

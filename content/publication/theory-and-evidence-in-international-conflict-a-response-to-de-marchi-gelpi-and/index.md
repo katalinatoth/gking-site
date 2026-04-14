@@ -13,4 +13,5 @@ abstract: "We thank Scott de Marchi, Christopher Gelpi, and Jeffrey Grynaviski (
 links:
   - type: pdf
     url: "files/toe-resp.pdf"
+publication: "98, Pp. 379-89"
 ---

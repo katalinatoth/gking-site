@@ -61,4 +61,5 @@ links:
     url: "files/covidccc.pdf"
   - type: source
     url: "https://www.nature.com/articles/s41591-020-0929-x"
+publication: "Nature Medicine, 26, Pp. 1161-65"
 ---

@@ -10,4 +10,5 @@ abstract: "What should a researcher do when statistical analysis software termin
 links:
   - type: pdf
     url: "files/help.pdf"
+publication: "Sociological Methods and Research, 32, Pp. 54-87"
 ---

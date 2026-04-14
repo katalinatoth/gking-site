@@ -11,4 +11,5 @@ links:
     url: "files/paperspub.pdf"
   - type: source
     url: "/publication/"
+publication: "PS: Political Science and Politics, 39, Pp. 119–125"
 ---

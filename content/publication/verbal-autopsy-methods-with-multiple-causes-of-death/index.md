@@ -10,4 +10,5 @@ abstract: "Verbal autopsy procedures are widely used for estimating cause-specif
 links:
   - type: pdf
     url: "files/vamc.pdf"
+publication: "Statistical Science, 23, Pp. 78–91"
 ---

@@ -9,4 +9,5 @@ abstract: "This is a book review of Steven J. Rosenstone,Forecasting Presidentia
 links:
   - type: pdf
     url: "files/rosenstonebookreview.pdf"
+publication: "American Political Science Review, 79, 3, Pp. 855"
 ---

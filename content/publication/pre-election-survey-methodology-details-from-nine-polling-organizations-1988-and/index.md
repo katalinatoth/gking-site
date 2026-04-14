@@ -11,4 +11,5 @@ abstract: "Before every presidential election, journalists, pollsters, and polit
 links:
   - type: pdf
     url: "files/preelection.pdf"
+publication: "Public Opinion Quarterly, 59, Pp. 98–132"
 ---

@@ -10,4 +10,5 @@ abstract: "The translation of citizen votes into legislative seats is of central
 links:
   - type: pdf
     url: "files/sv.pdf"
+publication: "American Political Science Review, 81, Pp. 1252–1273"
 ---

@@ -10,4 +10,5 @@ abstract: "The accuracy of U.S. Social Security Administration (SSA) demographic
 links:
   - type: pdf
     url: "files/inacc-hellenic.pdf"
+publication: "Political Analysis, 23, 3, Pp. 336-62"
 ---

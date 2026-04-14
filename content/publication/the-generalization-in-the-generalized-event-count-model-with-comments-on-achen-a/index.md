@@ -10,4 +10,5 @@ abstract: "We use an analogy with the normal distribution and linear regression 
 links:
   - type: pdf
     url: "files/generaliz.pdf"
+publication: "Political Analysis, 6, Pp. 225–252"
 ---

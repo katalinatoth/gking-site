@@ -11,4 +11,5 @@ abstract: "In this chapter, we study standards of racial fairness in legislative
 links:
   - type: pdf
     url: "files/racial.pdf"
+publication: "In Classifying by Race, edited by Paul Peterson, Pp. 85-110. Princeton: Princeton University Press"
 ---

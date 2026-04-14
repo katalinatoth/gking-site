@@ -12,4 +12,5 @@ abstract: "We propose a remedy for the discrepancy between the way political sci
 links:
   - type: pdf
     url: "files/evil.pdf"
+publication: "American Political Science Review, 95, Pp. 49–69"
 ---

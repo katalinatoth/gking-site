@@ -11,4 +11,5 @@ abstract: "Researchers who generate data often optimize efficiency and robustnes
 links:
   - type: pdf
     url: "files/multi.pdf"
+publication: "Political Analysis, 27, 1, Pp. 46-68"
 ---

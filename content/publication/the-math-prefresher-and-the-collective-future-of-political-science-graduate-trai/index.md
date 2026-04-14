@@ -13,4 +13,5 @@ links:
     url: "files/prefresher.pdf"
   - type: source
     url: "https://doi.org/10.1017/S1049096519002245"
+publication: "PS: Political Science and Politics, 53, 3, Pp. 537-41"
 ---

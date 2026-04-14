@@ -12,4 +12,5 @@ links:
     url: "files/partnerships.pdf"
   - type: source
     url: "https://www.cambridge.org/core/journals/ps-political-science-and-politics/article/new-model-for-industryacademic-partnerships/AD7D0B8EA582DC017D9A24754D833CAA"
+publication: "PS: Political Science and Politics, 53, 4, Pp. 703-9"
 ---

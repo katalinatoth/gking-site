@@ -20,4 +20,5 @@ links:
     url: "files/political_analysis-2011-iacus-pan_mpr013.pdf"
   - type: source
     url: "https://www.cambridge.org/core/journals/political-analysis/article/causal-inference-without-balance-checking-coarsened-exact-matching/5ABCF5B3FC3089A87FD59CECBB3465C0"
+publication: "Political Analysis, 20, 1, Pp. 1-24"
 ---

@@ -12,4 +12,5 @@ links:
     url: "files/cite.pdf"
   - type: source
     url: "http://www.dlib.org/dlib/march07/altman/03altman.html"
+publication: "D-Lib Magazine, 13"
 ---

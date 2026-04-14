@@ -12,4 +12,5 @@ abstract: "Since Herron and Shotts (2003a and hereinafter HS), Adolph and King (
 links:
   - type: pdf
     url: "files/akhs.pdf"
+publication: "Political Analysis, 11, Pp. 86–94"
 ---

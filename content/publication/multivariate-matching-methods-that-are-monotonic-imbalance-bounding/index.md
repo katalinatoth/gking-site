@@ -13,4 +13,5 @@ abstract: "We introduce a new \"Monotonic Imbalance Bounding\" (MIB) class of ma
 links:
   - type: pdf
     url: "files/cem_jasa.pdf"
+publication: "Journal of the American Statistical Association, 106, 493, Pp. 345-61"
 ---

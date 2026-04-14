@@ -11,4 +11,5 @@ abstract: "\"Politimetrics\" (Gurr 1972), \"polimetrics\" (Alker 1975), \"polito
 links:
   - type: pdf
     url: "files/polmeth.pdf"
+publication: "Political Analysis, 2, Pp. 1–30"
 ---

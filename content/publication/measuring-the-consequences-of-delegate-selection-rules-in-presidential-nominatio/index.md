@@ -12,4 +12,5 @@ abstract: "In this paper, we formalize existing normative criteria used to judge
 links:
   - type: pdf
     url: "files/pri.pdf"
+publication: "Journal of Politics, 52, Pp. 609–621"
 ---

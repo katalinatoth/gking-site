@@ -10,4 +10,5 @@ abstract: "This talk reports on the results of first large scale randomized news
 links:
   - type: pdf
     url: "files/media-uvm.pdf"
+publication: "Science, 358, Pp. 776-80"
 ---

@@ -9,4 +9,5 @@ publication_types:
 links:
   - type: pdf
     url: "files/evbase-um.pdf"
+publication: "In The Future of Political Science: 100 Perspectives, edited by Gary King, Kay Schlozman, and Norman Nie. New York: Routledge Press"
 ---

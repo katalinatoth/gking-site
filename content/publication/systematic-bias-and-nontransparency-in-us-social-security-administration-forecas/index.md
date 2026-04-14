@@ -20,4 +20,5 @@ links:
     url: "files/jep2e292e22e239.pdf"
   - type: source
     url: "https://www.aeaweb.org/articles.php?doi=10.1257/jep.29.2.239"
+publication: "Journal of Economic Perspectives, 29, 2, Pp. 239-58"
 ---

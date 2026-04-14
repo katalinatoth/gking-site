@@ -11,4 +11,5 @@ abstract: "Receiving five serious reviews in this symposium is gratifying and co
 links:
   - type: pdf
     url: "files/kkvresp.pdf"
+publication: "American Political Science Review, 89, Pp. 454–481"
 ---

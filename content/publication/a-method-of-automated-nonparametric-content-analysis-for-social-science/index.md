@@ -15,4 +15,5 @@ abstract: "The increasing availability of digitized text presents enormous oppor
 links:
   - type: pdf
     url: "files/words.pdf"
+publication: "American Journal of Political Science, 54, 1, Pp. 229–247"
 ---

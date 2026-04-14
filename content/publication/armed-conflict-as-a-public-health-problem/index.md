@@ -13,4 +13,5 @@ abstract: "Armed conflict is a major cause of injury and death worldwide, but we
 links:
   - type: pdf
     url: "files/armedph.pdf"
+publication: "BMJ (British Medical Journal), 324, Pp. 346–349"
 ---

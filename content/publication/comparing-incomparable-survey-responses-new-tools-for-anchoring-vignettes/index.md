@@ -10,4 +10,5 @@ abstract: "When respondents use the ordinal response categories of standard surv
 links:
   - type: pdf
     url: "files/c.pdf"
+publication: "Political Analysis, 15, Pp. 46-66"
 ---

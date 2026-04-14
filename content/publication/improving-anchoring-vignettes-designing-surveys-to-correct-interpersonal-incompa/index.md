@@ -12,4 +12,5 @@ abstract: "We report the results of several randomized survey experiments design
 links:
   - type: pdf
     url: "files/implement.pdf"
+publication: "Public Opinion Quarterly, Pp. 1-22"
 ---

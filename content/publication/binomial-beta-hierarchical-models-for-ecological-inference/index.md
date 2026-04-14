@@ -11,4 +11,5 @@ abstract: "The authors develop binomial-beta hierarchical models for ecological 
 links:
   - type: pdf
     url: "files/binom.pdf"
+publication: "Sociological Methods and Research, 28, Pp. 61–90"
 ---

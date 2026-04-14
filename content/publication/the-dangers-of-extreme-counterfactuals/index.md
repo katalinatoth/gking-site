@@ -12,4 +12,5 @@ abstract: "We address the problem that occurs when inferences about counterfactu
 links:
   - type: pdf
     url: "files/counterft.pdf"
+publication: "Political Analysis, 14, Pp. 131–159"
 ---

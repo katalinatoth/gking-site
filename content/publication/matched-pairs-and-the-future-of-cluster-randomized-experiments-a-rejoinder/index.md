@@ -11,4 +11,5 @@ abstract: "A basic feature of many field experiments is that investigators are o
 links:
   - type: pdf
     url: "files/clusterr.pdf"
+publication: "Statistical Science, 24, Pp. 64–72"
 ---

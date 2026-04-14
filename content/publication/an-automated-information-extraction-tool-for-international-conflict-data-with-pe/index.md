@@ -10,4 +10,5 @@ abstract: "Despite widespread recognition that aggregated summary statistics on 
 links:
   - type: pdf
     url: "files/infoex.pdf"
+publication: "International Organization, 57, Pp. 617-42"
 ---

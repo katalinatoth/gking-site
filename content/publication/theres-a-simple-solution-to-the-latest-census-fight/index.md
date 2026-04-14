@@ -13,4 +13,5 @@ links:
     url: "files/censussolution.pdf"
   - type: source
     url: "https://www.bostonglobe.com/2021/07/26/opinion/theres-simple-solution-latest-census-fight/"
+publication: "Boston Globe, Pp. A9"
 ---

@@ -9,4 +9,5 @@ abstract: "Three articles, published in the leading journals of three discipline
 links:
   - type: pdf
     url: "files/sct.pdf"
+publication: "American Politics Quarterly, 15, Pp. 373–386"
 ---

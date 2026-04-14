@@ -14,4 +14,5 @@ abstract: "The literature on cabinet duration is split between two apparently ir
 links:
   - type: pdf
     url: "files/coal.pdf"
+publication: "American Journal of Political Science, 34, Pp. 846–871"
 ---

@@ -13,4 +13,5 @@ links:
 publication_types:
 - journal_article
 title: A Unified Method of Evaluating Electoral Systems and Redistricting Plans
+publication: "American Journal of Political Science, 38, Pp. 514–554"
 ---

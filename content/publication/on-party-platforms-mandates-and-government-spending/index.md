@@ -12,4 +12,5 @@ abstract: "In their 1990 Review article, Ian Budge and Richard Hofferbert analyz
 links:
   - type: pdf
     url: "files/hoff.pdf"
+publication: "American Political Science Review, 87, Pp. 744–750"
 ---

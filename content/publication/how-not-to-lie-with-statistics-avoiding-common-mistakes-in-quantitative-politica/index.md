@@ -9,4 +9,5 @@ abstract: "This article identifies a set of serious theoretical mistakes appeari
 links:
   - type: pdf
     url: "files/mist.pdf"
+publication: "American Journal of Political Science, 30, Pp. 666–687"
 ---

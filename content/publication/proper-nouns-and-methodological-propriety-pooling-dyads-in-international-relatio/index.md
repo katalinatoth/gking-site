@@ -9,4 +9,5 @@ abstract: "The intellectual stakes at issue in this symposium are very high: Gre
 links:
   - type: pdf
     url: "files/pool.pdf"
+publication: "International Organization, 55, Pp. 497–507"
 ---

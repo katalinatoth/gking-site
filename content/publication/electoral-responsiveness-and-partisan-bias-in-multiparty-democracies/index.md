@@ -9,4 +9,5 @@ abstract: "Because the goals of local and national representation are inherently
 links:
   - type: pdf
     url: "files/electresp.pdf"
+publication: "Legislative Studies Quarterly, XV, Pp. 159–181"
 ---

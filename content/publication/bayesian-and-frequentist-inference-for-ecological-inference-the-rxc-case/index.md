@@ -12,4 +12,5 @@ abstract: "In this paper we propose Bayesian and frequentist approaches to ecolo
 links:
   - type: pdf
     url: "files/em.pdf"
+publication: "Statistica Neerlandica, 55, Pp. 134–156"
 ---

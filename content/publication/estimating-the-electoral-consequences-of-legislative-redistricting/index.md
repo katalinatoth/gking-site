@@ -10,4 +10,5 @@ abstract: "We analyze the effects of redistricting as revealed in the votes rece
 links:
   - type: pdf
     url: "files/svstat.pdf"
+publication: "Journal of the American Statistical Association, 85, Pp. 274–282"
 ---

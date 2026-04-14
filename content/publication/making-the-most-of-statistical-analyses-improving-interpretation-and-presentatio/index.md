@@ -13,4 +13,5 @@ abstract: "Social Scientists rarely take full advantage of the information avail
 links:
   - type: pdf
     url: "files/abs/making-abs.shtml"
+publication: "American Journal of Political Science, 44, Pp. 341–355"
 ---

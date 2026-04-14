@@ -21,4 +21,5 @@ links:
 publication_types:
 - journal_article
 title: Public Policy for the Poor? A Randomised Assessment of the Mexican Universal Health Insurance Programme
+publication: "The Lancet, 373, Pp. 1447-54"
 ---

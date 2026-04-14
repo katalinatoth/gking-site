@@ -10,4 +10,5 @@ abstract: "In every discipline in which \"empirical research\" has become common
 links:
   - type: pdf
     url: "files/infra.pdf"
+publication: "Journal of Legal Education, 53, Pp. 311–320"
 ---

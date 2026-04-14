@@ -10,4 +10,5 @@ abstract: "Applications of modern methods for analyzing data with missing values
 links:
   - type: pdf
     url: "files/abs/pr-abs.shtml"
+publication: "American Journal of Political Science, 54, 3, Pp. 561-81"
 ---

@@ -9,4 +9,5 @@ abstract: "I appreciate the editor’s invitation to reply to Freedman et al.’
 links:
   - type: pdf
     url: "files/reply.pdf"
+publication: "Journal of the American Statistical Association, 94, Pp. 352-55"
 ---

@@ -12,4 +12,5 @@ abstract: "Inferences about counterfactuals are essential for prediction, answer
 links:
   - type: pdf
     url: "files/counterf.pdf"
+publication: "International Studies Quarterly, Pp. 183-210"
 ---

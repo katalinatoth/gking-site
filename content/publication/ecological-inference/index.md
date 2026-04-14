@@ -11,4 +11,5 @@ abstract: "Dictionary entry on the definition of \"ecological inference,\" and a
 links:
   - type: pdf
     url: "files/eidef.pdf"
+publication: "In The New Palgrave Dictionary of Economics, edited by Larry Blume and Steven N. Durlauf, 2nd ed. London: Palgrave"
 ---

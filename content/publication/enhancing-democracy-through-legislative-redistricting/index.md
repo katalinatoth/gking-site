@@ -12,4 +12,5 @@ abstract: "We demonstrate the surprising benefits of legislative redistricting (
 links:
   - type: pdf
     url: "files/red.pdf"
+publication: "American Political Science Review, 88, Pp. 541–559"
 ---

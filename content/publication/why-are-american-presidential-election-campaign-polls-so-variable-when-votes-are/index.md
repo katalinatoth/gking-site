@@ -12,4 +12,5 @@ abstract: "As most political scientists know, the outcome of the U.S. Presidenti
 links:
   - type: pdf
     url: "files/bj215.pdf"
+publication: "British Journal of Political Science, 23, Pp. 409–451"
 ---

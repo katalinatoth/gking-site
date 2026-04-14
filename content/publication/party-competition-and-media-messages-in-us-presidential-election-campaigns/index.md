@@ -11,4 +11,5 @@ abstract: "At one point during the 1988 campaign, Michael Dukakis was ahead in t
 links:
   - type: pdf
     url: "files/partycomp.pdf"
+publication: "In The Parties Respond: Changes in the American Party System, Pp. 255-95. Boulder, Colorado: Westview Press"
 ---

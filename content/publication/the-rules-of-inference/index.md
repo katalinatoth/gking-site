@@ -10,4 +10,5 @@ abstract: "Although the term \"empirical research\" has become commonplace in le
 links:
   - type: pdf
     url: "files/rules.pdf"
+publication: "University of Chicago Law Review, 69, Pp. 1–209"
 ---

@@ -10,4 +10,5 @@ abstract: "While the Supreme Court in Bandemer v. Davis found partisan gerrymand
 links:
   - type: pdf
     url: "files/amicus-sym.pdf"
+publication: "Election Law Journal, 6, 1, Pp. 2-35"
 ---

@@ -11,4 +11,5 @@ abstract: "Binary, count and duration data all code discrete events occurring at
 links:
   - type: pdf
     url: "files/abcd.pdf"
+publication: "Political Analysis, 9, Pp. 21–44"
 ---

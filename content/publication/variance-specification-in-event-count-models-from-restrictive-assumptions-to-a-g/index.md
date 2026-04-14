@@ -9,4 +9,5 @@ abstract: "This paper discusses the problem of variance specification in models 
 links:
   - type: pdf
     url: "files/varspecec.pdf"
+publication: "American Journal of Political Science, 33, Pp. 762–784"
 ---

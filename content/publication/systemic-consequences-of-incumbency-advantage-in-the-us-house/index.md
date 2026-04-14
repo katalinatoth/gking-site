@@ -10,4 +10,5 @@ abstract: "The dramatic increase in the electoral advantage of incumbency has sp
 links:
   - type: pdf
     url: "files/sysconseq.pdf"
+publication: "American Journal of Political Science, 35, Pp. 110–138"
 ---

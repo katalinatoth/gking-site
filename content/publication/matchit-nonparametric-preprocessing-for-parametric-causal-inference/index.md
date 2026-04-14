@@ -14,4 +14,5 @@ links:
     url: "files/v42i08.pdf"
   - type: source
     url: "https://www.jstatsoft.org/article/view/v042i08"
+publication: "Journal of Statistical Software, 42, 8, Pp. 1-28"
 ---

@@ -13,4 +13,5 @@ abstract: "We address a well-known but infrequently discussed problem in the qua
 links:
   - type: pdf
     url: "files/improv.pdf"
+publication: "American Political Science Review, 94, Pp. 21–36"
 ---

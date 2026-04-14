@@ -9,4 +9,5 @@ abstract: "This talk summarizes a paper -- Gary King and Richard Nielsen. 2015. 
 links:
   - type: pdf
     url: "files/psnot-appstats.pdf"
+publication: "Political Analysis, 27, 4, Pp. 435-54"
 ---

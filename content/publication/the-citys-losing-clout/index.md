@@ -12,4 +12,5 @@ links:
     url: "files/clout.pdf"
   - type: source
     url: "https://timesmachine.nytimes.com/timesmachine/1979/07/05/issue.html"
+publication: "New York Times, CXXVIII , 44,269 , Pp. A17"
 ---

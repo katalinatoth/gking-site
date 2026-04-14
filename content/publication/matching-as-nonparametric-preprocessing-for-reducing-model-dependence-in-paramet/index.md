@@ -14,4 +14,5 @@ abstract: "Although published works rarely include causal estimates from more th
 links:
   - type: pdf
     url: "files/matchp.pdf"
+publication: "Political Analysis, 15, Pp. 199–236"
 ---

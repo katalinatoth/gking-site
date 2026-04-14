@@ -11,4 +11,5 @@ abstract: "As political scientists, we spend much time teaching and doing schola
 links:
   - type: pdf
     url: "files/psgrad.pdf"
+publication: "PS: Political Science and Politics, XXVI, Pp. 772–778"
 ---

@@ -9,4 +9,5 @@ abstract: "To deter gerrymandering, many state constitutions require legislative
 links:
   - type: pdf
     url: "files/compact-pitt.pdf"
+publication: "American Journal of Political Science, 65, 3, Pp. 533-50"
 ---

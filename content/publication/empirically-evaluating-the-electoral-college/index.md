@@ -11,4 +11,5 @@ abstract: "The 2000 U.S. presidential election rekindled interest in possible el
 links:
   - type: pdf
     url: "files/rethink.pdf"
+publication: "In Rethinking the Vote: The Politics and Prospects of American Electoral Reform, edited by Ann Crigler, Marion Just, and Edward McCaffery, Pp. 75-88. New York: Oxford University Press"
 ---

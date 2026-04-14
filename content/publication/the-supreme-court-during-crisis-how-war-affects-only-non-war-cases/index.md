@@ -14,4 +14,5 @@ abstract: "Does the U.S. Supreme Court curtail rights and liberties when the nat
 links:
   - type: pdf
     url: "files/crisis.pdf"
+publication: "New York University Law Review, 80, Pp. 1–116"
 ---

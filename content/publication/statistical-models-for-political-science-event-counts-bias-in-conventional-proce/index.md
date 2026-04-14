@@ -9,4 +9,5 @@ abstract: "This paper presents analytical, Monte Carlo, and empirical evidence o
 links:
   - type: pdf
     url: "files/epr.pdf"
+publication: "American Journal of Political Science, 32, Pp. 838-63"
 ---

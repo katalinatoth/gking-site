@@ -9,4 +9,5 @@ abstract: "This article introduces a new estimator for the analysis of two conte
 links:
   - type: pdf
     url: "files/SMR17.pdf"
+publication: "Sociological Methods and Research, 17, Pp. 235–255"
 ---

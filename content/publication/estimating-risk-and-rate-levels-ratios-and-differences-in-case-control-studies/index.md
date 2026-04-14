@@ -10,4 +10,5 @@ abstract: "Classic (or \"cumulative\") case-control sampling designs do not admi
 links:
   - type: pdf
     url: "files/1s.pdf"
+publication: "Statistics in Medicine, 21, Pp. 1409–1427"
 ---

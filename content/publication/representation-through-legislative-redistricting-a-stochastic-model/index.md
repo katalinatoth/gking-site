@@ -9,4 +9,5 @@ abstract: "This paper builds a stochastic model of the processes that give rise 
 links:
   - type: pdf
     url: "files/repstoch.pdf"
+publication: "American Journal of Political Science, 33, Pp. 787–824"
 ---

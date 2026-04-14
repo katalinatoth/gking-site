@@ -10,4 +10,5 @@ abstract: "A vast literature in computer science and statistics develops methods
 links:
   - type: pdf
     url: "files/word-nyu.pdf"
+publication: "Political Analysis, 31, Pp. 42-58"
 ---

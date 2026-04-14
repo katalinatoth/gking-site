@@ -10,4 +10,5 @@ abstract: "In the last two decades, the international community has begun to con
 links:
   - type: pdf
     url: "files/hs.pdf"
+publication: "Political Science Quarterly, 116, Pp. 585–610"
 ---

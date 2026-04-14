@@ -10,4 +10,5 @@ abstract: "King, Alt, Burns, and Laver (1990) proposed and estimated a unified m
 links:
   - type: pdf
     url: "files/transfers.pdf"
+publication: "Comparative Political Studies, 27, Pp. 190–210"
 ---

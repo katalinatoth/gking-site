@@ -12,4 +12,5 @@ abstract: "We propose a comprehensive statistical model for analyzing multiparty
 links:
   - type: pdf
     url: "files/multiparty.pdf"
+publication: "American Political Science Review, 93, Pp. 15–32"
 ---

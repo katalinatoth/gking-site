@@ -9,4 +9,5 @@ abstract: "I am grateful for such thoughtful review from these three distinguish
 links:
   - type: pdf
     url: "files/geog.pdf"
+publication: "Annals of the Association of American Geographers, 90, Pp. 601–606"
 ---

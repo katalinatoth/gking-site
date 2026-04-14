@@ -10,4 +10,5 @@ abstract: "In 1990, Budge and Hofferbert (B&H) claimed that they had found solid
 links:
   - type: pdf
     url: "files/manypub.pdf"
+publication: "Electoral Studies, 18, Pp. 597–598"
 ---

@@ -9,4 +9,5 @@ abstract: "Robert Luskin’s article in this issue provides a useful service by 
 links:
   - type: pdf
     url: "files/truth.pdf"
+publication: "American Journal of Political Science, 35, Pp. 1047–1053"
 ---

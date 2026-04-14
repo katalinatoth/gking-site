@@ -12,4 +12,5 @@ abstract: "Some of the most important phenomena in international conflict are co
 links:
   - type: pdf
     url: "files/baby0s.pdf"
+publication: "International Organization, 55, Pp. 693–715"
 ---

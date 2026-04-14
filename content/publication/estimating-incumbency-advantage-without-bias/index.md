@@ -10,4 +10,5 @@ abstract: "In this paper we prove theoretically and demonstrate empirically that
 links:
   - type: pdf
     url: "files/inc.pdf"
+publication: "American Journal of Political Science, 34, Pp. 1142–1164"
 ---

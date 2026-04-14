@@ -11,4 +11,5 @@ links:
     url: "files/king14.pdf"
   - type: source
     url: "http://journals.cambridge.org/repo_A9100Nlq"
+publication: "PS: Political Science and Politics, 47, 1, Pp. 165-72"
 ---

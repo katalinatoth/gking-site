@@ -11,4 +11,5 @@ abstract: "This Note addresses the long-standing discrepancy between scholarly s
 links:
   - type: pdf
     url: "files/constit.pdf"
+publication: "British Journal of Political Science, 21, Pp. 119–128"
 ---

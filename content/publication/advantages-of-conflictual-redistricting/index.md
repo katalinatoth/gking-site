@@ -10,4 +10,5 @@ abstract: "This article describes the results of an analysis we did of state leg
 links:
   - type: pdf
     url: "files/advant.pdf"
+publication: "In Fixing the Boundary: Defining and Redefining Single-Member Electoral Districts, edited by Iain McLean and David Butler, Pp. 207–218. Aldershot, England: Dartmouth Publishing Company"
 ---

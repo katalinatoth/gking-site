@@ -11,4 +11,5 @@ abstract: "Katz and King (1999) develop a model for predicting or explaining agg
 links:
   - type: pdf
     url: "files/trip.pdf"
+publication: "Political Analysis, 10, Pp. 84–100"
 ---

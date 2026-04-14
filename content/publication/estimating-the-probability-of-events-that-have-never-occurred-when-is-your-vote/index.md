@@ -13,4 +13,5 @@ abstract: "Researchers sometimes argue that statisticians have little to contrib
 links:
   - type: pdf
     url: "files/estimatprob.pdf"
+publication: "Journal of the American Statistical Association, 93, Pp. 1–9"
 ---

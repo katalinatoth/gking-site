@@ -10,4 +10,5 @@ abstract: "The Davis v. Bandemer case focused much attention on the problem of u
 links:
   - type: pdf
     url: "files/LP9.pdf"
+publication: "Law and Policy, 9, Pp. 305–322"
 ---

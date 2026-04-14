@@ -10,4 +10,5 @@ abstract: "Background: Studies have revealed large variations in average health 
 links:
   - type: pdf
     url: "files/ebb.pdf"
+publication: "BioMed Central: International Journal for Equity in Health, 1"
 ---

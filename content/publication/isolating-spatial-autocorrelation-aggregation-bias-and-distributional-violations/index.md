@@ -9,4 +9,5 @@ abstract: "This is an invited response to an article by Anselin and Cho. I make 
 links:
   - type: pdf
     url: "files/ac.pdf"
+publication: "Political Analysis, 10, Pp. 298–300"
 ---

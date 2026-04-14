@@ -11,4 +11,5 @@ abstract: "We present a method of analyzing a series of independent cross-sectio
 links:
   - type: pdf
     url: "files/not.pdf"
+publication: "Journal of the American Statistical Association, 93, Pp. 846–857"
 ---

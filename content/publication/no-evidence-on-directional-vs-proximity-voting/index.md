@@ -10,4 +10,5 @@ abstract: "The directional and proximity models offer dramatically different the
 links:
   - type: pdf
     url: "files/spatial.pdf"
+publication: "Political Analysis, 8, Pp. 21–33"
 ---

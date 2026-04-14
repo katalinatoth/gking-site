@@ -8,4 +8,5 @@ publication_types:
 links:
   - type: pdf
     url: "files/spdtlk.pdf"
+publication: "Journal of Policy Analysis and Management, 26, Pp. 479-506"
 ---

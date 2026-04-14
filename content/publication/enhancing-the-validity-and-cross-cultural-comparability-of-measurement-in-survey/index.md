@@ -12,4 +12,5 @@ abstract: "We address two long-standing survey research problems: measuring comp
 links:
   - type: pdf
     url: "files/vign.pdf"
+publication: "American Political Science Review, 98, Pp. 191–207"
 ---

@@ -10,4 +10,5 @@ abstract: "A \"Perspective\" article that discusses an article by David Stuckler
 links:
   - type: pdf
     url: "files/imftb.pdf"
+publication: "PLoS Medicine, 5"
 ---

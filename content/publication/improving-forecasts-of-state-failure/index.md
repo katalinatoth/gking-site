@@ -12,4 +12,5 @@ abstract: "We offer the first independent scholarly evaluation of the claims, fo
 links:
   - type: pdf
     url: "files/civil.pdf"
+publication: "World Politics, 53, Pp. 623–658"
 ---

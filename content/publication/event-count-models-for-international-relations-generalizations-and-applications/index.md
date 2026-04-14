@@ -9,4 +9,5 @@ abstract: "International relations theorists tend to think in terms of continuou
 links:
   - type: pdf
     url: "files/ISQ33.pdf"
+publication: "International Studies Quarterly, 33, Pp. 123–147"
 ---
