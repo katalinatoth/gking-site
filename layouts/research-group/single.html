@@ -20,7 +20,7 @@
     <!-- Results -->
     <div style="flex:1;min-width:0;">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem;">
-        <span id="gk-people-count" style="font-size:0.9rem;color:#666;"></span>
+        <span id="gk-people-count" style="font-size:1.05rem;font-weight:600;color:#333;"></span>
         <select id="gk-people-sort" style="padding:4px 8px;border:1px solid #ccc;border-radius:4px;font-size:0.85rem;">
           <option value="az">Last Name A–Z</option>
           <option value="za">Last Name Z–A</option>
@@ -136,7 +136,7 @@
 
     var html = "";
     filtered.forEach(function(d) {
-      html += '<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">';
+      html += '<div style="padding:10px 12px;background:#f0f5fa;border-radius:6px;">';
       html += '<strong><a href="' + d.url + '" style="color:#337ab7;text-decoration:none;">' + escapeHtml(d.name) + '</a></strong>';
       if (d.role) html += '<div style="font-size:0.82rem;color:#666;margin-top:2px;">' + escapeHtml(d.role) + '</div>';
       html += '</div>';
