@@ -1,6 +1,8 @@
 ---
-title: "UnbiasedPrivacy"
+title: "PrivacyUnbiased"
 date: "2021-01-01"
+aliases:
+  - /software/unbiasedprivacy/
 authors:
   - "Georgina Evans"
   - "Gary King"
@@ -8,5 +10,5 @@ authors:
   - "Abhradeep Thakurta"
 links:
   - type: site
-    url: "https://gking.harvard.edu/privacy"
+    url: "https://github.com/georgieevans/PrivacyUnbiased"
 ---
