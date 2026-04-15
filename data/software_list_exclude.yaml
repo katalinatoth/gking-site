@@ -1,0 +1,9 @@
+# Slugs excluded from /software/ listing so the count matches the legacy Drupal
+# Biblio export (36). These are duplicate year-variant publication pages; the
+# canonical entry for each software remains listed.
+slugs:
+  - amelia-ii-a-program-for-missing-data-2009
+  - ei-a-program-for-ecological-inference-2003
+  - matchit-nonparametric-preprocessing-for-parametric-causal-inference-2007
+  - openscholar-2009
+  - relogit-rare-events-logistic-regression-2003

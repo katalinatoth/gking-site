@@ -1,58 +1,77 @@
 {{ define "main" }}
+{{/* Match legacy Biblio (36): all publication_type=software except slugs in data/software_list_exclude.yaml */}}
+{{ $excl := site.Data.software_list_exclude.slugs | default slice }}
+{{ $swPages := slice }}
+{{ range where site.RegularPages "Section" "publication" }}
+  {{ if in (.Params.publication_types | default slice) "software" }}
+    {{ $slug := path.Base (path.Dir .File.Path) }}
+    {{ if not (in $excl $slug) }}
+      {{ $swPages = $swPages | append . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ $swPages = sort $swPages "Date" "desc" }}
 
-<div style="max-width:900px;margin:0 auto;padding:2rem 1.5rem;">
+<div style="max-width:900px;margin:0 auto;padding:2rem 1.5rem;" class="page-body">
   <h1 style="font-size:2.5rem;font-weight:700;margin:0 0 1.5rem;">{{ .Title }}</h1>
 
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;">
-    <span style="font-size:0.9rem;color:#666;">{{ len .Pages }} software packages</span>
-    <button id="gk-sw-download" style="padding:4px 12px;background:#337ab7;color:#fff;border:none;border-radius:4px;font-size:0.85rem;cursor:pointer;">Download citations</button>
+    <span id="gk-sw-count" style="font-size:0.9rem;color:#666;">{{ len $swPages }} software citation{{ if ne (len $swPages) 1 }}s{{ end }}</span>
+    <button id="gk-sw-download" type="button" style="padding:4px 12px;background:#337ab7;color:#fff;border:none;border-radius:4px;font-size:0.85rem;cursor:pointer;">Download citations</button>
   </div>
 
-  {{ $pages := .Pages.ByDate.Reverse }}
+  <div id="gk-sw-list">
   {{ $currentYear := "" }}
-  {{ range $pages }}
+  {{ range $swPages }}
     {{ $year := .Date.Format "2006" }}
     {{ if ne $year $currentYear }}
       {{ $currentYear = $year }}
       <h3 style="font-size:1.1rem;font-weight:600;margin:1.5rem 0 0.5rem;padding-bottom:4px;border-bottom:2px solid #337ab7;color:#337ab7;">{{ $year }}</h3>
     {{ end }}
     {{ $extURL := partial "software_external_url.html" . }}
-    <div style="padding:8px 0;border-bottom:1px solid #eee;">
-      {{ if $extURL }}
-      <a href="{{ $extURL }}" target="_blank" rel="noopener" style="color:#337ab7;text-decoration:none;font-weight:500;">{{ .Title }}</a>
-      {{ else }}
-      <a href="{{ .RelPermalink }}" style="color:#337ab7;text-decoration:none;font-weight:500;">{{ .Title }}</a>
-      {{ end }}
+    {{ $href := cond (ne $extURL "") $extURL .RelPermalink }}
+    {{ $blurb := "" }}
+    {{ with .Params.summary }}{{ $blurb = . }}{{ else }}{{ with .Params.abstract }}{{ $blurb = . }}{{ end }}{{ end }}
+    <div class="gk-sw-row" style="padding:8px 0;border-bottom:1px solid #eee;">
+      <a class="gk-sw-title" href="{{ $href }}"{{ if ne $extURL "" }} target="_blank" rel="noopener"{{ end }} style="color:#337ab7;text-decoration:none;font-weight:500;">{{ .Title }}</a>
       {{ with .Params.authors }}
-      <span style="font-size:0.85rem;color:#666;"> — {{ delimit . ", " }}</span>
+      <span style="font-size:0.85rem;color:#666;"> — <span class="gk-sw-authors">{{ delimit . ", " }}</span></span>
       {{ end }}
-      {{ with .Params.summary }}
-      <div style="font-size:0.85rem;color:#555;margin-top:2px;line-height:1.4;">{{ . | truncate 200 }}</div>
+      {{ if $blurb }}
+      <div style="font-size:0.85rem;color:#555;margin-top:2px;line-height:1.4;">{{ $blurb | plainify | truncate 200 }}</div>
       {{ end }}
     </div>
   {{ end }}
+  </div>
 </div>
 
 <script>
-document.getElementById("gk-sw-download").addEventListener("click", function() {
-  var items = document.querySelectorAll("#gk-results a, .page-body a[href*='/software/']");
-  var bib = "";
-  var i = 0;
-  document.querySelectorAll(".page-body > div > div > div").forEach(function(el) {
-    var link = el.querySelector("a");
-    if (!link) return;
-    var title = link.textContent.trim();
-    var key = "software_" + (i++);
-    bib += "@misc{" + key + ",\n  title = {" + title + "},\n  author = {Gary King},\n  note = {Software}\n}\n\n";
-  });
-  if (bib) {
+(function() {
+  var btn = document.getElementById("gk-sw-download");
+  if (!btn) return;
+  btn.addEventListener("click", function() {
+    var rows = document.querySelectorAll("#gk-sw-list .gk-sw-row");
+    var bib = "";
+    var i = 0;
+    rows.forEach(function(row) {
+      var a = row.querySelector("a.gk-sw-title");
+      if (!a) return;
+      var title = a.textContent.trim();
+      var authEl = row.querySelector(".gk-sw-authors");
+      var authorStr = authEl
+        ? authEl.textContent.trim().split(/\s*,\s*/).filter(Boolean).join(" and ")
+        : "Gary King";
+      var key = "software_" + (i++);
+      bib += "@misc{" + key + ",\n  title = {" + title + "},\n  author = {" + authorStr + "},\n  note = {Software}\n}\n\n";
+    });
+    if (!bib) return;
     var blob = new Blob([bib], { type: "text/plain" });
-    var a = document.createElement("a");
-    a.href = URL.createObjectURL(blob);
-    a.download = "software-citations.bib";
-    a.click();
-  }
-});
+    var dl = document.createElement("a");
+    dl.href = URL.createObjectURL(blob);
+    dl.download = "software-citations.bib";
+    dl.click();
+  });
+})();
 </script>
 
 {{ end }}
