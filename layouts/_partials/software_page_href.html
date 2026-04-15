@@ -5,6 +5,7 @@
 {{ end }}
 {{ $href := "" }}
 {{ if ne $slug "" }}
+  {{/* Full path avoids ambiguity when the same slug exists under publication/ and software/ */}}
   {{ with site.GetPage (printf "/software/%s" $slug) }}
     {{ $href = .RelPermalink }}
   {{ end }}

@@ -1,0 +1,58 @@
+{{/* Full software project page body. Context: Page from section "software". */}}
+{{ $ext := partial "software_external_url.html" . }}
+{{ $hasContent := false }}
+{{ with .Content }}{{ if gt (len (plainify .)) 60 }}{{ $hasContent = true }}{{ end }}{{ end }}
+
+<div class="gk-sw-detail mx-auto max-w-4xl px-4 py-6 md:px-8 md:py-10">
+  <nav aria-label="Breadcrumb" style="font-size:0.9rem;margin-bottom:1rem;color:#555;">
+    <a href="{{ "/" | relURL }}" style="color:#337ab7;text-decoration:none;">Home</a>
+    <span style="margin:0 0.35rem;color:#999;">/</span>
+    <a href="{{ "/software/" | relURL }}" style="color:#337ab7;text-decoration:none;">Software</a>
+    <span style="margin:0 0.35rem;color:#999;">/</span>
+    <span style="color:#333;">{{ .Title }}</span>
+  </nav>
+
+  <header class="gk-sw-detail-banner" style="background:#b8860b;background:linear-gradient(120deg,#a67c00 0%,#c9a227 45%,#b8860b 100%);padding:1rem 1.25rem;border-radius:6px;margin-bottom:1.5rem;">
+    <h1 style="margin:0;font-size:1.5rem;font-weight:700;line-height:1.3;color:#fff;">{{ .Title }}</h1>
+  </header>
+
+  {{ if $ext }}
+  <p style="margin:0 0 1rem;text-align:right;font-size:0.95rem;">
+    <a href="{{ $ext }}" target="_blank" rel="noopener" style="color:#337ab7;font-weight:500;">Project website →</a>
+  </p>
+  {{ end }}
+
+  {{ if $hasContent }}
+  <div class="gk-sw-detail-body gk-sw-legacy-html" style="font-size:1rem;line-height:1.65;color:#222;">
+    {{ .Content }}
+  </div>
+  {{ else if $ext }}
+  <p style="color:#555;font-size:0.95rem;">No local description on file. Open the <a href="{{ $ext }}" target="_blank" rel="noopener" style="color:#337ab7;">project website</a>.</p>
+  {{ else }}
+  <p style="color:#666;">No additional content.</p>
+  {{ end }}
+</div>
+
+<style>
+  .gk-sw-legacy-html { overflow: visible; }
+  .gk-sw-legacy-html article.node { margin: 0; padding: 0; border: 0; max-width: 100%; }
+  .gk-sw-legacy-html .hwp-page-title,
+  .gk-sw-legacy-html .hwp-page-title.hwp-bg-dark-base { min-height: 0; padding: 0 !important; background: transparent !important; }
+  .gk-sw-legacy-html .hwp-container { width: 100% !important; max-width: 100% !important; padding-left: 0 !important; padding-right: 0 !important; }
+  .gk-sw-legacy-html .hwp-py-32, .gk-sw-legacy-html .lg\:hwp-py-64 { padding-top: 0 !important; padding-bottom: 0 !important; }
+  .gk-sw-legacy-html .hwp-flex { display: block !important; }
+  .gk-sw-legacy-html .hwp-overflow-hidden { overflow: visible !important; }
+  .gk-sw-legacy-html p { margin: 0 0 1em; }
+  .gk-sw-legacy-html ul, .gk-sw-legacy-html ol { margin: 0.5em 0 1em; padding-left: 1.35rem; }
+  .gk-sw-legacy-html li { margin: 0.35em 0; }
+  .gk-sw-legacy-html h2 { font-size: 1.2rem; font-weight: 700; margin: 1.25rem 0 0.5rem; color: #111; }
+  .gk-sw-legacy-html table,
+  .gk-sw-legacy-html .hwp-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 1rem 0; }
+  .gk-sw-legacy-html th, .gk-sw-legacy-html td,
+  .gk-sw-legacy-html .hwp-table th, .gk-sw-legacy-html .hwp-table td { border: 1px solid #ddd; padding: 8px 10px; text-align: left; vertical-align: top; }
+  .gk-sw-legacy-html th { background: #f5f5f5; font-weight: 600; }
+  .gk-sw-legacy-html a { color: #337ab7; text-decoration: none; }
+  .gk-sw-legacy-html a:hover { text-decoration: underline; }
+  .gk-sw-legacy-html img { max-width: 100%; height: auto; }
+  .gk-sw-legacy-html .hwp-visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+</style>

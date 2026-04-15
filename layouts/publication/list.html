@@ -44,7 +44,11 @@
 {{ $talkPages := (where .Site.RegularPages "Section" "talk") }}
 {{ $entries := slice }}
 {{ range $pubPages }}
-  {{ $entry := dict "title" .Title "url" .RelPermalink "year" (.Date.Format "2006") "authors" (.Params.authors | default slice) "types" (.Params.publication_types | default slice) "publication" (.Params.publication | default "") "abstract" (.Params.abstract | default "") }}
+  {{ $u := .RelPermalink }}
+  {{ if in (.Params.publication_types | default slice) "software" }}
+    {{ $u = partial "software_page_href.html" . }}
+  {{ end }}
+  {{ $entry := dict "title" .Title "url" $u "year" (.Date.Format "2006") "authors" (.Params.authors | default slice) "types" (.Params.publication_types | default slice) "publication" (.Params.publication | default "") "abstract" (.Params.abstract | default "") }}
   {{ $entries = $entries | append $entry }}
 {{ end }}
 {{ range $talkPages }}

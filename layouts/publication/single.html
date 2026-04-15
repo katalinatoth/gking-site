@@ -6,19 +6,15 @@
   <article class="w-full break-words flex min-h-[calc(100vh-var(--navbar-height))] min-w-0 justify-center pb-8 pr-[calc(env(safe-area-inset-right)-1.5rem)]">
     <main class="w-full min-w-0 max-w-6xl px-6 pt-4 md:px-12">
       {{ $pubSlug := "" }}{{ with .File }}{{ $pubSlug = path.Base (path.Dir .Path) }}{{ end }}
-      {{ $swCanon := "" }}
-      {{ if and $pubSlug (in (.Params.publication_types | default slice) "software") }}
-        {{ with site.GetPage (printf "/software/%s" $pubSlug) }}
-          {{ $swCanon = .RelPermalink }}
-        {{ end }}
+      {{ $swPage := false }}
+      {{ if $pubSlug }}
+        {{ with site.GetPage (printf "/software/%s" $pubSlug) }}{{ $swPage = . }}{{ end }}
       {{ end }}
+      {{ $isSoftwarePub := and $pubSlug $swPage (in (.Params.publication_types | default slice) "software") }}
 
-      {{ if $swCanon }}
-      <div style="padding:2rem 0;text-align:center;max-width:32rem;margin:0 auto;">
-        <p style="font-size:1rem;color:#444;margin-bottom:1rem;">This software has a dedicated project page with full documentation.</p>
-        <p><a href="{{ $swCanon }}" style="color:#337ab7;font-weight:600;font-size:1.05rem;">Continue to project page →</a></p>
-        <script>window.location.replace({{ $swCanon | jsonify }});</script>
-      </div>
+      {{ if $isSoftwarePub }}
+      {{ partial "software_bundle_page.html" $swPage }}
+      {{ partial "components/last-edited.html" . }}
       {{ else }}
 
       {{/* Dataset banner */}}
