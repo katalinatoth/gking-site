@@ -320,8 +320,8 @@
       {{ range $softwareSlugs }}
         {{ $page := site.GetPage . }}
         {{ with $page }}
-      {{ $swURL := partial "software_external_url.html" . }}
-      {{ $swHref := cond (ne $swURL "") $swURL .RelPermalink }}
+      {{ $swHref := partial "software_page_href.html" . }}
+      {{ $swIsExt := strings.HasPrefix $swHref "http" }}
       <details class="gk-hp-item">
         <summary style="font-size:0.88rem;cursor:pointer;padding:5px 0;border-bottom:1px solid #eee;list-style:none;display:flex;align-items:baseline;gap:5px;color:#337ab7;line-height:1.4;">
           <span class="gk-hp-arrow" style="flex-shrink:0;">&#9654;</span>
@@ -331,7 +331,7 @@
           {{ $authors := .Params.authors | default slice }}
           {{ if gt (len $authors) 0 }}<div style="margin-bottom:3px;">{{ delimit $authors ", " }}</div>{{ end }}
           {{ with .Params.abstract }}<div style="margin-top:4px;line-height:1.4;color:#666;">{{ . | truncate 200 | markdownify }}</div>{{ end }}
-          <div style="margin-top:6px;"><a href="{{ $swHref }}"{{ if ne $swURL "" }} target="_blank" rel="noopener"{{ end }} style="color:#337ab7;text-decoration:none;font-weight:500;">Read more &rarr;</a></div>
+          <div style="margin-top:6px;"><a href="{{ $swHref }}"{{ if $swIsExt }} target="_blank" rel="noopener"{{ end }} style="color:#337ab7;text-decoration:none;font-weight:500;">Read more &rarr;</a></div>
         </div>
       </details>
         {{ end }}

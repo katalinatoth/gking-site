@@ -1,0 +1,20 @@
+{{ $p := . }}
+{{ $slug := "" }}
+{{ with $p.File }}
+  {{ $slug = path.Base (path.Dir .Path) }}
+{{ end }}
+{{ $href := "" }}
+{{ if ne $slug "" }}
+  {{ with site.GetPage (printf "/software/%s" $slug) }}
+    {{ $href = .RelPermalink }}
+  {{ end }}
+{{ end }}
+{{ if eq $href "" }}
+  {{ $ext := partial "software_external_url.html" $p }}
+  {{ if ne $ext "" }}
+    {{ $href = $ext }}
+  {{ else }}
+    {{ $href = $p.RelPermalink }}
+  {{ end }}
+{{ end }}
+{{ return $href }}

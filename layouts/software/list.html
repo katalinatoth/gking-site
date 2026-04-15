@@ -27,7 +27,7 @@
     {{ $listTitle := $p.Title }}
     {{ with $o.list_title }}{{ $listTitle = . }}{{ end }}
     {{ $href := "" }}
-    {{ with $o.href }}{{ $href = . }}{{ else }}{{ $href = partial "software_external_url.html" $p }}{{ if eq $href "" }}{{ $href = $p.RelPermalink }}{{ end }}{{ end }}
+    {{ with $o.href }}{{ $href = . }}{{ else }}{{ $href = partial "software_page_href.html" $p }}{{ end }}
     {{ $abs := "" }}
     {{ if not ($o.suppress_abstract | default false) }}
       {{ with $o.abstract }}{{ $abs = . }}{{ else }}{{ with $p.Params.summary }}{{ $abs = . }}{{ else }}{{ with $p.Params.abstract }}{{ $abs = . }}{{ end }}{{ end }}{{ end }}
