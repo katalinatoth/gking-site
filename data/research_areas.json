@@ -32,6 +32,107 @@
       ]
     },
     {
+      "name": "Automated Text Analysis",
+      "description": "Automated and computer-assisted methods of extracting, organizing, understanding, conceptualizing, and consuming knowledge from massive quantities of unstructured text.",
+      "subcategories": [
+        {
+          "name": "Content Analysis",
+          "papers": [
+            {
+              "title": "A Method of Automated Nonparametric Content Analysis for Social Science",
+              "section": "publication",
+              "slug": "a-method-of-automated-nonparametric-content-analysis-for-social-science"
+            },
+            {
+              "title": "An Automated Information Extraction Tool For International Conflict Data With Performance As Good As Human Coders: A Rare Events Evaluation Design",
+              "section": "publication",
+              "slug": "an-automated-information-extraction-tool-for-international-conflict-data-with-pe"
+            },
+            {
+              "title": "An Improved Method of Automated Nonparametric Content Analysis for Social Science",
+              "section": "talk",
+              "slug": "an-improved-method-of-automated-nonparametric-content-analysis-for-social-scienc-2016"
+            },
+            {
+              "title": "Computer-Assisted Keyword and Document Set Discovery from Unstructured Text",
+              "section": "publication",
+              "slug": "computer-assisted-keyword-and-document-set-discovery-from-unstructured-text"
+            },
+            {
+              "title": "General Purpose Computer-Assisted Clustering and Conceptualization",
+              "section": "publication",
+              "slug": "general-purpose-computer-assisted-clustering-and-conceptualization"
+            },
+            {
+              "title": "How Censorship in China Allows Government Criticism But Silences Collective Expression",
+              "section": "publication",
+              "slug": "how-censorship-in-china-allows-government-criticism-but-silences-collective-expr-2013"
+            },
+            {
+              "title": "Method and Apparatus for Selecting Clusterings to Classify A Predetermined Data Set",
+              "section": "publication",
+              "slug": "method-and-apparatus-for-selecting-clusterings-to-classify-a-predetermined-data"
+            },
+            {
+              "title": "Participant Grouping for Enhanced Interactive Experience",
+              "section": "publication",
+              "slug": "participant-grouping-for-enhanced-interactive-experience"
+            },
+            {
+              "title": "Reverse-Engineering Censorship in China: Randomized Experimentation and Participant Observation",
+              "section": "publication",
+              "slug": "reverse-engineering-censorship-in-china-randomized-experimentation-and-participa"
+            },
+            {
+              "title": "Some Statistical Methods for Evaluating Information Extraction Systems",
+              "section": "publication",
+              "slug": "some-statistical-methods-for-evaluating-information-extraction-systems"
+            },
+            {
+              "title": "System for Estimating a Distribution of Message Content Categories in Source Data",
+              "section": "publication",
+              "slug": "system-for-estimating-a-distribution-of-message-content-categories-in-source-dat-2012"
+            },
+            {
+              "title": "System for Estimating a Distribution of Message Content Categories in Source Data (2nd)",
+              "section": "publication",
+              "slug": "system-for-estimating-a-distribution-of-message-content-categories-in-source-dat"
+            },
+            {
+              "title": "Systems and Methods for Calculating Category Proportions",
+              "section": "publication",
+              "slug": "systems-and-methods-for-calculating-category-proportions"
+            },
+            {
+              "title": "You Lie! Patterns of Partisan Taunting in the U.S. Senate (Poster)",
+              "section": "publication",
+              "slug": "you-lie-patterns-of-partisan-taunting-in-the-us-senate-poster"
+            }
+          ]
+        },
+        {
+          "name": "Software",
+          "papers": [
+            {
+              "title": "ReadMe: Software for Automated Content Analysis",
+              "section": "publication",
+              "slug": "readme-software-for-automated-content-analysis"
+            }
+          ]
+        },
+        {
+          "name": "Data",
+          "papers": [
+            {
+              "title": "10 Million International Dyadic Events",
+              "section": "publication",
+              "slug": "10-million-international-dyadic-events"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "Causal Inference",
       "description": "Methods for detecting and reducing model dependence (i.e., when minor model changes produce substantively different inferences) in inferring causal effects and other counterfactuals. Matching methods; \"politically robust\" and cluster-randomized experimental designs; causal bias decompositions.",
       "subcategories": [
@@ -772,101 +873,56 @@
   ],
   "applications": [
     {
-      "name": "Automated Text Analysis",
-      "description": "Automated and computer-assisted methods of extracting, organizing, understanding, conceptualizing, and consuming knowledge from massive quantities of unstructured text.",
+      "name": "Evaluating Social Security Forecasts",
+      "description": "The accuracy of U.S. Social Security Administration (SSA) demographic and financial forecasts is crucial for the solvency of its Trust Funds, government programs comprising greater than 50% of all federal government expenditures, industry decision making, and the evidence base of many scholarly articles.",
       "subcategories": [
         {
-          "name": "Content Analysis",
+          "name": "Articles and Presentations",
           "papers": [
             {
-              "title": "A Method of Automated Nonparametric Content Analysis for Social Science",
+              "title": "Explaining Systematic Bias and Nontransparency in US Social Security Administration Forecasts",
               "section": "publication",
-              "slug": "a-method-of-automated-nonparametric-content-analysis-for-social-science"
+              "slug": "explaining-systematic-bias-and-nontransparency-in-us-social-security-administrat-2015-215"
             },
             {
-              "title": "An Automated Information Extraction Tool For International Conflict Data With Performance As Good As Human Coders: A Rare Events Evaluation Design",
+              "title": "Systematic Bias and Nontransparency in US Social Security Administration Forecasts",
               "section": "publication",
-              "slug": "an-automated-information-extraction-tool-for-international-conflict-data-with-pe"
-            },
-            {
-              "title": "An Improved Method of Automated Nonparametric Content Analysis for Social Science",
-              "section": "talk",
-              "slug": "an-improved-method-of-automated-nonparametric-content-analysis-for-social-scienc-2016"
-            },
-            {
-              "title": "Computer-Assisted Keyword and Document Set Discovery from Unstructured Text",
-              "section": "publication",
-              "slug": "computer-assisted-keyword-and-document-set-discovery-from-unstructured-text"
-            },
-            {
-              "title": "General Purpose Computer-Assisted Clustering and Conceptualization",
-              "section": "publication",
-              "slug": "general-purpose-computer-assisted-clustering-and-conceptualization"
-            },
-            {
-              "title": "How Censorship in China Allows Government Criticism But Silences Collective Expression",
-              "section": "talk",
-              "slug": "how-censorship-in-china-allows-government-criticism-but-silences-collective-expr-2012"
-            },
-            {
-              "title": "Method and Apparatus for Selecting Clusterings to Classify A Predetermined Data Set",
-              "section": "publication",
-              "slug": "method-and-apparatus-for-selecting-clusterings-to-classify-a-predetermined-data"
-            },
-            {
-              "title": "Participant Grouping for Enhanced Interactive Experience",
-              "section": "publication",
-              "slug": "participant-grouping-for-enhanced-interactive-experience"
-            },
-            {
-              "title": "Reverse-Engineering Censorship in China: Randomized Experimentation and Participant Observation",
-              "section": "publication",
-              "slug": "reverse-engineering-censorship-in-china-randomized-experimentation-and-participa"
-            },
-            {
-              "title": "Some Statistical Methods for Evaluating Information Extraction Systems",
-              "section": "publication",
-              "slug": "some-statistical-methods-for-evaluating-information-extraction-systems"
-            },
-            {
-              "title": "System for Estimating a Distribution of Message Content Categories in Source Data",
-              "section": "publication",
-              "slug": "system-for-estimating-a-distribution-of-message-content-categories-in-source-dat-2012"
-            },
-            {
-              "title": "System for Estimating a Distribution of Message Content Categories in Source Data (2nd)",
-              "section": "publication",
-              "slug": "system-for-estimating-a-distribution-of-message-content-categories-in-source-dat"
-            },
-            {
-              "title": "Systems and Methods for Calculating Category Proportions",
-              "section": "publication",
-              "slug": "systems-and-methods-for-calculating-category-proportions"
-            },
-            {
-              "title": "You Lie! Patterns of Partisan Taunting in the U.S. Senate (Poster)",
-              "section": "publication",
-              "slug": "you-lie-patterns-of-partisan-taunting-in-the-us-senate-poster"
+              "slug": "systematic-bias-and-nontransparency-in-us-social-security-administration-forecas"
             }
           ]
         },
         {
-          "name": "Software",
+          "name": "Related Materials",
           "papers": [
             {
-              "title": "ReadMe: Software for Automated Content Analysis",
-              "section": "publication",
-              "slug": "readme-software-for-automated-content-analysis"
-            }
-          ]
-        },
-        {
-          "name": "Data",
-          "papers": [
+              "title": "Demographic Forecasting",
+              "section": "talk",
+              "slug": "demographic-forecasting-2006-422"
+            },
             {
-              "title": "10 Million International Dyadic Events",
+              "title": "Replication Data For: Explaining Systematic Bias and Nontransparency in U.S. Social Security Administration Forecasts.",
               "section": "publication",
-              "slug": "10-million-international-dyadic-events"
+              "slug": "replication-data-for-explaining-systematic-bias-and-nontransparency-in-us-social"
+            },
+            {
+              "title": "Replication Data For: Systematic Bias and Nontransparency in U.S. Social Security Administration Forecasts.",
+              "section": "publication",
+              "slug": "replication-data-for-systematic-bias-and-nontransparency-in-us-social-security-a"
+            },
+            {
+              "title": "Scoring Social Security Proposals: Response from Kashin, King, and Soneji",
+              "section": "publication",
+              "slug": "scoring-social-security-proposals-response-from-kashin-king-and-soneji"
+            },
+            {
+              "title": "Statistical Security for Social Security",
+              "section": "publication",
+              "slug": "statistical-security-for-social-security"
+            },
+            {
+              "title": "The Future of Death in America",
+              "section": "talk",
+              "slug": "the-future-of-death-in-america-2008"
             }
           ]
         }
@@ -923,6 +979,32 @@
               "title": "The Record of American Democracy, 1984-1990",
               "section": "publication",
               "slug": "the-record-of-american-democracy-1984-1990"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Chinese Censorship",
+      "description": "We \"reverse engineer\" Chinese information controls -- the most extensive effort to selectively control human expression in the history of the world. We show that this massive effort to slow the flow of information paradoxically also conveys a great deal about the intentions, goals, and actions of the leaders.",
+      "subcategories": [
+        {
+          "name": "Publications",
+          "papers": [
+            {
+              "title": "How Censorship in China Allows Government Criticism But Silences Collective Expression",
+              "section": "publication",
+              "slug": "how-censorship-in-china-allows-government-criticism-but-silences-collective-expr-2013"
+            },
+            {
+              "title": "How the Chinese Government Fabricates Social Media Posts for Strategic Distraction, Not Engaged Argument",
+              "section": "publication",
+              "slug": "how-the-chinese-government-fabricates-social-media-posts-for-strategic-distracti-2017-166"
+            },
+            {
+              "title": "Reverse-Engineering Censorship in China: Randomized Experimentation and Participant Observation",
+              "section": "publication",
+              "slug": "reverse-engineering-censorship-in-china-randomized-experimentation-and-participa"
             }
           ]
         }
@@ -1462,8 +1544,8 @@
             },
             {
               "title": "Explaining Systematic Bias and Nontransparency in US Social Security Administration Forecasts",
-              "section": "talk",
-              "slug": "explaining-systematic-bias-and-nontransparency-in-us-social-security-administrat"
+              "section": "publication",
+              "slug": "explaining-systematic-bias-and-nontransparency-in-us-social-security-administrat-2015-215"
             },
             {
               "title": "Measuring Total Health Inequality: Adding Individual Variation to Group-Level Differences",
