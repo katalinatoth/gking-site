@@ -6,4 +6,3 @@ research_group_category: "collaborators"
 website: "http://www.iq.harvard.edu/People/people.php?info=1155&sub=9"
 ---
 
-Member of Gary King's research group.

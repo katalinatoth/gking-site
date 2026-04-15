@@ -6,4 +6,3 @@ research_group_category: "collaborators"
 website: "http://faculty.washington.edu/ddbrewer/"
 ---
 
-Member of Gary King's research group.

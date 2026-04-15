@@ -6,4 +6,3 @@ research_group_category: "collaborators"
 website: "http://www.bc.edu/schools/cas/polisci/facstaff/schlozman.html"
 ---
 
-Member of Gary King's research group.

@@ -6,4 +6,3 @@ research_group_category: "collaborators"
 website: "http://www.sunysb.edu/polsci/jsegal/"
 ---
 
-Member of Gary King's research group.

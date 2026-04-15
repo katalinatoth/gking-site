@@ -6,4 +6,3 @@ research_group_category: "alumni_postdocs"
 website: "http://www.bates.edu/x33158.xml"
 ---
 
-Member of Gary King's research group.

@@ -67,20 +67,22 @@ footer .powered-by {
   font-size: 0.75rem;
 }
 
-/* Primary article link button */
+/* Primary article link button (compact to align with abstract row) */
 .gk-link-primary {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 10px 22px;
+  gap: 4px;
+  padding: 4px 12px;
+  min-height: 0;
+  line-height: 1.25;
   background: #337ab7;
   color: #fff !important;
   border-radius: 6px;
-  font-size: 1rem;
+  font-size: 0.88rem;
   font-weight: 600;
   text-decoration: none;
   transition: background 0.15s;
-  margin-right: 8px;
+  margin-right: 6px;
 }
 .gk-link-primary:hover {
   background: #285f8f;
@@ -89,6 +91,57 @@ footer .powered-by {
 }
 .gk-link-primary svg {
   stroke: #fff;
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+/* Secondary links (supplementary, publisher, etc.): match abstract control weight */
+a.gk-link-secondary,
+button.gk-link-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0;
+  margin: 0;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0;
+  box-shadow: none !important;
+  font-size: inherit;
+  font-weight: 500;
+  color: #337ab7 !important;
+  text-decoration: none;
+  line-height: 1.25;
+}
+a.gk-link-secondary:hover,
+button.gk-link-secondary:hover {
+  text-decoration: underline;
+  background: transparent !important;
+  color: #23527c !important;
+}
+.gk-link-secondary svg {
+  opacity: 0.85;
+}
+
+/* Cite / BibTeX control */
+button.gk-cite-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #333 !important;
+  background: #f8f9fa !important;
+  border: 1px solid #d1d5db !important;
+  border-radius: 6px;
+  cursor: pointer;
+  line-height: 1.25;
+}
+button.gk-cite-button:hover {
+  background: #eef2f6 !important;
+  border-color: #9ca3af !important;
 }
 
 /* Compact publication page */

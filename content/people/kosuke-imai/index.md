@@ -6,4 +6,3 @@ research_group_category: "collaborators"
 website: "http://www.princeton.edu/~kimai/"
 ---
 
-Member of Gary King's research group.

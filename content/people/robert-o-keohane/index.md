@@ -6,4 +6,3 @@ research_group_category: "collaborators"
 website: "http://www.poli.duke.edu/people/faculty/keohane.html"
 ---
 
-Member of Gary King's research group.

@@ -6,4 +6,3 @@ research_group_category: "alumni_postdocs"
 website: "http://userwww.service.emory.edu/~erein/"
 ---
 
-Member of Gary King's research group.

@@ -6,4 +6,3 @@ research_group_category: "collaborators"
 website: "http://polisci.stanford.edu/faculty/nie.html"
 ---
 
-Member of Gary King's research group.

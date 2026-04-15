@@ -7,4 +7,3 @@ email: "olivia.lau@post.harvard.edu"
 website: "http://people.iq.harvard.edu/~olau/"
 ---
 
-Member of Gary King's research group.

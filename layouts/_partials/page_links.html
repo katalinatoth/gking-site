@@ -1,6 +1,9 @@
 {{ $is_list := .is_list }}
 {{ $page := .page }}
 
+{{ $pubTypes := $page.Params.publication_types | default slice }}
+{{ $isTalkLike := or (eq $page.Section "talk") (in $pubTypes "presentation") (in $pubTypes "speech") }}
+
 {{ $built := partial "functions/build_links" (dict "page" $page "is_list" $is_list) }}
 
 {{ $ctx := cond $is_list "list" "page" }}
@@ -46,13 +49,6 @@
       {{ $rel = $rel | append "noopener" }}
     {{ end }}
 
-    {{ $isPrimary := eq .type "pdf" }}
-    {{ $classes := "" }}
-    {{ if $isPrimary }}
-      {{ $classes = "gk-link-primary" }}
-    {{ else }}
-      {{ $classes = printf "hb-attachment-link %s" (cond $is_list "hb-attachment-link-small" "hb-attachment-link-large") }}
-    {{ end }}
     {{ $label := .label }}
     {{ with .labelKey }}
       {{ if not $label }}
@@ -61,6 +57,22 @@
     {{ end }}
     {{ if not $label }}
       {{ $label = "Link" }}
+    {{ end }}
+
+    {{ $isPrimary := eq .type "pdf" }}
+    {{ if and (not $isPrimary) (eq .type "custom") (or (eq $label "Article") (eq $label "Presentation")) }}
+      {{ $isPrimary = true }}
+    {{ end }}
+    {{ $classes := "" }}
+    {{ if eq .type "bibtex" }}
+      {{ $classes = "gk-cite-button" }}
+    {{ else if $isPrimary }}
+      {{ $classes = "gk-link-primary" }}
+    {{ else }}
+      {{ $classes = printf "gk-link-secondary %s" (cond $is_list "gk-link-secondary-small" "gk-link-secondary-large") }}
+    {{ end }}
+    {{ if and $isPrimary $isTalkLike }}
+      {{ $label = "Presentation" }}
     {{ end }}
 
     {{ if eq .type "bibtex" }}

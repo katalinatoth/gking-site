@@ -6,4 +6,3 @@ research_group_category: "collaborators"
 website: "http://polisci.lsa.umich.edu/faculty/nburns.html"
 ---
 
-Member of Gary King's research group.

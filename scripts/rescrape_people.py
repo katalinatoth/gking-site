@@ -90,9 +90,6 @@ for i, slug in enumerate(slugs):
         if contact_parts:
             body_parts.append('\n'.join(contact_parts))
 
-        if not body_parts:
-            body_parts.append('Member of Gary King\'s research group.')
-
         body = '\n\n'.join(body_parts)
         lines.append(body)
         lines.append('')

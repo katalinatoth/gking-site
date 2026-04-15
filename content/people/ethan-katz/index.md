@@ -6,4 +6,3 @@ research_group_category: "alumni_students"
 website: "http://www.bio.ri.ccf.org/Resume/Pages/"
 ---
 
-Member of Gary King's research group.

@@ -1,0 +1,29 @@
+{{/* First preferred external URL for a software page (site, code, then any https link). */}}
+{{ $page := . }}
+{{ $url := "" }}
+{{ range $page.Params.links }}
+  {{ if and (not $url) .url }}
+    {{ $u := .url }}
+    {{ $scheme := "" }}
+    {{ with urls.Parse $u }}{{ $scheme = .Scheme }}{{ end }}
+    {{ if in (slice "http" "https") $scheme }}
+      {{ $t := .type | default "" }}
+      {{ if or (eq $t "site") (eq $t "code") }}
+        {{ $url = $u }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ if not $url }}
+  {{ range $page.Params.links }}
+    {{ if and (not $url) .url }}
+      {{ $u := .url }}
+      {{ $scheme := "" }}
+      {{ with urls.Parse $u }}{{ $scheme = .Scheme }}{{ end }}
+      {{ if in (slice "http" "https") $scheme }}
+        {{ $url = $u }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ return $url }}

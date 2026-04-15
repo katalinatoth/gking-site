@@ -1,0 +1,16 @@
+{{ define "main" }}
+{{ $ext := partial "software_external_url.html" . }}
+{{ if $ext }}
+<div class="max-w-3xl mx-auto px-6 py-12 text-center text-slate-700">
+  <p class="mb-4">Redirecting to the project page…</p>
+  <p><a href="{{ $ext }}" class="text-blue-600 underline font-medium" rel="noopener">Continue to site</a></p>
+  <script>window.location.replace({{ $ext | jsonify }});</script>
+</div>
+{{ else }}
+<div class="max-w-4xl mx-auto px-6 py-12">
+  <h1 class="text-3xl font-bold tracking-tight text-slate-900 mb-4">{{ .Title }}</h1>
+  {{ with .Params.summary }}<p class="text-slate-600 mb-6">{{ . }}</p>{{ end }}
+  {{ with .Content }}<div class="prose prose-slate max-w-none">{{ . }}</div>{{ end }}
+</div>
+{{ end }}
+{{ end }}

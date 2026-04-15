@@ -6,4 +6,3 @@ research_group_category: "collaborators"
 website: "http://www.dartmouth.edu/~herron/"
 ---
 
-Member of Gary King's research group.

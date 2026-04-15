@@ -6,4 +6,3 @@ research_group_category: "collaborators"
 website: "http://www.hsph.harvard.edu/faculty/joshua-salomon/"
 ---
 
-Member of Gary King's research group.

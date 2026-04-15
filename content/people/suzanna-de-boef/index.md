@@ -6,4 +6,3 @@ research_group_category: "alumni_postdocs"
 website: "http://polisci.la.psu.edu/faculty/DeBoef/welcome.htm"
 ---
 
-Member of Gary King's research group.

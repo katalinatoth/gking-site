@@ -137,7 +137,7 @@ def write_person_md(
         lines.append(f"avatar: {json.dumps(avatar)}")
     lines.append("---")
     lines.append("")
-    lines.append(body if body.strip() else "Member of Gary King's research group.")
+    lines.append(body if body.strip() else "")
     lines.append("")
     path.write_text("\n".join(lines), encoding="utf-8")
 

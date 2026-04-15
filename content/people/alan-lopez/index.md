@@ -6,4 +6,3 @@ research_group_category: "collaborators"
 website: "http://www.healthmetricsandevaluation.org/who/bios/faculty/lopez.html"
 ---
 
-Member of Gary King's research group.

@@ -6,4 +6,3 @@ research_group_category: "alumni_postdocs"
 website: "http://www.linkedin.com/in/williamyiwei"
 ---
 
-Member of Gary King's research group.

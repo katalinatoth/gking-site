@@ -6,4 +6,3 @@ research_group_category: "collaborators"
 website: "http://www.uky.edu/~dsvoss/"
 ---
 
-Member of Gary King's research group.

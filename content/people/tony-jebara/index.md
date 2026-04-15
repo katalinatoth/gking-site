@@ -6,4 +6,3 @@ research_group_category: "collaborators"
 website: "http://www1.cs.columbia.edu/~jebara/"
 ---
 
-Member of Gary King's research group.

@@ -6,4 +6,3 @@ research_group_category: "alumni_postdocs"
 website: "http://www.psci.unt.edu/Paolino/paolino.htm"
 ---
 
-Member of Gary King's research group.

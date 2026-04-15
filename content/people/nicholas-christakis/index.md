@@ -6,4 +6,3 @@ research_group_category: "collaborators"
 website: "http://www.wjh.harvard.edu/soc/faculty/christakis/"
 ---
 
-Member of Gary King's research group.

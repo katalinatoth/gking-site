@@ -6,4 +6,3 @@ research_group_category: "alumni_students"
 website: "http://scholar.harvard.edu/cgay/home"
 ---
 
-Member of Gary King's research group.

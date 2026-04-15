@@ -6,4 +6,3 @@ research_group_category: "collaborators"
 website: "http://wand.stanford.edu/"
 ---
 
-Member of Gary King's research group.

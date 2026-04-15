@@ -6,4 +6,3 @@ research_group_category: "collaborators"
 website: "http://www.healthmetricsandevaluation.org/who/bios/exec/murray.html"
 ---
 
-Member of Gary King's research group.

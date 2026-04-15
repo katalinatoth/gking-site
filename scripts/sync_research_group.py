@@ -150,7 +150,6 @@ role: {role_json}
 research_group_category: {cat_json}
 ---
 
-Member of Gary King's research group.
 """
     path.write_text(text, encoding="utf-8")
 

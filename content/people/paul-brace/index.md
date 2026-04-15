@@ -6,4 +6,3 @@ research_group_category: "collaborators"
 website: "http://www.ruf.rice.edu/~pbrace/"
 ---
 
-Member of Gary King's research group.

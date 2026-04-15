@@ -6,4 +6,3 @@ research_group_category: "collaborators"
 website: "http://web.mit.edu/polisci/faculty/S.Ansolabehere.html"
 ---
 
-Member of Gary King's research group.

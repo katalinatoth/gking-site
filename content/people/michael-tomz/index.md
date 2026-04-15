@@ -6,4 +6,3 @@ research_group_category: "collaborators"
 website: "http://www.stanford.edu/~tomz/"
 ---
 
-Member of Gary King's research group.

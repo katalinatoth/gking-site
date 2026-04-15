@@ -6,4 +6,3 @@ research_group_category: "collaborators"
 website: "http://www.law.berkeley.edu/faculty/profiles/facultyProfile.php?facID=5071"
 ---
 
-Member of Gary King's research group.

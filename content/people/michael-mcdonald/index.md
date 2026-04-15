@@ -6,4 +6,3 @@ research_group_category: "alumni_postdocs"
 website: "http://elections.gmu.edu/bio.html"
 ---
 
-Member of Gary King's research group.

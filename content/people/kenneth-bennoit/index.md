@@ -6,4 +6,3 @@ research_group_category: "collaborators"
 website: "http://www.politics.tcd.ie/Staff/Kenneth.Benoit/kens-cv.html"
 ---
 
-Member of Gary King's research group.

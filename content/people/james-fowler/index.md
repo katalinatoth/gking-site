@@ -6,4 +6,3 @@ research_group_category: "collaborators"
 website: "http://jhfowler.ucsd.edu/"
 ---
 
-Member of Gary King's research group.

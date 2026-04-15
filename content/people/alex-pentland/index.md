@@ -6,4 +6,3 @@ research_group_category: "collaborators"
 website: "http://web.media.mit.edu/~sandy/"
 ---
 
-Member of Gary King's research group.

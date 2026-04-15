@@ -6,4 +6,3 @@ research_group_category: "collaborators"
 website: "http://web.mit.edu/sinana/www/"
 ---
 
-Member of Gary King's research group.

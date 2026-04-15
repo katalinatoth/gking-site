@@ -5,4 +5,3 @@ role: "Instituto Nacional de Salud P\u00fablica (National Institute of Public He
 research_group_category: "collaborators"
 ---
 
-Member of Gary King's research group.
