@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """
 Fetch https://gking.harvard.edu/people/<slug> for each member and set:
-  - front matter: email, avatar (optional)
+  - front matter: email, website (+ label), avatar (optional)
   - markdown body: bio text from field-hwp-body (falls back to generic one-liner)
+
+Website and email are read from .hwp-person-card (same as the original site).
 
 Requires: beautifulsoup4, curl on PATH.
 """
@@ -41,11 +43,34 @@ def parse_profile(html: str) -> dict:
     soup = BeautifulSoup(html, "html.parser")
     main = soup.find("main") or soup
 
+    card = soup.select_one(".hwp-person-card")
+
     email = ""
-    for a in main.find_all("a", href=True):
-        if a["href"].startswith("mailto:"):
-            email = a["href"].split(":", 1)[1].strip()
-            break
+    website = ""
+    website_label = "Website"
+    if card:
+        for a in card.find_all("a", href=True):
+            h = a.get("href", "").strip()
+            if h.startswith("mailto:"):
+                if not email:
+                    email = h.split(":", 1)[1].strip()
+            elif h.startswith(("http://", "https://")):
+                if not website:
+                    website = h
+                    website_label = (a.get_text(strip=True) or "Website")[:80]
+            elif h.startswith("//"):
+                if not website:
+                    website = "https:" + h
+                    website_label = (a.get_text(strip=True) or "Website")[:80]
+            elif h.startswith("/") and not h.startswith("//"):
+                if not website:
+                    website = urljoin(BASE, h)
+                    website_label = (a.get_text(strip=True) or "Website")[:80]
+    if not email:
+        for a in main.find_all("a", href=True):
+            if a["href"].startswith("mailto:"):
+                email = a["href"].split(":", 1)[1].strip()
+                break
 
     bio = ""
     body_el = soup.select_one(".field--name-field-hwp-body")
@@ -59,7 +84,6 @@ def parse_profile(html: str) -> dict:
             bio = re.sub(r"\n{3,}", "\n\n", bio).strip()
 
     avatar = ""
-    card = soup.select_one(".hwp-person-card")
     if card:
         im = card.find("img", src=True)
         if im:
@@ -68,11 +92,20 @@ def parse_profile(html: str) -> dict:
                 avatar = urljoin(BASE, src)
 
     prof_title = ""
-    pt = soup.select_one(".field--name-field-hwp-person-prof-title div")
+    pt = soup.select_one(".hwp-page-title .field--name-field-hwp-person-prof-title div")
+    if not pt:
+        pt = soup.select_one(".field--name-field-hwp-person-prof-title div")
     if pt:
         prof_title = pt.get_text(" ", strip=True)
 
-    return {"email": email, "bio": bio, "avatar": avatar, "prof_title": prof_title}
+    return {
+        "email": email,
+        "website": website,
+        "website_label": website_label,
+        "bio": bio,
+        "avatar": avatar,
+        "prof_title": prof_title,
+    }
 
 
 def write_person_md(
@@ -82,6 +115,8 @@ def write_person_md(
     role: str,
     category: str,
     email: str,
+    website: str,
+    website_label: str,
     avatar: str,
     body: str,
 ) -> None:
@@ -94,6 +129,10 @@ def write_person_md(
     ]
     if email:
         lines.append(f"email: {json.dumps(email)}")
+    if website:
+        lines.append(f"website: {json.dumps(website)}")
+        if website_label and website_label != "Website":
+            lines.append(f"website_label: {json.dumps(website_label)}")
     if avatar:
         lines.append(f"avatar: {json.dumps(avatar)}")
     lines.append("---")
@@ -137,6 +176,8 @@ def main() -> int:
             role=role,
             category=row["research_group_category"],
             email=parsed["email"],
+            website=parsed.get("website") or "",
+            website_label=parsed.get("website_label") or "Website",
             avatar=parsed["avatar"],
             body=body,
         )
