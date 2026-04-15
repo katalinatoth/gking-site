@@ -40,7 +40,7 @@
           <span class="gk-sw-abs-icon" style="display:inline-flex;align-items:center;justify-content:center;width:1.1rem;height:1.1rem;border:1px solid #337ab7;border-radius:50%;font-size:0.75rem;line-height:1;color:#fff;background:#337ab7;">+</span>
           Abstract
         </summary>
-        <div class="gk-sw-abs-body prose prose-sm max-w-none dark:prose-invert" style="margin-top:10px;padding:10px 12px;background:#fff;border:1px solid #dde7ef;border-radius:6px;color:#333;line-height:1.55;">{{ $abs | markdownify }}</div>
+        <div class="gk-sw-abs-body prose prose-sm max-w-none dark:prose-invert" style="margin-top:10px;padding:10px 12px;background:#fff;border:1px solid #dde7ef;border-radius:6px;color:#333;line-height:1.55;overflow:visible;max-height:none;white-space:normal;">{{ $abs | markdownify }}</div>
       </details>
       {{ end }}
     </div>
@@ -67,6 +67,7 @@
   .gk-sw-abs > summary { list-style: none; }
   .gk-sw-abs > summary::-webkit-details-marker { display: none; }
   .gk-sw-abs[open] > summary .gk-sw-abs-icon { background: #2b6cb0; border-color: #2b6cb0; color: #fff; }
+  .gk-sw-abs-body * { text-overflow: clip; -webkit-line-clamp: unset; }
 </style>
 
 <script>
