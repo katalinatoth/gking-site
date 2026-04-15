@@ -1,0 +1,45 @@
+{{/* Pass: (dict "page" $page) or (dict "page" $page "compact" true) for homepage sizing. */}}
+{{ $page := .page }}
+{{ $compact := .compact | default false }}
+{{ $bl := partial "functions/build_links" (dict "page" $page "is_list" 1) }}
+{{ $sc := newScratch }}
+{{ $sc.Set "lc" 0 }}
+{{ range $bl }}
+  {{ if in .contexts "list" }}{{ $sc.Set "lc" (add ($sc.Get "lc") 1) }}{{ end }}
+{{ end }}
+{{ $linkCount := $sc.Get "lc" }}
+{{ $hasAbstract := $page.Params.abstract }}
+<li class="gk-ra-pub-item" style="list-style:none;margin:0 0 0.65rem;padding:0;">
+  <div class="gk-ra-pub-card" style="background:#f0f5fa;border:1px solid #e2e8f0;border-radius:8px;padding:10px 12px;">
+    <div class="gk-ra-pub-cite" style="font-size:{{ if $compact }}0.78rem{{ else }}0.88rem{{ end }};line-height:1.5;color:#333;">
+      {{ $authors := $page.Params.authors | default slice }}
+      {{ if gt (len $authors) 0 }}{{ delimit $authors ", " }}. {{ end }}
+      {{ $page.Date.Format "2006" }}.
+      "<a href="{{ $page.RelPermalink }}" style="color:#337ab7;text-decoration:underline;">{{ $page.Title }}</a>."
+      {{ with $page.Params.publication }}<em style="color:#666;">{{ . }}</em>.{{ end }}
+    </div>
+    {{ if or $hasAbstract (gt $linkCount 0) }}
+    <div class="gk-ra-pub-actions" style="margin-top:0.5rem;display:flex;flex-wrap:wrap;align-items:center;gap:0.35rem 0.45rem;font-size:{{ if $compact }}0.76rem{{ else }}0.82rem{{ end }};">
+      {{ if $hasAbstract }}
+      <details class="gk-ra-abstract-details" style="display:inline-block;">
+        <summary style="cursor:pointer;list-style:none;color:#337ab7;font-weight:500;display:inline-flex;align-items:center;gap:4px;">
+          <span class="gk-ra-plus" style="display:inline-flex;align-items:center;justify-content:center;width:1.1rem;height:1.1rem;border:1px solid #337ab7;border-radius:50%;font-size:0.75rem;line-height:1;">+</span>
+          Abstract
+        </summary>
+        <div class="gk-ra-abstract-body" style="margin-top:0.5rem;padding:0.5rem 0.65rem;background:#fff;border-radius:6px;border:1px solid #e2e8f0;font-size:0.8rem;line-height:1.5;color:#444;">
+          {{ $page.Params.abstract | markdownify }}
+        </div>
+      </details>
+      {{ end }}
+      {{ if and $hasAbstract (gt $linkCount 0) }}
+      <span style="color:#ccc;user-select:none;" aria-hidden="true">|</span>
+      {{ end }}
+      {{ if gt $linkCount 0 }}
+      <div class="gk-ra-pub-page-links" style="display:inline-flex;flex-wrap:wrap;align-items:center;gap:0.35rem 0.5rem;">
+        {{ partial "page_links" (dict "page" $page "is_list" 1) }}
+      </div>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+</li>

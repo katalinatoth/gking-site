@@ -62,13 +62,7 @@
                   {{ range .papers }}
                     {{ $page := site.GetPage (printf "/%s/%s" .section .slug) }}
                     {{ with $page }}
-                    <li style="padding:2px 0;font-size:0.78rem;">
-                      {{ $authors := .Params.authors | default slice }}
-                      {{ if gt (len $authors) 0 }}{{ delimit $authors ", " }}. {{ end }}
-                      {{ .Date.Format "2006" }}.
-                      "<a href="{{ .RelPermalink }}" style="color:#337ab7;text-decoration:none;">{{ .Title }}</a>."
-                      {{ with .Params.publication }}<em style="color:#666;">{{ . }}</em>.{{ end }}
-                    </li>
+                    {{ partial "research_areas_pub_item" (dict "page" . "compact" true) }}
                     {{ end }}
                   {{ end }}
                 </ul>
@@ -121,13 +115,7 @@
                   {{ range .papers }}
                     {{ $page := site.GetPage (printf "/%s/%s" .section .slug) }}
                     {{ with $page }}
-                    <li style="padding:2px 0;font-size:0.78rem;">
-                      {{ $authors := .Params.authors | default slice }}
-                      {{ if gt (len $authors) 0 }}{{ delimit $authors ", " }}. {{ end }}
-                      {{ .Date.Format "2006" }}.
-                      "<a href="{{ .RelPermalink }}" style="color:#337ab7;text-decoration:none;">{{ .Title }}</a>."
-                      {{ with .Params.publication }}<em style="color:#666;">{{ . }}</em>.{{ end }}
-                    </li>
+                    {{ partial "research_areas_pub_item" (dict "page" . "compact" true) }}
                     {{ end }}
                   {{ end }}
                 </ul>
@@ -415,6 +403,21 @@
   .gk-hp-item summary::-webkit-details-marker { display: none; }
   @media (max-width: 900px) {
     section > div > div[style*="grid-template-columns: 1fr 1fr 1fr"] { grid-template-columns: 1fr !important; }
+  }
+  .gk-ra-abstract-details > summary { list-style: none; }
+  .gk-ra-abstract-details > summary::-webkit-details-marker { display: none; }
+  details.gk-ra-abstract-details[open] > summary .gk-ra-plus {
+    background: #e6f0fa;
+    border-color: #2b6cb0;
+  }
+  .gk-ra-pub-page-links a,
+  .gk-ra-pub-page-links button {
+    font-size: inherit !important;
+  }
+  .gk-ra-pub-page-links svg {
+    height: 0.95em !important;
+    width: 0.95em !important;
+    vertical-align: -0.12em;
   }
 </style>
 
