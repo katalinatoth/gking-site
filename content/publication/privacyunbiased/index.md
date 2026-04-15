@@ -1,9 +1,7 @@
 ---
 authors:
-- Georgina Evans
-- Gary King
-- Margaret Schwenzfeier
-- Abhradeep Thakurta
+  - Georgina Evans
+  - Gary King
 date: '2021-01-01'
 links:
 - type: site

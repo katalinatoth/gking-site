@@ -15,6 +15,7 @@ links:
   url: internal:/publications/dataverse-open-source-research-data-repository-software
 publication: Proceedings of The First ACM+IEEE Joint Conference on Digital Libraries, Pp. 203–204
 publication_types:
-- journal_article
+  - journal_article
+  - software
 title: An Overview of the Virtual Data Center Project and Software
 ---

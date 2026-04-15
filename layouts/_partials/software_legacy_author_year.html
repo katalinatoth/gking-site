@@ -1,0 +1,15 @@
+{{- $p := .page -}}
+{{- $year := .year -}}
+{{- $authors := $p.Params.authors | default slice -}}
+{{- $n := len $authors -}}
+{{- if eq $n 0 -}}
+Gary King. {{ $year }}.
+{{- else if eq $n 1 -}}
+{{ index $authors 0 }}. {{ $year }}.
+{{- else if eq $n 2 -}}
+{{ index $authors 0 }} and {{ index $authors 1 }}. {{ $year }}.
+{{- else -}}
+{{- $last := index $authors (sub $n 1) -}}
+{{- $rest := first (sub $n 1) $authors -}}
+{{ delimit $rest ", " }}, and {{ $last }}. {{ $year }}.
+{{- end -}}

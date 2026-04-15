@@ -17,6 +17,7 @@ links:
   url: https://ieeexplore.ieee.org/document/7536150
 publication: IEEE Transactions on Visualization and Computer Graphics, 23, 1, Pp. 571-80
 publication_types:
-- journal_article
+  - journal_article
+  - software
 title: 'Booc.Io: An Education System With Hierarchical Concept Maps'
 ---
