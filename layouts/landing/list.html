@@ -144,24 +144,34 @@
   </div>
 </section>
 
-<!-- Recent Papers / Presentations / Books — compact boxes -->
+<!-- Recent Papers / Presentations / Books — curated to match original site -->
 {{ $pubs := where .Site.RegularPages "Section" "publication" }}
 {{ $pubs = sort $pubs ".Date" "desc" }}
-{{ $talks := where .Site.RegularPages "Section" "talk" }}
-{{ $talks = sort $talks ".Date" "desc" }}
+
+{{/* Curated recent papers matching original homepage */}}
+{{ $recentPaperSlugs := slice "publication/inducing-sustained-creativity-and-diversity-in-large-language-models" "publication/assessing-differences-in-country-level-estimates-of-maternal-mortality-a-compari" "publication/survey-estimates-of-wartime-mortality" "publication/experimental-evidence-on-the-limited-influence-of-reputable-media-outlets" "publication/evaluating-the-impacts-of-swapping-on-the-us-decennial-census" "publication/global-maternal-health-country-typologies-a-framework-to-guide-policy" "publication/global-maternal-mortality-projections-by-urban-rural-locationand-education-level" "publication/differentially-private-survey-research" "publication/a-simulation-based-comparative-effectiveness-analysis-of-policies-to-improve-glo" }}
+
+{{/* Curated presentations matching original homepage */}}
+{{ $recentTalkSlugs := slice "talk/whos-to-blame-for-survey-instability-respondents-with-nonexistent-preferences-or" "talk/whos-to-blame-for-survey-instability-respondents-with-random-preferences-or-rese" "talk/statistically-valid-inferences-from-privacy-protected-data-pew-research-center" "talk/correcting-measurement-error-bias-in-conjoint-survey-experiments-university-of-c" }}
+
+{{/* Curated books matching original homepage */}}
+{{ $bookSlugs := slice "publication/designing-social-inquiry-scientific-inference-in-qualitative-research-new-editio" "publication/the-future-of-political-science-100-perspectives" "publication/ecological-inference-new-methodological-strategies" }}
+
+{{/* Curated patents matching original homepage (10 specific ones) */}}
+{{ $patentSlugs := slice "publication/cluster-analysis-of-participant-responses-for-test-generation-or-teaching-2nd" "publication/participant-grouping-for-enhanced-interactive-experience-4th" "publication/instructional-support-platform-for-interactive-learning-platforms-2nd" "publication/instructional-support-platform-for-interactive-learning-platforms" "publication/system-for-estimating-a-distribution-of-message-content-categories-in-source-dat-2012" "publication/cluster-analysis-of-participant-responses-for-test-generation-or-teaching" "publication/systems-and-methods-for-keyword-determination-and-document-classification-from-u" "publication/participant-grouping-for-enhanced-interactive-experience-3rd" "publication/participant-grouping-for-enhanced-interactive-experience-2nd" "publication/stimulating-online-discussion-in-interactive-learning-environments" }}
+
+{{/* Curated software projects matching original homepage (5 specific ones) */}}
+{{ $softwareSlugs := slice "publication/opendp-developing-open-source-tools-for-differential-privacy" "publication/psi-ψ-a-private-data-sharing-interface" "publication/compactness-an-r-package-for-measuring-legislative-district-compactness-if-you-o" "publication/readme2-an-r-package-for-improved-automated-nonparametric-content-analysis-for-s" "publication/boocio-an-education-system-with-hierarchical-concept-maps" }}
 
 <section style="max-width:1200px;margin:0 auto;padding:0 40px 40px;">
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;">
 
-    <!-- Recent Papers -->
+    <!-- Recent Papers (curated) -->
     <div style="background:#f8f9fa;border-radius:8px;padding:20px 24px;border:1px solid #e2e8f0;">
       <h3 style="font-size:1.2rem;font-weight:600;margin:0 0 12px;color:#1E1E1E;">Recent Papers</h3>
-      {{ $count := 0 }}
-      {{ range $pubs }}
-        {{ $types := .Params.publication_types | default slice }}
-        {{ $is_article := or (in $types "article-journal") (in $types "chapter") (in $types "journal_article") (in $types "book_chapter") (in $types "working_paper") }}
-        {{ if and $is_article (lt $count 9) }}
-          {{ $count = add $count 1 }}
+      {{ range $recentPaperSlugs }}
+        {{ $page := site.GetPage . }}
+        {{ with $page }}
       <details class="gk-hp-item">
         <summary style="font-size:0.88rem;cursor:pointer;padding:5px 0;border-bottom:1px solid #eee;list-style:none;display:flex;align-items:baseline;gap:5px;color:#337ab7;line-height:1.4;">
           <span class="gk-hp-arrow" style="flex-shrink:0;">&#9654;</span>
@@ -182,34 +192,36 @@
       </div>
     </div>
 
-    <!-- Presentations -->
+    <!-- Presentations (curated) -->
     <div style="background:#f8f9fa;border-radius:8px;padding:20px 24px;border:1px solid #e2e8f0;">
       <h3 style="font-size:1.2rem;font-weight:600;margin:0 0 12px;color:#1E1E1E;">Presentations</h3>
-      {{ range first 8 $talks }}
+      {{ range $recentTalkSlugs }}
+        {{ $page := site.GetPage . }}
+        {{ with $page }}
       <details class="gk-hp-item">
         <summary style="font-size:0.88rem;cursor:pointer;padding:5px 0;border-bottom:1px solid #eee;list-style:none;display:flex;align-items:baseline;gap:5px;color:#337ab7;line-height:1.4;">
           <span class="gk-hp-arrow" style="flex-shrink:0;">&#9654;</span>
           <span>{{ .Title }}</span>
         </summary>
         <div style="padding:6px 0 8px 16px;font-size:0.82rem;color:#555;border-bottom:1px solid #eee;">
-          <div style="color:#888;">{{ .Date.Format "January 2, 2006" }}</div>
           {{ with .Params.event }}<div style="font-style:italic;color:#777;">{{ . }}</div>{{ end }}
           {{ with .Params.abstract }}<div style="margin-top:4px;line-height:1.4;color:#666;">{{ . | truncate 200 | markdownify }}</div>{{ end }}
           <div style="margin-top:6px;"><a href="{{ .RelPermalink }}" style="color:#337ab7;text-decoration:none;font-weight:500;">Read more &rarr;</a></div>
         </div>
       </details>
+        {{ end }}
       {{ end }}
       <div style="margin-top:10px;text-align:right;">
         <a href="{{ "talk/" | relURL }}" style="color:#337ab7;font-size:0.85rem;text-decoration:none;">All presentations &rarr;</a>
       </div>
     </div>
 
-    <!-- Books -->
+    <!-- Books (curated) -->
     <div style="background:#f8f9fa;border-radius:8px;padding:20px 24px;border:1px solid #e2e8f0;">
       <h3 style="font-size:1.2rem;font-weight:600;margin:0 0 12px;color:#1E1E1E;">Books</h3>
-      {{ range $pubs }}
-        {{ $types := .Params.publication_types | default slice }}
-        {{ if in $types "book" }}
+      {{ range $bookSlugs }}
+        {{ $page := site.GetPage . }}
+        {{ with $page }}
       <details class="gk-hp-item">
         <summary style="font-size:0.88rem;cursor:pointer;padding:5px 0;border-bottom:1px solid #eee;list-style:none;display:flex;align-items:baseline;gap:5px;color:#337ab7;line-height:1.4;">
           <span class="gk-hp-arrow" style="flex-shrink:0;">&#9654;</span>
@@ -267,7 +279,7 @@
           <span class="gk-hp-arrow" style="flex-shrink:0;">&#9654;</span><span>Thresher</span>
         </summary>
         <div style="padding:6px 0 8px 16px;font-size:0.82rem;color:#555;border-bottom:1px solid #eee;">
-          <div style="color:#888;">Acquired by Two Six Technologies, a Carlyle Company</div>
+          <div style="color:#888;">Acquired by Two Six Technologies, a Carlyle Company; <a href="https://docs.google.com/document/d/1kP1960J0NUuaoEFIakXK5p98xFEz13QvEdpwGh_n5aM/" target="_blank" style="color:#337ab7;">the story</a></div>
           <div style="margin-top:6px;"><a href="https://www.thresher.io/" target="_blank" rel="noopener" style="color:#337ab7;text-decoration:none;font-weight:500;">Visit site &rarr;</a></div>
         </div>
       </details>
@@ -276,7 +288,7 @@
           <span class="gk-hp-arrow" style="flex-shrink:0;">&#9654;</span><span>Crimson Hexagon</span>
         </summary>
         <div style="padding:6px 0 8px 16px;font-size:0.82rem;color:#555;border-bottom:1px solid #eee;">
-          <div style="color:#888;">Merged with Brandwatch, acquired by Cision</div>
+          <div style="color:#888;">Merged with Brandwatch, acquired by Cision; <a href="https://docs.google.com/document/d/1-M0MqxE2YG-Smp_6BwYbxegdnHuznqdc91YHQyeTbsk" target="_blank" style="color:#337ab7;">the story</a></div>
           <div style="margin-top:6px;"><a href="https://www.brandwatch.com/" target="_blank" rel="noopener" style="color:#337ab7;text-decoration:none;font-weight:500;">Visit site &rarr;</a></div>
         </div>
       </details>
@@ -285,18 +297,19 @@
           <span class="gk-hp-arrow" style="flex-shrink:0;">&#9654;</span><span>Learning Catalytics</span>
         </summary>
         <div style="padding:6px 0 8px 16px;font-size:0.82rem;color:#555;border-bottom:1px solid #eee;">
-          <div style="color:#888;">Acquired by Pearson</div>
+          <div style="color:#888;">Acquired by Pearson; <a href="https://news.harvard.edu/gazette/story/2013/08/fueling-the-entrepreneurial-spirit/" target="_blank" style="color:#337ab7;">the story</a></div>
           <div style="margin-top:6px;"><a href="https://www.pearson.com/us/higher-education/products-services-teaching/learning-engagement-tools/learning-catalytics.html" target="_blank" rel="noopener" style="color:#337ab7;text-decoration:none;font-weight:500;">Visit site &rarr;</a></div>
         </div>
       </details>
+      <p style="font-size:0.85rem;margin-top:0.5rem;">News story: "<a href="https://www.thecrimson.com/article/2024/3/9/gary-king-profile/" target="_blank" style="color:#337ab7;">Entrepreneurial Academia with Gary King</a>"</p>
     </div>
 
-    <!-- Patents -->
+    <!-- Patents (curated) -->
     <div style="background:#f8f9fa;border-radius:8px;padding:20px 24px;border:1px solid #e2e8f0;">
       <h3 style="font-size:1.2rem;font-weight:600;margin:0 0 12px;color:#1E1E1E;">Patents</h3>
-      {{ range $pubs }}
-        {{ $types := .Params.publication_types | default slice }}
-        {{ if in $types "patent" }}
+      {{ range $patentSlugs }}
+        {{ $page := site.GetPage . }}
+        {{ with $page }}
       <details class="gk-hp-item">
         <summary style="font-size:0.88rem;cursor:pointer;padding:5px 0;border-bottom:1px solid #eee;list-style:none;display:flex;align-items:baseline;gap:5px;color:#337ab7;line-height:1.4;">
           <span class="gk-hp-arrow" style="flex-shrink:0;">&#9654;</span>
@@ -313,13 +326,12 @@
       {{ end }}
     </div>
 
-    <!-- Software Projects -->
+    <!-- Software Projects (curated) -->
     <div style="background:#f8f9fa;border-radius:8px;padding:20px 24px;border:1px solid #e2e8f0;">
       <h3 style="font-size:1.2rem;font-weight:600;margin:0 0 12px;color:#1E1E1E;">Software Projects</h3>
-      {{ $swcount := 0 }}
-      {{ range $pubs }}
-        {{ if and (in (.Params.publication_types | default slice) "software") (lt $swcount 8) }}
-          {{ $swcount = add $swcount 1 }}
+      {{ range $softwareSlugs }}
+        {{ $page := site.GetPage . }}
+        {{ with $page }}
       <details class="gk-hp-item">
         <summary style="font-size:0.88rem;cursor:pointer;padding:5px 0;border-bottom:1px solid #eee;list-style:none;display:flex;align-items:baseline;gap:5px;color:#337ab7;line-height:1.4;">
           <span class="gk-hp-arrow" style="flex-shrink:0;">&#9654;</span>
@@ -357,12 +369,12 @@
   <div style="max-width:1200px;margin:0 auto;">
     <h2 style="font-size:2rem;font-weight:400;color:#1E1E1E;margin:0 0 24px 0;text-align:center;">Video Conversations and Lectures</h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;">
-      <a href="https://www.youtube.com/playlist?list=PL0n492lUg2sg9atDiK-ysPF43Wotuk4TU" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
+      <a href="https://www.youtube.com/playlist?list=PL0n492lUg2sgSevEQ3bLilGbFph4l92gH" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
         <div style="border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;background:#fff;">
-          <img src="{{ "images/garythumbnail_3.jpg" | relURL }}" alt="Research Talks" style="width:100%;display:block;">
+          <img src="{{ "images/garythumbnail_lecture.jpg" | relURL }}" alt="Lectures" style="width:100%;display:block;">
           <div style="padding:0.75rem 1rem;">
-            <strong>Research Talks by Gary King</strong><br>
-            <span style="font-size:0.85rem;color:#666;">Recorded by me</span>
+            <strong>Lectures for "Quantitative Social Science Methods, I"</strong><br>
+            <span style="font-size:0.85rem;color:#666;">Full course playlist</span>
           </div>
         </div>
       </a>
@@ -375,12 +387,12 @@
           </div>
         </div>
       </a>
-      <a href="https://www.youtube.com/playlist?list=PL0n492lUg2sgSevEQ3bLilGbFph4l92gH" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
+      <a href="https://www.youtube.com/playlist?list=PL0n492lUg2sg9atDiK-ysPF43Wotuk4TU" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;">
         <div style="border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;background:#fff;">
-          <img src="{{ "images/garythumbnail_lecture.jpg" | relURL }}" alt="Lectures" style="width:100%;display:block;">
+          <img src="{{ "images/garythumbnail_3.jpg" | relURL }}" alt="Research Talks" style="width:100%;display:block;">
           <div style="padding:0.75rem 1rem;">
-            <strong>Lectures for QSS Methods I</strong><br>
-            <span style="font-size:0.85rem;color:#666;">Full course playlist</span>
+            <strong>Research Talks by Gary King</strong><br>
+            <span style="font-size:0.85rem;color:#666;">Recorded by me</span>
           </div>
         </div>
       </a>

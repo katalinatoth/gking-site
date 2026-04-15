@@ -7,7 +7,7 @@ date: '2014-01-01'
 links:
 - type: pdf
   url: files/pspara-usc.pdf
-publication: ”download_for_offlineDownload citationBibTeXEndNote X3 XMLEndNote 7 XMLEndnote taggedMarcPubMedIdRISpicture_as_pdfSlidesNotesPresentation Date:Monday, November 5, 2012Location:Center for Population and Development, Harvard University
+publication: ""
 publication_types:
 - presentation
 title: Simplifying Causal Inference

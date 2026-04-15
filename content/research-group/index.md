@@ -5,7 +5,7 @@ type: "research-group"
 
 A list of current and former research associates, students, post-docs, and collaborators.
 
-**120 members**
+**198 members**
 
 <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1rem;margin-top:1.5rem;">
 <div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
@@ -16,6 +16,9 @@ A list of current and former research associates, students, post-docs, and colla
 </div>
 <div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
   <strong><a href="/gking-site/people/christopher-adolph/">Christopher Adolph</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/marshall-van-alstyne/">Marshall Van Alstyne</a></strong>
 </div>
 <div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
   <strong><a href="/gking-site/people/james-alt/">James Alt</a></strong>
@@ -39,13 +42,13 @@ A list of current and former research associates, students, post-docs, and colla
   <strong><a href="/gking-site/people/aslaug-asgeirsdottir/">Aslaug Asgeirsdottir</a></strong>
 </div>
 <div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
-  <strong><a href="/gking-site/people/delia-bailey-0/">Delia Bailey</a></strong>
+  <strong><a href="/gking-site/people/delia-bailey/">Delia Bailey</a></strong>
 </div>
 <div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
   <strong><a href="/gking-site/people/pamela-ban/">Pamela Ban</a></strong>
 </div>
 <div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
-  <strong><a href="/gking-site/people/albert-l%C3%A1szl%C3%B3-barab%C3%A1si/">Albert-László Barabási</a></strong>
+  <strong><a href="/gking-site/people/albert-laszlo-barabasi/">Albert-László Barabási</a></strong>
 </div>
 <div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
   <strong><a href="/gking-site/people/sebastian-bauhoff/">Sebastian Bauhoff</a></strong>
@@ -75,6 +78,9 @@ A list of current and former research associates, students, post-docs, and colla
   <strong><a href="/gking-site/people/matthew-blackwell/">Matthew Blackwell</a></strong>
 </div>
 <div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/suzanna-de-boef/">Suzanna De Boef</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
   <strong><a href="/gking-site/people/john-boscardin/">John Boscardin</a></strong>
 </div>
 <div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
@@ -88,6 +94,9 @@ A list of current and former research associates, students, post-docs, and colla
 </div>
 <div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
   <strong><a href="/gking-site/people/devon-brewer/">Devon Brewer</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/robert-x-browning/">Robert X. Browning</a></strong>
 </div>
 <div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
   <strong><a href="/gking-site/people/robert-x-browning/">Robert X Browning</a></strong>
@@ -120,9 +129,6 @@ A list of current and former research associates, students, post-docs, and colla
   <strong><a href="/gking-site/people/skyler-cranmer/">Skyler Cranmer</a></strong>
 </div>
 <div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
-  <strong><a href="/gking-site/people/suzanna-de-boef/">Suzanna De Boef</a></strong>
-</div>
-<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
   <strong><a href="/gking-site/people/elizabeth-desombre/">Elizabeth Desombre</a></strong>
 </div>
 <div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
@@ -138,10 +144,13 @@ A list of current and former research associates, students, post-docs, and colla
   <strong><a href="/gking-site/people/lee-epstein/">Lee Epstein</a></strong>
 </div>
 <div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
-  <strong><a href="/gking-site/people/juan-eugenio-hern%C3%A1ndez-%C3%A1vila/">Juan Eugenio Hernández Ávila</a></strong>
+  <strong><a href="/gking-site/people/georgina-evans/">Georgina Evans</a></strong>
 </div>
 <div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
   <strong><a href="/gking-site/people/karen-ferree/">Karen Ferree</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/ethan-fosse/">Ethan Fosse</a></strong>
 </div>
 <div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
   <strong><a href="/gking-site/people/james-fowler/">James Fowler</a></strong>
@@ -159,10 +168,10 @@ A list of current and former research associates, students, post-docs, and colla
   <strong><a href="/gking-site/people/andrew-gelman/">Andrew Gelman</a></strong>
 </div>
 <div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
-  <strong><a href="/gking-site/people/jeff-gill/">Jeff Gill</a></strong>
+  <strong><a href="/gking-site/people/michael-gill/">Michael Gill</a></strong>
 </div>
 <div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
-  <strong><a href="/gking-site/people/michael-gill/">Michael Gill</a></strong>
+  <strong><a href="/gking-site/people/jeff-gill/">Jeff Gill</a></strong>
 </div>
 <div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
   <strong><a href="/gking-site/people/michael-gilligan/">Michael Gilligan</a></strong>
@@ -193,12 +202,6 @@ A list of current and former research associates, students, post-docs, and colla
 </div>
 <div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
   <strong><a href="/gking-site/people/christine-harrington/">Christine Harrington</a></strong>
-</div>
-<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
-  <strong><a href="/gking-site/people/mauricio-hern%C3%A1ndez-%C3%A1vila/">Mauricio Hernández Ávila</a></strong>
-</div>
-<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
-  <strong><a href="/gking-site/people/h%C3%A9ctor-hern%C3%A1ndez-llama/">Héctor Hernández Llama</a></strong>
 </div>
 <div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
   <strong><a href="/gking-site/people/michael-herron/">Michael Herron</a></strong>
@@ -249,6 +252,9 @@ A list of current and former research associates, students, post-docs, and colla
   <strong><a href="/gking-site/people/david-kane/">David Kane</a></strong>
 </div>
 <div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/konstantin-kashin/">Konstantin Kashin</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
   <strong><a href="/gking-site/people/jonathan-n-katz/">Jonathan N. Katz</a></strong>
 </div>
 <div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
@@ -268,6 +274,9 @@ A list of current and former research associates, students, post-docs, and colla
 </div>
 <div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
   <strong><a href="/gking-site/people/tami-kim/">Tami Kim</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/tim-king/">Tim King</a></strong>
 </div>
 <div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
   <strong><a href="/gking-site/people/tim-king/">Tim  King</a></strong>
@@ -321,6 +330,9 @@ A list of current and former research associates, students, post-docs, and colla
   <strong><a href="/gking-site/people/chuanhai-liu/">Chuanhai Liu</a></strong>
 </div>
 <div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/hector-hernandez-llama/">Héctor Hernández Llama</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
   <strong><a href="/gking-site/people/alan-lopez/">Alan Lopez</a></strong>
 </div>
 <div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
@@ -337,9 +349,6 @@ A list of current and former research associates, students, post-docs, and colla
 </div>
 <div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
   <strong><a href="/gking-site/people/michael-macy/">Michael Macy</a></strong>
-</div>
-<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
-  <strong><a href="/gking-site/people/martha-mar%C3%AD-t%C3%A9llez-rojo/">Martha María Téllez-Rojo</a></strong>
 </div>
 <div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
   <strong><a href="/gking-site/people/lisa-martin/">Lisa Martin</a></strong>
@@ -367,5 +376,230 @@ A list of current and former research associates, students, post-docs, and colla
 </div>
 <div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
   <strong><a href="/gking-site/people/michael-new/">Michael New</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/joel-newberger/">Joel Newberger</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/norman-nie/">Norman Nie</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/rich-nielsen/">Rich Nielsen</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/bradley-palmquist/">Bradley Palmquist</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/jennifer-pan/">Jennifer Pan</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/philip-paolino/">Philip Paolino</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/claudia-pedroza/">Claudia Pedroza</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/alex-pentland/">Alex Pentland</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/casey-petroff/">Casey Petroff</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/stephen-pettigrew/">Stephen Pettigrew</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/giuseppe-porro/">Giuseppe Porro</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/eleanor-powell/">Eleanor Powell</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/soledad-prillaman/">Soledad Prillaman</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/timothy-prinz/">Timothy Prinz</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/kevin-quinn/">Kevin Quinn</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/lyn-ragsdale/">Lyn Ragsdale</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/mohan-penubarti-rao/">Mohan (Penubarti) Rao</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/nirmala-ravishankar/">Nirmala Ravishankar</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/andrew-reeves/">Andrew Reeves</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/eric-reinhardt/">Eric Reinhardt</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/viridiana-rios/">Viridiana Rios</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/margaret-e-roberts/">Margaret E. Roberts</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/ori-rosen/">Ori Rosen</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/deb-roy/">Deb Roy</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/joshua-salomon/">Joshua Salomon</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/melissa-sands/">Melissa Sands</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/kenneth-scheve/">Kenneth Scheve</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/kay-schlozman/">Kay Schlozman</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/allen-schmaltz/">Allen Schmaltz</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/alan-schmaltz/">Alan Schmaltz</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/alexander-schuessler/">Alexander Schuessler</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/margaret-schwenzfeier/">Margaret Schwenzfeier</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/jeffrey-segal/">Jeffrey Segal</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/jasjeet-sekhon/">Jasjeet Sekhon</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/maya-sen/">Maya Sen</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/kenji-shibuya/">Kenji Shibuya</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/kenneth-shotts/">Kenneth Shotts</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/curtis-signorino/">Curtis Signorino</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/naunihal-singh/">Naunihal Singh</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/miguel-solano/">Miguel Solano</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/samir-soneji/">Samir Soneji</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/heather-stoll/">Heather Stoll</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/anton-strezhnev/">Anton Strezhnev</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/elizabeth-stuart/">Elizabeth Stuart</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/bernard-tamas/">Bernard Tamas</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/ajay-tandon/">Ajay Tandon</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/martin-tanner/">Martin Tanner</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/amher-tarar/">Amher Tarar</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/andrew-c-thomas/">Andrew C Thomas</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/michael-ting/">Michael Ting</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/niels-tomijima/">Niels Tomijima</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/michael-tomz/">Michael Tomz</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/margaret-trevor/">Margaret Trevor</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/joshua-tucker/">Joshua Tucker</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/richard-tucker/">Richard Tucker</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/martha-maria-tellez-rojo/">Martha María Téllez-Rojo</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/manett-vargas/">Manett Vargas</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/sidney-verba/">Sidney Verba</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/steven-d-voss/">Steven D. Voss</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/alexander-wagner/">Alexander Wagner</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/robert-walker/">Robert Walker</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/daniel-j-walsh/">Daniel J. Walsh</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/jonathan-wand/">Jonathan Wand</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/dan-ward/">Dan Ward</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/kenesia-washington/">Kenesia Washington</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/gregory-wawro/">Gregory Wawro</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/yi-william-wei/">Yi William Wei</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/rainer-winkelmann/">Rainer Winkelmann</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/jason-wittenburg/">Jason Wittenburg</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/patrick-wolf/">Patrick Wolf</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/miya-woolfalk/">Miya Woolfalk</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/langche-zeng/">Langche Zeng</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/david-wendong-zhang/">David (Wendong) Zhang</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/juan-eugenio-hernandez-avila/">Juan Eugenio Hernández Ávila</a></strong>
+</div>
+<div style="padding:0.75rem;border:1px solid #e2e8f0;border-radius:8px;">
+  <strong><a href="/gking-site/people/mauricio-hernandez-avila/">Mauricio Hernández Ávila</a></strong>
 </div>
 </div>

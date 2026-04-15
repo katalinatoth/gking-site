@@ -13,7 +13,7 @@ links:
   url: files/urban_decision_informatics2.pdf
 - type: source
   url: http://www.nature.com/nature/journal/v519/n7543/full/519291b.html
-publication: ”. Nature, 519, Pp. 291.download_for_offlineDownload citationBibTeXEndNote X3 XMLEndNote 7 XMLEndnote taggedMarcPubMedIdRISdescriptionPublisher's Versionpicture_as_pdfArticleAbstractData are being collected on human behaviour in cities such as London, New York, Singapore and Shanghai, with a view to meeting city dwellers' needs more effectively. Incorporating decision-making theory into analyses of the data from these 'urban observatories' would yield further valuable information
+publication: ""
 publication_types:
 - journal_article
 title: 'Urban Observatories: City Data Can Inform Decision Theory'
