@@ -5,5 +5,5 @@ authors:
   - "Gary King"
 links:
   - type: site
-    url: "https://QuickCode.ai"
+    url: "https://quickcode.ai"
 ---

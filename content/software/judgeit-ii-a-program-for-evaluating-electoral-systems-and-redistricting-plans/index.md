@@ -5,6 +5,9 @@ authors:
 - Andrew Gelman
 - Gary King
 - Andrew Thomas
+links:
+  - type: code
+    url: "https://github.com/IQSS/JudgeIt"
 summary: A program for analyzing most any feature of district-level legislative elections
   data, including prediction, evaluating redistricting plans, estimating counterfactual
   hypotheses (such as what would happen if a term-limitation amendment were imposed).

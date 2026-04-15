@@ -6,4 +6,7 @@ publication: ""
 publication_types:
 - software
 title: OpenScholar
+links:
+  - type: site
+    url: "https://osprojectsite.org/home"
 ---

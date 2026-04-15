@@ -5,6 +5,9 @@ authors:
 - Heather Stoll
 - Gary King
 - Langche Zeng
+links:
+  - type: site
+    url: "https://CRAN.R-project.org/package=WhatIf"
 ---
 
 <article class="node node--type-hwp-page node--view-mode-full" lang="en">
