@@ -38,15 +38,34 @@
       <span style="font-size:0.85rem;color:#666;"> — <span class="gk-sw-authors">{{ delimit . ", " }}</span></span>
       {{ end }}
       {{ if $blurb }}
-      <div style="font-size:0.85rem;color:#555;margin-top:2px;line-height:1.4;">{{ $blurb | plainify | truncate 200 }}</div>
+      <details class="gk-sw-abs" style="margin-top:6px;font-size:0.85rem;">
+        <summary style="cursor:pointer;list-style:none;color:#337ab7;font-weight:500;display:inline-flex;align-items:center;gap:4px;">
+          <span class="gk-sw-abs-icon" style="display:inline-flex;align-items:center;justify-content:center;width:1rem;height:1rem;border:1px solid #337ab7;border-radius:50%;font-size:0.7rem;line-height:1;">+</span>
+          Abstract
+        </summary>
+        <div class="gk-sw-abs-body prose prose-sm max-w-none dark:prose-invert" style="margin-top:8px;padding:8px 10px;background:#fafafa;border:1px solid #e8e8e8;border-radius:6px;color:#444;line-height:1.55;">{{ $blurb | markdownify }}</div>
+      </details>
       {{ end }}
     </div>
   {{ end }}
   </div>
 </div>
 
+<style>
+  .gk-sw-abs > summary { list-style: none; }
+  .gk-sw-abs > summary::-webkit-details-marker { display: none; }
+  .gk-sw-abs[open] > summary .gk-sw-abs-icon { background: #e6f0fa; border-color: #2b6cb0; }
+</style>
+
 <script>
 (function() {
+  document.querySelectorAll(".gk-sw-abs").forEach(function(d) {
+    d.addEventListener("toggle", function() {
+      var icon = this.querySelector(".gk-sw-abs-icon");
+      if (icon) icon.textContent = this.open ? "−" : "+";
+    });
+  });
+
   var btn = document.getElementById("gk-sw-download");
   if (!btn) return;
   btn.addEventListener("click", function() {
