@@ -5,4 +5,4 @@ role: "Harvard University"
 research_group_category: "collaborators"
 ---
 
-Member of Gary King's research group.
+Ph.D. candidate in Health Policy (Economics track) at Harvard University. He is interested in applying empirical methods to health policy, particularly to topics at the intersection of health, labor and public economics.
