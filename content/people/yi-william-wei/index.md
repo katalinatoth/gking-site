@@ -1,3 +1,8 @@
 ---
 title: "Yi William Wei"
+type: "people"
+role: "Executive Director at America Asia Alliances"
+research_group_category: "alumni_postdocs"
 ---
+
+Member of Gary King's research group.

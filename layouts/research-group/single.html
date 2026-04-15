@@ -1,13 +1,18 @@
 {{ define "main" }}
 
+{{ $labels := dict "current" "Current Research Associates" "alumni_students" "Alumni: Students" "alumni_postdocs" "Alumni: Post-Docs" "collaborators" "Collaborators" }}
+
 <div style="max-width:1200px;margin:0 auto;padding:2rem 1.5rem;">
   <h1 style="font-size:2.5rem;font-weight:700;margin:0 0 0.5rem;">{{ .Title }}</h1>
-  <p style="color:#666;margin:0 0 1.5rem;">A list of current and former research associates, students, post-docs, and collaborators.</p>
+  <div style="color:#666;margin:0 0 1.5rem;max-width:52rem;">{{ .Content }}</div>
 
   <div style="display:flex;gap:2rem;align-items:flex-start;">
-    <!-- Sidebar Filters -->
-    <div id="gk-sidebar" style="min-width:220px;max-width:260px;flex-shrink:0;border:1px solid #e2e8f0;border-radius:8px;padding:1.25rem;background:#fafafa;position:sticky;top:5rem;">
-      <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.75rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;">Last Name</h3>
+    <!-- Sidebar Filters (matches original site: category + name range + search) -->
+    <div id="gk-sidebar" style="min-width:220px;max-width:280px;flex-shrink:0;border:1px solid #e2e8f0;border-radius:8px;padding:1.25rem;background:#fafafa;position:sticky;top:5rem;">
+      <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.75rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;">Research Group</h3>
+      <div id="gk-cat-filters" style="margin-bottom:1.25rem;"></div>
+
+      <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.75rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;">Researchers by Last Name</h3>
       <div id="gk-name-filters" style="margin-bottom:1.25rem;"></div>
 
       <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.75rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;">University / Affiliation</h3>
@@ -34,7 +39,9 @@
 {{ $people := where .Site.RegularPages "Type" "people" }}
 {{ $entries := slice }}
 {{ range $people }}
-  {{ $entry := dict "name" .Title "url" .RelPermalink "role" (.Params.role | default "") }}
+  {{ $cat := .Params.research_group_category | default "collaborators" }}
+  {{ $catLabel := index $labels $cat | default "Collaborators" }}
+  {{ $entry := dict "name" .Title "url" .RelPermalink "role" (.Params.role | default "") "category" $cat "categoryLabel" $catLabel }}
   {{ $entries = $entries | append $entry }}
 {{ end }}
 
@@ -45,8 +52,13 @@
   var sortMode = "az";
   var activeRanges = {};
   var activeUnivs = {};
-  var ranges = ["A-C","D-F","G-I","J-L","M-O","P-R","S-U","V-Z"];
+  var activeCats = {};
+  /* Same letter buckets as gking.harvard.edu/people */
+  var ranges = ["A-C","D-G","H-J","K-L","M-P","Q-S","T-V","W-Z"];
   ranges.forEach(function(r) { activeRanges[r] = true; });
+
+  var catKeys = ["current","alumni_students","alumni_postdocs","collaborators"];
+  catKeys.forEach(function(c) { activeCats[c] = true; });
 
   function getLastName(name) {
     var parts = name.trim().split(/\s+/);
@@ -55,21 +67,40 @@
 
   function getRange(name) {
     var c = getLastName(name).charAt(0).toUpperCase();
-    for (var i = 0; i < ranges.length; i++) {
-      var r = ranges[i];
-      if (c >= r.charAt(0) && c <= r.charAt(2)) return r;
-    }
-    return ranges[ranges.length - 1];
+    if (c >= "A" && c <= "C") return "A-C";
+    if (c >= "D" && c <= "G") return "D-G";
+    if (c >= "H" && c <= "J") return "H-J";
+    if (c >= "K" && c <= "L") return "K-L";
+    if (c >= "M" && c <= "P") return "M-P";
+    if (c >= "Q" && c <= "S") return "Q-S";
+    if (c >= "T" && c <= "V") return "T-V";
+    return "W-Z";
   }
 
-  // Gather unique affiliations
   var univCounts = {};
   data.forEach(function(d) {
-    var u = d.role || "Unknown";
+    var u = d.role || "—";
     univCounts[u] = (univCounts[u] || 0) + 1;
   });
 
-  // Build name range filters
+  var catLabels = {
+    current: "Current Research Associates",
+    alumni_students: "Alumni: Students",
+    alumni_postdocs: "Alumni: Post-Docs",
+    collaborators: "Collaborators"
+  };
+
+  var catContainer = document.getElementById("gk-cat-filters");
+  catKeys.forEach(function(k) {
+    var count = data.filter(function(d) { return d.category === k; }).length;
+    var div = document.createElement("div");
+    div.style.cssText = "padding:2px 0;font-size:0.88rem;";
+    div.innerHTML = '<label style="cursor:pointer;display:flex;align-items:center;gap:6px;">' +
+      '<input type="checkbox" data-cat="' + k + '" checked> ' + catLabels[k] +
+      ' <span style="color:#999;">(' + count + ')</span></label>';
+    catContainer.appendChild(div);
+  });
+
   var nameContainer = document.getElementById("gk-name-filters");
   ranges.forEach(function(r) {
     var count = data.filter(function(d) { return getRange(d.name) === r; }).length;
@@ -81,7 +112,6 @@
     nameContainer.appendChild(div);
   });
 
-  // Build university filters (sorted by count descending, top affiliations)
   var univContainer = document.getElementById("gk-univ-filters");
   var sortedUnivs = Object.keys(univCounts).sort(function(a, b) {
     return univCounts[b] - univCounts[a];
@@ -96,7 +126,10 @@
     univContainer.appendChild(div);
   });
 
-  // Event listeners
+  catContainer.addEventListener("change", function(e) {
+    var k = e.target.dataset.cat;
+    if (k) { activeCats[k] = e.target.checked; render(); }
+  });
   nameContainer.addEventListener("change", function(e) {
     var r = e.target.dataset.range;
     if (r) { activeRanges[r] = e.target.checked; render(); }
@@ -116,11 +149,12 @@
 
   function render() {
     var filtered = data.filter(function(d) {
+      if (!activeCats[d.category]) return false;
       if (!activeRanges[getRange(d.name)]) return false;
-      var u = d.role || "Unknown";
+      var u = d.role || "—";
       if (!activeUnivs[u]) return false;
       if (searchTerm) {
-        var haystack = (d.name + " " + d.role).toLowerCase();
+        var haystack = (d.name + " " + (d.role || "") + " " + (d.categoryLabel || "")).toLowerCase();
         if (haystack.indexOf(searchTerm) === -1) return false;
       }
       return true;
@@ -132,13 +166,14 @@
       return sortMode === "za" ? lb.localeCompare(la) : la.localeCompare(lb);
     });
 
-    document.getElementById("gk-people-count").textContent = filtered.length + " member" + (filtered.length !== 1 ? "s" : "");
+    document.getElementById("gk-people-count").textContent = filtered.length + " result" + (filtered.length !== 1 ? "s" : "");
 
     var html = "";
     filtered.forEach(function(d) {
       html += '<div style="padding:10px 12px;background:#f0f5fa;border-radius:6px;">';
       html += '<strong><a href="' + d.url + '" style="color:#337ab7;text-decoration:none;">' + escapeHtml(d.name) + '</a></strong>';
       if (d.role) html += '<div style="font-size:0.82rem;color:#666;margin-top:2px;">' + escapeHtml(d.role) + '</div>';
+      if (d.categoryLabel) html += '<div style="font-size:0.75rem;color:#888;margin-top:2px;">' + escapeHtml(d.categoryLabel) + '</div>';
       html += '</div>';
     });
     document.getElementById("gk-people-results").innerHTML = html;

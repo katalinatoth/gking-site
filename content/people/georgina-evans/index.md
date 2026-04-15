@@ -1,3 +1,0 @@
----
-title: "Georgina Evans"
----

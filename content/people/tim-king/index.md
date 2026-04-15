@@ -1,6 +1,8 @@
 ---
-title: "Tim  King"
+title: "Tim King"
 type: "people"
+role: ""
+research_group_category: "alumni_students"
 ---
 
 Member of Gary King's research group.

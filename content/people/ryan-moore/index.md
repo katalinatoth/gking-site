@@ -2,6 +2,7 @@
 title: "Ryan Moore"
 type: "people"
 role: "Washington University in St. Louis"
+research_group_category: "alumni_students"
 ---
 
-<p>Assistant professor in the Department of Political Science at Washington University in St. Louis.</p>
+Member of Gary King's research group.
