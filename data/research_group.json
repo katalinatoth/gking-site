@@ -3,1140 +3,1735 @@
     "slug": "lada-adamic",
     "name": "Lada Adamic",
     "affiliation": "University of Michigan",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "greg-adams",
     "name": "Greg Adams",
     "affiliation": "",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "christopher-adolph",
     "name": "Christopher Adolph",
     "affiliation": "University of Washington",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "marshall-van-alstyne",
     "name": "Marshall Van Alstyne",
     "affiliation": "MIT",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "T-V"
   },
   {
     "slug": "james-alt",
     "name": "James Alt",
     "affiliation": "Harvard University",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "micah-altman",
     "name": "Micah Altman",
     "affiliation": "Harvard University",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "alumni_postdocs",
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "leonid-andreev",
     "name": "Leonid Andreev",
     "affiliation": "Harvard University",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "josephine-t-andrews",
     "name": "Josephine T. Andrews",
     "affiliation": "UC Davis",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "stephen-ansolabehere",
     "name": "Stephen Ansolabehere",
     "affiliation": "MIT",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "sinan-aral",
     "name": "Sinan Aral",
     "affiliation": "New York University and MIT",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "aslaug-asgeirsdottir",
     "name": "Aslaug Asgeirsdottir",
     "affiliation": "Bates College",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "delia-bailey-0",
     "name": "Delia Bailey",
     "affiliation": "School of Law, Washington University - St. Louis",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "pamela-ban",
     "name": "Pamela Ban",
     "affiliation": "Harvard University",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "albert-l%C3%A1szl%C3%B3-barab%C3%A1si",
     "name": "Albert-László Barabási",
     "affiliation": "University of Notre Dame",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "sebastian-bauhoff",
     "name": "Sebastian Bauhoff",
     "affiliation": "Harvard University",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "brady-baybeck",
     "name": "Brady Baybeck",
     "affiliation": "University of Missouri - St. Louis",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "nathaniel-beck",
     "name": "Nathaniel Beck",
     "affiliation": "NYU",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "kenneth-bennoit",
     "name": "Kenneth Bennoit",
     "affiliation": "Trinity College, University of Dublin",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "kenneth-benoit",
     "name": "Kenneth Benoit",
     "affiliation": "Trinity College, University of Dublin",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "nancy-billica",
     "name": "Nancy Billica",
     "affiliation": "University of Colorado",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "jon-bischof",
     "name": "Jon Bischof",
     "affiliation": "Harvard University",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "ben-bishin",
     "name": "Ben Bishin",
     "affiliation": "University of Miami",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "matthew-blackwell",
     "name": "Matthew Blackwell",
     "affiliation": "Harvard University",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "suzanna-de-boef",
     "name": "Suzanna De Boef",
     "affiliation": "Penn State University",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "D-G"
   },
   {
     "slug": "john-boscardin",
     "name": "John Boscardin",
     "affiliation": "UCLA",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "paul-brace",
     "name": "Paul Brace",
     "affiliation": "Rice University",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "dawn-brancati",
     "name": "Dawn Brancati",
     "affiliation": "Harvard University",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "patrick-brandt",
     "name": "Patrick Brandt",
     "affiliation": "University of Texas at Dallas",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "devon-brewer",
     "name": "Devon Brewer",
     "affiliation": "University of Washington and Interdisciplinary Scientific Research",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "robert-x-browning",
     "name": "Robert X Browning",
     "affiliation": "Purdue University",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "john-bruce",
     "name": "John Bruce",
     "affiliation": "University of Mississippi",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "john-m-bruce",
     "name": "John M. Bruce",
     "affiliation": "University of Mississippi",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "nancy-burns",
     "name": "Nancy Burns",
     "affiliation": "University of Michigan",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "sean-carey",
     "name": "Sean Carey",
     "affiliation": "The University of Sheffield",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "nicholas-christakis",
     "name": "Nicholas Christakis",
     "affiliation": "Harvard University",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "katie-colton",
     "name": "Katie Colton",
     "affiliation": "UC Berkeley",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "noshir-contractor",
     "name": "Noshir Contractor",
     "affiliation": "Harvard University",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "anders-corr",
     "name": "Anders Corr",
     "affiliation": "",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "skyler-cranmer",
     "name": "Skyler Cranmer",
     "affiliation": "University of North Carolina at Chapel Hill",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "A-C"
   },
   {
     "slug": "elizabeth-desombre",
     "name": "Elizabeth Desombre",
     "affiliation": "Wellesley College",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "D-G"
   },
   {
     "slug": "scott-desposato",
     "name": "Scott Desposato",
     "affiliation": "University of California",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "D-G"
   },
   {
     "slug": "alexis-diamond",
     "name": "Alexis Diamond",
     "affiliation": "World Bank",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "D-G"
   },
   {
     "slug": "mark-diggory",
     "name": "Mark Diggory",
     "affiliation": "Harvard University",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
   },
   {
     "slug": "lee-epstein",
     "name": "Lee Epstein",
     "affiliation": "Washington University in St. Louis",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
   },
   {
     "slug": "karen-ferree",
     "name": "Karen Ferree",
     "affiliation": "UC San Diego",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "D-G"
   },
   {
     "slug": "james-fowler",
     "name": "James Fowler",
     "affiliation": "University of California, San Diego",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
   },
   {
     "slug": "hung-der-fu",
     "name": "Hung-Der Fu",
     "affiliation": "Tunghai University, Taiwan",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "D-G"
   },
   {
     "slug": "emmanuela-gakidou",
     "name": "Emmanuela Gakidou",
     "affiliation": "Harvard University",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
   },
   {
     "slug": "claudine-gay",
     "name": "Claudine Gay",
     "affiliation": "Harvard University",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "D-G"
   },
   {
     "slug": "andrew-gelman",
     "name": "Andrew Gelman",
     "affiliation": "Columbia University",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
   },
   {
     "slug": "jeff-gill",
     "name": "Jeff Gill",
     "affiliation": "UC Davis",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "alumni_postdocs",
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
   },
   {
     "slug": "michael-gill",
     "name": "Michael Gill",
     "affiliation": "Harvard University",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "D-G"
   },
   {
     "slug": "michael-gilligan",
     "name": "Michael Gilligan",
     "affiliation": "NYU University",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
   },
   {
     "slug": "federico-girosi",
     "name": "Federico Girosi",
     "affiliation": "The Rand Corporation",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
   },
   {
     "slug": "kristian-gleditsch",
     "name": "Kristian Gleditsch",
     "affiliation": "Nuffield College, Oxford University",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "D-G"
   },
   {
     "slug": "prateek-goorha",
     "name": "Prateek Goorha",
     "affiliation": "RMIT University",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "D-G"
   },
   {
     "slug": "max-goplerud",
     "name": "Max Goplerud",
     "affiliation": "",
-    "research_group_category": "current"
+    "research_group_categories": [
+      "current"
+    ],
+    "last_name_range": "D-G"
   },
   {
     "slug": "justin-grimmer",
     "name": "Justin Grimmer",
     "affiliation": "Stanford University",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "D-G"
   },
   {
     "slug": "bernard-grofman",
     "name": "Bernard Grofman",
     "affiliation": "University of California, Irvine",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
   },
   {
     "slug": "yichen-guan",
     "name": "Yichen Guan",
     "affiliation": "",
-    "research_group_category": "current"
+    "research_group_categories": [
+      "current"
+    ],
+    "last_name_range": "D-G"
   },
   {
     "slug": "myron-gutmann",
     "name": "Myron Gutmann",
     "affiliation": "University of Michigan",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
   },
   {
     "slug": "christine-harrington",
     "name": "Christine Harrington",
     "affiliation": "NYU",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "H-J"
   },
   {
     "slug": "michael-herron",
     "name": "Michael Herron",
     "affiliation": "Dartmouth College",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "alumni_postdocs",
+      "collaborators"
+    ],
+    "last_name_range": "H-J"
   },
   {
     "slug": "frederick-m-hess",
     "name": "Frederick M. Hess",
     "affiliation": "Georgetown University",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "H-J"
   },
   {
     "slug": "jennifer-hill",
     "name": "Jennifer Hill",
     "affiliation": "Columbia University",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "H-J"
   },
   {
     "slug": "dan-ho",
     "name": "Dan Ho",
     "affiliation": "Stanford Law School",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "H-J"
   },
   {
     "slug": "james-honaker",
     "name": "James Honaker",
     "affiliation": "UCLA",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "H-J"
   },
   {
     "slug": "dan-hopkins",
     "name": "Dan Hopkins",
     "affiliation": "Georgetown University",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "H-J"
   },
   {
     "slug": "daniel-hopkins",
     "name": "Daniel Hopkins",
     "affiliation": "Georgetown University",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "H-J"
   },
   {
     "slug": "ben-w-hunt",
     "name": "Ben W. Hunt",
     "affiliation": "Iridian Asset Management",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "H-J"
   },
   {
     "slug": "stefano-iacus",
     "name": "Stefano Iacus",
     "affiliation": "University of Milan",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "H-J"
   },
   {
     "slug": "kosuke-imai",
     "name": "Kosuke Imai",
     "affiliation": "Princeton University",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "H-J"
   },
   {
     "slug": "sundeep-iyer",
     "name": "Sundeep Iyer",
     "affiliation": "",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "H-J"
   },
   {
     "slug": "debra-javeline",
     "name": "Debra Javeline",
     "affiliation": "Notre Dame",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "H-J"
   },
   {
     "slug": "tony-jebara",
     "name": "Tony Jebara",
     "affiliation": "Columbia University",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "H-J"
   },
   {
     "slug": "wenxin-jiang",
     "name": "Wenxin Jiang",
     "affiliation": "Northwestern University",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "H-J"
   },
   {
     "slug": "ann-joseph",
     "name": "Ann Joseph",
     "affiliation": "UC Berkeley School of Law",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "H-J"
   },
   {
     "slug": "david-kane",
     "name": "David Kane",
     "affiliation": "Harvard University",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "K-L"
   },
   {
     "slug": "ethan-katz",
     "name": "Ethan Katz",
     "affiliation": "Cleveland Clinic Foundation Orit Kedar, University of Michigan",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "K-L"
   },
   {
     "slug": "johnathan-katz",
     "name": "Johnathan Katz",
     "affiliation": "Caltech",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
   },
   {
     "slug": "jonathan-n-katz",
     "name": "Jonathan N. Katz",
     "affiliation": "Caltech",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "K-L"
   },
   {
     "slug": "aaron-kaufman",
     "name": "Aaron Kaufman",
     "affiliation": "",
-    "research_group_category": "current"
+    "research_group_categories": [
+      "current"
+    ],
+    "last_name_range": "K-L"
   },
   {
     "slug": "robert-o-keohane",
     "name": "Robert O. Keohane",
     "affiliation": "Princeton University Daniel L. Kiskis, University of Michigan",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
   },
   {
     "slug": "grace-kim",
     "name": "Grace Kim",
     "affiliation": "Harvard University",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "K-L"
   },
   {
     "slug": "tami-kim",
     "name": "Tami Kim",
     "affiliation": "Harvard University",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "K-L"
   },
   {
     "slug": "tim-king",
     "name": "Tim King",
     "affiliation": "",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "K-L"
   },
   {
     "slug": "daniel-l-kiskis",
     "name": "Daniel L Kiskis",
     "affiliation": "",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
   },
   {
     "slug": "matthew-knowles",
     "name": "Matthew Knowles",
     "affiliation": "Harvard University",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "K-L"
   },
   {
     "slug": "elizabeth-kolster",
     "name": "Elizabeth Kolster",
     "affiliation": "University of New Zealand",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
   },
   {
     "slug": "mayya-komisarchik",
     "name": "Mayya Komisarchik",
     "affiliation": "",
-    "research_group_category": "current"
+    "research_group_categories": [
+      "current"
+    ],
+    "last_name_range": "K-L"
   },
   {
     "slug": "michael-krot",
     "name": "Michael Krot",
     "affiliation": "JSTOR",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
   },
   {
     "slug": "etienne-krug",
     "name": "Etienne Krug",
     "affiliation": "World Health Organization",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
   },
   {
     "slug": "gi-heon-kwon",
     "name": "Gi-Heon Kwon",
     "affiliation": "Kyung Hee University, Seoul, Korea",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "K-L"
   },
   {
     "slug": "jason-lakin",
     "name": "Jason Lakin",
     "affiliation": "Harvard University",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "K-L"
   },
   {
     "slug": "patrick-lam",
     "name": "Patrick Lam",
     "affiliation": "Harvard University",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "K-L"
   },
   {
     "slug": "olivia-lau",
     "name": "Olivia Lau",
     "affiliation": "Harvard University",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "K-L"
   },
   {
     "slug": "michael-laver",
     "name": "Michael Laver",
     "affiliation": "NYU",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
   },
   {
     "slug": "david-lazer",
     "name": "David Lazer",
     "affiliation": "Harvard University",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
   },
   {
     "slug": "david-leal",
     "name": "David Leal",
     "affiliation": "University of Texas at Austin",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "K-L"
   },
   {
     "slug": "matthew-lebo",
     "name": "Matthew Lebo",
     "affiliation": "Stony Brook University",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "K-L"
   },
   {
     "slug": "jeff-lewis",
     "name": "Jeff Lewis",
     "affiliation": "UCLA",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
   },
   {
     "slug": "chuanhai-liu",
     "name": "Chuanhai Liu",
     "affiliation": "Bell Laboratories, Lucent Technologies",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
   },
   {
     "slug": "h%C3%A9ctor-hern%C3%A1ndez-llama",
     "name": "Héctor Hernández Llama",
     "affiliation": "Secretaría de Salud (Ministry of Health, Mexico)",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "H-J"
   },
   {
     "slug": "alan-lopez",
     "name": "Alan Lopez",
     "affiliation": "University of Washington",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
   },
   {
     "slug": "will-lowe",
     "name": "Will Lowe",
     "affiliation": "Harvard University",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "alumni_postdocs",
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
   },
   {
     "slug": "ying-lu",
     "name": "Ying Lu",
     "affiliation": "University of Colorado",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
   },
   {
     "slug": "david-lublin",
     "name": "David Lublin",
     "affiliation": "American University",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "K-L"
   },
   {
     "slug": "christopher-lucas",
     "name": "Christopher Lucas",
     "affiliation": "",
-    "research_group_category": "current"
+    "research_group_categories": [
+      "current"
+    ],
+    "last_name_range": "K-L"
   },
   {
     "slug": "michael-macy",
     "name": "Michael Macy",
     "affiliation": "Cornell University",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
   },
   {
     "slug": "lisa-martin",
     "name": "Lisa Martin",
     "affiliation": "University of Wisconsin - Madison",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "M-P"
   },
   {
     "slug": "russ-mayer",
     "name": "Russ Mayer",
     "affiliation": "Merrimack College",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "M-P"
   },
   {
     "slug": "james-mccann",
     "name": "James McCann",
     "affiliation": "Purdue University",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "M-P"
   },
   {
     "slug": "michael-mcdonald",
     "name": "Michael McDonald",
     "affiliation": "George Mason University",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "M-P"
   },
   {
     "slug": "richard-merelman",
     "name": "Richard Merelman",
     "affiliation": "University of Wisconsin, Madison",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
   },
   {
     "slug": "ryan-moore",
     "name": "Ryan Moore",
     "affiliation": "Washington University in St. Louis",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "M-P"
   },
   {
     "slug": "christopher-murray",
     "name": "Christopher Murray",
     "affiliation": "University of Washington",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
   },
   {
     "slug": "clayton-nall",
     "name": "Clayton Nall",
     "affiliation": "Harvard University",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
   },
   {
     "slug": "michael-new",
     "name": "Michael New",
     "affiliation": "University of Alabama",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "M-P"
   },
   {
     "slug": "joel-newberger",
     "name": "Joel Newberger",
     "affiliation": "",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "M-P"
   },
   {
     "slug": "norman-nie",
     "name": "Norman Nie",
     "affiliation": "Stanford University",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
   },
   {
     "slug": "rich-nielsen",
     "name": "Rich Nielsen",
     "affiliation": "Harvard University",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "M-P"
   },
   {
     "slug": "bradley-palmquist",
     "name": "Bradley Palmquist",
     "affiliation": "YouGov/Polimetrix",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
   },
   {
     "slug": "philip-paolino",
     "name": "Philip Paolino",
     "affiliation": "University of North Texas",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "M-P"
   },
   {
     "slug": "claudia-pedroza",
     "name": "Claudia Pedroza",
     "affiliation": "University of Texas",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "M-P"
   },
   {
     "slug": "alex-pentland",
     "name": "Alex Pentland",
     "affiliation": "Massachusetts Institute of Technology",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
   },
   {
     "slug": "casey-petroff",
     "name": "Casey Petroff",
     "affiliation": "",
-    "research_group_category": "current"
+    "research_group_categories": [
+      "current"
+    ],
+    "last_name_range": "M-P"
   },
   {
     "slug": "stephen-pettigrew",
     "name": "Stephen Pettigrew",
     "affiliation": "",
-    "research_group_category": "current"
+    "research_group_categories": [
+      "current"
+    ],
+    "last_name_range": "M-P"
   },
   {
     "slug": "giuseppe-porro",
     "name": "Giuseppe Porro",
     "affiliation": "University of Trieste",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
   },
   {
     "slug": "eleanor-powell",
     "name": "Eleanor Powell",
     "affiliation": "Yale University",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "M-P"
   },
   {
     "slug": "soledad-prillaman",
     "name": "Soledad Prillaman",
     "affiliation": "",
-    "research_group_category": "current"
+    "research_group_categories": [
+      "current"
+    ],
+    "last_name_range": "M-P"
   },
   {
     "slug": "timothy-prinz",
     "name": "Timothy Prinz",
     "affiliation": "",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "M-P"
   },
   {
     "slug": "kevin-quinn",
     "name": "Kevin Quinn",
     "affiliation": "Harvard University",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "Q-S"
   },
   {
     "slug": "lyn-ragsdale",
     "name": "Lyn Ragsdale",
     "affiliation": "Rice University",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
   },
   {
     "slug": "mohan-penubarti-rao",
     "name": "Mohan (Penubarti) Rao",
     "affiliation": "LECG",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "Q-S"
   },
   {
     "slug": "nirmala-ravishankar",
     "name": "Nirmala Ravishankar",
     "affiliation": "Harvard University",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "Q-S"
   },
   {
     "slug": "andrew-reeves",
     "name": "Andrew Reeves",
     "affiliation": "Boston University",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "Q-S"
   },
   {
     "slug": "eric-reinhardt",
     "name": "Eric Reinhardt",
     "affiliation": "Emory University",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "Q-S"
   },
   {
     "slug": "viridiana-rios",
     "name": "Viridiana Rios",
     "affiliation": "",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "Q-S"
   },
   {
     "slug": "ori-rosen",
     "name": "Ori Rosen",
     "affiliation": "University of Texas at El Paso",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
   },
   {
     "slug": "deb-roy",
     "name": "Deb Roy",
     "affiliation": "MIT",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
   },
   {
     "slug": "joshua-salomon",
     "name": "Joshua Salomon",
     "affiliation": "Harvard University",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "alumni_postdocs",
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
   },
   {
     "slug": "melissa-sands",
     "name": "Melissa Sands",
     "affiliation": "",
-    "research_group_category": "current"
+    "research_group_categories": [
+      "current"
+    ],
+    "last_name_range": "Q-S"
   },
   {
     "slug": "kenneth-scheve",
     "name": "Kenneth Scheve",
     "affiliation": "Yale University",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
   },
   {
     "slug": "kay-schlozman",
     "name": "Kay Schlozman",
     "affiliation": "Boston College",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
   },
   {
     "slug": "alan-schmaltz",
     "name": "Alan Schmaltz",
     "affiliation": "",
-    "research_group_category": "current"
+    "research_group_categories": [
+      "current"
+    ],
+    "last_name_range": "Q-S"
   },
   {
     "slug": "allen-schmaltz",
     "name": "Allen Schmaltz",
     "affiliation": "IQSS, Harvard University",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
   },
   {
     "slug": "alexander-schuessler",
     "name": "Alexander Schuessler",
     "affiliation": "SmartEquip",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "Q-S"
   },
   {
     "slug": "jeffrey-segal",
     "name": "Jeffrey Segal",
     "affiliation": "SUNY at Stony Brook",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
   },
   {
     "slug": "jasjeet-sekhon",
     "name": "Jasjeet Sekhon",
     "affiliation": "University of California, Berkely",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "Q-S"
   },
   {
     "slug": "maya-sen",
     "name": "Maya Sen",
     "affiliation": "",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "Q-S"
   },
   {
     "slug": "kenji-shibuya",
     "name": "Kenji Shibuya",
     "affiliation": "University of Tokyo",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
   },
   {
     "slug": "kenneth-shotts",
     "name": "Kenneth Shotts",
     "affiliation": "Stanford University",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
   },
   {
     "slug": "curtis-signorino",
     "name": "Curtis Signorino",
     "affiliation": "University of Rochester",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
   },
   {
     "slug": "naunihal-singh",
     "name": "Naunihal Singh",
     "affiliation": "University of Notre Dame",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
   },
   {
     "slug": "miguel-solano",
     "name": "Miguel Solano",
     "affiliation": "",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "Q-S"
   },
   {
     "slug": "samir-soneji",
     "name": "Samir Soneji",
     "affiliation": "Princeton University",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
   },
   {
     "slug": "heather-stoll",
     "name": "Heather Stoll",
     "affiliation": "University of California, Santa Barbara",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "alumni_postdocs",
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
   },
   {
     "slug": "anton-strezhnev",
     "name": "Anton Strezhnev",
     "affiliation": "",
-    "research_group_category": "current"
+    "research_group_categories": [
+      "current"
+    ],
+    "last_name_range": "Q-S"
   },
   {
     "slug": "elizabeth-stuart",
     "name": "Elizabeth Stuart",
     "affiliation": "Mathematica Policy Research, Inc.",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
   },
   {
     "slug": "bernard-tamas",
     "name": "Bernard Tamas",
     "affiliation": "Illinois State University",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "T-V"
   },
   {
     "slug": "ajay-tandon",
     "name": "Ajay Tandon",
     "affiliation": "Asian Development Bank",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "T-V"
   },
   {
     "slug": "martin-tanner",
     "name": "Martin Tanner",
     "affiliation": "Northwestern University",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "T-V"
   },
   {
     "slug": "amher-tarar",
     "name": "Amher Tarar",
     "affiliation": "Texas A&amp;M University",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "T-V"
   },
   {
     "slug": "andrew-c-thomas",
     "name": "Andrew C Thomas",
     "affiliation": "",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "T-V"
   },
   {
     "slug": "michael-ting",
     "name": "Michael Ting",
     "affiliation": "Columbia University",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "T-V"
   },
   {
     "slug": "niels-tomijima",
     "name": "Niels Tomijima",
     "affiliation": "World Health Organization",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "T-V"
   },
   {
     "slug": "michael-tomz",
     "name": "Michael Tomz",
     "affiliation": "Stanford University",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "T-V"
   },
   {
     "slug": "margaret-trevor",
     "name": "Margaret Trevor",
     "affiliation": "",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "T-V"
   },
   {
     "slug": "joshua-tucker",
     "name": "Joshua Tucker",
     "affiliation": "NYU",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "T-V"
   },
   {
     "slug": "richard-tucker",
     "name": "Richard Tucker",
     "affiliation": "University of Tennessee Knoxville",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "T-V"
   },
   {
     "slug": "martha-mar%C3%AD-t%C3%A9llez-rojo",
     "name": "Martha María Téllez-Rojo",
     "affiliation": "Instituto Nacional de Salud Pública (National Institute of Public Health, Mexico)",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
   },
   {
     "slug": "manett-vargas",
     "name": "Manett Vargas",
     "affiliation": "Harvard University",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "T-V"
   },
   {
     "slug": "sidney-verba",
     "name": "Sidney Verba",
     "affiliation": "Harvard University",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "T-V"
   },
   {
     "slug": "steven-d-voss",
     "name": "Steven D. Voss",
     "affiliation": "University of Kentucky",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "T-V"
   },
   {
     "slug": "alexander-wagner",
     "name": "Alexander Wagner",
     "affiliation": "University of Zurich",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "W-Z"
   },
   {
     "slug": "robert-walker",
     "name": "Robert Walker",
     "affiliation": "Washington University, St. Louis",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "W-Z"
   },
   {
     "slug": "daniel-j-walsh",
     "name": "Daniel J. Walsh",
     "affiliation": "University of Illinois at Urbana-Champaign",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "W-Z"
   },
   {
     "slug": "jonathan-wand",
     "name": "Jonathan Wand",
     "affiliation": "Stanford University",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "alumni_postdocs",
+      "collaborators"
+    ],
+    "last_name_range": "W-Z"
   },
   {
     "slug": "dan-ward",
     "name": "Dan Ward",
     "affiliation": "Pfizer, Inc.",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "W-Z"
   },
   {
     "slug": "kenesia-washington",
     "name": "Kenesia Washington",
     "affiliation": "Harvard University",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "W-Z"
   },
   {
     "slug": "gregory-wawro",
     "name": "Gregory Wawro",
     "affiliation": "Columbia University",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "W-Z"
   },
   {
     "slug": "yi-william-wei",
     "name": "Yi William Wei",
     "affiliation": "Executive Director at America Asia Alliances",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "W-Z"
   },
   {
     "slug": "rainer-winkelmann",
     "name": "Rainer Winkelmann",
     "affiliation": "University of Zurich",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "W-Z"
   },
   {
     "slug": "jason-wittenburg",
     "name": "Jason Wittenburg",
     "affiliation": "University of California, Berkeley",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "W-Z"
   },
   {
     "slug": "patrick-wolf",
     "name": "Patrick Wolf",
     "affiliation": "University of Arkansas",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "W-Z"
   },
   {
     "slug": "miya-woolfalk",
     "name": "Miya Woolfalk",
     "affiliation": "Harvard University",
-    "research_group_category": "alumni_postdocs"
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "W-Z"
   },
   {
     "slug": "langche-zeng",
     "name": "Langche Zeng",
     "affiliation": "UC San Diego",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "alumni_postdocs",
+      "collaborators"
+    ],
+    "last_name_range": "W-Z"
   },
   {
     "slug": "david-wendong-zhang",
     "name": "David (Wendong) Zhang",
     "affiliation": "Harvard University",
-    "research_group_category": "alumni_students"
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "W-Z"
   },
   {
     "slug": "juan-eugenio-hern%C3%A1ndez-%C3%A1vila",
     "name": "Juan Eugenio Hernández Ávila",
     "affiliation": "Instituto Nacional de Salud Pública (National Institute of Public Health, Mexico)",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
   },
   {
     "slug": "mauricio-hern%C3%A1ndez-%C3%A1vila",
     "name": "Mauricio Hernández Ávila",
     "affiliation": "Instituto Nacional de Salud Pública (National Institute of Public Health, Mexico)",
-    "research_group_category": "collaborators"
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "H-J"
   }
 ]

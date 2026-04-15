@@ -3,8 +3,7 @@
 {{ $labels := dict "current" "Current Research Associates" "alumni_students" "Alumni: Students" "alumni_postdocs" "Alumni: Post-Docs" "collaborators" "Collaborators" }}
 
 <div style="max-width:1200px;margin:0 auto;padding:2rem 1.5rem;">
-  <h1 style="font-size:2.5rem;font-weight:700;margin:0 0 0.5rem;">{{ .Title }}</h1>
-  <div style="color:#666;margin:0 0 1.5rem;max-width:52rem;">{{ .Content }}</div>
+  <h1 style="font-size:2.5rem;font-weight:700;margin:0 0 1.5rem;">{{ .Title }}</h1>
 
   <div style="display:flex;gap:2rem;align-items:flex-start;">
     <!-- Sidebar Filters (matches original site: category + name range + search) -->
@@ -36,17 +35,43 @@
   </div>
 </div>
 
-{{ $people := where .Site.RegularPages "Type" "people" }}
+{{/* Merge data/research_group.json (Harvard taxonomy + letter buckets) with live people pages */}}
+{{ $rg := index site.Data "research_group" }}
+{{ $meta := dict }}
+{{ range $rg }}
+  {{ $meta = merge $meta (dict .slug .) }}
+{{ end }}
+{{ $people := where site.RegularPages "Type" "people" }}
 {{ $entries := slice }}
 {{ range $people }}
-  {{ $cat := .Params.research_group_category | default "collaborators" }}
-  {{ $catLabel := index $labels $cat | default "Collaborators" }}
-  {{ $entry := dict "name" .Title "url" .RelPermalink "role" (.Params.role | default "") "category" $cat "categoryLabel" $catLabel }}
+  {{ $slug := path.Base (path.Dir .File.Path) }}
+  {{ $row := index $meta $slug }}
+  {{ $cats := slice }}
+  {{ if $row }}
+    {{ $cats = $row.research_group_categories }}
+  {{ end }}
+  {{ if not $cats }}
+    {{ $cats = slice (.Params.research_group_category | default "collaborators") }}
+  {{ end }}
+  {{ $rng := "" }}
+  {{ if $row }}{{ $rng = $row.last_name_range }}{{ end }}
+  {{ if not $rng }}{{ $rng = .Params.last_name_range | default "" }}{{ end }}
+  {{ $labParts := slice }}
+  {{ range $cats }}
+    {{ $labParts = $labParts | append (index $labels . | default "") }}
+  {{ end }}
+  {{ $catJoined := delimit $labParts ", " }}
+  {{ $role := .Params.role | default "" }}
+  {{ if and $row (not $role) }}{{ $role = $row.affiliation }}{{ end }}
+  {{ $entry := dict "name" .Title "url" .RelPermalink "role" $role "categories" $cats "range" $rng "categoryLabel" $catJoined }}
   {{ $entries = $entries | append $entry }}
 {{ end }}
 
 <script>
 (function() {
+  if (window.__gkResearchGroupInitialized) { return; }
+  window.__gkResearchGroupInitialized = true;
+
   var data = {{ $entries | jsonify | safeJS }};
   var searchTerm = "";
   var sortMode = "az";
@@ -77,6 +102,33 @@
     return "W-Z";
   }
 
+  function getRangeForEntry(d) {
+    if (d.range) return d.range;
+    return getRange(d.name);
+  }
+
+  /* Categories: people may have multiple tags (matches gking.harvard.edu facet counts). Ranges: exclusive per person. */
+  function computeFacetCounts(rows) {
+    var cat = { current: 0, alumni_students: 0, alumni_postdocs: 0, collaborators: 0 };
+    var rng = { "A-C": 0, "D-G": 0, "H-J": 0, "K-L": 0, "M-P": 0, "Q-S": 0, "T-V": 0, "W-Z": 0 };
+    rows.forEach(function(d) {
+      var cs = d.categories && d.categories.length ? d.categories : ["collaborators"];
+      cs.forEach(function(c) {
+        if (Object.prototype.hasOwnProperty.call(cat, c)) cat[c]++;
+      });
+      var rr = getRangeForEntry(d);
+      if (Object.prototype.hasOwnProperty.call(rng, rr)) rng[rr]++;
+    });
+    return { cat: cat, rng: rng };
+  }
+
+  var facet = computeFacetCounts(data);
+  var rngSum = 0;
+  ranges.forEach(function(r) { rngSum += facet.rng[r]; });
+  if (rngSum !== data.length) {
+    console.warn("Research group letter-bucket sum:", { members: data.length, rngSum: rngSum });
+  }
+
   var univCounts = {};
   data.forEach(function(d) {
     var u = d.role || "—";
@@ -92,7 +144,7 @@
 
   var catContainer = document.getElementById("gk-cat-filters");
   catKeys.forEach(function(k) {
-    var count = data.filter(function(d) { return d.category === k; }).length;
+    var count = facet.cat[k];
     var div = document.createElement("div");
     div.style.cssText = "padding:2px 0;font-size:0.88rem;";
     div.innerHTML = '<label style="cursor:pointer;display:flex;align-items:center;gap:6px;">' +
@@ -103,7 +155,7 @@
 
   var nameContainer = document.getElementById("gk-name-filters");
   ranges.forEach(function(r) {
-    var count = data.filter(function(d) { return getRange(d.name) === r; }).length;
+    var count = facet.rng[r];
     var div = document.createElement("div");
     div.style.cssText = "padding:2px 0;font-size:0.88rem;";
     div.innerHTML = '<label style="cursor:pointer;display:flex;align-items:center;gap:6px;">' +
@@ -147,10 +199,18 @@
     render();
   });
 
+  function anyCategoryActive(d) {
+    var cs = d.categories && d.categories.length ? d.categories : ["collaborators"];
+    for (var i = 0; i < cs.length; i++) {
+      if (activeCats[cs[i]]) return true;
+    }
+    return false;
+  }
+
   function render() {
     var filtered = data.filter(function(d) {
-      if (!activeCats[d.category]) return false;
-      if (!activeRanges[getRange(d.name)]) return false;
+      if (!anyCategoryActive(d)) return false;
+      if (!activeRanges[getRangeForEntry(d)]) return false;
       var u = d.role || "—";
       if (!activeUnivs[u]) return false;
       if (searchTerm) {
