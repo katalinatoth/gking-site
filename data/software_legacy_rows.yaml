@@ -1,7 +1,5 @@
 # Display order and section year for /software/ (matches legacy gking.harvard.edu/software).
 rows:
-  - year: 2021
-    slug: unbiasedprivacy
   - year: 2020
     slug: quickcode
   - year: 2020
