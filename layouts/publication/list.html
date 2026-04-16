@@ -40,19 +40,28 @@
   </div>
 </div>
 
+{{ $wl := site.Data.writings_legacy_map | default (dict "entries" dict) }}
 {{ $pubPages := (where .Site.RegularPages "Section" "publication") }}
 {{ $talkPages := (where .Site.RegularPages "Section" "talk") }}
 {{ $entries := slice }}
 {{ range $pubPages }}
+  {{ $slug := path.Base (path.Dir .File.Path) }}
+  {{ $meta := index $wl.entries $slug | default dict }}
+  {{ $ltab := index $meta "tab" | default "other" }}
+  {{ $ldrupal := index $meta "drupal" | default "miscellaneous" }}
   {{ $u := .RelPermalink }}
   {{ if in (.Params.publication_types | default slice) "software" }}
     {{ $u = partial "software_page_href.html" . }}
   {{ end }}
-  {{ $entry := dict "title" .Title "url" $u "year" (.Date.Format "2006") "authors" (.Params.authors | default slice) "types" (.Params.publication_types | default slice) "publication" (.Params.publication | default "") "abstract" (.Params.abstract | default "") }}
+  {{ $entry := dict "slug" $slug "legacyTab" $ltab "legacyDrupal" $ldrupal "title" .Title "url" $u "year" (.Date.Format "2006") "authors" (.Params.authors | default slice) "types" (.Params.publication_types | default slice) "publication" (.Params.publication | default "") "abstract" (.Params.abstract | default "") }}
   {{ $entries = $entries | append $entry }}
 {{ end }}
 {{ range $talkPages }}
-  {{ $entry := dict "title" .Title "url" .RelPermalink "year" (.Date.Format "2006") "authors" (.Params.authors | default slice) "types" (.Params.publication_types | default slice) "publication" (.Params.publication | default "") "abstract" (.Params.abstract | default "") }}
+  {{ $slug := path.Base (path.Dir .File.Path) }}
+  {{ $meta := index $wl.entries $slug | default dict }}
+  {{ $ltab := index $meta "tab" | default "other" }}
+  {{ $ldrupal := index $meta "drupal" | default "miscellaneous" }}
+  {{ $entry := dict "slug" $slug "legacyTab" $ltab "legacyDrupal" $ldrupal "title" .Title "url" .RelPermalink "year" (.Date.Format "2006") "authors" (.Params.authors | default slice) "types" (.Params.publication_types | default slice) "publication" (.Params.publication | default "") "abstract" (.Params.abstract | default "") }}
   {{ $entries = $entries | append $entry }}
 {{ end }}
 
@@ -60,33 +69,29 @@
 (function() {
   var data = {{ $entries | jsonify | safeJS }};
 
-  var typeLabels = {
-    "journal_article": "Journal Article", "article-journal": "Journal Article",
-    "book": "Book", "book_chapter": "Book Chapter", "chapter": "Book Chapter",
-    "conference_paper": "Conference Paper", "conference_proceedings": "Conference Proceedings",
-    "data": "Data", "dataset": "Data",
-    "miscellaneous": "Miscellaneous", "newspaper_article": "Newspaper Article",
-    "patent": "Patent", "presentation": "Presentation", "speech": "Presentation",
-    "report": "Report", "software": "Software", "unpublished": "Unpublished",
-    "web_article": "Web Article", "website": "Website",
-    "working_paper": "Working Paper", "manuscript": "Manuscript"
+  // Drupal bibcite reference types (from legacy site) for the "Other" tab subtype filters.
+  var drupalLabels = {
+    "book": "Book",
+    "book_chapter": "Book Chapter",
+    "conference_paper": "Conference Paper",
+    "conference_proceedings": "Conference Proceedings",
+    "data": "Data",
+    "miscellaneous": "Miscellaneous",
+    "newspaper_article": "Newspaper Article",
+    "report": "Report",
+    "unpublished": "Unpublished",
+    "web_article": "Web Article",
+    "website": "Website",
+    "working_paper": "Working Paper"
   };
 
-  // "Journal Articles" matches Drupal journal_article (+ CSL article-journal). Conference types
-  // are not a top-level tab; they appear under Other (with subtype checkboxes there).
   var tabs = [
-    { id: "journal", label: "Journal Articles", match: ["journal_article", "article-journal"] },
-    { id: "presentation", label: "Presentations", match: ["presentation", "speech"] },
-    { id: "software", label: "Software", match: ["software"] },
-    { id: "books", label: "Books & Chapters", match: ["book", "book_chapter", "chapter"] },
-    { id: "patent", label: "Patents", match: ["patent"] },
-    { id: "other", label: "Other", match: null }
+    { id: "journal", label: "Journal Articles" },
+    { id: "presentation", label: "Presentations" },
+    { id: "software", label: "Software" },
+    { id: "patent", label: "Patents" },
+    { id: "other", label: "Other" }
   ];
-
-  var majorTypes = new Set();
-  tabs.forEach(function(tab) {
-    if (tab.match) tab.match.forEach(function(t) { majorTypes.add(t); });
-  });
 
   var activeTab = "journal";
   var activeSubtypes = {};
@@ -95,16 +100,7 @@
   var sortMode = "year-desc";
 
   function getTabData(tabId) {
-    var tab = tabs.find(function(t) { return t.id === tabId; });
-    if (!tab) return [];
-    if (tab.match) {
-      return data.filter(function(d) {
-        return d.types.some(function(t) { return tab.match.indexOf(t) !== -1; });
-      });
-    }
-    return data.filter(function(d) {
-      return !d.types.some(function(t) { return majorTypes.has(t); });
-    });
+    return data.filter(function(d) { return d.legacyTab === tabId; });
   }
 
   function buildTabs() {
@@ -144,12 +140,11 @@
       subtypeSection.style.display = "block";
       var otherTypes = {};
       tabData.forEach(function(d) {
-        d.types.forEach(function(t) {
-          if (!majorTypes.has(t)) otherTypes[t] = (otherTypes[t] || 0) + 1;
-        });
+        var k = d.legacyDrupal || "miscellaneous";
+        otherTypes[k] = (otherTypes[k] || 0) + 1;
       });
       Object.keys(otherTypes).sort().forEach(function(t) {
-        var label = typeLabels[t] || t;
+        var label = drupalLabels[t] || t.replace(/_/g, " ");
         var div = document.createElement("div");
         div.style.cssText = "padding:2px 0;font-size:0.88rem;";
         div.innerHTML = '<label style="cursor:pointer;display:flex;align-items:center;gap:6px;">' +
@@ -161,33 +156,6 @@
       subtypeContainer.addEventListener("change", function(e) {
         var st = e.target.dataset.subtype;
         if (st) { activeSubtypes[st] = e.target.checked; render(); }
-      });
-    } else if (tab.id === "books") {
-      subtypeSection.style.display = "block";
-      var bookTypes = { "book": 0, "book_chapter": 0, "chapter": 0 };
-      tabData.forEach(function(d) {
-        d.types.forEach(function(t) {
-          if (t in bookTypes) bookTypes[t] += 1;
-        });
-      });
-      var merged = { "Book": bookTypes["book"], "Book Chapter": (bookTypes["book_chapter"] || 0) + (bookTypes["chapter"] || 0) };
-      var mergedKeys = { "Book": ["book"], "Book Chapter": ["book_chapter", "chapter"] };
-      Object.keys(merged).forEach(function(label) {
-        if (merged[label] === 0) return;
-        var keys = mergedKeys[label];
-        var div = document.createElement("div");
-        div.style.cssText = "padding:2px 0;font-size:0.88rem;";
-        div.innerHTML = '<label style="cursor:pointer;display:flex;align-items:center;gap:6px;">' +
-          '<input type="checkbox" data-subtype="' + keys.join(",") + '"> ' + label +
-          ' <span style="color:#999;">(' + merged[label] + ')</span></label>';
-        subtypeContainer.appendChild(div);
-      });
-      subtypeContainer.addEventListener("change", function(e) {
-        var st = e.target.dataset.subtype;
-        if (st) {
-          st.split(",").forEach(function(s) { activeSubtypes[s] = e.target.checked; });
-          render();
-        }
       });
     } else {
       subtypeSection.style.display = "none";
@@ -231,8 +199,8 @@
 
     return tabData.filter(function(d) {
       if (anySubtype) {
-        var match = d.types.some(function(t) { return activeSubtypes[t]; });
-        if (!match) return false;
+        var key = activeTab === "other" ? (d.legacyDrupal || "miscellaneous") : "";
+        if (!activeSubtypes[key]) return false;
       }
       if (anyYear && !activeYears[d.year]) return false;
       if (q) {
