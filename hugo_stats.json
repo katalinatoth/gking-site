@@ -267,6 +267,7 @@
       "gk-sw-detail-body",
       "gk-sw-legacy-html",
       "gk-sw-page",
+      "gk-sw-releases-footer",
       "gk-sw-row",
       "gk-sw-title",
       "gk-sw-year",
@@ -1588,7 +1589,8 @@
       "survey-research",
       "teaching-and-administration",
       "top",
-      "unifying-statistical-analysis"
+      "unifying-statistical-analysis",
+      "yourcast-recommended"
     ]
   }
 }

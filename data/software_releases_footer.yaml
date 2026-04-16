@@ -1,0 +1,8 @@
+# Footer links under /software/ — mirrored project pages on this site (not the retired Harvard host).
+links:
+  - label: "Virtual Data Center (overview)"
+    path: "/software/an-overview-of-the-virtual-data-center-project-and-software/"
+  - label: "YourCast: Time Series Cross-Sectional Forecasting with Your Assumptions"
+    path: "/software/yourcast/"
+  - label: "Maxlik"
+    path: "/software/maxlik/"
