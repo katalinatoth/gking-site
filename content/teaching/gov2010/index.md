@@ -37,7 +37,7 @@ type: "teaching-class"
 <span>Attachments</span>
 <ul aria-label="Attachments" class="lg:hwp-grid hwp-attachments__items">
 <li>
-<a class="hwp-icon-link hwp-icon-link--x-large hwp-icon-link--has-bg hwp-icon-link--dark-primary analytics-cta" href="/gking-site/files/syl-kpv_0.pdf">
+<a class="hwp-icon-link hwp-icon-link--x-large hwp-icon-link--has-bg hwp-icon-link--dark-primary analytics-cta" href="https://gking.harvard.edu/files/syl-kpv_0.pdf">
 <span class="hwp-icon-link__icon">
 <span aria-hidden="true" class="material-icon">picture_as_pdf</span>
 </span>

@@ -26,7 +26,7 @@ type: "teaching-class"
 </div>
 </div>
 <div class="hwp-class--main-content">
-<div class="hwp-text-block field field--name-field-hwp-body field--type-text-long field--label-hidden"><p>See <a href="/gking-site/">Applied Statistics Workshop Homepage</a></p><p>The Applied Statistics Workshop (Gov 3009) meets all academic year, Wednesdays, 12pm-1:30pm, in CGIS K354. This workshop is a forum for faculty, graduate students, visiting scholars, and others in the area to present and discuss methodological or empirical work in progress in an interdisciplinary setting. The workshop features a tour of Harvard's statistical innovations and applications with weekly stops in different disciplines.  Free lunch is provided. It is a great way to meet the community of data scientists across campus.</p></div>
+<div class="hwp-text-block field field--name-field-hwp-body field--type-text-long field--label-hidden"><p>See <a href="https://projects.iq.harvard.edu/appliedstatsworkshop-gov3009">Applied Statistics Workshop Homepage</a></p><p>The Applied Statistics Workshop (Gov 3009) meets all academic year, Wednesdays, 12pm-1:30pm, in CGIS K354. This workshop is a forum for faculty, graduate students, visiting scholars, and others in the area to present and discuss methodological or empirical work in progress in an interdisciplinary setting. The workshop features a tour of Harvard's statistical innovations and applications with weekly stops in different disciplines.  Free lunch is provided. It is a great way to meet the community of data scientists across campus.</p></div>
 </div>
 </div>
 <div class="hwp-container">
