@@ -29,18 +29,9 @@
     <!-- Methods -->
     <div>
       <div style="display:flex;justify-content:center;margin-bottom:20px;">
-        {{/* Methods: legacy line-art — normal curve, baseline, vertical ticks, dashed side guides */}}
-        <svg width="80" height="80" viewBox="0 0 80 80" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none">
-          <g stroke="#a8b0b8" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="10" y1="56" x2="70" y2="56"/>
-            <path d="M 12 50 Q 40 10 68 50"/>
-            <line x1="16" y1="56" x2="16" y2="44"/><line x1="22" y1="56" x2="22" y2="32"/><line x1="28" y1="56" x2="28" y2="22"/><line x1="34" y1="56" x2="34" y2="16"/><line x1="40" y1="56" x2="40" y2="14"/><line x1="46" y1="56" x2="46" y2="16"/><line x1="52" y1="56" x2="52" y2="22"/><line x1="58" y1="56" x2="58" y2="32"/><line x1="64" y1="56" x2="64" y2="44"/>
-            <line x1="26" y1="16" x2="26" y2="56" stroke-dasharray="2.5 3"/>
-            <line x1="54" y1="16" x2="54" y2="56" stroke-dasharray="2.5 3"/>
-          </g>
-        </svg>
+        {{/* Methods: pixel asset from legacy homepage screenshot */}}
+        <img src="{{ "images/research-areas-methods.png" | relURL }}" alt="Methods" width="161" height="140" style="max-width:100%;height:auto;display:block;">
       </div>
-      <h3 style="text-align:center;font-size:1.3rem;font-weight:600;margin:0 0 16px 0;">Methods</h3>
       {{ range $data.methods }}
       <details class="gk-hp-area" id="{{ .name | urlize }}" style="border-bottom:1px solid #eee;margin-bottom:0;">
         <summary style="font-size:0.9rem;font-weight:500;cursor:pointer;padding:6px 0;list-style:none;display:flex;align-items:center;gap:5px;color:#337ab7;">
@@ -82,19 +73,9 @@
     <!-- Applications -->
     <div>
       <div style="display:flex;justify-content:center;margin-bottom:20px;">
-        {{/* Applications: legacy line-art — three overlapping people outlines (thin gray stroke, no fill) */}}
-        <svg width="80" height="80" viewBox="0 0 80 80" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none">
-          <g stroke="#a8b0b8" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="24" cy="31" r="6.5"/>
-            <path d="M 14 72 L 14 52 Q 24 44 34 52 L 34 72"/>
-            <circle cx="56" cy="31" r="6.5"/>
-            <path d="M 46 72 L 46 52 Q 56 44 66 52 L 66 72"/>
-            <circle cx="40" cy="27" r="9"/>
-            <path d="M 18 74 L 18 50 Q 40 38 62 50 L 62 74"/>
-          </g>
-        </svg>
+        {{/* Applications: pixel asset from legacy homepage screenshot */}}
+        <img src="{{ "images/research-areas-applications.png" | relURL }}" alt="Applications" width="206" height="151" style="max-width:100%;height:auto;display:block;">
       </div>
-      <h3 style="text-align:center;font-size:1.3rem;font-weight:600;margin:0 0 16px 0;">Applications</h3>
       {{ range $data.applications }}
       <details class="gk-hp-area" id="{{ .name | urlize }}" style="border-bottom:1px solid #eee;margin-bottom:0;">
         <summary style="font-size:0.9rem;font-weight:500;cursor:pointer;padding:6px 0;list-style:none;display:flex;align-items:center;gap:5px;color:#337ab7;">
