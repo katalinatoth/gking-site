@@ -72,8 +72,11 @@
     "working_paper": "Working Paper", "manuscript": "Manuscript"
   };
 
+  // "Journal Articles" must match Drupal bibcite type journal_article only (plus CSL article-journal),
+  // not conference_* — those have their own filters on the legacy site and different per-year counts.
   var tabs = [
-    { id: "journal", label: "Journal Articles", match: ["journal_article", "article-journal", "conference_paper", "conference_proceedings"] },
+    { id: "journal", label: "Journal Articles", match: ["journal_article", "article-journal"] },
+    { id: "conference", label: "Conference Papers", match: ["conference_paper", "conference_proceedings"] },
     { id: "presentation", label: "Presentations", match: ["presentation", "speech"] },
     { id: "software", label: "Software", match: ["software"] },
     { id: "books", label: "Books & Chapters", match: ["book", "book_chapter", "chapter"] },
