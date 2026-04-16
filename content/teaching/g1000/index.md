@@ -22,10 +22,6 @@ type: "teaching-class"
 <span>Year offered: </span>
 <span>2010</span>
 </div>
-<div class="class-card--short__delimiter">|</div>
-<div class="class-card--short__item">
-<span>Link: </span><a class="class-card__link hwp-order-2" href="/gking-site/teaching/g1000-course-website/">Course website</a>
-</div>
 </div>
 </div>
 </div>
