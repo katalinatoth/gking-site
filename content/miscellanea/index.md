@@ -14,8 +14,8 @@ title: "Miscellanea"
 
 - ["Learning from College, after College: A Commencement Speech at SUNY New Paltz"](/gking-site/commencement-speech/) — From The 182nd May Commencement Of The State University Of New York At New Paltz.
 
-- National Academy of Sciences "[Registry of Members](https://gking.harvard.edu/file_url/140)" (photo); "[QnAs with Gary King](http://www.pnas.org/content/108/13/5147.extract?etoc=)" Interview by PNAS ([PDF](https://gking.harvard.edu/file_url/256)).
+- National Academy of Sciences "[Registry of Members](/gking-site/files/misc-nas-registry.jpg)" (photo); "[QnAs with Gary King](http://www.pnas.org/content/108/13/5147.extract?etoc=)" Interview by PNAS ([PDF](/gking-site/files/misc-pnas-qna.pdf)).
 
 - [Electronic Collection Development in the Harvard College Library](/gking-site/electronic-collection/) (Gary King, 1996)
 
-- [Personal Photos](https://gking.harvard.edu/galleries/personal-photos)
+- [Personal Photos](/gking-site/galleries/personal-photos/)

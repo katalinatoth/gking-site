@@ -28,10 +28,7 @@ authors:
 <div class="publication-info" data-component-name="publication-info">
 <div class="publication-info__image">
 <div class="field field--name-hwp-bibcite-thumbnail field--type-entity-reference field--label-hidden"><div class="hwp-media hwp-media--4-5-small">
-<div class="field field--name-field-media-image field--type-image field--label-hidden"> <picture>
-<source height="600" media="all and (min-width: 0)" srcset="/sites/g/files/omnuum7116/files/styles/hwp_4_5__480x600/public/gking/files/screen_shot_2016-10-01_at_12.03.44_pm.png?itok=Db3ESQj7 1x, /sites/g/files/omnuum7116/files/styles/hwp_4_5__960x1200/public/gking/files/screen_shot_2016-10-01_at_12.03.44_pm.png?itok=K-_DR8lD 2x" type="image/png" width="480"/>
-<img alt="screen_shot_2016-10-01_at_12.03.44_pm.png" height="600" loading="eager" src="/sites/g/files/omnuum7116/files/styles/hwp_4_5__480x600/public/gking/files/screen_shot_2016-10-01_at_12.03.44_pm.png?itok=Db3ESQj7" width="480"/>
-</picture>
+<div class="field field--name-field-media-image field--type-image field--label-hidden"> <img alt="Booc.Io screenshot" height="600" loading="eager" src="/gking-site/images/software-import/boocio-screenshot.png" width="480"/>
 </div>
 </div>
 </div>

@@ -33,8 +33,7 @@ type: "teaching-class"
 <div class="hwp-class--main-content">
 <div class="hwp-text-block field field--name-field-hwp-body field--type-text-long field--label-hidden"><div class="hwp-media hwp-media--small">
 <div class="field field--name-field-media-image field--type-image field--label-hidden"> <picture>
-<source height="351" media="all and (min-width: 0)" srcset="https://gking.harvard.edu/sites/g/files/omnuum7116/files/styles/hwp_1_1__360x360_scale/public/gking/files/2k1-logo-small.png?itok=y0BO-oFU 1x, https://gking.harvard.edu/sites/g/files/omnuum7116/files/styles/hwp_1_1__720x720_scale/public/gking/files/2k1-logo-small.png?itok=xQjA833I 2x" type="image/png" width="299">
-<img alt="2K1" height="351" loading="eager" src="https://gking.harvard.edu/sites/g/files/omnuum7116/files/styles/hwp_1_1__360x360_scale/public/gking/files/2k1-logo-small.png?itok=y0BO-oFU" width="299"/>
+<img alt="2K1" height="351" loading="eager" src="/gking-site/images/2k1-logo-small.png" width="299"/>
 </source></picture>
 </div>
 </div>

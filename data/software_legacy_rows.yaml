@@ -1,4 +1,4 @@
-# Display order and section year for /software/ (matches legacy gking.harvard.edu/software).
+# Display order and section year for /software/ (matches legacy Drupal software page).
 rows:
   - year: 2020
     slug: quickcode

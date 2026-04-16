@@ -78,7 +78,7 @@
   var activeRanges = {};
   var activeUnivs = {};
   var activeCats = {};
-  /* Same letter buckets as gking.harvard.edu/people */
+  /* Same letter buckets as legacy /people */
   var ranges = ["A-C","D-G","H-J","K-L","M-P","Q-S","T-V","W-Z"];
   ranges.forEach(function(r) { activeRanges[r] = true; });
 
@@ -107,7 +107,7 @@
     return getRange(d.name);
   }
 
-  /* Categories: people may have multiple tags (matches gking.harvard.edu facet counts). Ranges: exclusive per person. */
+  /* Categories: people may have multiple tags (matches legacy facet counts). Ranges: exclusive per person. */
   function computeFacetCounts(rows) {
     var cat = { current: 0, alumni_students: 0, alumni_postdocs: 0, collaborators: 0 };
     var rng = { "A-C": 0, "D-G": 0, "H-J": 0, "K-L": 0, "M-P": 0, "Q-S": 0, "T-V": 0, "W-Z": 0 };

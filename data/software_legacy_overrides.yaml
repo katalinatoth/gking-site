@@ -9,7 +9,7 @@ per_slug:
     list_title: "Virtual Data Center"
   boocio-an-education-system-with-hierarchical-concept-maps:
     list_title: "Booc.Io: Software for an Education System With Hierarchical Concept Maps"
-    href: "https://gking.harvard.edu/publications/boocio-education-system-hierarchical-concept-maps"
+    href: "/gking-site/publication/boocio-an-education-system-with-hierarchical-concept-maps/"
     suppress_abstract: true
   psi-ψ-a-private-data-sharing-interface:
     href: "http://psiprivacy.org/static/about/"

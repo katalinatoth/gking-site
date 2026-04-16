@@ -54,9 +54,9 @@ type: "teaching"
 <h2 id="advice">Advice and Suggestions</h2>
 
 - Info on [Political Methodology in the Government Department](https://projects.iq.harvard.edu/government-methods)
-- [How to write a publishable paper as a class project](https://gking.harvard.edu/papers)
-- [Advice to Junior Faculty (PDF)](https://gking.harvard.edu/file_url/296)
-- [Dissertation Advice (PDF)](https://gking.harvard.edu/file_url/297)
+- [How to write a publishable paper as a class project](/gking-site/papers/)
+- [Advice to Junior Faculty (PDF)](/gking-site/files/advice-junior-faculty.pdf)
+- [Dissertation Advice (PDF)](/gking-site/files/advice-dissertation.pdf)
 - My [Room Setup Preferences](https://docs.google.com/document/d/1HVZPTGijc6-PheS6_GIigCUmRW7eH6e41FfX8e9CFSE/edit?usp=sharing)
 - [What to do if you want me to write you a letter of recommendation](/gking-site/recs/)
 - [Are you applying to our Ph.D. program at Harvard?](/gking-site/apply/)
