@@ -3,18 +3,16 @@
 {{ with $p.File }}
   {{ $slug = path.Base (path.Dir .Path) }}
 {{ end }}
-{{ $href := "" }}
-{{ if ne $slug "" }}
-  {{/* Full path avoids ambiguity when the same slug exists under publication/ and software/ */}}
-  {{ with site.GetPage (printf "/software/%s" $slug) }}
-    {{ $href = .RelPermalink }}
-  {{ end }}
-{{ end }}
+
+{{/* Prefer project site / repo (legacy site behavior). Internal /software/ only when no external URL is known. */}}
+{{ $href := partial "software_external_url.html" $p }}
 {{ if eq $href "" }}
-  {{ $ext := partial "software_external_url.html" $p }}
-  {{ if ne $ext "" }}
-    {{ $href = $ext }}
-  {{ else }}
+  {{ if ne $slug "" }}
+    {{ with site.GetPage (printf "/software/%s" $slug) }}
+      {{ $href = .RelPermalink }}
+    {{ end }}
+  {{ end }}
+  {{ if eq $href "" }}
     {{ $href = $p.RelPermalink }}
   {{ end }}
 {{ end }}
