@@ -51,7 +51,10 @@
     <h2 style="font-size:1.25rem;font-weight:600;margin:0 0 1rem;">Software Releases</h2>
     <div class="gk-sw-releases-footer" style="font-size:0.95rem;line-height:1.6;">
       {{ range site.Data.software_releases_footer.links | default slice }}
-      <p style="margin:0 0 0.75rem;"><a href="{{ .path | absURL }}" style="color:#337ab7;">{{ .label }}</a></p>
+      {{ $item := . }}
+      {{ with site.GetPage (printf "/software/%s" .slug) }}
+      <p style="margin:0 0 0.75rem;"><a href="{{ .RelPermalink }}" style="color:#337ab7;">{{ $item.label }}</a></p>
+      {{ end }}
       {{ end }}
     </div>
   </section>
