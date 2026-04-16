@@ -1,12 +1,14 @@
 ---
-title: "PrivacyUnbiased"
+title: "UnbiasedPrivacy"
 authors:
   - Georgina Evans
   - Gary King
-date: "2020-01-01"
+  - Margaret Schwenzfeier
+  - Abhradeep Thakurta
+date: "2021-01-01"
 links:
   - type: site
-    url: https://github.com/georgieevans/PrivacyUnbiased
+    url: https://github.com/schwenzfeier/udp
 publication: ""
 publication_types:
   - software
