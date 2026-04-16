@@ -4,8 +4,17 @@
   {{ $slug = path.Base (path.Dir .Path) }}
 {{ end }}
 
-{{/* Prefer project site / repo (legacy site behavior). Internal /software/ only when no external URL is known. */}}
-{{ $href := partial "software_external_url.html" $p }}
+{{ $prefer := site.Data.software_prefer_internal.slugs | default slice }}
+{{ $href := "" }}
+{{ if and $slug (in $prefer $slug) }}
+  {{ with site.GetPage (printf "/software/%s" $slug) }}
+    {{ $href = .RelPermalink }}
+  {{ end }}
+{{ end }}
+
+{{ if eq $href "" }}
+  {{ $href = partial "software_external_url.html" $p }}
+{{ end }}
 {{ if eq $href "" }}
   {{ if ne $slug "" }}
     {{ with site.GetPage (printf "/software/%s" $slug) }}
