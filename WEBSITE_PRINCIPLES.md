@@ -680,6 +680,88 @@ These apply to every piece of text on the site.
 - **No Oxford/Harvard commas wars** — pick one (Oxford) and use it
   everywhere.
 
+### 14.15 Tone — understated, credit-sharing, never braggy
+
+Academic personal sites rot fast into trophy cases. Don't let them.
+
+- **State what the person did, not how impressive it is.** "Honours
+  thesis on Indigenous health policy, supervised by Prof. X" is the
+  right register. "Wrote a groundbreaking honours thesis that reshaped
+  the field" is the wrong register.
+- **No intensifiers, no self-superlatives.** Strike *groundbreaking*,
+  *pioneering*, *world-class*, *highly*, *extremely*, *exceptional*
+  from your vocabulary when writing about the site's owner. Strike
+  them even when they appear in letters of reference you're drawing
+  from.
+- **Let the nouns do the work.** Harvard, Phi Beta Kappa, a named
+  prize, a peer-reviewed citation count — these carry their own weight.
+  Piling adjectives on top is a tell that the writer doesn't trust the
+  reader to recognise the signal.
+- **Share credit by default.** Research is collaborative. Name
+  supervisors, co-authors, and labs in every description. Prefer "at
+  Prof. X's lab, I contributed Y" over "I did Z" when both are true.
+- **Awards go in an `Honors` section, once.** They are listed flatly,
+  without editorializing. Never re-mention an award in a bio paragraph
+  *and* in the honours list *and* in a project description.
+- **Prizes are named, not ranked.** Say "Sophia Freund Prize" rather
+  than "the most prestigious undergraduate prize at Harvard". If the
+  reader needs to know what it is, they'll click — and the entry can
+  quote the award citation verbatim, in a blockquote, rather than the
+  owner's paraphrase.
+- **No humble-bragging either.** "I was lucky to be selected for…"
+  is worse than just stating the fact. Read copy aloud; if it sounds
+  like a cover-letter opener, rewrite it.
+- **When the CV is long, the prose is short.** The density of
+  accomplishments on academic CVs is the signal; restating them in
+  the bio dilutes it. Bio paragraphs are for context, narrative arc,
+  and the questions the person cares about — not for a second pass
+  over the honours list.
+- **"Selected"** is the correct adjective for a section that is
+  necessarily partial, not *notable*, *major*, or *key*.
+
+### 14.16 Images — owned first, public web where necessary
+
+Academic sites need photos they don't always have in hand: a portrait
+of the owner, a conference room they spoke in, the cover of a journal
+issue, a map of a field site. The repo-first principle (§14.8) rules
+out hotlinking, but it does **not** rule out fetching.
+
+- **Always prefer a photo the owner has given you**, or one the owner
+  has on their institutional page. Ask once before scraping.
+- **If no owned image exists, pull from the public web and commit it
+  to the repo.** Good sources, in descending preference:
+  1. The owner's institutional profile page (the university almost
+     always has usage rights; mirror the photo into `assets/images/`
+     or `static/images/`).
+  2. Wikimedia Commons, Flickr with Creative Commons, or the
+     publisher's own press-kit page.
+  3. A screenshot of a publicly accessible page, only as a last
+     resort, and only for *context* images (e.g. a legacy site
+     mid-archive).
+- **Never hotlink.** Download the image, commit it, reference it by
+  its local path. External image hosts go dark; your site must not.
+- **Record provenance.** Every non-owned image gets a
+  `_credits.md` line in `data/image_credits.yaml`, or a `credit:`
+  entry in the page's front matter, listing the source URL, date
+  fetched, and licence ("CC-BY 4.0, Wikimedia", "institutional
+  profile, fair use", "public press kit, Harvard Gazette").
+- **Respect licences.** CC-BY requires attribution; CC-BY-SA
+  requires share-alike; "all rights reserved" press-kit photos are
+  usually fine for biographical use but flag them to the owner.
+  When in doubt, pick a different photo.
+- **Crop and optimise locally.** A portrait should be ~480×480 or
+  ~720×720 square, under 150 KB after `hugo`'s image pipeline. Don't
+  ship the 4 MB original.
+- **Image alt text is factual, not promotional.** "Portrait of Prof.
+  X, Harvard University" — not "Prof. X, distinguished professor".
+- **Placeholder first, photo second.** Templates should render a
+  neutral monogram or silhouette when the expected image is missing,
+  so the site still looks intentional during migration. The AI should
+  scaffold the placeholder and note in the commit message where to
+  drop the real photo.
+- **Portraits go to the homepage and bio only.** Don't decorate
+  other pages with the owner's face; it undermines §14.15.
+
 ---
 
 ## 15. For your next site
