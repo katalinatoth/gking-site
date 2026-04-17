@@ -87,11 +87,16 @@
 
   var tabs = [
     { id: "journal", label: "Journal Articles" },
+    { id: "book", label: "Books & Chapters" },
     { id: "presentation", label: "Presentations" },
     { id: "software", label: "Software" },
     { id: "patent", label: "Patents" },
     { id: "other", label: "Other" }
   ];
+
+  // Items with these Drupal reference types make up the "Books & Chapters" tab
+  // and are excluded from the "Other" tab.
+  var bookDrupalTypes = { "book": 1, "book_chapter": 1 };
 
   var activeTab = "journal";
   var activeSubtypes = {};
@@ -100,6 +105,15 @@
   var sortMode = "year-desc";
 
   function getTabData(tabId) {
+    if (tabId === "book") {
+      return data.filter(function(d) { return bookDrupalTypes[d.legacyDrupal]; });
+    }
+    if (tabId === "other") {
+      // Exclude books/chapters — they live in their own tab now.
+      return data.filter(function(d) {
+        return d.legacyTab === "other" && !bookDrupalTypes[d.legacyDrupal];
+      });
+    }
     return data.filter(function(d) { return d.legacyTab === tabId; });
   }
 
@@ -136,7 +150,7 @@
     subtypeContainer.innerHTML = "";
     activeSubtypes = {};
 
-    if (tab.id === "other") {
+    if (tab.id === "other" || tab.id === "book") {
       subtypeSection.style.display = "block";
       var otherTypes = {};
       tabData.forEach(function(d) {
@@ -199,7 +213,8 @@
 
     return tabData.filter(function(d) {
       if (anySubtype) {
-        var key = activeTab === "other" ? (d.legacyDrupal || "miscellaneous") : "";
+        var key = (activeTab === "other" || activeTab === "book")
+          ? (d.legacyDrupal || "miscellaneous") : "";
         if (!activeSubtypes[key]) return false;
       }
       if (anyYear && !activeYears[d.year]) return false;

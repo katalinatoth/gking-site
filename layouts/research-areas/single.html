@@ -10,7 +10,7 @@
   {{ range $data.methods }}
     <details id="{{ .name | urlize }}" style="border-bottom:1px solid #e2e8f0;margin-bottom:0.25rem;">
       <summary style="font-size:1.1rem;font-weight:600;cursor:pointer;padding:10px 0;list-style:none;display:flex;align-items:center;gap:6px;">
-        <span class="gk-ra-arrow">&#9654;</span> {{ .name }}
+        <span class="gk-ra-arrow">&#9660;</span> {{ .name }}
       </summary>
       <div style="padding:0 0 1rem 1.25rem;">
         {{ with .description }}
@@ -41,7 +41,7 @@
   {{ range $data.applications }}
     <details id="{{ .name | urlize }}" style="border-bottom:1px solid #e2e8f0;margin-bottom:0.25rem;">
       <summary style="font-size:1.1rem;font-weight:600;cursor:pointer;padding:10px 0;list-style:none;display:flex;align-items:center;gap:6px;">
-        <span class="gk-ra-arrow">&#9654;</span> {{ .name }}
+        <span class="gk-ra-arrow">&#9660;</span> {{ .name }}
       </summary>
       <div style="padding:0 0 1rem 1.25rem;">
         {{ with .description }}
@@ -72,7 +72,7 @@
 details summary { list-style: none; }
 details summary::-webkit-details-marker { display: none; }
 details .gk-ra-arrow { font-size: 0.7em; color: #999; transition: transform 0.15s; display: inline-block; }
-details[open] .gk-ra-arrow { transform: rotate(90deg); }
+details[open] .gk-ra-arrow { transform: rotate(180deg); }
 .gk-ra-abstract-details > summary { list-style: none; }
 .gk-ra-abstract-details > summary::-webkit-details-marker { display: none; }
 details.gk-ra-abstract-details[open] > summary .gk-ra-plus {

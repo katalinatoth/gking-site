@@ -1,0 +1,24 @@
+{{- /*
+  Custom alias template. Normal Hugo aliases redirect to the target page's
+  canonical URL. We additionally honour a fragment in the FIRST alias entry
+  so that (for example) /advice/ can land on /teaching/#advice.
+*/ -}}
+{{- $target := .Permalink -}}
+{{- with .Page -}}
+  {{- $aliases := .Aliases | default slice -}}
+  {{- range $a := $aliases -}}
+    {{- $s := string $a -}}
+    {{- if (strings.Contains $s "#") -}}
+      {{- $target = printf "%s#%s" $.Permalink (index (split $s "#") 1) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+<!DOCTYPE html>
+<html lang="{{ site.Language.LanguageCode }}">
+<head>
+  <title>{{ $target }}</title>
+  <link rel="canonical" href="{{ $target }}">
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="0; url={{ $target }}">
+</head>
+</html>

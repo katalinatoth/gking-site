@@ -134,6 +134,30 @@ links:
 - `date` should be `YYYY-MM-DD` or `'YYYY-MM-DD'` — both work.
 - `authors:` controls ordering; write names however you want them displayed.
 
+### Which Writings tab does a paper land in?
+
+The `/publication/` page groups items into tabs: **Journal Articles**,
+**Books & Chapters**, **Presentations**, **Software**, **Patents**, and
+**Other**. Tab placement is driven by `data/writings_legacy_map.json`,
+which records each item's legacy category.
+
+For new items, add an entry to that file (the keys are `tab` and
+`drupal`). Valid `drupal` values and the tab each one appears in:
+
+| `drupal`                 | Tab                  |
+| ------------------------ | -------------------- |
+| `journal_article`        | Journal Articles     |
+| `book`                   | Books & Chapters     |
+| `book_chapter`           | Books & Chapters     |
+| `presentation`           | Presentations        |
+| `software`               | Software             |
+| `patent`                 | Patents              |
+| anything else            | Other                |
+
+The **Books** section on the homepage is built dynamically from all
+entries in this file where `drupal: book`, so adding a new book here
+surfaces it on the homepage automatically — no separate edit required.
+
 ### Step 4 (optional): featured image
 
 Place a `featured.jpg` or `featured.png` next to `index.md`. It will be
@@ -200,6 +224,30 @@ links:
 
 Optional Markdown body: installation instructions, changelog, citations, etc.
 ```
+
+### Where does a software item appear on the `/software/` page?
+
+The software landing page groups items into three sections:
+
+- **Active** — currently maintained / in current use
+- **Acquired & Commercialized** — spun off into a company or long-lived
+  product maintained elsewhere
+- **Archived** — historical interest, superseded, or no longer maintained
+
+Which section a given item lands in is controlled by the file
+`hugo-site/data/software_legacy_rows.yaml`. Each row looks like:
+
+```yaml
+- year: 2020
+  slug: opendp-developing-open-source-tools-for-differential-privacy
+  status: active
+```
+
+To move an item between sections, just change its `status` to one of
+`active`, `acquired`, or `archived`. To add a new item to the page,
+append a new row with the same three fields (`year`, `slug`, `status`);
+the `slug` must match the folder name under `content/publication/` (or
+`content/software/`). Rows with no `status` default to `archived`.
 
 ---
 
@@ -375,11 +423,21 @@ Plain pages are all under `hugo-site/content/`, one folder each, with an
 
 | Page | File |
 |------|------|
-| Teaching | `content/teaching/index.md` |
+| Teaching | `content/teaching/_index.md` |
 | Contact | `content/contact/index.md` |
 | Dataverse | `content/dataverse/index.md` |
 | Research Group landing | `content/research-group/index.md` |
 | Homepage | `content/_index.md` |
+
+### Advice & Suggestions
+
+All of the "Advice and Suggestions" links live at the **bottom of the
+Teaching page** (`content/teaching/_index.md`, under the `<h2
+id="advice">` heading). The footer bar's "Advice and Suggestions" link
+jumps there via the `#advice` anchor, and the legacy `/advice/` URL
+auto-redirects to the Teaching page (via the `aliases:` entry at the top
+of `teaching/_index.md`). To add, remove, or reorder advice items, edit
+that section.
 
 ---
 

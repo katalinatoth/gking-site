@@ -1,70 +1,119 @@
-# Display order and section year for /software/ (matches legacy Drupal software page).
+# Display order for /software/.
+#
+# Each row has:
+#   slug   — matches a page in content/publication/ (and/or content/software/)
+#   year   — release year (shown in parentheses; used as secondary sort key)
+#   status — one of:
+#              active   : actively maintained / current release
+#              acquired : spun off into a company, commercial product, or
+#                         another long-lived project (still in use, but no
+#                         longer a Gary-maintained package)
+#              archived : historical interest, superseded, or not currently
+#                         maintained (this is the default if status is omitted)
+#
+# The software page groups rows by status (Active → Acquired & Commercialized
+# → Archived), then within each group by year descending. To move an item
+# between groups, change its `status`.
 rows:
   - year: 2020
     slug: quickcode
+    status: acquired
   - year: 2020
     slug: privacyunbiased
+    status: archived
   - year: 2020
     slug: opendp-developing-open-source-tools-for-differential-privacy
+    status: active
   - year: 2018
     slug: readme2-an-r-package-for-improved-automated-nonparametric-content-analysis-for-s
+    status: active
   - year: 2018
     slug: compactness-an-r-package-for-measuring-legislative-district-compactness-if-you-o
+    status: active
   - year: 2018
     slug: psi-ψ-a-private-data-sharing-interface
+    status: archived
   - year: 2017
     slug: boocio-an-education-system-with-hierarchical-concept-maps
+    status: acquired
   - year: 2015
     slug: robustse
+    status: archived
   - year: 2015
     slug: perusall
+    status: acquired
   - year: 2014
     slug: matchingfrontier-r-package-for-calculating-the-balance-sample-size-frontier
+    status: active
   - year: 2010
     slug: readme-software-for-automated-content-analysis
+    status: archived
   - year: 2010
     slug: judgeit-ii-a-program-for-evaluating-electoral-systems-and-redistricting-plans
+    status: archived
   - year: 2009
     slug: amelia-ii-a-program-for-missing-data
+    status: active
   - year: 2009
     slug: openscholar
+    status: acquired
   - year: 2009
     slug: cem-coarsened-exact-matching-software
+    status: active
   - year: 2008
     slug: va-verbal-autopsies
+    status: archived
   - year: 2007
     slug: dataverse-open-source-research-data-repository-software
+    status: acquired
   - year: 2007
     slug: matchit-nonparametric-preprocessing-for-parametric-causal-inference
+    status: active
   - year: 2007
     slug: anchors-software-for-anchoring-vignettes-data
+    status: active
   - year: 2006
     slug: zelig-everyones-statistical-software
+    status: archived
   - year: 2005
     slug: whatif-software-for-evaluating-counterfactuals
+    status: archived
   - year: 2004
     slug: schnabeleskowcholeskyfactorization
+    status: archived
   - year: 2004
     slug: gillmurraycholeskyfactorization
+    status: archived
   - year: 2004
     slug: yourcast
+    status: archived
   - year: 2003
     slug: ezi-an-easy-program-for-ecological-inference
+    status: archived
   - year: 2003
     slug: clarify-software-for-interpreting-and-presenting-statistical-results
+    status: archived
   - year: 2003
     slug: relogit-rare-events-logistic-regression
+    status: archived
   - year: 2003
     slug: ei-a-program-for-ecological-inference
+    status: archived
   - year: 2002
     slug: count-a-program-for-estimating-event-count-and-duration-regressions
+    status: archived
   - year: 2001
     slug: an-overview-of-the-virtual-data-center-project-and-software
+    status: acquired
   - year: 1998
     slug: amelia-a-program-for-missing-data
+    status: archived
   - year: 1998
     slug: maxlik
+    status: archived
   - year: 1992
     slug: judgeit-i-a-program-for-evaluating-electoral-systems-and-redistricting-plans
+    status: archived
   - year: 1982
     slug: pc-checkbook-manager
+    status: archived

@@ -127,8 +127,18 @@
 {{/* Curated presentations matching original homepage */}}
 {{ $recentTalkSlugs := slice "talk/whos-to-blame-for-survey-instability-respondents-with-nonexistent-preferences-or" "talk/whos-to-blame-for-survey-instability-respondents-with-random-preferences-or-rese" "talk/statistically-valid-inferences-from-privacy-protected-data-pew-research-center" "talk/correcting-measurement-error-bias-in-conjoint-survey-experiments-university-of-c" }}
 
-{{/* Curated books matching original homepage */}}
-{{ $bookSlugs := slice "publication/designing-social-inquiry-scientific-inference-in-qualitative-research-new-editio" "publication/the-future-of-political-science-100-perspectives" "publication/ecological-inference-new-methodological-strategies" }}
+{{/* Books — pulled dynamically from the writings legacy map (drupal=="book"),
+     so adding a new book entry to the map automatically surfaces it here. */}}
+{{ $wlMap := site.Data.writings_legacy_map | default (dict "entries" dict) }}
+{{ $bookPages := slice }}
+{{ range $slug, $meta := $wlMap.entries }}
+  {{ if eq (index $meta "drupal") "book" }}
+    {{ with site.GetPage (printf "/publication/%s" $slug) }}
+      {{ $bookPages = $bookPages | append . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ $bookPages = sort $bookPages ".Date" "desc" }}
 
 {{/* Curated patents matching original homepage (10 specific ones) */}}
 {{ $patentSlugs := slice "publication/cluster-analysis-of-participant-responses-for-test-generation-or-teaching-2nd" "publication/participant-grouping-for-enhanced-interactive-experience-4th" "publication/instructional-support-platform-for-interactive-learning-platforms-2nd" "publication/instructional-support-platform-for-interactive-learning-platforms" "publication/system-for-estimating-a-distribution-of-message-content-categories-in-source-dat-2012" "publication/cluster-analysis-of-participant-responses-for-test-generation-or-teaching" "publication/systems-and-methods-for-keyword-determination-and-document-classification-from-u" "publication/participant-grouping-for-enhanced-interactive-experience-3rd" "publication/participant-grouping-for-enhanced-interactive-experience-2nd" "publication/stimulating-online-discussion-in-interactive-learning-environments" }}
@@ -189,12 +199,10 @@
       </div>
     </div>
 
-    <!-- Books (curated) -->
+    <!-- Books (dynamic, sourced from writings legacy map) -->
     <div style="background:#f8f9fa;border-radius:8px;padding:20px 24px;border:1px solid #e2e8f0;">
       <h3 style="font-size:1.2rem;font-weight:600;margin:0 0 12px;color:#1E1E1E;">Books</h3>
-      {{ range $bookSlugs }}
-        {{ $page := site.GetPage . }}
-        {{ with $page }}
+      {{ range $bookPages }}
       <details class="gk-hp-item">
         <summary style="font-size:0.88rem;cursor:pointer;padding:5px 0;border-bottom:1px solid #eee;list-style:none;display:flex;align-items:baseline;gap:5px;color:#337ab7;line-height:1.4;">
           <span class="gk-hp-arrow" style="flex-shrink:0;">&#9654;</span>
@@ -208,8 +216,10 @@
           <div style="margin-top:6px;"><a href="{{ .RelPermalink }}" style="color:#337ab7;text-decoration:none;font-weight:500;">Read more &rarr;</a></div>
         </div>
       </details>
-        {{ end }}
       {{ end }}
+      <div style="margin-top:10px;text-align:right;">
+        <a href="{{ "publication/" | relURL }}" style="color:#337ab7;font-size:0.85rem;text-decoration:none;">All books &amp; chapters &rarr;</a>
+      </div>
     </div>
 
   </div>
@@ -385,7 +395,7 @@
   .gk-hp-area summary { list-style: none; }
   .gk-hp-area summary::-webkit-details-marker { display: none; }
   .gk-hp-arrow { font-size: 0.6em; color: #999; transition: transform 0.15s; display: inline-block; }
-  details[open] > summary .gk-hp-arrow { transform: rotate(90deg); }
+  details[open] > summary .gk-hp-arrow { transform: rotate(180deg); }
   .gk-hp-item summary { list-style: none; }
   .gk-hp-item summary::-webkit-details-marker { display: none; }
   @media (max-width: 900px) {

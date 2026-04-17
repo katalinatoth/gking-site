@@ -11,39 +11,64 @@
     <button id="gk-sw-download" type="button" style="padding:4px 12px;background:#337ab7;color:#fff;border:none;border-radius:4px;font-size:0.85rem;cursor:pointer;">Download citations</button>
   </div>
 
+  {{/* Group by status. Items with no status default to "archived" so
+       every row lands in exactly one section. */}}
+  {{ $statusGroups := slice
+      (dict "id" "active"
+            "label" "Active"
+            "blurb" "Currently maintained software in current use.")
+      (dict "id" "acquired"
+            "label" "Acquired &amp; Commercialized"
+            "blurb" "Software that has been spun off into a company, commercial product, or long-lived platform maintained elsewhere.")
+      (dict "id" "archived"
+            "label" "Archived"
+            "blurb" "Historical interest: superseded by newer tools, or no longer actively maintained. Source and documentation typically remain available.")
+  }}
+
   <div id="gk-sw-list">
-  {{ $currentYear := "" }}
-  {{ range $rows }}
-    {{ $slug := .slug }}
-    {{ $yr := printf "%d" .year }}
-    {{ if ne $yr $currentYear }}
-      {{ $currentYear = $yr }}
-      <h3 class="gk-sw-year" style="font-size:1.15rem;font-weight:600;margin:1.35rem 0 0.65rem;color:#222;">{{ $yr }}</h3>
+  {{ range $group := $statusGroups }}
+    {{ $gid := $group.id }}
+    {{ $matches := where $rows "status" $gid }}
+    {{ if eq $gid "archived" }}
+      {{/* Also include rows with no status at all. */}}
+      {{ $noStatus := where $rows "status" nil }}
+      {{ $matches = $matches | append $noStatus }}
     {{ end }}
-    {{ $p := site.GetPage (printf "/publication/%s" $slug) }}
-    {{ $o := index $ovAll $slug | default dict }}
-    {{ $cite := "" }}
-    {{ with $o.citation_line }}{{ $cite = . }}{{ else }}{{ $cite = partial "software_legacy_author_year.html" (dict "page" $p "year" $yr) }}{{ end }}
-    {{ $listTitle := $p.Title }}
-    {{ with $o.list_title }}{{ $listTitle = . }}{{ end }}
-    {{ $href := "" }}
-    {{ with $o.href }}{{ $href = . }}{{ else }}{{ $href = partial "software_page_href.html" $p }}{{ end }}
-    {{ $abs := "" }}
-    {{ if not ($o.suppress_abstract | default false) }}
-      {{ with $o.abstract }}{{ $abs = . }}{{ else }}{{ with $p.Params.summary }}{{ $abs = . }}{{ else }}{{ with $p.Params.abstract }}{{ $abs = . }}{{ end }}{{ end }}{{ end }}
+    {{ if gt (len $matches) 0 }}
+      {{ $matches = sort $matches "year" "desc" }}
+      <section class="gk-sw-group" id="sw-{{ $gid }}" style="margin-top:1.75rem;">
+        <h2 style="font-size:1.35rem;font-weight:700;margin:0 0 0.25rem;color:#222;border-bottom:2px solid #A51C30;padding-bottom:0.3rem;">{{ $group.label | safeHTML }}</h2>
+        <p style="font-size:0.9rem;color:#666;margin:0.25rem 0 1rem;line-height:1.5;">{{ $group.blurb }}</p>
+        {{ range $matches }}
+          {{ $slug := .slug }}
+          {{ $yr := printf "%d" .year }}
+          {{ $p := site.GetPage (printf "/publication/%s" $slug) }}
+          {{ $o := index $ovAll $slug | default dict }}
+          {{ $cite := "" }}
+          {{ with $o.citation_line }}{{ $cite = . }}{{ else }}{{ $cite = partial "software_legacy_author_year.html" (dict "page" $p "year" $yr) }}{{ end }}
+          {{ $listTitle := $p.Title }}
+          {{ with $o.list_title }}{{ $listTitle = . }}{{ end }}
+          {{ $href := "" }}
+          {{ with $o.href }}{{ $href = . }}{{ else }}{{ $href = partial "software_page_href.html" $p }}{{ end }}
+          {{ $abs := "" }}
+          {{ if not ($o.suppress_abstract | default false) }}
+            {{ with $o.abstract }}{{ $abs = . }}{{ else }}{{ with $p.Params.summary }}{{ $abs = . }}{{ else }}{{ with $p.Params.abstract }}{{ $abs = . }}{{ end }}{{ end }}{{ end }}
+          {{ end }}
+          <div class="gk-sw-row gk-sw-card" data-slug="{{ $slug }}" data-status="{{ $gid }}" data-year="{{ $yr }}">
+            <p style="margin:0;font-size:0.98rem;line-height:1.5;color:#111;">{{ $cite }} “<a class="gk-sw-title" href="{{ $href }}"{{ if strings.HasPrefix $href "http" }} target="_blank" rel="noopener"{{ end }} style="color:#337ab7;text-decoration:none;">{{ $listTitle }}</a>”</p>
+            {{ if $abs }}
+            <details class="gk-sw-abs" style="margin-top:10px;font-size:0.9rem;">
+              <summary style="cursor:pointer;list-style:none;color:#337ab7;font-weight:500;display:inline-flex;align-items:center;gap:6px;">
+                <span class="gk-sw-abs-icon" style="display:inline-flex;align-items:center;justify-content:center;width:1.1rem;height:1.1rem;border:1px solid #337ab7;border-radius:50%;font-size:0.75rem;line-height:1;color:#fff;background:#337ab7;">+</span>
+                Abstract
+              </summary>
+              <div class="gk-sw-abs-body prose prose-sm max-w-none dark:prose-invert" style="margin-top:10px;padding:10px 12px;background:#fff;border:1px solid #dde7ef;border-radius:6px;color:#333;line-height:1.55;overflow:visible;max-height:none;white-space:normal;">{{ $abs | markdownify }}</div>
+            </details>
+            {{ end }}
+          </div>
+        {{ end }}
+      </section>
     {{ end }}
-    <div class="gk-sw-row gk-sw-card" data-slug="{{ $slug }}">
-      <p style="margin:0;font-size:0.98rem;line-height:1.5;color:#111;">{{ $cite }} “<a class="gk-sw-title" href="{{ $href }}"{{ if strings.HasPrefix $href "http" }} target="_blank" rel="noopener"{{ end }} style="color:#337ab7;text-decoration:none;">{{ $listTitle }}</a>”</p>
-      {{ if $abs }}
-      <details class="gk-sw-abs" style="margin-top:10px;font-size:0.9rem;">
-        <summary style="cursor:pointer;list-style:none;color:#337ab7;font-weight:500;display:inline-flex;align-items:center;gap:6px;">
-          <span class="gk-sw-abs-icon" style="display:inline-flex;align-items:center;justify-content:center;width:1.1rem;height:1.1rem;border:1px solid #337ab7;border-radius:50%;font-size:0.75rem;line-height:1;color:#fff;background:#337ab7;">+</span>
-          Abstract
-        </summary>
-        <div class="gk-sw-abs-body prose prose-sm max-w-none dark:prose-invert" style="margin-top:10px;padding:10px 12px;background:#fff;border:1px solid #dde7ef;border-radius:6px;color:#333;line-height:1.55;overflow:visible;max-height:none;white-space:normal;">{{ $abs | markdownify }}</div>
-      </details>
-      {{ end }}
-    </div>
   {{ end }}
   </div>
 
