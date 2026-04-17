@@ -446,21 +446,239 @@ Feed this list to the AI assistant; it preemptively avoids each one.
 
 ---
 
-## 14. Style / UX principles
+## 14. Design principles
 
-- **Match the legacy site's information density, not modern minimalism.**
-  Academic audiences expect dense citation lists with links, not hero
-  sections.
-- **Burnt-orange highlight palette** (`#BF5803` → `#d4690a`) is a strong
-  candidate for headers/banners on academic sites — used on the legacy GK
-  site; Harvard crimson is too aggressive.
-- **Typography**: native system stack (`font: native` in Blox params) is
-  fastest and matches most institutional style guides.
-- **Never rely on JavaScript for primary content**; JS is fine for
-  filters, tabs, and search, but the paper list should be in HTML at load.
-- **Every external link in "Links / See Also / banners" should indicate
-  type** (`[Paper]`, `[Talk]`, `Harvard Dataverse`, etc.) so readers
-  orient at a glance.
+The single most important rule: **the user should never feel trapped,
+confused, or forced to repeat themselves.** Every concrete rule below
+ladders up to that. Use this section as a checklist when reviewing any
+new page or feature.
+
+### 14.1 No dead ends
+
+Every page must lead somewhere useful. A reader who lands on any page —
+via Google, a citation, a share link — must be one glance away from:
+
+- **A way back up.** Breadcrumbs (Home / Writings / Paper Title) or a
+  clearly-labelled parent link. Never rely on the browser back button as
+  the only exit.
+- **Related work.** Every paper/talk/software/dataset has an automatic
+  "See Also" block (§6). If that block is empty for a page, something is
+  wrong — either add tags or add an explicit override.
+- **The site's main navigation.** The top navbar is present on every
+  page, so readers entering mid-site can always find Bio, Writings,
+  Research, Contact.
+- **Site-wide search.** The search button is reachable from every page
+  (navbar) and via `Cmd-K` / `Ctrl-K`.
+
+404s must themselves be non-dead-ends: the 404 page shows the navbar and
+a search box, not just "page not found".
+
+### 14.2 Preserve context; prefer expansion over navigation
+
+When opening secondary content, **do not pull the reader out of their
+current context**. Concretely:
+
+- **Filter and tab changes must not reload the page.** The Writings tabs,
+  year facets, and sort order are all client-side JS. Changing a filter
+  updates the URL (so it's shareable) but does not reset scroll position
+  or lose other filter state.
+- **The search modal is an overlay**, not a separate page. It opens on
+  top of the current page with the backdrop visible, closes on `Esc`,
+  and leaves the reader exactly where they were.
+- **Dropdowns / expandable sections stay in place.** Do not link off to
+  another page for something that can be expanded inline (e.g. "show
+  more authors", "show abstract", "show citation").
+- **Back button always works.** Every state change that creates a new
+  visible page uses a real URL change with `history.pushState`. Arrow
+  keys, filter buttons, and search do not trap the user in a modal
+  stack.
+- **Nested dialogs are banned.** If a modal opens another modal, the
+  design has failed — flatten it.
+
+### 14.3 Single source of truth; never duplicate information
+
+Every fact lives in **exactly one place**.
+
+- **Authors, title, abstract, date, venue** for a paper are defined once
+  in the paper's `index.md` front matter. Every list view (Writings
+  tabs, Research Area pages, author pages, "See Also") reads the same
+  fields. You never type the title twice.
+- **The abstract is shown once per page**, not in both a sidebar and the
+  body. If the layout shows a banner + body, one must summarize and the
+  other must be the full copy — never duplicates.
+- **Do not render the same download button twice.** If a PDF is linked
+  from the top button row, do not also put a text "Download PDF" link in
+  the abstract. Exceptions: legacy replicas where the source site
+  duplicated a link; keep it only to match fidelity.
+- **Cross-links, not copies.** When a paper has a companion dataset, the
+  dataset page *links* to the paper (and vice versa). It does not
+  re-paste the paper's abstract.
+- **Migration metadata lives in `data/`, never copied into
+  content front matter.** (§7.) Legacy category, legacy Drupal node ID,
+  thumbnail URL are attached by slug at build time.
+- **Button labels are centralized in `i18n/en.yaml`.** Never inline the
+  string "Article" or "Publisher's Version" in a template.
+
+### 14.4 Stable, meaningful URLs — forever
+
+Academic pages are cited in papers that will outlive the website. URLs
+are a contract.
+
+- **The directory name of a content folder is the permanent slug.** Never
+  rename a folder once the site is live. If the title changes, edit
+  `title:` in front matter but keep the folder.
+- **Redirects for legacy URLs.** When migrating, use Hugo's `aliases:`
+  front-matter key (or the generated redirect files under `public/`) to
+  forward every old URL path to the new one. Nothing from the previous
+  site should 404.
+- **No URL-visible IDs.** Slugs are human-readable (kebab-case title),
+  not numeric primary keys or random hashes.
+- **Deep links work.** A reader who gets `…/publication/<slug>/#abstract`
+  from a friend lands scrolled to the abstract. Do not use JS routers
+  that discard hash fragments.
+
+### 14.5 Information density over whitespace
+
+Academic readers want **more on the screen**, not less. Reject marketing
+defaults.
+
+- No hero sections on content pages.
+- Dense citation lists (author, year, title, venue in one line) are
+  good; card grids with one paper per row are wasteful.
+- White space belongs between logical sections, not padded around every
+  line of text.
+- The Writings page shows ~25 items per screen at reasonable zoom. If
+  pagination is needed it is after 100+, not after 10.
+
+### 14.6 Scannable structure; labels over ornament
+
+- Every list item in "Links", "See Also", and banner areas must carry a
+  **type label** (`[Paper]`, `[Talk]`, `[Software]`, `[Dataset]`,
+  "Harvard Dataverse", "Publisher's Version", "Supplementary Material").
+  The reader should never have to click to find out what a link is.
+- **Link text describes the destination.** Never "click here" or "read
+  more". Prefer "Article (PDF)", "Replication data on Harvard
+  Dataverse", "Project website".
+- **Headings follow a strict hierarchy.** H1 per page, H2 for main
+  sections, H3 for subsections. Never skip levels for visual weight —
+  use CSS instead.
+- **Icons complement but do not replace text labels.** A lone envelope
+  icon is ambiguous; "Email: gking@harvard.edu" is not.
+
+### 14.7 Preserve the owner's voice and the legacy site's fidelity
+
+- **Do not paraphrase the owner's content.** If the bio reads oddly,
+  fix only typos or ask. Paraphrased academic bios are almost always
+  worse than the original.
+- **Match the legacy site's structure when migrating.** Same tab names,
+  same ordering of categories, same colour accent, same button labels.
+  Surprise is a bug. The owner should open the new site and not realize
+  it is new.
+- **When the legacy site is wrong, flag it, don't silently correct
+  it.** Put a comment in the markdown. The owner decides.
+
+### 14.8 Longevity and self-sufficiency
+
+- **Everything required to render the site lives in the repo.** No CDN
+  links that can go dark, no external iframes for primary content, no
+  reliance on a third-party comments/analytics service for the page to
+  be readable.
+- **Search runs client-side** (Pagefind). No search server, no runtime
+  API, no key management.
+- **All PDFs live in `static/files/`.** Never link to someone else's
+  copy of the author's own paper; host it here.
+- **The published output is plain HTML + CSS + a small JS bundle.** It
+  will render in 10 years, on any browser, even if the build toolchain
+  has rotted.
+
+### 14.9 Accessibility is table stakes
+
+- **Every image has meaningful `alt` text.** Featured thumbnails use the
+  paper title; figures in the body use their caption.
+- **Semantic HTML.** `<nav>`, `<main>`, `<article>`, `<h1>`–`<h3>` per
+  page. Do not style `<div>` soup to look like headings.
+- **Keyboard navigation.** Tab goes through links in reading order;
+  `Cmd-K` opens search; `Esc` closes any overlay; arrow keys navigate
+  search results.
+- **Focus states remain visible.** Never `outline: none` without a
+  replacement.
+- **Contrast ratios** hit WCAG AA minimum — body text 4.5:1, large text
+  3:1. The burnt-orange banner uses white text over `#BF5803` =
+  contrast 4.7:1; that's the floor, not the ceiling.
+- **No colour-only signalling.** Draft vs published, dataset vs paper
+  etc. are communicated with a text label **and** a colour, not colour
+  alone.
+
+### 14.10 Performance
+
+- **HTML is meaningful at first paint.** Do not require JS for reading
+  content. JS is only for interactivity (filters, search, tabs).
+- **No layout shift during load.** Every `<img>` has explicit
+  `width`/`height` (templates resolve these from Hugo image processing).
+- **Minify HTML/CSS/JS in production** (already in `deploy.yml`).
+- **Lazy-load images below the fold.** The template sets `loading="lazy"`
+  on everything except the first hero/featured image on each page.
+- **Pagefind is loaded on first search-open, not up front.** The navbar
+  "Search" button defers the ~200KB WASM bundle until the modal opens.
+
+### 14.11 Failure modes should degrade gracefully
+
+Every interactive feature has a plausible failure. Design for it:
+
+- **If JS fails**, the Writings page still shows all entries in static
+  HTML (server-rendered). Filters are missing, but content isn't.
+- **If Pagefind fails to load**, the search modal shows a text input
+  that submits to a Google "site:" search as a fallback.
+- **If an image 404s**, the `alt` text still tells the reader what was
+  there.
+- **If a content file is malformed**, the build fails in CI before the
+  site is published. The owner sees a red X on their commit, not a
+  broken live site.
+
+### 14.12 Automation over discipline
+
+Humans forget; scripts don't. Any recurring manual step is a bug.
+
+- "See Also" is computed, not maintained (§6).
+- Thumbnails are fetched and cropped by a script.
+- Weekly link health check runs on a cron (§11).
+- Deployment is on every push; nobody has to remember to deploy.
+- **Anything a human has to remember to do weekly will not get done.**
+  If a task recurs, move it into CI or into a build-time template.
+
+### 14.13 Visual language
+
+- **Typography:** native system font stack via Blox (`font: native`).
+  Fast, respects OS settings, matches institutional style guides.
+- **Palette (this site):** ink `#222` text, link blue `#337ab7`,
+  muted `#666`/`#888` for metadata, burnt orange `#BF5803`–`#d4690a`
+  for software/action headers, soft green `#f0f7ee`/`#2d6a1e` for
+  dataset/Dataverse banners, soft blue `#e8f4fd`/`#337ab7` for
+  replication-data banners.
+- **Palette discipline:** colours mean things. Blue = a link. Green =
+  data/replication. Orange = software/action. Don't reuse colours for
+  unrelated purposes.
+- **Shape:** rounded corners 4–8px; subtle shadows only on interactive
+  cards; 1px hairlines (`#e2e8f0`) for dividers.
+- **No ornamental animation.** Animated GIFs are used only as
+  **content** (e.g. the quest paper's RD animation), never as decoration.
+
+### 14.14 Editorial principles
+
+These apply to every piece of text on the site.
+
+- **Say the thing once, clearly.** Bios, abstracts, and descriptions
+  that say the same idea three different ways get cut to one.
+- **Active voice; present tense for current work, past for completed
+  work.**
+- **No academic hedging in interface copy.** Button says "Download PDF",
+  not "You may wish to download the PDF".
+- **Dates are unambiguous:** `Jan 2, 2026`, never `1/2/26`.
+- **Author names spelled as the author spells them**, including
+  diacritics, casing, and middle initials. Look this up for every
+  coauthor.
+- **No Oxford/Harvard commas wars** — pick one (Oxford) and use it
+  everywhere.
 
 ---
 
