@@ -11,6 +11,7 @@
         {{ with site.GetPage (printf "/software/%s" $pubSlug) }}{{ $swPage = . }}{{ end }}
       {{ end }}
       {{ $isSoftwarePub := and $pubSlug $swPage (in (.Params.publication_types | default slice) "software") }}
+      {{ $questReplica := .Params.quest_replica }}
 
       {{ if $isSoftwarePub }}
       {{ partial "software_bundle_page.html" $swPage }}
@@ -32,6 +33,7 @@
         {{- .Title -}}
       </h1>
 
+      {{ if not $questReplica }}
       {{/* Full citation line */}}
       <div class="gk-citation-line">
         {{ $authors := .Params.authors | default slice }}
@@ -45,11 +47,12 @@
       <div style="margin:1rem 0 0.75rem;display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
         {{ partial "page_links" (dict "page" . "is_list" 0) }}
       </div>
+      {{ end }}
 
       {{/* Body: image + abstract side by side */}}
       {{ $featured := partial "functions/get_featured_image.html" . }}
-      {{ $hasImage := and $featured (not .Params.image.preview_only) }}
-      {{ $hasAbstract := .Params.abstract }}
+      {{ $hasImage := and $featured (not .Params.image.preview_only) (not $questReplica) }}
+      {{ $hasAbstract := and .Params.abstract (not $questReplica) }}
 
       {{ if or $hasImage $hasAbstract }}
       <div class="gk-pub-body">
