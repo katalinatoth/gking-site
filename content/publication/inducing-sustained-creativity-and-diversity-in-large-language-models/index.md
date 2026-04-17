@@ -23,14 +23,14 @@ We address a not-widely-recognized subset of exploratory search, where a user se
 
 **Citation:** Queenie Luo, Gary King, Michael Puett, Michael D. Smith, 2026. "Inducing Sustained Creativity and Diversity in Large Language Models"
 
-**Article Links:** [Main Article](/files/Inducing-Sustained-Creativity-LLM.pdf), [Supplementary Material](/files/Inducing-Sustained-Creativity-LLM-supplement.pdf)
+**Article Links:** [Main Article]({{< staticrel "files/Inducing-Sustained-Creativity-LLM.pdf" >}}), [Supplementary Material]({{< staticrel "files/Inducing-Sustained-Creativity-LLM-supplement.pdf" >}})
 
 <div class="not-prose" style="overflow-x:auto;width:100%;margin:1rem 0 0;">
-<iframe src="/files/inducing-sustained-creativity/RD-1.5x.gif" name="rd-gif" id="rd-gif" title="RD Animation" width="1500" height="300" style="max-width:100%;width:100%;min-height:120px;border:0;display:block;" sandbox="allow-popups allow-scripts" allowfullscreen></iframe>
+<img src="{{< staticrel "files/inducing-sustained-creativity/RD-1.5x.gif" >}}" width="1500" height="300" alt="Animation: ordinary decoding versus recoding decoding (RD)" style="max-width:100%;width:100%;height:auto;display:block;min-height:120px;" loading="lazy" />
 </div>
 
 <div class="not-prose" style="overflow-x:auto;margin-top:1rem;">
-<img loading="lazy" src="/files/inducing-sustained-creativity/SQ_0.jpg" width="4988" height="7964" alt="Visual comparison" style="max-width:100%;height:auto;display:block;" />
+<img loading="lazy" src="{{< staticrel "files/inducing-sustained-creativity/SQ_0.jpg" >}}" width="4988" height="7964" alt="Visual comparison" style="max-width:100%;height:auto;display:block;" />
 </div>
 
 <hr class="not-prose" style="margin:2rem 0;border:none;border-top:1px solid #cbd5e1;" />
@@ -38,6 +38,6 @@ We address a not-widely-recognized subset of exploratory search, where a user se
 ## Attachments
 
 <ul class="not-prose" style="margin:0.5rem 0 0;padding-left:1.25rem;list-style:disc;">
-<li><a href="/files/Inducing-Sustained-Creativity-LLM.pdf">Inducing Sustained Creativity and Diversity in Large Language Models_0.pdf</a></li>
-<li><a href="/files/Inducing-Sustained-Creativity-LLM-supplement.pdf">supplimentary material_0.pdf</a></li>
+<li><a href="{{< staticrel "files/Inducing-Sustained-Creativity-LLM.pdf" >}}">Inducing Sustained Creativity and Diversity in Large Language Models_0.pdf</a></li>
+<li><a href="{{< staticrel "files/Inducing-Sustained-Creativity-LLM-supplement.pdf" >}}">supplimentary material_0.pdf</a></li>
 </ul>
