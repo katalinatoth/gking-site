@@ -211,3 +211,15 @@ button.gk-cite-button:hover {
 }
 .gk-see-also a:hover { text-decoration: underline; }
 .gk-see-also .gk-see-year { color: #888; font-size: 0.8rem; margin-left: 4px; }
+.gk-see-also .gk-see-kind {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: #555;
+  background: #e2e8f0;
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-right: 6px;
+  vertical-align: middle;
+}

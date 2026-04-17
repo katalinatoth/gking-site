@@ -112,41 +112,9 @@
       </div>
       {{ end }}
 
-      {{/* SEE ALSO — combines related talks, papers, and datasets */}}
-      {{ $hasSeeAlso := false }}
-      {{ with .Params.related_talks }}{{ $hasSeeAlso = true }}{{ end }}
-      {{ with .Params.related_paper }}{{ $hasSeeAlso = true }}{{ end }}
-      {{ with .Params.related_dataset }}{{ $hasSeeAlso = true }}{{ end }}
-
-      {{ if $hasSeeAlso }}
-      <div class="gk-see-also">
-        <h3>See Also</h3>
-        <ul>
-          {{/* Related talks */}}
-          {{ with .Params.related_talks }}
-            {{ range . }}
-              {{ $talk := $.Site.GetPage (printf "/talk/%s" .) }}
-              {{ with $talk }}
-              <li>
-                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                <span class="gk-see-year">({{ .Date.Format "2006" }})</span>
-              </li>
-              {{ end }}
-            {{ end }}
-          {{ end }}
-          {{/* Related paper (for dataset pages) */}}
-          {{ with .Params.related_paper }}
-            {{ $paper := $.Site.GetPage (printf "/publication/%s" .) }}
-            {{ with $paper }}
-            <li>
-              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-              <span class="gk-see-year">({{ .Date.Format "2006" }})</span>
-            </li>
-            {{ end }}
-          {{ end }}
-        </ul>
-      </div>
-      {{ end }}
+      {{/* SEE ALSO — auto-discovered across papers, talks, software, datasets
+           (respects explicit related_* front-matter overrides). */}}
+      {{ partial "related_finder.html" . }}
 
       {{ partial "components/last-edited.html" . }}
 

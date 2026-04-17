@@ -70,27 +70,8 @@
       </div>
       {{ end }}
 
-      {{/* SEE ALSO */}}
-      {{ with .Params.related_paper }}
-        {{ $paper := $.Site.GetPage (printf "/publication/%s" .) }}
-        {{ with $paper }}
-        <div class="gk-see-also">
-          <h3>See Also</h3>
-          <ul>
-            <li>
-              <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-              <span class="gk-see-year">({{ .Date.Format "2006" }})</span>
-              {{ with .Params.publication }}<br><span style="font-size:0.8rem;color:#888;font-style:italic;">{{ . }}</span>{{ end }}
-            </li>
-            {{ with .Params.dataverse_url }}
-            <li>
-              <a href="{{ . }}" target="_blank" rel="noopener">Replication Data on Harvard Dataverse</a>
-            </li>
-            {{ end }}
-          </ul>
-        </div>
-        {{ end }}
-      {{ end }}
+      {{/* SEE ALSO — auto-discovered across papers, talks, software, datasets. */}}
+      {{ partial "related_finder.html" . }}
 
       {{ partial "components/last-edited.html" . }}
 

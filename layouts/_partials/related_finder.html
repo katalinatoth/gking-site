@@ -1,0 +1,155 @@
+{{/*
+  related_finder.html — auto-discovers related content across publication,
+  talk, software, and dataverse sections for a given page.
+
+  Discovery rules (no scripts required; runs at build time):
+    1. Explicit overrides in front matter are ALWAYS honored first:
+         related_talks:     [slug, slug, ...]    # from publications
+         related_papers:    [slug, slug, ...]    # any section
+         related_software:  [slug, slug, ...]    # any section
+         related_datasets:  [slug, slug, ...]    # any section
+         related_paper:     slug                 # legacy singular
+         related_dataset:   slug                 # legacy singular
+    2. After explicit matches, we score every other page by:
+         - Title-token overlap (stop words stripped)  -> big weight
+         - Shared authors                             -> medium weight
+         - Shared tags / keywords                     -> medium weight
+       Any page scoring above threshold is included.
+    3. Sections shown: talk, software, publication (incl. datasets).
+    4. Results are capped (default 6) and sorted by score, then year desc.
+
+  Usage:
+    {{ partial "related_finder.html" . }}
+*/}}
+
+{{ $page := . }}
+{{ $curSlug := "" }}{{ with $page.File }}{{ $curSlug = path.Base (path.Dir .Path) }}{{ end }}
+{{ $curSection := $page.Section }}
+
+{{/* ---------- helpers: normalize strings ---------- */}}
+{{ $stop := slice "a" "an" "and" "the" "of" "for" "in" "on" "to" "with" "by" "at" "as" "is" "are" "be" "or" "from" "into" "using" "via" "new" "not" "no" "it" "its" "we" "our" "their" "you" "your" "this" "that" "these" "those" "but" "if" "than" "then" "so" "can" "will" "would" "could" "should" "may" "might" "also" "more" "most" "some" "all" "any" "each" "every" "who" "whom" "which" "what" "when" "where" "why" "how" "about" "between" "among" "through" "over" "under" "after" "before" "upon" "across" "per" "vs" "de" "la" "les" "et" "du" }}
+
+{{/* Build comparable token set for current page */}}
+{{ $curTitleTokens := slice }}
+{{ range split (lower ($page.Title | default "")) " " }}
+  {{ $tok := replaceRE `[^a-z0-9]+` "" . }}
+  {{ if and (gt (len $tok) 2) (not (in $stop $tok)) }}
+    {{ $curTitleTokens = $curTitleTokens | append $tok }}
+  {{ end }}
+{{ end }}
+{{ $curAuthors := slice }}
+{{ range ($page.Params.authors | default slice) }}
+  {{ $curAuthors = $curAuthors | append (lower (string .)) }}
+{{ end }}
+{{ $curTags := slice }}
+{{ range ($page.Params.tags | default slice) }}{{ $curTags = $curTags | append (lower (string .)) }}{{ end }}
+{{ range ($page.Params.keywords | default slice) }}{{ $curTags = $curTags | append (lower (string .)) }}{{ end }}
+
+{{/* ---------- collect explicit overrides ---------- */}}
+{{ $picked := slice }}
+{{ $pickedSlugs := slice }}
+
+{{ $explicitLists := slice
+   (dict "field" "related_papers"   "section" "publication")
+   (dict "field" "related_talks"    "section" "talk")
+   (dict "field" "related_software" "section" "software")
+   (dict "field" "related_datasets" "section" "publication") }}
+
+{{ range $explicitLists }}
+  {{ $sect := .section }}
+  {{ $slugs := index $page.Params .field | default slice }}
+  {{ range $slugs }}
+    {{ $p := site.GetPage (printf "/%s/%s" $sect .) }}
+    {{ with $p }}
+      {{ if not (in $pickedSlugs .RelPermalink) }}
+        {{ $picked = $picked | append (dict "page" . "score" 9999) }}
+        {{ $pickedSlugs = $pickedSlugs | append .RelPermalink }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{/* Legacy singular fields */}}
+{{ range slice "related_paper" "related_dataset" }}
+  {{ $slug := index $page.Params . }}
+  {{ with $slug }}
+    {{ $p := site.GetPage (printf "/publication/%s" .) }}
+    {{ with $p }}
+      {{ if not (in $pickedSlugs .RelPermalink) }}
+        {{ $picked = $picked | append (dict "page" . "score" 9999) }}
+        {{ $pickedSlugs = $pickedSlugs | append .RelPermalink }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{/* ---------- automatic scoring pass ---------- */}}
+{{ $threshold := 4 }}
+{{ $candidates := slice }}
+{{ range (where site.RegularPages "Section" "in" (slice "publication" "talk" "software")) }}
+  {{ $same := and (eq .RelPermalink $page.RelPermalink) true }}
+  {{ if and (not $same) (not (in $pickedSlugs .RelPermalink)) }}
+    {{ $score := 0 }}
+
+    {{/* title overlap */}}
+    {{ $otherTokens := slice }}
+    {{ range split (lower (.Title | default "")) " " }}
+      {{ $t := replaceRE `[^a-z0-9]+` "" . }}
+      {{ if and (gt (len $t) 2) (not (in $stop $t)) }}
+        {{ $otherTokens = $otherTokens | append $t }}
+      {{ end }}
+    {{ end }}
+    {{ range $otherTokens }}
+      {{ if in $curTitleTokens . }}{{ $score = add $score 2 }}{{ end }}
+    {{ end }}
+
+    {{/* shared authors */}}
+    {{ range (.Params.authors | default slice) }}
+      {{ if in $curAuthors (lower (string .)) }}{{ $score = add $score 1 }}{{ end }}
+    {{ end }}
+
+    {{/* shared tags / keywords */}}
+    {{ range (.Params.tags | default slice) }}
+      {{ if in $curTags (lower (string .)) }}{{ $score = add $score 2 }}{{ end }}
+    {{ end }}
+    {{ range (.Params.keywords | default slice) }}
+      {{ if in $curTags (lower (string .)) }}{{ $score = add $score 2 }}{{ end }}
+    {{ end }}
+
+    {{ if ge $score $threshold }}
+      {{ $candidates = $candidates | append (dict "page" . "score" $score) }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{/* sort candidates by score desc, then year desc */}}
+{{ $sorted := sort $candidates "score" "desc" }}
+{{ $picked = $picked | append $sorted }}
+
+{{/* ---------- render ---------- */}}
+{{ $limit := 6 }}
+{{ $shown := 0 }}
+{{ if gt (len $picked) 0 }}
+<div class="gk-see-also">
+  <h3>See Also</h3>
+  <ul>
+    {{ range $picked }}
+      {{ if lt $shown $limit }}
+        {{ $p := .page }}
+        {{ $shown = add $shown 1 }}
+        {{ $sect := $p.Section }}
+        {{ $label := "" }}
+        {{ if eq $sect "talk" }}{{ $label = "Talk" }}
+        {{ else if eq $sect "software" }}{{ $label = "Software" }}
+        {{ else if in ($p.Params.publication_types | default slice) "data" }}{{ $label = "Dataset" }}
+        {{ else }}{{ $label = "Paper" }}{{ end }}
+        <li>
+          <span class="gk-see-kind">[{{ $label }}]</span>
+          <a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>
+          <span class="gk-see-year">({{ $p.Date.Format "2006" }})</span>
+        </li>
+      {{ end }}
+    {{ end }}
+  </ul>
+</div>
+{{ end }}

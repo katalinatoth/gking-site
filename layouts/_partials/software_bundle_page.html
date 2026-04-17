@@ -42,6 +42,9 @@
   {{ else }}
   <p style="color:#666;">No additional content.</p>
   {{ end }}
+
+  {{/* Auto-discovered related content (papers/talks/datasets/other software). */}}
+  {{ partial "related_finder.html" . }}
 </div>
 
 <style>
