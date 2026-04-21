@@ -1,8 +1,8 @@
 ---
 title: "Stephen Ansolabehere"
 type: "people"
-role: "MIT"
+role: "Harvard University (Department of Government)"
 research_group_category: "collaborators"
-website: "http://web.mit.edu/polisci/faculty/S.Ansolabehere.html"
+website: "https://www.gov.harvard.edu/directory/stephen-ansolabehere/"
 ---
 
