@@ -10,7 +10,7 @@ authors:
   - "Salil Vadhan"
 links:
   - type: site
-    url: "http://psiprivacy.org/static/about/"
+    url: "https://privacytools.seas.harvard.edu/publications/psipaper"
 see_also:
   - title: "OpenDP: Developing Open Source Tools for Differential Privacy"
     url: "https://opendp.org/"
