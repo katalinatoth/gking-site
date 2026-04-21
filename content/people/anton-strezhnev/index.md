@@ -2,7 +2,7 @@
 title: "Anton Strezhnev"
 type: "people"
 role: "University of Chicago (Assistant Professor of Political Science)"
-research_group_category: "current"
+research_group_category: "collaborators"
 website: "https://www.antonstrezhnev.com/"
 ---
 

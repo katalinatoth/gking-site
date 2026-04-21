@@ -1,5 +1,5 @@
 ---
-title: "Research Group"
+title: "People"
 type: "research-group"
 toc: false
 ---

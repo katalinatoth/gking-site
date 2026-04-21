@@ -1,6 +1,6 @@
 {{ define "main" }}
 
-{{ $labels := dict "current" "Current Research Associates" "alumni_students" "Alumni: Students" "alumni_postdocs" "Alumni: Post-Docs" "collaborators" "Collaborators" }}
+{{ $labels := dict "alumni_students" "Alumni: Students" "alumni_postdocs" "Alumni: Post-Docs" "collaborators" "Collaborators" }}
 
 <div style="max-width:1200px;margin:0 auto;padding:2rem 1.5rem;">
   <h1 style="font-size:2.5rem;font-weight:700;margin:0 0 1.5rem;">{{ .Title }}</h1>
@@ -8,7 +8,7 @@
   <div style="display:flex;gap:2rem;align-items:flex-start;">
     <!-- Sidebar Filters (matches original site: category + name range + search) -->
     <div id="gk-sidebar" style="min-width:220px;max-width:280px;flex-shrink:0;border:1px solid #e2e8f0;border-radius:8px;padding:1.25rem;background:#fafafa;position:sticky;top:5rem;">
-      <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.75rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;">Research Group</h3>
+      <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.75rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;">Category</h3>
       <div id="gk-cat-filters" style="margin-bottom:1.25rem;"></div>
 
       <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.75rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;">Researchers by Last Name</h3>
@@ -82,7 +82,7 @@
   var ranges = ["A-C","D-G","H-J","K-L","M-P","Q-S","T-V","W-Z"];
   ranges.forEach(function(r) { activeRanges[r] = true; });
 
-  var catKeys = ["current","alumni_students","alumni_postdocs","collaborators"];
+  var catKeys = ["alumni_students","alumni_postdocs","collaborators"];
   catKeys.forEach(function(c) { activeCats[c] = true; });
 
   function getLastName(name) {
@@ -136,7 +136,6 @@
   });
 
   var catLabels = {
-    current: "Current Research Associates",
     alumni_students: "Alumni: Students",
     alumni_postdocs: "Alumni: Post-Docs",
     collaborators: "Collaborators"

@@ -183,7 +183,7 @@
   },
   {
     "slug": "albert-l%C3%A1szl%C3%B3-barab%C3%A1si",
-    "name": "Albert-László Barabási",
+    "name": "Albert-L\u00e1szl\u00f3 Barab\u00e1si",
     "affiliation": "Northeastern University (Robert Gray Dodge Professor of Network Science)",
     "research_group_categories": [
       "collaborators"
@@ -464,7 +464,7 @@
   },
   {
     "slug": "antonio-camara",
-    "name": "Antonio Câmara",
+    "name": "Antonio C\u00e2mara",
     "affiliation": "Harvard University",
     "research_group_categories": [
       "alumni_students",
@@ -600,7 +600,7 @@
   },
   {
     "slug": "merce-crosas",
-    "name": "Mercè Crosas",
+    "name": "Merc\u00e8 Crosas",
     "affiliation": "Barcelona Supercomputing Center",
     "research_group_categories": [
       "collaborators"
@@ -618,8 +618,8 @@
   },
   {
     "slug": "juan-eugenio-hern%C3%A1ndez-%C3%A1vila",
-    "name": "Juan Eugenio Hernández Ávila",
-    "affiliation": "Instituto Nacional de Salud Pública (National Institute of Public Health, Mexico)",
+    "name": "Juan Eugenio Hern\u00e1ndez \u00c1vila",
+    "affiliation": "Instituto Nacional de Salud P\u00fablica (National Institute of Public Health, Mexico)",
     "research_group_categories": [
       "collaborators"
     ],
@@ -993,7 +993,7 @@
   },
   {
     "slug": "sandra-gonzalez-bailon",
-    "name": "Sandra González-Bailón",
+    "name": "Sandra Gonz\u00e1lez-Bail\u00f3n",
     "affiliation": "University of Pennsylvania (Annenberg)",
     "research_group_categories": [
       "collaborators"
@@ -1014,7 +1014,7 @@
     "name": "Max Goplerud",
     "affiliation": "University of Texas at Austin (Assistant Professor)",
     "research_group_categories": [
-      "current"
+      "collaborators"
     ],
     "last_name_range": "D-G"
   },
@@ -1069,7 +1069,7 @@
     "name": "Yichen Guan",
     "affiliation": "Harvard University (Graduate Student, Middle Eastern Studies)",
     "research_group_categories": [
-      "current"
+      "collaborators"
     ],
     "last_name_range": "D-G"
   },
@@ -1084,8 +1084,8 @@
   },
   {
     "slug": "mauricio-hern%C3%A1ndez-%C3%A1vila",
-    "name": "Mauricio Hernández Ávila",
-    "affiliation": "Instituto Mexicano del Seguro Social (Director de Prestaciones Económicas y Sociales)",
+    "name": "Mauricio Hern\u00e1ndez \u00c1vila",
+    "affiliation": "Instituto Mexicano del Seguro Social (Director de Prestaciones Econ\u00f3micas y Sociales)",
     "research_group_categories": [
       "collaborators"
     ],
@@ -1371,8 +1371,8 @@
   },
   {
     "slug": "h%C3%A9ctor-hern%C3%A1ndez-llama",
-    "name": "Héctor Hernández Llama",
-    "affiliation": "Secretaría de Salud (Ministry of Health, Mexico)",
+    "name": "H\u00e9ctor Hern\u00e1ndez Llama",
+    "affiliation": "Secretar\u00eda de Salud (Ministry of Health, Mexico)",
     "research_group_categories": [
       "collaborators"
     ],
@@ -1466,8 +1466,7 @@
     "name": "Aaron Kaufman",
     "affiliation": "NYU Abu Dhabi (Assistant Professor of Political Science)",
     "research_group_categories": [
-      "collaborators",
-      "current"
+      "collaborators"
     ],
     "last_name_range": "K-L"
   },
@@ -1575,8 +1574,7 @@
     "name": "Mayya Komisarchik",
     "affiliation": "University of Rochester (Assistant Professor)",
     "research_group_categories": [
-      "collaborators",
-      "current"
+      "collaborators"
     ],
     "last_name_range": "K-L"
   },
@@ -1831,8 +1829,7 @@
     "name": "Christopher Lucas",
     "affiliation": "Washington University in St. Louis (Associate Professor)",
     "research_group_categories": [
-      "collaborators",
-      "current"
+      "collaborators"
     ],
     "last_name_range": "K-L"
   },
@@ -2212,8 +2209,7 @@
     "name": "Casey Petroff",
     "affiliation": "University of Rochester (Assistant Professor)",
     "research_group_categories": [
-      "collaborators",
-      "current"
+      "collaborators"
     ],
     "last_name_range": "M-P"
   },
@@ -2222,8 +2218,7 @@
     "name": "Stephen Pettigrew",
     "affiliation": "University of Pennsylvania (Director of Data Sciences, PORES)",
     "research_group_categories": [
-      "collaborators",
-      "current"
+      "collaborators"
     ],
     "last_name_range": "M-P"
   },
@@ -2239,7 +2234,7 @@
   {
     "slug": "giuseppe-porro",
     "name": "Giuseppe Porro",
-    "affiliation": "Università dell'Insubria (Professore Ordinario)",
+    "affiliation": "Universit\u00e0 dell'Insubria (Professore Ordinario)",
     "research_group_categories": [
       "collaborators"
     ],
@@ -2260,7 +2255,7 @@
     "affiliation": "Stanford University (Assistant Professor of Political Science)",
     "research_group_categories": [
       "alumni_students",
-      "current"
+      "collaborators"
     ],
     "last_name_range": "M-P"
   },
@@ -2293,8 +2288,8 @@
   },
   {
     "slug": "martha-mar%C3%AD-t%C3%A9llez-rojo",
-    "name": "Martha María Téllez-Rojo",
-    "affiliation": "Instituto Nacional de Salud Pública (National Institute of Public Health, Mexico)",
+    "name": "Martha Mar\u00eda T\u00e9llez-Rojo",
+    "affiliation": "Instituto Nacional de Salud P\u00fablica (National Institute of Public Health, Mexico)",
     "research_group_categories": [
       "collaborators"
     ],
@@ -2471,8 +2466,7 @@
     "name": "Melissa Sands",
     "affiliation": "London School of Economics (Assistant Professor of Politics and Data Science)",
     "research_group_categories": [
-      "collaborators",
-      "current"
+      "collaborators"
     ],
     "last_name_range": "Q-S"
   },
@@ -2509,7 +2503,7 @@
     "name": "Alan Schmaltz",
     "affiliation": "Reexpress AI (Principal Researcher)",
     "research_group_categories": [
-      "current"
+      "collaborators"
     ],
     "last_name_range": "Q-S"
   },
@@ -2757,8 +2751,7 @@
     "name": "Anton Strezhnev",
     "affiliation": "University of Chicago (Assistant Professor of Political Science)",
     "research_group_categories": [
-      "collaborators",
-      "current"
+      "collaborators"
     ],
     "last_name_range": "Q-S"
   },
@@ -3011,7 +3004,7 @@
   {
     "slug": "manett-vargas",
     "name": "Manett Vargas",
-    "affiliation": "Secretaría de Salud, Mexico (Directora General, Dirección General de Evaluación del Desempeño)",
+    "affiliation": "Secretar\u00eda de Salud, Mexico (Directora General, Direcci\u00f3n General de Evaluaci\u00f3n del Desempe\u00f1o)",
     "research_group_categories": [
       "collaborators"
     ],

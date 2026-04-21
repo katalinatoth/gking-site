@@ -91,7 +91,7 @@ menus:
     - name: Dataverse
       url: /dataverse/
       weight: 50
-    - name: Research Group
+    - name: People
       url: /research-group/
       weight: 60
     - name: Teaching
