@@ -3,6 +3,6 @@ title: "John Bruce"
 type: "people"
 role: "University of Mississippi"
 research_group_category: "collaborators"
-website: "http://www.olemiss.edu/depts/political_science/faculty/jbruce.html"
+website: "https://politicalscience.olemiss.edu/people/john-bruce/"
 ---
 

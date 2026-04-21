@@ -4,6 +4,6 @@ type: "people"
 role: "New York University (Assistant Professor, Center for Data Science)"
 research_group_category: "alumni_students"
 email: "michael.z.gill@gmail.com"
-website: "https://cds.nyu.edu/team/michael-gill/"
+website: "https://mzgill.github.io/"
 ---
 

@@ -3,6 +3,6 @@ title: "Langche Zeng"
 type: "people"
 role: "UC San Diego"
 research_group_category: "collaborators"
-website: "http://polisci.ucsd.edu/faculty/zeng.html"
+website: "https://polisci.ucsd.edu/faculty/faculty-files/zeng.htm"
 ---
 

@@ -3,6 +3,6 @@ title: "Christine Harrington"
 type: "people"
 role: "NYU"
 research_group_category: "collaborators"
-website: "http://www.law.nyu.edu/faculty/profiles/affiliated/harringtonc.html"
+website: "https://wp.nyu.edu/faculty-christine_harrington/"
 ---
 

@@ -3,6 +3,6 @@ title: "Michael Herron"
 type: "people"
 role: "Dartmouth College"
 research_group_category: "collaborators"
-website: "http://www.dartmouth.edu/~herron/"
+website: "https://government.dartmouth.edu/people/michael-herron"
 ---
 
