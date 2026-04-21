@@ -98,7 +98,10 @@
   // and are excluded from the "Other" tab.
   var bookDrupalTypes = { "book": 1, "book_chapter": 1 };
 
-  var activeTab = "journal";
+  // Allow deep-linking to a specific tab via URL hash (e.g. /publication/#patent).
+  var validTabIds = { journal: 1, book: 1, presentation: 1, software: 1, patent: 1, other: 1 };
+  var initialHash = (window.location.hash || "").replace(/^#/, "");
+  var activeTab = validTabIds[initialHash] ? initialHash : "journal";
   var activeSubtypes = {};
   var activeYears = {};
   var searchTerm = "";
@@ -133,6 +136,11 @@
         activeYears = {};
         searchTerm = "";
         document.getElementById("gk-search").value = "";
+        if (history.replaceState) {
+          history.replaceState(null, "", "#" + tab.id);
+        } else {
+          window.location.hash = tab.id;
+        }
         buildTabs();
         buildSidebar();
         render();
@@ -326,6 +334,21 @@
   buildTabs();
   buildSidebar();
   render();
+
+  // React to back/forward navigation between tabs.
+  window.addEventListener("hashchange", function() {
+    var h = (window.location.hash || "").replace(/^#/, "");
+    if (validTabIds[h] && h !== activeTab) {
+      activeTab = h;
+      activeSubtypes = {};
+      activeYears = {};
+      searchTerm = "";
+      document.getElementById("gk-search").value = "";
+      buildTabs();
+      buildSidebar();
+      render();
+    }
+  });
 })();
 </script>
 
