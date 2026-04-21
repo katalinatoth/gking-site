@@ -4,8 +4,10 @@
   <h1 style="font-size:2.5rem;font-weight:700;margin:0 0 1.5rem;">{{ .Title }}</h1>
 
   {{/* Sticky tab navigation: keeps the active section visible while scrolling
-       (recognition over recall). top:4rem clears the fixed site navbar. */}}
-  <div id="gk-tabs-wrap" style="position:sticky;top:4rem;z-index:20;background:#fff;padding-top:0.25rem;margin-bottom:1.5rem;">
+       (recognition over recall). The site navbar isn't sticky, so we pin
+       the tab strip to top:0 with an opaque background — its solid white
+       fill then masks any cards that scroll up beneath it. */}}
+  <div id="gk-tabs-wrap" style="position:sticky;top:0;z-index:20;background:#fff;padding:0.5rem 0 0;margin-bottom:1.5rem;box-shadow:0 4px 6px -4px rgba(0,0,0,0.08);">
     <nav id="gk-tabs" aria-label="Writings categories" style="display:flex;flex-wrap:wrap;gap:0;border-bottom:2px solid #e2e8f0;"></nav>
   </div>
 
@@ -13,7 +15,7 @@
     {{/* Sidebar order is intentional: search first (strongest "scent of
          information" affordance), then optional Type, then Year, then a
          Reset button (Hick's Law / error recovery). */}}
-    <aside id="gk-filters" aria-label="Filter writings" style="min-width:240px;max-width:260px;flex-shrink:0;border:1px solid #e2e8f0;border-radius:8px;padding:1.25rem;background:#fafafa;position:sticky;top:8rem;">
+    <aside id="gk-filters" aria-label="Filter writings" style="min-width:240px;max-width:260px;flex-shrink:0;border:1px solid #e2e8f0;border-radius:8px;padding:1.25rem;background:#fafafa;position:sticky;top:4rem;">
       <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.5rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;"><label for="gk-search">Search</label></h3>
       <input type="text" id="gk-search" aria-label="Search by title, author, venue, or abstract" placeholder="Title, author, venue…" style="width:100%;padding:6px 10px;border:1px solid #767676;border-radius:4px;font-size:0.9rem;box-sizing:border-box;margin-bottom:1.25rem;">
 
