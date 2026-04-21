@@ -52,6 +52,12 @@ jobs:
       - name: Install Node.js dependencies
         run: npm ci
 
+      - name: Install Python dependencies
+        run: pip install pyyaml
+
+      - name: Generate redirect stubs
+        run: python3 scripts/build_redirects.py
+
       - name: Build with Hugo
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache

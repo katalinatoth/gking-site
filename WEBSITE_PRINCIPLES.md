@@ -527,15 +527,27 @@ are a contract.
 - **The directory name of a content folder is the permanent slug.** Never
   rename a folder once the site is live. If the title changes, edit
   `title:` in front matter but keep the folder.
-- **Redirects for legacy URLs.** When migrating, use Hugo's `aliases:`
-  front-matter key (or the generated redirect files under `public/`) to
-  forward every old URL path to the new one. Nothing from the previous
-  site should 404.
+- **Carry the legacy site's slugs through verbatim.** When migrating
+  from an older CMS (Drupal in this case), every publication / talk /
+  software folder is named with the exact slug the old site used, so
+  `…/publication/<slug>/` keeps working without a single redirect
+  entry. The scraped HTML filenames are the authoritative slug list.
+- **Two mechanisms for everything else.** For arbitrary short URLs
+  (e.g. `gking.harvard.edu/rd` → a Google Doc; `/quest` → a specific
+  paper), maintain one centralized data file (`data/redirects.yaml`)
+  that non-technical owners can edit on GitHub. A small pre-build
+  step materializes one tiny stub page per entry and Hugo renders a
+  meta-refresh. For short URLs that belong to one specific piece of
+  content, prefer Hugo's `aliases:` in that page's front matter — the
+  short URL then lives with the content and moves/disappears with it.
 - **No URL-visible IDs.** Slugs are human-readable (kebab-case title),
   not numeric primary keys or random hashes.
 - **Deep links work.** A reader who gets `…/publication/<slug>/#abstract`
   from a friend lands scrolled to the abstract. Do not use JS routers
   that discard hash fragments.
+- **A broken link from the outside is the owner's pain.** When you spot
+  one, add an entry to `data/redirects.yaml`; don't tell people to
+  update their bookmarks.
 
 ### 14.5 Information density over whitespace
 

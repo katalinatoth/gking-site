@@ -1,7 +1,7 @@
 ---
 title: "Weijie Li"
 type: "people"
-role: "How We Feel Project / Pinterest"
+role: ""
 research_group_category: "collaborators"
 ---
 

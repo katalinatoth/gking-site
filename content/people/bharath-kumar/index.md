@@ -1,7 +1,7 @@
 ---
 title: "Bharath Kumar"
 type: "people"
-role: "World Health Organization / BetterBirth (India)"
+role: ""
 research_group_category: "collaborators"
 ---
 

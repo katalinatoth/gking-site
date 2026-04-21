@@ -1,0 +1,57 @@
+# ===========================================================================
+# Short-URL redirects for gking.harvard.edu
+# ---------------------------------------------------------------------------
+# Each entry below creates a short URL on your site. Visiting
+#
+#     https://gking.harvard.edu/<from>/
+#
+# will forward to the <to> target.
+#
+# Edit this file directly on GitHub (pencil icon), commit, and the site
+# will rebuild within a couple of minutes. The new redirect is live as
+# soon as the "Deploy" action shows a green check.
+#
+# ---------------------------------------------------------------------------
+# Fields
+# ---------------------------------------------------------------------------
+#   from   (required)  The URL path to own, without slashes. Must be made
+#                      of lowercase letters, digits, and dashes only.
+#                      MUST NOT collide with an existing page (e.g. "bio"
+#                      is already the bio page). The build will fail and
+#                      tell you if it collides.
+#   to     (required)  Target URL. Can be:
+#                        - a full external URL    (https://...)
+#                        - an internal path        (/publication/quest-paper/)
+#   note   (optional)  A free-form reminder to yourself. Ignored by the build.
+#
+# ---------------------------------------------------------------------------
+# Examples (real entries go under `redirects:` below; delete the examples
+# once you've added your own)
+# ---------------------------------------------------------------------------
+#
+#   - from: rd
+#     to:   https://docs.google.com/document/d/your-doc-id/edit
+#     note: "Research Directions doc."
+#
+#   - from: quest
+#     to:   /publication/quest/
+#     note: "Quest paper short URL."
+#
+#   - from: ei-software
+#     to:   https://github.com/iqss-research/ei
+#     note: "EI software repo."
+#
+# ===========================================================================
+
+redirects:
+  # Placeholder examples — replace with real ones, or delete, at will.
+  # The short URLs below will resolve at e.g. /rd/, /quest/.
+
+  # - from: rd
+  #   to:   https://docs.google.com/document/d/your-doc-id/edit
+  #   note: "Research Directions living document."
+
+  # - from: quest
+  #   to:   /publication/quest/
+  #   note: "Quest paper short URL."
+

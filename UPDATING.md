@@ -38,7 +38,8 @@ local tools, no developer knowledge required. Just edit the file, click
 12. [Change a button label (“Article”, “Publisher’s Version”, …)](#change-a-button-label)
 13. [Add a paper to a Research Area](#add-a-paper-to-a-research-area)
 14. [Edit the teaching / contact / other pages](#edit-the-teaching--contact--other-pages)
-15. [Troubleshooting](#troubleshooting)
+15. [Short URLs & redirects (`/rd`, `/quest`, …)](#short-urls--redirects)
+16. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -438,6 +439,96 @@ jumps there via the `#advice` anchor, and the legacy `/advice/` URL
 auto-redirects to the Teaching page (via the `aliases:` entry at the top
 of `teaching/_index.md`). To add, remove, or reorder advice items, edit
 that section.
+
+---
+
+## Short URLs & redirects
+
+Your old Drupal site had a bunch of short URLs that forwarded to other
+places — e.g. `gking.harvard.edu/rd` to a Google Doc, or
+`gking.harvard.edu/quest` to a specific paper. The new site keeps the
+same idea, but in a much simpler way: **one YAML file for the whole
+list**.
+
+### (A) Short URL that forwards somewhere (Google Doc, GitHub repo, another paper)
+
+Edit `hugo-site/data/redirects.yaml`. It's a plain list; each entry has
+a `from` (the short path you want to own) and a `to` (the target URL).
+Commit, wait ~3 minutes, and the redirect is live at
+`/<from>/`.
+
+```yaml
+redirects:
+  - from: rd
+    to:   https://docs.google.com/document/d/abcdef123/edit
+    note: "Research Directions living doc"
+
+  - from: quest
+    to:   /publication/quest/
+    note: "Short URL for the Quest paper"
+
+  - from: ei
+    to:   https://github.com/iqss-research/ei
+    note: "EI software repo"
+```
+
+- `from` must be lowercase letters, digits, and dashes only. Must **not**
+  collide with an existing page (e.g. `bio` already means `/bio/`); the
+  build will fail with a clear message if it does, so you can pick a
+  different one.
+- `to` can be either a full external URL (`https://…`) or an internal
+  path (`/publication/my-paper/`).
+- `note` is optional — it's just a reminder to future-you. The build
+  ignores it.
+
+When you've finished editing, commit the file. That's it. GitHub
+rebuilds the site, and `/rd/`, `/quest/`, `/ei/` all work immediately
+after the green check appears in the **Actions** tab.
+
+### (B) Short URL that forwards to one specific paper/talk/software
+
+If the short URL is *about* a particular paper and should redirect to
+that paper's page, you have two equally-good options:
+
+**Option 1 — add it to `data/redirects.yaml`** (same as above), pointing
+`to:` at the paper's path. Simple, and keeps all redirects in one place.
+
+**Option 2 — add it to the paper's own `index.md` as an `aliases:`
+entry:**
+
+```yaml
+---
+title: "Quest: A Better Way to Measure X"
+date: '2026-04-15'
+aliases:
+  - /quest/
+authors:
+  - Gary King
+  ...
+---
+```
+
+Hugo will automatically generate `/quest/index.html` that redirects to
+the paper's canonical URL. The advantage of this option is that the
+short URL lives inside the paper itself, so if you ever delete or
+rename the paper, the redirect goes with it.
+
+Use Option 1 for "living" redirects (docs, spreadsheets, external
+projects that change over time). Use Option 2 for "this short URL
+belongs to this paper" redirects.
+
+### (C) Preserving old Drupal URLs
+
+Every paper, talk, and software page on the new site uses the **same
+slug** as the old Drupal site, so URLs like
+`/publication/quest-a-better-way.../` already work without any extra
+configuration. Likewise, all the major section pages (`/bio/`,
+`/contact/`, `/dataverse/`, `/teaching/`, `/research-areas/`,
+`/research-group/`, etc.) are preserved.
+
+If you spot an old URL that stopped working after the migration, add
+it to `data/redirects.yaml` pointing at its new home, and the old link
+will work again.
 
 ---
 

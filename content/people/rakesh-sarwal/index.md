@@ -1,7 +1,7 @@
 ---
 title: "Rakesh Sarwal"
 type: "people"
-role: "NITI Aayog (former), Government of India"
+role: ""
 research_group_category: "collaborators"
 ---
 

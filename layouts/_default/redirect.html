@@ -1,0 +1,25 @@
+{{- /*
+  Generic redirect layout. Used by:
+    (a) auto-generated short URLs from data/redirects.yaml
+    (b) any page that sets `layout: redirect` and a `target_url:` param.
+
+  Meta-refresh is universally supported; we intentionally skip a JS
+  fallback because Hugo's HTML minifier mangles string literals inside
+  inline <script> blocks (wraps them in extra quotes).
+*/ -}}
+{{- $target := .Params.target_url | default "/" -}}
+<!DOCTYPE html>
+<html lang="{{ site.Language.LanguageCode | default "en" }}">
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting&hellip;</title>
+  <meta http-equiv="refresh" content="0; url={{ $target | safeURL }}">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="canonical" href="{{ $target | safeURL }}">
+  <style>body{font-family:system-ui,sans-serif;max-width:40rem;margin:4rem auto;padding:0 1rem;color:#222;line-height:1.5}a{color:#a41d1d}</style>
+</head>
+<body>
+  <p>Redirecting to <a href="{{ $target | safeURL }}">{{ $target }}</a>&hellip;</p>
+  <p>If your browser does not redirect automatically, follow the link above.</p>
+</body>
+</html>
