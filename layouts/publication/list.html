@@ -17,8 +17,8 @@
       <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.75rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;">Year</h3>
       <div id="gk-year-filters" style="max-height:200px;overflow-y:auto;margin-bottom:1.25rem;"></div>
 
-      <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.5rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;">Search</h3>
-      <input type="text" id="gk-search" placeholder="Type to filter..." style="width:100%;padding:6px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9rem;box-sizing:border-box;">
+      <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.5rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;"><label for="gk-search">Search</label></h3>
+      <input type="text" id="gk-search" aria-label="Filter publications" placeholder="Type to filter..." style="width:100%;padding:6px 10px;border:1px solid #767676;border-radius:4px;font-size:0.9rem;box-sizing:border-box;">
     </div>
 
     <!-- Results -->
@@ -26,7 +26,7 @@
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem;">
         <span id="gk-result-count" style="font-size:1.05rem;font-weight:600;color:#333;"></span>
         <div style="display:flex;gap:1rem;align-items:center;">
-          <select id="gk-sort" style="padding:4px 8px;border:1px solid #ccc;border-radius:4px;font-size:0.85rem;">
+          <select id="gk-sort" aria-label="Sort publications" style="padding:4px 8px;border:1px solid #767676;border-radius:4px;font-size:0.85rem;">
             <option value="year-desc">Sort by Year</option>
             <option value="year-asc">Year (oldest first)</option>
             <option value="alpha-az">Alphabetical A–Z</option>
@@ -126,7 +126,7 @@
       var btn = document.createElement("button");
       btn.className = "gk-tab" + (tab.id === activeTab ? " gk-tab-active" : "");
       btn.dataset.tab = tab.id;
-      btn.innerHTML = tab.label + ' <span style="font-size:0.8em;color:#888;">(' + count + ')</span>';
+      btn.innerHTML = tab.label + ' <span style="font-size:0.8em;color:#595959;">(' + count + ')</span>';
       btn.addEventListener("click", function() {
         activeTab = tab.id;
         activeSubtypes = {};

@@ -5,6 +5,82 @@
   --hbx-primary-500: #C62535;
 }
 
+/* =========================================================================
+   ACCESSIBILITY (WCAG 2.1 AA) UTILITIES
+   - Skip-to-main-content link (visible on focus)
+   - Visually-hidden helper (.sr-only) for screen-reader-only text
+   - Strong, visible :focus-visible indicator on interactive elements
+   - Remove the WCAG-failing main-content outline that some templates apply
+   ========================================================================= */
+
+/* Skip link: hidden until keyboard focus, then snaps into view at top-left. */
+.gk-skip-link {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 8px 16px;
+  background: #1a3a5c;
+  color: #fff !important;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border-radius: 0 0 6px 0;
+  z-index: 1000;
+  transform: translateY(-200%);
+  transition: transform 0.15s ease-in-out;
+}
+.gk-skip-link:focus,
+.gk-skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 3px solid #ffd166;
+  outline-offset: 2px;
+}
+
+/* Reusable visually-hidden helper for assistive-tech-only content. */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Programmatically focused <main> should not show its own focus ring. */
+main#main-content:focus,
+main#main-content:focus-visible {
+  outline: none;
+}
+
+/* Strong, consistent keyboard focus indicator on every interactive element.
+   Uses :focus-visible so mouse clicks don't show the ring. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible,
+[role="button"]:focus-visible,
+[tabindex]:not([tabindex="-1"]):focus-visible {
+  outline: 3px solid #ffd166;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Open the navbar dropdown with keyboard focus too (not only hover).
+   The vendor markup uses `lg:group-hover:visible/opacity-100`; mirror that
+   on `:focus-within` so keyboard users can reach dropdown items. */
+@media (min-width: 1024px) {
+  .nav-dropdown:focus-within > .nav-dropdown-list,
+  .nav-dropdown:hover > .nav-dropdown-list {
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}
+
 /* Force light mode — override dark mode regardless of system preference */
 html.dark,
 html.dark body,

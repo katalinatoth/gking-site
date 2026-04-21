@@ -10,10 +10,10 @@
   </nav>
 
   <!-- Title band (similar to original orange banner) -->
-  <header style="background:#c45f12;color:#fff;padding:1.75rem 1.5rem 1.5rem;margin:0 -0.25rem 0;border-radius:4px 4px 0 0;">
+  <header style="background:#8c3e0a;color:#fff;padding:1.75rem 1.5rem 1.5rem;margin:0 -0.25rem 0;border-radius:4px 4px 0 0;">
     <h1 style="margin:0;font-size:1.85rem;font-weight:600;font-family:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;">{{ .Title }}</h1>
     {{ with .Params.role }}
-    <p style="margin:0.5rem 0 0;font-size:1.05rem;opacity:0.95;">{{ . }}</p>
+    <p style="margin:0.5rem 0 0;font-size:1.05rem;color:#fff;">{{ . }}</p>
     {{ end }}
   </header>
 
@@ -47,7 +47,7 @@
       </div>
       {{ end }}
       {{ if and (not .Params.email) (not .Params.website) }}
-      <p style="color:#888;font-size:0.9rem;margin:0;">&nbsp;</p>
+      <p style="color:#595959;font-size:0.9rem;margin:0;">&nbsp;</p>
       {{ end }}
     </div>
   </div>

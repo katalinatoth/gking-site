@@ -10,9 +10,9 @@
         Gary King is the Weatherhead University Professor at Harvard University. He also serves as Director of the Institute for Quantitative Social Science. He and his research group develop and apply empirical methods in many areas of social science research.
       </p>
       <div>
-        <a href="{{ "bio/" | relURL }}" style="display:inline-flex;align-items:center;gap:8px;background:#BF5803;color:#fff;padding:14px 28px;border-radius:50px;text-decoration:none;font-size:1rem;font-weight:500;transition:background 0.2s;">
+        <a href="{{ "bio/" | relURL }}" style="display:inline-flex;align-items:center;gap:8px;background:#a04a02;color:#fff;padding:14px 28px;border-radius:50px;text-decoration:none;font-size:1rem;font-weight:500;transition:background 0.2s;">
           Full Bio and CV
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16l4-4-4-4"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 16l4-4-4-4"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
         </a>
       </div>
     </div>
@@ -35,7 +35,7 @@
       {{ range $data.methods }}
       <details class="gk-hp-area" id="{{ .name | urlize }}" style="border-bottom:1px solid #eee;margin-bottom:0;">
         <summary style="font-size:0.9rem;font-weight:500;cursor:pointer;padding:6px 0;list-style:none;display:flex;align-items:center;gap:5px;color:#337ab7;">
-          <span class="gk-hp-arrow">&#9660;</span> {{ .name }}
+          <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span> {{ .name }}
         </summary>
         <div style="padding:4px 0 10px 16px;">
           {{ with .description }}
@@ -46,7 +46,7 @@
           {{ if gt $totalPapers 0 }}
           <details class="gk-hp-pubs">
             <summary style="font-size:0.8rem;cursor:pointer;color:#337ab7;padding:2px 0;list-style:none;display:flex;align-items:center;gap:4px;">
-              <span class="gk-hp-arrow">&#9660;</span> Publications
+              <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span> Publications
             </summary>
             <div style="padding:4px 0 4px 12px;">
               {{ range .subcategories }}
@@ -79,7 +79,7 @@
       {{ range $data.applications }}
       <details class="gk-hp-area" id="{{ .name | urlize }}" style="border-bottom:1px solid #eee;margin-bottom:0;">
         <summary style="font-size:0.9rem;font-weight:500;cursor:pointer;padding:6px 0;list-style:none;display:flex;align-items:center;gap:5px;color:#337ab7;">
-          <span class="gk-hp-arrow">&#9660;</span> {{ .name }}
+          <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span> {{ .name }}
         </summary>
         <div style="padding:4px 0 10px 16px;">
           {{ with .description }}
@@ -90,7 +90,7 @@
           {{ if gt $totalPapers 0 }}
           <details class="gk-hp-pubs">
             <summary style="font-size:0.8rem;cursor:pointer;color:#337ab7;padding:2px 0;list-style:none;display:flex;align-items:center;gap:4px;">
-              <span class="gk-hp-arrow">&#9660;</span> Publications
+              <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span> Publications
             </summary>
             <div style="padding:4px 0 4px 12px;">
               {{ range .subcategories }}
@@ -157,13 +157,13 @@
         {{ with $page }}
       <details class="gk-hp-item">
         <summary style="font-size:0.88rem;cursor:pointer;padding:5px 0;border-bottom:1px solid #eee;list-style:none;display:flex;align-items:baseline;gap:5px;color:#337ab7;line-height:1.4;">
-          <span class="gk-hp-arrow" style="flex-shrink:0;">&#9660;</span>
+          <span class="gk-hp-arrow" aria-hidden="true" style="flex-shrink:0;">&#9660;</span>
           <span>{{ .Title }}</span>
         </summary>
         <div style="padding:6px 0 8px 16px;font-size:0.82rem;color:#555;border-bottom:1px solid #eee;">
           {{ $authors := .Params.authors | default slice }}
           {{ if gt (len $authors) 0 }}<div style="margin-bottom:3px;">{{ delimit $authors ", " }}</div>{{ end }}
-          {{ with .Params.publication }}<div style="font-style:italic;color:#777;">{{ . }}</div>{{ end }}
+          {{ with .Params.publication }}<div style="font-style:italic;color:#595959;">{{ . }}</div>{{ end }}
           {{ with .Params.abstract }}<div style="margin-top:4px;line-height:1.4;color:#666;">{{ . | truncate 200 | markdownify }}</div>{{ end }}
           <div style="margin-top:6px;"><a href="{{ .RelPermalink }}" style="color:#337ab7;text-decoration:none;font-weight:500;">Read more &rarr;</a></div>
         </div>
@@ -183,11 +183,11 @@
         {{ with $page }}
       <details class="gk-hp-item">
         <summary style="font-size:0.88rem;cursor:pointer;padding:5px 0;border-bottom:1px solid #eee;list-style:none;display:flex;align-items:baseline;gap:5px;color:#337ab7;line-height:1.4;">
-          <span class="gk-hp-arrow" style="flex-shrink:0;">&#9660;</span>
+          <span class="gk-hp-arrow" aria-hidden="true" style="flex-shrink:0;">&#9660;</span>
           <span>{{ .Title }}</span>
         </summary>
         <div style="padding:6px 0 8px 16px;font-size:0.82rem;color:#555;border-bottom:1px solid #eee;">
-          {{ with .Params.event }}<div style="font-style:italic;color:#777;">{{ . }}</div>{{ end }}
+          {{ with .Params.event }}<div style="font-style:italic;color:#595959;">{{ . }}</div>{{ end }}
           {{ with .Params.abstract }}<div style="margin-top:4px;line-height:1.4;color:#666;">{{ . | truncate 200 | markdownify }}</div>{{ end }}
           <div style="margin-top:6px;"><a href="{{ .RelPermalink }}" style="color:#337ab7;text-decoration:none;font-weight:500;">Read more &rarr;</a></div>
         </div>
@@ -205,13 +205,13 @@
       {{ range $bookPages }}
       <details class="gk-hp-item">
         <summary style="font-size:0.88rem;cursor:pointer;padding:5px 0;border-bottom:1px solid #eee;list-style:none;display:flex;align-items:baseline;gap:5px;color:#337ab7;line-height:1.4;">
-          <span class="gk-hp-arrow" style="flex-shrink:0;">&#9660;</span>
+          <span class="gk-hp-arrow" aria-hidden="true" style="flex-shrink:0;">&#9660;</span>
           <span>{{ .Title }}</span>
         </summary>
         <div style="padding:6px 0 8px 16px;font-size:0.82rem;color:#555;border-bottom:1px solid #eee;">
           {{ $authors := .Params.authors | default slice }}
           {{ if gt (len $authors) 0 }}<div style="margin-bottom:3px;">{{ delimit $authors ", " }}</div>{{ end }}
-          {{ with .Params.publication }}<div style="font-style:italic;color:#777;">{{ . }}</div>{{ end }}
+          {{ with .Params.publication }}<div style="font-style:italic;color:#595959;">{{ . }}</div>{{ end }}
           {{ with .Params.abstract }}<div style="margin-top:4px;line-height:1.4;color:#666;">{{ . | truncate 200 | markdownify }}</div>{{ end }}
           <div style="margin-top:6px;"><a href="{{ .RelPermalink }}" style="color:#337ab7;text-decoration:none;font-weight:500;">Read more &rarr;</a></div>
         </div>
@@ -234,7 +234,7 @@
       <h3 style="font-size:1.2rem;font-weight:600;margin:0 0 12px;color:#1E1E1E;">Startups</h3>
       <details class="gk-hp-item">
         <summary style="font-size:0.88rem;cursor:pointer;padding:5px 0;border-bottom:1px solid #eee;list-style:none;display:flex;align-items:baseline;gap:5px;color:#337ab7;line-height:1.4;">
-          <span class="gk-hp-arrow" style="flex-shrink:0;">&#9660;</span><span>QuickCode</span>
+          <span class="gk-hp-arrow" aria-hidden="true" style="flex-shrink:0;">&#9660;</span><span>QuickCode</span>
         </summary>
         <div style="padding:6px 0 8px 16px;font-size:0.82rem;color:#555;border-bottom:1px solid #eee;">
           <div style="margin-top:6px;"><a href="https://www.quickcode.ai/" target="_blank" rel="noopener" style="color:#337ab7;text-decoration:none;font-weight:500;">Visit site &rarr;</a></div>
@@ -242,7 +242,7 @@
       </details>
       <details class="gk-hp-item">
         <summary style="font-size:0.88rem;cursor:pointer;padding:5px 0;border-bottom:1px solid #eee;list-style:none;display:flex;align-items:baseline;gap:5px;color:#337ab7;line-height:1.4;">
-          <span class="gk-hp-arrow" style="flex-shrink:0;">&#9660;</span><span>Perusall</span>
+          <span class="gk-hp-arrow" aria-hidden="true" style="flex-shrink:0;">&#9660;</span><span>Perusall</span>
         </summary>
         <div style="padding:6px 0 8px 16px;font-size:0.82rem;color:#555;border-bottom:1px solid #eee;">
           <div style="margin-top:6px;"><a href="https://www.perusall.com/" target="_blank" rel="noopener" style="color:#337ab7;text-decoration:none;font-weight:500;">Visit site &rarr;</a></div>
@@ -250,37 +250,37 @@
       </details>
       <details class="gk-hp-item">
         <summary style="font-size:0.88rem;cursor:pointer;padding:5px 0;border-bottom:1px solid #eee;list-style:none;display:flex;align-items:baseline;gap:5px;color:#337ab7;line-height:1.4;">
-          <span class="gk-hp-arrow" style="flex-shrink:0;">&#9660;</span><span>OpenScholar</span>
+          <span class="gk-hp-arrow" aria-hidden="true" style="flex-shrink:0;">&#9660;</span><span>OpenScholar</span>
         </summary>
         <div style="padding:6px 0 8px 16px;font-size:0.82rem;color:#555;border-bottom:1px solid #eee;">
-          <div style="color:#888;">Acquired by Monomyth Group</div>
+          <div style="color:#595959;">Acquired by Monomyth Group</div>
           <div style="margin-top:6px;"><a href="https://theopenscholar.com/" target="_blank" rel="noopener" style="color:#337ab7;text-decoration:none;font-weight:500;">Visit site &rarr;</a></div>
         </div>
       </details>
       <details class="gk-hp-item">
         <summary style="font-size:0.88rem;cursor:pointer;padding:5px 0;border-bottom:1px solid #eee;list-style:none;display:flex;align-items:baseline;gap:5px;color:#337ab7;line-height:1.4;">
-          <span class="gk-hp-arrow" style="flex-shrink:0;">&#9660;</span><span>Thresher</span>
+          <span class="gk-hp-arrow" aria-hidden="true" style="flex-shrink:0;">&#9660;</span><span>Thresher</span>
         </summary>
         <div style="padding:6px 0 8px 16px;font-size:0.82rem;color:#555;border-bottom:1px solid #eee;">
-          <div style="color:#888;">Acquired by Two Six Technologies, a Carlyle Company; <a href="https://docs.google.com/document/d/1kP1960J0NUuaoEFIakXK5p98xFEz13QvEdpwGh_n5aM/" target="_blank" style="color:#337ab7;">the story</a></div>
+          <div style="color:#595959;">Acquired by Two Six Technologies, a Carlyle Company; <a href="https://docs.google.com/document/d/1kP1960J0NUuaoEFIakXK5p98xFEz13QvEdpwGh_n5aM/" target="_blank" style="color:#337ab7;">the story</a></div>
           <div style="margin-top:6px;"><a href="https://www.thresher.io/" target="_blank" rel="noopener" style="color:#337ab7;text-decoration:none;font-weight:500;">Visit site &rarr;</a></div>
         </div>
       </details>
       <details class="gk-hp-item">
         <summary style="font-size:0.88rem;cursor:pointer;padding:5px 0;border-bottom:1px solid #eee;list-style:none;display:flex;align-items:baseline;gap:5px;color:#337ab7;line-height:1.4;">
-          <span class="gk-hp-arrow" style="flex-shrink:0;">&#9660;</span><span>Crimson Hexagon</span>
+          <span class="gk-hp-arrow" aria-hidden="true" style="flex-shrink:0;">&#9660;</span><span>Crimson Hexagon</span>
         </summary>
         <div style="padding:6px 0 8px 16px;font-size:0.82rem;color:#555;border-bottom:1px solid #eee;">
-          <div style="color:#888;">Merged with Brandwatch, acquired by Cision; <a href="https://docs.google.com/document/d/1-M0MqxE2YG-Smp_6BwYbxegdnHuznqdc91YHQyeTbsk" target="_blank" style="color:#337ab7;">the story</a></div>
+          <div style="color:#595959;">Merged with Brandwatch, acquired by Cision; <a href="https://docs.google.com/document/d/1-M0MqxE2YG-Smp_6BwYbxegdnHuznqdc91YHQyeTbsk" target="_blank" style="color:#337ab7;">the story</a></div>
           <div style="margin-top:6px;"><a href="https://www.brandwatch.com/" target="_blank" rel="noopener" style="color:#337ab7;text-decoration:none;font-weight:500;">Visit site &rarr;</a></div>
         </div>
       </details>
       <details class="gk-hp-item">
         <summary style="font-size:0.88rem;cursor:pointer;padding:5px 0;border-bottom:1px solid #eee;list-style:none;display:flex;align-items:baseline;gap:5px;color:#337ab7;line-height:1.4;">
-          <span class="gk-hp-arrow" style="flex-shrink:0;">&#9660;</span><span>Learning Catalytics</span>
+          <span class="gk-hp-arrow" aria-hidden="true" style="flex-shrink:0;">&#9660;</span><span>Learning Catalytics</span>
         </summary>
         <div style="padding:6px 0 8px 16px;font-size:0.82rem;color:#555;border-bottom:1px solid #eee;">
-          <div style="color:#888;">Acquired by Pearson; <a href="https://news.harvard.edu/gazette/story/2013/08/fueling-the-entrepreneurial-spirit/" target="_blank" style="color:#337ab7;">the story</a></div>
+          <div style="color:#595959;">Acquired by Pearson; <a href="https://news.harvard.edu/gazette/story/2013/08/fueling-the-entrepreneurial-spirit/" target="_blank" style="color:#337ab7;">the story</a></div>
           <div style="margin-top:6px;"><a href="https://www.pearson.com/us/higher-education/products-services-teaching/learning-engagement-tools/learning-catalytics.html" target="_blank" rel="noopener" style="color:#337ab7;text-decoration:none;font-weight:500;">Visit site &rarr;</a></div>
         </div>
       </details>
@@ -295,7 +295,7 @@
         {{ with $page }}
       <details class="gk-hp-item">
         <summary style="font-size:0.88rem;cursor:pointer;padding:5px 0;border-bottom:1px solid #eee;list-style:none;display:flex;align-items:baseline;gap:5px;color:#337ab7;line-height:1.4;">
-          <span class="gk-hp-arrow" style="flex-shrink:0;">&#9660;</span>
+          <span class="gk-hp-arrow" aria-hidden="true" style="flex-shrink:0;">&#9660;</span>
           <span>{{ .Title }}</span>
         </summary>
         <div style="padding:6px 0 8px 16px;font-size:0.82rem;color:#555;border-bottom:1px solid #eee;">
@@ -319,7 +319,7 @@
       {{ $swIsExt := strings.HasPrefix $swHref "http" }}
       <details class="gk-hp-item">
         <summary style="font-size:0.88rem;cursor:pointer;padding:5px 0;border-bottom:1px solid #eee;list-style:none;display:flex;align-items:baseline;gap:5px;color:#337ab7;line-height:1.4;">
-          <span class="gk-hp-arrow" style="flex-shrink:0;">&#9660;</span>
+          <span class="gk-hp-arrow" aria-hidden="true" style="flex-shrink:0;">&#9660;</span>
           <span>{{ .Title }}</span>
         </summary>
         <div style="padding:6px 0 8px 16px;font-size:0.82rem;color:#555;border-bottom:1px solid #eee;">
@@ -386,7 +386,7 @@
 </section>
 
 <style>
-  #hero a:hover { background: #a54d03 !important; }
+  #hero a:hover { background: #7d3902 !important; }
   @media (max-width: 768px) {
     #hero > div { flex-direction: column !important; }
     #hero > div > div:first-child { padding: 40px 24px !important; }

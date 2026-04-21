@@ -17,15 +17,15 @@
       <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.75rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;">University / Affiliation</h3>
       <div id="gk-univ-filters" style="max-height:200px;overflow-y:auto;margin-bottom:1.25rem;"></div>
 
-      <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.5rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;">Search</h3>
-      <input type="text" id="gk-people-search" placeholder="Name or affiliation..." style="width:100%;padding:6px 10px;border:1px solid #ccc;border-radius:4px;font-size:0.9rem;box-sizing:border-box;">
+      <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.5rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;"><label for="gk-people-search">Search</label></h3>
+      <input type="text" id="gk-people-search" aria-label="Filter people by name or affiliation" placeholder="Name or affiliation..." style="width:100%;padding:6px 10px;border:1px solid #767676;border-radius:4px;font-size:0.9rem;box-sizing:border-box;">
     </div>
 
     <!-- Results -->
     <div style="flex:1;min-width:0;">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem;">
         <span id="gk-people-count" style="font-size:1.05rem;font-weight:600;color:#333;"></span>
-        <select id="gk-people-sort" style="padding:4px 8px;border:1px solid #ccc;border-radius:4px;font-size:0.85rem;">
+        <select id="gk-people-sort" aria-label="Sort people" style="padding:4px 8px;border:1px solid #767676;border-radius:4px;font-size:0.85rem;">
           <option value="az">Last Name A–Z</option>
           <option value="za">Last Name Z–A</option>
         </select>
@@ -233,7 +233,7 @@
       html += '<div style="padding:10px 12px;background:#f0f5fa;border-radius:6px;">';
       html += '<strong><a href="' + d.url + '" style="color:#337ab7;text-decoration:none;">' + escapeHtml(d.name) + '</a></strong>';
       if (d.role) html += '<div style="font-size:0.82rem;color:#666;margin-top:2px;">' + escapeHtml(d.role) + '</div>';
-      if (d.categoryLabel) html += '<div style="font-size:0.75rem;color:#888;margin-top:2px;">' + escapeHtml(d.categoryLabel) + '</div>';
+      if (d.categoryLabel) html += '<div style="font-size:0.75rem;color:#595959;margin-top:2px;">' + escapeHtml(d.categoryLabel) + '</div>';
       html += '</div>';
     });
     document.getElementById("gk-people-results").innerHTML = html;

@@ -14,9 +14,10 @@
         <a href="https://dataverse.harvard.edu/" target="_blank" rel="noopener">Harvard Dataverse</a>
         <span class="dv-sep">&gt;</span>
         <div id="dv-search-wrap">
-          <input id="dv-search" type="text" placeholder="Search this dataverse...">
-          <button id="dv-search-btn" title="Search">
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.242.156a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/></svg>
+          <label for="dv-search" class="sr-only">Search this dataverse</label>
+          <input id="dv-search" type="text" placeholder="Search this dataverse..." aria-label="Search this dataverse">
+          <button id="dv-search-btn" type="button" aria-label="Search">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.242.156a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/></svg>
           </button>
         </div>
         <a href="https://dataverse.harvard.edu/dataverse/king" target="_blank" rel="noopener" class="dv-adv-link">Advanced Search</a>
@@ -260,7 +261,7 @@
   .dv-card-title a { color: #337ab7; }
   .dv-card-date {
     font-size: 12px;
-    color: #777;
+    color: #595959;
     margin-bottom: 6px;
   }
   .dv-card-icon {
@@ -304,7 +305,7 @@
   .dv-loading {
     text-align: center;
     padding: 40px;
-    color: #888;
+    color: #595959;
     font-size: 14px;
   }
 
