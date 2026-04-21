@@ -2,6 +2,9 @@
 """Check people website: URLs using curl (TLS + redirects match browsers).
 
 Prints lines: slug<TAB>code<TAB>url for 404/410 and suspected soft-404s.
+
+Site policy: prefer personal sites, university people pages, LinkedIn, or
+Wikipedia — avoid github.com/... user profile URLs (not GitHub Pages sites).
 """
 from __future__ import annotations
 
