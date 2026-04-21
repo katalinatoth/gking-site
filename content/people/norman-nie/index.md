@@ -3,6 +3,6 @@ title: "Norman Nie"
 type: "people"
 role: "Stanford University"
 research_group_category: "collaborators"
-website: "http://polisci.stanford.edu/faculty/nie.html"
+website: "https://en.wikipedia.org/wiki/Norman_H._Nie"
 ---
 
