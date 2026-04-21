@@ -3,36 +3,44 @@
 <div style="max-width:1200px;margin:0 auto;padding:2rem 1.5rem;">
   <h1 style="font-size:2.5rem;font-weight:700;margin:0 0 1.5rem;">{{ .Title }}</h1>
 
-  <!-- Tab navigation -->
-  <div id="gk-tabs" style="display:flex;flex-wrap:wrap;gap:0;border-bottom:2px solid #e2e8f0;margin-bottom:1.5rem;"></div>
+  {{/* Sticky tab navigation: keeps the active section visible while scrolling
+       (recognition over recall). top:4rem clears the fixed site navbar. */}}
+  <div id="gk-tabs-wrap" style="position:sticky;top:4rem;z-index:20;background:#fff;padding-top:0.25rem;margin-bottom:1.5rem;">
+    <nav id="gk-tabs" aria-label="Writings categories" style="display:flex;flex-wrap:wrap;gap:0;border-bottom:2px solid #e2e8f0;"></nav>
+  </div>
 
   <div style="display:flex;gap:2rem;align-items:flex-start;">
-    <!-- Sidebar Filters -->
-    <div id="gk-filters" style="min-width:240px;max-width:260px;flex-shrink:0;border:1px solid #e2e8f0;border-radius:8px;padding:1.25rem;background:#fafafa;position:sticky;top:5rem;">
+    {{/* Sidebar order is intentional: search first (strongest "scent of
+         information" affordance), then optional Type, then Year, then a
+         Reset button (Hick's Law / error recovery). */}}
+    <aside id="gk-filters" aria-label="Filter writings" style="min-width:240px;max-width:260px;flex-shrink:0;border:1px solid #e2e8f0;border-radius:8px;padding:1.25rem;background:#fafafa;position:sticky;top:8rem;">
+      <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.5rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;"><label for="gk-search">Search</label></h3>
+      <input type="text" id="gk-search" aria-label="Search by title, author, venue, or abstract" placeholder="Title, author, venue…" style="width:100%;padding:6px 10px;border:1px solid #767676;border-radius:4px;font-size:0.9rem;box-sizing:border-box;margin-bottom:1.25rem;">
+
       <div id="gk-subtype-section" style="display:none;margin-bottom:1.25rem;">
         <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.75rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;">Type</h3>
         <div id="gk-subtype-filters"></div>
       </div>
 
       <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.75rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;">Year</h3>
-      <div id="gk-year-filters" style="max-height:200px;overflow-y:auto;margin-bottom:1.25rem;"></div>
+      <div id="gk-year-filters" style="max-height:200px;overflow-y:auto;margin-bottom:1rem;"></div>
 
-      <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.5rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;"><label for="gk-search">Search</label></h3>
-      <input type="text" id="gk-search" aria-label="Filter publications" placeholder="Type to filter..." style="width:100%;padding:6px 10px;border:1px solid #767676;border-radius:4px;font-size:0.9rem;box-sizing:border-box;">
-    </div>
+      <button type="button" id="gk-reset" style="width:100%;padding:6px 10px;background:#fff;color:#337ab7;border:1px solid #337ab7;border-radius:4px;font-size:0.85rem;cursor:pointer;">Reset filters</button>
+    </aside>
 
-    <!-- Results -->
     <div style="flex:1;min-width:0;">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem;">
+        {{/* "X of Y results" gives a sense of progress whenever filters
+             are narrowing the visible set (goal-gradient effect). */}}
         <span id="gk-result-count" style="font-size:1.05rem;font-weight:600;color:#333;"></span>
         <div style="display:flex;gap:1rem;align-items:center;">
-          <select id="gk-sort" aria-label="Sort publications" style="padding:4px 8px;border:1px solid #767676;border-radius:4px;font-size:0.85rem;">
-            <option value="year-desc">Sort by Year</option>
-            <option value="year-asc">Year (oldest first)</option>
-            <option value="alpha-az">Alphabetical A–Z</option>
-            <option value="alpha-za">Alphabetical Z–A</option>
+          <select id="gk-sort" aria-label="Sort writings" style="padding:4px 8px;border:1px solid #767676;border-radius:4px;font-size:0.85rem;">
+            <option value="year-desc">Newest first</option>
+            <option value="year-asc">Oldest first</option>
+            <option value="alpha-az">Title A–Z</option>
+            <option value="alpha-za">Title Z–A</option>
           </select>
-          <button id="gk-download-bib" style="padding:6px 14px;background:#337ab7;color:#fff;border:none;border-radius:4px;font-size:0.85rem;cursor:pointer;display:flex;align-items:center;gap:6px;">Download citations</button>
+          <button type="button" id="gk-download-bib" style="padding:6px 14px;background:#337ab7;color:#fff;border:none;border-radius:4px;font-size:0.85rem;cursor:pointer;display:flex;align-items:center;gap:6px;">Download citations</button>
         </div>
       </div>
       <div id="gk-results"></div>
@@ -41,6 +49,7 @@
 </div>
 
 {{ $wl := site.Data.writings_legacy_map | default (dict "entries" dict) }}
+{{ $featuredCfg := site.Data.featured_publications | default dict }}
 {{ $pubPages := (where .Site.RegularPages "Section" "publication") }}
 {{ $talkPages := (where .Site.RegularPages "Section" "talk") }}
 {{ $entries := slice }}
@@ -68,6 +77,7 @@
 <script>
 (function() {
   var data = {{ $entries | jsonify | safeJS }};
+  var featuredCfg = {{ $featuredCfg | jsonify | safeJS }};
 
   // Drupal bibcite reference types (from legacy site) for the "Other" tab subtype filters.
   var drupalLabels = {
@@ -118,6 +128,20 @@
       });
     }
     return data.filter(function(d) { return d.legacyTab === tabId; });
+  }
+
+  // Featured ("Selected works") slugs for the active tab — tagged in
+  // data/featured_publications.yaml. Returns an ordered list of entries
+  // matching the slugs (preserving the YAML order so curators control which
+  // featured item shows first).
+  function getFeaturedForTab(tabId) {
+    var slugs = (featuredCfg && featuredCfg[tabId]) || [];
+    if (!slugs.length) return [];
+    var bySlug = {};
+    getTabData(tabId).forEach(function(d) { bySlug[d.slug] = d; });
+    var out = [];
+    slugs.forEach(function(s) { if (bySlug[s]) out.push(bySlug[s]); });
+    return out;
   }
 
   function buildTabs() {
@@ -213,6 +237,28 @@
   });
   document.getElementById("gk-download-bib").addEventListener("click", downloadBib);
 
+  document.getElementById("gk-reset").addEventListener("click", resetFilters);
+
+  function resetFilters() {
+    Object.keys(activeSubtypes).forEach(function(k) { activeSubtypes[k] = false; });
+    Object.keys(activeYears).forEach(function(k) { activeYears[k] = false; });
+    searchTerm = "";
+    sortMode = "year-desc";
+    document.getElementById("gk-search").value = "";
+    document.getElementById("gk-sort").value = "year-desc";
+    document.querySelectorAll('#gk-subtype-filters input[type="checkbox"], #gk-year-filters input[type="checkbox"]').forEach(function(cb) {
+      cb.checked = false;
+    });
+    render();
+  }
+
+  function filtersActive() {
+    if (searchTerm) return true;
+    if (Object.keys(activeSubtypes).some(function(s) { return activeSubtypes[s]; })) return true;
+    if (Object.keys(activeYears).some(function(y) { return activeYears[y]; })) return true;
+    return false;
+  }
+
   function getFiltered() {
     var tabData = getTabData(activeTab);
     var q = searchTerm;
@@ -252,49 +298,117 @@
     return sorted;
   }
 
+  function renderCard(d, opts) {
+    opts = opts || {};
+    var cls = "gk-pub-card" + (opts.featured ? " gk-pub-card-featured" : "");
+    var s = '<div class="' + cls + '">';
+    if (opts.featured) {
+      s += '<div class="gk-pub-badge" aria-label="Selected work">&#9733; Selected</div>';
+    }
+    s += '<a href="' + d.url + '" class="gk-pub-title">' + escapeHtml(d.title) + '</a>';
+    var meta = [];
+    if (d.authors.length) meta.push(escapeHtml(d.authors.join(", ")));
+    if (d.year) meta.push(d.year);
+    if (d.publication) meta.push('<em>' + escapeHtml(d.publication) + '</em>');
+    if (meta.length) s += '<div class="gk-pub-meta">' + meta.join(" &middot; ") + '</div>';
+    if (d.abstract) {
+      var aid = "abs-" + d.slug.replace(/[^a-z0-9]+/gi, "-");
+      s += '<button type="button" class="gk-abstract-toggle" aria-expanded="false" aria-controls="' + aid + '">' +
+           '<span class="gk-abstract-icon" aria-hidden="true">+</span> Show abstract</button>';
+      s += '<p id="' + aid + '" class="gk-abstract-text" hidden>' + escapeHtml(d.abstract) + '</p>';
+    }
+    s += '</div>';
+    return s;
+  }
+
   function render() {
+    var tabData = getTabData(activeTab);
+    var totalInTab = tabData.length;
     var filtered = sortItems(getFiltered());
-    document.getElementById("gk-result-count").textContent =
-      filtered.length + " result" + (filtered.length !== 1 ? "s" : "");
-    document.getElementById("gk-download-bib").innerHTML =
+    var active = filtersActive();
+
+    // Goal-gradient: when filters are active, show "X of Y" so the user
+    // sees how much they've narrowed the set; otherwise just the total.
+    var countEl = document.getElementById("gk-result-count");
+    if (active) {
+      countEl.textContent = filtered.length + " of " + totalInTab + " result" +
+        (totalInTab !== 1 ? "s" : "");
+    } else {
+      countEl.textContent = filtered.length + " result" + (filtered.length !== 1 ? "s" : "");
+    }
+
+    document.getElementById("gk-download-bib").textContent =
       "Download " + filtered.length + " citation" + (filtered.length !== 1 ? "s" : "");
 
     var container = document.getElementById("gk-results");
+
+    // Empty state with one-click recovery (Nielsen heuristic: error recovery).
+    if (filtered.length === 0) {
+      container.innerHTML =
+        '<div class="gk-empty">' +
+          '<p style="margin:0 0 0.75rem;font-size:1rem;color:#333;">No writings match your current filters.</p>' +
+          '<button type="button" id="gk-empty-reset" style="padding:6px 14px;background:#337ab7;color:#fff;border:none;border-radius:4px;font-size:0.9rem;cursor:pointer;">Reset filters</button>' +
+        '</div>';
+      var btn = document.getElementById("gk-empty-reset");
+      if (btn) btn.addEventListener("click", resetFilters);
+      return;
+    }
+
+    // Selected works strip (primacy + Von Restorff). Only shown when
+    // there are no active filters; once the user is hunting, get out of
+    // their way.
     var html = "";
+    if (!active) {
+      var featured = getFeaturedForTab(activeTab);
+      if (featured.length) {
+        html += '<section class="gk-featured-section" aria-label="Selected works">' +
+                '<h2 class="gk-featured-heading">Selected works</h2>';
+        featured.forEach(function(d) { html += renderCard(d, { featured: true }); });
+        html += '</section>';
+        // Drop featured items from the main list to avoid duplication.
+        var featuredSet = {};
+        featured.forEach(function(d) { featuredSet[d.slug] = true; });
+        filtered = filtered.filter(function(d) { return !featuredSet[d.slug]; });
+        if (filtered.length) {
+          html += '<h2 class="gk-all-heading">All ' + getTabLabel(activeTab).toLowerCase() + '</h2>';
+        }
+      }
+    }
+
     var currentYear = "";
     var grouped = sortMode.indexOf("year") === 0;
-
     filtered.forEach(function(d) {
       if (grouped && d.year !== currentYear) {
         currentYear = d.year;
-        html += '<h3 style="font-size:1.3rem;font-weight:700;margin:1.5rem 0 0.75rem;padding-bottom:4px;border-bottom:2px solid #337ab7;color:#333;">' + currentYear + '</h3>';
+        html += '<h3 class="gk-year-heading">' + currentYear + '</h3>';
       }
-      html += '<div style="padding:10px 12px;margin-bottom:6px;background:#f0f5fa;border-radius:6px;">';
-      var authLine = d.authors.length ? escapeHtml(d.authors.join(", ")) + ". " : "";
-      html += '<div>' + authLine + d.year + '. "<a href="' + d.url + '" style="color:#337ab7;text-decoration:none;font-weight:500;">' + escapeHtml(d.title) + '</a>."';
-      if (d.publication) html += ' <em>' + escapeHtml(d.publication) + '</em>.';
-      html += '</div>';
-      if (d.abstract) {
-        html += '<div style="margin-top:6px;"><a href="#" class="gk-abstract-toggle" style="font-size:0.85rem;color:#337ab7;text-decoration:none;display:inline-flex;align-items:center;gap:4px;">⊕ Abstract</a>';
-        html += '<p class="gk-abstract-text" style="font-size:0.85rem;color:#555;margin:6px 0 0;line-height:1.5;display:none;">' + escapeHtml(d.abstract) + '</p></div>';
-      }
-      html += '</div>';
+      html += renderCard(d);
     });
     container.innerHTML = html;
 
     container.querySelectorAll(".gk-abstract-toggle").forEach(function(toggle) {
-      toggle.addEventListener("click", function(e) {
-        e.preventDefault();
-        var text = this.nextElementSibling;
-        if (text.style.display === "none") {
-          text.style.display = "block";
-          this.innerHTML = "⊖ Abstract";
+      toggle.addEventListener("click", function() {
+        var panel = document.getElementById(this.getAttribute("aria-controls"));
+        if (!panel) return;
+        var open = panel.hasAttribute("hidden") === false;
+        if (open) {
+          panel.setAttribute("hidden", "");
+          this.setAttribute("aria-expanded", "false");
+          this.querySelector(".gk-abstract-icon").textContent = "+";
+          this.lastChild.textContent = " Show abstract";
         } else {
-          text.style.display = "none";
-          this.innerHTML = "⊕ Abstract";
+          panel.removeAttribute("hidden");
+          this.setAttribute("aria-expanded", "true");
+          this.querySelector(".gk-abstract-icon").textContent = "−";
+          this.lastChild.textContent = " Hide abstract";
         }
       });
     });
+  }
+
+  function getTabLabel(tabId) {
+    var t = tabs.find(function(x) { return x.id === tabId; });
+    return t ? t.label : tabId;
   }
 
   function escapeHtml(s) {
@@ -354,8 +468,12 @@
 
 <style>
   #gk-filters input[type="checkbox"] { accent-color: #337ab7; }
+  #gk-reset:hover, #gk-reset:focus-visible {
+    background: #337ab7; color: #fff;
+  }
   @media (max-width: 768px) {
     #gk-filters { display: none; }
+    #gk-tabs-wrap { position: static; }
   }
   .gk-tab {
     padding: 10px 20px;
@@ -374,6 +492,121 @@
     color: #337ab7;
     border-bottom-color: #337ab7;
     font-weight: 600;
+  }
+
+  /* ===== Per-card layout =====
+     Title is the strongest visual element (scent of information); meta
+     line below in muted color. Subtle hover for affordance. */
+  .gk-pub-card {
+    padding: 12px 14px;
+    margin-bottom: 8px;
+    background: #f0f5fa;
+    border-radius: 6px;
+    border-left: 3px solid transparent;
+    transition: background 0.15s, border-color 0.15s;
+  }
+  .gk-pub-card:hover { background: #e6eef7; }
+  .gk-pub-title {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1f4e79;
+    text-decoration: none;
+    line-height: 1.35;
+  }
+  .gk-pub-title:hover, .gk-pub-title:focus-visible { text-decoration: underline; }
+  .gk-pub-meta {
+    font-size: 0.85rem;
+    color: #4a4a4a;
+    margin-top: 4px;
+    line-height: 1.4;
+  }
+
+  /* ===== Featured ("Selected works") strip =====
+     A small (<= ~5) curated set rendered above the main list with a
+     crimson left border and star badge. The Von Restorff (isolation)
+     effect makes these stand out; capping the count protects the effect. */
+  .gk-featured-section {
+    margin-bottom: 1.5rem;
+    padding: 1rem 1.25rem 1.25rem;
+    background: #fdf6f2;
+    border: 1px solid #e8d6cc;
+    border-radius: 8px;
+  }
+  .gk-featured-heading {
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #8c1a28;
+    margin: 0 0 0.75rem;
+  }
+  .gk-pub-card-featured {
+    background: #fff;
+    border-left-color: #A51C30;
+  }
+  .gk-pub-card-featured:hover { background: #fbf2ee; }
+  .gk-pub-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #8c1a28;
+    background: #f7e3dc;
+    padding: 1px 8px;
+    border-radius: 999px;
+    margin-bottom: 4px;
+  }
+
+  .gk-all-heading {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #333;
+    margin: 1.25rem 0 0.5rem;
+  }
+  .gk-year-heading {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 1.5rem 0 0.75rem;
+    padding-bottom: 4px;
+    border-bottom: 2px solid #337ab7;
+    color: #333;
+  }
+
+  .gk-abstract-toggle {
+    margin-top: 8px;
+    padding: 0;
+    background: none;
+    border: none;
+    color: #337ab7;
+    font-size: 0.85rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .gk-abstract-toggle:hover, .gk-abstract-toggle:focus-visible { text-decoration: underline; }
+  .gk-abstract-icon {
+    display: inline-block;
+    width: 1em;
+    text-align: center;
+    font-weight: 700;
+  }
+  .gk-abstract-text {
+    font-size: 0.88rem;
+    color: #4a4a4a;
+    margin: 6px 0 0;
+    line-height: 1.55;
+  }
+
+  /* ===== Empty state ===== */
+  .gk-empty {
+    padding: 1.5rem;
+    background: #fafafa;
+    border: 1px dashed #c0c0c0;
+    border-radius: 6px;
+    text-align: center;
   }
 </style>
 
