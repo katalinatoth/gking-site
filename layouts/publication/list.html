@@ -302,9 +302,6 @@
     opts = opts || {};
     var cls = "gk-pub-card" + (opts.featured ? " gk-pub-card-featured" : "");
     var s = '<div class="' + cls + '">';
-    if (opts.featured) {
-      s += '<div class="gk-pub-badge" aria-label="Selected work">&#9733; Selected</div>';
-    }
     s += '<a href="' + d.url + '" class="gk-pub-title">' + escapeHtml(d.title) + '</a>';
     var meta = [];
     if (d.authors.length) meta.push(escapeHtml(d.authors.join(", ")));
@@ -523,14 +520,14 @@
   }
 
   /* ===== Featured ("Selected works") strip =====
-     A small (<= ~5) curated set rendered above the main list with a
-     crimson left border and star badge. The Von Restorff (isolation)
-     effect makes these stand out; capping the count protects the effect. */
+     A small (<= ~5) curated set rendered above the main list, framed in
+     the page's blue palette so it stays visually distinct (Von Restorff)
+     without breaking the color system. */
   .gk-featured-section {
     margin-bottom: 1.5rem;
     padding: 1rem 1.25rem 1.25rem;
-    background: #fdf6f2;
-    border: 1px solid #e8d6cc;
+    background: #e1ecf7;
+    border: 1px solid #b8cee6;
     border-radius: 8px;
   }
   .gk-featured-heading {
@@ -538,26 +535,14 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #8c1a28;
+    color: #1f4e79;
     margin: 0 0 0.75rem;
   }
   .gk-pub-card-featured {
     background: #fff;
-    border-left-color: #A51C30;
+    border-left-color: #337ab7;
   }
-  .gk-pub-card-featured:hover { background: #fbf2ee; }
-  .gk-pub-badge {
-    display: inline-block;
-    font-size: 0.72rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #8c1a28;
-    background: #f7e3dc;
-    padding: 1px 8px;
-    border-radius: 999px;
-    margin-bottom: 4px;
-  }
+  .gk-pub-card-featured:hover { background: #eef4fa; }
 
   .gk-all-heading {
     font-size: 1.1rem;
