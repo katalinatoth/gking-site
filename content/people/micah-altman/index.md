@@ -1,8 +1,8 @@
 ---
 title: "Micah Altman"
 type: "people"
-role: "Harvard University"
+role: "MIT Libraries (Research Scientist, CREOS)"
 research_group_category: "collaborators"
-website: "http://maltman.hmdc.harvard.edu/"
+website: "https://micahaltman.com/"
 ---
 

@@ -1,8 +1,8 @@
 ---
 title: "Michael McDonald"
 type: "people"
-role: "George Mason University"
+role: "University of Florida (Professor)"
 research_group_category: "alumni_postdocs"
-website: "http://elections.gmu.edu/bio.html"
+website: "https://polisci.ufl.edu/directory/michael-mcdonald/"
 ---
 

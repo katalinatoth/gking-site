@@ -1,8 +1,8 @@
 ---
 title: "Kristian Gleditsch"
 type: "people"
-role: "Nuffield College, Oxford University"
+role: "University of Essex (Regius Professor of Political Science)"
 research_group_category: "alumni_postdocs"
-website: "http://weber.ucsd.edu/~kgledits/"
+website: "http://ksgleditsch.com/"
 ---
 

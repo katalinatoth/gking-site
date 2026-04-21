@@ -1,8 +1,8 @@
 ---
 title: "Clayton Nall"
 type: "people"
-role: "Harvard University"
+role: "UC Santa Barbara (Associate Professor)"
 research_group_category: "collaborators"
-website: "http://www.iq.harvard.edu/people/clayton_nall"
+website: "http://www.nallresearch.com/"
 ---
 

@@ -1,9 +1,8 @@
 ---
 title: "Sebastian Bauhoff"
 type: "people"
-role: "Harvard University"
+role: "Inter-American Development Bank"
 research_group_category: "collaborators"
-website: "http://www.people.fas.harvard.edu/~bauhoff/"
+website: "https://www.linkedin.com/in/sebastian-bauhoff-395603143"
 ---
 
-Ph.D. candidate in Health Policy (Economics track) at Harvard University. He is interested in applying empirical methods to health policy, particularly to topics at the intersection of health, labor and public economics.

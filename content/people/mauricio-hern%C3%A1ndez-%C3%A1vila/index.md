@@ -1,7 +1,8 @@
 ---
 title: "Mauricio Hern\u00e1ndez \u00c1vila"
 type: "people"
-role: "Instituto Nacional de Salud P\u00fablica (National Institute of Public Health, Mexico)"
+role: "Instituto Mexicano del Seguro Social (Director de Prestaciones Económicas y Sociales)"
 research_group_category: "collaborators"
+website: "http://www.imss.gob.mx/"
 ---
 

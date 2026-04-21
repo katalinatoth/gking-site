@@ -1,8 +1,8 @@
 ---
 title: "Sean Carey"
 type: "people"
-role: "The University of Sheffield"
+role: "University of Mannheim (Professor of Political Science)"
 research_group_category: "alumni_postdocs"
-website: "http://www.shef.ac.uk/politics/staff/seancarey.html"
+website: "https://www.sowi.uni-mannheim.de/en/carey/"
 ---
 

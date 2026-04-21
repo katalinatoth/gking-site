@@ -1,8 +1,8 @@
 ---
 title: "Emmanuela Gakidou"
 type: "people"
-role: "Harvard University"
+role: "University of Washington (Professor, IHME)"
 research_group_category: "collaborators"
-website: "http://www.iq.harvard.edu/People/people.php?info=1155&sub=9"
+website: "https://depts.washington.edu/healthms/faculty-staff/emmanuela-gakidou/"
 ---
 

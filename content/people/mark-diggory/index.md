@@ -1,8 +1,8 @@
 ---
 title: "Mark Diggory"
 type: "people"
-role: "Harvard University"
+role: "Atmire, Inc. (Head of US Operations)"
 research_group_category: "collaborators"
-website: "http://www.hmdc.harvard.edu/jsp/person.jsp?id=25"
+website: "https://github.com/mdiggory"
 ---
 

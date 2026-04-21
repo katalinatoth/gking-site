@@ -1,8 +1,8 @@
 ---
 title: "John Boscardin"
 type: "people"
-role: "UCLA"
+role: "UCSF (Professor of Medicine and Biostatistics)"
 research_group_category: "collaborators"
-website: "http://www.ph.ucla.edu/biostat/people/boscardin.htm"
+website: "https://profiles.ucsf.edu/w.john.boscardin"
 ---
 

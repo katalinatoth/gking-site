@@ -1,8 +1,8 @@
 ---
 title: "Sidney Verba"
 type: "people"
-role: "Harvard University"
+role: "Harvard University (Emeritus, deceased)"
 research_group_category: "collaborators"
-website: "http://www.gov.harvard.edu/Faculty/Bios/Verba.htm"
+website: "https://scholar.harvard.edu/verba/biocv"
 ---
 

@@ -1,8 +1,8 @@
 ---
 title: "Kenneth Scheve"
 type: "people"
-role: "Yale University"
+role: "University of Notre Dame (Dean, College of Arts and Letters)"
 research_group_category: "collaborators"
-website: "http://www.yale.edu/polisci/people/kscheve.html"
+website: "https://politicalscience.nd.edu/people/kenneth-scheve/"
 ---
 

@@ -1,9 +1,8 @@
 ---
 title: "Ryan Moore"
 type: "people"
-role: "Washington University in St. Louis"
+role: "American University (Associate Professor of Government); The Lab @ DC"
 research_group_category: "alumni_students"
-website: "http://rtm.wustl.edu/index.html"
+website: "http://ryantmoore.org/"
 ---
 
-Assistant professor in the Department of Political Science at Washington University in St. Louis.

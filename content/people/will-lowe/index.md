@@ -1,8 +1,8 @@
 ---
 title: "Will Lowe"
 type: "people"
-role: "Harvard University"
+role: "Hertie School Berlin (Senior Research Scientist)"
 research_group_category: "collaborators"
-website: "http://people.iq.harvard.edu/~wlowe/"
+website: "https://www.hertie-school.org/en/who-we-are/profile/person/lowe"
 ---
 

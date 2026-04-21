@@ -1,8 +1,8 @@
 ---
 title: "Ben Bishin"
 type: "people"
-role: "University of Miami"
+role: "University of California, Riverside (Professor of Political Science)"
 research_group_category: "alumni_postdocs"
-website: "http://homer.bus.miami.edu/~bbishin/"
+website: "https://profiles.ucr.edu/app/home/profile/bbishin"
 ---
 

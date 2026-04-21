@@ -1,10 +1,9 @@
 ---
 title: "Maya Sen"
 type: "people"
-role: ""
+role: "Harvard Kennedy School (Professor of Public Policy)"
 research_group_category: "alumni_postdocs"
 email: "msen@fas.harvard.edu"
-website: "http://scholar.harvard.edu/msen"
+website: "https://msen.scholars.harvard.edu/"
 ---
 
-Ph.D. candidate in the Department of Government and holds a J.D. from the Stanford Law School. Her research focuses on the intersection of quantitative methodology, law and courts, and race and ethnic politics, with a particular emphasis on causal inferences and processes.

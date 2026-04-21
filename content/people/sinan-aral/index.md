@@ -1,8 +1,8 @@
 ---
 title: "Sinan Aral"
 type: "people"
-role: "New York University and MIT"
+role: "MIT Sloan School of Management (David Austin Professor of Management)"
 research_group_category: "collaborators"
-website: "http://web.mit.edu/sinana/www/"
+website: "https://sinanaral.mit.edu/"
 ---
 

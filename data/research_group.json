@@ -2,7 +2,7 @@
   {
     "slug": "lada-adamic",
     "name": "Lada Adamic",
-    "affiliation": "University of Michigan",
+    "affiliation": "Independent (formerly Meta)",
     "research_group_categories": [
       "collaborators"
     ],
@@ -57,7 +57,7 @@
   {
     "slug": "micah-altman",
     "name": "Micah Altman",
-    "affiliation": "Harvard University",
+    "affiliation": "MIT Libraries (Research Scientist, CREOS)",
     "research_group_categories": [
       "alumni_postdocs",
       "collaborators"
@@ -94,7 +94,7 @@
   {
     "slug": "sinan-aral",
     "name": "Sinan Aral",
-    "affiliation": "New York University and MIT",
+    "affiliation": "MIT Sloan School of Management (David Austin Professor of Management)",
     "research_group_categories": [
       "collaborators"
     ],
@@ -103,7 +103,7 @@
   {
     "slug": "aslaug-asgeirsdottir",
     "name": "Aslaug Asgeirsdottir",
-    "affiliation": "Bates College",
+    "affiliation": "University of Akureyri (Rector)",
     "research_group_categories": [
       "alumni_postdocs"
     ],
@@ -157,7 +157,7 @@
   {
     "slug": "delia-bailey-0",
     "name": "Delia Bailey",
-    "affiliation": "School of Law, Washington University - St. Louis",
+    "affiliation": "YouGov (Senior VP of Data Science)",
     "research_group_categories": [
       "alumni_postdocs"
     ],
@@ -175,7 +175,7 @@
   {
     "slug": "pamela-ban",
     "name": "Pamela Ban",
-    "affiliation": "Harvard University",
+    "affiliation": "UC San Diego (Associate Professor)",
     "research_group_categories": [
       "alumni_students"
     ],
@@ -184,7 +184,7 @@
   {
     "slug": "albert-l%C3%A1szl%C3%B3-barab%C3%A1si",
     "name": "Albert-László Barabási",
-    "affiliation": "University of Notre Dame",
+    "affiliation": "Northeastern University (Robert Gray Dodge Professor of Network Science)",
     "research_group_categories": [
       "collaborators"
     ],
@@ -211,7 +211,7 @@
   {
     "slug": "sebastian-bauhoff",
     "name": "Sebastian Bauhoff",
-    "affiliation": "Harvard University",
+    "affiliation": "Inter-American Development Bank",
     "research_group_categories": [
       "collaborators"
     ],
@@ -220,7 +220,7 @@
   {
     "slug": "brady-baybeck",
     "name": "Brady Baybeck",
-    "affiliation": "University of Missouri - St. Louis",
+    "affiliation": "Wayne State University (Associate Professor of Political Science)",
     "research_group_categories": [
       "alumni_postdocs"
     ],
@@ -247,7 +247,7 @@
   {
     "slug": "kenneth-bennoit",
     "name": "Kenneth Bennoit",
-    "affiliation": "Trinity College, University of Dublin",
+    "affiliation": "Singapore Management University (Dean, School of Social Sciences)",
     "research_group_categories": [
       "collaborators"
     ],
@@ -256,7 +256,7 @@
   {
     "slug": "kenneth-benoit",
     "name": "Kenneth Benoit",
-    "affiliation": "Trinity College, University of Dublin",
+    "affiliation": "Singapore Management University (Dean, School of Social Sciences)",
     "research_group_categories": [
       "alumni_students"
     ],
@@ -310,7 +310,7 @@
   {
     "slug": "jon-bischof",
     "name": "Jon Bischof",
-    "affiliation": "Harvard University",
+    "affiliation": "Microsoft AI",
     "research_group_categories": [
       "alumni_postdocs"
     ],
@@ -328,7 +328,7 @@
   {
     "slug": "ben-bishin",
     "name": "Ben Bishin",
-    "affiliation": "University of Miami",
+    "affiliation": "University of California, Riverside (Professor of Political Science)",
     "research_group_categories": [
       "alumni_postdocs"
     ],
@@ -356,7 +356,7 @@
   {
     "slug": "john-boscardin",
     "name": "John Boscardin",
-    "affiliation": "UCLA",
+    "affiliation": "UCSF (Professor of Medicine and Biostatistics)",
     "research_group_categories": [
       "collaborators"
     ],
@@ -374,7 +374,7 @@
   {
     "slug": "dawn-brancati",
     "name": "Dawn Brancati",
-    "affiliation": "Harvard University",
+    "affiliation": "Brown University (Senior Lecturer / Associate Teaching Professor)",
     "research_group_categories": [
       "alumni_postdocs"
     ],
@@ -475,7 +475,7 @@
   {
     "slug": "sean-carey",
     "name": "Sean Carey",
-    "affiliation": "The University of Sheffield",
+    "affiliation": "University of Mannheim (Professor of Political Science)",
     "research_group_categories": [
       "alumni_postdocs"
     ],
@@ -502,7 +502,7 @@
   {
     "slug": "nicholas-christakis",
     "name": "Nicholas Christakis",
-    "affiliation": "Harvard University",
+    "affiliation": "Yale University (Sterling Professor)",
     "research_group_categories": [
       "collaborators"
     ],
@@ -556,7 +556,7 @@
   {
     "slug": "noshir-contractor",
     "name": "Noshir Contractor",
-    "affiliation": "Harvard University",
+    "affiliation": "Northwestern University (Jane S. & William J. White Professor of Behavioral Sciences)",
     "research_group_categories": [
       "collaborators"
     ],
@@ -565,7 +565,7 @@
   {
     "slug": "anders-corr",
     "name": "Anders Corr",
-    "affiliation": "Corr Analytics (founder)",
+    "affiliation": "Corr Analytics Inc. (Principal)",
     "research_group_categories": [
       "alumni_students"
     ],
@@ -583,7 +583,7 @@
   {
     "slug": "skyler-cranmer",
     "name": "Skyler Cranmer",
-    "affiliation": "University of North Carolina at Chapel Hill",
+    "affiliation": "Ohio State University (Professor)",
     "research_group_categories": [
       "alumni_postdocs"
     ],
@@ -683,7 +683,7 @@
   {
     "slug": "alexis-diamond",
     "name": "Alexis Diamond",
-    "affiliation": "World Bank",
+    "affiliation": "Minerva University (Professor)",
     "research_group_categories": [
       "alumni_students"
     ],
@@ -692,7 +692,7 @@
   {
     "slug": "mark-diggory",
     "name": "Mark Diggory",
-    "affiliation": "Harvard University",
+    "affiliation": "Atmire, Inc. (Head of US Operations)",
     "research_group_categories": [
       "collaborators"
     ],
@@ -873,7 +873,7 @@
   {
     "slug": "emmanuela-gakidou",
     "name": "Emmanuela Gakidou",
-    "affiliation": "Harvard University",
+    "affiliation": "University of Washington (Professor, IHME)",
     "research_group_categories": [
       "alumni_students",
       "collaborators"
@@ -928,7 +928,7 @@
   {
     "slug": "jeff-gill",
     "name": "Jeff Gill",
-    "affiliation": "UC Davis",
+    "affiliation": "American University (Distinguished Professor)",
     "research_group_categories": [
       "alumni_postdocs",
       "collaborators"
@@ -938,7 +938,7 @@
   {
     "slug": "michael-gill",
     "name": "Michael Gill",
-    "affiliation": "Harvard University",
+    "affiliation": "New York University (Assistant Professor, Center for Data Science)",
     "research_group_categories": [
       "alumni_students"
     ],
@@ -967,7 +967,7 @@
   {
     "slug": "kristian-gleditsch",
     "name": "Kristian Gleditsch",
-    "affiliation": "Nuffield College, Oxford University",
+    "affiliation": "University of Essex (Regius Professor of Political Science)",
     "research_group_categories": [
       "alumni_postdocs"
     ],
@@ -1003,7 +1003,7 @@
   {
     "slug": "prateek-goorha",
     "name": "Prateek Goorha",
-    "affiliation": "RMIT University",
+    "affiliation": "Bridgewater State University (Part-Time Faculty)",
     "research_group_categories": [
       "alumni_postdocs"
     ],
@@ -1012,7 +1012,7 @@
   {
     "slug": "max-goplerud",
     "name": "Max Goplerud",
-    "affiliation": "",
+    "affiliation": "University of Texas at Austin (Assistant Professor)",
     "research_group_categories": [
       "current"
     ],
@@ -1067,7 +1067,7 @@
   {
     "slug": "yichen-guan",
     "name": "Yichen Guan",
-    "affiliation": "",
+    "affiliation": "Harvard University (Graduate Student, Middle Eastern Studies)",
     "research_group_categories": [
       "current"
     ],
@@ -1076,7 +1076,7 @@
   {
     "slug": "myron-gutmann",
     "name": "Myron Gutmann",
-    "affiliation": "University of Michigan",
+    "affiliation": "University of Colorado Boulder (Professor Emeritus of History)",
     "research_group_categories": [
       "collaborators"
     ],
@@ -1085,7 +1085,7 @@
   {
     "slug": "mauricio-hern%C3%A1ndez-%C3%A1vila",
     "name": "Mauricio Hernández Ávila",
-    "affiliation": "Instituto Nacional de Salud Pública (National Institute of Public Health, Mexico)",
+    "affiliation": "Instituto Mexicano del Seguro Social (Director de Prestaciones Económicas y Sociales)",
     "research_group_categories": [
       "collaborators"
     ],
@@ -1131,7 +1131,7 @@
   {
     "slug": "frederick-m-hess",
     "name": "Frederick M. Hess",
-    "affiliation": "Georgetown University",
+    "affiliation": "American Enterprise Institute (Senior Fellow, Director of Education Policy Studies)",
     "research_group_categories": [
       "alumni_students"
     ],
@@ -1150,7 +1150,7 @@
   {
     "slug": "jennifer-hill",
     "name": "Jennifer Hill",
-    "affiliation": "Columbia University",
+    "affiliation": "New York University (Professor)",
     "research_group_categories": [
       "alumni_students"
     ],
@@ -1187,7 +1187,7 @@
   {
     "slug": "james-honaker",
     "name": "James Honaker",
-    "affiliation": "UCLA",
+    "affiliation": "OpenDP / Harvard University (Chief Privacy Engineer; SEAS Research Associate)",
     "research_group_categories": [
       "alumni_students",
       "collaborators"
@@ -1197,7 +1197,7 @@
   {
     "slug": "dan-hopkins",
     "name": "Dan Hopkins",
-    "affiliation": "Georgetown University",
+    "affiliation": "University of Pennsylvania (Julie and Martin Franklin Presidential Professor of Political Science)",
     "research_group_categories": [
       "alumni_students"
     ],
@@ -1206,7 +1206,7 @@
   {
     "slug": "daniel-hopkins",
     "name": "Daniel Hopkins",
-    "affiliation": "Georgetown University",
+    "affiliation": "University of Pennsylvania (Professor)",
     "research_group_categories": [
       "alumni_students",
       "collaborators"
@@ -1234,7 +1234,7 @@
   {
     "slug": "ben-w-hunt",
     "name": "Ben W. Hunt",
-    "affiliation": "Iridian Asset Management",
+    "affiliation": "Perscient (Co-Founder and President)",
     "research_group_categories": [
       "alumni_students"
     ],
@@ -1252,7 +1252,7 @@
   {
     "slug": "stefano-iacus",
     "name": "Stefano Iacus",
-    "affiliation": "University of Milan",
+    "affiliation": "European Commission Joint Research Centre (Scientific Officer)",
     "research_group_categories": [
       "collaborators"
     ],
@@ -1261,7 +1261,7 @@
   {
     "slug": "kosuke-imai",
     "name": "Kosuke Imai",
-    "affiliation": "Princeton University",
+    "affiliation": "Harvard University (Professor of Government and of Statistics)",
     "research_group_categories": [
       "alumni_students",
       "collaborators"
@@ -1289,7 +1289,7 @@
   {
     "slug": "sundeep-iyer",
     "name": "Sundeep Iyer",
-    "affiliation": "",
+    "affiliation": "New Jersey Office of the Attorney General (Director, Division on Civil Rights)",
     "research_group_categories": [
       "alumni_students"
     ],
@@ -1307,7 +1307,7 @@
   {
     "slug": "tony-jebara",
     "name": "Tony Jebara",
-    "affiliation": "Columbia University",
+    "affiliation": "Spotify (VP of Engineering, Head of AI/ML)",
     "research_group_categories": [
       "collaborators"
     ],
@@ -1362,7 +1362,7 @@
   {
     "slug": "ann-joseph",
     "name": "Ann Joseph",
-    "affiliation": "UC Berkeley School of Law",
+    "affiliation": "Stanford Law School (Professor)",
     "research_group_categories": [
       "alumni_students",
       "collaborators"
@@ -1417,7 +1417,7 @@
   {
     "slug": "david-kane",
     "name": "David Kane",
-    "affiliation": "Harvard University",
+    "affiliation": "New College of Florida (Adjunct Instructor)",
     "research_group_categories": [
       "alumni_students"
     ],
@@ -1464,7 +1464,7 @@
   {
     "slug": "aaron-kaufman",
     "name": "Aaron Kaufman",
-    "affiliation": "",
+    "affiliation": "NYU Abu Dhabi (Assistant Professor of Political Science)",
     "research_group_categories": [
       "collaborators",
       "current"
@@ -1519,7 +1519,7 @@
   {
     "slug": "tami-kim",
     "name": "Tami Kim",
-    "affiliation": "Harvard University",
+    "affiliation": "Dartmouth Tuck School of Business (Associate Professor of Marketing)",
     "research_group_categories": [
       "alumni_students"
     ],
@@ -1573,7 +1573,7 @@
   {
     "slug": "mayya-komisarchik",
     "name": "Mayya Komisarchik",
-    "affiliation": "",
+    "affiliation": "University of Rochester (Assistant Professor)",
     "research_group_categories": [
       "collaborators",
       "current"
@@ -1655,7 +1655,7 @@
   {
     "slug": "gi-heon-kwon",
     "name": "Gi-Heon Kwon",
-    "affiliation": "Kyung Hee University, Seoul, Korea",
+    "affiliation": "Sungkyunkwan University (Professor Emeritus)",
     "research_group_categories": [
       "alumni_students"
     ],
@@ -1664,7 +1664,7 @@
   {
     "slug": "jason-lakin",
     "name": "Jason Lakin",
-    "affiliation": "Harvard University",
+    "affiliation": "Institute of Public Finance (Kenya, Senior Advisor)",
     "research_group_categories": [
       "alumni_students"
     ],
@@ -1673,7 +1673,7 @@
   {
     "slug": "patrick-lam",
     "name": "Patrick Lam",
-    "affiliation": "Harvard University",
+    "affiliation": "Airbnb (Staff Analytics Engineer)",
     "research_group_categories": [
       "alumni_postdocs",
       "collaborators"
@@ -1683,7 +1683,7 @@
   {
     "slug": "olivia-lau",
     "name": "Olivia Lau",
-    "affiliation": "Harvard University",
+    "affiliation": "Google (Staff Product Analyst)",
     "research_group_categories": [
       "alumni_students"
     ],
@@ -1701,7 +1701,7 @@
   {
     "slug": "david-lazer",
     "name": "David Lazer",
-    "affiliation": "Harvard University",
+    "affiliation": "Northeastern University (University Distinguished Professor of Political Science and Computer Sciences)",
     "research_group_categories": [
       "collaborators"
     ],
@@ -1719,7 +1719,7 @@
   {
     "slug": "matthew-lebo",
     "name": "Matthew Lebo",
-    "affiliation": "Stony Brook University",
+    "affiliation": "Western University (Professor and Chair, Political Science)",
     "research_group_categories": [
       "alumni_postdocs"
     ],
@@ -1774,7 +1774,7 @@
   {
     "slug": "chuanhai-liu",
     "name": "Chuanhai Liu",
-    "affiliation": "Bell Laboratories, Lucent Technologies",
+    "affiliation": "Purdue University (Professor of Statistics)",
     "research_group_categories": [
       "collaborators"
     ],
@@ -1783,7 +1783,7 @@
   {
     "slug": "alan-lopez",
     "name": "Alan Lopez",
-    "affiliation": "University of Washington",
+    "affiliation": "The University of Melbourne (Melbourne Laureate Professor and Rowden-White Chair of Global Health)",
     "research_group_categories": [
       "collaborators"
     ],
@@ -1792,7 +1792,7 @@
   {
     "slug": "will-lowe",
     "name": "Will Lowe",
-    "affiliation": "Harvard University",
+    "affiliation": "Hertie School Berlin (Senior Research Scientist)",
     "research_group_categories": [
       "alumni_postdocs",
       "collaborators"
@@ -1811,7 +1811,7 @@
   {
     "slug": "ying-lu",
     "name": "Ying Lu",
-    "affiliation": "University of Colorado",
+    "affiliation": "New York University (Professor of Applied Statistics, Steinhardt)",
     "research_group_categories": [
       "collaborators"
     ],
@@ -1829,7 +1829,7 @@
   {
     "slug": "christopher-lucas",
     "name": "Christopher Lucas",
-    "affiliation": "",
+    "affiliation": "Washington University in St. Louis (Associate Professor)",
     "research_group_categories": [
       "collaborators",
       "current"
@@ -1938,7 +1938,7 @@
   {
     "slug": "michael-mcdonald",
     "name": "Michael McDonald",
-    "affiliation": "George Mason University",
+    "affiliation": "University of Florida (Professor)",
     "research_group_categories": [
       "alumni_postdocs"
     ],
@@ -1974,7 +1974,7 @@
   {
     "slug": "ryan-moore",
     "name": "Ryan Moore",
-    "affiliation": "Washington University in St. Louis",
+    "affiliation": "American University (Associate Professor of Government); The Lab @ DC",
     "research_group_categories": [
       "alumni_students"
     ],
@@ -2019,7 +2019,7 @@
   {
     "slug": "clayton-nall",
     "name": "Clayton Nall",
-    "affiliation": "Harvard University",
+    "affiliation": "UC Santa Barbara (Associate Professor)",
     "research_group_categories": [
       "collaborators"
     ],
@@ -2037,7 +2037,7 @@
   {
     "slug": "michael-new",
     "name": "Michael New",
-    "affiliation": "University of Alabama",
+    "affiliation": "The Catholic University of America (Assistant Professor of Social Research)",
     "research_group_categories": [
       "alumni_postdocs"
     ],
@@ -2064,7 +2064,7 @@
   {
     "slug": "rich-nielsen",
     "name": "Rich Nielsen",
-    "affiliation": "Harvard University",
+    "affiliation": "MIT (Associate Professor of Political Science)",
     "research_group_categories": [
       "alumni_postdocs"
     ],
@@ -2210,7 +2210,7 @@
   {
     "slug": "casey-petroff",
     "name": "Casey Petroff",
-    "affiliation": "",
+    "affiliation": "University of Rochester (Assistant Professor)",
     "research_group_categories": [
       "collaborators",
       "current"
@@ -2220,7 +2220,7 @@
   {
     "slug": "stephen-pettigrew",
     "name": "Stephen Pettigrew",
-    "affiliation": "",
+    "affiliation": "University of Pennsylvania (Director of Data Sciences, PORES)",
     "research_group_categories": [
       "collaborators",
       "current"
@@ -2239,7 +2239,7 @@
   {
     "slug": "giuseppe-porro",
     "name": "Giuseppe Porro",
-    "affiliation": "University of Trieste",
+    "affiliation": "Università dell'Insubria (Professore Ordinario)",
     "research_group_categories": [
       "collaborators"
     ],
@@ -2248,7 +2248,7 @@
   {
     "slug": "eleanor-powell",
     "name": "Eleanor Powell",
-    "affiliation": "Yale University",
+    "affiliation": "University of Wisconsin-Madison (Associate Professor)",
     "research_group_categories": [
       "alumni_students"
     ],
@@ -2257,7 +2257,7 @@
   {
     "slug": "soledad-prillaman",
     "name": "Soledad Prillaman",
-    "affiliation": "Stanford University",
+    "affiliation": "Stanford University (Assistant Professor of Political Science)",
     "research_group_categories": [
       "alumni_students",
       "current"
@@ -2276,7 +2276,7 @@
   {
     "slug": "timothy-prinz",
     "name": "Timothy Prinz",
-    "affiliation": "",
+    "affiliation": "Optum (Director, Strategy & Growth)",
     "research_group_categories": [
       "alumni_students"
     ],
@@ -2303,7 +2303,7 @@
   {
     "slug": "kevin-quinn",
     "name": "Kevin Quinn",
-    "affiliation": "Harvard University",
+    "affiliation": "Emory University (Charles Howard Candler Professor of Law and QTM)",
     "research_group_categories": [
       "alumni_postdocs",
       "collaborators"
@@ -2322,7 +2322,7 @@
   {
     "slug": "lyn-ragsdale",
     "name": "Lyn Ragsdale",
-    "affiliation": "Rice University",
+    "affiliation": "Rice University (In Memoriam)",
     "research_group_categories": [
       "collaborators"
     ],
@@ -2331,7 +2331,7 @@
   {
     "slug": "mohan-penubarti-rao",
     "name": "Mohan (Penubarti) Rao",
-    "affiliation": "LECG",
+    "affiliation": "Epsilon Economics (Chairman and CEO)",
     "research_group_categories": [
       "alumni_postdocs"
     ],
@@ -2340,7 +2340,7 @@
   {
     "slug": "nirmala-ravishankar",
     "name": "Nirmala Ravishankar",
-    "affiliation": "Harvard University",
+    "affiliation": "Bill & Melinda Gates Foundation (Deputy Director, Primary Health Care)",
     "research_group_categories": [
       "alumni_students"
     ],
@@ -2349,7 +2349,7 @@
   {
     "slug": "andrew-reeves",
     "name": "Andrew Reeves",
-    "affiliation": "Boston University",
+    "affiliation": "Washington University in St. Louis (Professor of Political Science; Director, Weidenbaum Center)",
     "research_group_categories": [
       "alumni_students"
     ],
@@ -2377,7 +2377,7 @@
   {
     "slug": "viridiana-rios",
     "name": "Viridiana Rios",
-    "affiliation": "",
+    "affiliation": "Harvard University (Visiting Assistant Professor); Wilson Center Global Fellow",
     "research_group_categories": [
       "alumni_students"
     ],
@@ -2459,7 +2459,7 @@
   {
     "slug": "joshua-salomon",
     "name": "Joshua Salomon",
-    "affiliation": "Harvard University",
+    "affiliation": "Stanford University (Professor of Health Policy)",
     "research_group_categories": [
       "alumni_postdocs",
       "collaborators"
@@ -2469,7 +2469,7 @@
   {
     "slug": "melissa-sands",
     "name": "Melissa Sands",
-    "affiliation": "",
+    "affiliation": "London School of Economics (Assistant Professor of Politics and Data Science)",
     "research_group_categories": [
       "collaborators",
       "current"
@@ -2488,7 +2488,7 @@
   {
     "slug": "kenneth-scheve",
     "name": "Kenneth Scheve",
-    "affiliation": "Yale University",
+    "affiliation": "University of Notre Dame (Dean, College of Arts and Letters)",
     "research_group_categories": [
       "alumni_students",
       "collaborators"
@@ -2507,7 +2507,7 @@
   {
     "slug": "alan-schmaltz",
     "name": "Alan Schmaltz",
-    "affiliation": "",
+    "affiliation": "Reexpress AI (Principal Researcher)",
     "research_group_categories": [
       "current"
     ],
@@ -2516,7 +2516,7 @@
   {
     "slug": "allen-schmaltz",
     "name": "Allen Schmaltz",
-    "affiliation": "IQSS, Harvard University",
+    "affiliation": "Reexpress AI, Inc. (Principal Researcher)",
     "research_group_categories": [
       "collaborators"
     ],
@@ -2572,7 +2572,7 @@
   {
     "slug": "jasjeet-sekhon",
     "name": "Jasjeet Sekhon",
-    "affiliation": "University of California, Berkely",
+    "affiliation": "Google DeepMind (Chief Strategy Officer)",
     "research_group_categories": [
       "alumni_students"
     ],
@@ -2590,7 +2590,7 @@
   {
     "slug": "maya-sen",
     "name": "Maya Sen",
-    "affiliation": "",
+    "affiliation": "Harvard Kennedy School (Professor of Public Policy)",
     "research_group_categories": [
       "alumni_postdocs"
     ],
@@ -2626,7 +2626,7 @@
   {
     "slug": "kenji-shibuya",
     "name": "Kenji Shibuya",
-    "affiliation": "University of Tokyo",
+    "affiliation": "Tokyo Foundation for Policy Research (Research Director)",
     "research_group_categories": [
       "collaborators"
     ],
@@ -2663,7 +2663,7 @@
   {
     "slug": "naunihal-singh",
     "name": "Naunihal Singh",
-    "affiliation": "University of Notre Dame",
+    "affiliation": "U.S. Naval War College (Associate Professor of National Security Affairs)",
     "research_group_categories": [
       "collaborators"
     ],
@@ -2717,7 +2717,7 @@
   {
     "slug": "samir-soneji",
     "name": "Samir Soneji",
-    "affiliation": "Princeton University",
+    "affiliation": "Duke University (Principal Biostatistician, Population Health Sciences)",
     "research_group_categories": [
       "collaborators"
     ],
@@ -2755,7 +2755,7 @@
   {
     "slug": "anton-strezhnev",
     "name": "Anton Strezhnev",
-    "affiliation": "",
+    "affiliation": "University of Chicago (Assistant Professor of Political Science)",
     "research_group_categories": [
       "collaborators",
       "current"
@@ -2783,7 +2783,7 @@
   {
     "slug": "elizabeth-stuart",
     "name": "Elizabeth Stuart",
-    "affiliation": "Mathematica Policy Research, Inc.",
+    "affiliation": "Johns Hopkins Bloomberg School of Public Health (Chair, Biostatistics)",
     "research_group_categories": [
       "alumni_students",
       "collaborators"
@@ -2830,7 +2830,7 @@
   {
     "slug": "marshall-van-alstyne",
     "name": "Marshall Van Alstyne",
-    "affiliation": "MIT",
+    "affiliation": "Boston University (Questrom Professor of Management)",
     "research_group_categories": [
       "collaborators"
     ],
@@ -2848,7 +2848,7 @@
   {
     "slug": "bernard-tamas",
     "name": "Bernard Tamas",
-    "affiliation": "Illinois State University",
+    "affiliation": "Valdosta State University (Professor of Political Science)",
     "research_group_categories": [
       "alumni_postdocs"
     ],
@@ -2857,7 +2857,7 @@
   {
     "slug": "ajay-tandon",
     "name": "Ajay Tandon",
-    "affiliation": "Asian Development Bank",
+    "affiliation": "World Bank (Lead Economist)",
     "research_group_categories": [
       "collaborators"
     ],
@@ -2902,7 +2902,7 @@
   {
     "slug": "andrew-c-thomas",
     "name": "Andrew C Thomas",
-    "affiliation": "",
+    "affiliation": "SportsMEDIA Technology (Director, Data Science)",
     "research_group_categories": [
       "collaborators"
     ],
@@ -2957,7 +2957,7 @@
   {
     "slug": "margaret-trevor",
     "name": "Margaret Trevor",
-    "affiliation": "",
+    "affiliation": "Cook County Board of Commissioners (Illinois, District 9)",
     "research_group_categories": [
       "alumni_postdocs"
     ],
@@ -2975,7 +2975,7 @@
   {
     "slug": "richard-tucker",
     "name": "Richard Tucker",
-    "affiliation": "University of Tennessee Knoxville",
+    "affiliation": "Zayed University",
     "research_group_categories": [
       "alumni_postdocs"
     ],
@@ -3011,7 +3011,7 @@
   {
     "slug": "manett-vargas",
     "name": "Manett Vargas",
-    "affiliation": "Harvard University",
+    "affiliation": "Secretaría de Salud, Mexico (Directora General, Dirección General de Evaluación del Desempeño)",
     "research_group_categories": [
       "collaborators"
     ],
@@ -3020,7 +3020,7 @@
   {
     "slug": "sidney-verba",
     "name": "Sidney Verba",
-    "affiliation": "Harvard University",
+    "affiliation": "Harvard University (Emeritus, deceased)",
     "research_group_categories": [
       "collaborators"
     ],
@@ -3085,7 +3085,7 @@
   {
     "slug": "robert-walker",
     "name": "Robert Walker",
-    "affiliation": "Washington University, St. Louis",
+    "affiliation": "Willamette University (Associate Professor of Quantitative Methods, Atkinson Graduate School of Management)",
     "research_group_categories": [
       "alumni_postdocs"
     ],
@@ -3233,7 +3233,7 @@
   {
     "slug": "miya-woolfalk",
     "name": "Miya Woolfalk",
-    "affiliation": "Harvard University",
+    "affiliation": "Analyst Institute / Democracy & Power Innovation Fund (Senior Advisor/Researcher)",
     "research_group_categories": [
       "alumni_postdocs"
     ],

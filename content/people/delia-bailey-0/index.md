@@ -1,8 +1,9 @@
 ---
 title: "Delia Bailey"
 type: "people"
-role: "School of Law, Washington University - St. Louis"
+role: "YouGov (Senior VP of Data Science)"
 research_group_category: "alumni_postdocs"
 email: "dbailey@wustl.edu"
+website: "https://today.yougov.com/people/delia-bailey"
 ---
 

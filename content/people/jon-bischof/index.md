@@ -1,9 +1,8 @@
 ---
 title: "Jon Bischof"
 type: "people"
-role: "Harvard University"
+role: "Microsoft AI"
 research_group_category: "alumni_postdocs"
-website: "http://www.people.fas.harvard.edu/~jbischof/"
+website: "https://www.linkedin.com/in/jmbischof"
 ---
 
-Ph.D. student in the Department of Government. His research interests include the use of panel data in comparative politics and IR, causal inference and matching, and political economy. He is currently working on the YourCast package in R.

@@ -1,8 +1,8 @@
 ---
 title: "Allen Schmaltz"
 type: "people"
-role: "IQSS, Harvard University"
+role: "Reexpress AI, Inc. (Principal Researcher)"
 research_group_category: "collaborators"
+website: "https://re.express/"
 ---
 
-See his homepage

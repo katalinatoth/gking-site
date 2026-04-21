@@ -1,8 +1,8 @@
 ---
 title: "Marshall Van Alstyne"
 type: "people"
-role: "MIT"
+role: "Boston University (Questrom Professor of Management)"
 research_group_category: "collaborators"
-website: "http://web.mit.edu/marshall/www/home.html"
+website: "https://www.bu.edu/questrom/profile/marshall-w-van-alstyne/"
 ---
 

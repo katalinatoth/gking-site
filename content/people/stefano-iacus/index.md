@@ -1,8 +1,8 @@
 ---
 title: "Stefano Iacus"
 type: "people"
-role: "University of Milan"
+role: "European Commission Joint Research Centre (Scientific Officer)"
 research_group_category: "collaborators"
-website: "http://www.economia.unimi.it/index.php?id=iacus"
+website: "https://www.linkedin.com/in/siacus"
 ---
 

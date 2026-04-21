@@ -1,8 +1,8 @@
 ---
 title: "Lada Adamic"
 type: "people"
-role: "University of Michigan"
+role: "Independent (formerly Meta)"
 research_group_category: "collaborators"
-website: "http://www-personal.umich.edu/~ladamic/"
+website: "https://www.ladamic.com/"
 ---
 

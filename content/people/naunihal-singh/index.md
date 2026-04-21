@@ -1,7 +1,8 @@
 ---
 title: "Naunihal Singh"
 type: "people"
-role: "University of Notre Dame"
+role: "U.S. Naval War College (Associate Professor of National Security Affairs)"
 research_group_category: "collaborators"
+website: "https://usnwc.edu/Faculty-and-Departments/Directory/Naunihal-Singh"
 ---
 

@@ -1,8 +1,8 @@
 ---
 title: "Aslaug Asgeirsdottir"
 type: "people"
-role: "Bates College"
+role: "University of Akureyri (Rector)"
 research_group_category: "alumni_postdocs"
-website: "http://www.bates.edu/x33158.xml"
+website: "https://www.unak.is/english/moya/news/aslaug-asgeirsdottir-has-taken-over-the-position-of-rector"
 ---
 

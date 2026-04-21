@@ -1,8 +1,8 @@
 ---
 title: "Mohan (Penubarti) Rao"
 type: "people"
-role: "LECG"
+role: "Epsilon Economics (Chairman and CEO)"
 research_group_category: "alumni_postdocs"
-website: "http://www.lecg.com/website/LWBios.nsf/OpenPage/MohanRao"
+website: "https://www.epsiloneconomics.com/people/mohan-rao/"
 ---
 

@@ -1,8 +1,8 @@
 ---
 title: "Alan Lopez"
 type: "people"
-role: "University of Washington"
+role: "The University of Melbourne (Melbourne Laureate Professor and Rowden-White Chair of Global Health)"
 research_group_category: "collaborators"
-website: "http://www.healthmetricsandevaluation.org/who/bios/faculty/lopez.html"
+website: "https://findanexpert.unimelb.edu.au/profile/10856-alan-lopez"
 ---
 

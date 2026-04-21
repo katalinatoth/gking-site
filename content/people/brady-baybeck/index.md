@@ -1,8 +1,8 @@
 ---
 title: "Brady Baybeck"
 type: "people"
-role: "University of Missouri - St. Louis"
+role: "Wayne State University (Associate Professor of Political Science)"
 research_group_category: "alumni_postdocs"
-website: "http://www.umsl.edu/~baybeckb/"
+website: "https://clasprofiles.wayne.edu/profile/dw5227"
 ---
 

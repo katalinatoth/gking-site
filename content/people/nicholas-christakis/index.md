@@ -1,8 +1,8 @@
 ---
 title: "Nicholas Christakis"
 type: "people"
-role: "Harvard University"
+role: "Yale University (Sterling Professor)"
 research_group_category: "collaborators"
-website: "http://www.wjh.harvard.edu/soc/faculty/christakis/"
+website: "http://www.nicholaschristakis.net/"
 ---
 

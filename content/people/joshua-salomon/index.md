@@ -1,8 +1,8 @@
 ---
 title: "Joshua Salomon"
 type: "people"
-role: "Harvard University"
+role: "Stanford University (Professor of Health Policy)"
 research_group_category: "collaborators"
-website: "http://www.hsph.harvard.edu/faculty/joshua-salomon/"
+website: "https://profiles.stanford.edu/joshua-salomon"
 ---
 

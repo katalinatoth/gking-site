@@ -1,10 +1,9 @@
 ---
 title: "Eleanor Powell"
 type: "people"
-role: "Yale University"
+role: "University of Wisconsin-Madison (Associate Professor)"
 research_group_category: "alumni_students"
 email: "eleanor.powell@yale.edu"
-website: "http://www.yale.edu/polisci/people/epowell.html"
+website: "http://www.eleanorneffpowell.com/"
 ---
 
-Assistant Professor of Political Science at Yale University and resident fellow of the Institution for Social Policy Studies. Her research interests are in primarily in American politics, with special emphasis on congressional politics, political parties, and the role of money in politics.

@@ -1,8 +1,8 @@
 ---
 title: "Tony Jebara"
 type: "people"
-role: "Columbia University"
+role: "Spotify (VP of Engineering, Head of AI/ML)"
 research_group_category: "collaborators"
-website: "http://www1.cs.columbia.edu/~jebara/"
+website: "https://www.linkedin.com/in/tony-jebara-27019"
 ---
 

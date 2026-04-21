@@ -1,8 +1,8 @@
 ---
 title: "James Honaker"
 type: "people"
-role: "UCLA"
+role: "OpenDP / Harvard University (Chief Privacy Engineer; SEAS Research Associate)"
 research_group_category: "collaborators"
-website: "http://www.sscnet.ucla.edu/polisci/menu/people/faculty/james_honaker.htm"
+website: "https://privacytools.seas.harvard.edu/people/james-honaker"
 ---
 

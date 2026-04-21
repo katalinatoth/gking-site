@@ -1,8 +1,8 @@
 ---
 title: "David Lazer"
 type: "people"
-role: "Harvard University"
+role: "Northeastern University (University Distinguished Professor of Political Science and Computer Sciences)"
 research_group_category: "collaborators"
-website: "http://www.hks.harvard.edu/davidlazer/html/"
+website: "https://www.davidlazer.com/"
 ---
 

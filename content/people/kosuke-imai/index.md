@@ -1,8 +1,8 @@
 ---
 title: "Kosuke Imai"
 type: "people"
-role: "Princeton University"
+role: "Harvard University (Professor of Government and of Statistics)"
 research_group_category: "collaborators"
-website: "http://www.princeton.edu/~kimai/"
+website: "https://imai.fas.harvard.edu/"
 ---
 

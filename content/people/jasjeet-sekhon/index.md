@@ -1,8 +1,8 @@
 ---
 title: "Jasjeet Sekhon"
 type: "people"
-role: "University of California, Berkely"
+role: "Google DeepMind (Chief Strategy Officer)"
 research_group_category: "alumni_students"
-website: "http://sekhon.berkeley.edu/"
+website: "https://www.jsekhon.com/"
 ---
 

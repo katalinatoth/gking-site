@@ -1,8 +1,8 @@
 ---
 title: "Elizabeth Stuart"
 type: "people"
-role: "Mathematica Policy Research, Inc."
+role: "Johns Hopkins Bloomberg School of Public Health (Chair, Biostatistics)"
 research_group_category: "collaborators"
-website: "http://people.iq.harvard.edu/~estuart/"
+website: "https://www.elizabethstuart.org/"
 ---
 

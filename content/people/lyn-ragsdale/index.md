@@ -1,8 +1,8 @@
 ---
 title: "Lyn Ragsdale"
 type: "people"
-role: "Rice University"
+role: "Rice University (In Memoriam)"
 research_group_category: "collaborators"
-website: "http://www.rice.edu/sallyport/2006/summer/whoswho/ragsdale.html"
+website: "https://profiles.rice.edu/faculty/lyn-ragsdale"
 ---
 

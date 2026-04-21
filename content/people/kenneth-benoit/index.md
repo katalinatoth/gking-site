@@ -1,8 +1,8 @@
 ---
 title: "Kenneth Benoit"
 type: "people"
-role: "Trinity College, University of Dublin"
+role: "Singapore Management University (Dean, School of Social Sciences)"
 research_group_category: "alumni_students"
-website: "http://kenbenoit.net/"
+website: "https://www.kenbenoit.net/"
 ---
 

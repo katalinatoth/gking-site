@@ -1,9 +1,9 @@
 ---
 title: "Rich Nielsen"
 type: "people"
-role: "Harvard University"
+role: "MIT (Associate Professor of Political Science)"
 research_group_category: "alumni_postdocs"
 email: "nielsen.rich@gmail.com"
+website: "https://polisci.mit.edu/people/richard-nielsen"
 ---
 
-Ph.D. student in the Department of Government and holds an AM degree from the Harvard Statistics Department.  His research applies causal inference methods to topics in international political economy, international law, and human rights.  He is currently working on comparisons between matching methods.

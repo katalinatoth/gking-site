@@ -1,8 +1,8 @@
 ---
 title: "Giuseppe Porro"
 type: "people"
-role: "University of Trieste"
+role: "Università dell'Insubria (Professore Ordinario)"
 research_group_category: "collaborators"
-website: "http://www2.units.it/~nirdses/sito_inglese/Webpages/porro.html"
+website: "https://www.uninsubria.it/ugov/person/5086"
 ---
 

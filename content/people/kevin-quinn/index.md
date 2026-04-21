@@ -1,9 +1,8 @@
 ---
 title: "Kevin Quinn"
 type: "people"
-role: "Harvard University"
+role: "Emory University (Charles Howard Candler Professor of Law and QTM)"
 research_group_category: "alumni_postdocs"
-website: "http://www.law.berkeley.edu/kevinmquinn.htm"
+website: "https://law.emory.edu/faculty/faculty-profiles/quinn-kevin-profile.html"
 ---
 
-Berkeley Law - University of California

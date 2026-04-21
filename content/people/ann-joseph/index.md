@@ -1,8 +1,8 @@
 ---
 title: "Ann Joseph"
 type: "people"
-role: "UC Berkeley School of Law"
+role: "Stanford Law School (Professor)"
 research_group_category: "collaborators"
-website: "http://www.law.berkeley.edu/faculty/profiles/facultyProfile.php?facID=5071"
+website: "https://law.stanford.edu/directory/anne-joseph-oconnell/"
 ---
 
