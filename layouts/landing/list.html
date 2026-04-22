@@ -33,41 +33,7 @@
         <img src="{{ "images/research-areas-methods.png" | relURL }}" alt="Methods" width="161" height="140" style="max-width:100%;height:auto;display:block;">
       </div>
       {{ range $data.methods }}
-      <details class="gk-hp-area" id="{{ .name | urlize }}" style="background:#f8f9fa;border:1px solid #e2e8f0;border-radius:6px;padding:4px 14px;margin-bottom:8px;">
-        <summary style="font-size:0.9rem;font-weight:500;cursor:pointer;padding:6px 0;list-style:none;display:flex;align-items:center;gap:5px;color:#337ab7;">
-          <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span> {{ .name }}
-        </summary>
-        <div style="padding:4px 0 10px 16px;">
-          {{ with .description }}
-          <p style="font-size:0.82rem;line-height:1.5;color:#666;margin:0 0 8px;">{{ . }}</p>
-          {{ end }}
-          {{ if .subcategories }}
-          {{ $totalPapers := 0 }}{{ range .subcategories }}{{ $totalPapers = add $totalPapers (len .papers) }}{{ end }}
-          {{ if gt $totalPapers 0 }}
-          <details class="gk-hp-pubs">
-            <summary style="font-size:0.8rem;cursor:pointer;color:#337ab7;padding:2px 0;list-style:none;display:flex;align-items:center;gap:4px;">
-              <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span> Publications
-            </summary>
-            <div style="padding:4px 0 4px 12px;">
-              {{ range .subcategories }}
-                {{ if gt (len .papers) 0 }}
-                <h4 style="font-size:0.8rem;font-weight:700;color:#555;margin:0.5rem 0 0.3rem;border-bottom:1px solid #eee;padding-bottom:2px;">{{ .name }}</h4>
-                <ul style="list-style:none;padding:0;margin:0;">
-                  {{ range .papers }}
-                    {{ $page := site.GetPage (printf "/%s/%s" .section .slug) }}
-                    {{ with $page }}
-                    {{ partial "research_areas_pub_item" (dict "page" . "compact" true) }}
-                    {{ end }}
-                  {{ end }}
-                </ul>
-                {{ end }}
-              {{ end }}
-            </div>
-          </details>
-          {{ end }}
-          {{ end }}
-        </div>
-      </details>
+      {{ partial "home_research_area" . }}
       {{ end }}
     </div>
     <!-- Applications -->
@@ -77,41 +43,7 @@
         <img src="{{ "images/research-areas-applications.png" | relURL }}" alt="Applications" width="206" height="151" style="max-width:100%;height:auto;display:block;">
       </div>
       {{ range $data.applications }}
-      <details class="gk-hp-area" id="{{ .name | urlize }}" style="background:#f8f9fa;border:1px solid #e2e8f0;border-radius:6px;padding:4px 14px;margin-bottom:8px;">
-        <summary style="font-size:0.9rem;font-weight:500;cursor:pointer;padding:6px 0;list-style:none;display:flex;align-items:center;gap:5px;color:#337ab7;">
-          <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span> {{ .name }}
-        </summary>
-        <div style="padding:4px 0 10px 16px;">
-          {{ with .description }}
-          <p style="font-size:0.82rem;line-height:1.5;color:#666;margin:0 0 8px;">{{ . }}</p>
-          {{ end }}
-          {{ if .subcategories }}
-          {{ $totalPapers := 0 }}{{ range .subcategories }}{{ $totalPapers = add $totalPapers (len .papers) }}{{ end }}
-          {{ if gt $totalPapers 0 }}
-          <details class="gk-hp-pubs">
-            <summary style="font-size:0.8rem;cursor:pointer;color:#337ab7;padding:2px 0;list-style:none;display:flex;align-items:center;gap:4px;">
-              <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span> Publications
-            </summary>
-            <div style="padding:4px 0 4px 12px;">
-              {{ range .subcategories }}
-                {{ if gt (len .papers) 0 }}
-                <h4 style="font-size:0.8rem;font-weight:700;color:#555;margin:0.5rem 0 0.3rem;border-bottom:1px solid #eee;padding-bottom:2px;">{{ .name }}</h4>
-                <ul style="list-style:none;padding:0;margin:0;">
-                  {{ range .papers }}
-                    {{ $page := site.GetPage (printf "/%s/%s" .section .slug) }}
-                    {{ with $page }}
-                    {{ partial "research_areas_pub_item" (dict "page" . "compact" true) }}
-                    {{ end }}
-                  {{ end }}
-                </ul>
-                {{ end }}
-              {{ end }}
-            </div>
-          </details>
-          {{ end }}
-          {{ end }}
-        </div>
-      </details>
+      {{ partial "home_research_area" . }}
       {{ end }}
     </div>
   </div>
@@ -119,18 +51,39 @@
 
 <script>
 (function () {
-  /* Accordion behavior for the Research Areas dropdowns: opening one
-     category auto-closes any other open category (across both the
-     Methods and Applications columns). Nested toggles inside a
-     category — e.g. the "Publications" sub-details — are left alone. */
+  /* Accordion behavior for the Research Areas section.
+
+     Two independent accordions, both scoped inside #research-areas:
+
+     1. Top-level areas (.gk-hp-area): opening one area (e.g. Ecological
+        Inference) auto-closes any other open area across both the Methods
+        and Applications columns.
+     2. Subcategories (.gk-hp-subcat) within a single area: opening one
+        subcategory (e.g. Software inside Ecological Inference) auto-closes
+        any other open subcategory in the same area, so the panel doesn't
+        splay out into a wall of papers. Subcategories in *other* areas
+        are unaffected. */
   var section = document.getElementById('research-areas');
   if (!section) return;
+
   var areas = section.querySelectorAll('details.gk-hp-area');
   areas.forEach(function (d) {
     d.addEventListener('toggle', function () {
       if (!d.open) return;
       areas.forEach(function (other) {
         if (other !== d && other.open) other.open = false;
+      });
+    });
+  });
+
+  areas.forEach(function (area) {
+    var subs = area.querySelectorAll(':scope > div > details.gk-hp-subcat');
+    subs.forEach(function (s) {
+      s.addEventListener('toggle', function () {
+        if (!s.open) return;
+        subs.forEach(function (other) {
+          if (other !== s && other.open) other.open = false;
+        });
       });
     });
   });
@@ -399,12 +352,14 @@
     #hero > div > div:first-child { padding: 40px 24px !important; }
     #hero > div > div:last-child { max-height: 300px; }
   }
-  .gk-hp-area summary { list-style: none; }
-  .gk-hp-area summary::-webkit-details-marker { display: none; }
+  .gk-hp-area summary,
+  .gk-hp-subcat summary,
+  .gk-hp-item summary { list-style: none; }
+  .gk-hp-area summary::-webkit-details-marker,
+  .gk-hp-subcat summary::-webkit-details-marker,
+  .gk-hp-item summary::-webkit-details-marker { display: none; }
   .gk-hp-arrow { font-size: 0.6em; color: #999; transition: transform 0.15s; display: inline-block; }
   details[open] > summary .gk-hp-arrow { transform: rotate(180deg); }
-  .gk-hp-item summary { list-style: none; }
-  .gk-hp-item summary::-webkit-details-marker { display: none; }
   @media (max-width: 900px) {
     section > div > div[style*="grid-template-columns: 1fr 1fr 1fr"] { grid-template-columns: 1fr !important; }
   }

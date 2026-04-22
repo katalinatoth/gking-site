@@ -1,0 +1,42 @@
+{{/*
+  Home page Research Areas card.
+
+  Renders one research area (e.g. "Ecological Inference") as a collapsible
+  <details>. Inside, the area's description appears immediately, followed by
+  one collapsible <details> per subcategory (e.g. "Publications", "Software",
+  "Discussions and Extensions"). The accordion JS at the bottom of
+  layouts/landing/list.html closes any other open subcategory within the
+  same area when the user opens a new one, so the section never splays out
+  into a wall of papers.
+
+  Receives the area dict directly: { name, description, subcategories }.
+*/}}
+{{ $area := . }}
+{{ $subsWithPapers := slice }}
+{{ range $area.subcategories }}{{ if gt (len .papers) 0 }}{{ $subsWithPapers = $subsWithPapers | append . }}{{ end }}{{ end }}
+
+<details class="gk-hp-area" id="{{ $area.name | urlize }}" style="background:#f8f9fa;border:1px solid #e2e8f0;border-radius:6px;padding:4px 14px;margin-bottom:8px;">
+  <summary style="font-size:0.9rem;font-weight:500;cursor:pointer;padding:6px 0;list-style:none;display:flex;align-items:center;gap:5px;color:#337ab7;">
+    <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span> {{ $area.name }}
+  </summary>
+  <div style="padding:4px 0 10px 16px;">
+    {{ with $area.description }}
+    <p style="font-size:0.82rem;line-height:1.5;color:#666;margin:0 0 8px;">{{ . }}</p>
+    {{ end }}
+    {{ range $subsWithPapers }}
+    <details class="gk-hp-subcat" style="margin-top:4px;">
+      <summary style="font-size:0.8rem;cursor:pointer;color:#337ab7;padding:2px 0;list-style:none;display:flex;align-items:center;gap:4px;">
+        <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span> {{ .name }}
+      </summary>
+      <ul style="list-style:none;padding:0 0 0 12px;margin:4px 0 8px;">
+        {{ range .papers }}
+          {{ $page := site.GetPage (printf "/%s/%s" .section .slug) }}
+          {{ with $page }}
+          {{ partial "research_areas_pub_item" (dict "page" . "compact" true) }}
+          {{ end }}
+        {{ end }}
+      </ul>
+    </details>
+    {{ end }}
+  </div>
+</details>
