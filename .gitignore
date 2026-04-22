@@ -5,6 +5,7 @@ resources/_gen/
 # OS files
 .DS_Store
 Thumbs.db
+.Rhistory
 
 # Node modules
 node_modules/
