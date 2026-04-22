@@ -1,37 +1,31 @@
-# Featured ("Selected works") slugs per writings tab.
+# "Current Working Papers" slugs for the Journal Articles tab of the writings page.
 #
-# Each item is rendered above the rest of its tab with a "Selected works"
-# heading, a star badge, and a crimson left border. This pulls the most
-# representative items toward the top of the page (serial-position primacy)
-# and makes them perceptually distinct (Von Restorff isolation).
+# Each item is rendered above the rest of the Journal Articles list with a
+# "Current Working Papers" heading and a blue-framed card. This pulls the most
+# representative current work toward the top (serial-position primacy) and
+# makes it perceptually distinct (Von Restorff isolation).
 #
 # Format:
-#   <tab-id>:
-#     - "<slug>"        # the directory name under content/publication/ or content/talk/
+#   journal:
+#     - "<slug>"        # directory name under content/publication/
 #
-# Tab ids: journal, book, presentation, software, patent, other
-# Keep each list short (<= 5) so the highlight effect isn't diluted.
+# Only the `journal` tab populates this list. All other tabs (book,
+# presentation, software, patent, other) intentionally have empty lists so
+# the strip is suppressed on their pages.
+#
+# Keep the list short (<= 5) so the highlight effect isn't diluted.
 
 journal:
   - "inducing-sustained-creativity-and-diversity-in-large-language-models"
   - "assessing-differences-in-country-level-estimates-of-maternal-mortality-a-compari"
   - "survey-estimates-of-wartime-mortality"
 
-book:
-  - "designing-social-inquiry-scientific-inference-in-qualitative-research"
-  - "unifying-political-methodology-the-likelihood-theory-of-statistical-inference"
+book: []
 
-presentation:
-  - "whos-to-blame-for-survey-instability-respondents-with-nonexistent-preferences-or"
-  - "statistically-valid-inferences-from-privacy-protected-data-pew-research-center"
+presentation: []
 
-software:
-  - "opendp-developing-open-source-tools-for-differential-privacy"
-  - "psi-ψ-a-private-data-sharing-interface"
-  - "compactness-an-r-package-for-measuring-legislative-district-compactness-if-you-o"
+software: []
 
-patent:
-  - "cluster-analysis-of-participant-responses-for-test-generation-or-teaching-2nd"
-  - "participant-grouping-for-enhanced-interactive-experience-4th"
+patent: []
 
 other: []

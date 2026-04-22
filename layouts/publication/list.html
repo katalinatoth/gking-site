@@ -132,10 +132,9 @@
     return data.filter(function(d) { return d.legacyTab === tabId; });
   }
 
-  // Featured ("Selected works") slugs for the active tab — tagged in
-  // data/featured_publications.yaml. Returns an ordered list of entries
-  // matching the slugs (preserving the YAML order so curators control which
-  // featured item shows first).
+  // "Current Working Papers" slugs for the active tab — tagged in
+  // data/featured_publications.yaml. Currently only the journal tab populates
+  // this list; other tabs return nothing and the strip is suppressed.
   function getFeaturedForTab(tabId) {
     var slugs = (featuredCfg && featuredCfg[tabId]) || [];
     if (!slugs.length) return [];
@@ -353,15 +352,15 @@
       return;
     }
 
-    // Selected works strip (primacy + Von Restorff). Only shown when
+    // Current Working Papers strip (primacy + Von Restorff). Only shown when
     // there are no active filters; once the user is hunting, get out of
     // their way.
     var html = "";
     if (!active) {
       var featured = getFeaturedForTab(activeTab);
       if (featured.length) {
-        html += '<section class="gk-featured-section" aria-label="Selected works">' +
-                '<h2 class="gk-featured-heading">Selected works</h2>';
+        html += '<section class="gk-featured-section" aria-label="Current Working Papers">' +
+                '<h2 class="gk-featured-heading">Current Working Papers</h2>';
         featured.forEach(function(d) { html += renderCard(d, { featured: true }); });
         html += '</section>';
         // Drop featured items from the main list to avoid duplication.
@@ -521,10 +520,10 @@
     line-height: 1.4;
   }
 
-  /* ===== Featured ("Selected works") strip =====
-     A small (<= ~5) curated set rendered above the main list, framed in
-     the page's blue palette so it stays visually distinct (Von Restorff)
-     without breaking the color system. */
+  /* ===== "Current Working Papers" strip =====
+     A small (<= ~5) curated set rendered above the Journal Articles tab,
+     framed in the page's blue palette so it stays visually distinct
+     (Von Restorff) without breaking the color system. */
   .gk-featured-section {
     margin-bottom: 1.5rem;
     padding: 1rem 1.25rem 1.25rem;
