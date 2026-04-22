@@ -245,15 +245,6 @@
     "last_name_range": "A-C"
   },
   {
-    "slug": "kenneth-bennoit",
-    "name": "Kenneth Bennoit",
-    "affiliation": "Singapore Management University (Dean, School of Social Sciences)",
-    "research_group_categories": [
-      "collaborators"
-    ],
-    "last_name_range": "A-C"
-  },
-  {
     "slug": "kenneth-benoit",
     "name": "Kenneth Benoit",
     "affiliation": "Singapore Management University (Dean, School of Social Sciences)",
@@ -308,18 +299,9 @@
     "last_name_range": "A-C"
   },
   {
-    "slug": "jon-bischof",
-    "name": "Jon Bischof",
-    "affiliation": "Microsoft AI",
-    "research_group_categories": [
-      "alumni_postdocs"
-    ],
-    "last_name_range": "A-C"
-  },
-  {
     "slug": "jonathan-bischof",
     "name": "Jonathan Bischof",
-    "affiliation": "Google",
+    "affiliation": "Microsoft AI",
     "research_group_categories": [
       "alumni_students"
     ],
@@ -436,15 +418,6 @@
   },
   {
     "slug": "john-bruce",
-    "name": "John Bruce",
-    "affiliation": "University of Mississippi",
-    "research_group_categories": [
-      "collaborators"
-    ],
-    "last_name_range": "A-C"
-  },
-  {
-    "slug": "john-m-bruce",
     "name": "John M. Bruce",
     "affiliation": "University of Mississippi",
     "research_group_categories": [
@@ -762,20 +735,11 @@
     "last_name_range": "D-G"
   },
   {
-    "slug": "georgie-evans",
+    "slug": "georgina-evans",
     "name": "Georgina 'Georgie' Evans",
     "affiliation": "Google DeepMind",
     "research_group_categories": [
       "alumni_students"
-    ],
-    "last_name_range": "D-G"
-  },
-  {
-    "slug": "georgina-evans",
-    "name": "Georgina Evans",
-    "affiliation": "Google",
-    "research_group_categories": [
-      "collaborators"
     ],
     "last_name_range": "D-G"
   },
@@ -1195,21 +1159,11 @@
     "last_name_range": "H-J"
   },
   {
-    "slug": "dan-hopkins",
-    "name": "Dan Hopkins",
+    "slug": "daniel-hopkins",
+    "name": "Daniel Hopkins",
     "affiliation": "University of Pennsylvania (Julie and Martin Franklin Presidential Professor of Political Science)",
     "research_group_categories": [
       "alumni_students"
-    ],
-    "last_name_range": "H-J"
-  },
-  {
-    "slug": "daniel-hopkins",
-    "name": "Daniel Hopkins",
-    "affiliation": "University of Pennsylvania (Professor)",
-    "research_group_categories": [
-      "alumni_students",
-      "collaborators"
     ],
     "last_name_range": "H-J"
   },
@@ -1434,21 +1388,11 @@
     "last_name_range": "K-L"
   },
   {
-    "slug": "johnathan-katz",
-    "name": "Johnathan Katz",
-    "affiliation": "Caltech",
-    "research_group_categories": [
-      "collaborators"
-    ],
-    "last_name_range": "K-L"
-  },
-  {
     "slug": "jonathan-n-katz",
     "name": "Jonathan N. Katz",
     "affiliation": "Caltech",
     "research_group_categories": [
-      "alumni_postdocs",
-      "collaborators"
+      "alumni_postdocs"
     ],
     "last_name_range": "K-L"
   },
@@ -1881,15 +1825,6 @@
   {
     "slug": "russ-mayer",
     "name": "Russ Mayer",
-    "affiliation": "Merrimack College",
-    "research_group_categories": [
-      "alumni_postdocs"
-    ],
-    "last_name_range": "M-P"
-  },
-  {
-    "slug": "russell-mayer",
-    "name": "Russell Mayer",
     "affiliation": "Loyola Marymount University (most recent)",
     "research_group_categories": [
       "alumni_postdocs"
@@ -2050,21 +1985,11 @@
     "last_name_range": "M-P"
   },
   {
-    "slug": "rich-nielsen",
-    "name": "Rich Nielsen",
+    "slug": "richard-nielsen",
+    "name": "Richard A. Nielsen",
     "affiliation": "MIT (Associate Professor of Political Science)",
     "research_group_categories": [
       "alumni_postdocs"
-    ],
-    "last_name_range": "M-P"
-  },
-  {
-    "slug": "richard-nielsen",
-    "name": "Richard A. Nielsen",
-    "affiliation": "MIT",
-    "research_group_categories": [
-      "alumni_students",
-      "collaborators"
     ],
     "last_name_range": "M-P"
   },
@@ -2484,15 +2409,6 @@
     "slug": "kay-schlozman",
     "name": "Kay Schlozman",
     "affiliation": "Boston College",
-    "research_group_categories": [
-      "collaborators"
-    ],
-    "last_name_range": "Q-S"
-  },
-  {
-    "slug": "alan-schmaltz",
-    "name": "Alan Schmaltz",
-    "affiliation": "Reexpress AI (Principal Researcher)",
     "research_group_categories": [
       "collaborators"
     ],
