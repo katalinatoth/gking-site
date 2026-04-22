@@ -13,7 +13,7 @@ Download: [Gary's speech (PDF)](/gking-site/files/sunynptlk.pdf) · [Honorary de
 
 ## Learning from College, after College
 
-*This is by far and away my second favorite degree!*
+This is by far and away my second favorite degree!
 
 Thanks so much for the introduction. But just so you know, when those of us from here want to pay Harvard a compliment, we call it "the New Paltz of the Northeast."
 
