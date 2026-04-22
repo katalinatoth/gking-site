@@ -10,13 +10,18 @@
          related_datasets:  [slug, slug, ...]    # any section
          related_paper:     slug                 # legacy singular
          related_dataset:   slug                 # legacy singular
-    2. After explicit matches, we score every other page by:
+    2. Category siblings: every entry that shares the same research_areas
+       subcategory as the current page (from data/research_areas.json) is
+       added next, so any paper or talk listed under, e.g. "Teaching and
+       Administration > Publications" automatically links to its peers.
+    3. After explicit matches and category siblings, we score every other
+       page by:
          - Title-token overlap (stop words stripped)  -> big weight
          - Shared authors                             -> medium weight
          - Shared tags / keywords                     -> medium weight
-       Any page scoring above threshold is included.
-    3. Sections shown: talk, software, publication (incl. datasets).
-    4. Results are capped (default 6) and sorted by score, then year desc.
+       Any page scoring above threshold is included as backfill.
+    4. Sections shown: talk, software, publication (incl. datasets).
+    5. Results are capped (default 8) and sorted by score, then year desc.
 
   Usage:
     {{ partial "related_finder.html" . }}
@@ -83,8 +88,58 @@
   {{ end }}
 {{ end }}
 
+{{/* ---------- category siblings from research_areas.json ---------- */}}
+{{/* If the current page is listed under one or more research_areas
+     subcategories, surface every other entry from the same subcategory
+     (papers, talks, datasets — all rendered through the standard
+     section/slug lookup below). This is the "easy way" to make sure that
+     every paper points readers to its siblings, without anyone having
+     to maintain explicit related_* lists. */}}
+{{ $raData := site.Data.research_areas }}
+{{ if and $raData $curSlug }}
+  {{/* Match the current page to research_areas entries by slug. We accept
+       a match on either the same section (publication/talk) or a different
+       one (e.g. a software-section page whose slug also appears in the
+       publication list), so that software project pages also surface
+       category siblings. */}}
+  {{ range $areaKey := slice "methods" "applications" }}
+    {{ $areas := index $raData $areaKey | default slice }}
+    {{ range $area := $areas }}
+      {{ range $sub := ($area.subcategories | default slice) }}
+        {{ $papers := $sub.papers | default slice }}
+        {{ $hasMe := false }}
+        {{ range $papers }}
+          {{ if eq .slug $curSlug }}
+            {{ $hasMe = true }}
+          {{ end }}
+        {{ end }}
+        {{ if $hasMe }}
+          {{ range $papers }}
+            {{ $sect := .section }}
+            {{ $slug := .slug }}
+            {{ if ne $slug $curSlug }}
+              {{ $p := site.GetPage (printf "/%s/%s" $sect $slug) }}
+              {{ with $p }}
+                {{ if not (in $pickedSlugs .RelPermalink) }}
+                  {{ $picked = $picked | append (dict "page" . "score" 8000) }}
+                  {{ $pickedSlugs = $pickedSlugs | append .RelPermalink }}
+                {{ end }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
 {{/* ---------- automatic scoring pass ---------- */}}
+{{/* If category siblings already filled the See Also block, use the
+     usual high-confidence threshold; otherwise relax it so that pages
+     not yet listed in research_areas.json still get a useful list of
+     siblings based on title/author/tag overlap. */}}
 {{ $threshold := 4 }}
+{{ if lt (len $picked) 3 }}{{ $threshold = 2 }}{{ end }}
 {{ $candidates := slice }}
 {{ range (where site.RegularPages "Section" "in" (slice "publication" "talk" "software")) }}
   {{ $same := and (eq .RelPermalink $page.RelPermalink) true }}
@@ -127,7 +182,7 @@
 {{ $picked = $picked | append $sorted }}
 
 {{/* ---------- render ---------- */}}
-{{ $limit := 6 }}
+{{ $limit := 8 }}
 {{ $shown := 0 }}
 {{ if gt (len $picked) 0 }}
 <div class="gk-see-also">

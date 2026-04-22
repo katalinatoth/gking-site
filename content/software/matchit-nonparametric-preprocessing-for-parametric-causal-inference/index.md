@@ -8,5 +8,5 @@ authors:
   - "Elizabeth A. Stuart"
 links:
   - type: site
-    url: "https://kosukeimai.github.io/MatchIt/index.html"
+    url: "https://kosukeimai.github.io/MatchIt/"
 ---

@@ -1,9 +1,0 @@
-# Footer links under /software/ — use software section slugs; hrefs come from .RelPermalink
-# so GitHub Pages project URLs (…/gking-site/…) are always correct.
-links:
-  - label: "Virtual Data Center (overview)"
-    slug: an-overview-of-the-virtual-data-center-project-and-software
-  - label: "YourCast: Time Series Cross-Sectional Forecasting with Your Assumptions"
-    slug: yourcast
-  - label: "Maxlik"
-    slug: maxlik
