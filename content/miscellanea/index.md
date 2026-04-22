@@ -17,5 +17,3 @@ title: "Miscellanea"
 - National Academy of Sciences "[Registry of Members](/gking-site/files/misc-nas-registry.jpg)" (photo); "[QnAs with Gary King](http://www.pnas.org/content/108/13/5147.extract?etoc=)" Interview by PNAS ([PDF](/gking-site/files/misc-pnas-qna.pdf)).
 
 - [Electronic Collection Development in the Harvard College Library](/gking-site/electronic-collection/) (Gary King, 1996)
-
-- [Personal Photos](/gking-site/galleries/personal-photos/)
