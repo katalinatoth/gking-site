@@ -71,3 +71,4 @@ aliases:
   - Automating bibliographies in LaTeX: [Biber](http://biblatex-biber.sourceforge.net/)
   - Symbols: Comprehensive List ([PDF](http://www.ctan.org/tex-archive/info/symbols/comprehensive/symbols-a4.pdf)), [Detexify](http://detexify.kirelabs.org/classify.html)
 - [Do you have a paper to submit to PNAS?](/gking-site/pnas-edit/)
+- [Blog posts](/gking-site/blog/)
