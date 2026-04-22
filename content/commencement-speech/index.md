@@ -3,7 +3,7 @@ title: 'Learning from College, after College: A Commencement Speech at SUNY New 
 summary: 'Gary King. "Learning from College, after College: A Commencement Speech at SUNY New Paltz." On the occasion of receiving an honorary degree at the 182nd May commencement of the State University of New York at New Paltz.'
 ---
 
-{{< figure src="/gking-site/images/commencement-speech/image_01.jpg" caption="Diplomas about to be handed out in the foreground; 10,000+ people in the background." >}}
+{{< figure src="/gking-site/images/commencement-speech/image_01.jpg" >}}
 
 From the 182nd May commencement of the State University of New York at New Paltz, where Gary received an honorary degree on 23 May 2010.
 
