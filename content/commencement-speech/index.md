@@ -23,7 +23,7 @@ Well here you are, in the top few percent of the world's population with a colle
 
 OK, but enough about you…. Enough about how great you are; mom and dad will take that up again later.
 
-My job is to help you look to the next challenge. And I come with only one message, one that will help you more than any other I can think of: **What you learn from New Paltz doesn't end today**; as you go forward, think back to what you experienced here, and this place will become a fountain of lessons and strength to draw upon for the rest of your life.
+My job is to help you look to the next challenge. And I come with only one message, one that will help you more than any other I can think of: what you learn from New Paltz doesn't end today; as you go forward, think back to what you experienced here, and this place will become a fountain of lessons and strength to draw upon for the rest of your life.
 
 You'll learn, as I did, how to translate your New Paltz experiences into lessons, discoveries, insights, successes, careers, families, and perspectives. What New Paltz gives you doesn't stop with a degree. I'll give some examples of this from my experience here.
 
@@ -31,7 +31,7 @@ I learned here about government, politics, communications, astronomy, biology, a
 
 And by the way, I hear a few of you actually didn't get straight As. Now, dear parents, this was not because your kids partied too much; it's because budget cuts caused the Registrar's office to make lots of transcription errors. Don't complain to your kids; help out the faculty and staff and write to the state legislature! In fact I'm pretty sure that's what happened in one class I took that will remain nameless; isn't that right, Professor Brownstein?
 
-Fortunately, I'm authorized to let you in on the big secret: **Grades don't matter any more!** You've graduated; and no one can take away your degree or what you learned here.
+Fortunately, I'm authorized to let you in on the big secret: Grades don't matter any more! You've graduated; and no one can take away your degree or what you learned here.
 
 Now I'm sure you learned a ton in your classes, but don't forget what you learned outside of class. I learned about the value of friends and made friends I've had my whole life. Some are even crazy enough to be here today. I hope my daughter, who is also here, and whom I am so proud of by the way, is as lucky when she goes to college. I just wish that my friends don't tell my daughter all the things that went on here!
 
