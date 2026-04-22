@@ -5,6 +5,45 @@
 <div style="max-width:1200px;margin:0 auto;padding:2rem 1.5rem;">
   <h1 style="font-size:2.5rem;font-weight:700;margin:0 0 1.5rem;">{{ .Title }}</h1>
 
+  {{/* ---- Current Research Group (static, curated) ---- */}}
+  {{ $crgCard := "display:block;padding:10px 12px;background:#f0f5fa;border-radius:6px;text-decoration:none;color:inherit;line-height:1.25;" }}
+  {{ $crgGrid := "display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:0.6rem;margin:0 0 1.25rem;" }}
+  {{ $crgSubhead := "font-size:0.9rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#555;margin:1.25rem 0 0.6rem;" }}
+
+  <section aria-label="Current Research Group" style="margin:0 0 2.5rem;padding:1.5rem 1.5rem 1.75rem;background:#fafafa;border:1px solid #e2e8f0;border-radius:8px;">
+    <h2 style="font-size:1.5rem;font-weight:700;margin:0 0 0.25rem;">Current Research Group</h2>
+    <p style="margin:0;color:#666;font-size:0.95rem;">Harvard affiliates currently working with Gary King.</p>
+
+    <h3 style="{{ $crgSubhead | safeCSS }}">PhD Students &amp; Research Assistants</h3>
+    <div style="{{ $crgGrid | safeCSS }}">
+      <a href="https://www.danielbaissa.com/" style="{{ $crgCard | safeCSS }}"><strong style="color:#337ab7;">Dan Baissa</strong></a>
+      <a href="http://mariaballesteros.com/" style="{{ $crgCard | safeCSS }}"><strong style="color:#337ab7;">María Ballesteros</strong></a>
+      <a href="https://ascamara.github.io/" style="{{ $crgCard | safeCSS }}"><strong style="color:#337ab7;">Antonio Camara</strong></a>
+      <a href="https://www.michaelbcerny.net/" style="{{ $crgCard | safeCSS }}"><strong style="color:#337ab7;">Michael Cerny</strong></a>
+      <a href="https://noahdasanaike.github.io/" style="{{ $crgCard | safeCSS }}"><strong style="color:#337ab7;">Noah Dasanaike</strong></a>
+      <a href="https://www.gov.harvard.edu/directory/zhiyu-li/" style="{{ $crgCard | safeCSS }}"><strong style="color:#337ab7;">Zhiyu Li</strong></a>
+      <a href="https://sites.harvard.edu/queenieluo/" style="{{ $crgCard | safeCSS }}"><strong style="color:#337ab7;">Queenie Luo</strong></a>
+      <a href="https://www.gov.harvard.edu/directory/zheng-ma/" style="{{ $crgCard | safeCSS }}"><strong style="color:#337ab7;">Zheng Ma</strong></a>
+      <a href="https://www.mitsurumukaigawara.com/" style="{{ $crgCard | safeCSS }}"><strong style="color:#337ab7;">Mitsuru Mukaigawara</strong></a>
+      <a href="https://k-nakam.github.io/" style="{{ $crgCard | safeCSS }}"><strong style="color:#337ab7;">Kentaro Nakamura</strong></a>
+      <a href="https://georgeyean.github.io/" style="{{ $crgCard | safeCSS }}"><strong style="color:#337ab7;">George Yean</strong></a>
+    </div>
+
+    <h3 style="{{ $crgSubhead | safeCSS }}">Undergraduate Research Assistants</h3>
+    <div style="{{ $crgGrid | safeCSS }}">
+      <a href="https://www.linkedin.com/in/andrew-dou-73681a359" style="{{ $crgCard | safeCSS }}"><strong style="color:#337ab7;">Andrew Dou</strong></a>
+      <a href="https://zgladney.com/" style="{{ $crgCard | safeCSS }}"><strong style="color:#337ab7;">Zakiriya Gladney</strong></a>
+    </div>
+
+    <h3 style="{{ $crgSubhead | safeCSS }}">Other</h3>
+    <div style="{{ $crgGrid | safeCSS }} margin-bottom:0;">
+      <a href="https://dannyebanks.com/" style="{{ $crgCard | safeCSS }}"><strong style="color:#337ab7;">Danny Ebanks</strong><div style="font-size:0.82rem;color:#666;margin-top:2px;">Research Associate</div></a>
+      <a href="https://www.linkedin.com/in/katalina-toth/" style="{{ $crgCard | safeCSS }}"><strong style="color:#337ab7;">Katalina Toth</strong><div style="font-size:0.82rem;color:#666;margin-top:2px;">Institute Fellow</div></a>
+    </div>
+  </section>
+
+  <h2 style="font-size:1.5rem;font-weight:700;margin:0 0 1rem;">Alumni &amp; Collaborators</h2>
+
   <div style="display:flex;gap:2rem;align-items:flex-start;">
     <!-- Sidebar Filters (matches original site: category + name range + search) -->
     <div id="gk-sidebar" style="min-width:220px;max-width:280px;flex-shrink:0;border:1px solid #e2e8f0;border-radius:8px;padding:1.25rem;background:#fafafa;position:sticky;top:5rem;">
