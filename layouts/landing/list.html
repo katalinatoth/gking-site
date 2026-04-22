@@ -33,7 +33,7 @@
         <img src="{{ "images/research-areas-methods.png" | relURL }}" alt="Methods" width="161" height="140" style="max-width:100%;height:auto;display:block;">
       </div>
       {{ range $data.methods }}
-      <details class="gk-hp-area" id="{{ .name | urlize }}" style="border-bottom:1px solid #eee;margin-bottom:0;">
+      <details class="gk-hp-area" id="{{ .name | urlize }}" style="background:#f8f9fa;border:1px solid #e2e8f0;border-radius:6px;padding:4px 14px;margin-bottom:8px;">
         <summary style="font-size:0.9rem;font-weight:500;cursor:pointer;padding:6px 0;list-style:none;display:flex;align-items:center;gap:5px;color:#337ab7;">
           <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span> {{ .name }}
         </summary>
@@ -77,7 +77,7 @@
         <img src="{{ "images/research-areas-applications.png" | relURL }}" alt="Applications" width="206" height="151" style="max-width:100%;height:auto;display:block;">
       </div>
       {{ range $data.applications }}
-      <details class="gk-hp-area" id="{{ .name | urlize }}" style="border-bottom:1px solid #eee;margin-bottom:0;">
+      <details class="gk-hp-area" id="{{ .name | urlize }}" style="background:#f8f9fa;border:1px solid #e2e8f0;border-radius:6px;padding:4px 14px;margin-bottom:8px;">
         <summary style="font-size:0.9rem;font-weight:500;cursor:pointer;padding:6px 0;list-style:none;display:flex;align-items:center;gap:5px;color:#337ab7;">
           <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span> {{ .name }}
         </summary>
@@ -117,44 +117,38 @@
   </div>
 </section>
 
-<!-- Recent Papers / Presentations / Books — curated to match original site -->
-{{ $pubs := where .Site.RegularPages "Section" "publication" }}
-{{ $pubs = sort $pubs ".Date" "desc" }}
-
-{{/* Curated recent papers matching original homepage */}}
-{{ $recentPaperSlugs := slice "publication/inducing-sustained-creativity-and-diversity-in-large-language-models" "publication/assessing-differences-in-country-level-estimates-of-maternal-mortality-a-compari" "publication/survey-estimates-of-wartime-mortality" "publication/experimental-evidence-on-the-limited-influence-of-reputable-media-outlets" "publication/evaluating-the-impacts-of-swapping-on-the-us-decennial-census" "publication/global-maternal-health-country-typologies-a-framework-to-guide-policy" "publication/global-maternal-mortality-projections-by-urban-rural-locationand-education-level" "publication/differentially-private-survey-research" "publication/a-simulation-based-comparative-effectiveness-analysis-of-policies-to-improve-glo" }}
-
-{{/* Curated presentations matching original homepage */}}
-{{ $recentTalkSlugs := slice "talk/whos-to-blame-for-survey-instability-respondents-with-nonexistent-preferences-or" "talk/whos-to-blame-for-survey-instability-respondents-with-random-preferences-or-rese" "talk/statistically-valid-inferences-from-privacy-protected-data-pew-research-center" "talk/correcting-measurement-error-bias-in-conjoint-survey-experiments-university-of-c" }}
-
-{{/* Books — pulled dynamically from the writings legacy map (drupal=="book"),
-     so adding a new book entry to the map automatically surfaces it here. */}}
+<!-- Recent Papers / Presentations / Books / Patents / Software — dynamic "4 most recent" per category -->
+{{/* Build categorized page lists from the writings legacy map (the drupal type is
+     authoritative for book / patent / software / journal_article classification);
+     talks come from the dedicated /talk/ section. Each list is sorted newest-first
+     and trimmed to 4 so the home-page cards are roughly uniform in height. */}}
 {{ $wlMap := site.Data.writings_legacy_map | default (dict "entries" dict) }}
 {{ $bookPages := slice }}
+{{ $patentPages := slice }}
+{{ $softwarePages := slice }}
+{{ $paperPages := slice }}
 {{ range $slug, $meta := $wlMap.entries }}
-  {{ if eq (index $meta "drupal") "book" }}
-    {{ with site.GetPage (printf "/publication/%s" $slug) }}
-      {{ $bookPages = $bookPages | append . }}
-    {{ end }}
+  {{ $drupal := index $meta "drupal" }}
+  {{ with site.GetPage (printf "/publication/%s" $slug) }}
+    {{ if eq $drupal "book" }}{{ $bookPages = $bookPages | append . }}{{ end }}
+    {{ if eq $drupal "patent" }}{{ $patentPages = $patentPages | append . }}{{ end }}
+    {{ if eq $drupal "software" }}{{ $softwarePages = $softwarePages | append . }}{{ end }}
+    {{ if eq $drupal "journal_article" }}{{ $paperPages = $paperPages | append . }}{{ end }}
   {{ end }}
 {{ end }}
-{{ $bookPages = sort $bookPages ".Date" "desc" }}
-
-{{/* Curated patents matching original homepage (10 specific ones) */}}
-{{ $patentSlugs := slice "publication/cluster-analysis-of-participant-responses-for-test-generation-or-teaching-2nd" "publication/participant-grouping-for-enhanced-interactive-experience-4th" "publication/instructional-support-platform-for-interactive-learning-platforms-2nd" "publication/instructional-support-platform-for-interactive-learning-platforms" "publication/system-for-estimating-a-distribution-of-message-content-categories-in-source-dat-2012" "publication/cluster-analysis-of-participant-responses-for-test-generation-or-teaching" "publication/systems-and-methods-for-keyword-determination-and-document-classification-from-u" "publication/participant-grouping-for-enhanced-interactive-experience-3rd" "publication/participant-grouping-for-enhanced-interactive-experience-2nd" "publication/stimulating-online-discussion-in-interactive-learning-environments" }}
-
-{{/* Curated software projects matching original homepage (5 specific ones) */}}
-{{ $softwareSlugs := slice "publication/opendp-developing-open-source-tools-for-differential-privacy" "publication/psi-ψ-a-private-data-sharing-interface" "publication/compactness-an-r-package-for-measuring-legislative-district-compactness-if-you-o" "publication/readme2-an-r-package-for-improved-automated-nonparametric-content-analysis-for-s" "publication/boocio-an-education-system-with-hierarchical-concept-maps" }}
+{{ $recentPapers := first 4 (sort $paperPages ".Date" "desc") }}
+{{ $bookPages = first 4 (sort $bookPages ".Date" "desc") }}
+{{ $recentPatents := first 4 (sort $patentPages ".Date" "desc") }}
+{{ $recentSoftware := first 4 (sort $softwarePages ".Date" "desc") }}
+{{ $recentTalks := first 4 (sort (where site.RegularPages "Section" "talk") ".Date" "desc") }}
 
 <section style="max-width:1200px;margin:0 auto;padding:0 40px 40px;">
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;">
 
-    <!-- Recent Papers (curated) -->
+    <!-- Recent Papers (4 most recent) -->
     <div style="background:#f8f9fa;border-radius:8px;padding:20px 24px;border:1px solid #e2e8f0;">
       <h3 style="font-size:1.2rem;font-weight:600;margin:0 0 12px;color:#1E1E1E;">Recent Papers</h3>
-      {{ range $recentPaperSlugs }}
-        {{ $page := site.GetPage . }}
-        {{ with $page }}
+      {{ range $recentPapers }}
       <details class="gk-hp-item">
         <summary style="font-size:0.88rem;cursor:pointer;padding:5px 0;border-bottom:1px solid #eee;list-style:none;display:flex;align-items:baseline;gap:5px;color:#337ab7;line-height:1.4;">
           <span class="gk-hp-arrow" aria-hidden="true" style="flex-shrink:0;">&#9660;</span>
@@ -168,19 +162,16 @@
           <div style="margin-top:6px;"><a href="{{ .RelPermalink }}" style="color:#337ab7;text-decoration:none;font-weight:500;">Read more &rarr;</a></div>
         </div>
       </details>
-        {{ end }}
       {{ end }}
       <div style="margin-top:10px;text-align:right;">
         <a href="{{ "publication/#journal" | relURL }}" style="color:#337ab7;font-size:0.85rem;text-decoration:none;">All publications &rarr;</a>
       </div>
     </div>
 
-    <!-- Presentations (curated) -->
+    <!-- Presentations (4 most recent) -->
     <div style="background:#f8f9fa;border-radius:8px;padding:20px 24px;border:1px solid #e2e8f0;">
       <h3 style="font-size:1.2rem;font-weight:600;margin:0 0 12px;color:#1E1E1E;">Presentations</h3>
-      {{ range $recentTalkSlugs }}
-        {{ $page := site.GetPage . }}
-        {{ with $page }}
+      {{ range $recentTalks }}
       <details class="gk-hp-item">
         <summary style="font-size:0.88rem;cursor:pointer;padding:5px 0;border-bottom:1px solid #eee;list-style:none;display:flex;align-items:baseline;gap:5px;color:#337ab7;line-height:1.4;">
           <span class="gk-hp-arrow" aria-hidden="true" style="flex-shrink:0;">&#9660;</span>
@@ -192,14 +183,13 @@
           <div style="margin-top:6px;"><a href="{{ .RelPermalink }}" style="color:#337ab7;text-decoration:none;font-weight:500;">Read more &rarr;</a></div>
         </div>
       </details>
-        {{ end }}
       {{ end }}
       <div style="margin-top:10px;text-align:right;">
         <a href="{{ "talk/" | relURL }}" style="color:#337ab7;font-size:0.85rem;text-decoration:none;">All presentations &rarr;</a>
       </div>
     </div>
 
-    <!-- Books (dynamic, sourced from writings legacy map) -->
+    <!-- Books (4 most recent) -->
     <div style="background:#f8f9fa;border-radius:8px;padding:20px 24px;border:1px solid #e2e8f0;">
       <h3 style="font-size:1.2rem;font-weight:600;margin:0 0 12px;color:#1E1E1E;">Books</h3>
       {{ range $bookPages }}
@@ -287,12 +277,10 @@
       <p style="font-size:0.85rem;margin-top:0.5rem;">News story: "<a href="https://www.thecrimson.com/article/2024/3/9/gary-king-profile/" target="_blank" style="color:#337ab7;">Entrepreneurial Academia with Gary King</a>"</p>
     </div>
 
-    <!-- Patents (curated) -->
+    <!-- Patents (4 most recent) -->
     <div style="background:#f8f9fa;border-radius:8px;padding:20px 24px;border:1px solid #e2e8f0;">
       <h3 style="font-size:1.2rem;font-weight:600;margin:0 0 12px;color:#1E1E1E;">Patents</h3>
-      {{ range $patentSlugs }}
-        {{ $page := site.GetPage . }}
-        {{ with $page }}
+      {{ range $recentPatents }}
       <details class="gk-hp-item">
         <summary style="font-size:0.88rem;cursor:pointer;padding:5px 0;border-bottom:1px solid #eee;list-style:none;display:flex;align-items:baseline;gap:5px;color:#337ab7;line-height:1.4;">
           <span class="gk-hp-arrow" aria-hidden="true" style="flex-shrink:0;">&#9660;</span>
@@ -305,19 +293,16 @@
           <div style="margin-top:6px;"><a href="{{ .RelPermalink }}" style="color:#337ab7;text-decoration:none;font-weight:500;">Read more &rarr;</a></div>
         </div>
       </details>
-        {{ end }}
       {{ end }}
       <div style="margin-top:10px;text-align:right;">
         <a href="{{ "publication/#patent" | relURL }}" style="color:#337ab7;font-size:0.85rem;text-decoration:none;">All patents &rarr;</a>
       </div>
     </div>
 
-    <!-- Software Projects (curated) -->
+    <!-- Software Projects (4 most recent) -->
     <div style="background:#f8f9fa;border-radius:8px;padding:20px 24px;border:1px solid #e2e8f0;">
       <h3 style="font-size:1.2rem;font-weight:600;margin:0 0 12px;color:#1E1E1E;">Software Projects</h3>
-      {{ range $softwareSlugs }}
-        {{ $page := site.GetPage . }}
-        {{ with $page }}
+      {{ range $recentSoftware }}
       {{ $swHref := partial "software_page_href.html" . }}
       {{ $swIsExt := strings.HasPrefix $swHref "http" }}
       <details class="gk-hp-item">
@@ -332,7 +317,6 @@
           <div style="margin-top:6px;"><a href="{{ $swHref }}"{{ if $swIsExt }} target="_blank" rel="noopener"{{ end }} style="color:#337ab7;text-decoration:none;font-weight:500;">Read more &rarr;</a></div>
         </div>
       </details>
-        {{ end }}
       {{ end }}
       <div style="margin-top:10px;text-align:right;">
         <a href="{{ "software/" | relURL }}" style="color:#337ab7;font-size:0.85rem;text-decoration:none;">All software projects &rarr;</a>
