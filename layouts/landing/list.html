@@ -23,14 +23,14 @@
 </section>
 
 <!-- Research Areas Section -->
-<section id="research-areas" style="max-width:1200px;margin:0 auto;padding:60px 40px;">
-  <h2 style="font-size:2rem;font-weight:400;color:#1E1E1E;margin:0 0 40px 0;">Research Areas</h2>
+<section id="research-areas" style="max-width:1200px;margin:0 auto;padding:32px 40px 40px;">
+  <h2 style="font-size:2rem;font-weight:400;color:#1E1E1E;margin:0 0 20px 0;">Research Areas</h2>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;">
     <!-- Methods -->
     <div>
-      <div style="display:flex;justify-content:center;align-items:flex-end;height:151px;margin-bottom:20px;">
+      <div style="display:flex;justify-content:center;align-items:flex-end;height:72px;margin-bottom:8px;">
         {{/* Methods: pixel asset from legacy homepage screenshot */}}
-        <img src="{{ "images/research-areas-methods.png" | relURL }}" alt="Methods" width="161" height="140" style="max-width:100%;height:auto;display:block;">
+        <img src="{{ "images/research-areas-methods.png" | relURL }}" alt="Methods" width="161" height="140" style="max-width:100%;height:64px;width:auto;display:block;">
       </div>
       {{ range $data.methods }}
       <details class="gk-hp-area" id="{{ .name | urlize }}" style="background:#f8f9fa;border:1px solid #e2e8f0;border-radius:6px;padding:4px 14px;margin-bottom:8px;">
@@ -72,9 +72,9 @@
     </div>
     <!-- Applications -->
     <div>
-      <div style="display:flex;justify-content:center;align-items:flex-end;height:151px;margin-bottom:20px;">
+      <div style="display:flex;justify-content:center;align-items:flex-end;height:72px;margin-bottom:8px;">
         {{/* Applications: pixel asset from legacy homepage screenshot */}}
-        <img src="{{ "images/research-areas-applications.png" | relURL }}" alt="Applications" width="206" height="151" style="max-width:100%;height:auto;display:block;">
+        <img src="{{ "images/research-areas-applications.png" | relURL }}" alt="Applications" width="206" height="151" style="max-width:100%;height:64px;width:auto;display:block;">
       </div>
       {{ range $data.applications }}
       <details class="gk-hp-area" id="{{ .name | urlize }}" style="background:#f8f9fa;border:1px solid #e2e8f0;border-radius:6px;padding:4px 14px;margin-bottom:8px;">
@@ -116,6 +116,26 @@
     </div>
   </div>
 </section>
+
+<script>
+(function () {
+  /* Accordion behavior for the Research Areas dropdowns: opening one
+     category auto-closes any other open category (across both the
+     Methods and Applications columns). Nested toggles inside a
+     category — e.g. the "Publications" sub-details — are left alone. */
+  var section = document.getElementById('research-areas');
+  if (!section) return;
+  var areas = section.querySelectorAll('details.gk-hp-area');
+  areas.forEach(function (d) {
+    d.addEventListener('toggle', function () {
+      if (!d.open) return;
+      areas.forEach(function (other) {
+        if (other !== d && other.open) other.open = false;
+      });
+    });
+  });
+})();
+</script>
 
 <!-- Recent Papers / Presentations / Books / Patents / Software — dynamic "4 most recent" per category -->
 {{/* Build categorized page lists from the writings legacy map (the drupal type is
