@@ -299,3 +299,183 @@ button.gk-cite-button:hover {
   margin-right: 6px;
   vertical-align: middle;
 }
+
+/* =========================================================================
+   SITE-WIDE HOVER EFFECTS
+   A single source of truth for interactive-element affordances:
+     * Cards get a subtle 2px lift, a softer shadow, and a slightly darker
+       border so users know the whole card is clickable/expandable.
+     * Collapsible summary rows get a light blue wash on hover.
+     * "Read more / All publications / Visit site"-style links gain an
+       underline and a darker blue, with the trailing arrow sliding right.
+     * Breadcrumb links pick up the same darker-blue underline.
+     * Small action buttons (abstract toggle, cite, download-bib, etc.)
+       darken one notch and scale up a hair.
+     * :focus-visible mirrors :hover so keyboard users get the same cues.
+   All transitions are 0.18s so they feel quick but not jumpy; reduced-motion
+   users get the color/shadow change without the transform.
+   ========================================================================= */
+
+/* ---- Cards (homepage, software, publication, people) ---- */
+.gk-hp-card,
+.gk-sw-card,
+.gk-pub-card,
+.gk-pub-card-featured,
+.gk-people-profile {
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+.gk-hp-card:hover,
+.gk-sw-card:hover,
+.gk-pub-card:hover,
+.gk-pub-card-featured:hover,
+.gk-people-profile:hover,
+.gk-hp-card:focus-within,
+.gk-sw-card:focus-within,
+.gk-pub-card:focus-within,
+.gk-pub-card-featured:focus-within,
+.gk-people-profile:focus-within {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+  border-color: #cbd5e1;
+}
+
+/* Desaturated "Older" software cards shouldn't feel more interactive than
+   current ones; keep the lift but skip the border-darkening. */
+.gk-sw-group--older .gk-sw-card:hover,
+.gk-sw-group--older .gk-sw-card:focus-within {
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.06);
+  border-color: #e2e8f0;
+}
+
+/* ---- Collapsible summaries / abstract toggles ---- */
+.gk-hp-item__summary,
+.gk-sw-abs > summary,
+.gk-ra-abstract-details > summary {
+  transition: background-color 0.15s ease, color 0.15s ease;
+  border-radius: 4px;
+}
+.gk-hp-item__summary:hover,
+.gk-sw-abs > summary:hover,
+.gk-ra-abstract-details > summary:hover {
+  background-color: rgba(51, 122, 183, 0.08);
+  color: #285f8f;
+}
+
+/* ---- "Read more / All …" action links (footers, more, news) ---- */
+.gk-hp-card__footer a,
+.gk-hp-item__more a,
+.gk-hp-card__news a {
+  display: inline-block;
+  transition: color 0.15s ease, transform 0.15s ease;
+}
+.gk-hp-card__footer a:hover,
+.gk-hp-item__more a:hover,
+.gk-hp-card__news a:hover,
+.gk-hp-card__footer a:focus-visible,
+.gk-hp-item__more a:focus-visible,
+.gk-hp-card__news a:focus-visible {
+  color: #285f8f;
+  text-decoration: underline;
+  transform: translateX(2px);
+}
+
+/* ---- Breadcrumb navigation (inline-styled <a> inside [aria-label=Breadcrumb]) ---- */
+nav[aria-label="Breadcrumb"] a {
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+nav[aria-label="Breadcrumb"] a:hover,
+nav[aria-label="Breadcrumb"] a:focus-visible {
+  color: #285f8f !important;
+  text-decoration: underline !important;
+}
+
+/* ---- Small action buttons on publication cards/pages ---- */
+.gk-abstract-toggle,
+.gk-cite-btn,
+.gk-download-bib {
+  transition: background-color 0.15s ease, border-color 0.15s ease,
+              color 0.15s ease, transform 0.15s ease;
+}
+.gk-abstract-toggle:hover,
+.gk-cite-btn:hover,
+.gk-download-bib:hover,
+.gk-abstract-toggle:focus-visible,
+.gk-cite-btn:focus-visible,
+.gk-download-bib:focus-visible {
+  background-color: #eef2f6;
+  border-color: #9ca3af;
+  color: #1e3a5f;
+  transform: translateY(-1px);
+}
+
+/* Existing .gk-cite-button already darkens on hover; add the matching lift. */
+button.gk-cite-button {
+  transition: background-color 0.15s ease, border-color 0.15s ease,
+              color 0.15s ease, transform 0.15s ease;
+}
+button.gk-cite-button:hover,
+button.gk-cite-button:focus-visible {
+  transform: translateY(-1px);
+}
+
+/* Existing .gk-link-primary already changes bg; add the matching lift. */
+.gk-link-primary {
+  transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+.gk-link-primary:hover,
+.gk-link-primary:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(40, 95, 143, 0.25);
+}
+
+/* ---- Tabs on the writings page ---- */
+.gk-tab {
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+.gk-tab:hover:not(.gk-tab-active),
+.gk-tab:focus-visible:not(.gk-tab-active) {
+  background-color: #f1f5f9;
+  color: #1e3a5f;
+}
+
+/* ---- Generic prose links: underline + darken on hover ---- */
+.prose a:hover,
+.prose a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ---- Reduced-motion: skip the translate, keep color/shadow cues ---- */
+@media (prefers-reduced-motion: reduce) {
+  .gk-hp-card,
+  .gk-sw-card,
+  .gk-pub-card,
+  .gk-pub-card-featured,
+  .gk-people-profile,
+  .gk-hp-card__footer a,
+  .gk-hp-item__more a,
+  .gk-hp-card__news a,
+  .gk-abstract-toggle,
+  .gk-cite-btn,
+  .gk-cite-button,
+  .gk-download-bib,
+  .gk-link-primary {
+    transition-property: background-color, color, border-color, box-shadow,
+                         text-decoration-color;
+  }
+  .gk-hp-card:hover,
+  .gk-sw-card:hover,
+  .gk-pub-card:hover,
+  .gk-pub-card-featured:hover,
+  .gk-people-profile:hover,
+  .gk-hp-card__footer a:hover,
+  .gk-hp-item__more a:hover,
+  .gk-hp-card__news a:hover,
+  .gk-abstract-toggle:hover,
+  .gk-cite-btn:hover,
+  .gk-cite-button:hover,
+  .gk-download-bib:hover,
+  .gk-link-primary:hover {
+    transform: none;
+  }
+}
