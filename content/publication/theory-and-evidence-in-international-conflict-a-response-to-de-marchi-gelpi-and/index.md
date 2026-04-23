@@ -1,6 +1,8 @@
 ---
 dataverse_url: "https://doi.org/10.7910/DVN/S7JLEL"
 dataverse_name: "Replication data for: Theory and Evidence in International Conflict: A Response to de Marchi, Gelpi, and Grynaviski"
+related_papers:
+  - improving-quantitative-studies-of-international-conflict-a-conjecture
 title: "Theory and Evidence in International Conflict: A Response to de Marchi, Gelpi, and Grynaviski"
 date: "2004-01-01"
 authors:

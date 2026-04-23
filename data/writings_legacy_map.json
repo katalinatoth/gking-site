@@ -257,8 +257,8 @@
 "drupal": "journal_article"
 },
 "unbiasedprivacy": {
-"tab": "journal",
-"drupal": "journal_article"
+"tab": "software",
+"drupal": "software"
 },
 "designing-social-inquiry-scientific-inference-in-qualitative-research-new-editio": {
 "tab": "other",
@@ -353,16 +353,16 @@
 "drupal": "working_paper"
 },
 "privacyunbiased": {
-"tab": "journal",
-"drupal": "journal_article"
+"tab": "software",
+"drupal": "software"
 },
 "opendp-developing-open-source-tools-for-differential-privacy": {
 "tab": "software",
 "drupal": "software"
 },
 "quickcode": {
-"tab": "journal",
-"drupal": "journal_article"
+"tab": "software",
+"drupal": "software"
 },
 "how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-2019": {
 "tab": "presentation",

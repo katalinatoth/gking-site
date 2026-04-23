@@ -83,7 +83,8 @@
       {{/* Body: image + abstract side by side */}}
       {{ $featured := partial "functions/get_featured_image.html" . }}
       {{ $hasImage := and $featured (not .Params.image.preview_only) (not $questReplica) }}
-      {{ $hasAbstract := and .Params.abstract (not $questReplica) }}
+      {{ $abstractDisplay := partial "abstract_for_display.html" . }}
+      {{ $hasAbstract := and $abstractDisplay (not $questReplica) }}
 
       {{ if or $hasImage $hasAbstract }}
       <div class="gk-pub-body">
@@ -101,7 +102,7 @@
         {{ if $hasAbstract }}
         <div class="gk-pub-text">
           <h3 style="font-size:1rem;font-weight:700;margin:0 0 0.5rem;color:#333;">Abstract</h3>
-          <div>{{ .Params.abstract | markdownify }}</div>
+          <div>{{ $abstractDisplay | markdownify }}</div>
         </div>
         {{ end }}
       </div>

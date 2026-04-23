@@ -10,6 +10,10 @@
          related_datasets:  [slug, slug, ...]    # any section
          related_paper:     slug                 # legacy singular
          related_dataset:   slug                 # legacy singular
+    1b. see_also: list of { url, title? } and/or { section, slug, title? }
+         for curated links not covered by related_*.
+    1c. dataverse_url (+ dataverse_name): surfaced as a [Dataset] row in
+         See Also (in addition to the green callout on publication pages).
     2. Category siblings: every entry that shares the same research_areas
        subcategory as the current page (from data/research_areas.json) is
        added next, so any paper or talk listed under, e.g. "Teaching and
@@ -53,6 +57,7 @@
 {{/* ---------- collect explicit overrides ---------- */}}
 {{ $picked := slice }}
 {{ $pickedSlugs := slice }}
+{{ $pickedExternalUrls := slice }}
 
 {{ $explicitLists := slice
    (dict "field" "related_papers"   "section" "publication")
@@ -85,6 +90,36 @@
         {{ $pickedSlugs = $pickedSlugs | append .RelPermalink }}
       {{ end }}
     {{ end }}
+  {{ end }}
+{{ end }}
+
+{{/* see_also front matter: internal section/slug or external URL */}}
+{{ range ($page.Params.see_also | default slice) }}
+  {{ if .url }}
+    {{ $tu := .url }}
+    {{ $t := .title | default $tu }}
+    {{ if not (in $pickedExternalUrls $tu) }}
+      {{ $picked = $picked | append (dict "extUrl" $tu "extTitle" $t "extKind" "Link" "score" 9997) }}
+      {{ $pickedExternalUrls = $pickedExternalUrls | append $tu }}
+    {{ end }}
+  {{ else if and .section .slug }}
+    {{ $p := site.GetPage (printf "/%s/%s" .section .slug) }}
+    {{ with $p }}
+      {{ if not (in $pickedSlugs .RelPermalink) }}
+        {{ $picked = $picked | append (dict "page" . "score" 9998) }}
+        {{ $pickedSlugs = $pickedSlugs | append .RelPermalink }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{/* Harvard Dataverse replication bundle (abstract tail stripped in abstract_for_display when dataverse_url is set) */}}
+{{ with $page.Params.dataverse_url }}
+  {{ $dvu := . }}
+  {{ if not (in $pickedExternalUrls $dvu) }}
+    {{ $dn := $page.Params.dataverse_name | default "Replication data (Harvard Dataverse)" }}
+    {{ $picked = $picked | append (dict "extUrl" $dvu "extTitle" $dn "extKind" "Data" "score" 9996) }}
+    {{ $pickedExternalUrls = $pickedExternalUrls | append $dvu }}
   {{ end }}
 {{ end }}
 
@@ -190,19 +225,29 @@
   <ul>
     {{ range $picked }}
       {{ if lt $shown $limit }}
-        {{ $p := .page }}
-        {{ $shown = add $shown 1 }}
-        {{ $sect := $p.Section }}
-        {{ $label := "" }}
-        {{ if eq $sect "talk" }}{{ $label = "Talk" }}
-        {{ else if eq $sect "software" }}{{ $label = "Software" }}
-        {{ else if in ($p.Params.publication_types | default slice) "data" }}{{ $label = "Dataset" }}
-        {{ else }}{{ $label = "Paper" }}{{ end }}
-        <li>
-          <span class="gk-see-kind">[{{ $label }}]</span>
-          <a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>
-          <span class="gk-see-year">({{ $p.Date.Format "2006" }})</span>
-        </li>
+        {{ if index . "extUrl" }}
+          {{ $shown = add $shown 1 }}
+          {{ $ek := index . "extKind" | default "Link" }}
+          {{ $lbl := cond (eq $ek "Data") "Dataset" "Link" }}
+          <li>
+            <span class="gk-see-kind">[{{ $lbl }}]</span>
+            <a href="{{ index . "extUrl" }}" target="_blank" rel="noopener noreferrer">{{ index . "extTitle" }}</a>
+          </li>
+        {{ else if index . "page" }}
+          {{ $p := index . "page" }}
+          {{ $shown = add $shown 1 }}
+          {{ $sect := $p.Section }}
+          {{ $label := "" }}
+          {{ if eq $sect "talk" }}{{ $label = "Talk" }}
+          {{ else if eq $sect "software" }}{{ $label = "Software" }}
+          {{ else if in ($p.Params.publication_types | default slice) "data" }}{{ $label = "Dataset" }}
+          {{ else }}{{ $label = "Paper" }}{{ end }}
+          <li>
+            <span class="gk-see-kind">[{{ $label }}]</span>
+            <a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>
+            <span class="gk-see-year">({{ $p.Date.Format "2006" }})</span>
+          </li>
+        {{ end }}
       {{ end }}
     {{ end }}
   </ul>

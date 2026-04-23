@@ -127,7 +127,8 @@
   {{ if in (.Params.publication_types | default slice) "software" }}
     {{ $u = partial "software_page_href.html" . }}
   {{ end }}
-  {{ $entry := dict "slug" $slug "legacyTab" $ltab "legacyDrupal" $ldrupal "title" .Title "url" $u "year" (.Date.Format "2006") "authors" (.Params.authors | default slice) "types" (.Params.publication_types | default slice) "publication" (.Params.publication | default "") "abstract" (.Params.abstract | default "") }}
+  {{ $abs := partial "abstract_for_display.html" . }}
+  {{ $entry := dict "slug" $slug "legacyTab" $ltab "legacyDrupal" $ldrupal "title" .Title "url" $u "year" (.Date.Format "2006") "authors" (.Params.authors | default slice) "types" (.Params.publication_types | default slice) "publication" (.Params.publication | default "") "abstract" $abs }}
   {{ $entries = $entries | append $entry }}
 {{ end }}
 {{ range $talkPages }}
@@ -135,7 +136,8 @@
   {{ $meta := index $wl.entries $slug | default dict }}
   {{ $ltab := index $meta "tab" | default "other" }}
   {{ $ldrupal := index $meta "drupal" | default "miscellaneous" }}
-  {{ $entry := dict "slug" $slug "legacyTab" $ltab "legacyDrupal" $ldrupal "title" .Title "url" .RelPermalink "year" (.Date.Format "2006") "authors" (.Params.authors | default slice) "types" (.Params.publication_types | default slice) "publication" (.Params.publication | default "") "abstract" (.Params.abstract | default "") }}
+  {{ $absTalk := partial "abstract_for_display.html" . }}
+  {{ $entry := dict "slug" $slug "legacyTab" $ltab "legacyDrupal" $ldrupal "title" .Title "url" .RelPermalink "year" (.Date.Format "2006") "authors" (.Params.authors | default slice) "types" (.Params.publication_types | default slice) "publication" (.Params.publication | default "") "abstract" $absTalk }}
   {{ $entries = $entries | append $entry }}
 {{ end }}
 
