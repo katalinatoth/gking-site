@@ -6,11 +6,15 @@ authors:
 - Sidney Verba
 dataverse_name: 'Replication Data for: Designing Social Inquiry: Scientific Inference for Qualitative Research'
 dataverse_url: https://doi.org/10.7910/DVN/YHZG5M
+publisher: "Princeton University Press"
+address: "Princeton, NJ"
 date: '1994-01-01'
 links:
 - type: source
-  url: https://press.princeton.edu/books/paperback/9780691034713/designing-social-inquiry
+  url: https://press.princeton.edu/books/hardcover/9780691224633/designing-social-inquiry
 publication_types:
 - book
 title: 'Designing Social Inquiry: Scientific Inference in Qualitative Research'
+related_papers:
+- designing-social-inquiry-scientific-inference-in-qualitative-research-new-editio
 ---

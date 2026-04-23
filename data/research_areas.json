@@ -176,8 +176,8 @@
             },
             {
               "title": "Comparative Effectiveness of Matching Methods for Causal Inference",
-              "section": "talk",
-              "slug": "comparative-effectiveness-of-matching-methods-for-causal-inference-2010-318"
+              "section": "publication",
+              "slug": "comparative-effectiveness-of-matching-methods-for-causal-inference"
             },
             {
               "title": "Matching As Nonparametric Preprocessing for Reducing Model Dependence in Parametric Causal Inference",
@@ -196,13 +196,13 @@
             },
             {
               "title": "The Balance-Sample Size Frontier in Matching Methods for Causal Inference",
-              "section": "talk",
-              "slug": "the-balance-sample-size-frontier-in-matching-methods-for-causal-inference-2014"
+              "section": "publication",
+              "slug": "the-balance-sample-size-frontier-in-matching-methods-for-causal-inference"
             },
             {
               "title": "Why Propensity Scores Should Not Be Used For Matching",
-              "section": "talk",
-              "slug": "why-propensity-scores-should-not-be-used-for-matching-2015-203"
+              "section": "publication",
+              "slug": "why-propensity-scores-should-not-be-used-for-matching"
             }
           ]
         },
@@ -648,6 +648,16 @@
               "title": "Logistic Regression in Rare Events Data",
               "section": "publication",
               "slug": "logistic-regression-in-rare-events-data"
+            },
+            {
+              "title": "Improving Forecasts of State Failure",
+              "section": "publication",
+              "slug": "improving-forecasts-of-state-failure"
+            },
+            {
+              "title": "Estimating the Probability of Events That Have Never Occurred: When Is Your Vote Decisive?",
+              "section": "publication",
+              "slug": "estimating-the-probability-of-events-that-have-never-occurred-when-is-your-vote"
             }
           ]
         },
@@ -663,31 +673,6 @@
               "title": "Inference in Case Control Studies",
               "section": "publication",
               "slug": "inference-in-case-control-studies"
-            }
-          ]
-        },
-        {
-          "name": "Hidden Region 1",
-          "papers": [
-            {
-              "title": "Improving Forecasts of State Failure",
-              "section": "publication",
-              "slug": "improving-forecasts-of-state-failure"
-            }
-          ]
-        },
-        {
-          "name": "Hidden Region 2",
-          "papers": [
-            {
-              "title": "Aggregation Among Binary, Count, and Duration Models: Estimating the Same Quantities from Different Levels of Data",
-              "section": "publication",
-              "slug": "aggregation-among-binary-count-and-duration-models-estimating-the-same-quantitie"
-            },
-            {
-              "title": "Estimating the Probability of Events That Have Never Occurred: When Is Your Vote Decisive?",
-              "section": "publication",
-              "slug": "estimating-the-probability-of-events-that-have-never-occurred-when-is-your-vote"
             }
           ]
         },
