@@ -5,7 +5,7 @@ date: "2007-01-01"
 authors:
   - "Gary King"
 publication_types:
-  - "journal_article"
+- presentation
 links:
   - type: pdf
     url: "files/dvn-ct.pdf"

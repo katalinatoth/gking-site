@@ -5,7 +5,7 @@ date: "2009-01-01"
 authors:
   - "Gary King"
 publication_types:
-  - "book_chapter"
+- presentation
 links:
   - type: pdf
     url: "files/evbase-um.pdf"

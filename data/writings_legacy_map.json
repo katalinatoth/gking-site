@@ -508,7 +508,7 @@
 "tab": "journal",
 "drupal": "journal_article"
 },
-"psi-\u03c8-a-private-data-sharing-interface": {
+"psi-ψ-a-private-data-sharing-interface": {
 "tab": "software",
 "drupal": "software"
 },
@@ -532,9 +532,9 @@
 "tab": "software",
 "drupal": "software"
 },
-"psi-\u03c8-a-private-data-sharing-interface-2018": {
-"tab": "journal",
-"drupal": "journal_article"
+"psi-ψ-a-private-data-sharing-interface-2018": {
+"tab": "software",
+"drupal": "software"
 },
 "simplifying-matching-methods-for-causal-inference-2017": {
 "tab": "presentation",
@@ -661,8 +661,8 @@
 "drupal": "journal_article"
 },
 "openscholar": {
-"tab": "journal",
-"drupal": "journal_article"
+"tab": "software",
+"drupal": "software"
 },
 "how-the-chinese-government-fabricates-social-media-posts-for-strategic-distracti-2017-166": {
 "tab": "presentation",
@@ -893,16 +893,16 @@
 "drupal": "patent"
 },
 "perusall": {
-"tab": "journal",
-"drupal": "journal_article"
+"tab": "software",
+"drupal": "software"
 },
 "robustse": {
-"tab": "journal",
-"drupal": "journal_article"
+"tab": "software",
+"drupal": "software"
 },
 "perusall-2015": {
-"tab": "journal",
-"drupal": "journal_article"
+"tab": "software",
+"drupal": "software"
 },
 "big-data-is-not-about-the-data-2014": {
 "tab": "presentation",
@@ -1445,8 +1445,8 @@
 "drupal": "data"
 },
 "openscholar-2009": {
-"tab": "journal",
-"drupal": "journal_article"
+"tab": "software",
+"drupal": "software"
 },
 "cem-coarsened-exact-matching-in-stata": {
 "tab": "journal",
@@ -1549,8 +1549,8 @@
 "drupal": "journal_article"
 },
 "va-verbal-autopsies": {
-"tab": "journal",
-"drupal": "journal_article"
+"tab": "software",
+"drupal": "software"
 },
 "how-not-to-lie-without-statistics": {
 "tab": "other",
@@ -1641,8 +1641,8 @@
 "drupal": "unpublished"
 },
 "matchit-nonparametric-preprocessing-for-parametric-causal-inference-2007": {
-"tab": "journal",
-"drupal": "journal_article"
+"tab": "software",
+"drupal": "software"
 },
 "anchors-software-for-anchoring-vignettes-data-2007": {
 "tab": "software",
@@ -1801,16 +1801,16 @@
 "drupal": "journal_article"
 },
 "schnabeleskowcholeskyfactorization": {
-"tab": "journal",
-"drupal": "journal_article"
+"tab": "software",
+"drupal": "software"
 },
 "gillmurraycholeskyfactorization": {
-"tab": "journal",
-"drupal": "journal_article"
+"tab": "software",
+"drupal": "software"
 },
 "yourcast": {
-"tab": "journal",
-"drupal": "journal_article"
+"tab": "software",
+"drupal": "software"
 },
 "analyzing-second-stage-ecological-regressions": {
 "tab": "journal",
@@ -1857,8 +1857,8 @@
 "drupal": "journal_article"
 },
 "relogit-rare-events-logistic-regression-2003": {
-"tab": "journal",
-"drupal": "journal_article"
+"tab": "software",
+"drupal": "software"
 },
 "ei-a-program-for-ecological-inference-2003": {
 "tab": "software",
@@ -1997,8 +1997,8 @@
 "drupal": "software"
 },
 "maxlik": {
-"tab": "journal",
-"drupal": "journal_article"
+"tab": "software",
+"drupal": "software"
 },
 "unifying-political-methodology-the-likelihood-theory-of-statistical-inference": {
 "tab": "other",
