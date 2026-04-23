@@ -102,7 +102,13 @@
   {{ $catJoined := delimit $labParts ", " }}
   {{ $role := .Params.role | default "" }}
   {{ if and $row (not $role) }}{{ $role = $row.affiliation }}{{ end }}
-  {{ $entry := dict "name" .Title "url" .RelPermalink "role" $role "categories" $cats "range" $rng "categoryLabel" $catJoined }}
+  {{/* Mirror the Current Research Group box: link straight to the person's
+       external site (personal page / LinkedIn / university profile) when
+       one is set. People without an external URL render as plain text so
+       we don't dead-end visitors on an empty internal landing page. */}}
+  {{ $href := .Params.website | default "" }}
+  {{ $external := ne $href "" }}
+  {{ $entry := dict "name" .Title "url" $href "external" $external "role" $role "categories" $cats "range" $rng "categoryLabel" $catJoined }}
   {{ $entries = $entries | append $entry }}
 {{ end }}
 
@@ -269,7 +275,11 @@
     var html = "";
     filtered.forEach(function(d) {
       html += '<div style="padding:10px 12px;background:#f0f5fa;border-radius:6px;">';
-      html += '<strong><a href="' + d.url + '" style="color:#337ab7;text-decoration:none;">' + escapeHtml(d.name) + '</a></strong>';
+      if (d.external && d.url) {
+        html += '<strong><a href="' + escapeAttr(d.url) + '" target="_blank" rel="noopener noreferrer" style="color:#337ab7;text-decoration:none;">' + escapeHtml(d.name) + '</a></strong>';
+      } else {
+        html += '<strong style="color:#1a3a5c;">' + escapeHtml(d.name) + '</strong>';
+      }
       if (d.role) html += '<div style="font-size:0.82rem;color:#666;margin-top:2px;">' + escapeHtml(d.role) + '</div>';
       if (d.categoryLabel) html += '<div style="font-size:0.75rem;color:#595959;margin-top:2px;">' + escapeHtml(d.categoryLabel) + '</div>';
       html += '</div>';

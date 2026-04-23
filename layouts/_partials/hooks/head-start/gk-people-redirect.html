@@ -1,0 +1,39 @@
+{{- /*
+  People-page redirect shim.
+
+  We don't want internal landing pages for people anymore — the listing on
+  /research-group/ links straight to each person's external site (personal
+  page, LinkedIn, university profile). Anyone who still arrives at the
+  legacy /people/<slug>/ URL (stale bookmarks, old search results, hand-
+  typed links) should be forwarded to that same external destination.
+
+  When a `people` page has a `website:` set in its front matter, we emit:
+    - meta-refresh + noindex,nofollow (search engines drop the shim, since
+      it has no content of its own — the real page is the external site)
+    - a synchronous JS redirect that fires before the body paints, so the
+      visitor never actually sees the empty internal profile
+
+  Implementation note about the JS redirect: Hugo's HTML minifier wraps
+  string literals inside inline <script> blocks in extra quotes (the same
+  reason layouts/_default/redirect.html declines to ship a JS fallback at
+  all). We work around that by parking the destination URL inside the
+  href of a hidden <link> tag and reading it back from the DOM, so the
+  inline script contains no Hugo-injected string literal for the minifier
+  to mangle.
+
+  We deliberately do NOT emit a `<link rel="canonical">` here, because the
+  vendored site_head.html already emits a canonical pointing at this page's
+  own permalink later in the head; emitting a second one with a different
+  href would leave search engines guessing.
+
+  Pages without a `website:` field fall through to the existing
+  layouts/people/single.html template untouched.
+*/ -}}
+{{- if and (eq .Type "people") .Params.website -}}
+  {{- $target := .Params.website -}}
+  <meta http-equiv="refresh" content="0; url={{ $target | safeURL }}">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="x-redirect-status" content="301">
+  <link id="gk-people-redirect-target" rel="prefetch" href="{{ $target | safeURL }}">
+  <script>(function(){var l=document.getElementById('gk-people-redirect-target');if(l&&l.href)window.location.replace(l.href);})();</script>
+{{- end -}}
