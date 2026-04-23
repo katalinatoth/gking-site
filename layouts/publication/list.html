@@ -51,9 +51,72 @@
 </div>
 
 {{ $wl := site.Data.writings_legacy_map | default (dict "entries" dict) }}
-{{ $featuredCfg := site.Data.featured_publications | default dict }}
 {{ $pubPages := (where .Site.RegularPages "Section" "publication") }}
 {{ $talkPages := (where .Site.RegularPages "Section" "talk") }}
+
+{{/* ===== Current Working Papers spotlight selection =====
+     Config lives in data/featured_publications.yaml:
+       count   : number of entries to display (default 6)
+       order   : the manually curated sequence of slugs
+       exclude : slugs that should never be auto-prepended
+
+     Logic:
+       1. Start with `order` (Gary's curated sequence).
+       2. Prepend any journal-tab publication that is NOT already in
+          `order` and NOT in `exclude`, sorted by first-commit date
+          (newest first). First-commit dates come from
+          data/publication_first_commit.json, which is refreshed by
+          scripts/compute_publication_first_commit.py before every
+          build. This is what makes the list roll automatically when
+          Gary adds a new paper: its first-commit date is "now", so it
+          sorts to the top.
+       3. Cap the final list at `count`, which trims the oldest
+          curated entries off the bottom when new papers arrive. */}}
+{{ $fpCfg := site.Data.featured_publications | default dict }}
+{{ $fpCount := $fpCfg.count | default 6 }}
+{{ $fpOrder := $fpCfg.order | default slice }}
+{{ $fpExclude := $fpCfg.exclude | default slice }}
+
+{{ $orderSet := dict }}
+{{ range $fpOrder }}{{ $orderSet = merge $orderSet (dict . true) }}{{ end }}
+{{ $excludeSet := dict }}
+{{ range $fpExclude }}{{ $excludeSet = merge $excludeSet (dict . true) }}{{ end }}
+
+{{ $firstCommit := site.Data.publication_first_commit | default dict }}
+
+{{/* Threshold = the newest first-commit date among the slugs already
+     listed in `order`. A journal paper NOT in `order` only qualifies as
+     a "new" auto-prepend candidate if its first-commit date is strictly
+     later than this threshold. That way the initial state of the
+     spotlight is exactly `order` (no surprise bulk-import papers get
+     pulled in), and the first time Gary pushes a brand-new publication
+     it auto-enters the top because its commit date is "now". */}}
+{{ $cutoff := "" }}
+{{ range $fpOrder }}
+  {{ $fc := index $firstCommit . | default "" }}
+  {{ if gt $fc $cutoff }}{{ $cutoff = $fc }}{{ end }}
+{{ end }}
+
+{{ $newJournalCandidates := slice }}
+{{ range $pubPages }}
+  {{ $slug := path.Base (path.Dir .File.Path) }}
+  {{ $meta := index $wl.entries $slug | default dict }}
+  {{ $ltab := index $meta "tab" | default "other" }}
+  {{ if and (eq $ltab "journal") (not (index $orderSet $slug)) (not (index $excludeSet $slug)) }}
+    {{ $fc := index $firstCommit $slug | default "" }}
+    {{ if gt $fc $cutoff }}
+      {{ $newJournalCandidates = $newJournalCandidates | append (dict "slug" $slug "fc" $fc) }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ $newJournalCandidates = sort $newJournalCandidates "fc" "desc" }}
+
+{{ $featuredJournal := slice }}
+{{ range $newJournalCandidates }}{{ $featuredJournal = $featuredJournal | append .slug }}{{ end }}
+{{ range $fpOrder }}{{ $featuredJournal = $featuredJournal | append . }}{{ end }}
+{{ if gt $fpCount 0 }}{{ $featuredJournal = first $fpCount $featuredJournal }}{{ else }}{{ $featuredJournal = slice }}{{ end }}
+
+{{ $featuredCfg := dict "journal" $featuredJournal }}
 {{ $entries := slice }}
 {{ range $pubPages }}
   {{ $slug := path.Base (path.Dir .File.Path) }}

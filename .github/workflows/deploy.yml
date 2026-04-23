@@ -58,6 +58,9 @@ jobs:
       - name: Generate redirect stubs
         run: python3 scripts/build_redirects.py
 
+      - name: Refresh publication first-commit dates
+        run: python3 scripts/compute_publication_first_commit.py
+
       - name: Build with Hugo
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
