@@ -115,73 +115,73 @@
 {{ $recentSoftware := first 4 (sort $softwarePages ".Date" "desc") }}
 {{ $recentTalks := first 4 (sort (where site.RegularPages "Section" "talk") ".Date" "desc") }}
 
-<section style="max-width:1200px;margin:0 auto;padding:0 40px 40px;">
-  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;">
+<section class="gk-hp-section">
+  <div class="gk-hp-grid">
 
     <!-- Recent Papers (4 most recent) -->
-    <div style="background:#f8f9fa;border-radius:8px;padding:20px 24px;border:1px solid #e2e8f0;">
-      <h3 style="font-size:1.2rem;font-weight:600;margin:0 0 12px;color:#1E1E1E;">Recent Papers</h3>
+    <div class="gk-hp-card">
+      <h3 class="gk-hp-card__heading">Recent Papers</h3>
       {{ range $recentPapers }}
       <details class="gk-hp-item">
-        <summary style="font-size:0.88rem;cursor:pointer;padding:5px 0;border-bottom:1px solid #eee;list-style:none;display:flex;align-items:baseline;gap:5px;color:#337ab7;line-height:1.4;">
-          <span class="gk-hp-arrow" aria-hidden="true" style="flex-shrink:0;">&#9660;</span>
+        <summary class="gk-hp-item__summary">
+          <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span>
           <span>{{ .Title }}</span>
         </summary>
-        <div style="padding:6px 0 8px 16px;font-size:0.82rem;color:#555;border-bottom:1px solid #eee;">
+        <div class="gk-hp-item__body">
           {{ $authors := .Params.authors | default slice }}
-          {{ if gt (len $authors) 0 }}<div style="margin-bottom:3px;">{{ delimit $authors ", " }}</div>{{ end }}
-          {{ with .Params.publication }}<div style="font-style:italic;color:#595959;">{{ . }}</div>{{ end }}
-          {{ with .Params.abstract }}<div style="margin-top:4px;line-height:1.4;color:#666;">{{ . | truncate 200 | markdownify }}</div>{{ end }}
-          <div style="margin-top:6px;"><a href="{{ .RelPermalink }}" style="color:#337ab7;text-decoration:none;font-weight:500;">Read more &rarr;</a></div>
+          {{ if gt (len $authors) 0 }}<div class="gk-hp-item__authors">{{ delimit $authors ", " }}</div>{{ end }}
+          {{ with .Params.publication }}<div class="gk-hp-item__pub">{{ . }}</div>{{ end }}
+          {{ with .Params.abstract }}<div class="gk-hp-item__abs">{{ . | truncate 200 | markdownify }}</div>{{ end }}
+          <div class="gk-hp-item__more"><a href="{{ .RelPermalink }}">Read more &rarr;</a></div>
         </div>
       </details>
       {{ end }}
-      <div style="margin-top:10px;text-align:right;">
-        <a href="{{ "publication/#journal" | relURL }}" style="color:#337ab7;font-size:0.85rem;text-decoration:none;">All publications &rarr;</a>
+      <div class="gk-hp-card__footer">
+        <a href="{{ "publication/#journal" | relURL }}">All publications &rarr;</a>
       </div>
     </div>
 
     <!-- Presentations (4 most recent) -->
-    <div style="background:#f8f9fa;border-radius:8px;padding:20px 24px;border:1px solid #e2e8f0;">
-      <h3 style="font-size:1.2rem;font-weight:600;margin:0 0 12px;color:#1E1E1E;">Presentations</h3>
+    <div class="gk-hp-card">
+      <h3 class="gk-hp-card__heading">Presentations</h3>
       {{ range $recentTalks }}
       <details class="gk-hp-item">
-        <summary style="font-size:0.88rem;cursor:pointer;padding:5px 0;border-bottom:1px solid #eee;list-style:none;display:flex;align-items:baseline;gap:5px;color:#337ab7;line-height:1.4;">
-          <span class="gk-hp-arrow" aria-hidden="true" style="flex-shrink:0;">&#9660;</span>
+        <summary class="gk-hp-item__summary">
+          <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span>
           <span>{{ .Title }}</span>
         </summary>
-        <div style="padding:6px 0 8px 16px;font-size:0.82rem;color:#555;border-bottom:1px solid #eee;">
-          {{ with .Params.event }}<div style="font-style:italic;color:#595959;">{{ . }}</div>{{ end }}
-          {{ with .Params.abstract }}<div style="margin-top:4px;line-height:1.4;color:#666;">{{ . | truncate 200 | markdownify }}</div>{{ end }}
-          <div style="margin-top:6px;"><a href="{{ .RelPermalink }}" style="color:#337ab7;text-decoration:none;font-weight:500;">Read more &rarr;</a></div>
+        <div class="gk-hp-item__body">
+          {{ with .Params.event }}<div class="gk-hp-item__pub">{{ . }}</div>{{ end }}
+          {{ with .Params.abstract }}<div class="gk-hp-item__abs">{{ . | truncate 200 | markdownify }}</div>{{ end }}
+          <div class="gk-hp-item__more"><a href="{{ .RelPermalink }}">Read more &rarr;</a></div>
         </div>
       </details>
       {{ end }}
-      <div style="margin-top:10px;text-align:right;">
-        <a href="{{ "talk/" | relURL }}" style="color:#337ab7;font-size:0.85rem;text-decoration:none;">All presentations &rarr;</a>
+      <div class="gk-hp-card__footer">
+        <a href="{{ "talk/" | relURL }}">All presentations &rarr;</a>
       </div>
     </div>
 
     <!-- Books (4 most recent) -->
-    <div style="background:#f8f9fa;border-radius:8px;padding:20px 24px;border:1px solid #e2e8f0;">
-      <h3 style="font-size:1.2rem;font-weight:600;margin:0 0 12px;color:#1E1E1E;">Books</h3>
+    <div class="gk-hp-card">
+      <h3 class="gk-hp-card__heading">Books</h3>
       {{ range $bookPages }}
       <details class="gk-hp-item">
-        <summary style="font-size:0.88rem;cursor:pointer;padding:5px 0;border-bottom:1px solid #eee;list-style:none;display:flex;align-items:baseline;gap:5px;color:#337ab7;line-height:1.4;">
-          <span class="gk-hp-arrow" aria-hidden="true" style="flex-shrink:0;">&#9660;</span>
+        <summary class="gk-hp-item__summary">
+          <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span>
           <span>{{ .Title }}</span>
         </summary>
-        <div style="padding:6px 0 8px 16px;font-size:0.82rem;color:#555;border-bottom:1px solid #eee;">
+        <div class="gk-hp-item__body">
           {{ $authors := .Params.authors | default slice }}
-          {{ if gt (len $authors) 0 }}<div style="margin-bottom:3px;">{{ delimit $authors ", " }}</div>{{ end }}
-          {{ with .Params.publication }}<div style="font-style:italic;color:#595959;">{{ . }}</div>{{ end }}
-          {{ with .Params.abstract }}<div style="margin-top:4px;line-height:1.4;color:#666;">{{ . | truncate 200 | markdownify }}</div>{{ end }}
-          <div style="margin-top:6px;"><a href="{{ .RelPermalink }}" style="color:#337ab7;text-decoration:none;font-weight:500;">Read more &rarr;</a></div>
+          {{ if gt (len $authors) 0 }}<div class="gk-hp-item__authors">{{ delimit $authors ", " }}</div>{{ end }}
+          {{ with .Params.publication }}<div class="gk-hp-item__pub">{{ . }}</div>{{ end }}
+          {{ with .Params.abstract }}<div class="gk-hp-item__abs">{{ . | truncate 200 | markdownify }}</div>{{ end }}
+          <div class="gk-hp-item__more"><a href="{{ .RelPermalink }}">Read more &rarr;</a></div>
         </div>
       </details>
       {{ end }}
-      <div style="margin-top:10px;text-align:right;">
-        <a href="{{ "publication/#book" | relURL }}" style="color:#337ab7;font-size:0.85rem;text-decoration:none;">All books &amp; chapters &rarr;</a>
+      <div class="gk-hp-card__footer">
+        <a href="{{ "publication/#book" | relURL }}">All books &amp; chapters &rarr;</a>
       </div>
     </div>
 
@@ -189,110 +189,110 @@
 </section>
 
 <!-- Startups / Patents / Software Projects -->
-<section style="max-width:1200px;margin:0 auto;padding:0 40px 40px;">
-  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;">
+<section class="gk-hp-section">
+  <div class="gk-hp-grid">
 
     <!-- Startups -->
-    <div style="background:#f8f9fa;border-radius:8px;padding:20px 24px;border:1px solid #e2e8f0;">
-      <h3 style="font-size:1.2rem;font-weight:600;margin:0 0 12px;color:#1E1E1E;">Startups</h3>
+    <div class="gk-hp-card">
+      <h3 class="gk-hp-card__heading">Startups</h3>
       <details class="gk-hp-item">
-        <summary style="font-size:0.88rem;cursor:pointer;padding:5px 0;border-bottom:1px solid #eee;list-style:none;display:flex;align-items:baseline;gap:5px;color:#337ab7;line-height:1.4;">
-          <span class="gk-hp-arrow" aria-hidden="true" style="flex-shrink:0;">&#9660;</span><span>QuickCode</span>
+        <summary class="gk-hp-item__summary">
+          <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span><span>QuickCode</span>
         </summary>
-        <div style="padding:6px 0 8px 16px;font-size:0.82rem;color:#555;border-bottom:1px solid #eee;">
-          <div style="margin-top:6px;"><a href="https://www.quickcode.ai/" target="_blank" rel="noopener" style="color:#337ab7;text-decoration:none;font-weight:500;">Visit site &rarr;</a></div>
+        <div class="gk-hp-item__body">
+          <div class="gk-hp-item__more"><a href="https://www.quickcode.ai/" target="_blank" rel="noopener">Visit site &rarr;</a></div>
         </div>
       </details>
       <details class="gk-hp-item">
-        <summary style="font-size:0.88rem;cursor:pointer;padding:5px 0;border-bottom:1px solid #eee;list-style:none;display:flex;align-items:baseline;gap:5px;color:#337ab7;line-height:1.4;">
-          <span class="gk-hp-arrow" aria-hidden="true" style="flex-shrink:0;">&#9660;</span><span>Perusall</span>
+        <summary class="gk-hp-item__summary">
+          <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span><span>Perusall</span>
         </summary>
-        <div style="padding:6px 0 8px 16px;font-size:0.82rem;color:#555;border-bottom:1px solid #eee;">
-          <div style="margin-top:6px;"><a href="https://www.perusall.com/" target="_blank" rel="noopener" style="color:#337ab7;text-decoration:none;font-weight:500;">Visit site &rarr;</a></div>
+        <div class="gk-hp-item__body">
+          <div class="gk-hp-item__more"><a href="https://www.perusall.com/" target="_blank" rel="noopener">Visit site &rarr;</a></div>
         </div>
       </details>
       <details class="gk-hp-item">
-        <summary style="font-size:0.88rem;cursor:pointer;padding:5px 0;border-bottom:1px solid #eee;list-style:none;display:flex;align-items:baseline;gap:5px;color:#337ab7;line-height:1.4;">
-          <span class="gk-hp-arrow" aria-hidden="true" style="flex-shrink:0;">&#9660;</span><span>OpenScholar</span>
+        <summary class="gk-hp-item__summary">
+          <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span><span>OpenScholar</span>
         </summary>
-        <div style="padding:6px 0 8px 16px;font-size:0.82rem;color:#555;border-bottom:1px solid #eee;">
-          <div style="color:#595959;">Acquired by Monomyth Group</div>
-          <div style="margin-top:6px;"><a href="https://theopenscholar.com/" target="_blank" rel="noopener" style="color:#337ab7;text-decoration:none;font-weight:500;">Visit site &rarr;</a></div>
+        <div class="gk-hp-item__body">
+          <div class="gk-hp-item__pub">Acquired by Monomyth Group</div>
+          <div class="gk-hp-item__more"><a href="https://theopenscholar.com/" target="_blank" rel="noopener">Visit site &rarr;</a></div>
         </div>
       </details>
       <details class="gk-hp-item">
-        <summary style="font-size:0.88rem;cursor:pointer;padding:5px 0;border-bottom:1px solid #eee;list-style:none;display:flex;align-items:baseline;gap:5px;color:#337ab7;line-height:1.4;">
-          <span class="gk-hp-arrow" aria-hidden="true" style="flex-shrink:0;">&#9660;</span><span>Thresher</span>
+        <summary class="gk-hp-item__summary">
+          <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span><span>Thresher</span>
         </summary>
-        <div style="padding:6px 0 8px 16px;font-size:0.82rem;color:#555;border-bottom:1px solid #eee;">
-          <div style="color:#595959;">Acquired by Two Six Technologies, a Carlyle Company; <a href="https://docs.google.com/document/d/1kP1960J0NUuaoEFIakXK5p98xFEz13QvEdpwGh_n5aM/" target="_blank" style="color:#337ab7;">the story</a></div>
-          <div style="margin-top:6px;"><a href="https://www.thresher.io/" target="_blank" rel="noopener" style="color:#337ab7;text-decoration:none;font-weight:500;">Visit site &rarr;</a></div>
+        <div class="gk-hp-item__body">
+          <div class="gk-hp-item__pub">Acquired by Two Six Technologies, a Carlyle Company; <a href="https://docs.google.com/document/d/1kP1960J0NUuaoEFIakXK5p98xFEz13QvEdpwGh_n5aM/" target="_blank">the story</a></div>
+          <div class="gk-hp-item__more"><a href="https://www.thresher.io/" target="_blank" rel="noopener">Visit site &rarr;</a></div>
         </div>
       </details>
       <details class="gk-hp-item">
-        <summary style="font-size:0.88rem;cursor:pointer;padding:5px 0;border-bottom:1px solid #eee;list-style:none;display:flex;align-items:baseline;gap:5px;color:#337ab7;line-height:1.4;">
-          <span class="gk-hp-arrow" aria-hidden="true" style="flex-shrink:0;">&#9660;</span><span>Crimson Hexagon</span>
+        <summary class="gk-hp-item__summary">
+          <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span><span>Crimson Hexagon</span>
         </summary>
-        <div style="padding:6px 0 8px 16px;font-size:0.82rem;color:#555;border-bottom:1px solid #eee;">
-          <div style="color:#595959;">Merged with Brandwatch, acquired by Cision; <a href="https://docs.google.com/document/d/1-M0MqxE2YG-Smp_6BwYbxegdnHuznqdc91YHQyeTbsk" target="_blank" style="color:#337ab7;">the story</a></div>
-          <div style="margin-top:6px;"><a href="https://www.brandwatch.com/" target="_blank" rel="noopener" style="color:#337ab7;text-decoration:none;font-weight:500;">Visit site &rarr;</a></div>
+        <div class="gk-hp-item__body">
+          <div class="gk-hp-item__pub">Merged with Brandwatch, acquired by Cision; <a href="https://docs.google.com/document/d/1-M0MqxE2YG-Smp_6BwYbxegdnHuznqdc91YHQyeTbsk" target="_blank">the story</a></div>
+          <div class="gk-hp-item__more"><a href="https://www.brandwatch.com/" target="_blank" rel="noopener">Visit site &rarr;</a></div>
         </div>
       </details>
       <details class="gk-hp-item">
-        <summary style="font-size:0.88rem;cursor:pointer;padding:5px 0;border-bottom:1px solid #eee;list-style:none;display:flex;align-items:baseline;gap:5px;color:#337ab7;line-height:1.4;">
-          <span class="gk-hp-arrow" aria-hidden="true" style="flex-shrink:0;">&#9660;</span><span>Learning Catalytics</span>
+        <summary class="gk-hp-item__summary">
+          <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span><span>Learning Catalytics</span>
         </summary>
-        <div style="padding:6px 0 8px 16px;font-size:0.82rem;color:#555;border-bottom:1px solid #eee;">
-          <div style="color:#595959;">Acquired by Pearson; <a href="https://news.harvard.edu/gazette/story/2013/08/fueling-the-entrepreneurial-spirit/" target="_blank" style="color:#337ab7;">the story</a></div>
-          <div style="margin-top:6px;"><a href="https://www.pearson.com/us/higher-education/products-services-teaching/learning-engagement-tools/learning-catalytics.html" target="_blank" rel="noopener" style="color:#337ab7;text-decoration:none;font-weight:500;">Visit site &rarr;</a></div>
+        <div class="gk-hp-item__body">
+          <div class="gk-hp-item__pub">Acquired by Pearson; <a href="https://news.harvard.edu/gazette/story/2013/08/fueling-the-entrepreneurial-spirit/" target="_blank">the story</a></div>
+          <div class="gk-hp-item__more"><a href="https://www.pearson.com/us/higher-education/products-services-teaching/learning-engagement-tools/learning-catalytics.html" target="_blank" rel="noopener">Visit site &rarr;</a></div>
         </div>
       </details>
-      <p style="font-size:0.85rem;margin-top:0.5rem;">News story: "<a href="https://www.thecrimson.com/article/2024/3/9/gary-king-profile/" target="_blank" style="color:#337ab7;">Entrepreneurial Academia with Gary King</a>"</p>
+      <p class="gk-hp-card__news">News story: "<a href="https://www.thecrimson.com/article/2024/3/9/gary-king-profile/" target="_blank">Entrepreneurial Academia with Gary King</a>"</p>
     </div>
 
     <!-- Patents (4 most recent) -->
-    <div style="background:#f8f9fa;border-radius:8px;padding:20px 24px;border:1px solid #e2e8f0;">
-      <h3 style="font-size:1.2rem;font-weight:600;margin:0 0 12px;color:#1E1E1E;">Patents</h3>
+    <div class="gk-hp-card">
+      <h3 class="gk-hp-card__heading">Patents</h3>
       {{ range $recentPatents }}
       <details class="gk-hp-item">
-        <summary style="font-size:0.88rem;cursor:pointer;padding:5px 0;border-bottom:1px solid #eee;list-style:none;display:flex;align-items:baseline;gap:5px;color:#337ab7;line-height:1.4;">
-          <span class="gk-hp-arrow" aria-hidden="true" style="flex-shrink:0;">&#9660;</span>
+        <summary class="gk-hp-item__summary">
+          <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span>
           <span>{{ .Title }}</span>
         </summary>
-        <div style="padding:6px 0 8px 16px;font-size:0.82rem;color:#555;border-bottom:1px solid #eee;">
+        <div class="gk-hp-item__body">
           {{ $authors := .Params.authors | default slice }}
-          {{ if gt (len $authors) 0 }}<div style="margin-bottom:3px;">{{ delimit $authors ", " }}</div>{{ end }}
-          {{ with .Params.abstract }}<div style="margin-top:4px;line-height:1.4;color:#666;">{{ . | truncate 200 | markdownify }}</div>{{ end }}
-          <div style="margin-top:6px;"><a href="{{ .RelPermalink }}" style="color:#337ab7;text-decoration:none;font-weight:500;">Read more &rarr;</a></div>
+          {{ if gt (len $authors) 0 }}<div class="gk-hp-item__authors">{{ delimit $authors ", " }}</div>{{ end }}
+          {{ with .Params.abstract }}<div class="gk-hp-item__abs">{{ . | truncate 200 | markdownify }}</div>{{ end }}
+          <div class="gk-hp-item__more"><a href="{{ .RelPermalink }}">Read more &rarr;</a></div>
         </div>
       </details>
       {{ end }}
-      <div style="margin-top:10px;text-align:right;">
-        <a href="{{ "publication/#patent" | relURL }}" style="color:#337ab7;font-size:0.85rem;text-decoration:none;">All patents &rarr;</a>
+      <div class="gk-hp-card__footer">
+        <a href="{{ "publication/#patent" | relURL }}">All patents &rarr;</a>
       </div>
     </div>
 
     <!-- Software Projects (4 most recent) -->
-    <div style="background:#f8f9fa;border-radius:8px;padding:20px 24px;border:1px solid #e2e8f0;">
-      <h3 style="font-size:1.2rem;font-weight:600;margin:0 0 12px;color:#1E1E1E;">Software Projects</h3>
+    <div class="gk-hp-card">
+      <h3 class="gk-hp-card__heading">Software Projects</h3>
       {{ range $recentSoftware }}
       {{ $swHref := partial "software_page_href.html" . }}
       {{ $swIsExt := strings.HasPrefix $swHref "http" }}
       <details class="gk-hp-item">
-        <summary style="font-size:0.88rem;cursor:pointer;padding:5px 0;border-bottom:1px solid #eee;list-style:none;display:flex;align-items:baseline;gap:5px;color:#337ab7;line-height:1.4;">
-          <span class="gk-hp-arrow" aria-hidden="true" style="flex-shrink:0;">&#9660;</span>
+        <summary class="gk-hp-item__summary">
+          <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span>
           <span>{{ .Title }}</span>
         </summary>
-        <div style="padding:6px 0 8px 16px;font-size:0.82rem;color:#555;border-bottom:1px solid #eee;">
+        <div class="gk-hp-item__body">
           {{ $authors := .Params.authors | default slice }}
-          {{ if gt (len $authors) 0 }}<div style="margin-bottom:3px;">{{ delimit $authors ", " }}</div>{{ end }}
-          {{ with .Params.abstract }}<div style="margin-top:4px;line-height:1.4;color:#666;">{{ . | truncate 200 | markdownify }}</div>{{ end }}
-          <div style="margin-top:6px;"><a href="{{ $swHref }}"{{ if $swIsExt }} target="_blank" rel="noopener"{{ end }} style="color:#337ab7;text-decoration:none;font-weight:500;">Read more &rarr;</a></div>
+          {{ if gt (len $authors) 0 }}<div class="gk-hp-item__authors">{{ delimit $authors ", " }}</div>{{ end }}
+          {{ with .Params.abstract }}<div class="gk-hp-item__abs">{{ . | truncate 200 | markdownify }}</div>{{ end }}
+          <div class="gk-hp-item__more"><a href="{{ $swHref }}"{{ if $swIsExt }} target="_blank" rel="noopener"{{ end }}>Read more &rarr;</a></div>
         </div>
       </details>
       {{ end }}
-      <div style="margin-top:10px;text-align:right;">
-        <a href="{{ "software/" | relURL }}" style="color:#337ab7;font-size:0.85rem;text-decoration:none;">All software projects &rarr;</a>
+      <div class="gk-hp-card__footer">
+        <a href="{{ "software/" | relURL }}">All software projects &rarr;</a>
       </div>
     </div>
 
@@ -358,9 +358,81 @@
   .gk-hp-area summary::-webkit-details-marker,
   .gk-hp-subcat summary::-webkit-details-marker,
   .gk-hp-item summary::-webkit-details-marker { display: none; }
-  .gk-hp-arrow { font-size: 0.6em; color: #999; transition: transform 0.15s; display: inline-block; }
+  .gk-hp-arrow {
+    font-size: 0.6em;
+    color: #999;
+    transition: transform 0.15s;
+    display: inline-block;
+    flex-shrink: 0;
+  }
   details[open] > summary .gk-hp-arrow { transform: rotate(180deg); }
+
+  /* Homepage recent-items cards (Recent Papers / Books / Presentations /
+     Startups / Patents / Software). All six cards share the same visual
+     shell and interior typography; the classes below centralize what used
+     to be dozens of duplicated inline styles. */
+  .gk-hp-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px 40px;
+  }
+  .gk-hp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+  .gk-hp-card {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px 24px;
+    border: 1px solid #e2e8f0;
+  }
+  .gk-hp-card__heading {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0 0 12px;
+    color: #1E1E1E;
+  }
+  .gk-hp-card__footer {
+    margin-top: 10px;
+    text-align: right;
+  }
+  .gk-hp-card__footer a,
+  .gk-hp-item__more a {
+    color: #337ab7;
+    text-decoration: none;
+  }
+  .gk-hp-card__footer a { font-size: 0.85rem; }
+  .gk-hp-item__more a { font-weight: 500; }
+  .gk-hp-card__news {
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+  }
+  .gk-hp-card__news a { color: #337ab7; }
+  .gk-hp-item__summary {
+    font-size: 0.88rem;
+    cursor: pointer;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+    color: #337ab7;
+    line-height: 1.4;
+  }
+  .gk-hp-item__body {
+    padding: 6px 0 8px 16px;
+    font-size: 0.82rem;
+    color: #555;
+    border-bottom: 1px solid #eee;
+  }
+  .gk-hp-item__authors { margin-bottom: 3px; }
+  .gk-hp-item__pub { font-style: italic; color: #595959; }
+  .gk-hp-item__abs { margin-top: 4px; line-height: 1.4; color: #666; }
+  .gk-hp-item__more { margin-top: 6px; }
+
   @media (max-width: 900px) {
+    .gk-hp-grid { grid-template-columns: 1fr; }
     section > div > div[style*="grid-template-columns: 1fr 1fr 1fr"] { grid-template-columns: 1fr !important; }
   }
   .gk-ra-abstract-details > summary { list-style: none; }
