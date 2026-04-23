@@ -364,21 +364,50 @@
     return sorted;
   }
 
+  function bibForEntry(d) {
+    var key = (d.authors.length ? d.authors[0].split(" ").pop() : "anon")
+                .toLowerCase().replace(/[^a-z0-9]/g, "");
+    key += d.year;
+    var t = d.types[0] || "";
+    var entryType = "misc";
+    if (t === "journal_article" || t === "article-journal") entryType = "article";
+    else if (t === "book") entryType = "book";
+    else if (t === "book_chapter" || t === "chapter") entryType = "incollection";
+    else if (t === "conference_paper") entryType = "inproceedings";
+    else if (t === "conference_proceedings") entryType = "proceedings";
+    else if (t === "unpublished" || t === "working_paper" || t === "manuscript") entryType = "unpublished";
+    var out = "@" + entryType + "{" + key + ",\n";
+    out += "  title = {" + d.title + "},\n";
+    out += "  author = {" + d.authors.join(" and ") + "},\n";
+    out += "  year = {" + d.year + "},\n";
+    if (d.publication) out += "  journal = {" + d.publication + "},\n";
+    out += "}\n";
+    return out;
+  }
+
   function renderCard(d, opts) {
     opts = opts || {};
     var cls = "gk-pub-card" + (opts.featured ? " gk-pub-card-featured" : "");
-    var s = '<div class="' + cls + '">';
+    var s = '<div class="' + cls + '" data-slug="' + d.slug + '">';
     s += '<a href="' + d.url + '" class="gk-pub-title">' + escapeHtml(d.title) + '</a>';
     var meta = [];
     if (d.authors.length) meta.push(escapeHtml(d.authors.join(", ")));
     if (d.year) meta.push(d.year);
     if (d.publication) meta.push('<em>' + escapeHtml(d.publication) + '</em>');
     if (meta.length) s += '<div class="gk-pub-meta">' + meta.join(" &middot; ") + '</div>';
+    s += '<div class="gk-pub-actions">';
     if (d.abstract) {
       var aid = "abs-" + d.slug.replace(/[^a-z0-9]+/gi, "-");
       s += '<button type="button" class="gk-abstract-toggle" aria-expanded="false" aria-controls="' + aid + '">' +
            '<span class="gk-abstract-icon" aria-hidden="true">+</span> Show abstract</button>';
-      s += '<p id="' + aid + '" class="gk-abstract-text" hidden>' + escapeHtml(d.abstract) + '</p>';
+    }
+    s += '<button type="button" class="gk-cite-btn" aria-label="Copy BibTeX citation">' +
+         '<span aria-hidden="true" class="gk-cite-icon">&#10166;</span> ' +
+         '<span class="gk-cite-label">Cite</span></button>';
+    s += '</div>';
+    if (d.abstract) {
+      var aid2 = "abs-" + d.slug.replace(/[^a-z0-9]+/gi, "-");
+      s += '<p id="' + aid2 + '" class="gk-abstract-text" hidden>' + escapeHtml(d.abstract) + '</p>';
     }
     s += '</div>';
     return s;
@@ -466,6 +495,18 @@
         }
       });
     });
+
+    var bySlug = {};
+    data.forEach(function(d) { bySlug[d.slug] = d; });
+    container.querySelectorAll(".gk-cite-btn").forEach(function(btn) {
+      btn.addEventListener("click", function(evt) {
+        evt.preventDefault();
+        var card = btn.closest(".gk-pub-card");
+        var slug = card && card.getAttribute("data-slug");
+        var entry = slug && bySlug[slug];
+        if (entry) copyCitation(entry, btn);
+      });
+    });
   }
 
   function getTabLabel(tabId) {
@@ -481,30 +522,33 @@
 
   function downloadBib() {
     var filtered = getFiltered();
-    var bib = "";
-    filtered.forEach(function(d, i) {
-      var key = d.authors.length ? d.authors[0].split(" ").pop().toLowerCase() : "unknown";
-      key += d.year + "_" + i;
-      var t = d.types[0] || "";
-      var entryType = "misc";
-      if (t === "journal_article" || t === "article-journal") entryType = "article";
-      else if (t === "book") entryType = "book";
-      else if (t === "book_chapter" || t === "chapter") entryType = "incollection";
-      else if (t === "conference_paper") entryType = "inproceedings";
-      else if (t === "conference_proceedings") entryType = "proceedings";
-      else if (t === "unpublished" || t === "working_paper" || t === "manuscript") entryType = "unpublished";
-      bib += "@" + entryType + "{" + key + ",\n";
-      bib += "  title = {" + d.title + "},\n";
-      bib += "  author = {" + d.authors.join(" and ") + "},\n";
-      bib += "  year = {" + d.year + "},\n";
-      if (d.publication) bib += "  journal = {" + d.publication + "},\n";
-      bib += "}\n\n";
-    });
+    var bib = filtered.map(bibForEntry).join("\n");
     var blob = new Blob([bib], { type: "text/plain" });
     var a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
     a.download = "citations.bib";
     a.click();
+  }
+
+  // Copy a BibTeX citation to the clipboard, with a fallback that opens a
+  // dialog-like prompt for browsers without the async Clipboard API.
+  function copyCitation(entry, btn) {
+    var text = bibForEntry(entry);
+    var feedback = function(ok) {
+      var label = btn.querySelector(".gk-cite-label") || btn;
+      var prev = label.textContent;
+      label.textContent = ok ? "Copied!" : "Press ⌘C";
+      setTimeout(function() { label.textContent = prev; }, 1500);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(
+        function() { feedback(true); },
+        function() { window.prompt("Copy BibTeX:", text); feedback(true); }
+      );
+    } else {
+      window.prompt("Copy BibTeX:", text);
+      feedback(true);
+    }
   }
 
   buildTabs();
@@ -624,8 +668,15 @@
     color: #333;
   }
 
-  .gk-abstract-toggle {
+  .gk-pub-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
     margin-top: 8px;
+  }
+  .gk-abstract-toggle,
+  .gk-cite-btn {
     padding: 0;
     background: none;
     border: none;
@@ -636,7 +687,9 @@
     align-items: center;
     gap: 4px;
   }
-  .gk-abstract-toggle:hover, .gk-abstract-toggle:focus-visible { text-decoration: underline; }
+  .gk-abstract-toggle:hover, .gk-abstract-toggle:focus-visible,
+  .gk-cite-btn:hover, .gk-cite-btn:focus-visible { text-decoration: underline; }
+  .gk-cite-icon { font-size: 0.9em; }
   .gk-abstract-icon {
     display: inline-block;
     width: 1em;

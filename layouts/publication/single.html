@@ -46,6 +46,37 @@
       {{/* Action buttons */}}
       <div style="margin:1rem 0 0.75rem;display:flex;flex-wrap:wrap;gap:8px;align-items:center;">
         {{ partial "page_links" (dict "page" . "is_list" 0) }}
+        {{/* Generic copy-to-clipboard cite button. Only rendered when the
+             page doesn't already provide a cite.bib resource (in which case
+             page_links already emits its own Cite button). */}}
+        {{ if not (.Resources.GetMatch "cite.bib") }}
+          {{ $authors := .Params.authors | default slice }}
+          {{ $year := .Date.Format "2006" }}
+          {{ $key := "anon" }}
+          {{ if gt (len $authors) 0 }}
+            {{ $first := index $authors 0 }}
+            {{ $parts := split $first " " }}
+            {{ $key = lower (index $parts (sub (len $parts) 1)) }}
+            {{ $key = replaceRE `[^a-z0-9]` "" $key }}
+          {{ end }}
+          {{ $key = printf "%s%s" $key $year }}
+          {{ $pubTypesList := .Params.publication_types | default slice }}
+          {{ $ptype := cond (gt (len $pubTypesList) 0) (index $pubTypesList 0) "" }}
+          {{ $entryType := "misc" }}
+          {{ if or (eq $ptype "journal_article") (eq $ptype "article-journal") (eq $ptype "2") }}{{ $entryType = "article" }}
+          {{ else if or (eq $ptype "book") (eq $ptype "5") }}{{ $entryType = "book" }}
+          {{ else if or (eq $ptype "book_chapter") (eq $ptype "chapter") (eq $ptype "6") }}{{ $entryType = "incollection" }}
+          {{ else if or (eq $ptype "conference_paper") (eq $ptype "1") }}{{ $entryType = "inproceedings" }}
+          {{ else if or (eq $ptype "unpublished") (eq $ptype "working_paper") (eq $ptype "manuscript") (eq $ptype "3") }}{{ $entryType = "unpublished" }}
+          {{ end }}
+          {{ $bib := printf "@%s{%s,\n  title = {%s},\n  author = {%s},\n  year = {%s},\n" $entryType $key .Title (delimit $authors " and ") $year }}
+          {{ with .Params.publication }}{{ $bib = printf "%s  journal = {%s},\n" $bib (. | plainify) }}{{ end }}
+          {{ $bib = printf "%s}\n" $bib }}
+          <button type="button" class="gk-cite-button js-cite-clipboard-inline cursor-pointer" data-bibtex="{{ $bib }}">
+            {{ partial "functions/get_icon" (dict "name" "hero/document-duplicate" "attributes" "style=\"height: 1em\" class='inline-block'") }}
+            <span class="gk-cite-inline-label">Cite</span>
+          </button>
+        {{ end }}
       </div>
       {{ end }}
 
@@ -116,4 +147,28 @@
     </div>
   </article>
 </div>
+<script>
+(function() {
+  document.querySelectorAll(".js-cite-clipboard-inline").forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      var text = btn.getAttribute("data-bibtex") || "";
+      var label = btn.querySelector(".gk-cite-inline-label") || btn;
+      var prev = label.textContent;
+      var done = function(ok) {
+        label.textContent = ok ? "Copied!" : "Press \u2318C";
+        setTimeout(function() { label.textContent = prev; }, 1500);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(
+          function() { done(true); },
+          function() { window.prompt("Copy BibTeX:", text); done(true); }
+        );
+      } else {
+        window.prompt("Copy BibTeX:", text);
+        done(true);
+      }
+    });
+  });
+})();
+</script>
 {{ end }}
