@@ -11,14 +11,13 @@
     <button id="gk-sw-download" type="button" style="padding:4px 12px;background:#337ab7;color:#fff;border:none;border-radius:4px;font-size:0.85rem;cursor:pointer;">Download citations</button>
   </div>
 
-  {{/* Two groups: the default (unnamed) group lists software with code
-       available; "Older" collects items with no current code. Rows default
-       to "current" when `status` is omitted. */}}
+  {{/* Two groups: the default (unnamed) group lists actively-maintained
+       software; "Older" collects items where code is archived, superseded,
+       or no longer actively maintained. Rows default to "current" when
+       `status` is omitted. */}}
   {{ $statusGroups := slice
       (dict "id" "current" "label" "" "blurb" "")
-      (dict "id" "older"
-            "label" "Older"
-            "blurb" "Older projects without current code.")
+      (dict "id" "older" "label" "Older" "blurb" "")
   }}
 
   <div id="gk-sw-list">
@@ -32,12 +31,12 @@
     {{ end }}
     {{ if gt (len $matches) 0 }}
       {{ $matches = sort $matches "year" "desc" }}
-      <section class="gk-sw-group" id="sw-{{ $gid }}" style="margin-top:1.75rem;">
+      <section class="gk-sw-group gk-sw-group--{{ $gid }}" id="sw-{{ $gid }}" style="margin-top:1.75rem;">
         {{ if $group.label }}
-        <h2 style="font-size:1.35rem;font-weight:700;margin:0 0 0.25rem;color:#222;border-bottom:2px solid #A51C30;padding-bottom:0.3rem;">{{ $group.label | safeHTML }}</h2>
+        <h2 class="gk-sw-group__heading">{{ $group.label | safeHTML }}</h2>
         {{ end }}
         {{ if $group.blurb }}
-        <p style="font-size:0.9rem;color:#666;margin:0.25rem 0 1rem;line-height:1.5;">{{ $group.blurb }}</p>
+        <p class="gk-sw-group__blurb">{{ $group.blurb }}</p>
         {{ end }}
         {{ range $matches }}
           {{ $slug := .slug }}
@@ -75,6 +74,20 @@
 </div>
 
 <style>
+  .gk-sw-group__heading {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 0 0 0.25rem;
+    color: #222;
+    border-bottom: 2px solid #A51C30;
+    padding-bottom: 0.3rem;
+  }
+  .gk-sw-group__blurb {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0.25rem 0 1rem;
+    line-height: 1.5;
+  }
   .gk-sw-card {
     background: #e9f1f7;
     border-radius: 8px;
@@ -85,6 +98,33 @@
   .gk-sw-abs > summary::-webkit-details-marker { display: none; }
   .gk-sw-abs[open] > summary .gk-sw-abs-icon { background: #2b6cb0; border-color: #2b6cb0; color: #fff; }
   .gk-sw-abs-body * { text-overflow: clip; -webkit-line-clamp: unset; }
+
+  /* "Older" section — visually muted so active vs. legacy is obvious at a glance. */
+  .gk-sw-group--older .gk-sw-group__heading {
+    color: #64748b;
+    border-bottom-color: #cbd5e1;
+  }
+  .gk-sw-group--older .gk-sw-card {
+    background: #f3f4f6;
+    opacity: 0.88;
+  }
+  .gk-sw-group--older .gk-sw-card p { color: #4b5563; }
+  .gk-sw-group--older a.gk-sw-title { color: #64748b; }
+  .gk-sw-group--older .gk-sw-abs > summary,
+  .gk-sw-group--older .gk-sw-abs-icon {
+    color: #64748b;
+  }
+  .gk-sw-group--older .gk-sw-abs-icon {
+    background: #94a3b8;
+    border-color: #94a3b8;
+  }
+  .gk-sw-group--older .gk-sw-abs[open] > summary .gk-sw-abs-icon {
+    background: #475569;
+    border-color: #475569;
+  }
+  .gk-sw-group--older .gk-sw-abs-body {
+    color: #4b5563;
+  }
 </style>
 
 <script>

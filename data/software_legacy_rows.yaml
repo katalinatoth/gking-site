@@ -4,10 +4,13 @@
 #   slug   — matches a page in content/publication/ (and/or content/software/)
 #   year   — release year (shown in parentheses; used as secondary sort key)
 #   status — one of:
-#              current : code is available (github, CRAN, public website, etc.);
-#                        this is the default when `status` is omitted, and the
-#                        row appears in the first (unnamed) group
-#              older   : no current code; appears in the "Older" group
+#              current : code is actively available (github, CRAN, public
+#                        website, etc.); this is the default when `status`
+#                        is omitted, and the row appears in the first
+#                        (unnamed) group
+#              older   : no current code, or package has been archived /
+#                        superseded / deprecated; row appears in the
+#                        desaturated "Older" group at the bottom
 #
 # The software page groups rows by status and then sorts within each group by
 # year descending.
@@ -30,14 +33,18 @@ rows:
     status: older
   - year: 2015
     slug: robustse
+    status: older
   - year: 2015
     slug: perusall
   - year: 2014
     slug: matchingfrontier-r-package-for-calculating-the-balance-sample-size-frontier
+    status: older
   - year: 2010
     slug: readme-software-for-automated-content-analysis
+    status: older
   - year: 2010
     slug: judgeit-ii-a-program-for-evaluating-electoral-systems-and-redistricting-plans
+    status: older
   - year: 2009
     slug: amelia-ii-a-program-for-missing-data
   - year: 2009
@@ -52,22 +59,30 @@ rows:
     slug: matchit-nonparametric-preprocessing-for-parametric-causal-inference
   - year: 2007
     slug: anchors-software-for-anchoring-vignettes-data
+    status: older
   - year: 2006
     slug: zelig-everyones-statistical-software
+    status: older
   - year: 2005
     slug: whatif-software-for-evaluating-counterfactuals
+    status: older
   - year: 2004
     slug: schnabeleskowcholeskyfactorization
+    status: older
   - year: 2004
     slug: gillmurraycholeskyfactorization
+    status: older
   - year: 2004
     slug: yourcast
+    status: older
   - year: 2003
     slug: ezi-an-easy-program-for-ecological-inference
+    status: older
   - year: 2003
     slug: clarify-software-for-interpreting-and-presenting-statistical-results
   - year: 2003
     slug: relogit-rare-events-logistic-regression
+    status: older
   - year: 2003
     slug: ei-a-program-for-ecological-inference
   - year: 2002
@@ -87,3 +102,4 @@ rows:
     status: older
   - year: 1982
     slug: pc-checkbook-manager
+    status: older
