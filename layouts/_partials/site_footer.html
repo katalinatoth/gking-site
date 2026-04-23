@@ -23,18 +23,7 @@ nav[aria-label="Site links"] a:focus-visible { color: #fff !important; text-deco
   {{ end }}
   {{ partial $footer_section_path . }}
 
-  {{/* Accessibility statement and Harvard policy link (per Harvard Digital Accessibility Policy). */}}
-  <p class="text-center text-sm py-1">
-    <a href="{{ "accessibility/" | relURL }}">Accessibility</a>
-    &middot;
-    <a href="https://accessibility.huit.harvard.edu/digital-accessibility-policy" target="_blank" rel="noopener">Harvard University Digital Accessibility Policy <span class="sr-only">(opens in new tab)</span></a>
-  </p>
-
-  {{- if not (site.Params.i_am_a_sponsor | default false) -}}
-    {{- $base := "https://hugoblox.com" -}}
-    <p class="powered-by text-center text-sm py-1">
-      {{ printf "© %s Gary King. All rights reserved." now.Year }}
-    </p>
-  {{- end -}}
+  {{/* Copyright: single line only — comes from site.Params.footer.copyright.notice
+       via components/footers/minimal.html → site_footer_license (see hugo.yaml). */}}
 
 </footer>
