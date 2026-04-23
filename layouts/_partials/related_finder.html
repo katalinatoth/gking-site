@@ -136,6 +136,120 @@
   {{ end }}
 {{ end }}
 
+{{/* ---------- auto-signal: inline Dataverse URL in the abstract ----------
+
+     Many older publications only carry a Harvard Dataverse pointer in the
+     prose of the abstract (a sentence like "Replication data at the Harvard
+     Dataverse: https://…"). abstract_for_display.html strips the sentence
+     for on-screen rendering, but the raw URL still belongs in See Also so
+     readers can actually find the data. We only do this when the page
+     didn't already declare `dataverse_url` in front matter — otherwise we
+     risk double-rendering the same link.                                   */}}
+{{ if not $page.Params.dataverse_url }}
+  {{ $rawAbs := $page.Params.abstract | default "" }}
+  {{ if $rawAbs }}
+    {{ $found := findRE `https?://(?:dx\.)?(?:doi\.org/10\.7910/DVN/[A-Za-z0-9]+|dataverse\.harvard\.edu/[^\s"'<)]+)` $rawAbs 1 }}
+    {{ range $found }}
+      {{ $dvu := . }}
+      {{ if not (in $pickedExternalUrls $dvu) }}
+        {{ $picked = $picked | append (dict "extUrl" $dvu "extTitle" "Replication data (Harvard Dataverse)" "extKind" "Data" "score" 9995) }}
+        {{ $pickedExternalUrls = $pickedExternalUrls | append $dvu }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{/* ---------- auto-signal: response/comment/rejoinder recognition --------
+
+     When the current page's title starts with words like "Response to",
+     "Reply to", "Comment on", "Rejoinder", etc., try to identify the
+     original paper by title-keyword overlap and pin it at the top of See
+     Also. The overlap score is already computed below for every page — we
+     just boost the winner so it sorts above tag/author backfill.
+
+     We only look at publication-section pages so a response-paper doesn't
+     accidentally pin one of its own talk versions.                         */}}
+{{ $titleLower := lower ($page.Title | default "") }}
+{{ $isResponse := or (or (or (or (or
+      (strings.Contains $titleLower "response to")
+      (strings.Contains $titleLower "reply to"))
+      (strings.Contains $titleLower "comment on"))
+      (strings.Contains $titleLower "rejoinder"))
+      (strings.HasPrefix $titleLower "comment:"))
+      (strings.HasPrefix $titleLower "reply:") }}
+{{ if $isResponse }}
+  {{ $bestScore := 0 }}
+  {{ $bestPage := false }}
+  {{ range (where site.RegularPages "Section" "publication") }}
+    {{ if ne .RelPermalink $page.RelPermalink }}
+      {{ $otherLower := lower (.Title | default "") }}
+      {{/* Skip other response-papers — we want the subject paper, not a
+           sibling reply. */}}
+      {{ $isOtherResponse := or (or (or
+            (strings.Contains $otherLower "response to")
+            (strings.Contains $otherLower "reply to"))
+            (strings.Contains $otherLower "comment on"))
+            (strings.Contains $otherLower "rejoinder") }}
+      {{ if not $isOtherResponse }}
+        {{ $otherTokens := slice }}
+        {{ range split $otherLower " " }}
+          {{ $t := replaceRE `[^a-z0-9]+` "" . }}
+          {{ if and (gt (len $t) 2) (not (in $stop $t)) }}
+            {{ $otherTokens = $otherTokens | append $t }}
+          {{ end }}
+        {{ end }}
+        {{ $overlap := 0 }}
+        {{ range $otherTokens }}
+          {{ if in $curTitleTokens . }}{{ $overlap = add $overlap 1 }}{{ end }}
+        {{ end }}
+        {{ if gt $overlap $bestScore }}
+          {{ $bestScore = $overlap }}
+          {{ $bestPage = . }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  {{ if and $bestPage (ge $bestScore 2) }}
+    {{ if not (in $pickedSlugs $bestPage.RelPermalink) }}
+      {{ $picked = $picked | append (dict "page" $bestPage "score" 9994) }}
+      {{ $pickedSlugs = $pickedSlugs | append $bestPage.RelPermalink }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{/* ---------- auto-signal: prior / new edition of a book ----------------
+
+     Books on this site use a naming convention like:
+       "Designing Social Inquiry: Scientific Inference in Qualitative Research"
+       "Designing Social Inquiry: Scientific Inference in Qualitative Research,
+          New Edition"
+     i.e. the new edition's title = old title + ", New Edition" / ", 2nd
+     Edition" / ", 3rd Edition" / etc. We find edition-siblings by prefix
+     match (stripping the edition suffix from either side) and cross-link
+     both directions.                                                       */}}
+{{ $isBookPage := in ($page.Params.publication_types | default slice) "book" }}
+{{ if $isBookPage }}
+  {{ $myTitle := $page.Title | default "" }}
+  {{ $myBase := replaceRE `(?i),\s*(new edition|[0-9]+(st|nd|rd|th) edition|revised edition|expanded edition)\s*$` "" $myTitle }}
+  {{ $myBase = trim $myBase " " }}
+  {{ range (where site.RegularPages "Section" "publication") }}
+    {{ if ne .RelPermalink $page.RelPermalink }}
+      {{ $otherIsBook := in (.Params.publication_types | default slice) "book" }}
+      {{ if $otherIsBook }}
+        {{ $otherTitle := .Title | default "" }}
+        {{ $otherBase := replaceRE `(?i),\s*(new edition|[0-9]+(st|nd|rd|th) edition|revised edition|expanded edition)\s*$` "" $otherTitle }}
+        {{ $otherBase = trim $otherBase " " }}
+        {{ if and (gt (len $myBase) 10) (eq (lower $myBase) (lower $otherBase)) }}
+          {{ if not (in $pickedSlugs .RelPermalink) }}
+            {{ $picked = $picked | append (dict "page" . "score" 9993) }}
+            {{ $pickedSlugs = $pickedSlugs | append .RelPermalink }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
 {{/* ---------- category siblings from research_areas.json ---------- */}}
 {{/* If the current page is listed under one or more research_areas
      subcategories, surface every other entry from the same subcategory
@@ -241,8 +355,13 @@
 {{ $picked = $picked | append $sorted }}
 
 {{/* ---------- render ---------- */}}
+{{/* Title-level dedup: a single conceptual item (e.g. JudgeIt II) may have
+     both a /publication/ page and a /software/ page with identical titles.
+     RelPermalink-based dedup in the collection passes doesn't catch those,
+     so we do one more pass here keyed by a normalized title. */}}
 {{ $limit := 8 }}
 {{ $shown := 0 }}
+{{ $seenTitles := slice }}
 {{ if gt (len $picked) 0 }}
 <div class="gk-see-also">
   <h3>See Also</h3>
@@ -259,18 +378,34 @@
           </li>
         {{ else if index . "page" }}
           {{ $p := index . "page" }}
+          {{ $normTitle := lower (replaceRE `[^a-z0-9]+` "" ($p.Title | default "")) }}
+          {{ if in $seenTitles $normTitle }}
+            {{/* already shown under another section; skip duplicate */}}
+          {{ else }}
+          {{ $seenTitles = $seenTitles | append $normTitle }}
           {{ $shown = add $shown 1 }}
           {{ $sect := $p.Section }}
+          {{ $pt := $p.Params.publication_types | default slice }}
           {{ $label := "" }}
-          {{ if eq $sect "talk" }}{{ $label = "Talk" }}
+          {{/* Type label precedence: we look at publication_types before the
+               section because a single file under /publication/ can actually
+               be a book, software, patent, or dataset — the section only
+               tells us where Hugo filed it, not what the reader should see.
+               For /talk/ and /software/ the section is authoritative. */}}
+          {{ if eq $sect "talk" }}{{ $label = "Presentation" }}
           {{ else if eq $sect "software" }}{{ $label = "Software" }}
-          {{ else if in ($p.Params.publication_types | default slice) "data" }}{{ $label = "Dataset" }}
+          {{ else if in $pt "software" }}{{ $label = "Software" }}
+          {{ else if or (in $pt "book") (in $pt "book_chapter") (in $pt "chapter") }}{{ $label = "Book" }}
+          {{ else if in $pt "patent" }}{{ $label = "Patent" }}
+          {{ else if in $pt "data" }}{{ $label = "Dataset" }}
+          {{ else if in $pt "presentation" }}{{ $label = "Presentation" }}
           {{ else }}{{ $label = "Paper" }}{{ end }}
           <li>
             <span class="gk-see-kind">[{{ $label }}]</span>
             <a href="{{ $p.RelPermalink }}">{{ $p.Title }}</a>
             <span class="gk-see-year">({{ $p.Date.Format "2006" }})</span>
           </li>
+          {{ end }}
         {{ end }}
       {{ end }}
     {{ end }}

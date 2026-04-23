@@ -10,4 +10,6 @@ links:
   - type: pdf
     url: "files/reply.pdf"
 publication: "Journal of the American Statistical Association, 94, Pp. 352-55"
+related_papers:
+- a-solution-to-the-ecological-inference-problem-reconstructing-individual-behavio
 ---

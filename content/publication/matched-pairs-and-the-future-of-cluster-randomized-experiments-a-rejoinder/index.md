@@ -12,4 +12,6 @@ links:
   - type: pdf
     url: "files/clusterr.pdf"
 publication: "Statistical Science, 24, Pp. 64–72"
+related_papers:
+- the-essential-role-of-pair-matching-in-cluster-randomized-experiments-with-appli
 ---
