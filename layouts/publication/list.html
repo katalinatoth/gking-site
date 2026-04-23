@@ -54,7 +54,7 @@
 {{ $pubPages := (where .Site.RegularPages "Section" "publication") }}
 {{ $talkPages := (where .Site.RegularPages "Section" "talk") }}
 
-{{/* ===== Current Working Papers spotlight selection =====
+{{/* ===== Working Papers spotlight selection =====
      Config lives in data/featured_publications.yaml:
        count   : number of entries to display (default 6)
        order   : the manually curated sequence of slugs
@@ -195,9 +195,11 @@
     return data.filter(function(d) { return d.legacyTab === tabId; });
   }
 
-  // "Current Working Papers" slugs for the active tab — tagged in
-  // data/featured_publications.yaml. Currently only the journal tab populates
-  // this list; other tabs return nothing and the strip is suppressed.
+  // "Working Papers" slugs for the active tab — resolved at build time in
+  // layouts/publication/list.html from data/featured_publications.yaml plus
+  // each publication's first-commit date. Currently only the journal tab
+  // populates this list; other tabs return nothing and the strip is
+  // suppressed.
   function getFeaturedForTab(tabId) {
     var slugs = (featuredCfg && featuredCfg[tabId]) || [];
     if (!slugs.length) return [];
@@ -415,15 +417,14 @@
       return;
     }
 
-    // Current Working Papers strip (primacy + Von Restorff). Only shown when
-    // there are no active filters; once the user is hunting, get out of
-    // their way.
+    // Working Papers strip (primacy + Von Restorff). Only shown when there
+    // are no active filters; once the user is hunting, get out of their way.
     var html = "";
     if (!active) {
       var featured = getFeaturedForTab(activeTab);
       if (featured.length) {
-        html += '<section class="gk-featured-section" aria-label="Current Working Papers">' +
-                '<h2 class="gk-featured-heading">Current Working Papers</h2>';
+        html += '<section class="gk-featured-section" aria-label="Working Papers">' +
+                '<h2 class="gk-featured-heading">Working Papers</h2>';
         featured.forEach(function(d) { html += renderCard(d, { featured: true }); });
         html += '</section>';
         // Drop featured items from the main list to avoid duplication.
@@ -583,7 +584,7 @@
     line-height: 1.4;
   }
 
-  /* ===== "Current Working Papers" strip =====
+  /* ===== "Working Papers" strip =====
      A small (<= ~5) curated set rendered above the Journal Articles tab,
      framed in the page's blue palette so it stays visually distinct
      (Von Restorff) without breaking the color system. */
