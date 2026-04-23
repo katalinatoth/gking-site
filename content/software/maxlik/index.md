@@ -9,7 +9,7 @@ authors:
 
 <p style="margin:0 0 1rem;padding:12px 14px;background:#ebf2f8;border-radius:6px;border:1px solid #d0dce8;"><em>This software is no longer being actively updated.</em> Previous versions and the information below are preserved for archival and teaching use.</p>
 
-<p style="margin:0 0 1rem;">MAXLIK is a set of Gauss programs and datasets (annotated for pedagogical purposes) to implement many of the maximum likelihood–based statistical models discussed in Gary King’s book <a href="https://www.press.umich.edu/books/9780472082823/unifying-political-methodology" style="color:#337ab7;"><em>Unifying Political Methodology: The Likelihood Theory of Statistical Inference</em></a> (University of Michigan Press, 1998), and used in Gary’s courses. All datasets are real, not simulated.</p>
+<p style="margin:0 0 1rem;">MAXLIK is a set of Gauss programs and datasets (annotated for pedagogical purposes) to implement many of the maximum likelihood–based statistical models discussed in Gary King’s book <a href="https://www.press.umich.edu/16106/unifying_political_methodology"><em>Unifying Political Methodology: The Likelihood Theory of Statistical Inference</em></a> (University of Michigan Press, 1998), and used in Gary’s courses. All datasets are real, not simulated.</p>
 
 <p style="margin:0 0 1rem;">Andrew Martin’s related data sets in Stata: <a href="http://adm.wustl.edu/courses/ps582.php" style="color:#337ab7;" target="_blank" rel="noopener">HTML</a> (Washington University).</p>
 

@@ -12,8 +12,6 @@ date: '2024-01-01'
 links:
 - type: pdf
   url: files/zacheclinical.pdf
-- type: source
-  url: https://doi.org/10.1016/j.eclinm.2024
 publication: EClinicalMedicine, 72, Pp. 1-12
 publication_types:
 - journal_article

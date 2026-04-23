@@ -19,5 +19,6 @@ publication: IEEE Transactions on Visualization and Computer Graphics, 23, 1, Pp
 publication_types:
   - journal_article
   - software
+slug: boocio-an-education-system-with-hierarchical-concept-maps
 title: 'Booc.Io: An Education System With Hierarchical Concept Maps'
 ---

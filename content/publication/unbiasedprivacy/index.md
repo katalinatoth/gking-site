@@ -6,9 +6,7 @@ authors:
   - Margaret Schwenzfeier
   - Abhradeep Thakurta
 date: "2021-01-01"
-links:
-  - type: site
-    url: https://github.com/schwenzfeier/udp
+links: []
 publication: ""
 publication_types:
   - software

@@ -10,8 +10,6 @@ links:
   - type: pdf
     name: Article (PDF)
     url: /files/newinfo.pdf
-  - name: Publisher's Version (Wakefield 2004, with discussion)
-    url: https://doi.org/10.1111/j.1467-985X.2004.00319.x
 ---
 
 **Excerpt:**

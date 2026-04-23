@@ -58,8 +58,8 @@ aliases:
 
 - Info on [Political Methodology in the Government Department](https://projects.iq.harvard.edu/government-methods)
 - [How to write a publishable paper](/gking-site/papers/)
-- [Advice to Junior Faculty](/gking-site/files/gking/files/profdev2.pdf)
-- [Advice to Graduate Students](/gking-site/publication/so-youre-a-grad-student-now-maybe-you-should-do-this/), (overlapping) [Dissertation advice](/gking-site/files/gking/files/diss2.pdf)
+- [Advice to Junior Faculty](/gking-site/files/advice-junior-faculty.pdf)
+- [Advice to Graduate Students](/gking-site/publication/so-youre-a-grad-student-now-maybe-you-should-do-this/), (overlapping) [Dissertation advice](/gking-site/files/advice-dissertation.pdf)
 - [What to do if you want me to write you a letter of recommendation](/gking-site/recs/)
 - [Are you applying to our Ph.D. program at Harvard?](/gking-site/apply/)
 - [Should you use AI to write for you?](/gking-site/aiwrite/)
