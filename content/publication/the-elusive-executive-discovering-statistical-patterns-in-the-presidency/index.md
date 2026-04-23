@@ -4,6 +4,8 @@ date: "1988-01-01"
 authors:
   - "Gary King"
   - "Lyn Ragsdale"
+publisher: "CQ Press"
+address: "Washington, DC"
 publication_types:
   - "book"
 links:

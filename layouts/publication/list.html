@@ -128,7 +128,7 @@
     {{ $u = partial "software_page_href.html" . }}
   {{ end }}
   {{ $abs := partial "abstract_for_display.html" . }}
-  {{ $entry := dict "slug" $slug "legacyTab" $ltab "legacyDrupal" $ldrupal "title" .Title "url" $u "year" (.Date.Format "2006") "authors" (.Params.authors | default slice) "types" (.Params.publication_types | default slice) "publication" (.Params.publication | default "") "abstract" $abs }}
+  {{ $entry := dict "slug" $slug "legacyTab" $ltab "legacyDrupal" $ldrupal "title" .Title "url" $u "year" (.Date.Format "2006") "authors" (.Params.authors | default slice) "types" (.Params.publication_types | default slice) "publication" (.Params.publication | default "") "publisher" (.Params.publisher | default "") "address" (.Params.address | default "") "abstract" $abs }}
   {{ $entries = $entries | append $entry }}
 {{ end }}
 {{ range $talkPages }}
@@ -137,7 +137,7 @@
   {{ $ltab := index $meta "tab" | default "other" }}
   {{ $ldrupal := index $meta "drupal" | default "miscellaneous" }}
   {{ $absTalk := partial "abstract_for_display.html" . }}
-  {{ $entry := dict "slug" $slug "legacyTab" $ltab "legacyDrupal" $ldrupal "title" .Title "url" .RelPermalink "year" (.Date.Format "2006") "authors" (.Params.authors | default slice) "types" (.Params.publication_types | default slice) "publication" (.Params.publication | default "") "abstract" $absTalk }}
+  {{ $entry := dict "slug" $slug "legacyTab" $ltab "legacyDrupal" $ldrupal "title" .Title "url" .RelPermalink "year" (.Date.Format "2006") "authors" (.Params.authors | default slice) "types" (.Params.publication_types | default slice) "publication" (.Params.publication | default "") "publisher" "" "address" "" "abstract" $absTalk }}
   {{ $entries = $entries | append $entry }}
 {{ end }}
 
@@ -383,6 +383,8 @@
     out += "  author = {" + d.authors.join(" and ") + "},\n";
     out += "  year = {" + d.year + "},\n";
     if (d.publication) out += "  journal = {" + d.publication + "},\n";
+    if (d.publisher) out += "  publisher = {" + d.publisher + "},\n";
+    if (d.address) out += "  address = {" + d.address + "},\n";
     out += "}\n";
     return out;
   }
@@ -396,6 +398,11 @@
     if (d.authors.length) meta.push(escapeHtml(d.authors.join(", ")));
     if (d.year) meta.push(d.year);
     if (d.publication) meta.push('<em>' + escapeHtml(d.publication) + '</em>');
+    if (d.publisher) {
+      var pub = escapeHtml(d.publisher);
+      if (d.address) pub += ", " + escapeHtml(d.address);
+      meta.push(pub);
+    }
     if (meta.length) s += '<div class="gk-pub-meta">' + meta.join(" &middot; ") + '</div>';
     s += '<div class="gk-pub-actions">';
     if (d.abstract) {

@@ -5,6 +5,10 @@ authors:
 - Gary King
 - Robert O. Keohane
 - Sidney Verba
+dataverse_url: https://doi.org/10.7910/DVN/YHZG5M
+dataverse_name: 'Replication Data for: Designing Social Inquiry: Scientific Inference for Qualitative Research'
+publisher: "Princeton University Press"
+address: "Princeton, NJ"
 date: '2021-01-01'
 links:
 - type: source
@@ -12,4 +16,6 @@ links:
 publication_types:
 - book
 title: 'Designing Social Inquiry: Scientific Inference in Qualitative Research, New Edition'
+related_papers:
+- designing-social-inquiry-scientific-inference-in-qualitative-research
 ---

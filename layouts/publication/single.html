@@ -34,13 +34,22 @@
       </h1>
 
       {{ if not $questReplica }}
-      {{/* Full citation line */}}
+      {{/* Full citation line. For books, show the publisher (and address
+           if available) in place of a journal name; this restores the
+           canonical book citation form "Authors. Year. "Title". Publisher." */}}
+      {{ $isBook := in (.Params.publication_types | default slice) "book" }}
+      {{ $isChapter := in (.Params.publication_types | default slice) "book_chapter" }}
       <div class="gk-citation-line">
         {{ $authors := .Params.authors | default slice }}
         {{ if gt (len $authors) 0 }}{{ delimit $authors ", " }}. {{ end -}}
         {{ .Date.Format "2006" }}.
         "{{ .Title }}".
         {{ with .Params.publication }}<em>{{ . | markdownify }}</em>.{{ end }}
+        {{- if or $isBook $isChapter -}}
+          {{- with .Params.publisher -}}
+            {{ . }}{{ with $.Params.address }}, {{ . }}{{ end }}.
+          {{- end -}}
+        {{- end -}}
       </div>
 
       {{/* Action buttons */}}
@@ -71,6 +80,8 @@
           {{ end }}
           {{ $bib := printf "@%s{%s,\n  title = {%s},\n  author = {%s},\n  year = {%s},\n" $entryType $key .Title (delimit $authors " and ") $year }}
           {{ with .Params.publication }}{{ $bib = printf "%s  journal = {%s},\n" $bib (. | plainify) }}{{ end }}
+          {{ with .Params.publisher }}{{ $bib = printf "%s  publisher = {%s},\n" $bib (. | plainify) }}{{ end }}
+          {{ with .Params.address }}{{ $bib = printf "%s  address = {%s},\n" $bib (. | plainify) }}{{ end }}
           {{ $bib = printf "%s}\n" $bib }}
           <button type="button" class="gk-cite-button js-cite-clipboard-inline cursor-pointer" data-bibtex="{{ $bib }}">
             {{ partial "functions/get_icon" (dict "name" "hero/document-duplicate" "attributes" "style=\"height: 1em\" class='inline-block'") }}

@@ -5,6 +5,8 @@ authors:
   - "Paul Brace"
   - "Christine Harrington"
   - "Gary King"
+publisher: "New York University Press"
+address: "New York"
 publication_types:
   - "book"
 ---
