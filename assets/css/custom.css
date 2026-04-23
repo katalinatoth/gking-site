@@ -379,6 +379,21 @@ button.gk-cite-button:hover {
   transform: translateX(2px);
 }
 
+/* "The story" links in startup blurbs — body text is grey; these must read as links even at rest */
+.gk-hp-item__pub a.gk-story-link {
+  color: #285f8f;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+.gk-hp-item__pub a.gk-story-link:hover,
+.gk-hp-item__pub a.gk-story-link:focus-visible {
+  color: #1a3a5c;
+  text-decoration-thickness: 2px;
+}
+
 /* ---- Breadcrumb navigation (inline-styled <a> inside [aria-label=Breadcrumb]) ---- */
 nav[aria-label="Breadcrumb"] a {
   transition: color 0.15s ease, text-decoration-color 0.15s ease;
