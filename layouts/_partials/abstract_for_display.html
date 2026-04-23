@@ -1,11 +1,11 @@
 {{- /*
-  When Params.dataverse_url is set, the abstract often still ends with a
-  run-on sentence like "Replication data at the Harvard Dataverse:https://…".
-  That duplicates the Dataverse callout and See also entry — strip it here
-  for list cards and single-page abstract blocks.
+  Strip a trailing run-on like "…framework.Replication data at the Harvard
+  Dataverse:https://…" from abstracts. Many older entries only have the DOI
+  in the prose (no Params.dataverse_url), so we always remove this pattern
+  when present — not only when dataverse_url is set.
 */ -}}
 {{- $t := .Params.abstract | default "" -}}
-{{- if and $t .Params.dataverse_url -}}
+{{- if $t -}}
   {{- $t = replaceRE `(?i)\s*\.?\s*replication data at the harvard dataverse:\s*https?://\S+` "" $t -}}
   {{- $t = trim $t " \n\t." -}}
 {{- end -}}

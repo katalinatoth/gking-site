@@ -50,6 +50,19 @@
 {{ range ($page.Params.authors | default slice) }}
   {{ $curAuthors = $curAuthors | append (lower (string .)) }}
 {{ end }}
+{{/* Last-name tokens for fuzzy author match ("Jonathan Katz" vs "Jonathan N. Katz") */}}
+{{ $curAuthorSurnames := slice }}
+{{ range ($page.Params.authors | default slice) }}
+  {{ $parts := split (lower (trim (string .) " ")) " " }}
+  {{ if gt (len $parts) 0 }}
+    {{ $ln := index $parts (sub (len $parts) 1) }}
+    {{ $ln = replaceRE `\.` "" $ln }}
+    {{ $ln = replaceRE `[^a-z0-9]+` "" $ln }}
+    {{ if gt (len $ln) 1 }}
+      {{ $curAuthorSurnames = $curAuthorSurnames | append $ln }}
+    {{ end }}
+  {{ end }}
+{{ end }}
 {{ $curTags := slice }}
 {{ range ($page.Params.tags | default slice) }}{{ $curTags = $curTags | append (lower (string .)) }}{{ end }}
 {{ range ($page.Params.keywords | default slice) }}{{ $curTags = $curTags | append (lower (string .)) }}{{ end }}
@@ -193,9 +206,20 @@
       {{ if in $curTitleTokens . }}{{ $score = add $score 2 }}{{ end }}
     {{ end }}
 
-    {{/* shared authors */}}
+    {{/* shared authors: exact full string, else last-name match */}}
     {{ range (.Params.authors | default slice) }}
-      {{ if in $curAuthors (lower (string .)) }}{{ $score = add $score 1 }}{{ end }}
+      {{ $al := lower (string .) }}
+      {{ if in $curAuthors $al }}
+        {{ $score = add $score 1 }}
+      {{ else }}
+        {{ $parts := split (trim $al " ") " " }}
+        {{ if gt (len $parts) 0 }}
+          {{ $ln := index $parts (sub (len $parts) 1) }}
+          {{ $ln = replaceRE `\.` "" $ln }}
+          {{ $ln = replaceRE `[^a-z0-9]+` "" $ln }}
+          {{ if and (gt (len $ln) 1) (in $curAuthorSurnames $ln) }}{{ $score = add $score 1 }}{{ end }}
+        {{ end }}
+      {{ end }}
     {{ end }}
 
     {{/* shared tags / keywords */}}
