@@ -22,6 +22,20 @@
 #   to     (required)  Target URL. Can be:
 #                        - a full external URL    (https://...)
 #                        - an internal path        (/publication/quest-paper/)
+#   status (optional)  HTTP-style status code for the redirect. One of:
+#                        301  permanent move (default — best for SEO when the
+#                             URL has truly changed forever)
+#                        302  found / temporary (target may change again soon)
+#                        307  temporary redirect (same idea as 302, modern)
+#                        308  permanent redirect (same idea as 301, modern)
+#                      Static GitHub Pages can't send a true HTTP status code,
+#                      so the build emits a meta-refresh page whose markup
+#                      reflects the chosen semantic (e.g. omitting the
+#                      canonical link for 302/307 so search engines don't
+#                      transfer page authority). The build also writes a
+#                      Netlify-format `_redirects` file so a future migration
+#                      to Netlify/Cloudflare Pages would honour the real
+#                      status code automatically.
 #   note   (optional)  A free-form reminder to yourself. Ignored by the build.
 #
 # ---------------------------------------------------------------------------
@@ -31,15 +45,22 @@
 #
 #   - from: rd
 #     to:   https://docs.google.com/document/d/your-doc-id/edit
-#     note: "Research Directions doc."
+#     note: "Research Directions doc."   # default status: 301
 #
 #   - from: quest
 #     to:   /publication/quest/
+#     status: 301
 #     note: "Quest paper short URL."
+#
+#   - from: latest-talk
+#     to:   https://example.org/talks/2026-spring/
+#     status: 302
+#     note: "Use 302 because the target rotates each semester."
 #
 #   - from: ei-software
 #     to:   https://github.com/iqss-research/ei
-#     note: "EI software repo."
+#     status: 308
+#     note: "EI software repo (modern permanent redirect)."
 #
 # ===========================================================================
 
@@ -53,5 +74,5 @@ redirects:
 
   # - from: quest
   #   to:   /publication/quest/
+  #   status: 301
   #   note: "Quest paper short URL."
-

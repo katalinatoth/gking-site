@@ -18,3 +18,8 @@ node_modules/
 
 # Generated short-URL redirect stubs (source of truth is data/redirects.yaml).
 content/_redirects/
+
+# Generated Netlify-format _redirects file (mirrors data/redirects.yaml,
+# emitted by scripts/build_redirects.py for portability if the site ever
+# moves to a host that honours real HTTP 3xx redirects).
+static/_redirects
