@@ -9,7 +9,5 @@ abstract: "I show herein how to write a publishable paper by beginning with the 
 links:
   - type: pdf
     url: "files/paperspub.pdf"
-  - type: source
-    url: "/publication/"
 publication: "PS: Political Science and Politics, 39, Pp. 119–125"
 ---

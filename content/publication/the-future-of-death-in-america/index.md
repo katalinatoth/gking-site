@@ -10,8 +10,8 @@ date: '2011-01-01'
 links:
 - type: pdf
   url: files/25-1.pdf
-- type: source
-  url: http://www.demographic-research.org/volumes/vol25/1/
+- type: doi
+  url: https://doi.org/10.4054/DemRes.2011.25.1
 publication: Demographic Research, 25, 1, Pp. 1-38
 publication_types:
 - presentation

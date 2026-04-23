@@ -423,12 +423,12 @@ type: "page"
 <div class="hwp-citation__text">
 <div class="hwp-text-block__default-text">
 <div class="bibcite-citation">
-<div class="csl-bib-body"><div class="csl-entry">Federico Girosi and Gary King. 2008. <a href="/gking-site/publication/demographic-forecasting-2008/">Demographic Forecasting</a>. Princeton: Princeton University Press.</div></div>
+<div class="csl-bib-body"><div class="csl-entry">Federico Girosi and Gary King. 2008. <a href="/gking-site/publication/demographic-forecasting/">Demographic Forecasting</a>. Princeton: Princeton University Press.</div></div>
 </div>
 </div>
 <div class="hwp-text-block">
 <div class="bibcite-citation">
-<div class="csl-bib-body"><div class="csl-entry">Federico Girosi and Gary King. 2008. <a href="/gking-site/publication/demographic-forecasting-2008/">Demographic Forecasting</a>. Princeton: Princeton University Press.</div></div>
+<div class="csl-bib-body"><div class="csl-entry">Federico Girosi and Gary King. 2008. <a href="/gking-site/publication/demographic-forecasting/">Demographic Forecasting</a>. Princeton: Princeton University Press.</div></div>
 </div>
 </div>
 </div>
@@ -640,7 +640,7 @@ type: "page"
 </button>
 </li>
 <li class="hwp-citation__cta-wrap hwp-citation__cta-wrap--desktop">
-<a class="hwp-text-link hwp-text-link--icon-left analytics-cta" href="http://www.demographic-research.org/volumes/vol25/1/">
+<a class="hwp-text-link hwp-text-link--icon-left analytics-cta" href="https://doi.org/10.4054/DemRes.2011.25.1">
 <span aria-hidden="true" class="material-icon">description</span>
 <span class="hwp-text-link__text">Publisher's Version</span>
 </a>
@@ -660,7 +660,7 @@ type: "page"
 </div>
 <ul class="hwp-citation__ctas hwp-citation__ctas--mobile">
 <li>
-<a class="hwp-text-link hwp-text-link--icon-left analytics-cta" href="http://www.demographic-research.org/volumes/vol25/1/">
+<a class="hwp-text-link hwp-text-link--icon-left analytics-cta" href="https://doi.org/10.4054/DemRes.2011.25.1">
 <span aria-hidden="true" class="material-icon">description</span>
 <span class="hwp-text-link__text">Publisher's Version</span>
 </a>

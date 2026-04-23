@@ -8,8 +8,8 @@ date: '2016-01-01'
 links:
 - type: pdf
   url: files/s12-c.pdf
-- type: source
-  url: http://www.ingentaconnect.com/contentone/aea/jep/2016/00000030/00000002/art00012
+- type: doi
+  url: https://doi.org/10.1257/jep.30.2.245
 publication: Journal of Economic Perspectives, 30, 2, Pp. 245-48
 publication_types:
 - journal_article

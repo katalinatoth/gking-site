@@ -8,7 +8,7 @@ authors:
 date: '1998-01-01'
 links:
 - type: source
-  url: /software/amelia-ii-a-program-for-missing-data/
+  url: software/amelia-ii-a-program-for-missing-data/
 publication: Journal of Statistical Software, 45, 7, Pp. 1-47
 publication_types:
 - software

@@ -6,7 +6,7 @@ authors:
 date: '2003-01-01'
 links:
 - type: source
-  url: /software/relogit-rare-events-logistic-regression/
+  url: software/relogit-rare-events-logistic-regression/
 publication: ""
 publication_types:
 - software

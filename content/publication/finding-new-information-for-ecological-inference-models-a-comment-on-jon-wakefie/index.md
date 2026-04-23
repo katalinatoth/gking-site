@@ -9,7 +9,7 @@ title: 'Finding New Information for Ecological Inference Models: A Comment on Jo
 links:
   - type: pdf
     name: Article (PDF)
-    url: /files/newinfo.pdf
+    url: files/newinfo.pdf
 ---
 
 **Excerpt:**

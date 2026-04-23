@@ -9,7 +9,7 @@ links:
 - type: pdf
   url: files/jss-paper.pdf
 - type: source
-  url: /software/cem-coarsened-exact-matching-software/
+  url: software/cem-coarsened-exact-matching-software/
 publication: Journal of Statistical Software, 30
 publication_types:
 - journal_article
