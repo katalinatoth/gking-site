@@ -481,11 +481,19 @@
     background: #e6f0fa;
     border-color: #2b6cb0;
   }
-  .gk-ra-pub-page-links a,
-  .gk-ra-pub-page-links button {
+  {{/* Previously we wrapped the page-link buttons in a .gk-ra-pub-page-links
+       inline-flex container, but that made them wrap as a single unit (so
+       "Abstract" ended up alone on row 1 and the whole [Article,
+       Supplementary Appendix, ...] block moved to row 2). They're now
+       rendered as direct flex children of .gk-ra-pub-actions so individual
+       buttons can wrap (e.g. [Abstract | Article] → row 1, [Supplementary
+       Appendix] → row 2). These rules follow the buttons to their new home. */}}
+  .gk-ra-pub-actions > a,
+  .gk-ra-pub-actions > button {
     font-size: inherit !important;
   }
-  .gk-ra-pub-page-links svg {
+  .gk-ra-pub-actions > a svg,
+  .gk-ra-pub-actions > button svg {
     height: 0.95em !important;
     width: 0.95em !important;
     vertical-align: -0.12em;

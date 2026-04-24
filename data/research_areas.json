@@ -50,8 +50,8 @@
             },
             {
               "title": "An Improved Method of Automated Nonparametric Content Analysis for Social Science",
-              "section": "talk",
-              "slug": "an-improved-method-of-automated-nonparametric-content-analysis-for-social-scienc-2016"
+              "section": "publication",
+              "slug": "an-improved-method-of-automated-nonparametric-content-analysis-for-social-scienc"
             },
             {
               "title": "Computer-Assisted Keyword and Document Set Discovery from Unstructured Text",
@@ -200,7 +200,7 @@
               "slug": "the-balance-sample-size-frontier-in-matching-methods-for-causal-inference"
             },
             {
-              "title": "Why Propensity Scores Should Not Be Used For Matching",
+              "title": "Why Propensity Scores Should Not Be Used for Matching",
               "section": "publication",
               "slug": "why-propensity-scores-should-not-be-used-for-matching"
             }
@@ -282,8 +282,8 @@
             },
             {
               "title": "Demographic Forecasting",
-              "section": "talk",
-              "slug": "demographic-forecasting-2006-422"
+              "section": "publication",
+              "slug": "demographic-forecasting-2008"
             },
             {
               "title": "Event Count Models for International Relations: Generalizations and Applications",
@@ -717,8 +717,8 @@
             },
             {
               "title": "Death by Survey: Estimating Adult Mortality Without Selection Bias from Sibling Survival Data",
-              "section": "talk",
-              "slug": "death-by-survey-estimating-adult-mortality-without-selection-bias-from-sibling-s-2005"
+              "section": "publication",
+              "slug": "death-by-survey-estimating-adult-mortality-without-selection-bias-from-sibling-s"
             },
             {
               "title": "Designing Verbal Autopsy Studies",
@@ -737,8 +737,8 @@
             },
             {
               "title": "How to Measure Legislative District Compactness If You Only Know It When You See It",
-              "section": "talk",
-              "slug": "how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-2019-99"
+              "section": "publication",
+              "slug": "how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-2021"
             },
             {
               "title": "Measuring Total Health Inequality: Adding Individual Variation to Group-Level Differences",
@@ -843,8 +843,8 @@
             },
             {
               "title": "The Changing Evidence Base of Social Science Research",
-              "section": "talk",
-              "slug": "the-changing-evidence-base-of-social-science-research"
+              "section": "publication",
+              "slug": "the-changing-evidence-base-of-social-science-research-2009"
             },
             {
               "title": "What to Do When Your Hessian Is Not Invertible: Alternatives to Model Respecification in Nonlinear Estimation",
@@ -881,8 +881,8 @@
           "papers": [
             {
               "title": "Demographic Forecasting",
-              "section": "talk",
-              "slug": "demographic-forecasting-2006-422"
+              "section": "publication",
+              "slug": "demographic-forecasting-2008"
             },
             {
               "title": "Replication Data For: Explaining Systematic Bias and Nontransparency in U.S. Social Security Administration Forecasts.",
@@ -906,8 +906,8 @@
             },
             {
               "title": "The Future of Death in America",
-              "section": "talk",
-              "slug": "the-future-of-death-in-america-2008"
+              "section": "publication",
+              "slug": "the-future-of-death-in-america"
             }
           ]
         }
@@ -1003,9 +1003,9 @@
           "name": "Publications",
           "papers": [
             {
-              "title": "A ’Politically Robust’ Experimental Design for Public Policy Evaluation, With Application to the Mexican Universal Health Insurance Program",
-              "section": "talk",
-              "slug": "a-politically-robust-experimental-design-for-public-policy-evaluation-with-appli-2006"
+              "title": "A ‘Politically Robust’ Experimental Design for Public Policy Evaluation, With Application to the Mexican Universal Health Insurance Program",
+              "section": "publication",
+              "slug": "a-politically-robust-experimental-design-for-public-policy-evaluation-with-appli-2007"
             },
             {
               "title": "Do Nonpartisan Programmatic Policies Have Partisan Electoral Effects? Evidence from Two Large Scale Experiments",
@@ -1050,8 +1050,8 @@
             },
             {
               "title": "How the News Media Activate Public Expression and Influence National Agendas",
-              "section": "talk",
-              "slug": "how-the-news-media-activate-public-expression-and-influence-national-agendas-2018-121"
+              "section": "publication",
+              "slug": "how-the-news-media-activate-public-expression-and-influence-national-agendas-2017"
             },
             {
               "title": "The Stability of Party Identification Among U.S. Representatives: Political Loyalty, 1789-1984",
@@ -1206,8 +1206,8 @@
             },
             {
               "title": "The Changing Evidence Base of Social Science Research",
-              "section": "talk",
-              "slug": "the-changing-evidence-base-of-social-science-research"
+              "section": "publication",
+              "slug": "the-changing-evidence-base-of-social-science-research-2009"
             }
           ]
         }
@@ -1303,8 +1303,8 @@
             },
             {
               "title": "How to Measure Legislative District Compactness If You Only Know It When You See It",
-              "section": "talk",
-              "slug": "how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-2019-99"
+              "section": "publication",
+              "slug": "how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-2021"
             },
             {
               "title": "The Future of Partisan Symmetry As a Judicial Test for Partisan Gerrymandering After LULAC V. Perry",
@@ -1499,8 +1499,8 @@
           "papers": [
             {
               "title": "Demographic Forecasting",
-              "section": "talk",
-              "slug": "demographic-forecasting-2006-422"
+              "section": "publication",
+              "slug": "demographic-forecasting-2008"
             },
             {
               "title": "Statistical Security for Social Security",
@@ -1509,8 +1509,8 @@
             },
             {
               "title": "The Future of Death in America",
-              "section": "talk",
-              "slug": "the-future-of-death-in-america-2008"
+              "section": "publication",
+              "slug": "the-future-of-death-in-america"
             },
             {
               "title": "Understanding the Lee-Carter Mortality Forecasting Method",
@@ -1645,8 +1645,8 @@
             },
             {
               "title": "The Changing Evidence Base of Social Science Research",
-              "section": "talk",
-              "slug": "the-changing-evidence-base-of-social-science-research"
+              "section": "publication",
+              "slug": "the-changing-evidence-base-of-social-science-research-2009"
             },
             {
               "title": "The Science of Political Science Graduate Admissions",

@@ -34,10 +34,14 @@
       {{ if and $hasAbstract (gt $linkCount 0) }}
       <span style="color:#ccc;user-select:none;" aria-hidden="true">|</span>
       {{ end }}
+      {{/* Render page_links buttons directly as flex children of
+           .gk-ra-pub-actions (not inside an inline-flex wrapper). That way
+           individual buttons can wrap to the next line, e.g. [Abstract |
+           Article] on line 1 and [Supplementary Appendix] on line 2 — the
+           requested break is between the Article and the first supplementary
+           button, rather than between Abstract and Article. */}}
       {{ if gt $linkCount 0 }}
-      <div class="gk-ra-pub-page-links" style="display:inline-flex;flex-wrap:wrap;align-items:center;gap:0.35rem 0.5rem;">
         {{ partial "page_links" (dict "page" $page "is_list" 1) }}
-      </div>
       {{ end }}
     </div>
     {{ end }}
