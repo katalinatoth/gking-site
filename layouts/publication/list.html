@@ -162,21 +162,24 @@
     "working_paper": "Working Paper"
   };
 
+  // Tab order and labels mirror Gary's CV writings taxonomy:
+  //   Books | Articles | Software | Patents | Court Briefs
+  // plus a "Presentations" tab for talks and an "Other" tab for residual
+  // content types (datasets, expert reports, etc.) that don't appear in
+  // the CV's writings section. Each tab's slug is what /publication/#<slug>
+  // deep-links to; don't rename these without also updating legacy_map/redirects.
   var tabs = [
-    { id: "journal", label: "Journal Articles" },
-    { id: "book", label: "Books & Chapters" },
-    { id: "presentation", label: "Presentations" },
+    { id: "journal", label: "Articles" },
+    { id: "book", label: "Books" },
     { id: "software", label: "Software" },
     { id: "patent", label: "Patents" },
+    { id: "courtbrief", label: "Court Briefs" },
+    { id: "presentation", label: "Presentations" },
     { id: "other", label: "Other" }
   ];
 
-  // Items with these Drupal reference types make up the "Books & Chapters" tab
-  // and are excluded from the "Other" tab.
-  var bookDrupalTypes = { "book": 1, "book_chapter": 1 };
-
   // Allow deep-linking to a specific tab via URL hash (e.g. /publication/#patent).
-  var validTabIds = { journal: 1, book: 1, presentation: 1, software: 1, patent: 1, other: 1 };
+  var validTabIds = { journal: 1, book: 1, presentation: 1, software: 1, patent: 1, courtbrief: 1, other: 1 };
   var initialHash = (window.location.hash || "").replace(/^#/, "");
   var activeTab = validTabIds[initialHash] ? initialHash : "journal";
   var activeSubtypes = {};
@@ -185,15 +188,9 @@
   var sortMode = "year-desc";
 
   function getTabData(tabId) {
-    if (tabId === "book") {
-      return data.filter(function(d) { return bookDrupalTypes[d.legacyDrupal]; });
-    }
-    if (tabId === "other") {
-      // Exclude books/chapters — they live in their own tab now.
-      return data.filter(function(d) {
-        return d.legacyTab === "other" && !bookDrupalTypes[d.legacyDrupal];
-      });
-    }
+    // Routing is now purely by legacyTab (set in data/writings_legacy_map.json) so
+    // that the CV's 5-category taxonomy maps 1:1 to tab filters. Book chapters are
+    // treated as Articles per the CV rather than sharing a tab with Books.
     return data.filter(function(d) { return d.legacyTab === tabId; });
   }
 
@@ -250,7 +247,12 @@
     subtypeContainer.innerHTML = "";
     activeSubtypes = {};
 
-    if (tab.id === "other" || tab.id === "book") {
+    // Show the Type sub-filter on the Articles and Other tabs, both of which
+    // mix several drupal reference types (journal_article, book_chapter,
+    // newspaper_article, working_paper, …). The dedicated Books / Software /
+    // Patents / Court Briefs tabs are homogeneous, so the filter would always
+    // have a single option and we suppress it there.
+    if (tab.id === "other" || tab.id === "journal") {
       subtypeSection.style.display = "block";
       var otherTypes = {};
       tabData.forEach(function(d) {
@@ -335,7 +337,7 @@
 
     return tabData.filter(function(d) {
       if (anySubtype) {
-        var key = (activeTab === "other" || activeTab === "book")
+        var key = (activeTab === "other" || activeTab === "journal")
           ? (d.legacyDrupal || "miscellaneous") : "";
         if (!activeSubtypes[key]) return false;
       }

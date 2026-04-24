@@ -98,46 +98,48 @@
 {{ $wlMap := site.Data.writings_legacy_map | default (dict "entries" dict) }}
 
 {{/* Card-body lists: for the four-items-per-card preview we only need real
-     /publication/ pages with a matching legacy-map type. These drive the
-     "Recent Papers" / "Books" / "Patents" details blocks below. */}}
+     /publication/ pages whose legacy-map tab matches the card. These drive
+     the "Recent Papers" / "Books" / "Patents" / "Software" blocks below.
+     Filtering by tab (not drupal type) keeps the homepage card list in sync
+     with whatever appears on the matching /publication/ tab — e.g. Books
+     means "real books only" now that book_chapters moved to Articles. */}}
 {{ $bookPages := slice }}
 {{ $patentPages := slice }}
 {{ $softwarePages := slice }}
 {{ $paperPages := slice }}
 {{ range $slug, $meta := $wlMap.entries }}
-  {{ $drupal := index $meta "drupal" }}
+  {{ $tab := index $meta "tab" | default "" }}
   {{ with site.GetPage (printf "/publication/%s" $slug) }}
-    {{ if or (eq $drupal "book") (eq $drupal "book_chapter") }}{{ $bookPages = $bookPages | append . }}{{ end }}
-    {{ if eq $drupal "patent" }}{{ $patentPages = $patentPages | append . }}{{ end }}
-    {{ if eq $drupal "software" }}{{ $softwarePages = $softwarePages | append . }}{{ end }}
-    {{ if eq $drupal "journal_article" }}{{ $paperPages = $paperPages | append . }}{{ end }}
+    {{ if eq $tab "book" }}{{ $bookPages = $bookPages | append . }}{{ end }}
+    {{ if eq $tab "patent" }}{{ $patentPages = $patentPages | append . }}{{ end }}
+    {{ if eq $tab "software" }}{{ $softwarePages = $softwarePages | append . }}{{ end }}
+    {{ if eq $tab "journal" }}{{ $paperPages = $paperPages | append . }}{{ end }}
   {{ end }}
 {{ end }}
 
 {{/* Full tab totals for the card footers. These mirror the counts shown on
      the tabs at the top of /publication/ (see layouts/publication/list.html's
-     getTabData), so clicking "All N writings →" lands on a tab whose header
-     also says N. We iterate every slug in writings_legacy_map (which covers
-     both /publication/ pages and /talk/ pages) and tally by tab + drupal type,
-     matching the /publication/ template exactly.
+     getTabData, which now filters purely by legacyTab), so clicking
+     "All N writings →" lands on a tab whose header also says N. The taxonomy
+     follows Gary's CV:
 
-       - paperCount     → /publication/#journal   (legacyTab === "journal")
-       - bookCount      → /publication/#book      (drupal ∈ {book, book_chapter})
-       - patentCount    → /publication/#patent    (legacyTab === "patent")
-       - talkCount      → /talk/                  (count of /talk/ pages)
-       - softwareCount  → /software/              (count of curated software pages,
-                                                   which is the full listing, not
-                                                   just the subset in the legacy map)
+       - paperCount      → /publication/#journal     (legacyTab === "journal";   CV "Articles")
+       - bookCount       → /publication/#book        (legacyTab === "book";      CV "Books")
+       - patentCount     → /publication/#patent      (legacyTab === "patent";    CV "Patents")
+       - courtBriefCount → /publication/#courtbrief  (legacyTab === "courtbrief"; CV "US Supreme Court Amici Briefs")
+       - softwareCount   → /software/                (full /software/ listing)
+       - talkCount       → /talk/                    (count of /talk/ pages)
 */}}
 {{ $paperCount := 0 }}
 {{ $bookCount := 0 }}
 {{ $patentCount := 0 }}
+{{ $courtBriefCount := 0 }}
 {{ range $slug, $meta := $wlMap.entries }}
   {{ $tab := index $meta "tab" | default "other" }}
-  {{ $drupal := index $meta "drupal" | default "" }}
   {{ if eq $tab "journal" }}{{ $paperCount = add $paperCount 1 }}{{ end }}
   {{ if eq $tab "patent" }}{{ $patentCount = add $patentCount 1 }}{{ end }}
-  {{ if or (eq $drupal "book") (eq $drupal "book_chapter") }}{{ $bookCount = add $bookCount 1 }}{{ end }}
+  {{ if eq $tab "book" }}{{ $bookCount = add $bookCount 1 }}{{ end }}
+  {{ if eq $tab "courtbrief" }}{{ $courtBriefCount = add $courtBriefCount 1 }}{{ end }}
 {{ end }}
 {{ $softwareCount := len (where site.RegularPages "Section" "software") }}
 {{ $talkCount := len (where site.RegularPages "Section" "talk") }}
@@ -217,7 +219,7 @@
       </details>
       {{ end }}
       <div class="gk-hp-card__footer">
-        <a href="{{ "publication/#book" | relURL }}">All {{ $bookCount }} books &amp; chapters &rarr;</a>
+        <a href="{{ "publication/#book" | relURL }}">All {{ $bookCount }} books &rarr;</a>
       </div>
     </div>
 

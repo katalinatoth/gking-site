@@ -45,7 +45,7 @@
 "drupal": "journal_article"
 },
 "evaluating-the-impacts-of-swapping-on-the-us-decennial-census": {
-"tab": "other",
+"tab": "journal",
 "drupal": "conference_proceedings"
 },
 "statistically-valid-inferences-from-privacy-protected-data-pew-research-center": {
@@ -189,12 +189,12 @@
 "drupal": "presentation"
 },
 "brief-of-empirical-scholars-as-amici-curiae-in-support-of-respondents": {
-"tab": "other",
+"tab": "courtbrief",
 "drupal": "miscellaneous"
 },
 "an-improved-method-of-automated-nonparametric-content-analysis-for-social-scienc": {
-"tab": "presentation",
-"drupal": "presentation"
+"tab": "journal",
+"drupal": "journal_article"
 },
 "rejoinder-concluding-remarks-on-scholarly-communications": {
 "tab": "journal",
@@ -209,8 +209,8 @@
 "drupal": "presentation"
 },
 "how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-2021": {
-"tab": "presentation",
-"drupal": "presentation"
+"tab": "journal",
+"drupal": "journal_article"
 },
 "how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-2021-53": {
 "tab": "presentation",
@@ -241,7 +241,7 @@
 "drupal": "journal_article"
 },
 "education-and-scholarship-by-video": {
-"tab": "other",
+"tab": "journal",
 "drupal": "working_paper"
 },
 "participant-grouping-for-enhanced-interactive-experience-4th": {
@@ -261,11 +261,11 @@
 "drupal": "software"
 },
 "designing-social-inquiry-scientific-inference-in-qualitative-research-new-editio": {
-"tab": "other",
+"tab": "book",
 "drupal": "book"
 },
 "theres-a-simple-solution-to-the-latest-census-fight": {
-"tab": "other",
+"tab": "journal",
 "drupal": "newspaper_article"
 },
 "letter-to-us-census-bureau-request-for-release-of-noisy-measurements-file-by-sep": {
@@ -317,7 +317,7 @@
 "drupal": "journal_article"
 },
 "so-youre-a-grad-student-now-maybe-you-should-do-this": {
-"tab": "other",
+"tab": "journal",
 "drupal": "book_chapter"
 },
 "the-math-prefresher-and-the-collective-future-of-political-science-graduate-trai": {
@@ -325,7 +325,7 @@
 "drupal": "journal_article"
 },
 "evaluating-covid-19-public-health-messaging-in-italy-self-reported-compliance-an": {
-"tab": "other",
+"tab": "journal",
 "drupal": "working_paper"
 },
 "building-an-international-consortium-for-tracking-coronavirus-health-status": {
@@ -333,7 +333,7 @@
 "drupal": "journal_article"
 },
 "the-silverlining-project-finding-social-good-in-clouds-on-the-dark-web": {
-"tab": "other",
+"tab": "journal",
 "drupal": "book_chapter"
 },
 "instructional-support-platform-for-interactive-learning-platforms-2nd": {
@@ -409,8 +409,8 @@
 "drupal": "journal_article"
 },
 "why-propensity-scores-should-not-be-used-for-matching": {
-"tab": "presentation",
-"drupal": "presentation"
+"tab": "journal",
+"drupal": "journal_article"
 },
 "a-theory-of-statistical-inference-for-matching-methods-in-causal-research": {
 "tab": "journal",
@@ -633,15 +633,15 @@
 "drupal": "journal_article"
 },
 "the-balance-sample-size-frontier-in-matching-methods-for-causal-inference": {
-"tab": "presentation",
-"drupal": "presentation"
+"tab": "journal",
+"drupal": "journal_article"
 },
 "boocio-an-education-system-with-hierarchical-concept-maps": {
 "tab": "journal",
 "drupal": "journal_article"
 },
 "brief-of-heather-k-gerken-jonathan-n-katz-gary-king-larry-j-sabato-and-samuel-s": {
-"tab": "other",
+"tab": "courtbrief",
 "drupal": "miscellaneous"
 },
 "how-the-news-media-activate-public-expression-and-influence-national-agendas-2017": {
@@ -649,7 +649,7 @@
 "drupal": "journal_article"
 },
 "how-to-conquer-partisan-gerrymandering": {
-"tab": "other",
+"tab": "journal",
 "drupal": "newspaper_article"
 },
 "a-unified-approach-to-measurement-error-and-missing-data-overview-and-applicatio": {
@@ -665,8 +665,8 @@
 "drupal": "software"
 },
 "how-the-chinese-government-fabricates-social-media-posts-for-strategic-distracti-2017-166": {
-"tab": "presentation",
-"drupal": "presentation"
+"tab": "journal",
+"drupal": "journal_article"
 },
 "an-improved-method-of-automated-nonparametric-content-analysis-for-social-scienc-2016": {
 "tab": "presentation",
@@ -741,15 +741,15 @@
 "drupal": "journal_article"
 },
 "the-c-span-archives-as-the-policymaking-record-of-american-representative-democr": {
-"tab": "other",
+"tab": "journal",
 "drupal": "book_chapter"
 },
 "preface-big-data-is-not-about-the-data": {
-"tab": "other",
+"tab": "journal",
 "drupal": "book_chapter"
 },
 "how-human-subjects-research-rules-mislead-you-and-your-university-and-what-to-do": {
-"tab": "other",
+"tab": "journal",
 "drupal": "working_paper"
 },
 "effectiveness-of-the-who-safe-childbirth-checklist-program-in-reducing-severe-ma": {
@@ -981,7 +981,7 @@
 "drupal": "journal_article"
 },
 "google-flu-trends-still-appears-sick-an-evaluation-of-the-20132014-flu-season": {
-"tab": "other",
+"tab": "journal",
 "drupal": "working_paper"
 },
 "matchingfrontier-r-package-for-calculating-the-balance-sample-size-frontier": {
@@ -1085,8 +1085,8 @@
 "drupal": "journal_article"
 },
 "how-censorship-in-china-allows-government-criticism-but-silences-collective-expr-2013": {
-"tab": "presentation",
-"drupal": "presentation"
+"tab": "journal",
+"drupal": "journal_article"
 },
 "how-social-science-research-can-improve-teaching": {
 "tab": "journal",
@@ -1137,7 +1137,7 @@
 "drupal": "journal_article"
 },
 "brief-of-empirical-scholars-as-amici-curiae": {
-"tab": "other",
+"tab": "courtbrief",
 "drupal": "miscellaneous"
 },
 "letter-to-the-editor-on-the-medicare-health-support-pilot-program-by-mccall-and": {
@@ -1149,7 +1149,7 @@
 "drupal": "journal_article"
 },
 "data-analyses-and-reports-for-the-arizona-independent-redistricting-commission-f": {
-"tab": "other",
+"tab": "journal",
 "drupal": "book_chapter"
 },
 "system-for-estimating-a-distribution-of-message-content-categories-in-source-dat-2012": {
@@ -1245,8 +1245,8 @@
 "drupal": "software"
 },
 "the-future-of-death-in-america": {
-"tab": "presentation",
-"drupal": "presentation"
+"tab": "journal",
+"drupal": "journal_article"
 },
 "ensuring-the-data-rich-future-of-the-social-sciences": {
 "tab": "journal",
@@ -1333,7 +1333,7 @@
 "drupal": "journal_article"
 },
 "inference-in-case-control-studies": {
-"tab": "other",
+"tab": "journal",
 "drupal": "book_chapter"
 },
 "designing-verbal-autopsy-studies": {
@@ -1413,7 +1413,7 @@
 "drupal": "journal_article"
 },
 "the-future-of-political-science-100-perspectives": {
-"tab": "other",
+"tab": "book",
 "drupal": "book"
 },
 "preserving-quantitative-research-elicited-data-for-longitudinal-analysis-new-dev": {
@@ -1457,7 +1457,7 @@
 "drupal": "journal_article"
 },
 "the-changing-evidence-base-of-social-science-research-2009": {
-"tab": "other",
+"tab": "journal",
 "drupal": "book_chapter"
 },
 "ordinary-economic-voting-behavior-in-the-extraordinary-election-of-adolf-hitler": {
@@ -1533,8 +1533,8 @@
 "drupal": "presentation"
 },
 "demographic-forecasting-2008": {
-"tab": "presentation",
-"drupal": "presentation"
+"tab": "book",
+"drupal": "book"
 },
 "misunderstandings-among-experimentalists-and-observationalists-about-causal-infe": {
 "tab": "journal",
@@ -1553,7 +1553,7 @@
 "drupal": "software"
 },
 "how-not-to-lie-without-statistics": {
-"tab": "other",
+"tab": "journal",
 "drupal": "working_paper"
 },
 "comparing-incomparable-survey-responses-new-tools-for-anchoring-vignettes": {
@@ -1625,8 +1625,8 @@
 "drupal": "presentation"
 },
 "a-politically-robust-experimental-design-for-public-policy-evaluation-with-appli-2007": {
-"tab": "presentation",
-"drupal": "presentation"
+"tab": "journal",
+"drupal": "journal_article"
 },
 "an-introduction-to-the-dataverse-network-as-an-infrastructure-for-data-sharing-2007-407": {
 "tab": "journal",
@@ -1637,7 +1637,7 @@
 "drupal": "journal_article"
 },
 "understanding-the-lee-carter-mortality-forecasting-method": {
-"tab": "other",
+"tab": "journal",
 "drupal": "unpublished"
 },
 "matchit-nonparametric-preprocessing-for-parametric-causal-inference-2007": {
@@ -1661,8 +1661,8 @@
 "drupal": "presentation"
 },
 "death-by-survey-estimating-adult-mortality-without-selection-bias-from-sibling-s": {
-"tab": "presentation",
-"drupal": "presentation"
+"tab": "journal",
+"drupal": "journal_article"
 },
 "evaluation-of-seguro-popular-baseline-analysis": {
 "tab": "presentation",
@@ -1701,11 +1701,11 @@
 "drupal": "journal_article"
 },
 "ecological-inference": {
-"tab": "other",
+"tab": "journal",
 "drupal": "book_chapter"
 },
 "the-effect-of-war-on-the-supreme-court": {
-"tab": "other",
+"tab": "journal",
 "drupal": "book_chapter"
 },
 "zelig-everyones-statistical-software": {
@@ -1757,7 +1757,7 @@
 "drupal": "software"
 },
 "brief-of-amici-curiae-professors-gary-king-bernard-grofman-andrew-gelman-and-jon": {
-"tab": "other",
+"tab": "courtbrief",
 "drupal": "miscellaneous"
 },
 "did-illegal-overseas-absentee-ballots-decide-the-2000-us-presidential-election": {
@@ -1777,19 +1777,19 @@
 "drupal": "journal_article"
 },
 "ecological-inference-new-methodological-strategies": {
-"tab": "other",
+"tab": "book",
 "drupal": "book"
 },
 "inference-in-case-control-studies-2004": {
-"tab": "other",
+"tab": "journal",
 "drupal": "book_chapter"
 },
 "empirically-evaluating-the-electoral-college": {
-"tab": "other",
+"tab": "journal",
 "drupal": "book_chapter"
 },
 "information-in-ecological-inference-an-introduction": {
-"tab": "other",
+"tab": "journal",
 "drupal": "book_chapter"
 },
 "ei-a-program-for-ecological-inference": {
@@ -1845,11 +1845,11 @@
 "drupal": "software"
 },
 "determinants-of-inequality-in-child-survival-results-from-39-countries": {
-"tab": "other",
+"tab": "journal",
 "drupal": "book_chapter"
 },
 "numerical-issues-involved-in-inverting-hessian-matrices": {
-"tab": "other",
+"tab": "journal",
 "drupal": "book_chapter"
 },
 "some-statistical-methods-for-evaluating-information-extraction-systems": {
@@ -1901,7 +1901,7 @@
 "drupal": "journal_article"
 },
 "archive-of-the-controversy-involving-wendy-k-tam-cho-brian-j-gaines-and-the-amer": {
-"tab": "other",
+"tab": "journal",
 "drupal": "report"
 },
 "count-a-program-for-estimating-event-count-and-duration-regressions": {
@@ -2001,11 +2001,11 @@
 "drupal": "software"
 },
 "unifying-political-methodology-the-likelihood-theory-of-statistical-inference": {
-"tab": "other",
+"tab": "book",
 "drupal": "book"
 },
 "a-solution-to-the-ecological-inference-problem-reconstructing-individual-behavio": {
-"tab": "other",
+"tab": "book",
 "drupal": "book"
 },
 "a-preview-of-ei-and-ezi-programs-for-ecological-inference": {
@@ -2017,11 +2017,11 @@
 "drupal": "journal_article"
 },
 "advantages-of-conflictual-redistricting": {
-"tab": "other",
+"tab": "journal",
 "drupal": "book_chapter"
 },
 "racial-fairness-in-legislative-redistricting": {
-"tab": "other",
+"tab": "journal",
 "drupal": "book_chapter"
 },
 "the-generalization-in-the-generalized-event-count-model-with-comments-on-achen-a": {
@@ -2061,11 +2061,11 @@
 "drupal": "journal_article"
 },
 "designing-social-inquiry-scientific-inference-in-qualitative-research": {
-"tab": "other",
+"tab": "book",
 "drupal": "book"
 },
 "party-competition-and-media-messages-in-us-presidential-election-campaigns": {
-"tab": "other",
+"tab": "journal",
 "drupal": "book_chapter"
 },
 "elections-to-the-united-states-house-of-representatives-1898-1992": {
@@ -2089,7 +2089,7 @@
 "drupal": "journal_article"
 },
 "the-methodology-of-presidential-research": {
-"tab": "other",
+"tab": "journal",
 "drupal": "book_chapter"
 },
 "judgeit-i-a-program-for-evaluating-electoral-systems-and-redistricting-plans": {
@@ -2161,7 +2161,7 @@
 "drupal": "journal_article"
 },
 "the-presidency-in-american-politics": {
-"tab": "other",
+"tab": "book",
 "drupal": "book"
 },
 "statistical-models-for-political-science-event-counts-bias-in-conventional-proce": {
@@ -2169,7 +2169,7 @@
 "drupal": "journal_article"
 },
 "the-elusive-executive-discovering-statistical-patterns-in-the-presidency": {
-"tab": "other",
+"tab": "book",
 "drupal": "book"
 },
 "democratic-representation-and-partisan-bias-in-congressional-elections": {
