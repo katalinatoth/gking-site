@@ -2,7 +2,37 @@
 {{ $page := .page }}
 
 {{ $pubTypes := $page.Params.publication_types | default slice }}
-{{ $isTalkLike := or (eq $page.Section "talk") (in $pubTypes "presentation") (in $pubTypes "speech") }}
+
+{{/* Authoritative talk-like detection.
+
+     Historically we derived $isTalkLike purely from $page.Section and the
+     front-matter publication_types list, but that made us vulnerable to a
+     stale `publication_types: presentation` hanging around on what is
+     actually a journal article (e.g. the 2022 Jerzak/King/Strezhnev piece),
+     which flipped its primary button label to "Presentation" even though
+     the file it links to is the article PDF. So we now treat
+     data/writings_legacy_map.json as the source of truth for any page in
+     the /publication/ section (it's the same data that decides which tab
+     the entry lives on at /publication/), and only fall back to the
+     front-matter publication_types when the legacy map has no opinion. */}}
+{{ $wlMap := site.Data.writings_legacy_map | default (dict "entries" dict) }}
+{{ $legacyMeta := index $wlMap.entries (path.Base $page.RelPermalink) }}
+{{ $legacyTab := "" }}
+{{ $legacyDrupal := "" }}
+{{ with $legacyMeta }}
+  {{ $legacyTab = index . "tab" | default "" }}
+  {{ $legacyDrupal = index . "drupal" | default "" }}
+{{ end }}
+
+{{ $isTalkLike := false }}
+{{ if eq $page.Section "talk" }}
+  {{ $isTalkLike = true }}
+{{ else if $legacyMeta }}
+  {{/* Legacy map wins over front matter for /publication/ entries. */}}
+  {{ $isTalkLike = or (eq $legacyTab "presentation") (eq $legacyDrupal "presentation") }}
+{{ else }}
+  {{ $isTalkLike = or (in $pubTypes "presentation") (in $pubTypes "speech") }}
+{{ end }}
 
 {{ $built := partial "functions/build_links" (dict "page" $page "is_list" $is_list) }}
 

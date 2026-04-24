@@ -7,7 +7,7 @@ authors:
   - "Emmanuela Gakidou"
   - "Gary King"
 publication_types:
-  - "presentation"
+  - "journal_article"
 abstract: |-
   The widely used methods for estimating adult mortality rates from sample survey responses about the survival of siblings, parents, spouses, and others depend crucially on an assumption that we demonstrate does not hold in real data. We show that when this assumption is violated â so that the mortality rate varies with sibship size â mortality estimates can be massively biased. By using insights from work on the statistical analysis of selection bias, survey weighting, and extrapolation problems, we propose a new and relatively simple method of recovering the mortality rate with both greatly reduced potential for bias and increased clarity about the source of necessary assumptions.
 
