@@ -9,7 +9,7 @@ authors:
 publication_types:
   - "miscellaneous"
 abstract: |-
-  For context, see Bernard Grofman and Gary King. 2008. “[The Future of Partisan Symmetry as a Judicial Test for Partisan Gerrymandering after LULAC v. Perry](https://gking.harvard.edu/files/abs/jp-abs.shtml).” *Election Law Journal*, 6, 1, Pp. 2-35.
+  For context, see Bernard Grofman and Gary King. 2008. “[The Future of Partisan Symmetry as a Judicial Test for Partisan Gerrymandering after LULAC v. Perry](/publication/the-future-of-partisan-symmetry-as-a-judicial-test-for-partisan-gerrymandering-a/).” *Election Law Journal*, 6, 1, Pp. 2-35.
 links:
   - type: pdf
     url: "files/amicus-sym_01.pdf"

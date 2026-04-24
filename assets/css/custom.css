@@ -250,6 +250,17 @@ button.gk-cite-button:hover {
   line-height: 1.6;
   color: #444;
 }
+/* Abstract links: make them clearly clickable (blue, underlined on hover). */
+.gk-pub-text a,
+.gk-pub-text a:visited {
+  color: #1a5fb4;
+  text-decoration: none;
+}
+.gk-pub-text a:hover,
+.gk-pub-text a:focus {
+  color: #0b3d7a;
+  text-decoration: underline;
+}
 @media (max-width: 640px) {
   .gk-pub-image {
     float: none;
