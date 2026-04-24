@@ -16,6 +16,6 @@ links:
   url: https://doi.org/10.4054/DemRes.2011.25.1
 publication: Demographic Research, 25, 1, Pp. 1-38
 publication_types:
-- presentation
+- journal_article
 title: The Future of Death in America
 ---

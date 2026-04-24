@@ -12,5 +12,4 @@ abstract: |-
 links:
   - type: pdf
     url: "files/psnot-appstats.pdf"
-publication: "Political Analysis, 27, 4, Pp. 435-54"
 ---

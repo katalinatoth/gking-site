@@ -15,5 +15,4 @@ abstract: |-
 links:
   - type: pdf
     url: "files/media-uvm.pdf"
-publication: "Science, 358, Pp. 776-80"
 ---

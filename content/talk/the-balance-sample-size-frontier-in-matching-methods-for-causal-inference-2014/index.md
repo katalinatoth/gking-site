@@ -7,7 +7,6 @@ date: '2014-01-01'
 links:
 - type: pdf
   url: files/pspara-umich.pdf
-publication: American Journal of Political Science, 61, 2, Pp. 473-89
 publication_types:
 - presentation
 title: The Balance-Sample Size Frontier in Matching Methods for Causal Inference

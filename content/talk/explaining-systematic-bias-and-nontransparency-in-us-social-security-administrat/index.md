@@ -11,5 +11,4 @@ abstract: |-
 links:
   - type: pdf
     url: "files/inacc-hellenic.pdf"
-publication: "Political Analysis, 23, 3, Pp. 336-62"
 ---

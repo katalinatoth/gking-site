@@ -10,5 +10,4 @@ abstract: |-
 links:
   - type: pdf
     url: "files/compact-pitt.pdf"
-publication: "American Journal of Political Science, 65, 3, Pp. 533-50"
 ---

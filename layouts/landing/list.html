@@ -196,7 +196,7 @@
       </details>
       {{ end }}
       <div class="gk-hp-card__footer">
-        <a href="{{ "talk/" | relURL }}">All {{ $talkCount }} presentations &rarr;</a>
+        <a href="{{ "publication/#presentation" | relURL }}">All {{ $talkCount }} presentations &rarr;</a>
       </div>
     </div>
 
@@ -285,7 +285,9 @@
           <div class="gk-hp-item__more"><a href="https://www.quickcode.ai/" target="_blank" rel="noopener">Visit site &rarr;</a></div>
         </div>
       </details>
-      <p class="gk-hp-card__news">News story: "<a href="https://www.thecrimson.com/article/2024/3/9/gary-king-profile/" target="_blank">Entrepreneurial Academia with Gary King</a>"</p>
+      {{/* Put the opening quote INSIDE the <a> so the browser treats `"Entrepreneurial`
+           as one atomic word and can't break between the quote and the title. */}}
+      <p class="gk-hp-card__news">News story: <a href="https://www.thecrimson.com/article/2024/3/9/gary-king-profile/" target="_blank" rel="noopener">&ldquo;Entrepreneurial Academia with Gary King&rdquo;</a></p>
     </div>
 
     <!-- Patents (4 most recent) -->

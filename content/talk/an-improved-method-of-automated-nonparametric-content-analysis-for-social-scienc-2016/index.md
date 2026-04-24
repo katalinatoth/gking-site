@@ -13,5 +13,4 @@ abstract: |-
 links:
   - type: pdf
     url: "files/word-nyu.pdf"
-publication: "Political Analysis, 31, Pp. 42-58"
 ---

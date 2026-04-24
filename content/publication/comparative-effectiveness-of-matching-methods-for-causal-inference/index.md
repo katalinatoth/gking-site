@@ -14,6 +14,6 @@ links:
 - type: pdf
   url: files/psparadox.pdf
 publication_types:
-- presentation
+- journal_article
 title: Comparative Effectiveness of Matching Methods for Causal Inference
 ---

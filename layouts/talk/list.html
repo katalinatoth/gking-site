@@ -1,36 +1,26 @@
-{{ define "main" }}
-
-<div class="max-w-3xl mx-auto px-6 py-12">
-  <h1 class="text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100 mb-10">{{ .Title }}</h1>
-  {{ .Content }}
-
-  {{ $paginator := .Paginate .Pages.ByDate.Reverse }}
-
-  <div class="flex flex-col space-y-6">
-    {{ range $paginator.Pages }}
-    <div class="border-b border-slate-200 dark:border-slate-700 pb-4">
-      <div class="text-sm text-slate-500 dark:text-slate-400">
-        {{ .Date | time.Format ":date_long" }}
-      </div>
-      <h2 class="text-lg font-medium mt-1">
-        <a href="{{ .RelPermalink }}" class="text-slate-900 dark:text-slate-100 hover:text-blue-600 dark:hover:text-blue-400">
-          {{ .Title }}
-        </a>
-      </h2>
-      {{ with .Params.abstract }}
-      <p class="text-sm text-slate-600 dark:text-slate-300 mt-2 line-clamp-2">{{ . | truncate 200 }}</p>
-      {{ end }}
-
-      {{ if partial "functions/has_attachments" . }}
-      <div class="flex flex-wrap gap-x-3 mt-2">
-        {{ partial "page_links" (dict "page" . "is_list" 1) }}
-      </div>
-      {{ end }}
-    </div>
-    {{ end }}
-  </div>
-
-  {{ partial "components/paginator" . }}
-</div>
-
-{{ end }}
+{{- /*
+  /talk/ list is intentionally a redirect stub: presentations now live on the
+  main Writings page under the "Presentations" tab at /publication/#presentation,
+  so we funnel all landings on /talk/ there. Individual /talk/<slug>/ pages
+  continue to render normally via layouts/talk/single.html.
+*/ -}}
+{{- /* Use a non-leading-slash path so relURL prepends the site baseURL
+       (GitHub Pages subpath "/gking-site/"). */ -}}
+{{- $target := "publication/#presentation" | relURL -}}
+<!DOCTYPE html>
+<html lang="{{ site.Language.LanguageCode | default "en" }}">
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting&hellip;</title>
+  <meta http-equiv="refresh" content="0; url={{ $target | safeURL }}">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="x-redirect-status" content="301">
+  <link rel="canonical" href="{{ $target | safeURL }}">
+  <style>body{font-family:system-ui,sans-serif;max-width:40rem;margin:4rem auto;padding:0 1rem;color:#222;line-height:1.5}a{color:#a41d1d}small{color:#666}</style>
+</head>
+<body>
+  <p>Redirecting to <a href="{{ $target | safeURL }}">Presentations</a>&hellip;</p>
+  <p>If your browser does not redirect automatically, follow the link above.</p>
+  <p><small>HTTP 301 (permanent)</small></p>
+</body>
+</html>

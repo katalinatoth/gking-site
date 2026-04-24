@@ -12,5 +12,4 @@ abstract: |-
 links:
   - type: pdf
     url: "files/censored-ucb.pdf"
-publication: "American Political Science Review, 107, 2 (May), Pp. 1-18"
 ---

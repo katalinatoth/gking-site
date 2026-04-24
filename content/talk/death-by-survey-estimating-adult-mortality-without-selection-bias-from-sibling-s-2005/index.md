@@ -8,5 +8,4 @@ publication_types:
 links:
   - type: pdf
     url: "files/deathbystlk.pdf"
-publication: "Demography, 43, Pp. 569–585"
 ---
