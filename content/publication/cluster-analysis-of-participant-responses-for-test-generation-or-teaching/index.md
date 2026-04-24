@@ -1,5 +1,6 @@
 ---
-abstract: Textual responses to open-ended (i.e., free-response) items provided by participants (e.g., by means of mobile wireless devices) are automatically classified, enabling an instructor to assess the responses in a convenient, organized fashion and adjust instruction accordingly.
+abstract: |-
+  Textual responses to open-ended (i.e., free-response) items provided by participants (e.g., by means of mobile wireless devices) are automatically classified, enabling an instructor to assess the responses in a convenient, organized fashion and adjust instruction accordingly.
 authors:
 - Gary King
 - Brian Lukoff

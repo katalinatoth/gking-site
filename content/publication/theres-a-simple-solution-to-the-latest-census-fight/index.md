@@ -7,7 +7,8 @@ authors:
   - "Gary King"
 publication_types:
   - "newspaper_article"
-abstract: "We offer a solution to debates over the use of differential privacy in releasing US Census Data."
+abstract: |-
+  We offer a solution to debates over the use of differential privacy in releasing US Census Data.
 links:
   - type: pdf
     url: "files/censussolution.pdf"

@@ -1,5 +1,6 @@
 ---
-abstract: A letter, submitted on behalf of a large group of expert signatories, to request the release of the “noisy measurements file” and other redistricting data by September 30, 2021.  This includes the data created by the Bureau in preparing its differentially private data release, without their unnecessary (and, in many important situations, information destroying) post-processing.
+abstract: |-
+  A letter, submitted on behalf of a large group of expert signatories, to request the release of the “noisy measurements file” and other redistricting data by September 30, 2021.  This includes the data created by the Bureau in preparing its differentially private data release, without their unnecessary (and, in many important situations, information destroying) post-processing.
 authors:
 - Cynthia Dwork
 - Ruth Greenwood

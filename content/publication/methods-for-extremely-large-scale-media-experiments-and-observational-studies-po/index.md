@@ -1,5 +1,6 @@
 ---
-abstract: This is a poster presentation describing (1) the largest ever experimental study of media effects, with more than 50 cooperating traditional media sites, normally unavailable web site analytics, the text of hundreds of thousands of news articles, and tens of millions of social media posts, and (2) a design we used in preparation that attempts to anticipate experimental outcomes
+abstract: |-
+  This is a poster presentation describing (1) the largest ever experimental study of media effects, with more than 50 cooperating traditional media sites, normally unavailable web site analytics, the text of hundreds of thousands of news articles, and tens of millions of social media posts, and (2) a design we used in preparation that attempts to anticipate experimental outcomes
 authors:
 - Gary King
 - Benjamin Schneer

@@ -6,7 +6,8 @@ authors:
   - "Gary King"
 publication_types:
   - "journal_article"
-abstract: "We extendEvans and King (Forthcoming, 2021)to nonlinear transformations, using proportions and weighted averages as our running examples."
+abstract: |-
+  We extend [Evans and King (Forthcoming, 2021)](https://gking.harvard.edu/dpd) to nonlinear transformations, using proportions and weighted averages as our running examples.
 links:
   - type: pdf
     url: "files/wt.pdf"

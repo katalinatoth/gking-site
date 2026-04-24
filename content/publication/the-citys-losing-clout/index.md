@@ -6,7 +6,8 @@ authors:
   - "Gary King"
 publication_types:
   - "newspaper_article"
-abstract: "New York City is a modern \"rotten borough,\" not because of population decline, but because of its massive and continuing fall-off in voter participation.  New York City's political base is more apparent than real."
+abstract: |-
+  New York City is a modern "rotten borough," not because of population decline, but because of its massive and continuing fall-off in voter participation.  New York City's political base is more apparent than real.
 links:
   - type: pdf
     url: "files/clout.pdf"

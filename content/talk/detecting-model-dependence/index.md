@@ -1,5 +1,6 @@
 ---
-abstract: 3-part talk at Washington University, St. Louis
+abstract: |-
+  3-part talk at Washington University, St. Louis
 authors:
 - Gary King
 date: '2010-01-01'

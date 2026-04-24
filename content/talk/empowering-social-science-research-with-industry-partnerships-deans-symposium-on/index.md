@@ -5,7 +5,8 @@ authors:
   - "Gary King"
 publication_types:
   - "presentation"
-abstract: "My talk is at 28:30."
+abstract: |-
+  My talk is at 28:30.
 links:
   - type: pdf
     url: "files/indusacad.pdf"

@@ -1,5 +1,6 @@
 ---
-abstract: A BASIC Checkbook managing software. No longer available.
+abstract: |-
+  A BASIC Checkbook managing software. No longer available.
 authors:
 - Gary King
 date: '1982-01-01'

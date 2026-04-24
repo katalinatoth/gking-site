@@ -6,7 +6,8 @@ authors:
   - "Gary King"
 publication_types:
   - "journal_article"
-abstract: "A \"Perspective\" article that discusses an article by David Stuckler and colleagues showing that, in Eastern European and former Soviet countries, participation in International Monetary Fund economic programs have been associated with higher mortality rates from tuberculosis."
+abstract: |-
+  A "Perspective" article that discusses an article by David Stuckler and colleagues showing that, in Eastern European and former Soviet countries, participation in International Monetary Fund economic programs have been associated with higher mortality rates from tuberculosis.
 links:
   - type: pdf
     url: "files/imftb.pdf"

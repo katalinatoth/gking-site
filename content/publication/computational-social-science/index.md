@@ -19,7 +19,8 @@ authors:
   - "Marshall Van Alstyne"
 publication_types:
   - "journal_article"
-abstract: "A field is emerging that leverages the capacity to collect and analyze data at a scale that may reveal patterns of individual and group behaviors."
+abstract: |-
+  A field is emerging that leverages the capacity to collect and analyze data at a scale that may reveal patterns of individual and group behaviors.
 links:
   - type: pdf
     url: "files/LazPenAda09.pdf"

@@ -8,7 +8,10 @@ authors:
   - "Gary King"
 publication_types:
   - "unpublished"
-abstract: "This paper describes, explains, and predicts the practice of party switching among members of the U.S. House of Representatives.The data for this study is availablein my dataverse."
+abstract: |-
+  This paper describes, explains, and predicts the practice of party switching among members of the U.S. House of Representatives.
+
+  The data for this study is available [in my dataverse](https://doi.org/10.7910/DVN/2RXLLP).
 links:
   - type: pdf
     url: "files/partyswitch.pdf"

@@ -7,7 +7,8 @@ authors:
   - "Gary King"
 publication_types:
   - "book_chapter"
-abstract: "This (two-page) article argues that the evidence base of political science and the related social sciences are beginning an underappreciated but historic change."
+abstract: |-
+  This (two-page) article argues that the evidence base of political science and the related social sciences are beginning an underappreciated but historic change.
 links:
   - type: pdf
     url: "files/evbase.pdf"

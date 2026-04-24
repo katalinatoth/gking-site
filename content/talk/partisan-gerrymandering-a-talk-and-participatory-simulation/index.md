@@ -5,7 +5,8 @@ authors:
   - "Gary King"
 publication_types:
   - "presentation"
-abstract: "(A presentation, and participatory simulation)"
+abstract: |-
+  (A presentation, and participatory simulation)
 links:
   - type: pdf
     url: "files/red-bhs.pdf"

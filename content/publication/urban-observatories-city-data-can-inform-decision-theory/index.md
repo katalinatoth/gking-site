@@ -1,5 +1,6 @@
 ---
-abstract: Data are being collected on human behaviour in cities such as London, New York, Singapore and Shanghai, with a view to meeting city dwellers' needs more effectively. Incorporating decision-making theory into analyses of the data from these 'urban observatories' would yield further valuable information.
+abstract: |-
+  Data are being collected on human behaviour in cities such as London, New York, Singapore and Shanghai, with a view to meeting city dwellers' needs more effectively. Incorporating decision-making theory into analyses of the data from these 'urban observatories' would yield further valuable information.
 authors:
 - Aristides A. N. Patrinos
 - Hannah Bayer

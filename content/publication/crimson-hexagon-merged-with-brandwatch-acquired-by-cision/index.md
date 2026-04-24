@@ -5,5 +5,6 @@ authors:
   - "Gary King"
 publication_types:
   - "miscellaneous"
-abstract: "The story in10 tweets."
+abstract: |-
+  The story in10 tweets.
 ---

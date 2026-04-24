@@ -1,12 +1,26 @@
 {{- /*
-  Strip a trailing run-on like "…framework.Replication data at the Harvard
-  Dataverse:https://…" from abstracts. Many older entries only have the DOI
-  in the prose (no Params.dataverse_url), so we always remove this pattern
-  when present — not only when dataverse_url is set.
+  Strip trailing "Replication data at the Harvard Dataverse: …" sentences
+  from abstracts. The page already shows this info more prominently via the
+  dedicated Dataverse banner (see layouts/publication/single.html), so we
+  remove it from the prose whether it appears as:
+
+    • a run-on from the broken legacy import ("…framework.Replication data
+      at the Harvard Dataverse:https://doi.org/…"), or
+    • the restored, properly-linked form ("Replication data at the Harvard
+      Dataverse: [https://doi.org/…](https://doi.org/…).").
 */ -}}
 {{- $t := .Params.abstract | default "" -}}
 {{- if $t -}}
-  {{- $t = replaceRE `(?i)\s*\.?\s*replication data at the harvard dataverse:\s*https?://\S+` "" $t -}}
+  {{/* Linked form: markdown-style link with an optional trailing period. We
+       deliberately DO NOT consume a sentence-ending period from the preceding
+       sentence; otherwise "…for further analysis.Replication data…" strips to
+       "…for further analysisThis article…" when there's more prose after. */}}
+  {{- $t = replaceRE `(?is)\s+replication data at the harvard dataverse\s*:\s*\[[^\]]*\]\([^)]+\)\.?` "" $t -}}
+  {{/* Plain-URL form (unlinked / legacy run-on). */}}
+  {{- $t = replaceRE `(?is)\s+replication data at the harvard dataverse\s*:\s*https?://\S+` "" $t -}}
+  {{/* Legacy broken form where the sentence is welded to the previous one
+       without a separating space ("…analysis.Replication data at the…"). */}}
+  {{- $t = replaceRE `(?is)\.replication data at the harvard dataverse\s*:\s*(?:\[[^\]]*\]\([^)]+\)|https?://\S+)\.?` "." $t -}}
   {{- $t = trim $t " \n\t." -}}
 {{- end -}}
 {{- return $t -}}

@@ -12,7 +12,8 @@ authors:
   - "Sidney Verba"
 publication_types:
   - "journal_article"
-abstract: "The Virtual Data Center (VDC) software is an open-source, digital library system for quantitative data. We discuss what the software does, and how it provides an infrastructure for the management and dissemination of disturbed collections of quantitative data, and the replication of results derived from this data."
+abstract: |-
+  The Virtual Data Center (VDC) software is an open-source, digital library system for quantitative data. We discuss what the software does, and how it provides an infrastructure for the management and dissemination of disturbed collections of quantitative data, and the replication of results derived from this data.
 links:
   - type: pdf
     url: "files/vdcwhitepaper.pdf"

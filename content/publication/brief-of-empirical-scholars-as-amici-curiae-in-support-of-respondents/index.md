@@ -1,5 +1,6 @@
 ---
-abstract: Amici curiaeare leaders in the field of quantitative social science and statistical methodology. Amici submit this brief to point out the substantial methodological flaws in the “mismatch” research discussed in the Brief for Richard Sander asAmicus Curiaein Support of Petitioner. Professor Sander’s mismatch hypothesis is unsupported and based on work that fails to adhere to basic tenets of research design.
+abstract: |-
+  *Amici curiae* are leaders in the field of quantitative social science and statistical methodology. Amici submit this brief to point out the substantial methodological flaws in the “mismatch” research discussed in the Brief for Richard Sander as *Amicus Curiae* in Support of Petitioner. Professor Sander’s mismatch hypothesis is unsupported and based on work that fails to adhere to basic tenets of research design.
 authors:
 - Ian Ayres
 - Richard A. Berk

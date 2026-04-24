@@ -1,5 +1,6 @@
 ---
-abstract: Parthemos Lecture
+abstract: |-
+  Parthemos Lecture
 authors:
 - Gary King
 date: '2011-01-01'

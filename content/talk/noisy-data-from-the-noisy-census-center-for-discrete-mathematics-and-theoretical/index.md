@@ -5,7 +5,8 @@ authors:
   - "Gary King"
 publication_types:
   - "presentation"
-abstract: "Talk at the Workshop on the Analysis of Census Noisy Measurement Files and Differential Privacy"
+abstract: |-
+  Talk at the Workshop on the Analysis of Census Noisy Measurement Files and Differential Privacy
 links:
   - type: pdf
     url: "files/noisymeas.pdf"

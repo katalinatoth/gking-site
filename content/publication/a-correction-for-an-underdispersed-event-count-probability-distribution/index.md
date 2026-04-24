@@ -7,7 +7,8 @@ authors:
   - "Gary King"
 publication_types:
   - "journal_article"
-abstract: "We demonstrate that the expected value and variance commonly given for a well-known probability distribution are incorrect. We also provide corrected versions and report changes in a computer program to account for the known practical uses of this distribution."
+abstract: |-
+  We demonstrate that the expected value and variance commonly given for a well-known probability distribution are incorrect. We also provide corrected versions and report changes in a computer program to account for the known practical uses of this distribution.
 links:
   - type: pdf
     url: "files/correction.pdf"

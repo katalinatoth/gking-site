@@ -9,5 +9,6 @@ authors:
   - "Steven Melendez"
 publication_types:
   - "software"
-abstract: "This program will read and analyze a large set of text documents and report on the proportion of documents in each of a set of given categories."
+abstract: |-
+  This program will read and analyze a large set of text documents and report on the proportion of documents in each of a set of given categories.
 ---
