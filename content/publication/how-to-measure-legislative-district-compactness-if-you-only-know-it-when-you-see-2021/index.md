@@ -18,4 +18,5 @@ links:
     url: "http://doi.org/10.1111/ajps.12603"
   - name: "Supplementary Material"
     url: "files/compact_supplement.pdf"
+publication: "American Journal of Political Science, 65, 3, Pp. 533-50"
 ---

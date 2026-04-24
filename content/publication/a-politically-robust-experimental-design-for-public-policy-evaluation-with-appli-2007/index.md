@@ -19,4 +19,5 @@ abstract: |-
 links:
   - type: pdf
     url: "files/spd.pdf"
+publication: "Journal of Policy Analysis and Management, 26, Pp. 479-506"
 ---

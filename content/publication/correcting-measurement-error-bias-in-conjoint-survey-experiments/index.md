@@ -24,4 +24,5 @@ links:
     url: "files/conerr.pdf"
   - name: "Supplementary Material"
     url: "files/conerr-supp.pdf"
+publication: "American Journal of Political Science"
 ---

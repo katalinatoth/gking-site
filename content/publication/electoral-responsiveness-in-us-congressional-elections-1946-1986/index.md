@@ -6,4 +6,5 @@ authors:
   - "Gary King"
 publication_types:
   - "journal_article"
+publication: "Proceedings of the Social Statistics Section, American Statistical Association, Pp. 208"
 ---

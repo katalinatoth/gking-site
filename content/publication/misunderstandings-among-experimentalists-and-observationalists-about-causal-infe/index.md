@@ -12,4 +12,5 @@ abstract: |-
 links:
   - type: pdf
     url: "files/matchse.pdf"
+publication: "Journal of the Royal Statistical Society, Series A, 171, part 2, Pp. 481–502"
 ---

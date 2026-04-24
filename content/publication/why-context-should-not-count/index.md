@@ -10,4 +10,5 @@ abstract: |-
 links:
   - type: pdf
     url: "files/king96.pdf"
+publication: "Political Geography, 15, Pp. 159–164"
 ---

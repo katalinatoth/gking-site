@@ -15,4 +15,5 @@ abstract: |-
 links:
   - type: pdf
     url: "files/deathbys.pdf"
+publication: "Demography, 43, Pp. 569–585"
 ---

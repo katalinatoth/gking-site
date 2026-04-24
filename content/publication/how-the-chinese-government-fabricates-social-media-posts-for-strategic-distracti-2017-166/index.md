@@ -22,4 +22,5 @@ links:
     url: "doi:10.1017/S0003055417000144"
   - name: "Supplementary Material"
     url: "files/supplementaryappendixglobaltimeseditorial.pdf"
+publication: "American Political Science Review, 111, 3, Pp. 484-501"
 ---

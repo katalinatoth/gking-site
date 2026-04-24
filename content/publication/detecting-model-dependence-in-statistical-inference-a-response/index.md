@@ -15,4 +15,5 @@ abstract: |-
 links:
   - type: pdf
     url: "files/kinzen07b.pdf"
+publication: "International Studies Quarterly, 51, Pp. 231-41"
 ---

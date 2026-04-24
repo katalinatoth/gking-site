@@ -25,4 +25,5 @@ abstract: |-
 links:
   - type: pdf
     url: "files/GutAbrAda09.pdf"
+publication: "Library Trends, 57, Pp. 315–337"
 ---

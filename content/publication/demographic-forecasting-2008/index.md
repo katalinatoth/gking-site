@@ -4,6 +4,8 @@ date: "2008-01-01"
 authors:
   - "Federico Girosi"
   - "Gary King"
+publisher: "Princeton University Press"
+address: "Princeton"
 publication_types:
   - "book"
 abstract: |-

@@ -14,4 +14,5 @@ abstract: |-
 links:
   - type: pdf
     url: "files/heartfcem.pdf"
+publication: "Population Health Metrics, 8, 6"
 ---

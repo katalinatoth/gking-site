@@ -10,4 +10,5 @@ abstract: |-
 links:
   - type: pdf
     url: "files/methpres.pdf"
+publication: "In Researching the Presidency: Vital Questions, New Approaches, edited by George Edwards III, Bert A. Rockman, and John H. Kessel, Pp. 387–412. Pittsburgh: University of Pittsburgh"
 ---

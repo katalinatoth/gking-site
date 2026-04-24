@@ -18,4 +18,5 @@ links:
     url: "files/div-class-title-an-improved-method-of-automated-nonparametric-content-analysis-for-social-science-div.pdf"
   - name: "Supplementary Material"
     url: "files/word-supp.pdf"
+publication: "Political Analysis, 31, Pp. 42-58"
 ---

@@ -17,4 +17,5 @@ abstract: |-
 links:
   - type: pdf
     url: "files/vdcwhitepaper.pdf"
+publication: "Social Science Computer Review, 19, Pp. 458–470"
 ---

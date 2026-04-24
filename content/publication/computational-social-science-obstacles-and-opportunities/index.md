@@ -26,4 +26,5 @@ links:
     url: "files/1060.full_.pdf"
   - type: source
     url: "https://science.sciencemag.org/content/369/6507/1060"
+publication: "Science, 369, 6507, Pp. 1060-62"
 ---

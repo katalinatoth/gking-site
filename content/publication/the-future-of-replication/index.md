@@ -10,4 +10,5 @@ abstract: |-
 links:
   - type: pdf
     url: "files/replvdc.pdf"
+publication: "International Studies Perspectives, 4, Pp. 443–499"
 ---
