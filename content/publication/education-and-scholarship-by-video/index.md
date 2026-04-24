@@ -10,7 +10,7 @@ abstract: |-
 
   Open source methods of implementing the suggested design appear in the paper; [to use Camtasia, see this](https://docs.google.com/document/d/1ub5htPqZ20RgWB7TSMJGeBqig7I-8T1h9Cej6lT9_7M/edit?tab=t.0).
 
-  Excerpts of this paper appeared in *Political Science Today* (Vol. 1, No. 3, August 2021: Pp.5-6, copy [here](/files/hybrid-gk.pdf)) and in [APSAEducate](https://educate.apsanet.org/flipping-my-research-methods-course-video-lectures-oers-the-hybrid-classroom). See also my recorded videos [here](/publication/education-and-scholarship-by-video/).
+  Excerpts of this paper appeared in *Political Science Today* (Vol. 1, No. 3, August 2021: Pp.5-6, copy [here](/files/hybrid-gk.pdf)) and in [APSAEducate](https://educate.apsanet.org/flipping-my-research-methods-course-video-lectures-oers-the-hybrid-classroom). See also my recorded videos [here](/publication/video-presentations/).
 links:
   - type: source
     url: "https://docs.google.com/document/d/1YcWrmzTxDhaAl_l0Dp_pLijaqJ_wFT-y2tHp4A1qzio/edit?usp=sharing"
