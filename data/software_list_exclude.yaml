@@ -1,13 +1,6 @@
-# Slugs excluded from any Hugo query that lists all publication_type=software so
-# the count matches the legacy Biblio export (36). Includes duplicate
-# year-variants and redundant PSI / Perusall / WhatIf stubs; canonical rows are
-# listed on /software/ via data/software_legacy_rows.yaml.
-slugs:
-  - amelia-ii-a-program-for-missing-data-2009
-  - ei-a-program-for-ecological-inference-2003
-  - matchit-nonparametric-preprocessing-for-parametric-causal-inference-2007
-  - openscholar-2009
-  - relogit-rare-events-logistic-regression-2003
-  - perusall-2015
-  - psi-ψ-a-private-data-sharing-interface-2018
-  - whatif-software-for-evaluating-counterfactuals-2005
+# Slugs excluded from any Hugo query that lists all publication_type=software.
+# Duplicate year-variants (e.g. perusall-2015) used to live here, but they have
+# since been deleted outright in favor of the canonical short-slug pages, so
+# this list is intentionally empty. Keep the file around as a hook for future
+# one-off exclusions.
+slugs: []

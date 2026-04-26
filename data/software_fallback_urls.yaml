@@ -1,6 +1,6 @@
 # Direct project URLs when publication + software bundles still have no http(s) links.
 urls:
-  psi-ψ-a-private-data-sharing-interface-2018: "https://arxiv.org/abs/1609.04340"
-  perusall-2015: "https://www.perusall.com/"
-  whatif-software-for-evaluating-counterfactuals-2005: "https://CRAN.R-project.org/package=WhatIf"
+  psi-ψ-a-private-data-sharing-interface: "https://arxiv.org/abs/1609.04340"
+  perusall: "https://www.perusall.com/"
+  whatif-software-for-evaluating-counterfactuals: "https://CRAN.R-project.org/package=WhatIf"
   judgeit-i-a-program-for-evaluating-electoral-systems-and-redistricting-plans: "https://github.com/IQSS/JudgeIt"

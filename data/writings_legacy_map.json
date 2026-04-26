@@ -532,10 +532,6 @@
       "tab": "software",
       "drupal": "software"
     },
-    "psi-ψ-a-private-data-sharing-interface-2018": {
-      "tab": "software",
-      "drupal": "software"
-    },
     "simplifying-matching-methods-for-causal-inference-2017": {
       "tab": "presentation",
       "drupal": "presentation"
@@ -897,10 +893,6 @@
       "drupal": "software"
     },
     "robustse": {
-      "tab": "software",
-      "drupal": "software"
-    },
-    "perusall-2015": {
       "tab": "software",
       "drupal": "software"
     },
@@ -1428,10 +1420,6 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "amelia-ii-a-program-for-missing-data-2009": {
-      "tab": "software",
-      "drupal": "software"
-    },
     "cem-software-for-coarsened-exact-matching": {
       "tab": "journal",
       "drupal": "journal_article"
@@ -1443,10 +1431,6 @@
     "replication-data-for-public-policy-for-the-poor-a-randomised-assessment-of-the-m": {
       "tab": "other",
       "drupal": "data"
-    },
-    "openscholar-2009": {
-      "tab": "software",
-      "drupal": "software"
     },
     "cem-coarsened-exact-matching-in-stata": {
       "tab": "journal",
@@ -1640,10 +1624,6 @@
       "tab": "journal",
       "drupal": "unpublished"
     },
-    "matchit-nonparametric-preprocessing-for-parametric-causal-inference-2007": {
-      "tab": "software",
-      "drupal": "software"
-    },
     "anchors-software-for-anchoring-vignettes-data-2007": {
       "tab": "software",
       "drupal": "software"
@@ -1752,10 +1732,6 @@
       "tab": "software",
       "drupal": "software"
     },
-    "whatif-software-for-evaluating-counterfactuals-2005": {
-      "tab": "software",
-      "drupal": "software"
-    },
     "brief-of-amici-curiae-professors-gary-king-bernard-grofman-andrew-gelman-and-jon": {
       "tab": "courtbrief",
       "drupal": "miscellaneous"
@@ -1855,14 +1831,6 @@
     "some-statistical-methods-for-evaluating-information-extraction-systems": {
       "tab": "journal",
       "drupal": "journal_article"
-    },
-    "relogit-rare-events-logistic-regression-2003": {
-      "tab": "software",
-      "drupal": "software"
-    },
-    "ei-a-program-for-ecological-inference-2003": {
-      "tab": "software",
-      "drupal": "software"
     },
     "10-million-international-dyadic-events": {
       "tab": "other",
