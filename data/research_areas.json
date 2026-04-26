@@ -32,107 +32,6 @@
       ]
     },
     {
-      "name": "Automated Text Analysis",
-      "description": "Automated and computer-assisted methods of extracting, organizing, understanding, conceptualizing, and consuming knowledge from massive quantities of unstructured text.",
-      "subcategories": [
-        {
-          "name": "Content Analysis",
-          "papers": [
-            {
-              "title": "A Method of Automated Nonparametric Content Analysis for Social Science",
-              "section": "publication",
-              "slug": "a-method-of-automated-nonparametric-content-analysis-for-social-science"
-            },
-            {
-              "title": "An Automated Information Extraction Tool For International Conflict Data With Performance As Good As Human Coders: A Rare Events Evaluation Design",
-              "section": "publication",
-              "slug": "an-automated-information-extraction-tool-for-international-conflict-data-with-pe"
-            },
-            {
-              "title": "An Improved Method of Automated Nonparametric Content Analysis for Social Science",
-              "section": "publication",
-              "slug": "an-improved-method-of-automated-nonparametric-content-analysis-for-social-scienc"
-            },
-            {
-              "title": "Computer-Assisted Keyword and Document Set Discovery from Unstructured Text",
-              "section": "publication",
-              "slug": "computer-assisted-keyword-and-document-set-discovery-from-unstructured-text"
-            },
-            {
-              "title": "General Purpose Computer-Assisted Clustering and Conceptualization",
-              "section": "publication",
-              "slug": "general-purpose-computer-assisted-clustering-and-conceptualization"
-            },
-            {
-              "title": "How Censorship in China Allows Government Criticism But Silences Collective Expression",
-              "section": "publication",
-              "slug": "how-censorship-in-china-allows-government-criticism-but-silences-collective-expr-2013"
-            },
-            {
-              "title": "Method and Apparatus for Selecting Clusterings to Classify A Predetermined Data Set",
-              "section": "publication",
-              "slug": "method-and-apparatus-for-selecting-clusterings-to-classify-a-predetermined-data"
-            },
-            {
-              "title": "Participant Grouping for Enhanced Interactive Experience",
-              "section": "publication",
-              "slug": "participant-grouping-for-enhanced-interactive-experience"
-            },
-            {
-              "title": "Reverse-Engineering Censorship in China: Randomized Experimentation and Participant Observation",
-              "section": "publication",
-              "slug": "reverse-engineering-censorship-in-china-randomized-experimentation-and-participa"
-            },
-            {
-              "title": "Some Statistical Methods for Evaluating Information Extraction Systems",
-              "section": "publication",
-              "slug": "some-statistical-methods-for-evaluating-information-extraction-systems"
-            },
-            {
-              "title": "System for Estimating a Distribution of Message Content Categories in Source Data",
-              "section": "publication",
-              "slug": "system-for-estimating-a-distribution-of-message-content-categories-in-source-dat-2012"
-            },
-            {
-              "title": "System for Estimating a Distribution of Message Content Categories in Source Data (2nd)",
-              "section": "publication",
-              "slug": "system-for-estimating-a-distribution-of-message-content-categories-in-source-dat"
-            },
-            {
-              "title": "Systems and Methods for Calculating Category Proportions",
-              "section": "publication",
-              "slug": "systems-and-methods-for-calculating-category-proportions"
-            },
-            {
-              "title": "You Lie! Patterns of Partisan Taunting in the U.S. Senate (Poster)",
-              "section": "publication",
-              "slug": "you-lie-patterns-of-partisan-taunting-in-the-us-senate-poster"
-            }
-          ]
-        },
-        {
-          "name": "Software",
-          "papers": [
-            {
-              "title": "ReadMe: Software for Automated Content Analysis",
-              "section": "publication",
-              "slug": "readme-software-for-automated-content-analysis"
-            }
-          ]
-        },
-        {
-          "name": "Data",
-          "papers": [
-            {
-              "title": "10 Million International Dyadic Events",
-              "section": "publication",
-              "slug": "10-million-international-dyadic-events"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "name": "Causal Inference",
       "description": "Methods for detecting and reducing model dependence (i.e., when minor model changes produce substantively different inferences) in inferring causal effects and other counterfactuals. Matching methods; \"politically robust\" and cluster-randomized experimental designs; causal bias decompositions.",
       "subcategories": [
@@ -210,7 +109,7 @@
           "name": "Additional Approaches",
           "papers": [
             {
-              "title": "’Truth’ Is Stranger Than Prediction, More Questionable Than Causal Inference",
+              "title": "'Truth' Is Stranger Than Prediction, More Questionable Than Causal Inference",
               "section": "publication",
               "slug": "truth-is-stranger-than-prediction-more-questionable-than-causal-inference"
             },
@@ -230,6 +129,11 @@
           "name": "Software",
           "papers": [
             {
+              "title": "CEM: Coarsened Exact Matching in Stata",
+              "section": "publication",
+              "slug": "cem-coarsened-exact-matching-in-stata"
+            },
+            {
               "title": "CLARIFY: Software for Interpreting and Presenting Statistical Results",
               "section": "publication",
               "slug": "clarify-software-for-interpreting-and-presenting-statistical-results"
@@ -240,15 +144,25 @@
               "slug": "matchingfrontier-r-package-for-calculating-the-balance-sample-size-frontier"
             },
             {
+              "title": "MatchIt: Nonparametric Preprocessing for Parametric Causal Inference",
+              "section": "publication",
+              "slug": "matchit-nonparametric-preprocessing-for-parametric-causal-inference"
+            },
+            {
               "title": "WhatIf: Software for Evaluating Counterfactuals",
               "section": "publication",
               "slug": "whatif-software-for-evaluating-counterfactuals"
             },
             {
-              "title": "Zelig: Everyone’s Statistical Software",
+              "title": "Zelig: Everyone's Statistical Software",
               "section": "publication",
               "slug": "zelig-everyones-statistical-software"
-            },
+            }
+          ]
+        },
+        {
+          "name": "Applications",
+          "papers": [
             {
               "title": "The Effect of War on the Supreme Court",
               "section": "publication",
@@ -346,7 +260,7 @@
               "slug": "count-a-program-for-estimating-event-count-and-duration-regressions"
             },
             {
-              "title": "Zelig: Everyone’s Statistical Software",
+              "title": "Zelig: Everyone's Statistical Software",
               "section": "publication",
               "slug": "zelig-everyones-statistical-software"
             }
@@ -369,7 +283,7 @@
       "description": "Inferring individual behavior from group-level data: The first approach to incorporate both unit-level deterministic bounds and cross-unit statistical information, methods for 2x2 and larger tables, Bayesian model averaging, applications to elections, software.",
       "subcategories": [
         {
-          "name": "Publications",
+          "name": "Methods",
           "papers": [
             {
               "title": "A Solution to the Ecological Inference Problem: Reconstructing Individual Behavior from Aggregate Data",
@@ -437,7 +351,7 @@
               "slug": "ezi-an-easy-program-for-ecological-inference"
             },
             {
-              "title": "Zelig: Everyone’s Statistical Software",
+              "title": "Zelig: Everyone's Statistical Software",
               "section": "publication",
               "slug": "zelig-everyones-statistical-software"
             }
@@ -457,7 +371,7 @@
               "slug": "analyzing-second-stage-ecological-regressions"
             },
             {
-              "title": "Finding New Information for Ecological Inference Models: A Comment on Jon Wakefield, ’Ecological Inference in 2X2 Tables’",
+              "title": "Finding New Information for Ecological Inference Models: A Comment on Jon Wakefield, 'Ecological Inference in 2X2 Tables'",
               "section": "publication",
               "slug": "finding-new-information-for-ecological-inference-models-a-comment-on-jon-wakefie"
             },
@@ -493,7 +407,7 @@
               "slug": "differentially-private-survey-research"
             },
             {
-              "title": "Letter to US Census Bureau: ‘Request for Release of ‘noisy Measurements File’ by September 30 Along With Redistricting Data Products’",
+              "title": "Letter to US Census Bureau: 'Request for Release of 'noisy Measurements File' by September 30 Along With Redistricting Data Products'",
               "section": "publication",
               "slug": "letter-to-us-census-bureau-request-for-release-of-noisy-measurements-file-by-sep"
             },
@@ -508,7 +422,7 @@
               "slug": "statistically-valid-inferences-from-privacy-protected-data"
             },
             {
-              "title": "There’s a Simple Solution to the Latest Census Fight",
+              "title": "There's a Simple Solution to the Latest Census Fight",
               "section": "publication",
               "slug": "theres-a-simple-solution-to-the-latest-census-fight"
             }
@@ -548,6 +462,11 @@
               "slug": "not-asked-and-not-answered-multiple-imputation-for-multiple-surveys"
             },
             {
+              "title": "Statistically Valid Inferences from Privacy Protected Data",
+              "section": "publication",
+              "slug": "statistically-valid-inferences-from-privacy-protected-data"
+            },
+            {
               "title": "What to Do About Missing Values in Time Series Cross-Section Data",
               "section": "publication",
               "slug": "what-to-do-about-missing-values-in-time-series-cross-section-data"
@@ -563,12 +482,17 @@
               "slug": "amelia-ii-a-program-for-missing-data"
             },
             {
+              "title": "Amelia II: A Program for Missing Data",
+              "section": "publication",
+              "slug": "amelia-ii-a-program-for-missing-data"
+            },
+            {
               "title": "CLARIFY: Software for Interpreting and Presenting Statistical Results",
               "section": "publication",
               "slug": "clarify-software-for-interpreting-and-presenting-statistical-results"
             },
             {
-              "title": "Zelig: Everyone’s Statistical Software",
+              "title": "Zelig: Everyone's Statistical Software",
               "section": "publication",
               "slug": "zelig-everyones-statistical-software"
             }
@@ -648,16 +572,6 @@
               "title": "Logistic Regression in Rare Events Data",
               "section": "publication",
               "slug": "logistic-regression-in-rare-events-data"
-            },
-            {
-              "title": "Improving Forecasts of State Failure",
-              "section": "publication",
-              "slug": "improving-forecasts-of-state-failure"
-            },
-            {
-              "title": "Estimating the Probability of Events That Have Never Occurred: When Is Your Vote Decisive?",
-              "section": "publication",
-              "slug": "estimating-the-probability-of-events-that-have-never-occurred-when-is-your-vote"
             }
           ]
         },
@@ -670,9 +584,34 @@
               "slug": "estimating-risk-and-rate-levels-ratios-and-differences-in-case-control-studies"
             },
             {
-              "title": "Inference in Case Control Studies",
+              "title": "Inference in Case-Control Studies",
               "section": "publication",
-              "slug": "inference-in-case-control-studies"
+              "slug": "inference-in-case-control-studies-2004"
+            }
+          ]
+        },
+        {
+          "name": "Hidden Region 1",
+          "papers": [
+            {
+              "title": "Improving Forecasts of State Failure",
+              "section": "publication",
+              "slug": "improving-forecasts-of-state-failure"
+            }
+          ]
+        },
+        {
+          "name": "Hidden Region 2",
+          "papers": [
+            {
+              "title": "Aggregation Among Binary, Count, and Duration Models: Estimating the Same Quantities from Different Levels of Data",
+              "section": "publication",
+              "slug": "aggregation-among-binary-count-and-duration-models-estimating-the-same-quantitie"
+            },
+            {
+              "title": "Estimating the Probability of Events That Have Never Occurred: When Is Your Vote Decisive?",
+              "section": "publication",
+              "slug": "estimating-the-probability-of-events-that-have-never-occurred-when-is-your-vote"
             }
           ]
         },
@@ -685,7 +624,7 @@
               "slug": "relogit-rare-events-logistic-regression"
             },
             {
-              "title": "Zelig: Everyone’s Statistical Software",
+              "title": "Zelig: Everyone's Statistical Software",
               "section": "publication",
               "slug": "zelig-everyones-statistical-software"
             }
@@ -708,7 +647,7 @@
       "description": "How surveys work and a variety of methods to use with surveys. Surveys for estimating death rates, why election polls are so variable when the vote is so predictable, and health inequality.",
       "subcategories": [
         {
-          "name": "Publications",
+          "name": "Survey Research",
           "papers": [
             {
               "title": "Automated Cognitive Debriefing",
@@ -817,7 +756,7 @@
               "slug": "unifying-political-methodology-the-likelihood-theory-of-statistical-inference"
             },
             {
-              "title": "Zelig: Everyone’s Statistical Software",
+              "title": "Zelig: Everyone's Statistical Software",
               "section": "publication",
               "slug": "zelig-everyones-statistical-software"
             }
@@ -857,6 +796,107 @@
     }
   ],
   "applications": [
+    {
+      "name": "Automated Text Analysis",
+      "description": "Automated and computer-assisted methods of extracting, organizing, understanding, conceptualizing, and consuming knowledge from massive quantities of unstructured text.",
+      "subcategories": [
+        {
+          "name": "Content Analysis",
+          "papers": [
+            {
+              "title": "A Method of Automated Nonparametric Content Analysis for Social Science",
+              "section": "publication",
+              "slug": "a-method-of-automated-nonparametric-content-analysis-for-social-science"
+            },
+            {
+              "title": "An Automated Information Extraction Tool For International Conflict Data With Performance As Good As Human Coders: A Rare Events Evaluation Design",
+              "section": "publication",
+              "slug": "an-automated-information-extraction-tool-for-international-conflict-data-with-pe"
+            },
+            {
+              "title": "An Improved Method of Automated Nonparametric Content Analysis for Social Science",
+              "section": "publication",
+              "slug": "an-improved-method-of-automated-nonparametric-content-analysis-for-social-scienc"
+            },
+            {
+              "title": "Computer-Assisted Keyword and Document Set Discovery from Unstructured Text",
+              "section": "publication",
+              "slug": "computer-assisted-keyword-and-document-set-discovery-from-unstructured-text"
+            },
+            {
+              "title": "General Purpose Computer-Assisted Clustering and Conceptualization",
+              "section": "publication",
+              "slug": "general-purpose-computer-assisted-clustering-and-conceptualization"
+            },
+            {
+              "title": "How Censorship in China Allows Government Criticism But Silences Collective Expression",
+              "section": "publication",
+              "slug": "how-censorship-in-china-allows-government-criticism-but-silences-collective-expr-2013"
+            },
+            {
+              "title": "Method and Apparatus for Selecting Clusterings to Classify A Predetermined Data Set",
+              "section": "publication",
+              "slug": "method-and-apparatus-for-selecting-clusterings-to-classify-a-predetermined-data"
+            },
+            {
+              "title": "Participant Grouping for Enhanced Interactive Experience",
+              "section": "publication",
+              "slug": "participant-grouping-for-enhanced-interactive-experience"
+            },
+            {
+              "title": "Reverse-Engineering Censorship in China: Randomized Experimentation and Participant Observation",
+              "section": "publication",
+              "slug": "reverse-engineering-censorship-in-china-randomized-experimentation-and-participa"
+            },
+            {
+              "title": "Some Statistical Methods for Evaluating Information Extraction Systems",
+              "section": "publication",
+              "slug": "some-statistical-methods-for-evaluating-information-extraction-systems"
+            },
+            {
+              "title": "System for Estimating a Distribution of Message Content Categories in Source Data",
+              "section": "publication",
+              "slug": "system-for-estimating-a-distribution-of-message-content-categories-in-source-dat-2012"
+            },
+            {
+              "title": "System for Estimating a Distribution of Message Content Categories in Source Data (2nd)",
+              "section": "publication",
+              "slug": "system-for-estimating-a-distribution-of-message-content-categories-in-source-dat"
+            },
+            {
+              "title": "Systems and Methods for Calculating Category Proportions",
+              "section": "publication",
+              "slug": "systems-and-methods-for-calculating-category-proportions"
+            },
+            {
+              "title": "You Lie! Patterns of Partisan Taunting in the U.S. Senate (Poster)",
+              "section": "publication",
+              "slug": "you-lie-patterns-of-partisan-taunting-in-the-us-senate-poster"
+            }
+          ]
+        },
+        {
+          "name": "Software",
+          "papers": [
+            {
+              "title": "ReadMe: Software for Automated Content Analysis",
+              "section": "publication",
+              "slug": "readme-software-for-automated-content-analysis"
+            }
+          ]
+        },
+        {
+          "name": "Data",
+          "papers": [
+            {
+              "title": "10 Million International Dyadic Events",
+              "section": "publication",
+              "slug": "10-million-international-dyadic-events"
+            }
+          ]
+        }
+      ]
+    },
     {
       "name": "Evaluating Social Security Forecasts",
       "description": "The accuracy of U.S. Social Security Administration (SSA) demographic and financial forecasts is crucial for the solvency of its Trust Funds, government programs comprising greater than 50% of all federal government expenditures, industry decision making, and the evidence base of many scholarly articles.",
@@ -908,6 +948,32 @@
               "title": "The Future of Death in America",
               "section": "publication",
               "slug": "the-future-of-death-in-america"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Chinese Censorship",
+      "description": "We \"reverse engineer\" Chinese information controls -- the most extensive effort to selectively control human expression in the history of the world. We show that this massive effort to slow the flow of information paradoxically also conveys a great deal about the intentions, goals, and actions of the leaders.",
+      "subcategories": [
+        {
+          "name": "Chinese Censorship",
+          "papers": [
+            {
+              "title": "How Censorship in China Allows Government Criticism But Silences Collective Expression",
+              "section": "publication",
+              "slug": "how-censorship-in-china-allows-government-criticism-but-silences-collective-expr-2013"
+            },
+            {
+              "title": "How the Chinese Government Fabricates Social Media Posts for Strategic Distraction, Not Engaged Argument",
+              "section": "publication",
+              "slug": "how-the-chinese-government-fabricates-social-media-posts-for-strategic-distracti-2017-166"
+            },
+            {
+              "title": "Reverse-Engineering Censorship in China: Randomized Experimentation and Participant Observation",
+              "section": "publication",
+              "slug": "reverse-engineering-censorship-in-china-randomized-experimentation-and-participa"
             }
           ]
         }
@@ -970,40 +1036,14 @@
       ]
     },
     {
-      "name": "Chinese Censorship",
-      "description": "We \"reverse engineer\" Chinese information controls -- the most extensive effort to selectively control human expression in the history of the world. We show that this massive effort to slow the flow of information paradoxically also conveys a great deal about the intentions, goals, and actions of the leaders.",
-      "subcategories": [
-        {
-          "name": "Publications",
-          "papers": [
-            {
-              "title": "How Censorship in China Allows Government Criticism But Silences Collective Expression",
-              "section": "publication",
-              "slug": "how-censorship-in-china-allows-government-criticism-but-silences-collective-expr-2013"
-            },
-            {
-              "title": "How the Chinese Government Fabricates Social Media Posts for Strategic Distraction, Not Engaged Argument",
-              "section": "publication",
-              "slug": "how-the-chinese-government-fabricates-social-media-posts-for-strategic-distracti-2017-166"
-            },
-            {
-              "title": "Reverse-Engineering Censorship in China: Randomized Experimentation and Participant Observation",
-              "section": "publication",
-              "slug": "reverse-engineering-censorship-in-china-randomized-experimentation-and-participa"
-            }
-          ]
-        }
-      ]
-    },
-    {
       "name": "Mexican Health Care Evaluation",
       "description": "An evaluation of the Mexican Seguro Popular program (designed to extend health insurance and regular and preventive medical care, pharmaceuticals, and health facilities to 50 million uninsured Mexicans), one of the world's largest health policy reforms of the last two decades. Our evaluation features a new design for field experiments that is more robust to the political interventions and implementation errors that have ruined many similar previous efforts; new statistical methods that produce more reliable and efficient results using fewer resources, assumptions, and data, as well as standard errors that are as much as 600% smaller; and an implementation of these methods in the largest randomized health policy experiment to date. (See theHarvard Gazette storyon this project.)",
       "subcategories": [
         {
-          "name": "Publications",
+          "name": "Mexican Health Care Evaluation",
           "papers": [
             {
-              "title": "A ‘Politically Robust’ Experimental Design for Public Policy Evaluation, With Application to the Mexican Universal Health Insurance Program",
+              "title": "A 'Politically Robust' Experimental Design for Public Policy Evaluation, With Application to the Mexican Universal Health Insurance Program",
               "section": "publication",
               "slug": "a-politically-robust-experimental-design-for-public-policy-evaluation-with-appli-2007"
             },
@@ -1041,7 +1081,7 @@
       "description": "Resolution of the paradox of why polls are so variable over time during presidential campaigns even though the vote outcome is easily predictable before it starts. Also, a resolution of a key controversy over absentee ballots during the 2000 presidential election; and the methodology of small-n research on executives.",
       "subcategories": [
         {
-          "name": "Publications",
+          "name": "Methods",
           "papers": [
             {
               "title": "Expert Report of Gary King, in Bowyer et Al. V. Ducey (Governor) et Al., US District Court, District of Arizona",
@@ -1064,7 +1104,7 @@
           "name": "Voting Behavior",
           "papers": [
             {
-              "title": "Book Review of `Forecasting Presidential Elections’",
+              "title": "Book Review of `Forecasting Presidential Elections'",
               "section": "publication",
               "slug": "book-review-of-forecasting-presidential-elections"
             },
@@ -1109,7 +1149,7 @@
               "slug": "party-competition-and-media-messages-in-us-presidential-election-campaigns"
             },
             {
-              "title": "The City’s Losing Clout",
+              "title": "The City's Losing Clout",
               "section": "publication",
               "slug": "the-citys-losing-clout"
             },
@@ -1149,10 +1189,10 @@
     },
     {
       "name": "Informatics and Data Sharing",
-      "description": "Replication StandardsNew standards, protocols, and software for citing, sharing, analyzing, archiving, preserving, distributing, cataloging, translating, disseminating, naming, verifying, and replicating scholarly research data and analyses. Also includes proposals to improve the norms of data sharing and replication in science.",
+      "description": "Replication Standards New standards, protocols, and software for citing, sharing, analyzing, archiving, preserving, distributing, cataloging, translating, disseminating, naming, verifying, and replicating scholarly research data and analyses. Also includes proposals to improve the norms of data sharing and replication in science.",
       "subcategories": [
         {
-          "name": "Publications",
+          "name": "Informatics and Data Sharing",
           "papers": [
             {
               "title": "A New Model for Industry-Academic Partnerships",
@@ -1218,7 +1258,7 @@
       "description": "Methods for coding, analyzing, and forecasting international conflict and state failure. Evidence that the causes of conflict, theorized to be important but often found to be small or ephemeral, are indeed tiny for the vast majority of dyads, but are large, stable, and replicable wherever the ex ante probability of conflict is large.",
       "subcategories": [
         {
-          "name": "Publications",
+          "name": "International Conflict",
           "papers": [
             {
               "title": "An Automated Information Extraction Tool For International Conflict Data With Performance As Good As Human Coders: A Rare Events Evaluation Design",
@@ -1292,7 +1332,7 @@
               "slug": "data-analyses-and-reports-for-the-arizona-independent-redistricting-commission-f"
             },
             {
-              "title": "Edited Transcript of a Talk on Partisan Symmetry at the ’Redistricting and Representation Forum’",
+              "title": "Edited Transcript of a Talk on Partisan Symmetry at the 'Redistricting and Representation Forum'",
               "section": "publication",
               "slug": "edited-transcript-of-a-talk-on-partisan-symmetry-at-the-redistricting-and-repres"
             },
@@ -1317,7 +1357,7 @@
               "slug": "theoretical-foundations-and-empirical-evaluations-of-partisan-fairness-in-distri"
             },
             {
-              "title": "There’s a Simple Solution to the Latest Census Fight",
+              "title": "There's a Simple Solution to the Latest Census Fight",
               "section": "publication",
               "slug": "theres-a-simple-solution-to-the-latest-census-fight"
             }
@@ -1440,7 +1480,7 @@
       "description": "Methods for forecasting mortality rates (overall or for time series data cross-classified by age, sex, country, and cause); estimating mortality rates in areas without vital registration; measuring inequality in risk of death; applications to US mortality, the future of the Social Security, armed conflict, heart failure, and human security.",
       "subcategories": [
         {
-          "name": "Publications",
+          "name": "Mortality Studies",
           "papers": [
             {
               "title": "A Simulation-Based Comparative Effectiveness Analysis of Policies to Improve Global Maternal Health Outcomes",
@@ -1466,12 +1506,7 @@
               "title": "Global Maternal Mortality Projections by Urban Rural Locationand Education Level: A Simulation-Based Analysis",
               "section": "publication",
               "slug": "global-maternal-mortality-projections-by-urban-rural-locationand-education-level"
-            }
-          ]
-        },
-        {
-          "name": "Background",
-          "papers": [
+            },
             {
               "title": "Population-Scale Longitudinal Mapping of COVID-19 Symptoms, Behaviour and Testing",
               "section": "publication",
@@ -1520,6 +1555,16 @@
           ]
         },
         {
+          "name": "Estimating Overall and Cause-Specific Mortality Rates",
+          "papers": [
+            {
+              "title": "Global Maternal Mortality Projections by Urban Rural Locationand Education Level: A Simulation-Based Analysis",
+              "section": "publication",
+              "slug": "global-maternal-mortality-projections-by-urban-rural-locationand-education-level"
+            }
+          ]
+        },
+        {
           "name": "Uses of Mortality Rates",
           "papers": [
             {
@@ -1543,6 +1588,11 @@
               "slug": "rethinking-human-security"
             },
             {
+              "title": "Statistical Security for Social Security",
+              "section": "publication",
+              "slug": "statistical-security-for-social-security"
+            },
+            {
               "title": "Systematic Bias and Nontransparency in US Social Security Administration Forecasts",
               "section": "publication",
               "slug": "systematic-bias-and-nontransparency-in-us-social-security-administration-forecas"
@@ -1561,7 +1611,7 @@
       "description": "Publications and other projects designed to improve teaching, learning, and university administration, as well as broader writings on the future of the social sciences.",
       "subcategories": [
         {
-          "name": "Publications",
+          "name": "Teaching and Administration",
           "papers": [
             {
               "title": "A Proposed Standard for the Scholarly Citation of Quantitative Data",
@@ -1629,14 +1679,9 @@
               "slug": "publication-publication"
             },
             {
-              "title": "Restructuring the Social Sciences: Reflections from Harvard’s Institute for Quantitative Social Science",
+              "title": "Restructuring the Social Sciences: Reflections from Harvard's Institute for Quantitative Social Science",
               "section": "publication",
               "slug": "restructuring-the-social-sciences-reflections-from-harvards-institute-for-quanti"
-            },
-            {
-              "title": "Statistical Intuition Without Coding (or Teachers)",
-              "section": "publication",
-              "slug": "statistical-intuition-without-coding-or-teachers"
             },
             {
               "title": "Stimulating Online Discussion in Interactive Learning Environments",
@@ -1659,7 +1704,7 @@
               "slug": "the-troubled-future-of-colleges-and-universities-with-comments-from-five-scholar"
             },
             {
-              "title": "The ‘Math Prefresher’ and The Collective Future of Political Science Graduate Training",
+              "title": "The 'Math Prefresher' and The Collective Future of Political Science Graduate Training",
               "section": "publication",
               "slug": "the-math-prefresher-and-the-collective-future-of-political-science-graduate-trai"
             },
