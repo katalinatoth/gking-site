@@ -4,15 +4,11 @@ abstract: |-
 
   [Amelia II software web site](/software/amelia-ii-a-program-for-missing-data/)
 authors:
-- James Honaker
-- Gary King
-- Matthew Blackwell
-date: '2011-01-01'
-links:
-- type: pdf
-  url: files/amelia_jss.pdf
-publication: Journal of Statistical Software, 45, 7, Pp. 1-47
+  - James Honaker
+  - Gary King
+  - Matthew Blackwell
+date: "2009-01-01"
 publication_types:
-- software
-title: 'Amelia II: A Program for Missing Data'
+  - software
+title: "AMELIA II: A Program for Missing Data"
 ---
