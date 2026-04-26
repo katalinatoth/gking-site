@@ -1220,9 +1220,17 @@
       "tab": "software",
       "drupal": "software"
     },
+    "matchit-nonparametric-preprocessing-for-parametric-causal-inference-jss": {
+      "tab": "journal",
+      "drupal": "journal_article"
+    },
     "anchors-software-for-anchoring-vignettes-data": {
       "tab": "software",
       "drupal": "software"
+    },
+    "anchors-software-for-anchoring-vignettes-data-jss": {
+      "tab": "journal",
+      "drupal": "journal_article"
     },
     "autocast-automated-bayesian-forecasting-with-yourcast": {
       "tab": "software",
@@ -1775,6 +1783,10 @@
     "ei-a-program-for-ecological-inference": {
       "tab": "software",
       "drupal": "software"
+    },
+    "ei-a-program-for-ecological-inference-jss": {
+      "tab": "journal",
+      "drupal": "journal_article"
     },
     "finding-new-information-for-ecological-inference-models-a-comment-on-jon-wakefie": {
       "tab": "journal",

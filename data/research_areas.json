@@ -86,7 +86,7 @@
             {
               "title": "MatchIt: Nonparametric Preprocessing for Parametric Causal Inference",
               "section": "publication",
-              "slug": "matchit-nonparametric-preprocessing-for-parametric-causal-inference"
+              "slug": "matchit-nonparametric-preprocessing-for-parametric-causal-inference-jss"
             },
             {
               "title": "Multivariate Matching Methods That Are Monotonic Imbalance Bounding",
@@ -147,6 +147,11 @@
               "title": "MatchIt: Nonparametric Preprocessing for Parametric Causal Inference",
               "section": "publication",
               "slug": "matchit-nonparametric-preprocessing-for-parametric-causal-inference"
+            },
+            {
+              "title": "MatchIt: Nonparametric Preprocessing for Parametric Causal Inference",
+              "section": "publication",
+              "slug": "matchit-nonparametric-preprocessing-for-parametric-causal-inference-jss"
             },
             {
               "title": "WhatIf: Software for Evaluating Counterfactuals",
@@ -344,6 +349,11 @@
               "title": "EI: A Program for Ecological Inference",
               "section": "publication",
               "slug": "ei-a-program-for-ecological-inference"
+            },
+            {
+              "title": "EI: A Program for Ecological Inference",
+              "section": "publication",
+              "slug": "ei-a-program-for-ecological-inference-jss"
             },
             {
               "title": "EzI: A(n Easy) Program for Ecological Inference",
