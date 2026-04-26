@@ -38,5 +38,5 @@ links:
     url: "https://www.doi.org/10.1017/S0003055422001411"
   - name: "Supplementary Material"
     url: "files/udp-supp.pdf"
-publication: "American Political Science Review"
+publication: "American Political Science Review, 117, 1 (February), Pp. 1-16"
 ---
