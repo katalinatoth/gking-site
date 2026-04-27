@@ -32,6 +32,107 @@
       ]
     },
     {
+      "name": "Automated Text Analysis",
+      "description": "Automated and computer-assisted methods of extracting, organizing, understanding, conceptualizing, and consuming knowledge from massive quantities of unstructured text.",
+      "subcategories": [
+        {
+          "name": "Content Analysis",
+          "papers": [
+            {
+              "title": "A Method of Automated Nonparametric Content Analysis for Social Science",
+              "section": "publication",
+              "slug": "a-method-of-automated-nonparametric-content-analysis-for-social-science"
+            },
+            {
+              "title": "An Automated Information Extraction Tool For International Conflict Data With Performance As Good As Human Coders: A Rare Events Evaluation Design",
+              "section": "publication",
+              "slug": "an-automated-information-extraction-tool-for-international-conflict-data-with-pe"
+            },
+            {
+              "title": "An Improved Method of Automated Nonparametric Content Analysis for Social Science",
+              "section": "publication",
+              "slug": "an-improved-method-of-automated-nonparametric-content-analysis-for-social-scienc"
+            },
+            {
+              "title": "Computer-Assisted Keyword and Document Set Discovery from Unstructured Text",
+              "section": "publication",
+              "slug": "computer-assisted-keyword-and-document-set-discovery-from-unstructured-text"
+            },
+            {
+              "title": "General Purpose Computer-Assisted Clustering and Conceptualization",
+              "section": "publication",
+              "slug": "general-purpose-computer-assisted-clustering-and-conceptualization"
+            },
+            {
+              "title": "How Censorship in China Allows Government Criticism But Silences Collective Expression",
+              "section": "publication",
+              "slug": "how-censorship-in-china-allows-government-criticism-but-silences-collective-expr-2013"
+            },
+            {
+              "title": "Method and Apparatus for Selecting Clusterings to Classify A Predetermined Data Set",
+              "section": "publication",
+              "slug": "method-and-apparatus-for-selecting-clusterings-to-classify-a-predetermined-data"
+            },
+            {
+              "title": "Participant Grouping for Enhanced Interactive Experience",
+              "section": "publication",
+              "slug": "participant-grouping-for-enhanced-interactive-experience"
+            },
+            {
+              "title": "Reverse-Engineering Censorship in China: Randomized Experimentation and Participant Observation",
+              "section": "publication",
+              "slug": "reverse-engineering-censorship-in-china-randomized-experimentation-and-participa"
+            },
+            {
+              "title": "Some Statistical Methods for Evaluating Information Extraction Systems",
+              "section": "publication",
+              "slug": "some-statistical-methods-for-evaluating-information-extraction-systems"
+            },
+            {
+              "title": "System for Estimating a Distribution of Message Content Categories in Source Data",
+              "section": "publication",
+              "slug": "system-for-estimating-a-distribution-of-message-content-categories-in-source-dat-2012"
+            },
+            {
+              "title": "System for Estimating a Distribution of Message Content Categories in Source Data (2nd)",
+              "section": "publication",
+              "slug": "system-for-estimating-a-distribution-of-message-content-categories-in-source-dat"
+            },
+            {
+              "title": "Systems and Methods for Calculating Category Proportions",
+              "section": "publication",
+              "slug": "systems-and-methods-for-calculating-category-proportions"
+            },
+            {
+              "title": "You Lie! Patterns of Partisan Taunting in the U.S. Senate (Poster)",
+              "section": "publication",
+              "slug": "you-lie-patterns-of-partisan-taunting-in-the-us-senate-poster"
+            }
+          ]
+        },
+        {
+          "name": "Software",
+          "papers": [
+            {
+              "title": "ReadMe: Software for Automated Content Analysis",
+              "section": "publication",
+              "slug": "readme-software-for-automated-content-analysis"
+            }
+          ]
+        },
+        {
+          "name": "Data",
+          "papers": [
+            {
+              "title": "10 Million International Dyadic Events",
+              "section": "publication",
+              "slug": "10-million-international-dyadic-events"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "name": "Causal Inference",
       "description": "Methods for detecting and reducing model dependence (i.e., when minor model changes produce substantively different inferences) in inferring causal effects and other counterfactuals. Matching methods; \"politically robust\" and cluster-randomized experimental designs; causal bias decompositions.",
       "subcategories": [
@@ -806,107 +907,6 @@
     }
   ],
   "applications": [
-    {
-      "name": "Automated Text Analysis",
-      "description": "Automated and computer-assisted methods of extracting, organizing, understanding, conceptualizing, and consuming knowledge from massive quantities of unstructured text.",
-      "subcategories": [
-        {
-          "name": "Content Analysis",
-          "papers": [
-            {
-              "title": "A Method of Automated Nonparametric Content Analysis for Social Science",
-              "section": "publication",
-              "slug": "a-method-of-automated-nonparametric-content-analysis-for-social-science"
-            },
-            {
-              "title": "An Automated Information Extraction Tool For International Conflict Data With Performance As Good As Human Coders: A Rare Events Evaluation Design",
-              "section": "publication",
-              "slug": "an-automated-information-extraction-tool-for-international-conflict-data-with-pe"
-            },
-            {
-              "title": "An Improved Method of Automated Nonparametric Content Analysis for Social Science",
-              "section": "publication",
-              "slug": "an-improved-method-of-automated-nonparametric-content-analysis-for-social-scienc"
-            },
-            {
-              "title": "Computer-Assisted Keyword and Document Set Discovery from Unstructured Text",
-              "section": "publication",
-              "slug": "computer-assisted-keyword-and-document-set-discovery-from-unstructured-text"
-            },
-            {
-              "title": "General Purpose Computer-Assisted Clustering and Conceptualization",
-              "section": "publication",
-              "slug": "general-purpose-computer-assisted-clustering-and-conceptualization"
-            },
-            {
-              "title": "How Censorship in China Allows Government Criticism But Silences Collective Expression",
-              "section": "publication",
-              "slug": "how-censorship-in-china-allows-government-criticism-but-silences-collective-expr-2013"
-            },
-            {
-              "title": "Method and Apparatus for Selecting Clusterings to Classify A Predetermined Data Set",
-              "section": "publication",
-              "slug": "method-and-apparatus-for-selecting-clusterings-to-classify-a-predetermined-data"
-            },
-            {
-              "title": "Participant Grouping for Enhanced Interactive Experience",
-              "section": "publication",
-              "slug": "participant-grouping-for-enhanced-interactive-experience"
-            },
-            {
-              "title": "Reverse-Engineering Censorship in China: Randomized Experimentation and Participant Observation",
-              "section": "publication",
-              "slug": "reverse-engineering-censorship-in-china-randomized-experimentation-and-participa"
-            },
-            {
-              "title": "Some Statistical Methods for Evaluating Information Extraction Systems",
-              "section": "publication",
-              "slug": "some-statistical-methods-for-evaluating-information-extraction-systems"
-            },
-            {
-              "title": "System for Estimating a Distribution of Message Content Categories in Source Data",
-              "section": "publication",
-              "slug": "system-for-estimating-a-distribution-of-message-content-categories-in-source-dat-2012"
-            },
-            {
-              "title": "System for Estimating a Distribution of Message Content Categories in Source Data (2nd)",
-              "section": "publication",
-              "slug": "system-for-estimating-a-distribution-of-message-content-categories-in-source-dat"
-            },
-            {
-              "title": "Systems and Methods for Calculating Category Proportions",
-              "section": "publication",
-              "slug": "systems-and-methods-for-calculating-category-proportions"
-            },
-            {
-              "title": "You Lie! Patterns of Partisan Taunting in the U.S. Senate (Poster)",
-              "section": "publication",
-              "slug": "you-lie-patterns-of-partisan-taunting-in-the-us-senate-poster"
-            }
-          ]
-        },
-        {
-          "name": "Software",
-          "papers": [
-            {
-              "title": "ReadMe: Software for Automated Content Analysis",
-              "section": "publication",
-              "slug": "readme-software-for-automated-content-analysis"
-            }
-          ]
-        },
-        {
-          "name": "Data",
-          "papers": [
-            {
-              "title": "10 Million International Dyadic Events",
-              "section": "publication",
-              "slug": "10-million-international-dyadic-events"
-            }
-          ]
-        }
-      ]
-    },
     {
       "name": "Evaluating Social Security Forecasts",
       "description": "The accuracy of U.S. Social Security Administration (SSA) demographic and financial forecasts is crucial for the solvency of its Trust Funds, government programs comprising greater than 50% of all federal government expenditures, industry decision making, and the evidence base of many scholarly articles.",
