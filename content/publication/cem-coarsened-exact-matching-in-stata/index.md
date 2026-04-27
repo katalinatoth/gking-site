@@ -10,7 +10,9 @@ date: '2009-01-01'
 links:
 - type: pdf
   url: files/cemStata_0.pdf
-publication: Journal of Statistical Software, 30
+- type: source
+  url: https://doi.org/10.1177/1536867X0900900402
+publication: The Stata Journal, 9(4), 524–546
 publication_types:
 - journal_article
 title: 'CEM: Coarsened Exact Matching in Stata'

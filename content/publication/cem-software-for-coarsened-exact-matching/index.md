@@ -10,8 +10,10 @@ links:
 - type: pdf
   url: files/jss-paper.pdf
 - type: source
+  url: https://doi.org/10.18637/jss.v030.i09
+- type: source
   url: software/cem-coarsened-exact-matching-software/
-publication: Journal of Statistical Software, 30
+publication: Journal of Statistical Software, 30(9)
 publication_types:
 - journal_article
 title: 'CEM: Software for Coarsened Exact Matching'

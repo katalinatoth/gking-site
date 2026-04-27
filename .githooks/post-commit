@@ -1,0 +1,15 @@
+#!/bin/sh
+# Push to origin after each commit when upstream exists.
+# Disable for one commit: SKIP_AUTO_PUSH=1 git commit ...
+# Disable permanently: git config hooks.skip-auto-push true
+if git config --get hooks.skip-auto-push >/dev/null 2>&1; then
+  exit 0
+fi
+if [ -n "${SKIP_AUTO_PUSH}" ]; then
+  exit 0
+fi
+if ! git rev-parse --abbrev-ref '@{u}' >/dev/null 2>&1; then
+  echo "githooks/post-commit: no upstream branch; not pushing (set with git push -u)." >&2
+  exit 0
+fi
+exec git push
