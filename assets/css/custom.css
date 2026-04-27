@@ -247,26 +247,31 @@ button.gk-cite-button:hover {
   width: 100%;
 }
 
-/* overflow visible so wide/tall featured figures are never clipped */
+/* flow-root: contain float without overflow:hidden (which would clip) */
 .gk-pub-body {
   margin: 1.25rem 0;
-  overflow: visible;
+  display: flow-root;
 }
+/* Float + img { width: 100% } is unsafe: the float box width can be
+   indefinite, so % on the child resolves against a wide ancestor and the
+   figure blows up. Pin the column width, then size the image to that box. */
 .gk-pub-image {
   float: left;
+  clear: both;
   margin: 0 1.5rem 1rem 0;
-  /* Match Hugo Resize "680x" cap; column scales down on narrow viewports */
-  max-width: min(100%, 680px);
+  width: min(100%, 680px);
+  box-sizing: border-box;
 }
 .gk-pub-image img {
+  display: block;
   width: 100%;
   max-width: 100%;
   height: auto;
+  vertical-align: top;
   object-fit: contain;
   object-position: left top;
   border-radius: 4px;
   border: 1px solid #e2e8f0;
-  display: block;
 }
 .gk-pub-text {
   font-size: 0.9rem;
