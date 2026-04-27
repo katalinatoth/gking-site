@@ -101,7 +101,7 @@
       }
       html += '<div style="padding:10px 12px;margin-bottom:6px;background:#f0f5fa;border-radius:6px;">';
       html += '<div style="font-size:0.82rem;color:#595959;margin-bottom:2px;">' + p.date + '</div>';
-      html += '<div><a href="' + p.url + '" style="color:#337ab7;text-decoration:none;font-weight:500;">' + escapeHtml(p.title) + '</a></div>';
+      html += '<div><a href="' + p.url + '" style="color:#337ab7;text-decoration:underline;text-underline-offset:2px;font-weight:500;">' + escapeHtml(p.title) + '</a></div>';
       if (p.excerpt) html += '<div style="font-size:0.85rem;color:#555;margin-top:4px;line-height:1.5;">' + escapeHtml(p.excerpt) + '</div>';
       html += '</div>';
     });

@@ -187,7 +187,8 @@ button.gk-link-secondary {
   font-size: inherit;
   font-weight: 500;
   color: #337ab7 !important;
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 2px;
   line-height: 1.25;
 }
 a.gk-link-secondary:hover,
@@ -250,16 +251,57 @@ button.gk-cite-button:hover {
   line-height: 1.6;
   color: #444;
 }
-/* Abstract links: make them clearly clickable (blue, underlined on hover). */
+/* Inline text links in body copy: blue + underlined at rest (site-wide convention). */
 .gk-pub-text a,
-.gk-pub-text a:visited {
-  color: #1a5fb4;
-  text-decoration: none;
+.gk-pub-text a:visited,
+.gk-ra-abstract-body a,
+.gk-ra-abstract-body a:visited,
+.gk-sw-abs-body a,
+.gk-sw-abs-body a:visited,
+.gk-see-also a,
+.gk-see-also a:visited,
+.gk-sw-legacy-html a,
+.gk-sw-legacy-html a:visited,
+.gk-hp-item__abs a,
+.gk-hp-item__abs a:visited {
+  color: #337ab7;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 .gk-pub-text a:hover,
-.gk-pub-text a:focus {
-  color: #0b3d7a;
+.gk-pub-text a:focus,
+.gk-ra-abstract-body a:hover,
+.gk-ra-abstract-body a:focus,
+.gk-sw-abs-body a:hover,
+.gk-sw-abs-body a:focus,
+.gk-see-also a:hover,
+.gk-see-also a:focus,
+.gk-sw-legacy-html a:hover,
+.gk-sw-legacy-html a:focus,
+.gk-hp-item__abs a:hover,
+.gk-hp-item__abs a:focus {
+  color: #23527c;
   text-decoration: underline;
+}
+
+/* Prose / markdown bodies in main (bios, teaching, etc.): same link treatment. */
+main#main-content .prose a:not(.gk-link-primary) {
+  color: #337ab7;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+main#main-content .prose a:not(.gk-link-primary):hover,
+main#main-content .prose a:not(.gk-link-primary):focus {
+  color: #23527c;
+}
+
+/* People profile chrome links (inline styles otherwise hide underline). */
+article.gk-people-profile nav[aria-label="Breadcrumb"] a,
+article.gk-people-profile a[href^="mailto:"],
+article.gk-people-profile a[rel~="noopener noreferrer"],
+article.gk-people-profile > p a {
+  text-decoration: underline !important;
+  text-underline-offset: 2px;
 }
 @media (max-width: 640px) {
   .gk-pub-image {
@@ -293,7 +335,8 @@ button.gk-cite-button:hover {
 }
 .gk-see-also a {
   color: #337ab7;
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 2px;
   font-size: 0.9rem;
 }
 .gk-see-also a:hover { text-decoration: underline; }
@@ -464,9 +507,10 @@ button.gk-cite-button:focus-visible {
   color: #1e3a5f;
 }
 
-/* ---- Generic prose links: underline + darken on hover ---- */
-.prose a:hover,
-.prose a:focus-visible {
+/* ---- Generic prose links (outside main): underline + darken on hover ---- */
+.prose a:not(.gk-link-primary):hover,
+.prose a:not(.gk-link-primary):focus-visible {
+  color: #23527c;
   text-decoration: underline;
   text-underline-offset: 2px;
 }

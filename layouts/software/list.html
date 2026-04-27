@@ -54,7 +54,7 @@
             {{ with $o.abstract }}{{ $abs = . }}{{ else }}{{ with $p.Params.summary }}{{ $abs = . }}{{ else }}{{ with $p.Params.abstract }}{{ $abs = . }}{{ end }}{{ end }}{{ end }}
           {{ end }}
           <div class="gk-sw-row gk-sw-card" data-slug="{{ $slug }}" data-status="{{ $gid }}" data-year="{{ $yr }}">
-            <p style="margin:0;font-size:0.98rem;line-height:1.5;color:#111;">{{ $cite }} “<a class="gk-sw-title" href="{{ $href }}"{{ if strings.HasPrefix $href "http" }} target="_blank" rel="noopener"{{ end }} style="color:#337ab7;text-decoration:none;">{{ $listTitle }}</a>”</p>
+            <p style="margin:0;font-size:0.98rem;line-height:1.5;color:#111;">{{ $cite }} “<a class="gk-sw-title" href="{{ $href }}"{{ if strings.HasPrefix $href "http" }} target="_blank" rel="noopener"{{ end }} style="color:#337ab7;text-decoration:underline;text-underline-offset:2px;">{{ $listTitle }}</a>”</p>
             {{ if $abs }}
             <details class="gk-sw-abs" style="margin-top:10px;font-size:0.9rem;">
               <summary style="cursor:pointer;list-style:none;color:#337ab7;font-weight:500;display:inline-flex;align-items:center;gap:6px;">

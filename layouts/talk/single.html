@@ -54,7 +54,7 @@
       {{ if or .Params.event .Params.location }}
       <div style="font-size:0.85rem;color:#666;margin:0.5rem 0;">
         {{ with .Params.event }}
-        <div><strong>Event:</strong> {{ with $.Params.event_url }}<a href="{{ . }}" target="_blank" rel="noopener" style="color:#337ab7;">{{ end }}{{ $.Params.event | markdownify }}{{ with $.Params.event_url }}</a>{{ end }}</div>
+        <div><strong>Event:</strong> {{ with $.Params.event_url }}<a href="{{ . }}" target="_blank" rel="noopener" style="color:#337ab7;text-decoration:underline;text-underline-offset:2px;">{{ end }}{{ $.Params.event | markdownify }}{{ with $.Params.event_url }}</a>{{ end }}</div>
         {{ end }}
         {{ with .Params.location }}
         <div><strong>Location:</strong> {{ . | markdownify }}</div>
