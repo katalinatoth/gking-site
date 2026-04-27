@@ -58,6 +58,16 @@ CROSSREF_SKIPPED_PREFIXES = (
 )
 
 
+def clean_doi(d: str) -> str:
+    """Strip trailing path segments often mistaken for part of a DOI (e.g. /full)."""
+    d = d.rstrip(").,;]}\"'")
+    d = d.split("?", 1)[0]
+    for suf in ("/full", "/html", "/abstract", "/v1", "/v2", "/version"):
+        if d.lower().endswith(suf):
+            d = d[: -len(suf)]
+    return d
+
+
 def load_front_matter(path: Path) -> dict[str, Any] | None:
     text = path.read_text(encoding="utf-8", errors="replace")
     if not text.startswith("---\n") and not text.startswith("---\r\n"):
@@ -82,7 +92,7 @@ def collect_dois(fm: dict[str, Any]) -> list[str]:
     dv = fm.get("dataverse_url")
     if isinstance(dv, str):
         for d in DOI_IN_TEXT.findall(dv):
-            found.add(d.rstrip(").,;]}\"'"))
+            found.add(clean_doi(d))
     links = fm.get("links")
     if isinstance(links, list):
         for item in links:
@@ -91,23 +101,23 @@ def collect_dois(fm: dict[str, Any]) -> list[str]:
             u = item.get("url", "")
             if isinstance(u, str):
                 for d in DOI_IN_TEXT.findall(u):
-                    found.add(d.rstrip(").,;]}\"'"))
+                    found.add(clean_doi(d))
     for key in ("doi", "publication_doi", "citation_doi"):
         v = fm.get(key)
         if isinstance(v, str):
             for d in DOI_IN_TEXT.findall(v):
-                found.add(d.rstrip(").,;]}\"'"))
+                found.add(clean_doi(d))
     abs_ = fm.get("abstract")
     if isinstance(abs_, str):
         for d in DOI_IN_TEXT.findall(abs_):
-            found.add(d.rstrip(").,;]}\"'"))
+            found.add(clean_doi(d))
     hb = fm.get("hugoblox")
     if isinstance(hb, dict):
         ids_ = hb.get("ids")
         if isinstance(ids_, dict):
             d = ids_.get("doi")
             if isinstance(d, str) and d.strip():
-                found.add(d.strip().rstrip(").,;]}\"'"))
+                found.add(clean_doi(d.strip()))
     return sorted(
         found,
         key=lambda x: (x.lower().startswith("10.7910"), -len(x)),
@@ -115,9 +125,18 @@ def collect_dois(fm: dict[str, Any]) -> list[str]:
 
 
 def first_crossref_doi(dois: list[str]) -> str | None:
+    """Prefer journal-article style DOIs over book/ISBN-style (e.g. 10.3389/978-...)."""
+    preferred: list[str] = []
+    fallback: list[str] = []
     for d in dois:
         if any(d.startswith(p) for p in CROSSREF_SKIPPED_PREFIXES):
             continue
+        tail = d.split("/", 1)[-1] if "/" in d else d
+        if re.match(r"^978-?\d", tail) or d.startswith("10.3389/978"):
+            fallback.append(d)
+        else:
+            preferred.append(d)
+    for d in preferred + fallback:
         return d
     return None
 
