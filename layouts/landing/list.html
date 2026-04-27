@@ -223,6 +223,12 @@
           {{ $authors := .Params.authors | default slice }}
           {{ if gt (len $authors) 0 }}<div class="gk-hp-item__authors">{{ delimit $authors ", " }}</div>{{ end }}
           {{ with .Params.publication }}<div class="gk-hp-item__pub">{{ . }}</div>{{ end }}
+          {{ $bpt := .Params.publication_types | default slice }}
+          {{- if or (in $bpt "book") (in $bpt "book_chapter") -}}
+            {{- with .Params.publisher -}}
+              <div class="gk-hp-item__pub">{{ . }}{{ with $.Params.address }}, {{ . }}{{ end }}</div>
+            {{- end -}}
+          {{- end -}}
           {{ with .Params.abstract }}<div class="gk-hp-item__abs">{{ . | truncate 200 | markdownify }}</div>{{ end }}
           <div class="gk-hp-item__more"><a href="{{ .RelPermalink }}">Read more &rarr;</a></div>
         </div>

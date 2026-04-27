@@ -17,6 +17,12 @@
       {{ $page.Date.Format "2006" }}.
       "<a href="{{ $page.RelPermalink }}" style="color:#337ab7;text-decoration:underline;">{{ $page.Title }}</a>."
       {{ with $page.Params.publication }}<em style="color:#666;">{{ . }}</em>.{{ end }}
+      {{ $pt := $page.Params.publication_types | default slice }}
+      {{- if or (in $pt "book") (in $pt "book_chapter") -}}
+        {{- with $page.Params.publisher -}}
+          <em style="color:#666;">{{ . }}{{ with $page.Params.address }}, {{ . }}{{ end }}</em>.
+        {{- end -}}
+      {{- end -}}
     </div>
     {{ if or $hasAbstract (gt $linkCount 0) }}
     <div class="gk-ra-pub-actions" style="margin-top:0.5rem;display:flex;flex-wrap:wrap;align-items:center;gap:0.35rem 0.45rem;font-size:{{ if $compact }}0.76rem{{ else }}0.82rem{{ end }};">

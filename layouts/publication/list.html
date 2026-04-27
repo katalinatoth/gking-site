@@ -344,7 +344,7 @@
       }
       if (anyYear && !activeYears[d.year]) return false;
       if (q) {
-        var haystack = (d.title + " " + d.authors.join(" ") + " " + (d.publication || "") + " " + (d.abstract || "")).toLowerCase();
+        var haystack = (d.title + " " + d.authors.join(" ") + " " + (d.publication || "") + " " + (d.publisher || "") + " " + (d.address || "") + " " + (d.abstract || "")).toLowerCase();
         if (haystack.indexOf(q) === -1) return false;
       }
       return true;
