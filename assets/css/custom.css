@@ -247,30 +247,21 @@ button.gk-cite-button:hover {
   width: 100%;
 }
 
-/* flow-root: contain float without overflow:hidden (which would clip) */
 .gk-pub-body {
   margin: 1.25rem 0;
-  display: flow-root;
+  overflow: hidden;
 }
-/* Float: shrink-wrap to image. max-width caps large figures; width:auto on
-   img keeps small originals (no upscale in Hugo) from stretching to 680px. */
 .gk-pub-image {
   float: left;
-  clear: both;
   margin: 0 1.5rem 1rem 0;
-  max-width: min(100%, 680px);
-  width: fit-content;
-  box-sizing: border-box;
+  max-width: 340px;
 }
 .gk-pub-image img {
-  display: block;
-  width: auto;
-  max-width: 100%;
+  width: 100%;
   height: auto;
-  object-fit: contain;
-  object-position: left top;
   border-radius: 4px;
   border: 1px solid #e2e8f0;
+  display: block;
 }
 .gk-pub-text {
   font-size: 0.9rem;
@@ -332,12 +323,8 @@ article.gk-people-profile > p a {
 @media (max-width: 640px) {
   .gk-pub-image {
     float: none;
-    width: 100%;
     max-width: 100%;
     margin: 0 0 1rem 0;
-  }
-  .gk-pub-image img {
-    max-width: 100%;
   }
 }
 
