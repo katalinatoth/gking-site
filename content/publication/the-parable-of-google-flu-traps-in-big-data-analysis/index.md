@@ -6,7 +6,7 @@ abstract: |-
 
   Replication data at the Harvard Dataverse: [https://doi.org/10.7910/DVN/24823](https://doi.org/10.7910/DVN/24823).
 
-  See also "[Google Flu Trends Still Appears Sick: An Evaluation of the 2013‐2014 Flu Season"](/publication/google-flu-trends-still-appears-sick-an-evaluation-of-the-20132014-flu-season/)
+  See also ["Google Flu Trends Still Appears Sick: An Evaluation of the 2013‐2014 Flu Season"](/publication/google-flu-trends-still-appears-sick-an-evaluation-of-the-20132014-flu-season/).
 authors:
 - David Lazer
 - Ryan Kennedy
