@@ -13,6 +13,7 @@ date: '2011-01-01'
 links:
 - type: pdf
   url: files/psparadox.pdf
+  name: Paper
 publication_types:
 - journal_article
 title: Comparative Effectiveness of Matching Methods for Causal Inference
