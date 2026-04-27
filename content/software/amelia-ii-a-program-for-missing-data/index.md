@@ -8,13 +8,7 @@ authors:
 links:
   - type: code
     url: "https://github.com/IQSS/Amelia"
-summary: This program multiply imputes missing data in cross-sectional, time series,
-  and time series cross-sectional data sets. It includes a Windows version (no knowledge
-  of R required), and a version that works with R either from the command line or
-  via a GUI.
 ---
-
-This program multiply imputes missing data in cross-sectional, time series, and time series cross-sectional data sets. It includes a Windows version (no knowledge of R required), and a version that works with R either from the command line or via a GUI.
 
 <article class="node node--type-hwp-page node--view-mode-full" lang="en">
 <div class="hwp-page-title hwp-bg-dark-base">
