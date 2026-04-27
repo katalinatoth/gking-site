@@ -252,22 +252,21 @@ button.gk-cite-button:hover {
   margin: 1.25rem 0;
   display: flow-root;
 }
-/* Float + img { width: 100% } is unsafe: the float box width can be
-   indefinite, so % on the child resolves against a wide ancestor and the
-   figure blows up. Pin the column width, then size the image to that box. */
+/* Float: shrink-wrap to image. max-width caps large figures; width:auto on
+   img keeps small originals (no upscale in Hugo) from stretching to 680px. */
 .gk-pub-image {
   float: left;
   clear: both;
   margin: 0 1.5rem 1rem 0;
-  width: min(100%, 680px);
+  max-width: min(100%, 680px);
+  width: fit-content;
   box-sizing: border-box;
 }
 .gk-pub-image img {
   display: block;
-  width: 100%;
+  width: auto;
   max-width: 100%;
   height: auto;
-  vertical-align: top;
   object-fit: contain;
   object-position: left top;
   border-radius: 4px;
@@ -333,8 +332,12 @@ article.gk-people-profile > p a {
 @media (max-width: 640px) {
   .gk-pub-image {
     float: none;
+    width: 100%;
     max-width: 100%;
     margin: 0 0 1rem 0;
+  }
+  .gk-pub-image img {
+    max-width: 100%;
   }
 }
 
