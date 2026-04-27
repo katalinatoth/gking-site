@@ -10,7 +10,7 @@
   <p style="margin:0;"><a href="{{ $ext }}" style="color:#337ab7;">{{ $ext }}</a></p>
 </div>
 <script>
-(function(){var u={{ $ext | jsonify }};if(u)location.replace(u);})();
+(function(){var u={{ $ext | jsonify | safeJS }};if(u)location.replace(u);})();
 </script>
 {{ else }}
 {{ $bannerTitle := .Params.banner_title | default .Title }}
