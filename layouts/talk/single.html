@@ -10,17 +10,20 @@
         {{- .Title -}}
       </h1>
 
-      {{/* Full citation line + action buttons on a single row (buttons wrap
-           to the next line only when the row is too narrow). */}}
-      <div class="gk-citation-line" style="display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 12px;margin-bottom:0.75rem;">
-        <span>
-          {{ $authors := .Params.authors | default slice }}
-          {{ if gt (len $authors) 0 }}{{ delimit $authors ", " }}. {{ end -}}
-          {{ .Date.Format "2006" }}.
-          "{{ .Title }}."
-          {{ with .Params.event }} <em>{{ . | markdownify }}</em>.{{ end }}
-        </span>
-        {{ partial "page_links" (dict "page" . "is_list" 0) }}
+      {{/* Citation on the first row; primary link + other actions on the next. */}}
+      <div class="gk-citation-line gk-citation-line--stacked" style="margin-bottom:0.75rem;">
+        <div class="gk-citation-text">
+          <span>
+            {{ $authors := .Params.authors | default slice }}
+            {{ if gt (len $authors) 0 }}{{ delimit $authors ", " }}. {{ end -}}
+            {{ .Date.Format "2006" }}.
+            "{{ .Title }}."
+            {{ with .Params.event }} <em>{{ . | markdownify }}</em>.{{ end }}
+          </span>
+        </div>
+        <div class="gk-citation-actions">
+          {{ partial "page_links" (dict "page" . "is_list" 0) }}
+        </div>
       </div>
 
       {{/* Body: image + abstract */}}

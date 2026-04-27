@@ -51,24 +51,23 @@
 
 <script>
 (function () {
-  /* Accordion behavior for the Research Areas section.
+  /* Accordion behavior for the Research Areas section (homepage).
 
-     Two independent accordions, both scoped inside #research-areas:
+     1) Top-level areas (.gk-hp-area): only react when *this* <details> toggles
+        (ev.target === element). Nested <details> (subcats, per-paper abstracts)
+        bubble toggle; without this guard we close every other area and jump scroll.
 
-     1. Top-level areas (.gk-hp-area): opening one area (e.g. Ecological
-        Inference) auto-closes any other open area across both the Methods
-        and Applications columns.
-     2. Subcategories (.gk-hp-subcat) within a single area: opening one
-        subcategory (e.g. Software inside Ecological Inference) auto-closes
-        any other open subcategory in the same area, so the panel doesn't
-        splay out into a wall of papers. Subcategories in *other* areas
-        are unaffected. */
+     2) Subcategories (.gk-hp-subcat): only react when the subcat itself toggles;
+        ignore bubbled events from inner abstract <details>. Opening one subcat
+        closes siblings; preserve window scroll to avoid the browser reflowing when
+        long panels open/close. */
   var section = document.getElementById('research-areas');
   if (!section) return;
 
   var areas = section.querySelectorAll('details.gk-hp-area');
   areas.forEach(function (d) {
-    d.addEventListener('toggle', function () {
+    d.addEventListener('toggle', function (ev) {
+      if (ev.target !== d) return;
       if (!d.open) return;
       areas.forEach(function (other) {
         if (other !== d && other.open) other.open = false;
@@ -77,12 +76,23 @@
   });
 
   areas.forEach(function (area) {
-    var subs = area.querySelectorAll(':scope > div > details.gk-hp-subcat');
+    var wrap = area.querySelector(':scope > div');
+    if (!wrap) return;
+    var subs = wrap.querySelectorAll('details.gk-hp-subcat');
     subs.forEach(function (s) {
-      s.addEventListener('toggle', function () {
+      s.addEventListener('toggle', function (ev) {
+        if (ev.target !== s) return;
         if (!s.open) return;
+        var y = window.scrollY;
+        var x = window.scrollX;
         subs.forEach(function (other) {
           if (other !== s && other.open) other.open = false;
+        });
+        requestAnimationFrame(function () {
+          window.scrollTo(x, y);
+          requestAnimationFrame(function () {
+            window.scrollTo(x, y);
+          });
         });
       });
     });

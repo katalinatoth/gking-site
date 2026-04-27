@@ -229,6 +229,23 @@ button.gk-cite-button:hover {
   margin-top: 0.5rem;
 }
 .gk-citation-line em { color: #444; }
+/* Citation text on its own row; Article / Supplementary / Cite on the next row. */
+.gk-citation-line--stacked {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.5rem;
+}
+.gk-citation-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+}
+.gk-citation-text {
+  min-width: 0;
+  width: 100%;
+}
 
 .gk-pub-body {
   margin: 1.25rem 0;
