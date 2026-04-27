@@ -5,13 +5,9 @@ authors:
 - Michael Tomz
 - Jason Wittenberg
 - Gary King
-summary: 'This is a set of easy-to-use Stata macros that implement the techniques
-  described in Gary King, Michael Tomz, and Jason Wittenberg''s "Making the Most of
-  Statistical Analyses: Improving Interpretation and Presentation". To install Clarify,
-  type "net fromh...'
+summary: |-
+  This is a set of easy-to-use tools that implement the techniques described in Gary King, Michael Tomz, and Jason Wittenberg's "Making the Most of Statistical Analyses: Improving Interpretation and Presentation." Winner of the Okidata Best Research Software Award from the American Political Science Association. These tools use Monte Carlo simulations to compute interpretable quantities from regression models and perform inference on them. For Stata, see the Journal of Statistical Software article (doi:10.18637/jss.v008.i01); for current R implementations, see https://iqss.github.io/clarify
 ---
-
-This is a set of easy-to-use Stata macros that implement the techniques described in Gary King, Michael Tomz, and Jason Wittenberg's "Making the Most of Statistical Analyses: Improving Interpretation and Presentation". To install Clarify, type "net fromh...
 
 <article class="node node--type-hwp-page node--view-mode-full" lang="en">
 <div class="hwp-page-title hwp-bg-dark-base">
