@@ -1,6 +1,8 @@
 ---
 dataverse_url: "https://doi.org/10.7910/DVN/A9LZNV"
 dataverse_name: "Replication Data for: Why Propensity Scores Should Not Be Used for Matching"
+image:
+  alt_text: "Figure 1 from the paper: simulated data sets comparing matching methods (PSM, MDM, random matching)."
 title: "Why Propensity Scores Should Not Be Used for Matching"
 date: "2019-01-01"
 authors:

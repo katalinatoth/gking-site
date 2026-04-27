@@ -1,0 +1,2 @@
+# Used by scripts/add_featured_from_pdf.py
+pymupdf>=1.24.0
