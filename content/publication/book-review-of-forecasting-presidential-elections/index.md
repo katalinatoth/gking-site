@@ -1,5 +1,5 @@
 ---
-title: "Book Review of `Forecasting Presidential Elections’"
+title: "Book Review of `Forecasting Presidential Elections'"
 date: "1985-01-01"
 authors:
   - "Gary King"

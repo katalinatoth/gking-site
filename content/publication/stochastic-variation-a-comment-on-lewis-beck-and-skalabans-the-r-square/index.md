@@ -1,5 +1,5 @@
 ---
-title: "Stochastic Variation: A Comment on Lewis-Beck and Skalaban’s ’The R-Square’"
+title: "Stochastic Variation: A Comment on Lewis-Beck and Skalaban's 'The R-Square'"
 date: "1991-01-01"
 authors:
   - "Gary King"

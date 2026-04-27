@@ -38,7 +38,7 @@ authors:
 <h4 class="h4 hwp-mb-8">Publication information:</h4>
 <div class="publication-info__body">
 <div class="bibcite-citation">
-<div class="csl-bib-body"><div class="csl-entry">Michail Schwab, Hendrik Strobelt, James Tompkin, Colin Fredericks, Connor Huff, Dana Higgins, Anton Strezhnev, Mayya Komisarchik, Gary King, and Hanspeter Pfister. 2017. “Booc.Io: An Education System With Hierarchical Concept Maps”. IEEE Transactions on Visualization and Computer Graphics, 23, 1, Pp. 571-80.</div></div>
+<div class="csl-bib-body"><div class="csl-entry">Michail Schwab, Hendrik Strobelt, James Tompkin, Colin Fredericks, Connor Huff, Dana Higgins, Anton Strezhnev, Mayya Komisarchik, Gary King, and Hanspeter Pfister. 2017. "Booc.Io: An Education System With Hierarchical Concept Maps". IEEE Transactions on Visualization and Computer Graphics, 23, 1, Pp. 571-80.</div></div>
 </div>
 </div>
 <ul class="publication-info__actions">

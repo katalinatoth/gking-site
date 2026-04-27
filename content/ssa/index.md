@@ -28,7 +28,7 @@ type: "page"
 <div class="hwp-citations-list__downloads">
 <div class="button-dropdown" data-component-name="button-dropdown">
 <button class="hwp-text-link hwp-text-link--icon-right" id="citations_download">
-<span class="hwp-text-link__text">        Download 2 citations      </span>
+<span class="hwp-text-link__text"> Download 2 citations </span>
 <span aria-hidden="true" class="material-icon">download</span>
 </button>
 <ul aria-labelledby="citations_download" class="button-dropdown__items" role="menu">
@@ -65,12 +65,12 @@ type: "page"
 <div class="hwp-citation__text">
 <div class="hwp-text-block__default-text">
 <div class="bibcite-citation">
-<div class="csl-bib-body"><div class="csl-entry">Konstantin Kashin, Gary King, and Samir Soneji. 2015. “<a href="#">Explaining Systematic Bias and Nontransparency in US Social Security Administration Forecasts</a>”. Political Analysis, 23, 3, Pp. 336-62.</div></div>
+<div class="csl-bib-body"><div class="csl-entry">Konstantin Kashin, Gary King, and Samir Soneji. 2015. "<a href="#">Explaining Systematic Bias and Nontransparency in US Social Security Administration Forecasts</a>". Political Analysis, 23, 3, Pp. 336-62.</div></div>
 </div>
 </div>
 <div class="hwp-text-block">
 <div class="bibcite-citation">
-<div class="csl-bib-body"><div class="csl-entry">Konstantin Kashin, Gary King, and Samir Soneji. 2015. “<a href="#">Explaining Systematic Bias and Nontransparency in US Social Security Administration Forecasts</a>”. Political Analysis, 23, 3, Pp. 336-62.</div></div>
+<div class="csl-bib-body"><div class="csl-entry">Konstantin Kashin, Gary King, and Samir Soneji. 2015. "<a href="#">Explaining Systematic Bias and Nontransparency in US Social Security Administration Forecasts</a>". Political Analysis, 23, 3, Pp. 336-62.</div></div>
 </div>
 </div>
 </div>
@@ -120,12 +120,12 @@ type: "page"
 <div class="hwp-citation__text">
 <div class="hwp-text-block__default-text">
 <div class="bibcite-citation">
-<div class="csl-bib-body"><div class="csl-entry">Konstantin Kashin, Gary King, and Samir Soneji. 2015. “<a href="#">Systematic Bias and Nontransparency in US Social Security Administration Forecasts</a>”. Journal of Economic Perspectives, 29, 2, Pp. 239-58.</div></div>
+<div class="csl-bib-body"><div class="csl-entry">Konstantin Kashin, Gary King, and Samir Soneji. 2015. "<a href="#">Systematic Bias and Nontransparency in US Social Security Administration Forecasts</a>". Journal of Economic Perspectives, 29, 2, Pp. 239-58.</div></div>
 </div>
 </div>
 <div class="hwp-text-block">
 <div class="bibcite-citation">
-<div class="csl-bib-body"><div class="csl-entry">Konstantin Kashin, Gary King, and Samir Soneji. 2015. “<a href="#">Systematic Bias and Nontransparency in US Social Security Administration Forecasts</a>”. Journal of Economic Perspectives, 29, 2, Pp. 239-58.</div></div>
+<div class="csl-bib-body"><div class="csl-entry">Konstantin Kashin, Gary King, and Samir Soneji. 2015. "<a href="#">Systematic Bias and Nontransparency in US Social Security Administration Forecasts</a>". Journal of Economic Perspectives, 29, 2, Pp. 239-58.</div></div>
 </div>
 </div>
 </div>
@@ -215,7 +215,7 @@ type: "page"
 </h3>
 <div class="hwp-accordion__content hwp-bg-light-base" hidden="" id="faq-254756-19345825-content">
 <div class="hwp-text-block">
-<p>The Congressional Budget Office (CBO) uses the SSA’s fertility forecast as an input to its forecasting model. Before 2013, CBO also used SSA's mortality forecasts as inputs to its model (<a href="https://www.cbo.gov/publication/44598">here</a> is why they changed).  </p><p>CBO explains on page 103 of <a href="https://www.cbo.gov/publication/45471">The 2014 Long-Term Budget Outlook</a>: "CBO used projected values from the Social Security trustees for fertility rates but produced its own projections for immigration and mortality rates. Together, those projections imply a total U.S. population of 395 million in 2039, compared with 324 million today. CBO also produced its own projection of the rate at which people will qualify for Social Security’s Disability Insurance program in coming decades."</p>
+<p>The Congressional Budget Office (CBO) uses the SSA's fertility forecast as an input to its forecasting model. Before 2013, CBO also used SSA's mortality forecasts as inputs to its model (<a href="https://www.cbo.gov/publication/44598">here</a> is why they changed). </p><p>CBO explains on page 103 of <a href="https://www.cbo.gov/publication/45471">The 2014 Long-Term Budget Outlook</a>: "CBO used projected values from the Social Security trustees for fertility rates but produced its own projections for immigration and mortality rates. Together, those projections imply a total U.S. population of 395 million in 2039, compared with 324 million today. CBO also produced its own projection of the rate at which people will qualify for Social Security's Disability Insurance program in coming decades."</p>
 </div>
 <div class="hwp-accordion-widgets">
 <div class="field field--name-field-hwp-file-upload field--type-entity-reference field--label-hidden">
@@ -255,7 +255,7 @@ type: "page"
 </h3>
 <div class="hwp-accordion__content hwp-bg-light-base" hidden="" id="faq-254746-705056259-content">
 <div class="hwp-text-block">
-<p><span>As an analogy, we can think of policy scores as the coefficient (an intended causal effect) in a regression of a policy output (such as the balance or cost rate) on the treatment variable (whether or not the proposed policy is adopted) plus an error term. SSA offers no uncertainty estimates for this estimated causal effect, although of course some causal effects are likely to be better estimated or better known than others. Sometimes by known ex ante assumptions we may think the effects are known with a high degree of certainty. However, causal effects are never observed in the real world; only the policy outputs are ever observed. To empirically estimate what will happen in the real world if a policy is adopted, or to evaluate a claim about a causal effect’s size or its uncertainty in a way that makes oneself vulnerable to being proven wrong, we must rely on forecasts under present law and forecasts under the counterfactual condition of the policy being adopted. It is the uncertainty of the forecast under present law that our papers show how to estimate using the observed forecast errors. In this evaluation, we find that most of what could be observable from the impact of the causal effects are swamped by these uncertainty estimates. For example, the most recent <a href="http://www.ssa.gov/oact/solvency/PDeFazio_20150423.pdf">SSA evaluation of a policy proposal</a> gives a graphic illustration in Figure 1 which plots the point estimate of the Trust Fund Ratio for each year in the future, under both present law and a proposed law under consideration; each of these lines has uncertainty at least as large as we estimate in our paper. There is also additional uncertainty, over and above forecast errors, because we do not know exactly what would happen if the policy were actually changed, and how all the workers, beneficiaries, government officials, and others would respond under the new regime.</span></p>
+<p><span>As an analogy, we can think of policy scores as the coefficient (an intended causal effect) in a regression of a policy output (such as the balance or cost rate) on the treatment variable (whether or not the proposed policy is adopted) plus an error term. SSA offers no uncertainty estimates for this estimated causal effect, although of course some causal effects are likely to be better estimated or better known than others. Sometimes by known ex ante assumptions we may think the effects are known with a high degree of certainty. However, causal effects are never observed in the real world; only the policy outputs are ever observed. To empirically estimate what will happen in the real world if a policy is adopted, or to evaluate a claim about a causal effect's size or its uncertainty in a way that makes oneself vulnerable to being proven wrong, we must rely on forecasts under present law and forecasts under the counterfactual condition of the policy being adopted. It is the uncertainty of the forecast under present law that our papers show how to estimate using the observed forecast errors. In this evaluation, we find that most of what could be observable from the impact of the causal effects are swamped by these uncertainty estimates. For example, the most recent <a href="http://www.ssa.gov/oact/solvency/PDeFazio_20150423.pdf">SSA evaluation of a policy proposal</a> gives a graphic illustration in Figure 1 which plots the point estimate of the Trust Fund Ratio for each year in the future, under both present law and a proposed law under consideration; each of these lines has uncertainty at least as large as we estimate in our paper. There is also additional uncertainty, over and above forecast errors, because we do not know exactly what would happen if the policy were actually changed, and how all the workers, beneficiaries, government officials, and others would respond under the new regime.</span></p>
 </div>
 <div class="hwp-accordion-widgets">
 <div class="field field--name-field-hwp-file-upload field--type-entity-reference field--label-hidden">
@@ -268,7 +268,7 @@ type: "page"
 <h3 class="h4">
 <button aria-controls="faq-254741-1674692707-content" aria-expanded="false" class="hwp-accordion__button js-hwp-accordion__trigger hwp-accordion__button-auto-close" type="button">
 <span class="title">
-          When is it acceptable for the Social Security Administration to bias today’s forecast towards yesterday’s forecast, producing artificially smooth forecasts over time?
+          When is it acceptable for the Social Security Administration to bias today's forecast towards yesterday's forecast, producing artificially smooth forecasts over time?
         </span>
 <span aria-hidden="true" class="material-icon !hwp-block">expand_more</span>
 </button>
@@ -295,7 +295,7 @@ type: "page"
 </h3>
 <div class="hwp-accordion__content hwp-bg-light-base" hidden="" id="faq-254736-710531351-content">
 <div class="hwp-text-block">
-<p><span>For all the financial indicators, the error in last year’s one-year-ahead forecast is known before this year’s forecast is issued. However, SSA receives mortality data from the National Center for Health Statistics with a 2 to 4 year lag.</span></p>
+<p><span>For all the financial indicators, the error in last year's one-year-ahead forecast is known before this year's forecast is issued. However, SSA receives mortality data from the National Center for Health Statistics with a 2 to 4 year lag.</span></p>
 </div>
 <div class="hwp-accordion-widgets">
 <div class="field field--name-field-hwp-file-upload field--type-entity-reference field--label-hidden">
@@ -335,7 +335,7 @@ type: "page"
 </h3>
 <div class="hwp-accordion__content hwp-bg-light-base" hidden="" id="faq-254726-1869310348-content">
 <div class="hwp-text-block">
-<p><span><span>No.  That would be a great project which we encourage others take up.</span></span></p>
+<p><span><span>No. That would be a great project which we encourage others take up.</span></span></p>
 </div>
 <div class="hwp-accordion-widgets">
 <div class="field field--name-field-hwp-file-upload field--type-entity-reference field--label-hidden">
@@ -386,7 +386,7 @@ type: "page"
 <div class="hwp-citations-list__downloads">
 <div class="button-dropdown" data-component-name="button-dropdown">
 <button class="hwp-text-link hwp-text-link--icon-right" id="citations_download">
-<span class="hwp-text-link__text">        Download 6 citations      </span>
+<span class="hwp-text-link__text"> Download 6 citations </span>
 <span aria-hidden="true" class="material-icon">download</span>
 </button>
 <ul aria-labelledby="citations_download" class="button-dropdown__items" role="menu">
@@ -452,12 +452,12 @@ type: "page"
 <div class="hwp-citation__text">
 <div class="hwp-text-block__default-text">
 <div class="bibcite-citation">
-<div class="csl-bib-body"><div class="csl-entry">Konstantin Kashin, Gary King, and Samir Soneji. 2015. “<a href="#">Replication Data For: Explaining Systematic Bias and Nontransparency in U.S. Social Security Administration Forecasts.</a>”. doi:6:967llFHgiywsHWWp1cVg9A.</div></div>
+<div class="csl-bib-body"><div class="csl-entry">Konstantin Kashin, Gary King, and Samir Soneji. 2015. "<a href="#">Replication Data For: Explaining Systematic Bias and Nontransparency in U.S. Social Security Administration Forecasts.</a>". doi:6:967llFHgiywsHWWp1cVg9A.</div></div>
 </div>
 </div>
 <div class="hwp-text-block">
 <div class="bibcite-citation">
-<div class="csl-bib-body"><div class="csl-entry">Konstantin Kashin, Gary King, and Samir Soneji. 2015. “<a href="#">Replication Data For: Explaining Systematic Bias and Nontransparency in U.S. Social Security Administration Forecasts.</a>”. doi:6:967llFHgiywsHWWp1cVg9A.</div></div>
+<div class="csl-bib-body"><div class="csl-entry">Konstantin Kashin, Gary King, and Samir Soneji. 2015. "<a href="#">Replication Data For: Explaining Systematic Bias and Nontransparency in U.S. Social Security Administration Forecasts.</a>". doi:6:967llFHgiywsHWWp1cVg9A.</div></div>
 </div>
 </div>
 </div>
@@ -482,12 +482,12 @@ type: "page"
 <div class="hwp-citation__text">
 <div class="hwp-text-block__default-text">
 <div class="bibcite-citation">
-<div class="csl-bib-body"><div class="csl-entry">Konstantin Kashin, Gary King, and Samir Soneji. 2015. “<a href="#">Replication Data For: Systematic Bias and Nontransparency in U.S. Social Security Administration Forecasts.</a>”. doi:5:1oerGFXQ0Bu9bcMFU5/t2A.</div></div>
+<div class="csl-bib-body"><div class="csl-entry">Konstantin Kashin, Gary King, and Samir Soneji. 2015. "<a href="#">Replication Data For: Systematic Bias and Nontransparency in U.S. Social Security Administration Forecasts.</a>". doi:5:1oerGFXQ0Bu9bcMFU5/t2A.</div></div>
 </div>
 </div>
 <div class="hwp-text-block">
 <div class="bibcite-citation">
-<div class="csl-bib-body"><div class="csl-entry">Konstantin Kashin, Gary King, and Samir Soneji. 2015. “<a href="#">Replication Data For: Systematic Bias and Nontransparency in U.S. Social Security Administration Forecasts.</a>”. doi:5:1oerGFXQ0Bu9bcMFU5/t2A.</div></div>
+<div class="csl-bib-body"><div class="csl-entry">Konstantin Kashin, Gary King, and Samir Soneji. 2015. "<a href="#">Replication Data For: Systematic Bias and Nontransparency in U.S. Social Security Administration Forecasts.</a>". doi:5:1oerGFXQ0Bu9bcMFU5/t2A.</div></div>
 </div>
 </div>
 </div>
@@ -512,12 +512,12 @@ type: "page"
 <div class="hwp-citation__text">
 <div class="hwp-text-block__default-text">
 <div class="bibcite-citation">
-<div class="csl-bib-body"><div class="csl-entry">Konstantin Kashin, Gary King, and Samir Soneji. 2016. “<a href="#">Scoring Social Security Proposals: Response from Kashin, King, and Soneji</a>”. Journal of Economic Perspectives, 30, 2, Pp. 245-48.</div></div>
+<div class="csl-bib-body"><div class="csl-entry">Konstantin Kashin, Gary King, and Samir Soneji. 2016. "<a href="#">Scoring Social Security Proposals: Response from Kashin, King, and Soneji</a>". Journal of Economic Perspectives, 30, 2, Pp. 245-48.</div></div>
 </div>
 </div>
 <div class="hwp-text-block">
 <div class="bibcite-citation">
-<div class="csl-bib-body"><div class="csl-entry">Konstantin Kashin, Gary King, and Samir Soneji. 2016. “<a href="#">Scoring Social Security Proposals: Response from Kashin, King, and Soneji</a>”. Journal of Economic Perspectives, 30, 2, Pp. 245-48.</div></div>
+<div class="csl-bib-body"><div class="csl-entry">Konstantin Kashin, Gary King, and Samir Soneji. 2016. "<a href="#">Scoring Social Security Proposals: Response from Kashin, King, and Soneji</a>". Journal of Economic Perspectives, 30, 2, Pp. 245-48.</div></div>
 </div>
 </div>
 </div>
@@ -544,7 +544,7 @@ type: "page"
 </ul>
 <div aria-hidden="true" class="hwp-citation__full-body" id="hwp-citation-body-content-823057188">
 <div class="hwp-text-block">
-<div class="hwp-text-block field field--name-bibcite-abst-e field--type-text-long field--label-hidden"> <p>	This is a response to Peter Diamond's comment on a two paragraph passage in our article, Konstantin Kashin, Gary King, and Samir Soneji. 2015. “<a href="#">Systematic Bias and Nontransparency in US Social Security Administration Forecasts</a>.” <em>Journal of Economic</em>...</p>
+<div class="hwp-text-block field field--name-bibcite-abst-e field--type-text-long field--label-hidden"> <p>	This is a response to Peter Diamond's comment on a two paragraph passage in our article, Konstantin Kashin, Gary King, and Samir Soneji. 2015. "<a href="#">Systematic Bias and Nontransparency in US Social Security Administration Forecasts</a>." <em>Journal of Economic</em>...</p>
 </div>
 </div>
 </div>
@@ -567,12 +567,12 @@ type: "page"
 <div class="hwp-citation__text">
 <div class="hwp-text-block__default-text">
 <div class="bibcite-citation">
-<div class="csl-bib-body"><div class="csl-entry">Samir Soneji and Gary King. 2012. “<a href="#">Statistical Security for Social Security</a>”. Demography, 49, 3, Pp. 1037-60.</div></div>
+<div class="csl-bib-body"><div class="csl-entry">Samir Soneji and Gary King. 2012. "<a href="#">Statistical Security for Social Security</a>". Demography, 49, 3, Pp. 1037-60.</div></div>
 </div>
 </div>
 <div class="hwp-text-block">
 <div class="bibcite-citation">
-<div class="csl-bib-body"><div class="csl-entry">Samir Soneji and Gary King. 2012. “<a href="#">Statistical Security for Social Security</a>”. Demography, 49, 3, Pp. 1037-60.</div></div>
+<div class="csl-bib-body"><div class="csl-entry">Samir Soneji and Gary King. 2012. "<a href="#">Statistical Security for Social Security</a>". Demography, 49, 3, Pp. 1037-60.</div></div>
 </div>
 </div>
 </div>
@@ -622,12 +622,12 @@ type: "page"
 <div class="hwp-citation__text">
 <div class="hwp-text-block__default-text">
 <div class="bibcite-citation">
-<div class="csl-bib-body"><div class="csl-entry">Gary King and Samir Soneji. 2011. “<a href="#">The Future of Death in America</a>”. Demographic Research, 25, 1, Pp. 1-38.</div></div>
+<div class="csl-bib-body"><div class="csl-entry">Gary King and Samir Soneji. 2011. "<a href="#">The Future of Death in America</a>". Demographic Research, 25, 1, Pp. 1-38.</div></div>
 </div>
 </div>
 <div class="hwp-text-block">
 <div class="bibcite-citation">
-<div class="csl-bib-body"><div class="csl-entry">Gary King and Samir Soneji. 2011. “<a href="#">The Future of Death in America</a>”. Demographic Research, 25, 1, Pp. 1-38.</div></div>
+<div class="csl-bib-body"><div class="csl-entry">Gary King and Samir Soneji. 2011. "<a href="#">The Future of Death in America</a>". Demographic Research, 25, 1, Pp. 1-38.</div></div>
 </div>
 </div>
 </div>

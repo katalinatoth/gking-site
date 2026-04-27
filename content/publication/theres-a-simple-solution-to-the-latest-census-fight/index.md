@@ -1,5 +1,5 @@
 ---
-title: "There’s a Simple Solution to the Latest Census Fight"
+title: "There's a Simple Solution to the Latest Census Fight"
 date: "2021-01-01"
 authors:
   - "Cynthia Dwork"

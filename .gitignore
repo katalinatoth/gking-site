@@ -25,3 +25,6 @@ data/citation_audit_report.json
 data/publication_doi_fill_report.json
 
 scripts/__pycache__/
+
+# Local venv for one-off scripts (e.g. pip install -r scripts/requirements-mojibake.txt)
+.venv-fix/

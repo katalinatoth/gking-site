@@ -1,5 +1,5 @@
 ---
-title: "Good Research and Bad Research: Extending Zimile’s Criticism"
+title: "Good Research and Bad Research: Extending Zimile's Criticism"
 date: "1993-01-01"
 authors:
   - "Gary King"

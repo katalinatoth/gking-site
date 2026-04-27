@@ -12,5 +12,5 @@ links:
 publication: "New England Journal of Medicine, 366, 7, Pp. 666–668"
 publication_types:
 - journal_article
-title: Letter to the Editor on the ‘Medicare Health Support Pilot Program’ (by McCall and Cromwell)
+title: Letter to the Editor on the 'Medicare Health Support Pilot Program' (by McCall and Cromwell)
 ---

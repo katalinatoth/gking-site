@@ -1,6 +1,6 @@
 ---
 abstract: |-
-  **Background**. Estimates of maternal mortality are important for informing policy and resource allocation, both globally and for individual countries, and to track progress towards Sustainable Development Goals. The Global Maternal Health (GMatH) model was developed for policy analysis and produces global and country-level estimates of maternal mortality. Estimates are also produced by models from the United Nations (UN) and Global Burden of Disease (GBD). 
+  **Background**. Estimates of maternal mortality are important for informing policy and resource allocation, both globally and for individual countries, and to track progress towards Sustainable Development Goals. The Global Maternal Health (GMatH) model was developed for policy analysis and produces global and country-level estimates of maternal mortality. Estimates are also produced by models from the United Nations (UN) and Global Burden of Disease (GBD). 
 
   **Methods**. We compared country-level estimates for 2020 of maternal deaths and the maternal mortality ratio (MMR) across the UN (v2023), GBD (v2021), and GMatH (v2023) models. We summarized the differences, assessed model convergence, and characterized the available empirical mortality data for countries with large differences to shed light on potential reasons for these differences.
 
