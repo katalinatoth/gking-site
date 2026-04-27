@@ -13,5 +13,7 @@ abstract: |-
 links:
   - type: pdf
     url: "files/statistical-intuition-without-coding-or-teachers.pdf"
-publication: "PS: Political Science & Politics, Pp. 730–736"
+  - type: source
+    url: "https://doi.org/10.1017/s1049096525000113"
+publication: "PS: Political Science & Politics, 58, 4, Pp. 730–736"
 ---

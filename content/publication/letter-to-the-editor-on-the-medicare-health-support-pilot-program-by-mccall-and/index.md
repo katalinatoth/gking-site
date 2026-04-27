@@ -9,7 +9,7 @@ links:
   url: files/medhealth-nejm.pdf
 - type: source
   url: http://www.nejm.org/doi/full/10.1056/NEJMc1114006
-publication: New England Journal of Medicine, 366, 7, Pp. 667
+publication: "New England Journal of Medicine, 366, 7, Pp. 666–668"
 publication_types:
 - journal_article
 title: Letter to the Editor on the ‘Medicare Health Support Pilot Program’ (by McCall and Cromwell)

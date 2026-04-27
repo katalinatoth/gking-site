@@ -14,7 +14,7 @@ links:
   url: files/socann.pdf
 - type: source
   url: https://www.frontiersin.org/articles/10.3389/feduc.2018.00008/full?&utm_source=Email_to_authors_&utm_medium=Email&utm_content=T1_11.5e1_author&utm_campaign=Email_publication&field=&journalName=Frontiers_in_Education&id=315665
-publication: Frontiers in Education, 3, 8, Pp. 1-12
+publication: "Frontiers in Education, 3"
 publication_types:
 - journal_article
 title: Use of a Social Annotation Platform for Pre-Class Reading Assignments in a Flipped Introductory Physics Class

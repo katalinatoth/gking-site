@@ -14,5 +14,5 @@ links:
     url: "files/mnsc.2020.3818.pdf"
   - type: source
     url: "https://doi.org/10.1287/mnsc.2020.3818"
-publication: "Management Science, Pp. 1-24"
+publication: "Management Science, 67, 10, Pp. 6174–6197"
 ---

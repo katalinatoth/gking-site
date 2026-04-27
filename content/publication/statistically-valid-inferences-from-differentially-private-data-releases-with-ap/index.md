@@ -19,5 +19,5 @@ links:
     url: "files/statistically-valid-inferences-from-differentially-private-data-releases-with-application-to-the-facebook-urls-dataset.pdf"
   - type: source
     url: "https://www.doi.org/10.1017/pan.2022.1"
-publication: "Political Analysis, 31, 1, Pp. 1-21"
+publication: "Political Analysis, 31, 1, Pp. 1–21"
 ---

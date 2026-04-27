@@ -13,7 +13,7 @@ links:
   url: files/ajps12291_final.pdf
 - type: source
   url: https://doi.org/10.1111/ajps.12291
-publication: American Journal of Political Science, 61, 4, Pp. 971-88
+publication: "American Journal of Political Science, 61, 4, Pp. 971–988"
 publication_types:
 - journal_article
 title: Computer-Assisted Keyword and Document Set Discovery from Unstructured Text

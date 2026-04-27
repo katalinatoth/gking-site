@@ -6,7 +6,7 @@ authors:
   - Gary King
 publication_types:
   - journal_article
-publication: "Journal of Statistical Software, 11(7), Pp. 1–41"
+publication: "Journal of Statistical Software, 11, 7"
 abstract: |-
   The program EI provides a method of inferring individual behavior from aggregate data. It implements the statistical procedures, diagnostics, and graphics from the book A Solution to the Ecological Inference Problem: Reconstructing Individual Behavior from Aggregate Data (King 1997).
 

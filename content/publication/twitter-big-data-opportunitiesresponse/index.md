@@ -14,7 +14,7 @@ links:
   url: files/twitter-bigdataop.pdf
 - type: source
   url: https://www.science.org/doi/10.1126/science.345.6193.148-b
-publication: Science, 345, 6193, Pp. 148-49
+publication: "Science, 345, 6193, Pp. 148–149"
 publication_types:
 - journal_article
 title: 'Twitter: Big Data Opportunities—Response'

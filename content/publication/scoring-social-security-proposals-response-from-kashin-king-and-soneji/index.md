@@ -11,7 +11,7 @@ links:
   url: files/s12-c.pdf
 - type: doi
   url: https://doi.org/10.1257/jep.30.2.245
-publication: Journal of Economic Perspectives, 30, 2, Pp. 245-48
+publication: "Journal of Economic Perspectives, 30, 2, Pp. 245–248"
 publication_types:
 - journal_article
 title: 'Scoring Social Security Proposals: Response from Kashin, King, and Soneji'

@@ -22,5 +22,5 @@ links:
     url: "files/e2025865118.full_.pdf"
   - type: source
     url: "https://doi.org/10.1073/pnas.2025865118"
-publication: "Proceedings of the National Academy of Sciences, 118, 18, Pp. 1-11"
+publication: "Proceedings of the National Academy of Sciences, 118, 18"
 ---

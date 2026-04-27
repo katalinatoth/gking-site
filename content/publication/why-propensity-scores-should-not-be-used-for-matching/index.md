@@ -19,5 +19,5 @@ links:
     url: "https://doi.org/10.1017/pan.2019.11"
   - name: "Supplementary Material"
     url: "files/psnot-supp.pdf"
-publication: "Political Analysis, 27, 4, Pp. 435-54"
+publication: "Political Analysis, 27, 4, Pp. 435–454"
 ---

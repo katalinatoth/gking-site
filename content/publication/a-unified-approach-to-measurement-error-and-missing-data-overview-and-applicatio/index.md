@@ -15,7 +15,7 @@ links:
   url: files/measure.pdf
 - type: source
   url: http://journals.sagepub.com/doi/full/10.1177/0049124115585360
-publication: Sociological Methods and Research, 46, 3, Pp. 303-41
+publication: "Sociological Methods & Research, 46, 3, Pp. 303–341"
 publication_types:
 - journal_article
 title: 'A Unified Approach to Measurement Error and Missing Data: Overview and Applications'

@@ -1,0 +1,340 @@
+#!/usr/bin/env python3
+"""
+Set `publication:` from Crossref metadata using the first suitable DOI in
+front matter (links, abstract; Dataverse DOIs are skipped). Only journal and
+proceedings articles with a container title and at least volume, issue, or
+pages in Crossref are updated.
+
+Usage (from hugo-site/):
+  python3 scripts/fill_publication_from_doi.py
+  python3 scripts/fill_publication_from_doi.py --apply
+"""
+from __future__ import annotations
+
+import argparse
+import html
+import json
+import re
+import ssl
+import sys
+import time
+import urllib.error
+import urllib.parse
+import urllib.request
+from pathlib import Path
+from typing import Any
+
+try:
+    import certifi
+
+    def _ssl_context() -> ssl.SSLContext:
+        return ssl.create_default_context(cafile=certifi.where())
+except ImportError:
+    def _ssl_context() -> ssl.SSLContext:
+        return ssl.create_default_context()
+
+try:
+    import yaml
+except ImportError as e:
+    print("Install PyYAML: pip install pyyaml", file=sys.stderr)
+    raise SystemExit(1) from e
+
+DOI_IN_TEXT = re.compile(
+    r"\b10\.\d{4,9}/[-._;()/:A-Z0-9]+",
+    re.IGNORECASE,
+)
+CROSSREF_SKIPPED_PREFIXES = (
+    "10.7910/",
+    "10.5281/",
+    "10.3886/",
+    "10.17605/",
+)
+
+
+def clean_doi(d: str) -> str:
+    d = d.rstrip(").,;]}\"'")
+    d = d.split("?", 1)[0]
+    for suf in ("/full", "/html", "/abstract", "/v1", "/v2", "/version"):
+        if d.lower().endswith(suf):
+            d = d[: -len(suf)]
+    return d
+
+
+def collect_dois(fm: dict[str, Any]) -> list[str]:
+    found: set[str] = set()
+    dv = fm.get("dataverse_url")
+    if isinstance(dv, str):
+        for d in DOI_IN_TEXT.findall(dv):
+            found.add(clean_doi(d))
+    links = fm.get("links")
+    if isinstance(links, list):
+        for item in links:
+            if not isinstance(item, dict):
+                continue
+            u = item.get("url", "")
+            if isinstance(u, str):
+                for d in DOI_IN_TEXT.findall(u):
+                    found.add(clean_doi(d))
+    for key in ("doi", "publication_doi", "citation_doi"):
+        v = fm.get(key)
+        if isinstance(v, str):
+            for d in DOI_IN_TEXT.findall(v):
+                found.add(clean_doi(d))
+    abs_ = fm.get("abstract")
+    if isinstance(abs_, str):
+        for d in DOI_IN_TEXT.findall(abs_):
+            found.add(clean_doi(d))
+    hb = fm.get("hugoblox")
+    if isinstance(hb, dict):
+        ids_ = hb.get("ids")
+        if isinstance(ids_, dict):
+            d = ids_.get("doi")
+            if isinstance(d, str) and d.strip():
+                found.add(clean_doi(d.strip()))
+    return sorted(
+        found,
+        key=lambda x: (x.lower().startswith("10.7910"), -len(x)),
+    )
+
+
+def first_crossref_doi(dois: list[str]) -> str | None:
+    preferred: list[str] = []
+    fallback: list[str] = []
+    for d in dois:
+        if any(d.startswith(p) for p in CROSSREF_SKIPPED_PREFIXES):
+            continue
+        tail = d.split("/", 1)[-1] if "/" in d else d
+        if re.match(r"^978-?\d", tail) or d.startswith("10.3389/978"):
+            fallback.append(d)
+        else:
+            preferred.append(d)
+    for d in preferred + fallback:
+        return d
+    return None
+
+
+def crossref_fetch(doi: str) -> tuple[dict[str, Any] | None, str | None]:
+    enc = urllib.parse.quote(doi)
+    url = f"https://api.crossref.org/works/{enc}"
+    req = urllib.request.Request(
+        url,
+        headers={
+            "User-Agent": "gking-site-pubfill/1.0 (https://github.com/KatalinaToth/gking-site)",
+        },
+    )
+    try:
+        with urllib.request.urlopen(
+            req, timeout=45, context=_ssl_context()
+        ) as resp:
+            data = json.loads(resp.read().decode("utf-8", errors="replace"))
+    except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, json.JSONDecodeError, OSError) as e:
+        return (None, str(e)[:400])
+    if not isinstance(data, dict) or "message" not in data:
+        return (None, "invalid response")
+    return (data["message"], None)
+
+
+def normalize_page_field(page: str) -> str:
+    s = page.strip().replace("–", "-").replace("—", "-")
+    s = re.sub(r"(\d)\s*-\s*(\d)", r"\1–\2", s)
+    return s
+
+
+TYPES_OK = frozenset({"journal-article", "proceedings-article"})
+
+# Do not overwrite manually curated citation lines (Crossref journal title may differ).
+SKIP_SLUGS = frozenset(
+    {
+        "cem-coarsened-exact-matching-in-stata",
+        "cem-software-for-coarsened-exact-matching",
+        "cem-coarsened-exact-matching-software",
+        "clarify-software-for-interpreting-and-presenting-statistical-results",
+    }
+)
+
+
+def format_publication_line(msg: dict[str, Any]) -> str | None:
+    mtype = msg.get("type") or ""
+    if mtype and mtype not in TYPES_OK:
+        return None
+    cont = msg.get("container-title")
+    if not cont or not isinstance(cont, list) or not (cont[0] or "").strip():
+        return None
+    journal = html.unescape(str(cont[0]).strip())
+    vol = (msg.get("volume") or "").strip()
+    iss = (msg.get("issue") or "").strip()
+    page = (msg.get("page") or "").strip()
+    if not vol and not iss and not page:
+        return None
+    parts: list[str] = [journal]
+    if vol:
+        parts.append(vol)
+    if iss:
+        parts.append(iss)
+    if page:
+        parts.append("Pp. " + normalize_page_field(page))
+    return ", ".join(parts)
+
+
+def load_front_matter_block(path: Path) -> tuple[str, str] | None:
+    text = path.read_text(encoding="utf-8", errors="replace")
+    if not text.startswith("---\n") and not text.startswith("---\r\n"):
+        return None
+    if text.startswith("---\r\n"):
+        end = 5
+    else:
+        end = 4
+    rest = text[end:]
+    m = re.search(r"^---\s*$", rest, re.MULTILINE)
+    if not m:
+        return None
+    yml = rest[: m.start()]
+    body = rest[m.end() :]
+    return (yml, body)
+
+
+def write_front_matter(path: Path, yml: str, body: str) -> None:
+    path.write_text("---\n" + yml + "---\n" + body, encoding="utf-8")
+
+
+def set_publication_in_yml(yml: str, new_publication: str) -> str:
+    inner = new_publication.replace("\\", "\\\\").replace('"', '\\"')
+    line = f'publication: "{inner}"\n'
+    if re.search(r"^publication:\s", yml, re.MULTILINE):
+        return re.sub(
+            r"^publication:\s*.*\n",
+            line,
+            yml,
+            count=1,
+            flags=re.MULTILINE,
+        )
+    yml = yml.rstrip() + "\n" + line
+    return yml + ("\n" if not yml.endswith("\n") else "")
+
+
+def collect_dois_raw(text: str) -> list[str]:
+    """Extract DOI strings from raw file text when YAML cannot be parsed."""
+    found: set[str] = set()
+    for m in DOI_IN_TEXT.finditer(text):
+        found.add(clean_doi(m.group(0)))
+    return sorted(
+        found,
+        key=lambda x: (x.lower().startswith("10.7910"), -len(x)),
+    )
+
+
+def extract_old_publication(yml_raw: str) -> str | None:
+    m = re.search(r'(?m)^publication:\s*"(.*)"\s*$', yml_raw)
+    if m:
+        return m.group(1).replace('\\"', '"')
+    m = re.search(r"(?m)^publication:\s*(.+)\s*$", yml_raw)
+    if m:
+        return m.group(1).strip()
+    return None
+
+
+def run(pub_dir: Path, apply: bool, delay: float) -> None:
+    rows: list[dict[str, Any]] = []
+    for index_md in sorted(pub_dir.glob("*/index.md")):
+        slug = index_md.parent.name
+        if slug in SKIP_SLUGS:
+            rows.append({"slug": slug, "status": "skip_excluded"})
+            continue
+        block = load_front_matter_block(index_md)
+        if not block:
+            rows.append({"slug": slug, "status": "no_front_matter"})
+            continue
+        yml_raw, body = block
+        full_text = f"---\n{yml_raw}---\n{body}"
+        fm: dict[str, Any] | None
+        try:
+            fm = yaml.safe_load(yml_raw) or {}
+        except yaml.YAMLError:
+            fm = None
+        if fm is not None:
+            dois = collect_dois(fm)
+        else:
+            dois = collect_dois_raw(full_text)
+        old_s: str | None
+        if fm is not None:
+            old_pub = fm.get("publication")
+            old_s = old_pub if isinstance(old_pub, str) else None
+        else:
+            old_s = extract_old_publication(yml_raw)
+        doi = first_crossref_doi(dois)
+        if not doi:
+            rows.append({"slug": slug, "status": "no_doi"})
+            continue
+        msg, err = crossref_fetch(doi)
+        time.sleep(delay)
+        if not msg:
+            rows.append(
+                {
+                    "slug": slug,
+                    "status": "crossref_error",
+                    "doi": doi,
+                    "error": err,
+                }
+            )
+            continue
+        new_pub = format_publication_line(msg)
+        if not new_pub:
+            rows.append(
+                {
+                    "slug": slug,
+                    "status": "skip_type",
+                    "doi": doi,
+                    "cr_type": msg.get("type"),
+                }
+            )
+            continue
+        rows.append(
+            {
+                "slug": slug,
+                "status": "ok",
+                "doi": doi,
+                "old": old_s,
+                "new": new_pub,
+            }
+        )
+        if apply and new_pub != old_s:
+            new_yml = set_publication_in_yml(yml_raw, new_pub)
+            write_front_matter(index_md, new_yml, body)
+
+    out_path = pub_dir.parent.parent / "data" / "publication_doi_fill_report.json"
+    out_path.write_text(json.dumps(rows, indent=2) + "\n", encoding="utf-8")
+
+    changed = [r for r in rows if r.get("status") == "ok" and r.get("new") != r.get("old")]
+    print("Wrote", out_path)
+    for k, label in [
+        ("ok", "resolved"),
+        ("no_doi", "no usable doi"),
+        ("crossref_error", "crossref error"),
+        ("skip_type", "skipped (type / missing fields)"),
+        ("skip_excluded", "skipped (slug allowlist)"),
+        ("no_front_matter", "no fm"),
+    ]:
+        n = len([r for r in rows if r.get("status") == k])
+        if n:
+            print(f"  {label}: {n}")
+    print(f"publication line updated (or would be): {len(changed)}")
+
+
+def main() -> None:
+    ap = argparse.ArgumentParser()
+    ap.add_argument(
+        "--hugo-root",
+        type=Path,
+        default=Path(__file__).resolve().parent.parent,
+    )
+    ap.add_argument("--apply", action="store_true")
+    ap.add_argument("--delay", type=float, default=0.12)
+    args = ap.parse_args()
+    pub = args.hugo_root / "content" / "publication"
+    if not args.apply:
+        print("DRY RUN — no files written. Use --apply to update.\n")
+    run(pub, apply=args.apply, delay=args.delay)
+
+
+if __name__ == "__main__":
+    main()

@@ -20,7 +20,7 @@ links:
   url: files/0314policyforumff.pdf
 - type: source
   url: https://www.science.org/doi/10.1126/science.1248506
-publication: Science, 343, 14 March, Pp. 1203-5
+publication: "Science, 343, 6176, Pp. 1203–1205"
 publication_types:
 - journal_article
 title: 'The Parable of Google Flu: Traps in Big Data Analysis'

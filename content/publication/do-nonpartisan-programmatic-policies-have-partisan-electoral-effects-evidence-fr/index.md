@@ -15,7 +15,7 @@ links:
   url: http://www.journals.uchicago.edu/doi/10.1086/707059
 - name: Supplementary Material
   url: files/progpol-supp.pdf
-publication: Journal of Politics, 81, 2, Pp. 714-30
+publication: "The Journal of Politics, 82, 2, Pp. 714–730"
 publication_types:
 - journal_article
 title: Do Nonpartisan Programmatic Policies Have Partisan Electoral Effects? Evidence from Two Large Scale Experiments

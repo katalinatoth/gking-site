@@ -21,5 +21,5 @@ links:
     url: "files/political_analysis-2015-kashin-pan-mpv011.pdf"
   - type: source
     url: "http://pan.oxfordjournals.org/lookup/doi/10.1093/pan/mpv011"
-publication: "Political Analysis, 23, 3, Pp. 336-62"
+publication: "Political Analysis, 23, 3, Pp. 336–362"
 ---
