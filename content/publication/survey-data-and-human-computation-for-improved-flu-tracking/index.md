@@ -18,7 +18,7 @@ links:
   url: https://doi.org/10.1038/s41467-020-20206-z
 - name: Supplementary Material
   url: files/supporting_information_survey_data_and_human_computation_for_improved_flu_tracking_revision_2_.pdf
-publication: "Nature Communications, 12, 1"
+publication: "Nature Communications, 12, 1, Pp. 194"
 publication_types:
 - journal_article
 title: Survey Data and Human Computation for Improved Flu Tracking

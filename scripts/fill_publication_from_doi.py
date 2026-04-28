@@ -183,6 +183,63 @@ def crossref_fetch(doi: str) -> tuple[dict[str, Any] | None, str | None]:
     return (data["message"], None)
 
 
+def _normalize_title(s: str) -> str:
+    return re.sub(r"\s+", " ", re.sub(r"[^a-z0-9 ]", "", s.lower())).strip()
+
+
+def crossref_search_by_title(
+    title: str, authors: list[str], year: str | None
+) -> tuple[str | None, dict[str, Any] | None, str | None]:
+    """Search Crossref by title+author; return (doi, message, error).
+
+    Accepts a candidate only if its normalized title equals the query
+    title and at least one author surname appears in the candidate's
+    author list. This is the fallback path for papers whose PDF prints
+    no DOI string (older BMC and similar journals)."""
+    if not title:
+        return (None, None, "no title")
+    surnames = [a.split()[-1] for a in authors if a]
+    params = {
+        "query.title": title,
+        "rows": "5",
+    }
+    if surnames:
+        params["query.author"] = " ".join(surnames)
+    url = "https://api.crossref.org/works?" + urllib.parse.urlencode(params)
+    req = urllib.request.Request(
+        url,
+        headers={
+            "User-Agent": "gking-site-pubfill/1.0 (https://github.com/KatalinaToth/gking-site)",
+        },
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=45, context=_ssl_context()) as resp:
+            data = json.loads(resp.read().decode("utf-8", errors="replace"))
+    except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError, json.JSONDecodeError, OSError) as e:
+        return (None, None, str(e)[:400])
+    items = (data.get("message") or {}).get("items") or []
+    qt = _normalize_title(title)
+    qsurnames = {s.lower() for s in surnames}
+    for it in items:
+        if it.get("type") not in TYPES_OK:
+            continue
+        cand_titles = it.get("title") or []
+        if not any(_normalize_title(t) == qt for t in cand_titles):
+            continue
+        if year:
+            issued = (it.get("issued") or {}).get("date-parts") or [[None]]
+            cy = str((issued[0] or [None])[0] or "")
+            if cy and abs(int(cy or 0) - int(year)) > 1:
+                continue
+        if qsurnames:
+            cand_authors = it.get("author") or []
+            cand_surnames = {(a.get("family") or "").lower() for a in cand_authors}
+            if not (qsurnames & cand_surnames):
+                continue
+        return (it.get("DOI"), it, None)
+    return (None, None, "no match")
+
+
 def normalize_page_field(page: str) -> str:
     s = page.strip().replace("–", "-").replace("—", "-")
     s = re.sub(r"(\d)\s*-\s*(\d)", r"\1–\2", s)
@@ -224,7 +281,8 @@ def format_publication_line(msg: dict[str, Any]) -> str | None:
     vol = (msg.get("volume") or "").strip()
     iss = (msg.get("issue") or "").strip()
     page = (msg.get("page") or "").strip()
-    if not vol and not iss and not page:
+    article = (msg.get("article-number") or "").strip()
+    if not vol and not iss and not page and not article:
         return None
     parts: list[str] = [journal]
     if vol:
@@ -233,6 +291,8 @@ def format_publication_line(msg: dict[str, Any]) -> str | None:
         parts.append(iss)
     if page:
         parts.append("Pp. " + normalize_page_field(page))
+    elif article:
+        parts.append("Pp. " + article)
     return ", ".join(parts)
 
 
@@ -331,6 +391,28 @@ def run(pub_dir: Path, apply: bool, delay: float) -> None:
                             seen.add(d)
                     if not doi_source:
                         doi_source = "pdf"
+        title_search_result: dict[str, Any] | None = None
+        if not first_crossref_doi(dois) and fm is not None:
+            old_pub_for_check = fm.get("publication")
+            old_pub_str = old_pub_for_check if isinstance(old_pub_for_check, str) else ""
+            pub_types_fm = [t for t in (fm.get("publication_types") or []) if isinstance(t, str)]
+            allowed_types = {"journal_article", "proceedings_article"}
+            type_ok = bool(set(pub_types_fm) & allowed_types) or not pub_types_fm
+            empty_pub = not old_pub_str.strip()
+            if type_ok and empty_pub:
+                title = (fm.get("title") or "").strip()
+                authors_fm = [a for a in (fm.get("authors") or []) if isinstance(a, str)]
+                year = ""
+                d_ = fm.get("date")
+                if isinstance(d_, str) and len(d_) >= 4:
+                    year = d_[:4]
+                if title:
+                    doi_t, msg_t, _ = crossref_search_by_title(title, authors_fm, year)
+                    time.sleep(delay)
+                    if doi_t and msg_t:
+                        dois.append(doi_t)
+                        title_search_result = msg_t
+                        doi_source = "title_search"
         old_s: str | None
         if fm is not None:
             old_pub = fm.get("publication")
@@ -341,8 +423,11 @@ def run(pub_dir: Path, apply: bool, delay: float) -> None:
         if not doi:
             rows.append({"slug": slug, "status": "no_doi"})
             continue
-        msg, err = crossref_fetch(doi)
-        time.sleep(delay)
+        if title_search_result is not None and clean_doi(title_search_result.get("DOI") or "") == doi:
+            msg, err = title_search_result, None
+        else:
+            msg, err = crossref_fetch(doi)
+            time.sleep(delay)
         if not msg:
             rows.append(
                 {

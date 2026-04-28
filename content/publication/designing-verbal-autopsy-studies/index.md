@@ -9,7 +9,7 @@ date: '2010-01-01'
 links:
 - type: pdf
   url: files/desva_0.pdf
-publication: ""
+publication: "Population Health Metrics, 8, 1, Pp. 19"
 publication_types:
 - journal_article
 title: Designing Verbal Autopsy Studies

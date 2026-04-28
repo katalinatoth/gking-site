@@ -17,7 +17,7 @@ links:
   url: https://doi.org/10.1126/science.1251722
 - name: Supplementary Material
   url: files/king.sm_.pdf
-publication: Science, 345, 6199, Pp. 1-10
+publication: "Science, 345, 6199, Pp. 1251722"
 publication_types:
 - journal_article
 title: 'Reverse-Engineering Censorship in China: Randomized Experimentation and Participant Observation'

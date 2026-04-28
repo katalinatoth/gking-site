@@ -30,7 +30,7 @@ links:
   url: https://doi.org/10.1186/s13063-016-1673-x
 - name: Supplementary Material
   url: files/semrau_et_al-2016-trials.sup-1.pdf
-publication: "Trials, 17, 1, Pp. 1-10"
+publication: "Trials, 17, 1, Pp. 576"
 publication_types:
 - journal_article
 title: 'Effectiveness of the WHO Safe Childbirth Checklist Program in Reducing Severe Maternal, Fetal, and Newborn Harm: Study Protocol for a Matched-Pair, Cluster Randomized Controlled Trial in Uttar Pradesh, India'
