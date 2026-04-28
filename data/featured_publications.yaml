@@ -36,4 +36,12 @@ order:
   - experimental-evidence-on-the-limited-influence-of-reputable-media-outlets
   - how-american-politics-ensures-electoral-accountability-in-congress
 
-exclude: []
+exclude:
+  # The four -jss companion entries split out from existing software pages on
+  # 2026-04-26. Their fresh first-commit date is newer than anything in
+  # `order`, so without this they auto-prepend and push real working papers
+  # off the bottom (e.g. Anchors 2011 / EI 2004 reappearing as "new").
+  - amelia-ii-a-program-for-missing-data-jss
+  - anchors-software-for-anchoring-vignettes-data-jss
+  - ei-a-program-for-ecological-inference-jss
+  - matchit-nonparametric-preprocessing-for-parametric-causal-inference-jss
