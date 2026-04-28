@@ -12,8 +12,8 @@ links:
 - type: pdf
   url: files/pan_2100048_r.pdf
 - type: source
-  url: https://tinyurl.com/yakq3k2l
-publication: Political Analysis
+  url: https://doi.org/10.1017/pan.2021.48
+publication: "Political Analysis, 31, 3, Pp. 335–336"
 publication_types:
 - journal_article
 title: 'Rejoinder: Concluding Remarks on Scholarly Communications'

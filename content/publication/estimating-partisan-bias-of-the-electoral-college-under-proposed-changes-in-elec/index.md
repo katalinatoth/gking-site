@@ -12,7 +12,7 @@ links:
   url: files/spp-2012-0001.aop_.pdf
 - type: source
   url: http://www.degruyter.com/view/j/spp.ahead-of-print/spp-2012-0001/spp-2012-0001.xml?format=INT
-publication: Statistics, Politics, and Policy, Pp. 1-13
+publication: "Statistics, Politics and Policy, 4, 1, Pp. 1–13"
 publication_types:
 - journal_article
 title: Estimating Partisan Bias of the Electoral College Under Proposed Changes in Elector Apportionment

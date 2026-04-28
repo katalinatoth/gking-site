@@ -10,7 +10,7 @@ date: '2013-01-01'
 links:
 - type: pdf
   url: files/troubledfuture.pdf
-publication: 'PS: Political Science and Politics, 46, 1, Pp. 81-113'
+publication: "Political Science and Politics, 46, 1, Pp. 83–89"
 publication_types:
 - journal_article
 title: The Troubled Future of Colleges and Universities (with Comments from Five Scholar-Administrators)

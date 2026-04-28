@@ -11,5 +11,5 @@ abstract: |-
 links:
   - type: pdf
     url: "files/1s.pdf"
-publication: "Statistics in Medicine, 21, Pp. 1409–1427"
+publication: "Statistics in Medicine, 21, 10, Pp. 1409–1427"
 ---

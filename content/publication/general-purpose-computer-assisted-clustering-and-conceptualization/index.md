@@ -17,5 +17,5 @@ links:
     url: "http://www.pnas.org/content/early/2011/01/31/1018067108.abstract"
   - name: "Supplementary Material"
     url: "files/discov-supp.pdf"
-publication: "Proceedings of the National Academy of Sciences"
+publication: "Proceedings of the National Academy of Sciences, 108, 7, Pp. 2643–2650"
 ---

@@ -1,0 +1,792 @@
+[
+  {
+    "slug": "10-million-international-dyadic-events",
+    "type": "source",
+    "old": "http://hdl.handle.net/1902.1/FYXLAWZRIA",
+    "status": 202,
+    "final": "https://dataverse.harvard.edu/citation?persistentId=hdl:1902.1/FYXLAWZRIA",
+    "error": null,
+    "new": null,
+    "doi_url": null
+  },
+  {
+    "slug": "a-new-model-for-industry-academic-partnerships",
+    "type": "source",
+    "old": "https://www.cambridge.org/core/journals/ps-political-science-and-politics/article/new-model-for-industryacademic-partnerships/AD7D0B8EA582DC017D9A24754D833CAA",
+    "status": 200,
+    "final": "https://www.cambridge.org/core/journals/ps-political-science-and-politics/article/new-model-for-industryacademic-partnerships/AD7D0B8EA582DC017D9A24754D833CAA",
+    "error": null,
+    "new": null,
+    "doi_url": "https://doi.org/10.1017/S1049096519001021"
+  },
+  {
+    "slug": "a-proposed-standard-for-the-scholarly-citation-of-quantitative-data",
+    "type": "source",
+    "old": "http://www.dlib.org/dlib/march07/altman/03altman.html",
+    "status": 200,
+    "final": "https://www.dlib.org/dlib/march07/altman/03altman.html",
+    "error": null,
+    "new": null,
+    "doi_url": null
+  },
+  {
+    "slug": "a-simulation-based-comparative-effectiveness-analysis-of-policies-to-improve-glo",
+    "type": "source",
+    "old": "https://www.nature.com/articles/s41591-023-02311-w",
+    "status": 200,
+    "final": "https://www.nature.com/articles/s41591-023-02311-w?error=cookies_not_supported&code=4cade5b5-748b-4556-afc1-9fd472f7662b",
+    "error": null,
+    "new": null,
+    "doi_url": "https://doi.org/10.1038/s41591-023-02311-w"
+  },
+  {
+    "slug": "a-theory-of-statistical-inference-for-ensuring-the-robustness-of-scientific-resu",
+    "type": "source",
+    "old": "https://doi.org/10.1287/mnsc.2020.3818",
+    "status": 403,
+    "final": "https://pubsonline.informs.org/doi/10.1287/mnsc.2020.3818",
+    "error": null,
+    "new": null,
+    "doi_url": "https://doi.org/10.1287/mnsc.2020.3818"
+  },
+  {
+    "slug": "a-unified-approach-to-measurement-error-and-missing-data-overview-and-applicatio",
+    "type": "source",
+    "old": "http://journals.sagepub.com/doi/full/10.1177/0049124115585360",
+    "status": 403,
+    "final": "https://journals.sagepub.com/doi/full/10.1177/0049124115585360",
+    "error": null,
+    "new": null,
+    "doi_url": "https://doi.org/10.1177/0049124115585360"
+  },
+  {
+    "slug": "amelia-ii-a-program-for-missing-data-jss",
+    "type": "pdf",
+    "old": "https://gking.harvard.edu/sites/g/files/omnuum7116/files/gking/files/amelia_jss.pdf",
+    "status": 200,
+    "final": "https://gking.harvard.edu/sites/g/files/omnuum7116/files/gking/files/amelia_jss.pdf",
+    "error": null,
+    "new": null,
+    "doi_url": null
+  },
+  {
+    "slug": "an-update-on-dataverse",
+    "type": "source",
+    "old": "https://blog.oup.com/2014/12/gary-king-update-dataverse-journal-database/",
+    "status": 200,
+    "final": "https://blog.oup.com/2014/12/gary-king-update-dataverse-journal-database/",
+    "error": null,
+    "new": null,
+    "doi_url": null
+  },
+  {
+    "slug": "an-update-on-dataverse",
+    "type": "",
+    "old": "https://blog.oup.com/2014/12/gary-king-update-dataverse-journal-database/",
+    "status": 200,
+    "final": "https://blog.oup.com/2014/12/gary-king-update-dataverse-journal-database/",
+    "error": null,
+    "new": null,
+    "doi_url": null
+  },
+  {
+    "slug": "an-update-on-dataverse",
+    "type": "",
+    "old": "https://blog.oup.com/2014/11/replication-data-access-transparency-social-science/",
+    "status": 200,
+    "final": "https://blog.oup.com/2014/11/replication-data-access-transparency-social-science/",
+    "error": null,
+    "new": null,
+    "doi_url": null
+  },
+  {
+    "slug": "anchors-software-for-anchoring-vignettes-data-jss",
+    "type": "pdf",
+    "old": "https://gking.harvard.edu/sites/g/files/omnuum7116/files/gking/files/anchors-jss_0.pdf",
+    "status": 200,
+    "final": "https://gking.harvard.edu/sites/g/files/omnuum7116/files/gking/files/anchors-jss_0.pdf",
+    "error": null,
+    "new": null,
+    "doi_url": null
+  },
+  {
+    "slug": "anchors-software-for-anchoring-vignettes-data-jss",
+    "type": "code",
+    "old": "https://github.com/IQSS/anchors",
+    "status": 200,
+    "final": "https://github.com/IQSS/anchors",
+    "error": null,
+    "new": null,
+    "doi_url": null
+  },
+  {
+    "slug": "anchors-software-for-anchoring-vignettes-data-jss",
+    "type": "source",
+    "old": "https://www.jstatsoft.org/article/view/v042i03",
+    "status": 200,
+    "final": "https://www.jstatsoft.org/article/view/v042i03",
+    "error": null,
+    "new": null,
+    "doi_url": null
+  },
+  {
+    "slug": "automating-open-science-for-big-data",
+    "type": "source",
+    "old": "http://ann.sagepub.com.ezp-prod1.hul.harvard.edu/content/659/1/260.full.pdf+html",
+    "status": 200,
+    "final": "http://ezp-prod1.hul.harvard.edu/login?qurl=http://ann.sagepub.com%2fcontent%2f659%2f1%2f260.full.pdf%2bhtml",
+    "error": null,
+    "new": "https://doi.org/10.1177/0002716215570847",
+    "doi_url": "https://doi.org/10.1177/0002716215570847"
+  },
+  {
+    "slug": "boocio-an-education-system-with-hierarchical-concept-maps",
+    "type": "source",
+    "old": "https://ieeexplore.ieee.org/document/7536150",
+    "status": 200,
+    "final": "https://ieeexplore.ieee.org/document/7536150",
+    "error": null,
+    "new": null,
+    "doi_url": null
+  },
+  {
+    "slug": "building-an-international-consortium-for-tracking-coronavirus-health-status",
+    "type": "source",
+    "old": "https://www.nature.com/articles/s41591-020-0929-x",
+    "status": 200,
+    "final": "https://www.nature.com/articles/s41591-020-0929-x?error=cookies_not_supported&code=be9b572c-1700-4abc-bdcb-762e83b20f45",
+    "error": null,
+    "new": null,
+    "doi_url": "https://doi.org/10.1101/2020.04.02.20051284"
+  },
+  {
+    "slug": "causal-inference-without-balance-checking-coarsened-exact-matching",
+    "type": "source",
+    "old": "https://www.cambridge.org/core/journals/political-analysis/article/causal-inference-without-balance-checking-coarsened-exact-matching/5ABCF5B3FC3089A87FD59CECBB3465C0",
+    "status": 200,
+    "final": "https://www.cambridge.org/core/journals/political-analysis/article/causal-inference-without-balance-checking-coarsened-exact-matching/5ABCF5B3FC3089A87FD59CECBB3465C0",
+    "error": null,
+    "new": null,
+    "doi_url": "https://doi.org/10.1093/pan/mpr013"
+  },
+  {
+    "slug": "cem-coarsened-exact-matching-in-stata",
+    "type": "source",
+    "old": "https://doi.org/10.1177/1536867X0900900402",
+    "status": 403,
+    "final": "https://journals.sagepub.com/doi/10.1177/1536867X0900900402",
+    "error": null,
+    "new": null,
+    "doi_url": "https://doi.org/10.1177/1536867X0900900402"
+  },
+  {
+    "slug": "cem-coarsened-exact-matching-software",
+    "type": "source",
+    "old": "https://doi.org/10.18637/jss.v030.i09",
+    "status": 200,
+    "final": "https://www.jstatsoft.org/article/view/v030i09",
+    "error": null,
+    "new": null,
+    "doi_url": "https://doi.org/10.18637/jss.v030.i09"
+  },
+  {
+    "slug": "cem-software-for-coarsened-exact-matching",
+    "type": "source",
+    "old": "https://doi.org/10.18637/jss.v030.i09",
+    "status": 200,
+    "final": "https://www.jstatsoft.org/article/view/v030i09",
+    "error": null,
+    "new": null,
+    "doi_url": "https://doi.org/10.18637/jss.v030.i09"
+  },
+  {
+    "slug": "comment-on-estimating-the-reproducibility-of-psychological-science",
+    "type": "source",
+    "old": "http://science.sciencemag.org/content/351/6277/1037.2",
+    "status": 403,
+    "final": "https://science.sciencemag.org/content/351/6277/1037.2",
+    "error": null,
+    "new": null,
+    "doi_url": null
+  },
+  {
+    "slug": "computational-social-science-obstacles-and-opportunities",
+    "type": "source",
+    "old": "https://science.sciencemag.org/content/369/6507/1060",
+    "status": 403,
+    "final": "https://science.sciencemag.org/content/369/6507/1060",
+    "error": null,
+    "new": "https://doi.org/10.1126/science.aaz8170",
+    "doi_url": "https://doi.org/10.1126/science.aaz8170"
+  },
+  {
+    "slug": "computer-assisted-keyword-and-document-set-discovery-from-unstructured-text",
+    "type": "source",
+    "old": "https://doi.org/10.1111/ajps.12291",
+    "status": 403,
+    "final": "https://onlinelibrary.wiley.com/doi/10.1111/ajps.12291",
+    "error": null,
+    "new": null,
+    "doi_url": "https://doi.org/10.1111/ajps.12291"
+  },
+  {
+    "slug": "data-analyses-and-reports-for-the-arizona-independent-redistricting-commission-f",
+    "type": "custom",
+    "old": "https://gking-projects.iq.harvard.edu/AZ-DOJ/index.shtml",
+    "status": 200,
+    "final": "https://gking-projects.iq.harvard.edu/AZ-DOJ/index.shtml",
+    "error": null,
+    "new": null,
+    "doi_url": null
+  },
+  {
+    "slug": "designing-social-inquiry-scientific-inference-in-qualitative-research",
+    "type": "source",
+    "old": "https://press.princeton.edu/books/hardcover/9780691224633/designing-social-inquiry",
+    "status": 200,
+    "final": "https://press.princeton.edu/books/hardcover/9780691224633/designing-social-inquiry",
+    "error": null,
+    "new": null,
+    "doi_url": null
+  },
+  {
+    "slug": "designing-social-inquiry-scientific-inference-in-qualitative-research-new-editio",
+    "type": "source",
+    "old": "https://press.princeton.edu/books/hardcover/9780691224633/designing-social-inquiry",
+    "status": 200,
+    "final": "https://press.princeton.edu/books/hardcover/9780691224633/designing-social-inquiry",
+    "error": null,
+    "new": null,
+    "doi_url": null
+  },
+  {
+    "slug": "differentially-private-survey-research",
+    "type": "source",
+    "old": "https://onlinelibrary.wiley.com/share/author/682Q7HPPCU7HRKIUPNQS?target=10.1111/ajps.12890",
+    "status": 403,
+    "final": "https://onlinelibrary.wiley.com/share/author/682Q7HPPCU7HRKIUPNQS?target=10.1111/ajps.12890",
+    "error": null,
+    "new": null,
+    "doi_url": "https://doi.org/10.1111/ajps.12890"
+  },
+  {
+    "slug": "do-nonpartisan-programmatic-policies-have-partisan-electoral-effects-evidence-fr",
+    "type": "source",
+    "old": "http://www.journals.uchicago.edu/doi/10.1086/707059",
+    "status": 403,
+    "final": "https://www.journals.uchicago.edu/doi/10.1086/707059",
+    "error": null,
+    "new": null,
+    "doi_url": "https://doi.org/10.1086/707059"
+  },
+  {
+    "slug": "education-and-scholarship-by-video",
+    "type": "source",
+    "old": "https://docs.google.com/document/d/1YcWrmzTxDhaAl_l0Dp_pLijaqJ_wFT-y2tHp4A1qzio/edit?usp=sharing",
+    "status": 200,
+    "final": "https://docs.google.com/document/d/1YcWrmzTxDhaAl_l0Dp_pLijaqJ_wFT-y2tHp4A1qzio/edit?usp=sharing",
+    "error": null,
+    "new": null,
+    "doi_url": null
+  },
+  {
+    "slug": "effectiveness-of-the-who-safe-childbirth-checklist-program-in-reducing-severe-ma",
+    "type": "source",
+    "old": "http://rdcu.be/AGQs",
+    "status": 200,
+    "final": "https://link.springer.com/epdf/10.1186/s13063-016-1673-x?author_access_token=hzapuXJBioNP7s_Wp6juvW_BpE1tBhCbnbw3BuzI2RMkOPNm6Ew5-2FKQ-LMK_Vcs1c8YkC2-W07y9--BQIIARHU5w_CI0LUOxDPQHigt0YToZbW6ITTO-UfKXvqJJkm0eHOgJMqAzkhbe7vymy-WQ%3D%3D&error=cookies_not_supported&code=d0fab302-9f4c-418a-8de1-29ec0a66fd4a",
+    "error": null,
+    "new": "https://doi.org/10.1186/s13063-016-1673-x",
+    "doi_url": "https://doi.org/10.1186/s13063-016-1673-x"
+  },
+  {
+    "slug": "ei-a-program-for-ecological-inference-jss",
+    "type": "pdf",
+    "old": "https://www.jstatsoft.org/article/download/v011i07/16",
+    "status": 200,
+    "final": "https://www.jstatsoft.org/article/download/v011i07/16",
+    "error": null,
+    "new": null,
+    "doi_url": "https://doi.org/10.18637/jss.v011.i07"
+  },
+  {
+    "slug": "ei-a-program-for-ecological-inference-jss",
+    "type": "source",
+    "old": "https://www.jstatsoft.org/article/view/v011i07",
+    "status": 200,
+    "final": "https://www.jstatsoft.org/article/view/v011i07",
+    "error": null,
+    "new": null,
+    "doi_url": "https://doi.org/10.18637/jss.v011.i07"
+  },
+  {
+    "slug": "ei-a-program-for-ecological-inference-jss",
+    "type": "custom",
+    "old": "https://www.jstatsoft.org/article/download/v011i07/1459",
+    "status": 200,
+    "final": "https://www.jstatsoft.org/article/download/v011i07/1459",
+    "error": null,
+    "new": null,
+    "doi_url": "https://doi.org/10.18637/jss.v011.i07"
+  },
+  {
+    "slug": "elections-to-the-united-states-house-of-representatives-1898-1992",
+    "type": "source",
+    "old": "http://hdl.handle.net/1902.1/TQDSSPRDDZ",
+    "status": 202,
+    "final": "https://dataverse.harvard.edu/citation?persistentId=hdl:1902.1/TQDSSPRDDZ",
+    "error": null,
+    "new": null,
+    "doi_url": null
+  },
+  {
+    "slug": "estimating-incidence-curves-of-several-infections-using-symptom-surveillance-dat",
+    "type": "source",
+    "old": "http://www.plosone.org/article/info:doi/10.1371/journal.pone.0023380",
+    "status": 200,
+    "final": "https://journals.plos.org/plosone/",
+    "error": null,
+    "new": null,
+    "doi_url": "https://doi.org/10.1371/journal.pone.0023380"
+  },
+  {
+    "slug": "estimating-partisan-bias-of-the-electoral-college-under-proposed-changes-in-elec",
+    "type": "source",
+    "old": "http://www.degruyter.com/view/j/spp.ahead-of-print/spp-2012-0001/spp-2012-0001.xml?format=INT",
+    "status": 200,
+    "final": "https://www.degruyterbrill.com:443/journal/key/spp/html",
+    "error": null,
+    "new": null,
+    "doi_url": "https://doi.org/10.1515/spp-2012-0001"
+  },
+  {
+    "slug": "explaining-systematic-bias-and-nontransparency-in-us-social-security-administrat-2015-215",
+    "type": "source",
+    "old": "http://pan.oxfordjournals.org/lookup/doi/10.1093/pan/mpv011",
+    "status": null,
+    "final": null,
+    "error": "The read operation timed out",
+    "new": "https://doi.org/10.1093/pan/mpv011",
+    "doi_url": "https://doi.org/10.1093/pan/mpv011"
+  },
+  {
+    "slug": "general-purpose-computer-assisted-clustering-and-conceptualization",
+    "type": "source",
+    "old": "http://www.pnas.org/content/early/2011/01/31/1018067108.abstract",
+    "status": 403,
+    "final": "https://www.pnas.org/content/early/2011/01/31/1018067108.abstract",
+    "error": null,
+    "new": null,
+    "doi_url": "https://doi.org/10.1073/pnas.1018067108"
+  },
+  {
+    "slug": "how-robust-standard-errors-expose-methodological-problems-they-do-not-fix-and-wh",
+    "type": "source",
+    "old": "http://pan.oxfordjournals.org/content/23/2/159",
+    "status": null,
+    "final": null,
+    "error": "The read operation timed out",
+    "new": "https://doi.org/10.1093/pan/mpu015",
+    "doi_url": "https://doi.org/10.1093/pan/mpu015"
+  },
+  {
+    "slug": "how-the-news-media-activate-public-expression-and-influence-national-agendas-2017",
+    "type": "source",
+    "old": "http://science.sciencemag.org/cgi/rapidpdf/358/6364/776?ijkey=yJZhbgQUH1Gi.&keytype=ref&siteid=sci",
+    "status": 403,
+    "final": "https://science.sciencemag.org/cgi/rapidpdf/358/6364/776?ijkey=yJZhbgQUH1Gi.&keytype=ref&siteid=sci",
+    "error": null,
+    "new": null,
+    "doi_url": null
+  },
+  {
+    "slug": "how-to-conquer-partisan-gerrymandering",
+    "type": "source",
+    "old": "https://www.bostonglobe.com/opinion/2017/12/26/how-conquer-partisan-gerrymandering/MRdsgd3cx7R6MiodBFW5QI/story.html",
+    "status": 200,
+    "final": "https://www.bostonglobe.com/opinion/2017/12/26/how-conquer-partisan-gerrymandering/MRdsgd3cx7R6MiodBFW5QI/story.html",
+    "error": null,
+    "new": null,
+    "doi_url": null
+  },
+  {
+    "slug": "how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-2021",
+    "type": "source",
+    "old": "http://doi.org/10.1111/ajps.12603",
+    "status": 403,
+    "final": "https://onlinelibrary.wiley.com/doi/10.1111/ajps.12603",
+    "error": null,
+    "new": "https://doi.org/10.1111/ajps.12603",
+    "doi_url": "https://doi.org/10.1111/ajps.12603"
+  },
+  {
+    "slug": "letter-to-the-editor-on-the-medicare-health-support-pilot-program-by-mccall-and",
+    "type": "source",
+    "old": "http://www.nejm.org/doi/full/10.1056/NEJMc1114006",
+    "status": 403,
+    "final": "https://www.nejm.org/doi/full/10.1056/NEJMc1114006",
+    "error": null,
+    "new": null,
+    "doi_url": "https://doi.org/10.1056/NEJMc1114006"
+  },
+  {
+    "slug": "matchit-nonparametric-preprocessing-for-parametric-causal-inference-jss",
+    "type": "pdf",
+    "old": "https://gking.harvard.edu/sites/g/files/omnuum7116/files/gking/files/v42i08.pdf",
+    "status": 200,
+    "final": "https://gking.harvard.edu/sites/g/files/omnuum7116/files/gking/files/v42i08.pdf",
+    "error": null,
+    "new": null,
+    "doi_url": null
+  },
+  {
+    "slug": "matchit-nonparametric-preprocessing-for-parametric-causal-inference-jss",
+    "type": "source",
+    "old": "https://www.jstatsoft.org/article/view/v042i08",
+    "status": 200,
+    "final": "https://www.jstatsoft.org/article/view/v042i08",
+    "error": null,
+    "new": null,
+    "doi_url": null
+  },
+  {
+    "slug": "opendp-developing-open-source-tools-for-differential-privacy",
+    "type": "site",
+    "old": "https://opendp.org/",
+    "status": 200,
+    "final": "https://opendp.org/",
+    "error": null,
+    "new": null,
+    "doi_url": null
+  },
+  {
+    "slug": "openscholar",
+    "type": "site",
+    "old": "https://osprojectsite.org/home",
+    "status": 200,
+    "final": "https://theopenscholar.com/",
+    "error": null,
+    "new": null,
+    "doi_url": null
+  },
+  {
+    "slug": "population-scale-longitudinal-mapping-of-covid-19-symptoms-behaviour-and-testing",
+    "type": "source",
+    "old": "https://rdcu.be/b7dA6",
+    "status": 200,
+    "final": "https://www.nature.com/articles/s41562-020-00944-2.epdf?sharing_token=B1knI35e3_-sszAP7lFAtdRgN0jAjWel9jnR3ZoTv0MBRM0Wwn-y6oUmmCsKaW5trGaDAURTWKosFy4Q_vU2hte4MoZzrtnPC3Hu3K80n0uKS5tdM9sWKbWTj87Io1kJKVOlNI1HWQMh_SJ9MrObMEpN2lWB3g5gxUM_fv6Lg5M%3D&error=cookies_not_supported&code=209fa0ed-e315-4fae-abb1-073fb2669fc7",
+    "error": null,
+    "new": "https://doi.org/10.1038/s41562-020-00944-2",
+    "doi_url": "https://doi.org/10.1038/s41562-020-00944-2"
+  },
+  {
+    "slug": "precision-mapping-child-undernutrition-for-nearly-600000-inhabited-census-villag",
+    "type": "source",
+    "old": "https://doi.org/10.1073/pnas.2025865118",
+    "status": 403,
+    "final": "https://pnas.org/doi/full/10.1073/pnas.2025865118",
+    "error": null,
+    "new": null,
+    "doi_url": "https://doi.org/10.1073/pnas.2025865118"
+  },
+  {
+    "slug": "privacyunbiased",
+    "type": "site",
+    "old": "https://github.com/georgieevans/PrivacyUnbiased",
+    "status": 200,
+    "final": "https://github.com/georgieevans/PrivacyUnbiased",
+    "error": null,
+    "new": null,
+    "doi_url": null
+  },
+  {
+    "slug": "psi-\u03c8-a-private-data-sharing-interface",
+    "type": "source",
+    "old": "http://arxiv.org/abs/1609.04340",
+    "status": 200,
+    "final": "https://arxiv.org/abs/1609.04340",
+    "error": null,
+    "new": null,
+    "doi_url": null
+  },
+  {
+    "slug": "quickcode",
+    "type": "site",
+    "old": "https://quickcode.ai",
+    "status": 200,
+    "final": "https://quickcode.ai",
+    "error": null,
+    "new": null,
+    "doi_url": null
+  },
+  {
+    "slug": "rejoinder-concluding-remarks-on-scholarly-communications",
+    "type": "source",
+    "old": "https://tinyurl.com/yakq3k2l",
+    "status": 200,
+    "final": "https://gking.harvard.edu/publications/rejoinder-concluding-remarks-scholarly-communications",
+    "error": null,
+    "new": "https://doi.org/10.1017/pan.2021.48",
+    "doi_url": "https://doi.org/10.1017/pan.2021.48"
+  },
+  {
+    "slug": "replication-data-for-explaining-systematic-bias-and-nontransparency-in-us-social",
+    "type": "source",
+    "old": "http://dx.doi.org/10.7910/DVN/28323",
+    "status": 202,
+    "final": "https://dataverse.harvard.edu/citation?persistentId=doi:10.7910/DVN/28323",
+    "error": null,
+    "new": "https://doi.org/10.7910/DVN/28323",
+    "doi_url": null
+  },
+  {
+    "slug": "replication-data-for-public-policy-for-the-poor-a-randomised-assessment-of-the-m",
+    "type": "source",
+    "old": "http://hdl.handle.net/1902.1/11044",
+    "status": 202,
+    "final": "https://dataverse.harvard.edu/citation?persistentId=hdl:1902.1/11044",
+    "error": null,
+    "new": null,
+    "doi_url": null
+  },
+  {
+    "slug": "replication-data-for-systematic-bias-and-nontransparency-in-us-social-security-a",
+    "type": "source",
+    "old": "http://dx.doi.org/10.7910/DVN/28122",
+    "status": 202,
+    "final": "https://dataverse.harvard.edu/citation?persistentId=doi:10.7910/DVN/28122",
+    "error": null,
+    "new": "https://doi.org/10.7910/DVN/28122",
+    "doi_url": null
+  },
+  {
+    "slug": "restructuring-the-social-sciences-reflections-from-harvards-institute-for-quanti",
+    "type": "source",
+    "old": "http://journals.cambridge.org/repo_A9100Nlq",
+    "status": 200,
+    "final": "https://www.cambridge.org/core/author-access-redirect-support",
+    "error": null,
+    "new": "https://doi.org/10.1017/S1049096513001534",
+    "doi_url": "https://doi.org/10.1017/S1049096513001534"
+  },
+  {
+    "slug": "reverse-engineering-censorship-in-china-randomized-experimentation-and-participa",
+    "type": "source",
+    "old": "http://www.sciencemag.org/content/345/6199/1251722.abstract",
+    "status": 403,
+    "final": "https://www.sciencemag.org/content/345/6199/1251722.abstract",
+    "error": null,
+    "new": "https://doi.org/10.1126/science.1251722",
+    "doi_url": "https://doi.org/10.1126/science.1251722"
+  },
+  {
+    "slug": "scoring-social-security-proposals-response-from-kashin-king-and-soneji",
+    "type": "doi",
+    "old": "https://doi.org/10.1257/jep.30.2.245",
+    "status": 403,
+    "final": "https://pubs.aeaweb.org/doi/10.1257/jep.30.2.245",
+    "error": null,
+    "new": null,
+    "doi_url": "https://doi.org/10.1257/jep.30.2.245"
+  },
+  {
+    "slug": "simulation-based-estimates-and-projections-of-global-regional-and-country-level",
+    "type": "source",
+    "old": "https://www.nature.com/articles/s41591-023-02310-x",
+    "status": 200,
+    "final": "https://www.nature.com/articles/s41591-023-02310-x?error=cookies_not_supported&code=af1adc1d-2dca-44a2-8cfc-2dea146a560d",
+    "error": null,
+    "new": null,
+    "doi_url": "https://doi.org/10.1038/s41591-023-02310-x"
+  },
+  {
+    "slug": "statistical-intuition-without-coding-or-teachers",
+    "type": "source",
+    "old": "https://doi.org/10.1017/s1049096525000113",
+    "status": 200,
+    "final": "https://www.cambridge.org/core/journals/ps-political-science-and-politics/article/statistical-intuition-without-coding-or-teachers/DCBD467916E3345106214A57DF064D01",
+    "error": null,
+    "new": null,
+    "doi_url": "https://doi.org/10.1017/s1049096525000113"
+  },
+  {
+    "slug": "statistical-security-for-social-security",
+    "type": "source",
+    "old": "http://link.springer.com/article/10.1007%2Fs13524-012-0106-z",
+    "status": 200,
+    "final": "https://link.springer.com/article/10.1007/s13524-012-0106-z?error=cookies_not_supported&code=0dd64bfe-3f4d-49d4-b11b-f0ca26fdaf8e",
+    "error": null,
+    "new": null,
+    "doi_url": "https://doi.org/10.1007/s13524-012-0106-z"
+  },
+  {
+    "slug": "statistical-security-for-social-security",
+    "type": "",
+    "old": "http://hdl.handle.net/1902.1/16178",
+    "status": 202,
+    "final": "https://dataverse.harvard.edu/citation?persistentId=hdl:1902.1/16178",
+    "error": null,
+    "new": null,
+    "doi_url": "https://doi.org/10.1007/s13524-012-0106-z"
+  },
+  {
+    "slug": "statistical-security-for-social-security",
+    "type": "",
+    "old": "http://hdl.handle.net/1902.1/19822",
+    "status": 202,
+    "final": "https://dataverse.harvard.edu/citation?persistentId=hdl:1902.1/19822",
+    "error": null,
+    "new": null,
+    "doi_url": "https://doi.org/10.1007/s13524-012-0106-z"
+  },
+  {
+    "slug": "statistically-valid-inferences-from-differentially-private-data-releases-with-ap",
+    "type": "source",
+    "old": "https://www.doi.org/10.1017/pan.2022.1",
+    "status": 200,
+    "final": "https://www.cambridge.org/core/journals/political-analysis/article/statistically-valid-inferences-from-differentially-private-data-releases-with-application-to-the-facebook-urls-dataset/EF48830D31BCA66C1E6FD5C995F33B71",
+    "error": null,
+    "new": "https://doi.org/10.1017/pan.2022.1",
+    "doi_url": "https://doi.org/10.1017/pan.2022.1"
+  },
+  {
+    "slug": "statistically-valid-inferences-from-privacy-protected-data",
+    "type": "source",
+    "old": "https://www.doi.org/10.1017/S0003055422001411",
+    "status": 200,
+    "final": "https://www.cambridge.org/core/journals/american-political-science-review/article/statistically-valid-inferences-from-privacyprotected-data/F372D4F7C9C6F93F15106FA3EE162FC0",
+    "error": null,
+    "new": "https://doi.org/10.1017/S0003055422001411",
+    "doi_url": "https://doi.org/10.1017/S0003055422001411"
+  },
+  {
+    "slug": "survey-data-and-human-computation-for-improved-flu-tracking",
+    "type": "source",
+    "old": "https://doi.org/10.1038/s41467-020-20206-z",
+    "status": 200,
+    "final": "https://www.nature.com/articles/s41467-020-20206-z?error=cookies_not_supported&code=d35d7cde-e62b-4ed2-adb2-c84a01a585fd",
+    "error": null,
+    "new": null,
+    "doi_url": "https://doi.org/10.1038/s41467-020-20206-z"
+  },
+  {
+    "slug": "systematic-bias-and-nontransparency-in-us-social-security-administration-forecas",
+    "type": "source",
+    "old": "https://www.aeaweb.org/articles.php?doi=10.1257/jep.29.2.239",
+    "status": 200,
+    "final": "https://www.aeaweb.org/articles?id=10.1257/jep.29.2.239",
+    "error": null,
+    "new": null,
+    "doi_url": "https://doi.org/10.1257/jep.29.2.239"
+  },
+  {
+    "slug": "the-citys-losing-clout",
+    "type": "source",
+    "old": "https://timesmachine.nytimes.com/timesmachine/1979/07/05/issue.html",
+    "status": 200,
+    "final": "https://timesmachine.nytimes.com/timesmachine/1979/07/05/issue.html",
+    "error": null,
+    "new": null,
+    "doi_url": null
+  },
+  {
+    "slug": "the-elusive-executive-discovering-statistical-patterns-in-the-presidency",
+    "type": "source",
+    "old": "http://www.amazon.com/exec/obidos/tg/detail/-/0871874326/ref=lpr_g_1/102-2774965-4828120?v=glance&s=books",
+    "status": 200,
+    "final": "https://www.amazon.com/exec/obidos/tg/detail/-/0871874326/ref=lpr_g_1/102-2774965-4828120?v=glance&s=books",
+    "error": null,
+    "new": null,
+    "doi_url": null
+  },
+  {
+    "slug": "the-future-of-death-in-america",
+    "type": "doi",
+    "old": "https://doi.org/10.4054/DemRes.2011.25.1",
+    "status": 404,
+    "final": "https://www.demographic-research.org/articles/volume/25/1",
+    "error": null,
+    "new": null,
+    "doi_url": "https://doi.org/10.4054/DemRes.2011.25.1"
+  },
+  {
+    "slug": "the-math-prefresher-and-the-collective-future-of-political-science-graduate-trai",
+    "type": "source",
+    "old": "https://doi.org/10.1017/S1049096519002245",
+    "status": 200,
+    "final": "https://www.cambridge.org/core/journals/ps-political-science-and-politics/article/math-prefresher-and-the-collective-future-of-political-science-graduate-training/7F808A5624086D8A692C354FE810048E",
+    "error": null,
+    "new": null,
+    "doi_url": "https://doi.org/10.1017/S1049096519002245"
+  },
+  {
+    "slug": "the-parable-of-google-flu-traps-in-big-data-analysis",
+    "type": "source",
+    "old": "https://www.science.org/doi/10.1126/science.1248506",
+    "status": 403,
+    "final": "https://www.science.org/doi/10.1126/science.1248506",
+    "error": null,
+    "new": null,
+    "doi_url": "https://doi.org/10.1126/science.1248506"
+  },
+  {
+    "slug": "theres-a-simple-solution-to-the-latest-census-fight",
+    "type": "source",
+    "old": "https://www.bostonglobe.com/2021/07/26/opinion/theres-simple-solution-latest-census-fight/",
+    "status": 200,
+    "final": "https://www.bostonglobe.com/2021/07/26/opinion/theres-simple-solution-latest-census-fight/",
+    "error": null,
+    "new": null,
+    "doi_url": null
+  },
+  {
+    "slug": "twitter-big-data-opportunitiesresponse",
+    "type": "source",
+    "old": "https://www.science.org/doi/10.1126/science.345.6193.148-b",
+    "status": 403,
+    "final": "https://www.science.org/doi/10.1126/science.345.6193.148-b",
+    "error": null,
+    "new": null,
+    "doi_url": "https://doi.org/10.1126/science.345.6193.148-b"
+  },
+  {
+    "slug": "urban-observatories-city-data-can-inform-decision-theory",
+    "type": "source",
+    "old": "http://www.nature.com/nature/journal/v519/n7543/full/519291b.html",
+    "status": 200,
+    "final": "https://www.nature.com/articles/519291b?error=cookies_not_supported&code=7c552ee1-5317-4343-8701-843c53efdd84",
+    "error": null,
+    "new": null,
+    "doi_url": "https://doi.org/10.1038/519291b"
+  },
+  {
+    "slug": "use-of-a-social-annotation-platform-for-pre-class-reading-assignments-in-a-flipp",
+    "type": "source",
+    "old": "https://www.frontiersin.org/articles/10.3389/feduc.2018.00008/full?&utm_source=Email_to_authors_&utm_medium=Email&utm_content=T1_11.5e1_author&utm_campaign=Email_publication&field=&journalName=Frontiers_in_Education&id=315665",
+    "status": 200,
+    "final": "https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2018.00008/full?utm_source=Email_to_authors_&utm_medium=Email&utm_content=T1_11.5e1_author&utm_campaign=Email_publication&field=&journalName=Frontiers_in_Education&id=315665",
+    "error": null,
+    "new": null,
+    "doi_url": "https://doi.org/10.3389/feduc.2018.00008"
+  },
+  {
+    "slug": "whatif-software-for-evaluating-counterfactuals",
+    "type": "source",
+    "old": "https://www.jstatsoft.org/article/view/v015i04/0",
+    "status": 200,
+    "final": "https://www.jstatsoft.org/article/view/v015i04/0",
+    "error": null,
+    "new": null,
+    "doi_url": null
+  },
+  {
+    "slug": "why-propensity-scores-should-not-be-used-for-matching",
+    "type": "source",
+    "old": "https://doi.org/10.1017/pan.2019.11",
+    "status": 200,
+    "final": "https://www.cambridge.org/core/journals/political-analysis/article/why-propensity-scores-should-not-be-used-for-matching/94DDE7ED8E2A796B693096EB714BE68B",
+    "error": null,
+    "new": null,
+    "doi_url": "https://doi.org/10.1017/pan.2019.11"
+  }
+]

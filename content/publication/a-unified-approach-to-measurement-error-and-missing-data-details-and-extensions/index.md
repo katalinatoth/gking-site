@@ -15,7 +15,7 @@ links:
   url: files/measured.pdf
 - type: source
   url: '#'
-publication: Sociological Methods and Research, 46, 3, Pp. 342-69
+publication: "Sociological Methods & Research, 46, 3, Pp. 342–369"
 publication_types:
 - journal_article
 title: 'A Unified Approach to Measurement Error and Missing Data: Details and Extensions'

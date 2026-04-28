@@ -14,4 +14,5 @@ links:
 publication_types:
 - conference_proceedings
 title: Evaluating the Impacts of Swapping on the US Decennial Census
+publication: "Proceedings of the Symposium on Computer Science and Law on ZZZ, Pp. 64–76"
 ---

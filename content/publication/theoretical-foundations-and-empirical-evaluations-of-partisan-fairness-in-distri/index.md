@@ -14,5 +14,5 @@ abstract: |-
 links:
   - type: pdf
     url: "files/theoretical_foundations_and_empirical_evaluations_of_partisan_fairness_in_districtbased_democracies.pdf"
-publication: "American Political Science Review, 114, 1, Pp. 164-78"
+publication: "American Political Science Review, 114, 1, Pp. 164–178"
 ---

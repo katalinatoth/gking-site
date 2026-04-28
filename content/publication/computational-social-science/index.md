@@ -24,5 +24,5 @@ abstract: |-
 links:
   - type: pdf
     url: "files/LazPenAda09.pdf"
-publication: "Science, 323, Pp. 721-23"
+publication: "Science, 323, 5915, Pp. 721–723"
 ---

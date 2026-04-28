@@ -17,5 +17,5 @@ abstract: |-
 links:
   - type: pdf
     url: "files/matchp.pdf"
-publication: "Political Analysis, 15, Pp. 199–236"
+publication: "Political Analysis, 15, 3, Pp. 199–236"
 ---

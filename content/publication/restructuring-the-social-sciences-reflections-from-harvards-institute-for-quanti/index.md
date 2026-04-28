@@ -11,6 +11,6 @@ links:
   - type: pdf
     url: "files/king14.pdf"
   - type: source
-    url: "http://journals.cambridge.org/repo_A9100Nlq"
-publication: "PS: Political Science and Politics, 47, 1, Pp. 165-72"
+    url: "https://doi.org/10.1017/S1049096513001534"
+publication: "Political Science and Politics, 47, 1, Pp. 165–172"
 ---

@@ -15,5 +15,5 @@ abstract: |-
 links:
   - type: pdf
     url: "files/counterft.pdf"
-publication: "Political Analysis, 14, Pp. 131–159"
+publication: "Political Analysis, 14, 2, Pp. 131–159"
 ---

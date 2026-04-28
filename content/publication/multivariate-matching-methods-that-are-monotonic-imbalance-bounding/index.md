@@ -16,5 +16,5 @@ abstract: |-
 links:
   - type: pdf
     url: "files/cem_jasa.pdf"
-publication: "Journal of the American Statistical Association, 106, 493, Pp. 345-61"
+publication: "Journal of the American Statistical Association, 106, 493, Pp. 345–361"
 ---

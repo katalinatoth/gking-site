@@ -12,5 +12,5 @@ abstract: |-
 links:
   - type: pdf
     url: "files/multi.pdf"
-publication: "Political Analysis, 27, 1, Pp. 46-68"
+publication: "Political Analysis, 27, 1, Pp. 46–68"
 ---

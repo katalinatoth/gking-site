@@ -35,7 +35,7 @@ links:
   - type: pdf
     url: "files/psr_2200141_fn_1.pdf"
   - type: source
-    url: "https://www.doi.org/10.1017/S0003055422001411"
+    url: "https://doi.org/10.1017/S0003055422001411"
   - name: "Supplementary Material"
     url: "files/udp-supp.pdf"
 publication: "American Political Science Review, 117, 4, Pp. 1275–1290"

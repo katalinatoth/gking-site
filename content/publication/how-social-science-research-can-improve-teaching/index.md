@@ -10,7 +10,7 @@ date: '2013-01-01'
 links:
 - type: pdf
   url: files/teaching.pdf
-publication: ""
+publication: "Political Science and Politics, 46, 3, Pp. 621–629"
 publication_types:
 - journal_article
 title: How Social Science Research Can Improve Teaching

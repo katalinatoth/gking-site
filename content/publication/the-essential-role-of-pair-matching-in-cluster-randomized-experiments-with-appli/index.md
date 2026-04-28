@@ -16,7 +16,7 @@ abstract: |-
 links:
   - type: pdf
     url: "files/cluster.pdf"
-publication: "Statistical Science, 24, Pp. 29–53"
+publication: "Statistical Science, 24, 1, Pp. 29–53"
 related_papers:
 - matched-pairs-and-the-future-of-cluster-randomized-experiments-a-rejoinder
 ---

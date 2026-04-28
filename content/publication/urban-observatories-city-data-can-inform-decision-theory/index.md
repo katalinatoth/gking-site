@@ -14,7 +14,7 @@ links:
   url: files/urban_decision_informatics2.pdf
 - type: source
   url: http://www.nature.com/nature/journal/v519/n7543/full/519291b.html
-publication: ""
+publication: "Nature, 519, 7543, Pp. 291–291"
 publication_types:
 - journal_article
 title: 'Urban Observatories: City Data Can Inform Decision Theory'

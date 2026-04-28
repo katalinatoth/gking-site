@@ -21,5 +21,5 @@ links:
     url: "files/ecological_regression_with_partial_identification.pdf"
   - name: "Supplementary Material"
     url: "files/appendix.pdf"
-publication: "Political Analysis, 28, 1, Pp. 1-22"
+publication: "Political Analysis, 28, 1, Pp. 65–86"
 ---

@@ -16,7 +16,7 @@ links:
   url: http://hdl.handle.net/1902.1/16178
 - name: Replication Data
   url: http://hdl.handle.net/1902.1/19822
-publication: Demography, 49, 3, Pp. 1037-60
+publication: "Demography, 49, 3, Pp. 1037–1060"
 publication_types:
 - journal_article
 title: Statistical Security for Social Security

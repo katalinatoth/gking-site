@@ -13,5 +13,5 @@ abstract: |-
 links:
   - type: pdf
     url: "files/help.pdf"
-publication: "Sociological Methods and Research, 32, Pp. 54-87"
+publication: "Sociological Methods & Research, 33, 1, Pp. 54–87"
 ---

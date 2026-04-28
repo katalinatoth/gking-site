@@ -13,7 +13,7 @@ links:
   url: files/ajps12272_lr.pdf
 - name: Supplementary Material
   url: files/frontier-supp.pdf
-publication: American Journal of Political Science, 61, 2, Pp. 473-89
+publication: "American Journal of Political Science, 61, 2, Pp. 473–489"
 publication_types:
 - journal_article
 title: The Balance-Sample Size Frontier in Matching Methods for Causal Inference

@@ -12,5 +12,5 @@ abstract: |-
 links:
   - type: pdf
     url: "files/z.pdf"
-publication: "Journal of Computational Graphics and Statistics, 17, Pp. 1–22"
+publication: "Journal of Computational and Graphical Statistics, 17, 4, Pp. 892–913"
 ---

@@ -11,7 +11,7 @@ date: '2011-01-01'
 links:
 - type: pdf
   url: files/mhs.pdf
-publication: Population Health Management, 14, 1, Pp. S11-S22
+publication: "Population Health Management, 14, 1_suppl, Pp. S11-S22"
 publication_types:
 - journal_article
 title: Avoiding Randomization Failure in Program Evaluation

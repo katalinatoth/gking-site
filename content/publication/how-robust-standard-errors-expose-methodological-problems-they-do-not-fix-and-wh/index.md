@@ -13,7 +13,7 @@ links:
 - type: pdf
   url: files/robust_0.pdf
 - type: source
-  url: http://pan.oxfordjournals.org/content/23/2/159
+  url: https://doi.org/10.1093/pan/mpu015
 publication: Political Analysis, 23, 2, Pp. 159–179
 publication_types:
 - journal_article

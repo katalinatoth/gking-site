@@ -11,5 +11,5 @@ abstract: |-
 links:
   - type: pdf
     url: "files/vamc.pdf"
-publication: "Statistical Science, 23, Pp. 78–91"
+publication: "Statistical Science, 23, 1, Pp. 78–91"
 ---

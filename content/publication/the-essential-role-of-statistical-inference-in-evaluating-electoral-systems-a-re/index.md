@@ -20,5 +20,5 @@ abstract: |-
 links:
   - type: pdf
     url: "files/the-essential-role-of-statistical-inference-in-evaluating-electoral-systems-a-response-to-deford-et-al_2.pdf"
-publication: "Political Analysis"
+publication: "Political Analysis, 31, 3, Pp. 325–331"
 ---

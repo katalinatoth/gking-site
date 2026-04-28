@@ -43,8 +43,8 @@ links:
 - type: pdf
   url: files/s41562-020-00944-2_1600098038_1.pdf
 - type: source
-  url: https://rdcu.be/b7dA6
-publication: Nature Human Behavior
+  url: https://doi.org/10.1038/s41562-020-00944-2
+publication: "Nature Human Behaviour, 4, 9, Pp. 972–982"
 publication_types:
 - journal_article
 title: Population-Scale Longitudinal Mapping of COVID-19 Symptoms, Behaviour and Testing

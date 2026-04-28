@@ -13,7 +13,7 @@ links:
   url: files/s41591-023-02311-w.pdf
 - type: source
   url: https://www.nature.com/articles/s41591-023-02311-w
-publication: Nature Medicne
+publication: "Nature Medicine, 29, 5, Pp. 1262–1272"
 publication_types:
 - journal_article
 title: A Simulation-Based Comparative Effectiveness Analysis of Policies to Improve Global Maternal Health Outcomes

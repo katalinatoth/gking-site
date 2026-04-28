@@ -11,7 +11,7 @@ date: '2024-01-01'
 links:
 - type: pdf
   url: files/journal.pgph_.0003867-1.pdf
-publication: PLOS Global Public Health, 4, 11, Pp. 1-10
+publication: "PLOS Global Public Health, 4, 11, Pp. e0003867"
 publication_types:
 - journal_article
 title: 'Global Maternal Health Country Typologies: A Framework to Guide Policy'

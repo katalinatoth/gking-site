@@ -39,6 +39,11 @@ except ImportError as e:
     print("Install PyYAML: pip install pyyaml", file=sys.stderr)
     raise SystemExit(1) from e
 
+try:
+    import fitz  # PyMuPDF, optional: PDF DOI extraction.
+except ImportError:
+    fitz = None  # type: ignore[assignment]
+
 DOI_IN_TEXT = re.compile(
     r"\b10\.\d{4,9}/[-._;()/:A-Z0-9]+",
     re.IGNORECASE,
@@ -58,6 +63,50 @@ def clean_doi(d: str) -> str:
         if d.lower().endswith(suf):
             d = d[: -len(suf)]
     return d
+
+
+def collect_pdf_path(fm: dict[str, Any], static_files: Path) -> Path | None:
+    """Return the local PDF in static/files/ that the front-matter links to, if any."""
+    links = fm.get("links")
+    if not isinstance(links, list):
+        return None
+    for item in links:
+        if not isinstance(item, dict):
+            continue
+        t = (item.get("type") or "").lower()
+        u = item.get("url") or ""
+        if t == "pdf" and isinstance(u, str) and u.startswith("files/"):
+            cand = static_files / u[len("files/") :]
+            if cand.is_file():
+                return cand
+    return None
+
+
+def dois_in_pdf(pdf: Path, max_pages: int = 3) -> list[str]:
+    """Extract DOIs from the first few pages of a PDF.
+
+    Most journals print the canonical DOI in the masthead/footer of the
+    first 1-2 pages. Scanning the first three pages catches outliers
+    (long mastheads, papers that print the DOI on page 2) without
+    pulling in DOIs that the article merely cites.
+    """
+    if fitz is None:
+        return []
+    found: set[str] = set()
+    try:
+        doc = fitz.open(pdf)
+    except Exception:
+        return []
+    try:
+        for i, page in enumerate(doc):
+            if i >= max_pages:
+                break
+            text = page.get_text() or ""
+            for m in DOI_IN_TEXT.finditer(text):
+                found.add(clean_doi(m.group(0)))
+    finally:
+        doc.close()
+    return sorted(found)
 
 
 def collect_dois(fm: dict[str, Any]) -> list[str]:
@@ -153,6 +202,17 @@ SKIP_SLUGS = frozenset(
 )
 
 
+def merge_old_pages(new: str, old: str | None) -> str:
+    """If Crossref omitted pages but the prior `publication:` line had them,
+    append the old `Pp. ...` so we never strip page info from a working entry."""
+    if not old or "Pp. " in new or "Pp. " not in old:
+        return new
+    m = re.search(r"Pp\.\s+\S+", old)
+    if not m:
+        return new
+    return new + ", " + m.group(0)
+
+
 def format_publication_line(msg: dict[str, Any]) -> str | None:
     mtype = msg.get("type") or ""
     if mtype and mtype not in TYPES_OK:
@@ -235,6 +295,8 @@ def extract_old_publication(yml_raw: str) -> str | None:
 
 def run(pub_dir: Path, apply: bool, delay: float) -> None:
     rows: list[dict[str, Any]] = []
+    static_files = pub_dir.parent.parent / "static" / "files"
+    pdf_lookups = 0
     for index_md in sorted(pub_dir.glob("*/index.md")):
         slug = index_md.parent.name
         if slug in SKIP_SLUGS:
@@ -255,6 +317,20 @@ def run(pub_dir: Path, apply: bool, delay: float) -> None:
             dois = collect_dois(fm)
         else:
             dois = collect_dois_raw(full_text)
+        doi_source = "front_matter" if dois else None
+        if not first_crossref_doi(dois) and fm is not None:
+            pdf = collect_pdf_path(fm, static_files)
+            if pdf is not None:
+                pdf_dois = dois_in_pdf(pdf)
+                if pdf_dois:
+                    pdf_lookups += 1
+                    seen = set(dois)
+                    for d in pdf_dois:
+                        if d not in seen:
+                            dois.append(d)
+                            seen.add(d)
+                    if not doi_source:
+                        doi_source = "pdf"
         old_s: str | None
         if fm is not None:
             old_pub = fm.get("publication")
@@ -278,6 +354,8 @@ def run(pub_dir: Path, apply: bool, delay: float) -> None:
             )
             continue
         new_pub = format_publication_line(msg)
+        if new_pub:
+            new_pub = merge_old_pages(new_pub, old_s)
         if not new_pub:
             rows.append(
                 {
@@ -293,6 +371,7 @@ def run(pub_dir: Path, apply: bool, delay: float) -> None:
                 "slug": slug,
                 "status": "ok",
                 "doi": doi,
+                "doi_source": doi_source or "front_matter",
                 "old": old_s,
                 "new": new_pub,
             }
@@ -318,6 +397,9 @@ def run(pub_dir: Path, apply: bool, delay: float) -> None:
         if n:
             print(f"  {label}: {n}")
     print(f"publication line updated (or would be): {len(changed)}")
+    if pdf_lookups:
+        from_pdf = [r for r in rows if r.get("doi_source") == "pdf"]
+        print(f"  DOIs found via PDF (no DOI in front matter): {len(from_pdf)}")
 
 
 def main() -> None:

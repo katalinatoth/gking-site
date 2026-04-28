@@ -11,8 +11,8 @@ links:
 - type: pdf
   url: files/paper.pdf
 - type: source
-  url: http://ann.sagepub.com.ezp-prod1.hul.harvard.edu/content/659/1/260.full.pdf+html
-publication: ANNALS of the American Academy of Political and Social Science, 659, 1, Pp. 260-73
+  url: https://doi.org/10.1177/0002716215570847
+publication: "The ANNALS of the American Academy of Political and Social Science, 659, 1, Pp. 260–273"
 publication_types:
 - journal_article
 title: Automating Open Science for Big Data

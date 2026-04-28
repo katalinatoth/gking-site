@@ -13,7 +13,7 @@ links:
   url: files/s41591-023-02310-x_1.pdf
 - type: source
   url: https://www.nature.com/articles/s41591-023-02310-x
-publication: Nature Medicine
+publication: "Nature Medicine, 29, 5, Pp. 1253–1261"
 publication_types:
 - journal_article
 title: Simulation-Based Estimates and Projections of Global, Regional and Country-Level Maternal Mortality by Cause, 1990–2050

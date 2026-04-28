@@ -6,7 +6,7 @@ authors:
 date: '2015-01-01'
 links:
 - type: source
-  url: http://dx.doi.org/10.7910/DVN/28122
+  url: https://doi.org/10.7910/DVN/28122
 publication: doi:5:1oerGFXQ0Bu9bcMFU5/t2A
 publication_types:
 - data

@@ -15,5 +15,5 @@ abstract: |-
 links:
   - type: pdf
     url: "files/implement.pdf"
-publication: "Public Opinion Quarterly, Pp. 1-22"
+publication: "Public Opinion Quarterly, 74, 2, Pp. 201–222"
 ---

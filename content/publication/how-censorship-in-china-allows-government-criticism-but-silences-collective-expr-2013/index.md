@@ -16,5 +16,5 @@ abstract: |-
 links:
   - type: pdf
     url: "files/censored.pdf"
-publication: "American Political Science Review, 107, 2 (May), Pp. 1-18"
+publication: "American Political Science Review, 107, 2, Pp. 326–343"
 ---
