@@ -27,7 +27,7 @@
 # automatically in CI before every build. You can run it locally any
 # time with `python3 scripts/compute_publication_first_commit.py`.
 
-count: 6
+count: 5
 
 order:
   - inducing-sustained-creativity-and-diversity-in-large-language-models
@@ -35,6 +35,5 @@ order:
   - if-a-statistical-model-predicts-that-common-events-should-occur-only-once-in-100
   - experimental-evidence-on-the-limited-influence-of-reputable-media-outlets
   - how-american-politics-ensures-electoral-accountability-in-congress
-  - correcting-measurement-error-bias-in-conjoint-survey-experiments
 
 exclude: []
