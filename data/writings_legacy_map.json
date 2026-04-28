@@ -257,7 +257,7 @@
       "drupal": "journal_article"
     },
     "unbiasedprivacy": {
-      "tab": "other",
+      "tab": "software",
       "drupal": "software"
     },
     "designing-social-inquiry-scientific-inference-in-qualitative-research-new-editio": {
@@ -653,8 +653,8 @@
       "drupal": "journal_article"
     },
     "thresher-acquired-by-two-six-technologies-a-carlyle-group-company": {
-      "tab": "journal",
-      "drupal": "journal_article"
+      "tab": "other",
+      "drupal": "website"
     },
     "openscholar": {
       "tab": "software",
@@ -1257,8 +1257,8 @@
       "drupal": "journal_article"
     },
     "learning-catalytics-acquired-by-pearson": {
-      "tab": "journal",
-      "drupal": "journal_article"
+      "tab": "other",
+      "drupal": "website"
     },
     "comparative-effectiveness-of-matching-methods-for-causal-inference": {
       "tab": "journal",
