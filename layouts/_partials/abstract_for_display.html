@@ -21,6 +21,9 @@
   {{/* Legacy broken form where the sentence is welded to the previous one
        without a separating space ("…analysis.Replication data at the…"). */}}
   {{- $t = replaceRE `(?is)\.replication data at the harvard dataverse\s*:\s*(?:\[[^\]]*\]\([^)]+\)|https?://\S+)\.?` "." $t -}}
-  {{- $t = trim $t " \n\t." -}}
+  {{/* Whitespace only - DO NOT include `.` in the cutset or every abstract
+       loses its real terminal period. The Dataverse-stripping regexes above
+       already consume the removed sentence's own trailing period. */}}
+  {{- $t = trim $t " \n\t" -}}
 {{- end -}}
 {{- return $t -}}
