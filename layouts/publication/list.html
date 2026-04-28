@@ -133,9 +133,15 @@
 {{ end }}
 {{ range $talkPages }}
   {{ $slug := path.Base (path.Dir .File.Path) }}
-  {{ $meta := index $wl.entries $slug | default dict }}
-  {{ $ltab := index $meta "tab" | default "other" }}
-  {{ $ldrupal := index $meta "drupal" | default "miscellaneous" }}
+  {{/* Pages in content/talk/ always belong in the Presentations tab,
+       regardless of what data/writings_legacy_map.json says. The legacy
+       map was built by slug-stem matching against the old Drupal site
+       and occasionally inherited a paper's "journal_article" type for
+       its conference talks (e.g. when the talk slug was just the paper
+       slug + a conference suffix). Forcing the tab here means /talk/
+       pages can never drift back into Articles. */}}
+  {{ $ltab := "presentation" }}
+  {{ $ldrupal := "presentation" }}
   {{ $absTalk := partial "abstract_for_display.html" . }}
   {{ $entry := dict "slug" $slug "legacyTab" $ltab "legacyDrupal" $ldrupal "title" .Title "url" .RelPermalink "year" (.Date.Format "2006") "authors" (.Params.authors | default slice) "types" (.Params.publication_types | default slice) "publication" (.Params.publication | default "") "publisher" "" "address" "" "abstract" $absTalk }}
   {{ $entries = $entries | append $entry }}
