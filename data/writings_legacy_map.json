@@ -349,8 +349,8 @@
       "drupal": "journal_article"
     },
     "expert-report-of-gary-king-in-bowyer-et-al-v-ducey-governor-et-al-us-district-co": {
-      "tab": "other",
-      "drupal": "working_paper"
+      "tab": "courtbrief",
+      "drupal": "miscellaneous"
     },
     "privacyunbiased": {
       "tab": "software",
