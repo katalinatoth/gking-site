@@ -260,6 +260,7 @@ def main() -> int:
 
     targets: list[dict[str, Any]] = []
     cache: dict[str, dict[str, Any]] = {}
+    placeholders: list[dict[str, Any]] = []
     for md in md_files:
         slug = md.parent.name
         yml, body, fm = load_index(md)
@@ -276,6 +277,9 @@ def main() -> int:
                 continue
             u = it.get("url") or ""
             t = (it.get("type") or "").lower()
+            if isinstance(u, str) and u.strip() in {"#", ""}:
+                placeholders.append({"slug": slug, "type": t, "url": u})
+                continue
             if not isinstance(u, str) or not u.startswith("http"):
                 continue
             cache.setdefault(u, {"url": u})
@@ -340,6 +344,10 @@ def main() -> int:
     print(f"  shorteners      : {n_short}")
     print(f"  Harvard ezproxy : {n_ezp}")
     print(f"  would change    : {n_changed} (in {len(edits_per_md)} files)")
+    if placeholders:
+        print(f"  placeholder url: {len(placeholders)} (manual review):")
+        for p in placeholders:
+            print(f"    {p['slug']} ({p['type']}): {p['url']!r}")
 
     if not args.apply:
         print("\nDry run; pass --apply to write changes.", flush=True)

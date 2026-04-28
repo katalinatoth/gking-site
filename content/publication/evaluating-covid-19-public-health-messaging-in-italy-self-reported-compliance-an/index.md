@@ -33,6 +33,4 @@ abstract: |-
 links:
   - type: pdf
     url: "files/covid-italy.pdf"
-  - type: source
-    url: "#"
 ---

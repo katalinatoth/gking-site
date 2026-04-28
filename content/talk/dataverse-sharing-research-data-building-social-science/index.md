@@ -5,8 +5,6 @@ date: '2014-01-01'
 links:
 - type: pdf
   url: files/apsa-dataverse-gk.pdf
-- name: Replication Data
-  url: '#'
 publication: ""
 publication_types:
 - presentation

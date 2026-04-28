@@ -14,7 +14,7 @@ links:
 - type: pdf
   url: files/measured.pdf
 - type: source
-  url: '#'
+  url: https://doi.org/10.1177/0049124115589052
 publication: "Sociological Methods & Research, 46, 3, Pp. 342–369"
 publication_types:
 - journal_article
