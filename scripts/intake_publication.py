@@ -452,32 +452,74 @@ def update_legacy_map(legacy_map_path: Path, slug: str, drupal: str, tab: str) -
     return True
 
 
+def _pixmap_dominant_bin_fraction(doc: "fitz.Document", xref: int) -> float:
+    """Fraction of pixels that share the most common grayscale value in [0, 1].
+
+    A solid banner, blank spacer, or single-color decoration has a
+    dominant-bin fraction very close to 1.0. A real figure (scatter,
+    photo, bar chart) has many anti-aliased edges and gradients, so
+    its dominant bin rarely exceeds ~0.8 even when the background is
+    mostly white. We use this to distinguish useful figures from
+    decorative artwork like journal cover banners.
+
+    Returns 0.0 if we can't decode the image (so it isn't filtered).
+    """
+    try:
+        pix = fitz.Pixmap(doc, xref)
+        # Convert to single-channel grayscale so one histogram covers it.
+        if pix.colorspace is None or pix.colorspace.n != 1:
+            pix = fitz.Pixmap(fitz.csGRAY, pix)
+        samples = pix.samples
+    except Exception:
+        return 0.0
+    n = len(samples)
+    if n == 0:
+        return 0.0
+    # Subsample for speed on huge images (>~100k pixels); accuracy
+    # tolerance is fine here because we're comparing against a >0.85
+    # cutoff, not trying to match pixel counts exactly.
+    step = max(1, n // 100_000)
+    counts = [0] * 256
+    for i in range(0, n, step):
+        counts[samples[i]] += 1
+    total = sum(counts)
+    if total == 0:
+        return 0.0
+    return max(counts) / total
+
+
 def extract_featured_image(
     pdf: Path,
     target_dir: Path,
     min_dim: int = 250,
     render_scale: float = 2.0,
+    monochrome_threshold: float = 0.92,
 ) -> tuple[bool, str]:
     """Save a `featured.{png,jpg}` to `target_dir` next to the new index.md.
 
     Strategy:
-      1. Walk every embedded raster image in the PDF and pick the one
-         with the largest pixel area whose width AND height are both at
-         least `min_dim`. Most journal figures are 600-1500 px on a
-         side; logos, page numbers, ornament rules, and equation
-         glyphs all fall well below this floor and get filtered out.
-         Largest-area picks the main figure rather than the publisher
-         logo or graphical-abstract thumbnail when both are present.
-      2. Preserve the original encoding when it's web-friendly (jpg or
-         png) so we don't bloat journal photos by re-encoding lossy
-         JPEG as PNG. Exotic formats (JBIG2, CCITT-Fax, JPEG2000) are
-         rendered through a Pixmap to PNG instead.
-      3. If no embedded image meets the threshold (true for many
-         working papers, talks, and report PDFs), render page 1 at
-         2.0x scale and save that as `featured.png`. Not as visually
-         distinctive as a real figure, but it's a recognizable
-         thumbnail and Gary can always replace it later by uploading
-         a `featured.jpg` next to `index.md` via the GitHub UI.
+      1. Walk every embedded raster image in the PDF whose width AND
+         height are both at least `min_dim`. Most journal figures are
+         600-1500 px on a side; logos, page numbers, ornament rules,
+         and equation glyphs all fall well below this floor.
+      2. Skip images whose most common grayscale value accounts for
+         more than `monochrome_threshold` of the pixels. This catches
+         solid-color banners, blank spacers, and the oversized
+         decorative rectangles some journals stick on cover pages
+         that our first version mistook for the paper's real figure.
+      3. Of what's left, pick the one with the largest pixel area and
+         preserve its original encoding when it's web-friendly (png
+         or jpeg) so journal photos don't get re-encoded losslessly
+         into a 5x larger PNG. Exotic formats (JBIG2, CCITT-Fax,
+         JPEG2000) are rendered through a Pixmap to PNG instead.
+      4. If no embedded image survives the filter (e.g. this paper's
+         only figures are decorations, or it's a working paper with
+         no figures at all), render page 1 at `render_scale`x and
+         save that. Page renders are never monochromatic-filtered -
+         even a mostly-white title page with a few lines of text is
+         more useful as a thumbnail than no image at all, and Gary
+         can always replace it by uploading a `featured.jpg` via the
+         GitHub UI.
 
     Returns (saved, source_label). source_label is one of:
       'embedded_figure', 'first_page_render', 'pdf_open_failed',
@@ -490,7 +532,7 @@ def extract_featured_image(
     except Exception:
         return False, "pdf_open_failed"
     try:
-        best: tuple[int, bytes, str] | None = None  # (area, raw, ext)
+        candidates: list[tuple[int, bytes, str]] = []  # (area, raw, ext)
         seen: set[int] = set()
         for page in doc:
             for info in page.get_images(full=True):
@@ -505,6 +547,9 @@ def extract_featured_image(
                 w = int(img.get("width") or 0)
                 h = int(img.get("height") or 0)
                 if w < min_dim or h < min_dim:
+                    continue
+                dom = _pixmap_dominant_bin_fraction(doc, xref)
+                if dom > monochrome_threshold:
                     continue
                 area = w * h
                 ext = (img.get("ext") or "png").lower()
@@ -521,15 +566,17 @@ def extract_featured_image(
                         ext = "png"
                     except Exception:
                         continue
-                if best is None or area > best[0]:
-                    best = (area, raw, ext)
-        if best is not None:
+                candidates.append((area, raw, ext))
+
+        if candidates:
+            candidates.sort(key=lambda c: -c[0])
+            _, raw, ext = candidates[0]
             target_dir.mkdir(parents=True, exist_ok=True)
-            target = target_dir / f"featured.{best[2]}"
+            target = target_dir / f"featured.{ext}"
             for stale in target_dir.glob("featured.*"):
                 if stale != target:
                     stale.unlink()
-            target.write_bytes(best[1])
+            target.write_bytes(raw)
             return True, "embedded_figure"
 
         if doc.page_count == 0:
