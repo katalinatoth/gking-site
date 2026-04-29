@@ -1,0 +1,200 @@
+name: Auto-import publication from PDF
+
+# Triggered when a PDF lands in `intake/` as part of a pull request.
+# Reads the PDF, fills out the front matter from Crossref, moves the PDF
+# to `static/files/`, updates `data/writings_legacy_map.json`, and commits
+# everything back into the same PR branch with a summary comment.
+#
+# Gary's workflow (no terminal needed):
+#   1. On github.com, navigate into `intake/`.
+#   2. "Add file -> Upload files", drag the PDF in.
+#   3. Choose "Create a new branch for this commit and start a pull request".
+#   4. "Propose changes" -> "Create pull request".
+#   5. Wait ~1-2 minutes. The bot pushes a follow-up commit with the
+#      auto-populated `index.md`/PDF move/legacy-map update, and posts
+#      a summary comment listing anything that needs human review.
+#   6. Edit any field directly in the PR's "Files changed" tab if needed.
+#   7. Click "Merge pull request". The deploy workflow runs and the
+#      paper goes live within ~3 minutes.
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - "intake/**/*.pdf"
+      - "intake/**/*.PDF"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  intake:
+    # Skip our own follow-up pushes (otherwise this loops forever) and PRs
+    # from forks (the GITHUB_TOKEN can't push back to a fork branch).
+    if: >-
+      github.actor != 'github-actions[bot]'
+      && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Python dependencies
+        run: pip install pyyaml certifi pymupdf
+
+      - name: Find intake PDFs
+        id: list_pdfs
+        run: |
+          set -euo pipefail
+          mapfile -t pdfs < <(find intake -maxdepth 2 -type f \( -iname '*.pdf' \) 2>/dev/null | sort || true)
+          if [ "${#pdfs[@]}" -eq 0 ]; then
+            echo "No PDFs in intake/, nothing to do."
+            echo "any=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "any=true" >> "$GITHUB_OUTPUT"
+          printf '%s\n' "${pdfs[@]}" > /tmp/intake_pdfs.txt
+          echo "Found PDFs:"
+          cat /tmp/intake_pdfs.txt
+
+      - name: Process each PDF
+        if: steps.list_pdfs.outputs.any == 'true'
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/intake_reports
+          while IFS= read -r pdf; do
+            [ -z "$pdf" ] && continue
+            name=$(basename "$pdf" .pdf)
+            echo "::group::Processing $pdf"
+            python3 scripts/intake_publication.py "$pdf" \
+              --report "/tmp/intake_reports/${name}.json"
+            echo "::endgroup::"
+          done < /tmp/intake_pdfs.txt
+
+      - name: Build PR comment summary
+        if: steps.list_pdfs.outputs.any == 'true'
+        run: |
+          python3 - <<'PY' > /tmp/intake_summary.md
+          import glob, json, os
+          out = ["## Auto-import results", ""]
+          reports = sorted(glob.glob("/tmp/intake_reports/*.json"))
+          if not reports:
+              out.append("_No reports were generated._")
+          for path in reports:
+              if os.path.getsize(path) == 0:
+                  continue
+              try:
+                  with open(path) as f:
+                      d = json.load(f)
+              except Exception as e:
+                  out.append(f"- Could not parse `{path}`: {e}")
+                  continue
+              out.append(f"### `{d.get('source_pdf')}` -> `{d.get('target_index_md')}`")
+              out.append("")
+              out.append(f"- **Title:** {d.get('title') or '_(missing)_'}")
+              authors = d.get("authors") or []
+              out.append(f"- **Authors:** {', '.join(authors) if authors else '_(missing)_'}")
+              out.append(f"- **Year:** {d.get('year') or '_(unknown - please verify)_'}")
+              if d.get("doi"):
+                  out.append(
+                      f"- **DOI:** [{d['doi']}](https://doi.org/{d['doi']}) "
+                      f"(source: {d.get('doi_source')})"
+                  )
+              else:
+                  out.append("- **DOI:** _(none found - Crossref had no match)_")
+              if d.get("publication"):
+                  out.append(f"- **Citation:** {d['publication']}")
+              types = d.get("publication_types") or []
+              out.append(
+                  f"- **Type:** {', '.join(types)} -> Writings tab: **{d.get('legacy_tab')}**"
+              )
+              out.append(f"- **Abstract:** {d.get('abstract_chars', 0)} characters")
+              notes = d.get("review_notes") or []
+              if notes:
+                  out.append("")
+                  out.append("**Things to double-check before merging:**")
+                  for n in notes:
+                      out.append(f"- {n}")
+              areas = d.get("research_area_suggestions") or []
+              if areas:
+                  out.append("")
+                  out.append(
+                      "**Suggested Research Areas** (optional - add the slug to "
+                      "`data/research_areas.json` for tighter See Also coverage):"
+                  )
+                  for a in areas:
+                      out.append(f"- _{a['area']} > {a['subcategory']}_ (overlap score {a['score']})")
+              out.append("")
+              out.append("<details><summary>Generated front matter</summary>")
+              out.append("")
+              out.append("```yaml")
+              out.append((d.get("rendered_front_matter") or "").rstrip())
+              out.append("```")
+              out.append("")
+              out.append("</details>")
+              out.append("")
+          out.append("---")
+          out.append(
+              "_Edit any field directly in the **Files changed** tab if you "
+              "want to override the auto-populated values, then merge to publish._"
+          )
+          print("\n".join(out))
+          PY
+          echo "Summary built ($(wc -c < /tmp/intake_summary.md) bytes):"
+          head -30 /tmp/intake_summary.md
+
+      - name: Configure git
+        if: steps.list_pdfs.outputs.any == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit and push generated files
+        if: steps.list_pdfs.outputs.any == 'true'
+        run: |
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit (script ran but produced no diff)."
+            exit 0
+          fi
+          git commit -m "$(cat <<'EOF'
+          Auto-import publication metadata from intake PDF(s)
+
+          Generated by .github/workflows/intake-publication.yml.
+          Review the front matter in the PR diff and edit any field as needed.
+          Merging this PR publishes the paper(s).
+          EOF
+          )"
+          git push origin HEAD:${{ github.event.pull_request.head.ref }}
+
+      - name: Comment on PR with summary
+        if: steps.list_pdfs.outputs.any == 'true'
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            let body;
+            try {
+              body = fs.readFileSync('/tmp/intake_summary.md', 'utf8');
+            } catch (e) {
+              core.warning('Could not read intake summary: ' + e.message);
+              body = '## Auto-import results\n\n_(no summary captured - check the workflow logs)_';
+            }
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body,
+            });

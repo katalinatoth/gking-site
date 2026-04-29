@@ -20,26 +20,115 @@ local tools, no developer knowledge required. Just edit the file, click
    rebuilds everything automatically, including the “See Also” links, the
    search index, and the Writings tabs.
 
+> **Adding a new paper?** Skip the manual template entirely — just
+> [drop the PDF in `intake/`](#quick-add-upload-a-pdf) and the bot fills in
+> the rest.
+
 ---
 
 ## Table of Contents
 
-1. [How the repo is organized](#how-the-repo-is-organized)
-2. [Editing from GitHub.com (no terminal)](#editing-from-githubcom-no-terminal)
-3. [Add a new paper / article / book](#add-a-new-paper--article--book)
-4. [Add a new talk or presentation](#add-a-new-talk-or-presentation)
-5. [Add a new software / R package page](#add-a-new-software--r-package-page)
-6. [Add a new dataset / Dataverse link](#add-a-new-dataset--dataverse-link)
-7. [Link things together (“See Also”)](#link-things-together-see-also)
-8. [Update your bio or CV](#update-your-bio-or-cv)
-9. [Add / remove research-group members](#add--remove-research-group-members)
-10. [Edit the homepage](#edit-the-homepage)
-11. [Edit the navigation menu](#edit-the-navigation-menu)
-12. [Change a button label (“Article”, “Publisher’s Version”, …)](#change-a-button-label)
-13. [Add a paper to a Research Area](#add-a-paper-to-a-research-area)
-14. [Edit the teaching / contact / other pages](#edit-the-teaching--contact--other-pages)
-15. [Short URLs & redirects (`/rd`, `/quest`, …)](#short-urls--redirects)
-16. [Troubleshooting](#troubleshooting)
+1. [Quick add: upload a PDF](#quick-add-upload-a-pdf)
+2. [How the repo is organized](#how-the-repo-is-organized)
+3. [Editing from GitHub.com (no terminal)](#editing-from-githubcom-no-terminal)
+4. [Add a new paper / article / book (manual template)](#add-a-new-paper--article--book)
+5. [Add a new talk or presentation](#add-a-new-talk-or-presentation)
+6. [Add a new software / R package page](#add-a-new-software--r-package-page)
+7. [Add a new dataset / Dataverse link](#add-a-new-dataset--dataverse-link)
+8. [Link things together (“See Also”)](#link-things-together-see-also)
+9. [Update your bio or CV](#update-your-bio-or-cv)
+10. [Add / remove research-group members](#add--remove-research-group-members)
+11. [Edit the homepage](#edit-the-homepage)
+12. [Edit the navigation menu](#edit-the-navigation-menu)
+13. [Change a button label (“Article”, “Publisher’s Version”, …)](#change-a-button-label)
+14. [Add a paper to a Research Area](#add-a-paper-to-a-research-area)
+15. [Edit the teaching / contact / other pages](#edit-the-teaching--contact--other-pages)
+16. [Short URLs & redirects (`/rd`, `/quest`, …)](#short-urls--redirects)
+17. [Troubleshooting](#troubleshooting)
+
+---
+
+## Quick add: upload a PDF
+
+This is the **fastest way to add a new paper** — just drop the PDF and
+let the site fill in the rest. No template, no slug to invent, no
+typing of citations.
+
+### What you do (about 30 seconds, all in the browser)
+
+1. Open <https://github.com/KatalinaToth/gking-site/tree/main/intake>
+   (or click into the `intake/` folder from the repo's main page).
+2. Click **Add file → Upload files** in the upper right.
+3. Drag the paper's PDF into the page. Filename doesn't matter; the
+   bot renames it for you.
+4. Scroll to the **Commit changes** form at the bottom of the page.
+   Pick the second radio option:
+   **"Create a new branch for this commit and start a pull request"**.
+   Click the green **Propose changes** button.
+5. On the next page (the new pull request), click **Create pull
+   request**. You don't need to write a description; the bot writes one
+   for you.
+
+That's it. Now wait ~1–2 minutes.
+
+### What happens automatically
+
+Behind the scenes, a workflow called *"Auto-import publication from
+PDF"* runs on the new pull request and:
+
+- Reads the PDF, looking for a printed DOI (Crossref).
+- If no DOI is on the page, searches Crossref by the PDF's title +
+  authors as a fallback.
+- Pulls back the canonical title, full author list, journal name,
+  volume / issue / page range (or article number), publication year,
+  and abstract.
+- Generates a URL slug from the title and creates
+  `content/publication/<slug>/index.md` with all the front matter
+  filled in.
+- Moves the PDF from `intake/` to `static/files/<slug>.pdf` and links
+  it from the new page.
+- Adds the slug to `data/writings_legacy_map.json` so it shows up in
+  the right Writings-page tab (Journal Articles / Books / Other / etc.).
+- Pushes one extra commit to the same pull request and posts a
+  comment summarizing exactly what it found.
+
+### What you do next
+
+Open the pull request after the bot's comment shows up.
+
+The comment lists, for each PDF: the title, authors, year, DOI,
+generated citation line, detected publication type, and any **"things
+to double-check"** notes (e.g. *"Abstract was extracted from PDF body
+text — skim it for OCR artifacts"* or *"Could not detect authors,
+defaulted to ['Gary King']"*).
+
+If everything looks right: just click **Merge pull request**. Done.
+
+If something needs editing: open the **Files changed** tab, click the
+pencil icon on `content/publication/<slug>/index.md`, edit the field
+(title, authors, abstract, whatever), and **Commit changes** straight
+from the web UI. Repeat for any other file. Then merge.
+
+The site rebuilds automatically; the new paper is live ~3 minutes
+after merging. The "See Also" box at the bottom of the page is also
+filled in automatically (the build scans titles, authors, and tags
+across the whole site to surface related content).
+
+### When this won't work / fallbacks
+
+- The bot **only** triggers from a pull-request branch, not from a
+  direct push to `main`. If you accidentally pick "Commit directly to
+  the main branch" in step 4, the bot won't run; just delete the file
+  from `intake/` (using the GitHub web UI's trash-can icon) and try
+  again.
+- If Crossref has nothing for the paper (very recent working paper,
+  unindexed conference proceedings, etc.), the bot still creates a
+  scaffolded `index.md` from the PDF text — but it'll flag every field
+  that needs human verification in the PR comment, so you know what to
+  fix before merging.
+- If you'd rather hand-write the front matter from scratch, the
+  manual template is still there:
+  [Add a new paper (manual template)](#add-a-new-paper--article--book).
 
 ---
 
@@ -89,6 +178,12 @@ in 3–4 minutes.
 ---
 
 ## Add a new paper / article / book
+
+> Most of the time you should use the
+> [Quick add (upload a PDF)](#quick-add-upload-a-pdf) flow above and
+> let the bot do this for you. The manual template below is the
+> fallback for cases where the bot can't find Crossref data, or when
+> you want fine-grained control over every field from the start.
 
 ### Step 1: upload the PDF
 Drop the PDF into `hugo-site/static/files/`. Use a short, lowercase,
