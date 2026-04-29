@@ -2,9 +2,8 @@
 title: Indigenous peoples and empowerment via technology
 date: '2018-01-01'
 authors:
-  - Katalina Toth
-  - Daisy Smith
-  - Daphne Giroux
+  - Gary King
+  - Jane Doe
 publication_types:
   - working_paper
 abstract: |-
