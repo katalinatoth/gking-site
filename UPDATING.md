@@ -110,15 +110,52 @@ defaulted to ['Gary King']"*).
 
 If everything looks right: just click **Merge pull request**. Done.
 
-If something needs editing: open the **Files changed** tab, click the
-pencil icon on `content/publication/<slug>/index.md`, edit the field
-(title, authors, abstract, whatever), and **Commit changes** straight
-from the web UI. Repeat for any other file. Then merge.
+#### If something needs editing
 
-The site rebuilds automatically; the new paper is live ~3 minutes
-after merging. The "See Also" box at the bottom of the page is also
-filled in automatically (the build scans titles, authors, and tags
-across the whole site to surface related content).
+The fastest way is to **post a comment on the pull request** with one
+or more slash commands. The bot picks them up within ~30 seconds and
+pushes a follow-up commit to the same PR. You don't have to find the
+file, learn YAML, or use the pencil icon — just type:
+
+```
+/title The Real Title of the Paper
+/authors Gary King; Jane Doe; Last, First
+/year 2024
+/doi 10.1017/pan.2021.48
+/type journal_article
+/publication Political Analysis, 31, 2, Pp. 100-110
+/abstract The corrected abstract goes here.
+It can span multiple lines and even include
+blank lines until the next slash command or end of comment.
+```
+
+Recognised commands:
+
+| Command | What it does | Notes |
+|---|---|---|
+| `/title <text>` | replaces the title | single line |
+| `/authors A; B; C` | sets the full authors list | use `;` even if names contain commas, e.g. `King, Gary` |
+| `/year <YYYY>` _or_ `/year <YYYY-MM-DD>` | sets the publication date | year-only is stored as `YYYY-01-01` |
+| `/date <date>` | alias for `/year` | |
+| `/abstract <text>` | replaces the abstract | spans every line until the next `/cmd` or end of comment, so multi-paragraph abstracts work |
+| `/publication <text>` | replaces the citation line | e.g. `Political Analysis, 31, 2, Pp. 100-110` |
+| `/doi <doi>` | sets the DOI | also rewrites the **Publisher's Version** button to `https://doi.org/<doi>` |
+| `/type <slug>` | replaces `publication_types` | also re-routes the Writings tab; valid slugs: `journal_article`, `book`, `book_chapter`, `working_paper`, `conference_paper`, `report`, `data`, `software`, `courtbrief`, `presentation`, `other` |
+
+The bot reacts 👍 on the comment, posts a confirmation listing what
+changed (and warnings for any commands it didn't understand), and
+commits the result to the PR branch. You can keep iterating with more
+comments until it looks right, then click **Merge pull request**.
+
+If you'd rather edit `index.md` directly in YAML, you still can:
+open the **Files changed** tab, click the pencil icon on
+`content/publication/<slug>/index.md`, edit the field, and **Commit
+changes**. Either path works; mix and match as you like.
+
+The site rebuilds automatically once the PR is merged; the new paper
+is live ~3 minutes later. The "See Also" box at the bottom of the
+page is also filled in automatically (the build scans titles,
+authors, and tags across the whole site to surface related content).
 
 ### When this won't work / fallbacks
 

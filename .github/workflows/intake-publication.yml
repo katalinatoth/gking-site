@@ -152,9 +152,29 @@ jobs:
               out.append("</details>")
               out.append("")
           out.append("---")
+          out.append("")
+          out.append("### Need to fix any of the auto-filled values?")
+          out.append("")
           out.append(
-              "_Edit any field directly in the **Files changed** tab if you "
-              "want to override the auto-populated values, then merge to publish._"
+              "**Just post a comment on this PR** with one or more slash "
+              "commands. The bot picks them up within ~30 seconds and pushes "
+              "a follow-up commit to this branch:"
+          )
+          out.append("")
+          out.append("| Command | Example | Effect |")
+          out.append("|---|---|---|")
+          out.append("| `/title` | `/title The Real Paper Title` | replace title |")
+          out.append("| `/authors` | `/authors Gary King; Jane Doe` | semicolon-separated list |")
+          out.append("| `/year` | `/year 2024` _or_ `/year 2024-03-15` | year-only or full ISO date |")
+          out.append("| `/abstract` | `/abstract The new abstract.` | spans multiple lines until the next slash command |")
+          out.append("| `/publication` | `/publication Political Analysis, 31, 2, Pp. 100-110` | citation line |")
+          out.append("| `/doi` | `/doi 10.1017/pan.2021.48` | also rewrites the Publisher's Version button |")
+          out.append("| `/type` | `/type journal_article` | also re-routes the Writings tab |")
+          out.append("")
+          out.append(
+              "Or click **Files changed** at the top of this PR to edit "
+              "`index.md` directly in YAML if you'd rather. Either way, "
+              "merge the PR when everything looks right and the paper goes live."
           )
           print("\n".join(out))
           PY
