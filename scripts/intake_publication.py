@@ -113,25 +113,129 @@ def _pdf_text(pdf: Path, max_pages: int = 3) -> str:
         doc.close()
 
 
-def _guess_title_from_pdf(text: str) -> str:
-    """Heuristic: the first non-empty, non-header line on page 1.
+def _pdf_doc_metadata(pdf: Path) -> dict[str, str]:
+    """Return the PDF's Document Information dict (title/author/...).
 
-    Skip 'RESEARCH', 'Open Access', publisher mastheads, and other
-    common boilerplate by looking for a line that's at least 6 words
-    long with mostly Title Case-ish words. Used only as a last-resort
-    fallback when Crossref has nothing.
+    Most journal PDFMakers fill in `title` and `author` — when they do,
+    those values are far more reliable than text-position heuristics.
+    Word's PDFMaker often leaves them blank or sets a default like
+    'Microsoft Word - manuscript.docx' which we filter out below.
     """
-    HEADER_NOISE = {
-        "research", "open access", "review", "letter", "letters",
-        "article", "articles", "perspective", "commentary", "report",
-        "abstract",
-    }
+    if fitz is None:
+        return {}
+    try:
+        doc = fitz.open(pdf)
+    except Exception:
+        return {}
+    try:
+        return dict(doc.metadata or {})
+    finally:
+        doc.close()
+
+
+_BAD_METADATA_TITLE_PATTERNS = (
+    re.compile(r"^microsoft\s+word\s*-", re.IGNORECASE),
+    re.compile(r"^untitled$", re.IGNORECASE),
+    re.compile(r"^manuscript", re.IGNORECASE),
+    re.compile(r"\.(doc|docx|tex|pdf)\b", re.IGNORECASE),
+    re.compile(r"^[\w-]+\.(doc|docx|tex|pdf)$", re.IGNORECASE),
+)
+
+
+def _looks_like_real_title(s: str) -> bool:
+    """True if `s` is plausibly a paper title (not a filename, not blank)."""
+    s = (s or "").strip()
+    if len(s) < 8:
+        return False
+    if len(s.split()) < 2:
+        return False
+    for pat in _BAD_METADATA_TITLE_PATTERNS:
+        if pat.search(s):
+            return False
+    return True
+
+
+_MASTHEAD_PATTERNS = (
+    re.compile(r"^vol(\.|ume)?\s*\d", re.IGNORECASE),
+    re.compile(r"^volume\s+\d+\s*[|·\-]\s*number\s+\d", re.IGNORECASE),
+    re.compile(r"^issue\s+\d", re.IGNORECASE),
+    re.compile(r"^pages?\s+\d", re.IGNORECASE),
+    re.compile(r"^doi\s*:", re.IGNORECASE),
+    re.compile(r"^https?://", re.IGNORECASE),
+    re.compile(r"^©|copyright", re.IGNORECASE),
+    re.compile(r"^\d{4}\s*$"),  # bare year
+    re.compile(r"^\d+\s*$"),  # bare number (page number etc)
+)
+_HEADER_NOISE = {
+    "research", "open access", "review", "letter", "letters",
+    "article", "articles", "perspective", "commentary", "report",
+    "abstract", "research article", "original article", "editorial",
+    "brief report", "communication", "rapid communication",
+}
+
+
+def _largest_font_title(pdf: Path) -> str:
+    """Return the text in the largest font size on page 1.
+
+    Across virtually every academic PDF, the title is set in the
+    visually largest type on the first page. PyMuPDF's structured
+    extraction (`get_text("dict")`) gives us per-span font sizes, so
+    we collect every span at the maximum size on page 1 in reading
+    order and join them. This handles titles that wrap across multiple
+    lines (very common) and naturally skips smaller-font mastheads,
+    affiliations, and bylines.
+    """
+    if fitz is None:
+        return ""
+    try:
+        doc = fitz.open(pdf)
+    except Exception:
+        return ""
+    try:
+        if doc.page_count == 0:
+            return ""
+        d = doc[0].get_text("dict")
+        spans: list[tuple[float, str]] = []
+        for block in d.get("blocks", []):
+            for line in block.get("lines", []):
+                for span in line.get("spans", []):
+                    text = (span.get("text") or "").strip()
+                    size = float(span.get("size", 0) or 0)
+                    if text and size > 0:
+                        spans.append((size, text))
+        if not spans:
+            return ""
+        max_size = max(s for s, _ in spans)
+        title_parts: list[str] = []
+        for size, text in spans:
+            if abs(size - max_size) < 0.5:
+                # Drop trailing footnote markers (single digits glued to words)
+                cleaned = re.sub(r"(?<=\w)\d+\b", "", text).strip()
+                if cleaned:
+                    title_parts.append(cleaned)
+        title = " ".join(title_parts)
+        title = re.sub(r"\s+", " ", title).strip(" .,-")
+        return title
+    finally:
+        doc.close()
+
+
+def _guess_title_from_pdf(text: str) -> str:
+    """Last-resort title guess from raw PDF text.
+
+    Used only when both PDF metadata and the largest-font extractor
+    return nothing useful. Skips journal mastheads (`volume X | number
+    Y`, bare years, `doi:`, page numbers) and common section labels
+    (`research`, `open access`, etc.) by pattern.
+    """
     for raw in text.splitlines():
         line = raw.strip()
         if not line:
             continue
+        if any(p.search(line) for p in _MASTHEAD_PATTERNS):
+            continue
         low = line.lower().strip(":. ")
-        if low in HEADER_NOISE:
+        if low in _HEADER_NOISE:
             continue
         if len(line) < 12:
             continue
@@ -141,32 +245,101 @@ def _guess_title_from_pdf(text: str) -> str:
     return ""
 
 
+def best_title_from_pdf(pdf: Path, text: str) -> tuple[str, str]:
+    """Return (title, source_label) using the most reliable available signal."""
+    md = _pdf_doc_metadata(pdf)
+    md_title = (md.get("title") or "").strip()
+    if _looks_like_real_title(md_title):
+        return md_title, "pdf_metadata"
+    font_title = _largest_font_title(pdf)
+    if _looks_like_real_title(font_title) and not any(
+        p.search(font_title) for p in _MASTHEAD_PATTERNS
+    ):
+        return font_title, "largest_font"
+    text_title = _guess_title_from_pdf(text)
+    if text_title:
+        return text_title, "text_first_line"
+    return "", "none"
+
+
+def _line_tokens(s: str) -> set[str]:
+    """Tokenize a line for fuzzy comparison.
+
+    Footnote markers (e.g. `technology1`) glue digits onto real words,
+    which would defeat overlap matching against the title's tokens.
+    Strip any trailing digit run from each token so `technology1` and
+    `technology` collide.
+    """
+    out: set[str] = set()
+    for raw in re.split(r"[^a-z0-9]+", (s or "").lower()):
+        t = re.sub(r"\d+$", "", raw)
+        if len(t) > 2:
+            out.add(t)
+    return out
+
+
 def _guess_authors_from_pdf(text: str, title: str) -> list[str]:
-    """Best-effort: take the line(s) right after the title until we see
-    an institutional affiliation or 'Abstract'."""
+    """Best-effort: take the line(s) right after the title region.
+
+    Walks past the entire title (titles commonly wrap across 2-3 lines)
+    by skipping every leading line whose tokens substantially overlap
+    the detected title, then collects subsequent lines until we hit an
+    affiliation, an email, or "Abstract". Strips footnote markers
+    (digits and *†‡§¶) and leading "and ".
+    """
     if not text:
         return []
     lines = [l.strip() for l in text.splitlines()]
-    try:
-        idx = next(i for i, l in enumerate(lines) if title and title in l)
-    except StopIteration:
+    title_tokens = _line_tokens(title)
+    idx = -1
+    if title_tokens:
+        for i, line in enumerate(lines):
+            ltoks = _line_tokens(line)
+            if not ltoks:
+                continue
+            overlap = len(ltoks & title_tokens) / max(1, len(ltoks))
+            if overlap >= 0.5:
+                idx = i
+            elif idx >= 0:
+                break
+    if idx < 0:
         return []
     candidates: list[str] = []
-    for line in lines[idx + 1 : idx + 6]:
+    for line in lines[idx + 1 : idx + 8]:
         if not line:
+            if candidates:
+                break
             continue
-        if re.search(r"abstract\b|university|department|institute|©|copyright", line, re.IGNORECASE):
+        ltoks = _line_tokens(line)
+        if ltoks and title_tokens and len(ltoks & title_tokens) / max(1, len(ltoks)) >= 0.5:
+            # Still inside the title region (wrapped line that the
+            # initial loop didn't catch because it had a footnote tail).
+            continue
+        if re.search(
+            r"\babstract\b|\buniversity\b|\bdepartment\b|\binstitute\b|\bschool of\b|"
+            r"\bcollege\b|\bcenter for\b|\bcentre for\b|©|copyright|"
+            r"\bcorresponding author\b",
+            line, re.IGNORECASE,
+        ):
             break
-        if "@" in line or re.search(r"\b(usa|uk|edu|harvard|mit|stanford)\b", line, re.IGNORECASE):
+        if "@" in line:
             break
         candidates.append(line)
     if not candidates:
         return []
     blob = " ".join(candidates)
-    blob = re.sub(r"\d+", "", blob)  # affiliation footnote markers
+    blob = re.sub(r"\d+", "", blob)
     blob = re.sub(r"[*†‡§¶]+", "", blob)
-    parts = re.split(r"\s*(?:,|\sand\s|\&)\s*", blob)
-    return [p.strip(" .") for p in parts if p.strip()]
+    blob = re.sub(r"\s+", " ", blob).strip()
+    parts = re.split(r"\s*,\s*|\s+and\s+|\s*&\s*", blob)
+    out: list[str] = []
+    for p in parts:
+        p = p.strip(" .,")
+        if p.lower().startswith("and "):
+            p = p[4:].strip()
+        if p and len(p.split()) >= 2 and p.lower() not in {"and", "the"}:
+            out.append(p)
+    return out
 
 
 def _crossref_authors(msg: dict[str, Any]) -> list[str]:
@@ -360,25 +533,26 @@ def run(pdf_path: Path, dry_run: bool = False) -> dict[str, Any]:
                     f"Found DOI {doi} in PDF but Crossref lookup failed ({err}). Citation will be sparse."
                 )
 
+    pdf_title, pdf_title_source = best_title_from_pdf(pdf_path, text)
+
     if not msg:
-        guess_title = _guess_title_from_pdf(text)
-        guess_authors = _guess_authors_from_pdf(text, guess_title)
-        if guess_title:
-            doi_t, msg_t, _ = crossref_search_by_title(guess_title, guess_authors, None)
+        if pdf_title:
+            guess_authors = _guess_authors_from_pdf(text, pdf_title)
+            doi_t, msg_t, _ = crossref_search_by_title(pdf_title, guess_authors, None)
             if doi_t and msg_t:
                 doi = doi_t
                 msg = msg_t
                 doi_source = "title_search"
 
     if msg:
-        title = (msg.get("title") or [""])[0].strip() or _guess_title_from_pdf(text)
+        title = (msg.get("title") or [""])[0].strip() or pdf_title
         authors = _crossref_authors(msg) or _guess_authors_from_pdf(text, title)
         year = _crossref_year(msg)
         abstract = _crossref_abstract(msg)
         publication_line = format_publication_line(msg) or ""
         pub_types, drupal, tab = _publication_types_from_crossref(msg)
     else:
-        title = _guess_title_from_pdf(text) or pdf_path.stem.replace("-", " ").title()
+        title = pdf_title or pdf_path.stem.replace("-", " ").title()
         authors = _guess_authors_from_pdf(text, title)
         if not authors:
             authors = ["Gary King"]
@@ -389,7 +563,8 @@ def run(pdf_path: Path, dry_run: bool = False) -> dict[str, Any]:
         pub_types, drupal, tab = (["working_paper"], "working_paper", "journal")
         review_notes.append(
             "No DOI in the PDF and no Crossref title-match. Front matter is a scaffold "
-            "from PDF text - title, authors, year, and abstract all need verification."
+            f"from PDF (title source: {pdf_title_source}) - title, authors, year, "
+            "and abstract all need verification."
         )
     if not abstract:
         abstract_match = re.search(
@@ -442,12 +617,19 @@ def run(pdf_path: Path, dry_run: bool = False) -> dict[str, Any]:
 
     area_suggestions = find_research_area_suggestions(title, abstract, research_areas)
 
+    def _rel(p: Path) -> str:
+        try:
+            return str(p.relative_to(ROOT))
+        except ValueError:
+            return str(p)
+
     report = {
         "slug": slug,
-        "source_pdf": str(pdf_path.relative_to(ROOT)),
-        "target_pdf": str(target_pdf.relative_to(ROOT)),
-        "target_index_md": str(target_md.relative_to(ROOT)),
+        "source_pdf": _rel(pdf_path),
+        "target_pdf": _rel(target_pdf),
+        "target_index_md": _rel(target_md),
         "title": title,
+        "title_source": "crossref" if msg else pdf_title_source,
         "authors": authors,
         "year": year,
         "doi": doi,
@@ -475,11 +657,7 @@ def run(pdf_path: Path, dry_run: bool = False) -> dict[str, Any]:
         target_pdf.unlink()
     shutil.move(str(pdf_path), str(target_pdf))
     update_legacy_map(legacy_map, slug, drupal, tab)
-    report["wrote_files"] = [
-        str(target_md.relative_to(ROOT)),
-        str(target_pdf.relative_to(ROOT)),
-        str(legacy_map.relative_to(ROOT)),
-    ]
+    report["wrote_files"] = [_rel(target_md), _rel(target_pdf), _rel(legacy_map)]
     return report
 
 
