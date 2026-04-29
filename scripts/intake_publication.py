@@ -452,6 +452,100 @@ def update_legacy_map(legacy_map_path: Path, slug: str, drupal: str, tab: str) -
     return True
 
 
+def extract_featured_image(
+    pdf: Path,
+    target_dir: Path,
+    min_dim: int = 250,
+    render_scale: float = 2.0,
+) -> tuple[bool, str]:
+    """Save a `featured.{png,jpg}` to `target_dir` next to the new index.md.
+
+    Strategy:
+      1. Walk every embedded raster image in the PDF and pick the one
+         with the largest pixel area whose width AND height are both at
+         least `min_dim`. Most journal figures are 600-1500 px on a
+         side; logos, page numbers, ornament rules, and equation
+         glyphs all fall well below this floor and get filtered out.
+         Largest-area picks the main figure rather than the publisher
+         logo or graphical-abstract thumbnail when both are present.
+      2. Preserve the original encoding when it's web-friendly (jpg or
+         png) so we don't bloat journal photos by re-encoding lossy
+         JPEG as PNG. Exotic formats (JBIG2, CCITT-Fax, JPEG2000) are
+         rendered through a Pixmap to PNG instead.
+      3. If no embedded image meets the threshold (true for many
+         working papers, talks, and report PDFs), render page 1 at
+         2.0x scale and save that as `featured.png`. Not as visually
+         distinctive as a real figure, but it's a recognizable
+         thumbnail and Gary can always replace it later by uploading
+         a `featured.jpg` next to `index.md` via the GitHub UI.
+
+    Returns (saved, source_label). source_label is one of:
+      'embedded_figure', 'first_page_render', 'pdf_open_failed',
+      'pymupdf_missing', 'no_pages'.
+    """
+    if fitz is None:
+        return False, "pymupdf_missing"
+    try:
+        doc = fitz.open(pdf)
+    except Exception:
+        return False, "pdf_open_failed"
+    try:
+        best: tuple[int, bytes, str] | None = None  # (area, raw, ext)
+        seen: set[int] = set()
+        for page in doc:
+            for info in page.get_images(full=True):
+                xref = info[0]
+                if xref in seen:
+                    continue
+                seen.add(xref)
+                try:
+                    img = doc.extract_image(xref)
+                except Exception:
+                    continue
+                w = int(img.get("width") or 0)
+                h = int(img.get("height") or 0)
+                if w < min_dim or h < min_dim:
+                    continue
+                area = w * h
+                ext = (img.get("ext") or "png").lower()
+                if ext == "jpeg":
+                    ext = "jpg"
+                if ext in ("png", "jpg"):
+                    raw = img["image"]
+                else:
+                    try:
+                        pix = fitz.Pixmap(doc, xref)
+                        if pix.colorspace is not None and pix.colorspace.n > 3:
+                            pix = fitz.Pixmap(fitz.csRGB, pix)
+                        raw = pix.tobytes("png")
+                        ext = "png"
+                    except Exception:
+                        continue
+                if best is None or area > best[0]:
+                    best = (area, raw, ext)
+        if best is not None:
+            target_dir.mkdir(parents=True, exist_ok=True)
+            target = target_dir / f"featured.{best[2]}"
+            for stale in target_dir.glob("featured.*"):
+                if stale != target:
+                    stale.unlink()
+            target.write_bytes(best[1])
+            return True, "embedded_figure"
+
+        if doc.page_count == 0:
+            return False, "no_pages"
+        page = doc.load_page(0)
+        pix = page.get_pixmap(matrix=fitz.Matrix(render_scale, render_scale), alpha=False)
+        target_dir.mkdir(parents=True, exist_ok=True)
+        for stale in target_dir.glob("featured.*"):
+            stale.unlink()
+        target = target_dir / "featured.png"
+        pix.save(str(target))
+        return True, "first_page_render"
+    finally:
+        doc.close()
+
+
 def find_research_area_suggestions(
     title: str,
     abstract: str,
@@ -657,7 +751,30 @@ def run(pdf_path: Path, dry_run: bool = False) -> dict[str, Any]:
         target_pdf.unlink()
     shutil.move(str(pdf_path), str(target_pdf))
     update_legacy_map(legacy_map, slug, drupal, tab)
-    report["wrote_files"] = [_rel(target_md), _rel(target_pdf), _rel(legacy_map)]
+
+    img_ok, img_source = extract_featured_image(target_pdf, target_md_dir)
+    report["featured_image_source"] = img_source if img_ok else None
+    if not img_ok:
+        report["review_notes"].append(
+            f"Could not extract a featured image from the PDF ({img_source}). "
+            "Upload a `featured.png` or `featured.jpg` next to index.md if you "
+            "want a thumbnail."
+        )
+    elif img_source == "first_page_render":
+        report["review_notes"].append(
+            "No embedded figures large enough to use as a thumbnail; saved a "
+            "render of page 1 as `featured.png` instead. Replace it via the "
+            "GitHub UI if you'd rather use a different image."
+        )
+
+    written = [_rel(target_md), _rel(target_pdf), _rel(legacy_map)]
+    if img_ok:
+        for ext in ("png", "jpg"):
+            cand = target_md_dir / f"featured.{ext}"
+            if cand.is_file():
+                written.append(_rel(cand))
+                break
+    report["wrote_files"] = written
     return report
 
 

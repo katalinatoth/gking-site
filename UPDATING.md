@@ -89,6 +89,12 @@ PDF"* runs on the new pull request and:
   it from the new page.
 - Adds the slug to `data/writings_legacy_map.json` so it shows up in
   the right Writings-page tab (Journal Articles / Books / Other / etc.).
+- Extracts a thumbnail image: walks the PDF for embedded raster
+  figures and saves the largest one (≥250 px on a side) as
+  `featured.png` (or `.jpg`) next to the new `index.md`. If the PDF
+  has no usable figures (e.g. a working paper that is mostly text),
+  it renders page 1 as a fallback thumbnail. The PR comment tells
+  you which path was used.
 - Pushes one extra commit to the same pull request and posts a
   comment summarizing exactly what it found.
 

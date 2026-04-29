@@ -120,6 +120,13 @@ jobs:
                   f"- **Type:** {', '.join(types)} -> Writings tab: **{d.get('legacy_tab')}**"
               )
               out.append(f"- **Abstract:** {d.get('abstract_chars', 0)} characters")
+              img_src = d.get("featured_image_source")
+              if img_src == "embedded_figure":
+                  out.append("- **Featured image:** extracted the largest embedded figure from the PDF")
+              elif img_src == "first_page_render":
+                  out.append("- **Featured image:** no usable figures in PDF; rendered page 1 as a thumbnail")
+              elif img_src:
+                  out.append(f"- **Featured image:** _(could not extract: {img_src})_")
               notes = d.get("review_notes") or []
               if notes:
                   out.append("")
