@@ -423,12 +423,12 @@ type: "page"
 <div class="hwp-citation__text">
 <div class="hwp-text-block__default-text">
 <div class="bibcite-citation">
-<div class="csl-bib-body"><div class="csl-entry">Federico Girosi and Gary King. 2008. <a href="/gking-site/publication/demographic-forecasting/">Demographic Forecasting</a>. Princeton: Princeton University Press.</div></div>
+<div class="csl-bib-body"><div class="csl-entry">Federico Girosi and Gary King. 2008. <a href="/publication/demographic-forecasting/">Demographic Forecasting</a>. Princeton: Princeton University Press.</div></div>
 </div>
 </div>
 <div class="hwp-text-block">
 <div class="bibcite-citation">
-<div class="csl-bib-body"><div class="csl-entry">Federico Girosi and Gary King. 2008. <a href="/gking-site/publication/demographic-forecasting/">Demographic Forecasting</a>. Princeton: Princeton University Press.</div></div>
+<div class="csl-bib-body"><div class="csl-entry">Federico Girosi and Gary King. 2008. <a href="/publication/demographic-forecasting/">Demographic Forecasting</a>. Princeton: Princeton University Press.</div></div>
 </div>
 </div>
 </div>

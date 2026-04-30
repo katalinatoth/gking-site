@@ -29,7 +29,7 @@ Cambridge, MA 02138
 </div>
 <div>
 
-<img src="/gking-site/images/iqss-building.jpg" alt="IQSS Building" style="width:100%;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+<img src="/images/iqss-building.jpg" alt="IQSS Building" style="width:100%;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.1);">
 
 </div>
 </div>

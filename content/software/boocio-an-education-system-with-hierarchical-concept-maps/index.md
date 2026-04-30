@@ -29,7 +29,7 @@ authors:
 <div class="publication-info" data-component-name="publication-info">
 <div class="publication-info__image">
 <div class="field field--name-hwp-bibcite-thumbnail field--type-entity-reference field--label-hidden"><div class="hwp-media hwp-media--4-5-small">
-<div class="field field--name-field-media-image field--type-image field--label-hidden"> <img alt="Booc.Io screenshot" height="600" loading="eager" src="/gking-site/images/software-import/boocio-screenshot.png" width="480"/>
+<div class="field field--name-field-media-image field--type-image field--label-hidden"> <img alt="Booc.Io screenshot" height="600" loading="eager" src="/images/software-import/boocio-screenshot.png" width="480"/>
 </div>
 </div>
 </div>

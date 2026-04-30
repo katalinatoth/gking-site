@@ -4,7 +4,7 @@ role: "Weatherhead University Professor"
 organizations:
   - name: Harvard University
     url: https://www.harvard.edu/
-bio: "[Gary King's Bio](/gking-site/bio/)"
+bio: "[Gary King's Bio](/bio/)"
 social:
   - icon: globe
     icon_pack: fas

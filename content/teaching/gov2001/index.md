@@ -33,7 +33,7 @@ type: "teaching-class"
 <div class="hwp-class--main-content">
 <div class="hwp-text-block field field--name-field-hwp-body field--type-text-long field--label-hidden"><div class="hwp-media hwp-media--small">
 <div class="field field--name-field-media-image field--type-image field--label-hidden"> <picture>
-<img alt="2K1" height="351" loading="eager" src="/gking-site/images/2k1-logo-small.png" width="299"/>
+<img alt="2K1" height="351" loading="eager" src="/images/2k1-logo-small.png" width="299"/>
 </source></picture>
 </div>
 </div>
