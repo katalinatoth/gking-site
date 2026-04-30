@@ -1071,6 +1071,15 @@ The old Drupal site had short URLs that forwarded elsewhere — e.g.
 a specific paper. The new site keeps the same idea, but in a much
 simpler way: **one YAML file for the whole list**.
 
+> **41 vanity short URLs from the old Drupal site are already restored.**
+> `/amelia`, `/cem`, `/clarify`, `/ei`, `/judgeit`, `/psi`, `/relogit`,
+> `/whatif`, `/sibs`, `/10k`, `/yourcast`, `/kkv`, `/dpd`, `/covid-italy`,
+> etc. all forward to their current pages. They were recovered from
+> `scraped_data/publications.json` by `scripts/import_legacy_short_urls.py`
+> and live in the `# -- BEGIN auto-recovered legacy short URLs --` block
+> at the top of `data/redirects.yaml`. Re-run the script to refresh that
+> block; new hand-edits go below the matching `END` marker.
+
 ### (A) Short URL that forwards somewhere
 
 Edit `hugo-site/data/redirects.yaml`. It's a list under `redirects:`,
@@ -1175,6 +1184,7 @@ they touch files.
 | `quick_add.py` | Companion to `intake_publication.py` for content that doesn't have a PDF (software, patents) or where you already have all the metadata. `python3 scripts/quick_add.py {software,patent,paper,talk,book} --title ... --slug ...`. See [Quick add](#quick-add). |
 | `apply_pr_edits.py` | The slash-command processor used by CI. Useful for testing locally: `python3 scripts/apply_pr_edits.py --comment body.txt --report r.json content/publication/foo/index.md`. |
 | `build_redirects.py` | Regenerates the meta-refresh stubs and Netlify `_redirects` file from `data/redirects.yaml`. Runs automatically in CI. |
+| `import_legacy_short_urls.py` | One-time recovery: scans `scraped_data/publications.json` for the old Drupal vanity URLs (`/amelia`, `/sibs`, `/10k`, etc.) and writes them into the auto-recovered block at the top of `data/redirects.yaml`. Idempotent — hand-edits below the END marker are preserved. |
 | `compute_publication_first_commit.py` | Refreshes `data/publication_first_commit.json` (drives the spotlight ordering). Runs automatically in CI. |
 | `fill_publication_from_doi.py` | Fills the `publication:` citation line on existing pages from Crossref by DOI. Add `--apply` to write. |
 | `repair_publication_links.py` | Audits external URLs in publication front matter; rewrites tinyurl/ezproxy/dead links to canonical DOIs. `--apply` to write. |

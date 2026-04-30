@@ -65,6 +65,184 @@
 # ===========================================================================
 
 redirects:
+
+  # -- BEGIN auto-recovered legacy short URLs --
+  # Vanity short URLs recovered from the legacy Drupal site
+  # via scripts/import_legacy_short_urls.py reading
+  # ../scraped_data/publications.json. Re-run that script to refresh
+  # this block; hand-edits below the END marker are preserved.
+  #
+  # The old site was case-insensitive on path aliases. Mixed-case
+  # originals (e.g. /CompSS, /EzI, /IndiaChild) are stored here as
+  # lowercase per the build's slug constraint; users typing the
+  # lowercase form get redirected, users typing the original
+  # mixed case will see a 404.
+
+  - from: 10k
+    to:   /publication/if-a-statistical-model-predicts-that-common-events-should-occur-only-once-in-100/
+    note: "old short URL was /10k; goes to: If a Statistical Model Predicts That Common Events Should Occur Only Once in ..."
+
+  - from: 2k1
+    to:   /publication/statistical-intuition-without-coding-or-teachers/
+    note: "old short URL was /2k1; goes to: Statistical Intuition Without Coding (or Teachers)"
+
+  - from: 50c
+    to:   /publication/how-the-chinese-government-fabricates-social-media-posts-for-strategic-distracti-2017-166/
+    note: "old short URL was /50c; goes to: How the Chinese Government Fabricates Social Media Posts for Strategic Distra..."
+
+  - from: acc
+    to:   /publication/how-american-politics-ensures-electoral-accountability-in-congress/
+    note: "old short URL was /acc; goes to: How American Politics Ensures Electoral Accountability in Congress"
+
+  - from: amelia
+    to:   /publication/amelia-ii-a-program-for-missing-data/
+    note: "old short URL was /amelia; goes to: AMELIA II: A Program for Missing Data"
+
+  - from: cem
+    to:   /publication/cem-coarsened-exact-matching-software/
+    note: "old short URL was /cem; goes to: CEM: Coarsened Exact Matching Software"
+
+  - from: clarify
+    to:   /publication/clarify-software-for-interpreting-and-presenting-statistical-results/
+    note: "old short URL was /clarify; goes to: CLARIFY: Software for Interpreting and Presenting Statistical Results"
+
+  - from: compact
+    to:   /publication/how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-2021/
+    note: "old short URL was /compact; goes to: How to Measure Legislative District Compactness If You Only Know It When You ..."
+
+  - from: compss
+    to:   /publication/computational-social-science-obstacles-and-opportunities/
+    note: "old short URL was /CompSS; goes to: Computational Social Science: Obstacles and Opportunities"
+
+  - from: conjointe
+    to:   /publication/correcting-measurement-error-bias-in-conjoint-survey-experiments/
+    note: "old short URL was /conjointE; goes to: Correcting Measurement Error Bias in Conjoint Survey Experiments"
+
+  - from: covid-ccc
+    to:   /publication/building-an-international-consortium-for-tracking-coronavirus-health-status/
+    note: "old short URL was /covid-ccc; goes to: Building an International Consortium for Tracking Coronavirus Health Status"
+
+  - from: covid-italy
+    to:   /publication/evaluating-covid-19-public-health-messaging-in-italy-self-reported-compliance-an/
+    note: "old short URL was /covid-italy; goes to: Evaluating COVID-19 Public Health Messaging in Italy: Self-Reported Complianc..."
+
+  - from: deford
+    to:   /publication/the-essential-role-of-statistical-inference-in-evaluating-electoral-systems-a-re/
+    note: "old short URL was /deford; goes to: The Essential Role of Statistical Inference in Evaluating Electoral Systems: ..."
+
+  - from: dp
+    to:   /publication/statistically-valid-inferences-from-privacy-protected-data/
+    note: "old short URL was /dp; goes to: Statistically Valid Inferences from Privacy Protected Data"
+
+  - from: dp-oped
+    to:   /publication/theres-a-simple-solution-to-the-latest-census-fight/
+    note: "old short URL was /dp-oped; goes to: There’s a Simple Solution to the Latest Census Fight"
+
+  - from: dpd
+    to:   /publication/statistically-valid-inferences-from-differentially-private-data-releases-with-ap/
+    note: "old short URL was /dpd; goes to: Statistically Valid Inferences from Differentially Private Data Releases, Wit..."
+
+  - from: dpd2
+    to:   /publication/statistically-valid-inferences-from-differentially-private-data-releases-ii-exte/
+    note: "old short URL was /dpd2; goes to: Statistically Valid Inferences from Differentially Private Data Releases, II:..."
+
+  - from: dpsurvey
+    to:   /publication/differentially-private-survey-research/
+    note: "old short URL was /DPsurvey; goes to: Differentially Private Survey Research"
+
+  - from: ei
+    to:   /publication/ei-a-program-for-ecological-inference-jss/
+    note: "old short URL was /ei; goes to: EI: A Program for Ecological Inference"
+
+  - from: ezi
+    to:   /publication/ezi-an-easy-program-for-ecological-inference/
+    note: "old short URL was /EzI; goes to: EzI: A(n Easy) Program for Ecological Inference"
+
+  - from: hacking
+    to:   /publication/a-theory-of-statistical-inference-for-ensuring-the-robustness-of-scientific-resu/
+    note: "old short URL was /hacking; goes to: A Theory of Statistical Inference for Ensuring the Robustness of Scientific R..."
+
+  - from: indiachild
+    to:   /publication/precision-mapping-child-undernutrition-for-nearly-600000-inhabited-census-villag/
+    note: "old short URL was /IndiaChild; goes to: Precision Mapping Child Undernutrition for Nearly 600,000 Inhabited Census Vi..."
+
+  - from: judgeit
+    to:   /publication/judgeit-ii-a-program-for-evaluating-electoral-systems-and-redistricting-plans/
+    note: "old short URL was /judgeit; goes to: JudgeIt II: A Program for Evaluating Electoral Systems and Redistricting Plans"
+
+  - from: kkv
+    to:   /publication/designing-social-inquiry-scientific-inference-in-qualitative-research-new-editio/
+    note: "old short URL was /kkv; goes to: Designing Social Inquiry: Scientific Inference in Qualitative Research, New E..."
+
+  - from: matchingtheory
+    to:   /publication/a-theory-of-statistical-inference-for-matching-methods-in-causal-research/
+    note: "old short URL was /matchingtheory; goes to: A Theory of Statistical Inference for Matching Methods in Causal Research"
+
+  - from: mediaactivate
+    to:   /publication/how-the-news-media-activate-public-expression-and-influence-national-agendas-2017/
+    note: "old short URL was /mediaActivate; goes to: How the News Media Activate Public Expression and Influence National Agendas"
+
+  - from: partnerships
+    to:   /publication/a-new-model-for-industry-academic-partnerships/
+    note: "old short URL was /partnerships; goes to: A New Model for Industry-Academic Partnerships"
+
+  - from: partyswitch
+    to:   /publication/the-stability-of-party-identification-among-us-representatives-political-loyalty/
+    note: "old short URL was /partyswitch; goes to: The Stability of Party Identification Among U.S. Representatives: Political L..."
+
+  - from: prefresher
+    to:   /publication/the-math-prefresher-and-the-collective-future-of-political-science-graduate-trai/
+    note: "old short URL was /prefresher; goes to: The ‘Math Prefresher’ and The Collective Future of Political Science Graduate..."
+
+  - from: psi
+    to:   /publication/psi-ψ-a-private-data-sharing-interface/
+    note: "old short URL was /psi; goes to: PSI (Ψ): A Private Data Sharing Interface"
+
+  - from: readme
+    to:   /publication/readme-software-for-automated-content-analysis/
+    note: "old short URL was /readme; goes to: ReadMe: Software for Automated Content Analysis"
+
+  - from: relogit
+    to:   /publication/relogit-rare-events-logistic-regression/
+    note: "old short URL was /relogit; goes to: ReLogit: Rare Events Logistic Regression"
+
+  - from: reputable
+    to:   /publication/experimental-evidence-on-the-limited-influence-of-reputable-media-outlets/
+    note: "old short URL was /reputable; goes to: Experimental Evidence on the (Limited) Influence of Reputable Media Outlets"
+
+  - from: sibs
+    to:   /publication/survey-estimates-of-wartime-mortality/
+    note: "old short URL was /sibs; goes to: Survey Estimates of Wartime Mortality"
+
+  - from: symmetry
+    to:   /publication/theoretical-foundations-and-empirical-evaluations-of-partisan-fairness-in-distri/
+    note: "old short URL was /symmetry; goes to: Theoretical Foundations and Empirical Evaluations of Partisan Fairness in Dis..."
+
+  - from: va
+    to:   /publication/va-verbal-autopsies/
+    note: "old short URL was /va; goes to: VA: Verbal Autopsies"
+
+  - from: videos
+    to:   /publication/education-and-scholarship-by-video/
+    note: "old short URL was /videos; goes to: Education and Scholarship by Video"
+
+  - from: vpresent
+    to:   /publication/video-presentations/
+    note: "old short URL was /vpresent; goes to: Video Presentations"
+
+  - from: whatif
+    to:   /publication/whatif-software-for-evaluating-counterfactuals/
+    note: "old short URL was /whatif; goes to: WhatIf: Software for Evaluating Counterfactuals"
+
+  - from: words
+    to:   /publication/an-improved-method-of-automated-nonparametric-content-analysis-for-social-scienc/
+    note: "old short URL was /words; goes to: An Improved Method of Automated Nonparametric Content Analysis for Social Sci..."
+
+  - from: yourcast
+    to:   /publication/yourcast/
+    note: "old short URL was /yourcast; goes to: YourCast"
+
+  # -- END auto-recovered legacy short URLs --
   # Placeholder examples — replace with real ones, or delete, at will.
   # The short URLs below will resolve at e.g. /rd/, /quest/.
 

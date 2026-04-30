@@ -18,6 +18,7 @@ node_modules/
 
 # Generated short-URL redirect stubs (source of truth is data/redirects.yaml).
 content/_redirects/
+static/_redirects
 
 # Generated local citation audit (regenerate: python3 scripts/audit_writings_citations.py)
 data/citation_audit_report.json
