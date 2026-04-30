@@ -1085,12 +1085,28 @@ simpler way: **one YAML file for the whole list**.
 >
 > The source of truth is `scraped_data/drupal_redirects.csv` (a CSV
 > copy of the official Harvard Web Publishing redirect-summary export
-> for `gking.harvard.edu`). The translation lives in
-> `scripts/import_drupal_redirects.py` and is materialised into the
-> `# BEGIN drupal-redirects-import` block in `data/redirects.yaml`.
-> Hand-edits *outside* that block are preserved across re-runs; edits
-> *inside* will be overwritten. To regenerate after editing the
-> resolver / rewrite tables, run:
+> for `gking.harvard.edu`) plus a hand-curated table of "vanity short
+> URLs" (`/whatif`, `/amelia`, `/sibs`, `/Gov2020`, `/quest`, …) that
+> Drupal stored as path *aliases* — not as redirects — and so don't
+> appear in the CSV. The translation lives in
+> `scripts/import_drupal_redirects.py` and is materialised into two
+> blocks in `data/redirects.yaml`:
+>
+> - `# BEGIN drupal-redirects-import` — every spreadsheet row, with
+>   each `to:` chain-resolved through to a real new-site URL.
+> - `# BEGIN vanity-shorts-import` — every short URL Gary publicises
+>   in CVs / talks / papers (e.g. `gking.harvard.edu/whatif`,
+>   `/Gov2020`, `/CompSS`). Mixed-case originals also get a lowercase
+>   alias because the new site is case-sensitive but Drupal wasn't.
+>
+> Hand-edits *outside* those blocks are preserved across re-runs; edits
+> *inside* will be overwritten. The importer also auto-translates
+> truncated content directory names (e.g. `if-a-statistical-...-100`)
+> to their actual published Hugo URLs (which are derived from the full
+> page title, e.g. `if-a-statistical-...-10000-elections-maybe-its-the-wrong-model`)
+> — so every emitted redirect lands on a real page, not a 404. To
+> regenerate after editing the resolver, the rewrite tables, or the
+> vanity URL table, run:
 >
 > ```bash
 > python3 scripts/import_drupal_redirects.py --apply
@@ -1205,7 +1221,7 @@ they touch files.
 | `quick_add.py` | Companion to `intake_publication.py` for content that doesn't have a PDF (software, patents) or where you already have all the metadata. `python3 scripts/quick_add.py {software,patent,paper,talk,book} --title ... --slug ...`. See [Quick add](#quick-add). |
 | `apply_pr_edits.py` | The slash-command processor used by CI. Useful for testing locally: `python3 scripts/apply_pr_edits.py --comment body.txt --report r.json content/publication/foo/index.md`. |
 | `build_redirects.py` | Regenerates the meta-refresh stubs and Netlify `_redirects` file from `data/redirects.yaml`. Supports single- and multi-segment paths and preserves case. Runs automatically in CI. |
-| `import_drupal_redirects.py` | One-time recovery from the old Drupal site: reads `scraped_data/drupal_redirects.csv` (the official Harvard Web Publishing redirect-summary export), translates each entry's target through to a real new-site URL, and writes the result into the `BEGIN drupal-redirects-import` block of `data/redirects.yaml`. Idempotent — re-runs replace only that block, leaving hand-added redirects elsewhere in the file untouched. |
+| `import_drupal_redirects.py` | Recovers redirects from the old Drupal site. Reads `scraped_data/drupal_redirects.csv` (the official Harvard Web Publishing redirect-summary export) plus a hand-curated `VANITY_TO_NEWSITE` table covering vanity short URLs Drupal stored as path aliases (`/whatif`, `/amelia`, `/Gov2020`, `/CompSS`, …). Translates each entry's target through to a real new-site URL — including translating truncated content directory names to their full Hugo-published URL — and writes the result into the `BEGIN drupal-redirects-import` and `BEGIN vanity-shorts-import` blocks of `data/redirects.yaml`. For mixed-case vanity originals also emits a lowercase alias (Drupal was case-insensitive, the new site isn't). Idempotent — re-runs replace only those blocks, leaving hand-added redirects elsewhere in the file untouched. |
 | `compute_publication_first_commit.py` | Refreshes `data/publication_first_commit.json` (drives the spotlight ordering). Runs automatically in CI. |
 | `fill_publication_from_doi.py` | Fills the `publication:` citation line on existing pages from Crossref by DOI. Add `--apply` to write. |
 | `repair_publication_links.py` | Audits external URLs in publication front matter; rewrites tinyurl/ezproxy/dead links to canonical DOIs. `--apply` to write. |

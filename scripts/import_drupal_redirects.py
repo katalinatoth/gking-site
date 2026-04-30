@@ -48,6 +48,10 @@ BEGIN_MARK = "# BEGIN drupal-redirects-import (auto-managed by " \
              "scripts/import_drupal_redirects.py — do not edit by hand)"
 END_MARK = "# END drupal-redirects-import"
 
+VANITY_BEGIN_MARK = "# BEGIN vanity-shorts-import (auto-managed by " \
+                    "scripts/import_drupal_redirects.py — do not edit by hand)"
+VANITY_END_MARK = "# END vanity-shorts-import"
+
 
 # ---------------------------------------------------------------------------
 # Hand-curated translation table.
@@ -59,75 +63,129 @@ END_MARK = "# END drupal-redirects-import"
 # resolve_target() below.
 # ---------------------------------------------------------------------------
 
-# Vanity / short URLs that the spreadsheet uses as targets. These were path
-# aliases on Drupal — not redirects — so they aren't in the spreadsheet's
-# `from` column. We resolve them here so every spreadsheet redirect ends up
-# pointing directly at a real new-site URL (no chains).
+# Vanity / short URLs that Gary publicises (or Drupal aliased) and which
+# the spreadsheet uses as targets. These were path *aliases* on Drupal —
+# not redirects — so they aren't in the spreadsheet's `from` column.
+# Listing them here serves two purposes:
+#   1. Chain-resolution: spreadsheet rows whose `to:` is a vanity URL
+#      land directly on the resolved new-site URL (no chains).
+#   2. Direct emission: each entry becomes a redirect on the new site
+#      so that typing /amelia, /sibs, /Gov2020, etc. into the browser
+#      forwards to the right place. (See emit_vanity_redirects.)
+#
+# Targets were verified by title-matching the publications.json scrape
+# of the old site against content/publication/, content/talk/, and
+# content/software/ on the new site. Software products prefer the
+# /software/<slug>/ landing page; everything else uses /publication/
+# or /talk/ as appropriate.
+#
+# CASE: Drupal was case-insensitive on path aliases, but the new site
+# (Hugo on GitHub Pages) is case-sensitive. Mixed-case keys here will
+# also get a lowercase alias auto-emitted by emit_vanity_redirects.
 VANITY_TO_NEWSITE: dict[str, str] = {
-    # publications / papers
-    "/10k": "/publication/if-statistical-model-predicts-common-events-should-occur-only-once-10000-elections/",
-    "/2k1": "/publication/statistical-intuition-without-coding-or-teachers/",
-    "/acc": "/publication/how-american-politics-ensures-electoral-accountability-congress/",
-    "/amelia": "/publication/amelia-ii-program-missing-data/",
-    "/anchors": "/publication/anchors-software-for-anchoring-vignettes-data/",
-    "/cem": "/publication/cem-coarsened-exact-matching-software/",
-    "/clarify": "/publication/clarify-software-interpreting-and-presenting-statistical-results/",
-    "/conjointE": "/publication/correcting-measurement-error-bias-in-conjoint-survey-experiments/",
-    "/count": "/publication/count-a-program-for-estimating-event-count-and-duration-regressions/",
-    "/dpd2": "/publication/statistically-valid-inferences-differentially-private-data-releases-ii-extensions/",
-    "/ei": "/publication/ei-program-ecological-inference/",
-    "/eiR": "/publication/ei-r-program-ecological-inference/",
-    "/Ezi": "/publication/ezi-easy-program-ecological-inference/",
-    "/judgeit": "/publication/judgeit-ii-program-evaluating-electoral-systems-and-redistricting-plans/",
-    "/matchit": "/publication/matchit-nonparametric-preprocessing-for-parametric-causal-inference/",
-    "/quest": "/publication/inducing-sustained-creativity-and-diversity-in-large-language-models/",
-    "/readme": "/publication/readme-software-for-automated-content-analysis/",
-    "/reputable": "/publication/experimental-evidence-limited-influence-reputable-media-outlets/",
-    "/sibs": "/publication/survey-estimates-wartime-mortality/",
-    "/va": "/publication/va-verbal-autopsy-software/",
-    "/whatif": "/publication/whatif-software-for-evaluating-counterfactuals/",
-    "/yourcast": "/publication/yourcast/",
-    "/zelig": "/publication/zelig-everyones-statistical-software/",
-
-    # software pages
-    "/maxlik": "/software/maxlik/",
-    "/scholar_software/maxlik": "/software/maxlik/",
-    "/gauss": "/software/",
+    # ----- vanity short URLs from publications.json (40 of 41) -----
+    # Papers / chapters / forthcoming work
+    "/10k":            "/publication/if-a-statistical-model-predicts-that-common-events-should-occur-only-once-in-100/",
+    "/2k1":            "/publication/statistical-intuition-without-coding-or-teachers/",
+    "/50c":            "/publication/how-the-chinese-government-fabricates-social-media-posts-for-strategic-distracti-2017-166/",
+    "/acc":            "/publication/how-american-politics-ensures-electoral-accountability-in-congress/",
+    "/compact":        "/publication/how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-2021/",
+    "/CompSS":         "/publication/computational-social-science-obstacles-and-opportunities/",
+    "/conjointE":      "/publication/correcting-measurement-error-bias-in-conjoint-survey-experiments/",
+    "/covid-ccc":      "/publication/building-an-international-consortium-for-tracking-coronavirus-health-status/",
+    "/covid-italy":    "/publication/evaluating-covid-19-public-health-messaging-in-italy-self-reported-compliance-an/",
+    "/deford":         "/publication/the-essential-role-of-statistical-inference-in-evaluating-electoral-systems-a-re/",
+    "/dp":             "/publication/statistically-valid-inferences-from-privacy-protected-data/",
+    "/dp-oped":        "/publication/theres-a-simple-solution-to-the-latest-census-fight/",
+    "/dpd":            "/publication/statistically-valid-inferences-from-differentially-private-data-releases-with-ap/",
+    "/dpd2":           "/publication/statistically-valid-inferences-from-differentially-private-data-releases-ii-exte/",
+    "/DPsurvey":       "/publication/differentially-private-survey-research/",
+    "/hacking":        "/publication/a-theory-of-statistical-inference-for-ensuring-the-robustness-of-scientific-resu/",
+    "/IndiaChild":     "/publication/precision-mapping-child-undernutrition-for-nearly-600000-inhabited-census-villag/",
+    "/kkv":            "/publication/designing-social-inquiry-scientific-inference-in-qualitative-research-new-editio/",
+    "/matchingtheory": "/publication/a-theory-of-statistical-inference-for-matching-methods-in-causal-research/",
+    "/mediaActivate":  "/publication/how-the-news-media-activate-public-expression-and-influence-national-agendas-2017/",
+    "/partnerships":   "/publication/a-new-model-for-industry-academic-partnerships/",
+    "/partyswitch":    "/publication/the-stability-of-party-identification-among-us-representatives-political-loyalty/",
+    "/prefresher":     "/publication/the-math-prefresher-and-the-collective-future-of-political-science-graduate-trai/",
+    "/reputable":      "/publication/experimental-evidence-on-the-limited-influence-of-reputable-media-outlets/",
+    "/sibs":           "/publication/survey-estimates-of-wartime-mortality/",
+    "/symmetry":       "/publication/theoretical-foundations-and-empirical-evaluations-of-partisan-fairness-in-distri/",
+    "/videos":         "/publication/education-and-scholarship-by-video/",
+    "/vpresent":       "/publication/video-presentations/",
+    "/words":          "/publication/an-improved-method-of-automated-nonparametric-content-analysis-for-social-scienc/",
+    # Software products (preferring /software/<slug>/ when both exist)
+    "/amelia":         "/software/amelia-ii-a-program-for-missing-data/",
+    "/anchors":        "/software/anchors-software-for-anchoring-vignettes-data/",
+    "/cem":            "/software/cem-coarsened-exact-matching-software/",
+    "/clarify":        "/software/clarify-software-for-interpreting-and-presenting-statistical-results/",
+    "/ei":             "/software/ei-a-program-for-ecological-inference/",
+    "/EzI":            "/software/ezi-an-easy-program-for-ecological-inference/",
+    "/judgeit":        "/software/judgeit-ii-a-program-for-evaluating-electoral-systems-and-redistricting-plans/",
+    "/matchit":        "/software/matchit-nonparametric-preprocessing-for-parametric-causal-inference/",
+    "/maxlik":         "/software/maxlik/",
+    "/psi":            "/software/psi-ψ-a-private-data-sharing-interface/",
+    "/readme":         "/software/readme-software-for-automated-content-analysis/",
+    "/relogit":        "/software/relogit-rare-events-logistic-regression/",
+    "/va":             "/software/va-verbal-autopsies/",
+    "/whatif":         "/software/whatif-software-for-evaluating-counterfactuals/",
+    "/yourcast":       "/software/yourcast/",
+    "/zelig":          "/software/zelig-everyones-statistical-software/",
+    # Software vanity URLs not in publications.json but referenced by
+    # the spreadsheet — old short URLs Gary may still be using in CVs,
+    # talks, papers.
+    "/eiR":            "/software/ei-a-program-for-ecological-inference/",  # variant of /ei
+    "/scholar_software/maxlik": "/software/maxlik/",  # legacy scholar.harvard.edu path
+    "/gauss":          "/software/",                  # no specific page; landing
+    "/quest":          "/publication/inducing-sustained-creativity-and-diversity-in-large-language-models/",
+    "/count":          "/publication/count-a-program-for-estimating-event-count-and-duration-regressions/",
     "/anchoring-vignettes-faqs": "/software/anchors-software-for-anchoring-vignettes-data/",
-    "/vign": "/software/anchors-software-for-anchoring-vignettes-data/",
+    "/vign":           "/software/anchors-software-for-anchoring-vignettes-data/",
 
-    # research areas — the new site has a single /research-areas/ page
-    "/china": "/research-areas/",
+    # ----- research areas (single page on new site, no per-area URLs) -----
+    "/china":          "/research-areas/",
     "/research-interests#applications": "/research-areas/",
-    "/research-interests#methods": "/research-areas/",
+    "/research-interests#methods":      "/research-areas/",
 
-    # top-level pages
-    "/ssa": "/ssa/",  # already exists on new site
-    "/people": "/people/",  # already exists
+    # ----- top-level pages already on the new site -----
+    # Listed for chain-resolution. NOT emitted as redirects since the
+    # `from` paths already serve real content (would loop or shadow).
+    "/ssa":            "/ssa/",
+    "/people":         "/people/",
 
-    # teaching: Drupal `/Gov2020` and `/class/...` aliases → new `/teaching/...`
-    "/Gov2020": "/teaching/gov2020/",
-    "/class": "/teaching/",
+    # ----- teaching: Drupal `/Gov2020` and `/class/...` → `/teaching/...` -----
+    "/Gov2020":        "/teaching/gov2020/",
+    "/class":          "/teaching/",
     "/class/designing-political-inquiry-government-1003-undergrads": "/teaching/gov1003/",
     "/class/introduction-quantitative-political-methodology-g1000": "/teaching/g1000/",
-    "/class/math-prefresher-political-scientists-faculty-advisor": "/teaching/math-prefresher/",
+    "/class/math-prefresher-political-scientists-faculty-advisor":  "/teaching/math-prefresher/",
     "/class/quantitative-social-science-methods-i-government-2001-and-e-200": "/teaching/gov2001/",
-    "/class/strategies-political-inquiry-government-2010": "/teaching/gov2010/",
-    "/class/workshop-applied-statistics": "/teaching/workshop-applied-statistics/",
+    "/class/strategies-political-inquiry-government-2010":          "/teaching/gov2010/",
+    "/class/workshop-applied-statistics":                           "/teaching/workshop-applied-statistics/",
     "/classes/materials/book-selection-and-purchasing-decision-making": "/teaching/",
-    "/classes/materials/issues": "/teaching/",
+    "/classes/materials/issues":                                    "/teaching/",
 
-    # homepage variants
-    "/home": "/",
-    "/home-page": "/",
+    # ----- homepage variants -----
+    "/home":               "/",
+    "/home-page":          "/",
     "/original-home-page": "/",
     "/gary-king-home-page": "/",
-    "/clone-gary-king": "/",
-    "/blanktitle-7": "/",
-    "/blanktitle-8": "/",
-    "/faqs": "/",
+    "/clone-gary-king":    "/",
+    "/blanktitle-7":       "/",
+    "/blanktitle-8":       "/",
+    "/faqs":               "/",
     "/eicamera/kinroot.html": "/",
 }
+
+# Vanity short URLs we'd publicly emit as redirects (i.e. that should
+# resolve when typed into the browser). Computed below from
+# VANITY_TO_NEWSITE, minus entries that:
+#   - Are already a real page on the new site (e.g. /people/, /ssa/)
+#     — emitting would shadow the real content.
+#   - Carry a fragment in the *key* (e.g. /research-interests#applications);
+#     fragments are document-internal, not paths to redirect from.
+#   - Are multi-segment paths already handled by the spreadsheet's
+#     `from` column (e.g. /class/<class>, /classes/materials/<...>).
 
 # Software-page targets in the spreadsheet often look like
 # `/software/<slug>/<legacy-node-id>` (e.g. `/software/cem-.../115`). The
@@ -282,6 +340,100 @@ def _exists_under(section: str, slug: str) -> bool:
     return (section_dir / slug).is_dir() or (section_dir / f"{slug}.md").is_file()
 
 
+# Hugo permalink :slug uses the page's `slug` field if set, otherwise the
+# slugified title. The site has many content directories whose name was
+# truncated when imported from Drupal, but whose actual published URL is
+# derived from the (longer) title. We need to translate truncated content
+# slugs → real public URLs so redirects don't 404.
+
+
+def _slugify_title(title: str) -> str:
+    """Reproduce Hugo's `:slug` derivation from a title.
+
+    Verified against several known title→public-URL pairs on this site
+    (e.g. "It's" → "its", "10,000" → "10000", "Ψ" → "ψ", "U.S." → "u.s.",
+    "(n " → "n-").
+
+    Algorithm:
+      * Lowercase (with unicode case folding).
+      * KEEP letters from any script (Latin, Greek, …), digits, dots,
+        and hyphens.
+      * CONVERT runs of whitespace to a single hyphen.
+      * STRIP every other character (apostrophes, commas, colons,
+        parens, brackets, exclamation, question marks, slashes, …)
+        — i.e. punctuation is dropped *without* leaving a hyphen.
+      * Collapse multiple hyphens, trim leading/trailing punctuation.
+    """
+    out: list[str] = []
+    for ch in title.lower():
+        if ch.isalnum() or ch in (".", "-"):
+            out.append(ch)
+        elif ch.isspace():
+            out.append("-")
+        else:
+            # punctuation → strip (no hyphen)
+            continue
+    s = "".join(out)
+    s = re.sub(r"-{2,}", "-", s)
+    s = s.strip("-")
+    return s
+
+
+_PUBLIC_SLUG_CACHE: dict[tuple[str, str], str] = {}
+
+
+def _public_slug(section: str, content_slug: str) -> str:
+    """Return the public URL slug for a given content directory slug.
+
+    Reads the content's front matter once (cached). If the page sets
+    `slug:` explicitly, use that; otherwise fall back to slugifying the
+    title. If no front matter or title is found, return content_slug
+    unchanged.
+    """
+    key = (section, content_slug)
+    if key in _PUBLIC_SLUG_CACHE:
+        return _PUBLIC_SLUG_CACHE[key]
+    section_dir = _section_dir(section)
+    md = section_dir / content_slug / "index.md"
+    if not md.is_file():
+        md_alt = section_dir / f"{content_slug}.md"
+        if md_alt.is_file():
+            md = md_alt
+        else:
+            _PUBLIC_SLUG_CACHE[key] = content_slug
+            return content_slug
+    text = md.read_text(encoding="utf-8")[:5000]
+    m_slug = re.search(r"^slug:\s*\"?([^\"\n]+)\"?\s*$", text, re.M)
+    if m_slug:
+        public = m_slug.group(1).strip()
+        _PUBLIC_SLUG_CACHE[key] = public
+        return public
+    m_title = re.search(r"^title:\s*\"?(.+?)\"?\s*$", text, re.M)
+    if m_title:
+        public = _slugify_title(m_title.group(1).strip())
+        _PUBLIC_SLUG_CACHE[key] = public
+        return public
+    _PUBLIC_SLUG_CACHE[key] = content_slug
+    return content_slug
+
+
+def _to_public_url(url: str) -> str:
+    """Translate any `/<section>/<content-slug>/` URL into its public URL.
+
+    Pass-through for non-section URLs (homepage, /research-areas/, etc.)
+    and external links.
+    """
+    if not url.startswith(("/publication/", "/talk/", "/software/")):
+        return url
+    parts = url.lstrip("/").rstrip("/").split("/", 1)
+    if len(parts) != 2:
+        return url
+    section, slug = parts
+    if not _exists_under(section, slug):
+        return url
+    return f"/{section}/{_public_slug(section, slug)}/"
+
+
 def _conflicts_with_existing(path: str) -> bool:
     """True if a redirect at `/<path>/` would shadow a real file or page
     on the new site. Checks both static/ (raw assets) and content/
@@ -304,7 +456,17 @@ def resolve_target(raw: str) -> tuple[str, str | None]:
 
     Returns `(resolved_url, note)` where `note` is None on a clean
     resolution, or a short string explaining ambiguity / fallback.
+
+    Post-processing: any /publication/, /talk/, or /software/ URL
+    we emit gets routed through _to_public_url so the resulting
+    URL matches Hugo's actual permalink (which is derived from the
+    page title, not the truncated content directory name).
     """
+    out, note = _resolve_target_inner(raw)
+    return (_to_public_url(out), note)
+
+
+def _resolve_target_inner(raw: str) -> tuple[str, str | None]:
     t = (raw or "").strip()
     if not t:
         return ("/", "empty target → /")
@@ -321,12 +483,17 @@ def resolve_target(raw: str) -> tuple[str, str | None]:
     base, sep, suffix = t.partition("?")
     base, _, frag = base.partition("#")
 
-    # Direct hand-curated mapping?
+    # Direct hand-curated mapping? Case-insensitive lookup since Drupal
+    # was case-insensitive and the spreadsheet sometimes references the
+    # same vanity URL in two cases (e.g. /EzI and /Ezi).
     full = base + (("#" + frag) if frag else "")
+    vanity_ci = {k.lower(): v for k, v in VANITY_TO_NEWSITE.items()}
     if full in VANITY_TO_NEWSITE:
         return (VANITY_TO_NEWSITE[full], None)
-    if base in VANITY_TO_NEWSITE:
-        out = VANITY_TO_NEWSITE[base]
+    if full.lower() in vanity_ci:
+        return (vanity_ci[full.lower()], None)
+    if base in VANITY_TO_NEWSITE or base.lower() in vanity_ci:
+        out = VANITY_TO_NEWSITE.get(base, vanity_ci.get(base.lower()))
         # Preserve fragments (document-internal anchors stay meaningful)
         # but drop query strings — Drupal-style facet parameters have
         # no meaning on the new Hugo site.
@@ -487,11 +654,98 @@ def render_block(rows: list[tuple[str, str, int, str | None, str]]) -> str:
     return "\n".join(lines)
 
 
-def replace_block(existing_text: str, new_block: str) -> str:
-    """Substitute the auto-managed block, or append it if absent.
+def emit_vanity_redirects(
+    spreadsheet_from_paths: set[str],
+) -> list[tuple[str, str, int, str | None, str]]:
+    """Build redirect rows for each vanity short URL in VANITY_TO_NEWSITE.
 
-    We also strip out any prior block written by an older version of this
-    importer (the legacy short-URL recovery script used a different set of
+    Skips entries that:
+      * Have a fragment in the key (e.g. `/research-interests#applications`
+        — fragments live on the target side, not the from side).
+      * Already serve real content on the new site (e.g. `/people`,
+        `/ssa` — emitting would shadow / loop).
+      * Are already present in the spreadsheet's processed `from` set
+        (de-dupe with the drupal-redirects block).
+
+    For mixed-case `from` paths (`/Gov2020`, `/CompSS`, `/EzI`,
+    `/IndiaChild`, `/conjointE`, `/DPsurvey`, `/mediaActivate`, `/eiR`,
+    /dp-oped, …), also emits a lowercase alias since Drupal was
+    case-insensitive on path aliases but Hugo on GitHub Pages is not.
+
+    Returns a list shaped like the spreadsheet rows so the existing
+    render path can handle both.
+    """
+    rows: list[tuple[str, str, int, str | None, str]] = []
+    seen: set[str] = set()
+
+    for short, target in VANITY_TO_NEWSITE.items():
+        if "#" in short:
+            continue
+        from_path = short.lstrip("/").rstrip("/")
+        if not from_path:
+            continue
+        # Already in spreadsheet?
+        if from_path in spreadsheet_from_paths:
+            continue
+        # Real content on new site?
+        if _conflicts_with_existing(from_path):
+            continue
+        if from_path in seen:
+            continue
+        seen.add(from_path)
+        # Translate content-slug targets to their public URL so the
+        # redirect lands on the actual rendered page.
+        public = _to_public_url(target)
+        rows.append((from_path, public, 301,
+                     f"vanity short URL → {public}", ""))
+
+        # Lowercase alias for mixed-case originals.
+        lower = from_path.lower()
+        if lower != from_path and lower not in seen \
+                and lower not in spreadsheet_from_paths \
+                and not _conflicts_with_existing(lower):
+            seen.add(lower)
+            rows.append((lower, public, 301,
+                         f"case-insensitive alias of /{from_path}/",
+                         ""))
+
+    rows.sort(key=lambda r: r[0].lower())
+    return rows
+
+
+def render_vanity_block(rows: list[tuple[str, str, int, str | None, str]]) -> str:
+    lines: list[str] = [
+        VANITY_BEGIN_MARK,
+        "# Source: hand-curated VANITY_TO_NEWSITE table in",
+        "#         scripts/import_drupal_redirects.py, derived from",
+        "#         scraped_data/publications.json (the old Drupal site's",
+        "#         path aliases for vanity short URLs like /amelia, /sibs,",
+        "#         /10k, /quest, etc.) plus a few manually-added entries.",
+        "# Re-generate with: python3 scripts/import_drupal_redirects.py --apply",
+        "#",
+        "# Each entry forwards a short Gary publicises (in CVs, talks,",
+        "# papers, slides) to the canonical page on the new site. For",
+        "# mixed-case originals (/Gov2020, /CompSS, /EzI, …) a lowercase",
+        "# alias is emitted alongside since the new site is case-sensitive.",
+        "",
+    ]
+    for from_, to_, status, note, _raw in rows:
+        lines.append(f'  - from: "{yaml_quote(from_)}"')
+        lines.append(f'    to:   "{yaml_quote(to_)}"')
+        if status != 301:
+            lines.append(f"    status: {status}")
+        if note:
+            lines.append(f'    note: "{yaml_quote(note)}"')
+        lines.append("")
+    lines.append(VANITY_END_MARK)
+    return "\n".join(lines)
+
+
+def replace_block(existing_text: str, *new_blocks: str) -> str:
+    """Substitute the auto-managed blocks, or append them if absent.
+
+    We also strip out any prior block written by an older version of
+    this importer (the legacy short-URL recovery script used different
     BEGIN/END markers).
     """
     legacy_marker_patterns = [
@@ -504,6 +758,7 @@ def replace_block(existing_text: str, new_block: str) -> str:
          r"#\s*END auto-recovered legacy short-URLs"),
         # Current importer markers — for idempotency on re-runs.
         (re.escape(BEGIN_MARK), re.escape(END_MARK)),
+        (re.escape(VANITY_BEGIN_MARK), re.escape(VANITY_END_MARK)),
     ]
     text = existing_text
     for begin_re, end_re in legacy_marker_patterns:
@@ -512,9 +767,8 @@ def replace_block(existing_text: str, new_block: str) -> str:
             re.DOTALL,
         )
         text = pattern.sub("", text)
-    # Collapse any double-blank lines we may have introduced.
     text = re.sub(r"\n{3,}", "\n\n", text)
-    text = text.rstrip() + "\n\n" + new_block + "\n"
+    text = text.rstrip() + "\n\n" + "\n\n".join(new_blocks) + "\n"
     return text
 
 
@@ -574,13 +828,15 @@ def main(argv: list[str] | None = None) -> int:
     rows.sort(key=lambda r: r[0].lower())
 
     block = render_block(rows)
+    vanity_rows = emit_vanity_redirects(seen_paths)
+    vanity_block = render_vanity_block(vanity_rows)
 
     if args.diff:
         if DATA_FILE.exists():
             cur = DATA_FILE.read_text(encoding="utf-8")
         else:
             cur = ""
-        proposed = replace_block(cur, block)
+        proposed = replace_block(cur, block, vanity_block)
         import difflib
         diff = difflib.unified_diff(
             cur.splitlines(keepends=True),
@@ -592,20 +848,22 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     if not args.apply:
-        print(f"[import_drupal_redirects] DRY RUN — would translate "
-              f"{len(rows)} redirects "
-              f"(skipped {skipped_self_loops} self-loops, "
+        print(f"[import_drupal_redirects] DRY RUN — would write "
+              f"{len(rows)} drupal redirects + {len(vanity_rows)} vanity "
+              f"shorts to {DATA_FILE.relative_to(ROOT)}.")
+        print(f"  drupal: skipped {skipped_self_loops} self-loops, "
               f"{skipped_truncated_from} truncated-from rows, "
               f"{skipped_existing_path} that would shadow existing files/pages, "
-              f"{deduped_query_strings} duplicates from query-string variants).")
+              f"{deduped_query_strings} duplicates from query-string variants.")
         unresolved = [r for r in rows if r[3] and (
             "not found" in r[3] or "no rule matched" in r[3]
             or "sent to" in r[3] or "best guess" in r[3])]
-        print(f"[import_drupal_redirects] {len(unresolved)} entr"
-              f"{'y' if len(unresolved) == 1 else 'ies'} use a fallback "
-              f"target (will be emitted with a note):")
-        for from_, to_, _, note, raw_to in unresolved:
-            print(f"  /{from_}  →  {to_}   ({note})")
+        if unresolved:
+            print(f"  drupal: {len(unresolved)} use a fallback target:")
+            for from_, to_, _, note, raw_to in unresolved:
+                print(f"    /{from_}  →  {to_}   ({note})")
+        print(f"  vanity: {len(vanity_rows)} short URLs (incl. lowercase "
+              f"aliases for mixed-case originals).")
         print()
         print("Re-run with --apply to write the changes.")
         return 0
@@ -614,10 +872,11 @@ def main(argv: list[str] | None = None) -> int:
         cur = DATA_FILE.read_text(encoding="utf-8")
     else:
         cur = ""
-    new_text = replace_block(cur, block)
+    new_text = replace_block(cur, block, vanity_block)
     DATA_FILE.write_text(new_text, encoding="utf-8")
 
-    print(f"[import_drupal_redirects] wrote {len(rows)} redirects to "
+    print(f"[import_drupal_redirects] wrote {len(rows)} drupal redirects "
+          f"+ {len(vanity_rows)} vanity short URLs to "
           f"{DATA_FILE.relative_to(ROOT)} (skipped {skipped_self_loops} "
           f"self-loops, {skipped_truncated_from} truncated-from rows, "
           f"{skipped_existing_path} that would shadow existing files/pages, "
