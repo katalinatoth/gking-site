@@ -1,121 +1,180 @@
 # Updating the Website
 
-This guide is for **Gary** (or anyone doing content maintenance). Every task
-below can be done from **github.com in a web browser** — no terminal, no
-local tools, no developer knowledge required. Just edit the file, click
-"Commit", and the site rebuilds itself within a few minutes.
+This guide is for **Gary** (or anyone doing content maintenance). Every
+task below is described two ways:
 
-> Repository: <https://github.com/KatalinaToth/gking-site>
-> Live site: <https://katalinatoth.github.io/gking-site/>
+- **Terminal** — preferred when you have a checkout handy. Edit a file in
+  your editor, `git commit`, and (with the auto-push hook installed) the
+  change is on its way to GitHub before you've moved on.
+- **GitHub.com** — pencil-icon edits in the browser. No local tools, no
+  developer knowledge required. Use this when you're on a phone or a
+  borrowed laptop.
+
+Either path lands the change on the live site within ~3 minutes: every
+push to `main` triggers the `Deploy Hugo site to GitHub Pages` workflow,
+which builds Hugo, regenerates the search index, regenerates short-URL
+redirects, refreshes first-commit dates for the spotlight, and publishes.
+
+> Repository: <https://github.com/iqss-research/gking-site>
+> Live site: <https://gking.harvard.edu/>
 
 ---
 
-## TL;DR — Three things to remember
+## TL;DR — three things to remember
 
 1. Every piece of content is a folder under `hugo-site/content/` containing
-   an `index.md` file. Copy an existing one and edit it.
+   an `index.md` (or `_index.md` for section landing pages). Copy an
+   existing one and edit it.
 2. PDFs and images go under `hugo-site/static/files/` (PDFs) or
-   alongside your `index.md` (featured images).
-3. After you commit, wait 3 minutes and refresh the site. GitHub Actions
-   rebuilds everything automatically, including the “See Also” links, the
-   search index, and the Writings tabs.
+   `hugo-site/static/images/` (one-off images), or alongside the page's
+   `index.md` (featured / per-page assets).
+3. After you commit + push, wait ~3 minutes and refresh. GitHub Actions
+   rebuilds everything automatically — the Pagefind search index, the
+   "See Also" links, the Writings tabs, the redirect stubs, and the
+   Working-Papers spotlight.
 
 > **Adding a new paper?** Skip the manual template entirely — just
-> [drop the PDF in `intake/`](#quick-add-upload-a-pdf) and the bot fills in
-> the rest.
+> [drop the PDF in `intake/`](#quick-add-upload-a-pdf) and the bot fills
+> in the rest.
 
 ---
 
-## Table of Contents
+## Table of contents
 
-1. [Quick add: upload a PDF](#quick-add-upload-a-pdf)
-2. [How the repo is organized](#how-the-repo-is-organized)
-3. [Editing from GitHub.com (no terminal)](#editing-from-githubcom-no-terminal)
-4. [Add a new paper / article / book (manual template)](#add-a-new-paper--article--book)
-5. [Add a new talk or presentation](#add-a-new-talk-or-presentation)
-6. [Add a new software / R package page](#add-a-new-software--r-package-page)
-7. [Add a new dataset / Dataverse link](#add-a-new-dataset--dataverse-link)
-8. [Link things together (“See Also”)](#link-things-together-see-also)
-9. [Update your bio or CV](#update-your-bio-or-cv)
-10. [Add / remove research-group members](#add--remove-research-group-members)
-11. [Edit the homepage](#edit-the-homepage)
-12. [Edit the navigation menu](#edit-the-navigation-menu)
-13. [Change a button label (“Article”, “Publisher’s Version”, …)](#change-a-button-label)
-14. [Add a paper to a Research Area](#add-a-paper-to-a-research-area)
-15. [Edit the teaching / contact / other pages](#edit-the-teaching--contact--other-pages)
-16. [Short URLs & redirects (`/rd`, `/quest`, …)](#short-urls--redirects)
-17. [Troubleshooting](#troubleshooting)
+1. [One-time setup (terminal)](#one-time-setup-terminal)
+2. [Quick add: upload a PDF](#quick-add-upload-a-pdf)
+3. [How the repo is organized](#how-the-repo-is-organized)
+4. [Two ways to edit](#two-ways-to-edit)
+5. [Add a paper / article / book (manual template)](#add-a-paper--article--book-manual-template)
+6. [Add a talk or presentation](#add-a-talk-or-presentation)
+7. [Add a software / R package page](#add-a-software--r-package-page)
+8. [Add a dataset / Dataverse link](#add-a-dataset--dataverse-link)
+9. [Featured publications spotlight](#featured-publications-spotlight)
+10. [Link things together ("See Also")](#link-things-together-see-also)
+11. [Update the bio or CV](#update-the-bio-or-cv)
+12. [Add / remove research-group members](#add--remove-research-group-members)
+13. [Edit the homepage](#edit-the-homepage)
+14. [Edit the navigation menu](#edit-the-navigation-menu)
+15. [Change a button label ("Article", "Publisher's Version", …)](#change-a-button-label)
+16. [Add a paper to a Research Area](#add-a-paper-to-a-research-area)
+17. [Edit the teaching / contact / other pages](#edit-the-teaching--contact--other-pages)
+18. [Short URLs & redirects (`/rd`, `/quest`, …)](#short-urls--redirects)
+19. [Helper scripts (terminal only)](#helper-scripts-terminal-only)
+20. [Automation: workflows that run on every change](#automation-workflows-that-run-on-every-change)
+21. [Local preview](#local-preview)
+22. [Troubleshooting](#troubleshooting)
+23. [Appendix: publication types](#appendix-publication-types)
+
+---
+
+## One-time setup (terminal)
+
+Once per machine. Skip this section if you only ever edit through
+github.com.
+
+```bash
+git clone https://github.com/iqss-research/gking-site.git
+cd gking-site/hugo-site
+
+# Install the auto-push hook so every `git commit` immediately
+# `git push`es to origin. Removes the easy-to-forget last step.
+scripts/enable-auto-push.sh
+```
+
+After that, the daily flow is just:
+
+```bash
+git pull            # before you start
+# …edit files in your editor…
+git add -A
+git commit -m "short message"
+# (the post-commit hook pushes for you)
+```
+
+Notes on the auto-push hook:
+
+- One-off skip: `SKIP_AUTO_PUSH=1 git commit -m "wip"`.
+- Turn it off permanently: `git config hooks.skip-auto-push true`.
+- It only pushes if the branch already has an upstream
+  (`git push -u origin main` once if it ever asks).
+
+For a local preview before pushing, see [Local preview](#local-preview).
 
 ---
 
 ## Quick add: upload a PDF
 
-This is the **fastest way to add a new paper** — just drop the PDF and
-let the site fill in the rest. No template, no slug to invent, no
-typing of citations.
+This is the **fastest way to add a new paper** — drop a PDF, wait, click
+Merge. The bot does title/authors/year/abstract/DOI/citation/featured
+image/Writings-tab routing for you.
 
-### What you do (about 30 seconds, all in the browser)
+### Terminal flow (~30 seconds of work)
 
-1. Open <https://github.com/KatalinaToth/gking-site/tree/main/intake>
+```bash
+git checkout -b add-my-paper            # any branch name
+cp ~/Downloads/whatever.pdf intake/     # filename doesn't matter
+git add intake/whatever.pdf
+git commit -m "Drop PDF for auto-import"
+git push -u origin add-my-paper
+gh pr create --fill                     # or open the URL git printed
+```
+
+Now wait ~1–2 minutes and the bot pushes a follow-up commit to your
+branch (see [What happens automatically](#what-happens-automatically)
+below).
+
+### GitHub.com flow
+
+1. Open <https://github.com/iqss-research/gking-site/tree/main/intake>
    (or click into the `intake/` folder from the repo's main page).
 2. Click **Add file → Upload files** in the upper right.
-3. Drag the paper's PDF into the page. Filename doesn't matter; the
-   bot renames it for you.
-4. Scroll to the **Commit changes** form at the bottom of the page.
-   Pick the second radio option:
-   **"Create a new branch for this commit and start a pull request"**.
-   Click the green **Propose changes** button.
-5. On the next page (the new pull request), click **Create pull
-   request**. You don't need to write a description; the bot writes one
-   for you.
-
-That's it. Now wait ~1–2 minutes.
+3. Drag the paper's PDF onto the page.
+4. At the bottom, pick **"Create a new branch for this commit and start
+   a pull request"**, then click **Propose changes**.
+5. On the next page click **Create pull request**. No description
+   needed; the bot writes one.
 
 ### What happens automatically
 
-Behind the scenes, a workflow called *"Auto-import publication from
-PDF"* runs on the new pull request and:
+The `Auto-import publication from PDF` workflow
+(`.github/workflows/intake-publication.yml`) runs on every PDF added in
+a pull request. For each PDF it:
 
-- Reads the PDF, looking for a printed DOI (Crossref).
-- If no DOI is on the page, searches Crossref by the PDF's title +
-  authors as a fallback.
-- Pulls back the canonical title, full author list, journal name,
-  volume / issue / page range (or article number), publication year,
-  and abstract.
-- Generates a URL slug from the title and creates
-  `content/publication/<slug>/index.md` with all the front matter
-  filled in.
+- Reads the PDF and looks for a printed DOI; if absent, falls back to a
+  Crossref title+author search.
+- Pulls Crossref's canonical title, full author list, journal name,
+  volume / issue / pages (or article number), year, and abstract.
+- Generates a slug from the title and creates
+  `content/publication/<slug>/index.md` with the front matter
+  pre-filled.
 - Moves the PDF from `intake/` to `static/files/<slug>.pdf` and links
-  it from the new page.
-- Adds the slug to `data/writings_legacy_map.json` so it shows up in
-  the right Writings-page tab (Journal Articles / Books / Other / etc.).
-- Extracts a thumbnail image: walks the PDF for embedded raster
-  figures and saves the largest one (≥250 px on a side) as
-  `featured.png` (or `.jpg`) next to the new `index.md`. If the PDF
-  has no usable figures (e.g. a working paper that is mostly text),
-  it renders page 1 as a fallback thumbnail. The PR comment tells
-  you which path was used.
-- Pushes one extra commit to the same pull request and posts a
-  comment summarizing exactly what it found.
+  it from the page.
+- Adds the slug to `data/writings_legacy_map.json` so it routes to the
+  correct Writings-page tab.
+- Extracts a thumbnail: walks the PDF for embedded raster figures and
+  saves the largest one (≥250 px on a side, with anti-monochrome
+  filtering) as `featured.png` (or `.jpg`). If none qualifies (e.g. a
+  text-heavy working paper), it renders page 1 as a fallback. The PR
+  comment tells you which path was used.
+- Pushes one extra commit to your PR branch and posts a comment that
+  summarizes everything it found, plus a "**things to double-check**"
+  list if it had to guess anything.
 
-### What you do next
+### Reviewing the PR
 
-Open the pull request after the bot's comment shows up.
+Open the PR after the bot's comment shows up. The comment lists, for
+each PDF: title, authors, year, DOI, generated citation line, detected
+publication type, and any review notes (e.g. *"Abstract was extracted
+from PDF body text — skim it for OCR artifacts"*).
 
-The comment lists, for each PDF: the title, authors, year, DOI,
-generated citation line, detected publication type, and any **"things
-to double-check"** notes (e.g. *"Abstract was extracted from PDF body
-text — skim it for OCR artifacts"* or *"Could not detect authors,
-defaulted to ['Gary King']"*).
+If everything looks right, click **Merge pull request**. The deploy
+workflow runs and the paper is live in another ~3 minutes.
 
-If everything looks right: just click **Merge pull request**. Done.
+### If something needs editing
 
-#### If something needs editing
-
-The fastest way is to **post a comment on the pull request** with one
-or more slash commands. The bot picks them up within ~30 seconds and
-pushes a follow-up commit to the same PR. You don't have to find the
-file, learn YAML, or use the pencil icon — just type:
+The fastest path is to **post a comment on the PR with one or more
+slash commands**. The bot picks them up within ~30 seconds and pushes
+a follow-up commit:
 
 ```
 /title The Real Title of the Paper
@@ -125,11 +184,11 @@ file, learn YAML, or use the pencil icon — just type:
 /type journal_article
 /publication Political Analysis, 31, 2, Pp. 100-110
 /abstract The corrected abstract goes here.
-It can span multiple lines and even include
-blank lines until the next slash command or end of comment.
+It can span multiple paragraphs and continues
+until the next slash command or end of comment.
 ```
 
-Recognised commands:
+Recognised commands (case-insensitive):
 
 | Command | What it does | Notes |
 |---|---|---|
@@ -139,39 +198,50 @@ Recognised commands:
 | `/date <date>` | alias for `/year` | |
 | `/abstract <text>` | replaces the abstract | spans every line until the next `/cmd` or end of comment, so multi-paragraph abstracts work |
 | `/publication <text>` | replaces the citation line | e.g. `Political Analysis, 31, 2, Pp. 100-110` |
-| `/doi <doi>` | sets the DOI | also rewrites the **Publisher's Version** button to `https://doi.org/<doi>` |
-| `/type <slug>` | replaces `publication_types` | also re-routes the Writings tab; valid slugs: `journal_article`, `book`, `book_chapter`, `working_paper`, `conference_paper`, `report`, `data`, `software`, `courtbrief`, `presentation`, `other` |
+| `/doi <doi>` | sets the DOI | also rewrites the **Publisher's Version** link to `https://doi.org/<doi>` |
+| `/type <slug>` | replaces `publication_types` | also re-routes the Writings tab. Valid slugs: `journal_article`, `book`, `book_chapter`, `working_paper`, `conference_paper`, `report`, `data`, `software`, `courtbrief`, `presentation`, `other` |
 
 The bot reacts 👍 on the comment, posts a confirmation listing what
 changed (and warnings for any commands it didn't understand), and
-commits the result to the PR branch. You can keep iterating with more
-comments until it looks right, then click **Merge pull request**.
+commits the result to the PR branch. You can keep iterating.
 
-If you'd rather edit `index.md` directly in YAML, you still can:
-open the **Files changed** tab, click the pencil icon on
-`content/publication/<slug>/index.md`, edit the field, and **Commit
-changes**. Either path works; mix and match as you like.
+If you'd rather edit `index.md` directly, you still can: from the
+terminal, edit the file the bot just generated; or from github.com,
+open the **Files changed** tab and click the pencil on
+`content/publication/<slug>/index.md`. Either path works; mix and match.
 
-The site rebuilds automatically once the PR is merged; the new paper
-is live ~3 minutes later. The "See Also" box at the bottom of the
-page is also filled in automatically (the build scans titles,
-authors, and tags across the whole site to surface related content).
+The site rebuilds automatically once the PR is merged. The "See Also"
+box at the bottom of the page is filled in automatically (the build
+scans titles, authors, and tags across the whole site to surface
+related content).
+
+### Manual run (terminal, no PR needed)
+
+If you'd rather run the import locally without opening a PR:
+
+```bash
+cd hugo-site
+pip install pyyaml certifi pymupdf      # one time
+python3 scripts/intake_publication.py intake/whatever.pdf --dry-run
+# happy with the report? drop --dry-run:
+python3 scripts/intake_publication.py intake/whatever.pdf
+git add -A && git commit -m "Add new paper" && git push
+```
 
 ### When this won't work / fallbacks
 
-- The bot **only** triggers from a pull-request branch, not from a
-  direct push to `main`. If you accidentally pick "Commit directly to
-  the main branch" in step 4, the bot won't run; just delete the file
-  from `intake/` (using the GitHub web UI's trash-can icon) and try
-  again.
+- The PR-triggered bot **only** runs from a pull-request branch, never a
+  direct push to `main`. If you accidentally pushed straight to `main`,
+  remove the file from `intake/` and re-do it on a branch.
+- The bot also skips PRs from forks (the GitHub token can't push back
+  to a fork's branch). Open the PR from a branch in this repo.
 - If Crossref has nothing for the paper (very recent working paper,
   unindexed conference proceedings, etc.), the bot still creates a
   scaffolded `index.md` from the PDF text — but it'll flag every field
-  that needs human verification in the PR comment, so you know what to
-  fix before merging.
-- If you'd rather hand-write the front matter from scratch, the
-  manual template is still there:
-  [Add a new paper (manual template)](#add-a-new-paper--article--book).
+  that needs human verification in the PR comment.
+- If you'd rather hand-write the front matter from scratch, the manual
+  template is still there:
+  [Add a paper (manual template)](#add-a-paper--article--book-manual-template).
 
 ---
 
@@ -179,69 +249,97 @@ authors, and tags across the whole site to surface related content).
 
 ```
 hugo-site/
-├── content/              ← every page lives here
-│   ├── publication/      ← papers, articles, books, datasets, patents
-│   ├── talk/             ← presentations
-│   ├── software/         ← R packages / tools
-│   ├── authors/          ← people profiles (students, coauthors)
-│   ├── bio/              ← "Bio & CV" page
-│   ├── teaching/         ← "Teaching" page
-│   ├── research-areas/   ← "Research Areas" topics
-│   └── research-group/   ← "Research Group" listing page
-├── static/files/         ← PDFs, supplementary downloads
-├── data/                 ← JSON/YAML data files (research-area mapping, etc.)
-├── layouts/              ← page templates (edit only for design tweaks)
-└── assets/css/custom.css ← site-wide CSS
+├── content/                ← every page lives here
+│   ├── publication/        ← papers, articles, books, datasets, patents
+│   ├── talk/               ← presentations
+│   ├── software/           ← stand-alone software / R-package pages
+│   ├── people/             ← profile pages for collaborators / alumni
+│   ├── authors/            ← author taxonomy pages (only `gary-king/`)
+│   ├── bio/                ← "Bio & CV" page
+│   ├── teaching/           ← "Teaching" page (+ per-class subfolders)
+│   ├── research-areas/     ← "Research Areas" page
+│   ├── research-group/     ← "People" page (built from data/research_group.json)
+│   ├── dataverse/, contact/, blog/, advice/, …
+│   └── _index.md           ← homepage
+├── static/
+│   ├── files/              ← PDFs, slides, supplementary downloads
+│   └── images/             ← bio photo, site-wide images
+├── data/                   ← YAML/JSON data files driving dynamic pages
+├── intake/                 ← drop-zone for the auto-import bot (normally empty)
+├── layouts/                ← Hugo templates (edit only for design tweaks)
+├── assets/css/custom.css   ← site-wide CSS overrides
+├── i18n/en.yaml            ← UI strings (button labels, etc.)
+├── .github/workflows/      ← deploy + intake + link-check automations
+├── scripts/                ← Python helper scripts (see below)
+└── hugo.yaml               ← top-level Hugo config (menus, theme, etc.)
 ```
 
 Each piece of content is a folder whose name becomes part of the URL.
 Example: `content/publication/ecological-inference/index.md` →
-`/gking-site/publication/ecological-inference/`.
+`https://gking.harvard.edu/publication/ecological-inference/`.
 
 ---
 
-## Editing from GitHub.com (no terminal)
+## Two ways to edit
 
-1. Go to <https://github.com/KatalinaToth/gking-site>.
-2. Click the folder path to drill into `hugo-site/…`.
-3. Click any file → pencil icon ("Edit this file") → make changes → scroll
-   down → **Commit changes**.
-4. To **add a new file**: browse to the parent folder → **Add file → Create
-   new file**. Type the full path in the filename box, e.g.
-   `hugo-site/content/publication/my-new-paper/index.md`, then paste the
-   template below.
-5. To **upload PDFs**: browse to `hugo-site/static/files/` → **Add file →
-   Upload files** → drag the PDF in → Commit.
+### Terminal
 
-Every commit to the `main` branch automatically runs the "Deploy Hugo site
-to GitHub Pages" workflow. You can watch progress at
-<https://github.com/KatalinaToth/gking-site/actions>. It usually finishes
-in 3–4 minutes.
+```bash
+cd gking-site/hugo-site
+$EDITOR content/publication/some-paper/index.md
+git add -A && git commit -m "Fix typo in abstract"
+# (auto-push hook pushes; otherwise: `git push`)
+```
+
+To **add a new file**, just create the folder and `index.md` in your
+editor — Hugo picks up new content automatically on the next build.
+
+### GitHub.com
+
+1. Go to <https://github.com/iqss-research/gking-site>.
+2. Click into `hugo-site/…`.
+3. Click any file → pencil icon → make changes → scroll down →
+   **Commit changes**.
+4. To **add a new file**: browse to the parent folder → **Add file →
+   Create new file**. Type the full path in the filename box, e.g.
+   `hugo-site/content/publication/my-new-paper/index.md`, then paste
+   the template below.
+5. To **upload PDFs**: browse to `hugo-site/static/files/` →
+   **Add file → Upload files** → drag the PDF in → Commit.
+
+Watch the build at
+<https://github.com/iqss-research/gking-site/actions>. It usually
+finishes in 3–4 minutes.
 
 ---
 
-## Add a new paper / article / book
+## Add a paper / article / book (manual template)
 
 > Most of the time you should use the
 > [Quick add (upload a PDF)](#quick-add-upload-a-pdf) flow above and
-> let the bot do this for you. The manual template below is the
-> fallback for cases where the bot can't find Crossref data, or when
-> you want fine-grained control over every field from the start.
+> let the bot handle this. The manual template here is a fallback for
+> cases where the bot can't find Crossref data, or when you want fine-
+> grained control over every field from the start.
 
-### Step 1: upload the PDF
-Drop the PDF into `hugo-site/static/files/`. Use a short, lowercase,
-hyphenated filename, e.g. `gerrymandering-partisan-symmetry-2026.pdf`.
+### Step 1 — upload the PDF
 
-### Step 2: create the page folder
+Put the PDF at `hugo-site/static/files/<slug>.pdf`. Use a short,
+lowercase, hyphenated filename, e.g.
+`gerrymandering-partisan-symmetry-2026.pdf`.
+
+### Step 2 — create the page folder
+
 Create a new file at:
-```
-hugo-site/content/publication/my-short-slug/index.md
-```
-Where `my-short-slug` is whatever you want to appear in the URL (lowercase,
-hyphens, no spaces). This becomes the page URL permanently — so pick
-something readable and stable.
 
-### Step 3: paste this template and edit
+```
+hugo-site/content/publication/<slug>/index.md
+```
+
+`<slug>` is whatever you want in the URL (lowercase, hyphens, no
+spaces). It becomes the page URL permanently — pick something readable
+and stable.
+
+### Step 3 — paste this template and edit
 
 ```yaml
 ---
@@ -252,14 +350,18 @@ authors:
   - "Coauthor Name"
 publication_types:
   - "journal_article"
-publication: "Journal Name, Vol, Pages"
-abstract: "Paper abstract text here."
+publication: "Journal Name, Volume(Issue), pages"
+abstract: |-
+  Multi-paragraph abstract goes here.
+
+  Paragraph two, etc.
+doi: "10.xxxx/xxxxx"
 links:
-  - name: Article
+  - type: pdf
     url: "files/my-paper.pdf"
-  - name: Publisher's Version
+  - type: source
     url: "https://doi.org/10.xxxx/xxxxx"
-  - name: Supplementary Material
+  - name: "Supplementary Material"
     url: "files/my-paper-supp.pdf"
 ---
 ```
@@ -268,49 +370,63 @@ links:
 
 - `publication_types` must be one of the values listed in
   [the appendix](#appendix-publication-types).
-- Any link in `links:` becomes a button on the page. `files/...` paths
-  (no leading `/`) point at `static/files/`.
-- `date` should be `YYYY-MM-DD` or `'YYYY-MM-DD'` — both work.
-- `authors:` controls ordering; write names however you want them displayed.
+- Each entry in `links:` becomes a button on the page. The site
+  recognises two **canonical types**:
+  - `type: pdf` → "Article" button (the i18n translation can be
+    changed; see [Change a button label](#change-a-button-label)).
+  - `type: source` → "Publisher's Version" button (also rewritten by
+    `/doi` slash commands).
+  Anything else uses `name:` for the button label, e.g.
+  `name: "Supplementary Material"`. The intake bot writes the
+  `type:`-style links; older hand-written pages sometimes use the
+  `name:`-style. Both work.
+- `files/...` URLs (no leading `/`) point at `static/files/`.
+- `date` should be `YYYY-MM-DD` or quoted `'YYYY-MM-DD'`.
+- `authors:` controls ordering; write names however you want them
+  displayed.
+- `abstract: |-` keeps line breaks; `abstract: "single line"` works too.
 
-### Which Writings tab does a paper land in?
+### Step 4 — pick the Writings tab
 
-The `/publication/` page groups items into tabs: **Journal Articles**,
-**Books & Chapters**, **Presentations**, **Software**, **Patents**, and
-**Other**. Tab placement is driven by `data/writings_legacy_map.json`,
-which records each item's legacy category.
+Tab placement is driven by `data/writings_legacy_map.json`, which
+records each item's legacy category. The intake bot updates this for
+you; if you're hand-writing a page, append an entry like:
 
-For new items, add an entry to that file (the keys are `tab` and
-`drupal`). Valid `drupal` values and the tab each one appears in:
+```json
+"<slug>": { "tab": "<tab-id>", "drupal": "<type>" }
+```
 
-| `drupal`                 | Tab                  |
-| ------------------------ | -------------------- |
-| `journal_article`        | Journal Articles     |
-| `book`                   | Books & Chapters     |
-| `book_chapter`           | Books & Chapters     |
-| `presentation`           | Presentations        |
-| `software`               | Software             |
-| `patent`                 | Patents              |
-| anything else            | Other                |
+| `drupal` value (matches `publication_types[0]`) | `tab` id        | Where it shows on `/publication/` |
+| ----------------------------------------------- | --------------- | ------------------------------------- |
+| `journal_article`                               | `journal`       | Journal Articles                      |
+| `working_paper`                                 | `journal`       | Working Papers spotlight (top)        |
+| `book`                                          | `book`          | Books & Chapters                      |
+| `book_chapter`                                  | `journal` *or* `other` | varies — both exist in current data |
+| `presentation`                                  | `presentation`  | Presentations                         |
+| `software`                                      | `software`      | Software                              |
+| `patent`                                        | `patent`        | Patents                               |
+| `courtbrief`                                    | `courtbrief`    | Court Briefs                          |
+| anything else                                   | `other`         | Other                                 |
 
-The **Books** section on the homepage is built dynamically from all
-entries in this file where `drupal: book`, so adding a new book here
-surfaces it on the homepage automatically — no separate edit required.
+Books on the homepage are rendered from this same file (every entry
+with `drupal: book` is surfaced automatically), so you don't need a
+separate edit there.
 
-### Step 4 (optional): featured image
+### Step 5 (optional) — featured image
 
-Place a `featured.jpg` or `featured.png` next to `index.md`. It will be
-shown at the top of the page and as the card thumbnail on the Writings
-list.
+Drop a `featured.jpg` or `featured.png` next to `index.md`. It's shown
+at the top of the page and as the card thumbnail on the Writings list.
+If you don't, the [`scripts/add_featured_from_pdf.py`](#helper-scripts-terminal-only)
+helper can render page 1 of the PDF for you.
 
 ---
 
-## Add a new talk or presentation
+## Add a talk or presentation
 
-Exactly the same pattern, but under `content/talk/`:
+Same pattern as a publication, but under `content/talk/`:
 
 ```
-hugo-site/content/talk/my-talk-slug/index.md
+hugo-site/content/talk/<slug>/index.md
 ```
 
 ```yaml
@@ -326,19 +442,22 @@ event_url: "https://conference-url.com"
 location: "City, State"
 abstract: "Talk abstract."
 links:
-  - name: Slides
+  - type: pdf
     url: "files/my-talk-slides.pdf"
 ---
 ```
 
+Talks don't need a `writings_legacy_map.json` entry — the Presentations
+tab is driven from the publication side, not the talk side.
+
 ---
 
-## Add a new software / R package page
+## Add a software / R package page
 
 Under `content/software/`:
 
 ```
-hugo-site/content/software/my-software-slug/index.md
+hugo-site/content/software/<slug>/index.md
 ```
 
 ```yaml
@@ -351,7 +470,6 @@ authors:
 publication_types:
   - "software"
 abstract: "Short description."
-software_page_href: "https://gking.harvard.edu/software/my-tool"
 links:
   - name: "Project Website"
     url: "https://my-software-site.com"
@@ -364,33 +482,47 @@ links:
 Optional Markdown body: installation instructions, changelog, citations, etc.
 ```
 
-### Where does a software item appear on the `/software/` page?
+### Where does a software item appear on `/software/`?
 
-The software landing page groups items into three sections:
+The software landing page groups items into two visual sections:
 
-- **Active** — currently maintained / in current use
-- **Acquired & Commercialized** — spun off into a company or long-lived
-  product maintained elsewhere
-- **Archived** — historical interest, superseded, or no longer maintained
+- **(default, no header)** — actively available code (GitHub, CRAN,
+  public website, etc.).
+- **Older** — desaturated section at the bottom for archived,
+  superseded, or no-longer-maintained software.
 
-Which section a given item lands in is controlled by the file
-`hugo-site/data/software_legacy_rows.yaml`. Each row looks like:
+Which group a row lands in is controlled by
+`hugo-site/data/software_legacy_rows.yaml`:
 
 ```yaml
-- year: 2020
-  slug: opendp-developing-open-source-tools-for-differential-privacy
-  status: active
+rows:
+  - year: 2020
+    slug: opendp-developing-open-source-tools-for-differential-privacy
+    # status omitted → "current" (default group, on top)
+  - year: 2017
+    slug: boocio-an-education-system-with-hierarchical-concept-maps
+    status: older
 ```
 
-To move an item between sections, just change its `status` to one of
-`active`, `acquired`, or `archived`. To add a new item to the page,
-append a new row with the same three fields (`year`, `slug`, `status`);
-the `slug` must match the folder name under `content/publication/` (or
-`content/software/`). Rows with no `status` default to `archived`.
+`status` accepts `current` (or omit) and `older`. Within each group,
+rows are sorted by `year` descending. To add a new item, append a row
+with `year`, `slug`, and (optionally) `status`. The `slug` must match a
+folder under `content/publication/` *or* `content/software/`.
+
+A few related data files you usually don't need to touch:
+
+- `data/software_legacy_overrides.yaml` — per-slug citation lines, list
+  titles, alternate links, abstract suppression.
+- `data/software_fallback_urls.yaml` — direct URLs for software whose
+  publication+software bundle has no http(s) link.
+- `data/software_prefer_internal.yaml` — slugs where lists should link
+  to `/software/<slug>/` first instead of an external project URL.
+- `data/software_list_exclude.yaml` — currently empty hook for one-off
+  exclusions.
 
 ---
 
-## Add a new dataset / Dataverse link
+## Add a dataset / Dataverse link
 
 A dataset is just a publication with `publication_types: data`. Put it
 under `content/publication/` like any paper. Two extra fields unlock the
@@ -403,12 +535,61 @@ dataverse_url: "https://doi.org/10.7910/DVN/ABCDEF"
 dataverse_name: "Replication Data for: Paper Title"
 ```
 
-If the dataset is the replication archive for a specific paper, point at it
-so a "Replication data for: …" banner is shown:
+If the dataset is the replication archive for a specific paper, point
+at it so a "Replication data for: …" banner is shown:
 
 ```yaml
 related_paper: "publication-slug-of-the-paper"
 ```
+
+The Dataverse landing page (`/dataverse/`) is built from
+`data/dataverse.json`, which is regenerated by scrapers when needed —
+you usually don't edit it directly.
+
+---
+
+## Featured publications spotlight
+
+The "Working Papers" spotlight at the top of `/publication/` is
+controlled by `hugo-site/data/featured_publications.yaml`:
+
+```yaml
+count: 5
+
+order:
+  - inducing-sustained-creativity-and-diversity-in-large-language-models
+  - survey-estimates-of-wartime-mortality
+  - if-a-statistical-model-predicts-that-common-events-should-occur-only-once-in-100
+  - experimental-evidence-on-the-limited-influence-of-reputable-media-outlets
+  - how-american-politics-ensures-electoral-accountability-in-congress
+
+exclude:
+  - amelia-ii-a-program-for-missing-data-jss
+```
+
+How the displayed list is built:
+
+1. Start with the manually curated `order` list.
+2. Before each build, any journal-article publication NOT already in
+   `order` (and NOT in `exclude`) is prepended by its **first-commit
+   date** (newest first), so adding a fresh paper auto-promotes it
+   into the spotlight and the oldest curated entry rolls off the
+   bottom.
+3. The displayed list is capped at `count` entries (set `count: 0` to
+   hide the spotlight).
+
+First-commit dates live in `data/publication_first_commit.json` and are
+refreshed automatically in CI by
+`scripts/compute_publication_first_commit.py`. Run it locally any time
+with:
+
+```bash
+python3 scripts/compute_publication_first_commit.py
+```
+
+Edit `order` to pin a slug into the list, or `exclude` to keep a recent
+slug out (e.g. when a fresh commit on an old paper would otherwise
+re-promote it as if it were new).
 
 ---
 
@@ -417,13 +598,13 @@ related_paper: "publication-slug-of-the-paper"
 The site automatically fills the "See Also" box at the bottom of every
 paper, talk, and software page. The rules:
 
-1. **You don't have to do anything** — the site scans titles, authors, and
-   tags and links content that overlaps. Upload a new paper and any
-   existing talk with a similar title / shared authors / shared tags
-   will auto-link both ways after the next build.
-2. **To force specific links**, add any of these to the front matter. Each
-   takes a **slug** (the folder name of the other item). Whatever you put
-   here always appears first:
+1. **Do nothing** and the site scans titles, authors, and tags and
+   links content that overlaps. Add a new paper and any existing talk
+   with similar title / shared authors / shared tags will auto-link
+   both ways after the next build.
+2. **To force specific links**, add any of these to the front matter.
+   Each takes a **slug** (the folder name of the other item). Whatever
+   you put here always appears first:
    ```yaml
    related_talks:    ["talk-slug-1", "talk-slug-2"]
    related_papers:   ["paper-slug-1"]
@@ -435,75 +616,125 @@ paper, talk, and software page. The rules:
    ```yaml
    tags: ["ecological inference", "voting rights"]
    ```
-4. The "See Also" box shows at most 6 items, sorted explicit-first, then by
-   match strength, then by year (newest first).
+4. The "See Also" box shows at most 6 items, sorted explicit-first,
+   then by match strength, then by year (newest first).
 
 ---
 
-## Update your bio or CV
+## Update the bio or CV
 
-**Bio text** — edit `hugo-site/content/bio/index.md`. Everything below the
-`---` line is Markdown; write naturally.
+**Bio text** — edit `hugo-site/content/bio/index.md`. The portion below
+the front matter `---` is plain Markdown / HTML; write naturally.
 
-**CV PDF** — upload a new file named `vitae.pdf` to
-`hugo-site/static/files/` (overwriting the old one). The download button
-already points there.
+**CV PDF** — replace `hugo-site/static/files/vitae.pdf` (overwrite the
+old one). The "Download CV (PDF)" button on the Bio page already points
+there.
 
-**Bio photo** — upload a new image named `gking-bio-photo.jpg` to
-`hugo-site/static/images/` (overwriting the old one).
+**Bio photo** — replace `hugo-site/static/images/gking-bio-photo.jpg`
+(overwrite the old one).
 
 ---
 
 ## Add / remove research-group members
 
-Each person has their own folder under `hugo-site/content/authors/`:
+People are managed in two places:
 
-```
-hugo-site/content/authors/jane-doe/_index.md
-```
-(Note the leading underscore: `_index.md`, not `index.md`, for authors.)
+- `hugo-site/content/people/<slug>/index.md` — one folder per person
+  with a tiny YAML stub.
+- `hugo-site/data/research_group.json` — Harvard taxonomy (categories,
+  affiliations, last-name letter buckets) that drives the filter
+  sidebar on the People page.
 
-```yaml
----
-title: "Jane Doe"
-role: "Graduate Student"
-organizations:
-  - name: "Harvard University"
-user_groups:
-  - "Current Members"
-bio: "Short bio line."
-social:
-  - icon: envelope
-    link: "mailto:jane@harvard.edu"
-  - icon: globe
-    link: "https://janedoe.com"
----
+### Current Research Group (Harvard affiliates today)
 
-Longer biography in Markdown.
-```
+The "Current Research Group" box at the top of `/research-group/` is
+**curated by hand** in
+`hugo-site/layouts/research-group/single.html`. It has three
+subsections — *PhD Students & Research Assistants*, *Undergraduate
+Research Assistants*, and *Other*. To add or remove someone here, edit
+that template directly (look for the `<a href="...">` cards under each
+`<h3>`).
 
-Upload a square photo named `avatar.jpg` next to `_index.md`.
+### Alumni & Collaborators
 
-To move someone from current to past, change `user_groups` to
-`"Alumni"` (or whichever group is shown on the Research Group page).
+Everyone else (alumni, post-docs, collaborators) lives below in the
+filterable list. To add someone:
+
+1. Create `hugo-site/content/people/<slug>/index.md`:
+
+   ```yaml
+   ---
+   title: "Jane Doe"
+   type: "people"
+   role: "Harvard University (Assistant Professor of Government)"
+   research_group_category: "collaborators"
+   website: "https://janedoe.com/"
+   ---
+   ```
+
+   Valid `research_group_category` values:
+   `alumni_students`, `alumni_postdocs`, `collaborators`. Multiple
+   categories per person come from `data/research_group.json` (see
+   below).
+
+2. (Optional but recommended) add a row to
+   `hugo-site/data/research_group.json` so the affiliation /
+   letter-bucket filters count them correctly:
+
+   ```json
+   {
+     "slug": "jane-doe",
+     "name": "Jane Doe",
+     "affiliation": "Harvard University",
+     "research_group_categories": ["collaborators"],
+     "last_name_range": "D-G"
+   }
+   ```
+
+   `last_name_range` must be one of:
+   `A-C`, `D-G`, `H-J`, `K-L`, `M-P`, `Q-S`, `T-V`, `W-Z`.
+
+To **move someone between alumni / collaborators**, edit
+`research_group_category` (in their `index.md`) or
+`research_group_categories` (in `research_group.json`).
+
+To **remove** someone, delete the folder under `content/people/` and
+the matching row in `data/research_group.json`.
 
 ---
 
 ## Edit the homepage
 
-The homepage is assembled from "blocks" listed in
-`hugo-site/content/_index.md`. To tweak wording on an existing block
-(welcome text, research-area cards, featured items), edit that file.
+The homepage at `content/_index.md` is intentionally minimal:
 
-To change which papers / talks are featured on the homepage, look for the
-`featured:` lists near the top of `_index.md` and swap the slugs.
+```yaml
+---
+title: "Gary King"
+type: landing
+---
+```
+
+All of the visual blocks (welcome, research-area cards, featured
+papers, books, software, etc.) are rendered by
+`layouts/landing/list.html`, which pulls from:
+
+- `content/publication/` (newest entries by `date`)
+- `data/writings_legacy_map.json` (for "Books")
+- `data/featured_publications.yaml` (for the Working Papers spotlight)
+- `data/research_areas.json` (for the Research Areas grid)
+
+So most homepage updates happen by editing one of those files (a paper
+front-matter, the spotlight, the research area), not the homepage
+itself. To restyle a block, edit `layouts/landing/list.html` (treat
+that as a developer task).
 
 ---
 
 ## Edit the navigation menu
 
-The top menu is defined in `hugo-site/hugo.yaml` under `menus.main`. Each
-entry has a `name`, a `url`, and a `weight` (lower = more to the left):
+The top menu is defined in `hugo-site/hugo.yaml` under `menus.main`.
+Each entry has a `name`, a `url`, and a `weight` (lower = more to the
+left):
 
 ```yaml
 menus:
@@ -514,6 +745,24 @@ menus:
     - name: Writings
       url: /publication/
       weight: 20
+    - name: Research Areas
+      url: /#research-areas
+      weight: 30
+    - name: Software
+      url: /software/
+      weight: 40
+    - name: Dataverse
+      url: /dataverse/
+      weight: 50
+    - name: People
+      url: /research-group/
+      weight: 60
+    - name: Teaching
+      url: /teaching/
+      weight: 70
+    - name: Contact
+      url: /contact/
+      weight: 80
 ```
 
 Add, remove, or reorder by editing this list.
@@ -522,8 +771,8 @@ Add, remove, or reorder by editing this list.
 
 ## Change a button label
 
-Button text such as "Article" or "Publisher's Version" is controlled in
-`hugo-site/i18n/en.yaml`:
+Button text such as "Article" or "Publisher's Version" is controlled
+in `hugo-site/i18n/en.yaml`:
 
 ```yaml
 - id: btn_pdf
@@ -539,34 +788,48 @@ Change the value on the right, commit.
 ## Add a paper to a Research Area
 
 Research-area groupings live in
-`hugo-site/data/research_areas.json`. Each area has subcategories, each
-with a `papers:` list. To add a paper, append its slug:
+`hugo-site/data/research_areas.json`. The file has two top-level keys —
+`methods` and `applications` — each containing areas, each with
+subcategories, each with a `papers:` list. To add a paper, append an
+entry to the right `papers` list:
 
 ```json
 {
   "name": "Ecological Inference",
-  "papers": [
-    {"title": "Paper Title", "section": "publication", "slug": "paper-slug"}
+  "subcategories": [
+    {
+      "name": "Overview",
+      "papers": [
+        { "title": "Paper Title", "section": "publication", "slug": "paper-slug" }
+      ]
+    }
   ]
 }
 ```
 
 `section` is one of `publication`, `talk`, or `software`.
 
+The intake bot prints **Suggested Research Areas** in the PR comment
+based on title/abstract overlap, so you usually have a copy-pasteable
+slug + subcategory waiting for you.
+
 ---
 
 ## Edit the teaching / contact / other pages
 
-Plain pages are all under `hugo-site/content/`, one folder each, with an
-`index.md` inside. Edit that Markdown file directly.
+Plain pages all live under `hugo-site/content/`, one folder each, with
+an `index.md` (or `_index.md` for section pages). Edit the Markdown
+directly.
 
-| Page | File |
-|------|------|
-| Teaching | `content/teaching/_index.md` |
-| Contact | `content/contact/index.md` |
-| Dataverse | `content/dataverse/index.md` |
-| Research Group landing | `content/research-group/index.md` |
-| Homepage | `content/_index.md` |
+| Page                        | File                                |
+| --------------------------- | ----------------------------------- |
+| Teaching                    | `content/teaching/_index.md`        |
+| Per-class teaching sub-page | `content/teaching/<class>/index.md` |
+| Contact                     | `content/contact/index.md`          |
+| Dataverse                   | `content/dataverse/index.md`        |
+| Research Group landing      | `content/research-group/index.md`   |
+| Homepage                    | `content/_index.md`                 |
+| Bio                         | `content/bio/index.md`              |
 
 ### Advice & Suggestions
 
@@ -574,26 +837,23 @@ All of the "Advice and Suggestions" links live at the **bottom of the
 Teaching page** (`content/teaching/_index.md`, under the `<h2
 id="advice">` heading). The footer bar's "Advice and Suggestions" link
 jumps there via the `#advice` anchor, and the legacy `/advice/` URL
-auto-redirects to the Teaching page (via the `aliases:` entry at the top
-of `teaching/_index.md`). To add, remove, or reorder advice items, edit
-that section.
+auto-redirects to the Teaching page (via the `aliases:` entry at the
+top of `teaching/_index.md`). To add, remove, or reorder advice items,
+edit that section.
 
 ---
 
 ## Short URLs & redirects
 
-Your old Drupal site had a bunch of short URLs that forwarded to other
-places — e.g. `gking.harvard.edu/rd` to a Google Doc, or
-`gking.harvard.edu/quest` to a specific paper. The new site keeps the
-same idea, but in a much simpler way: **one YAML file for the whole
-list**.
+The old Drupal site had short URLs that forwarded elsewhere — e.g.
+`gking.harvard.edu/rd` to a Google Doc, or `gking.harvard.edu/quest` to
+a specific paper. The new site keeps the same idea, but in a much
+simpler way: **one YAML file for the whole list**.
 
-### (A) Short URL that forwards somewhere (Google Doc, GitHub repo, another paper)
+### (A) Short URL that forwards somewhere
 
-Edit `hugo-site/data/redirects.yaml`. It's a plain list; each entry has
-a `from` (the short path you want to own) and a `to` (the target URL).
-Commit, wait ~3 minutes, and the redirect is live at
-`/<from>/`.
+Edit `hugo-site/data/redirects.yaml`. It's a list under `redirects:`,
+one entry per short URL:
 
 ```yaml
 redirects:
@@ -603,36 +863,48 @@ redirects:
 
   - from: quest
     to:   /publication/quest/
+    status: 301
     note: "Short URL for the Quest paper"
 
   - from: ei
     to:   https://github.com/iqss-research/ei
-    note: "EI software repo"
+    status: 308
+    note: "EI software repo (modern permanent redirect)"
 ```
 
-- `from` must be lowercase letters, digits, and dashes only. Must **not**
-  collide with an existing page (e.g. `bio` already means `/bio/`); the
-  build will fail with a clear message if it does, so you can pick a
-  different one.
-- `to` can be either a full external URL (`https://…`) or an internal
-  path (`/publication/my-paper/`).
-- `note` is optional — it's just a reminder to future-you. The build
-  ignores it.
+Field reference:
 
-When you've finished editing, commit the file. That's it. GitHub
-rebuilds the site, and `/rd/`, `/quest/`, `/ei/` all work immediately
-after the green check appears in the **Actions** tab.
+- `from` (required) — the URL path you want to own. Lowercase letters,
+  digits, and dashes only. Must NOT collide with an existing top-level
+  page (e.g. `bio` is already `/bio/`); the build fails with a clear
+  message if it does, so you can pick a different one.
+- `to` (required) — full external URL (`https://…`) or internal path
+  (`/publication/my-paper/`).
+- `status` (optional) — `301` (default, permanent), `302`/`307`
+  (temporary), `308` (modern permanent). Static GitHub Pages can't
+  send a real HTTP status code, so the build emits a meta-refresh page
+  whose markup reflects the chosen semantic (e.g. omitting the
+  canonical link for 302/307 so search engines don't transfer page
+  authority). The build also writes a Netlify-format `_redirects` file
+  so a future migration to Netlify/Cloudflare Pages would honour the
+  real status code automatically.
+- `note` (optional) — free-form reminder to your future self. Ignored
+  by the build.
 
-### (B) Short URL that forwards to one specific paper/talk/software
+Commit, wait ~3 minutes, and the redirect is live at `/<from>/`. The
+generator (`scripts/build_redirects.py`) runs in CI on every deploy
+and writes the actual HTML stubs into `content/_redirects/` (gitignored).
+
+### (B) Short URL that forwards to one specific paper / talk / software
 
 If the short URL is *about* a particular paper and should redirect to
 that paper's page, you have two equally-good options:
 
-**Option 1 — add it to `data/redirects.yaml`** (same as above), pointing
+**Option 1** — add it to `data/redirects.yaml` (same as above), pointing
 `to:` at the paper's path. Simple, and keeps all redirects in one place.
 
-**Option 2 — add it to the paper's own `index.md` as an `aliases:`
-entry:**
+**Option 2** — add it to the paper's own `index.md` as an `aliases:`
+entry:
 
 ```yaml
 ---
@@ -642,7 +914,6 @@ aliases:
   - /quest/
 authors:
   - Gary King
-  ...
 ---
 ```
 
@@ -660,9 +931,9 @@ belongs to this paper" redirects.
 Every paper, talk, and software page on the new site uses the **same
 slug** as the old Drupal site, so URLs like
 `/publication/quest-a-better-way.../` already work without any extra
-configuration. Likewise, all the major section pages (`/bio/`,
-`/contact/`, `/dataverse/`, `/teaching/`, `/research-areas/`,
-`/research-group/`, etc.) are preserved.
+configuration. Section pages (`/bio/`, `/contact/`, `/dataverse/`,
+`/teaching/`, `/research-areas/`, `/research-group/`, etc.) are
+preserved too.
 
 If you spot an old URL that stopped working after the migration, add
 it to `data/redirects.yaml` pointing at its new home, and the old link
@@ -670,51 +941,168 @@ will work again.
 
 ---
 
+## Helper scripts (terminal only)
+
+These all live under `hugo-site/scripts/`. Most are dry-run by default
+and ask for `--apply` (or have an obvious side-effect path) before
+they touch files.
+
+| Script | What it does |
+|---|---|
+| `enable-auto-push.sh` | One-shot — registers `.githooks/post-commit` so every commit auto-pushes to `origin`. |
+| `intake_publication.py` | The auto-import pipeline used by CI. Run locally with `python3 scripts/intake_publication.py intake/foo.pdf [--dry-run]` to bypass the PR flow. |
+| `apply_pr_edits.py` | The slash-command processor used by CI. Useful for testing locally: `python3 scripts/apply_pr_edits.py --comment body.txt --report r.json content/publication/foo/index.md`. |
+| `build_redirects.py` | Regenerates the meta-refresh stubs and Netlify `_redirects` file from `data/redirects.yaml`. Runs automatically in CI. |
+| `compute_publication_first_commit.py` | Refreshes `data/publication_first_commit.json` (drives the spotlight ordering). Runs automatically in CI. |
+| `fill_publication_from_doi.py` | Fills the `publication:` citation line on existing pages from Crossref by DOI. Add `--apply` to write. |
+| `repair_publication_links.py` | Audits external URLs in publication front matter; rewrites tinyurl/ezproxy/dead links to canonical DOIs. `--apply` to write. |
+| `audit_writings_citations.py` | Cross-references each publication with Crossref and writes a JSON + text summary report. |
+| `add_featured_from_pdf.py` | For each `content/publication/*/` missing a `featured.*`, renders page 1 of the linked PDF as `featured.png`. `--apply` to write. |
+| `fetch_publication_thumbnails.py` | Re-downloads featured thumbnails from the legacy Drupal site (uses `scraped_data/`). |
+| `refresh_featured_uncropped.py` | Replaces older Drupal-cropped thumbnails with full-resolution originals (HTML scrape + PDF figure match). |
+| `fix_mojibake_markdown.py` | Repairs UTF-8 encoded-as-Latin-1 mojibake (smart quotes, en dashes, NBSP) across `content/`. Requires `pip install ftfy`. |
+| `enrich_people_profiles.py`, `rescrape_people.py` | Fill / refresh `content/people/<slug>/index.md` stubs from upstream sources. |
+| `sync_research_group.py`, `sync_research_group_from_harvard.py` | Refresh `data/research_group.json` from the Harvard / IQSS roster. |
+| `verify_writings_parity.py` | Sanity-check that every legacy slug has a matching new-site page. |
+| `build_writings_legacy_map.py` | Rebuild `data/writings_legacy_map.json` from `scraped_data/`. |
+| `convert.py`, `scrape.py` | Original migration scripts (one-time, kept for reference). |
+
+Most scripts only need `pip install -r scripts/requirements.txt`. A
+few (`refresh_featured_uncropped.py`, `fix_mojibake_markdown.py`)
+have dedicated `requirements-*.txt` files next to them.
+
+---
+
+## Automation: workflows that run on every change
+
+`.github/workflows/` has four pieces of automation:
+
+- **`deploy.yml` — Deploy Hugo site to GitHub Pages.** Triggered by
+  every push to `main`. Installs Hugo + Node + Go + Python, runs
+  `build_redirects.py` and `compute_publication_first_commit.py`,
+  builds the site, builds the Pagefind search index, and publishes to
+  GitHub Pages. Usually finishes in 3–4 minutes.
+- **`intake-publication.yml` — Auto-import publication from PDF.**
+  Triggered when a PR adds a PDF under `intake/**`. See
+  [Quick add](#quick-add-upload-a-pdf) for the user-facing details.
+- **`intake-edit.yml` — Apply PR comment edits.** Triggered when
+  someone posts a comment on an open intake PR that contains slash
+  commands like `/title`, `/authors`, `/year`, `/abstract`, `/doi`,
+  `/publication`, `/type`. Applies them to every publication
+  `index.md` added/changed by the PR, commits the result, and reacts
+  +1 with a summary.
+- **`link-check.yml` — Weekly external link check.** Runs every
+  Monday at 09:00 UTC (also `workflow_dispatch`). Checks every
+  external URL in content files; if it finds anything broken, it
+  opens or updates a GitHub Issue labelled `link-check`.
+
+You can manually trigger any of these from the **Actions** tab on
+github.com.
+
+---
+
+## Local preview
+
+```bash
+brew install hugo                         # one time, macOS
+cd hugo-site
+hugo server                               # http://localhost:1313/
+```
+
+Production-equivalent build (rare; CI does this for you):
+
+```bash
+hugo --gc --minify
+npx pagefind --site public                # search index
+```
+
+Hugo's live-reload picks up edits within ~50ms, so you can iterate on a
+page with `hugo server` running and see the change immediately. When
+you're happy, commit + push.
+
+---
+
 ## Troubleshooting
 
 **"I committed and nothing changed on the site."**
-Give it 3–4 minutes. Then visit
-<https://github.com/KatalinaToth/gking-site/actions>. If the latest run has
-a red ✗, click it to see the error (almost always a typo in YAML front
-matter, e.g. a missing quote or a bad date).
+Give it 3–4 minutes, then visit
+<https://github.com/iqss-research/gking-site/actions>. If the latest
+run has a red ✗, click it to see the error (almost always a typo in
+YAML front matter — missing quote, bad date, etc.).
+
+**"`git commit` succeeded but didn't auto-push."**
+The post-commit hook only pushes if the branch already has an upstream.
+Run `git push -u origin <branch>` once and it'll auto-push from then
+on. If it's still not running, check that
+`scripts/enable-auto-push.sh` was run on this clone
+(`git config core.hooksPath` should print `.githooks`).
 
 **"A PDF returns 404 on the live site."**
 Confirm the file is in `hugo-site/static/files/` and the `url:` in the
 page's `links:` starts with `files/` (no leading slash).
 
 **"The 'See Also' box is empty or wrong."**
-Add shared `tags:` or pin specific items with `related_papers`, etc. (see
-above). Explicit wins always override the automatic ones.
+Add shared `tags:` or pin specific items with `related_papers`, etc.
+Explicit wins always override the automatic ones.
+
+**"The intake bot didn't run on my PR."**
+Two common causes: the PDF was committed straight to `main` (the bot
+only runs on PRs), or the PR is from a fork (the GitHub token can't
+push back to a fork branch). Re-do it on a branch in this repo.
+
+**"My slash command in a PR comment was ignored."**
+The command line must start at column 0 (or with up to 3 spaces of
+indent). `/title` mid-paragraph won't trigger; put it on its own line.
+Also valid commands only: `/title`, `/authors`, `/year`, `/date`,
+`/abstract`, `/publication`, `/doi`, `/type`. The bot replies with a
+warning listing any unrecognised commands.
 
 **"Search finds nothing."**
-The search index is rebuilt on each deploy. Wait until the Actions run is
-green and hard-refresh the page.
+The Pagefind index is rebuilt on each deploy. Wait until the Actions
+run is green and hard-refresh the page.
 
 **"I accidentally broke the site."**
-In GitHub, click the commit that broke things → **Revert**. That creates a
-new commit undoing the change. After the build finishes, the site is back.
+Click the offending commit on github.com → **Revert**. From the
+terminal: `git revert <sha>` (and let auto-push send it). After the
+build finishes, the site is back.
 
 ---
 
 ## Appendix: publication types
 
-Use exactly one of these strings in `publication_types:`.
+Use exactly one of these strings in `publication_types:`. The first
+group is what the slash-command bot validates against (and the most
+common in current content); the second group also exists in the data
+and is preserved for legacy reasons.
+
+**Primary (recommended):**
 
 ```
 journal_article
 book
 book_chapter
+working_paper
 conference_paper
-conference_proceedings
+report
 data
+software
+courtbrief
+presentation
+other
+```
+
+**Also recognised (legacy / Drupal):**
+
+```
+conference_proceedings
 miscellaneous
 newspaper_article
 patent
-presentation
-report
-software
 unpublished
 web_article
 website
-working_paper
 ```
+
+If you use a value outside the primary list, the slash-command bot
+will warn you and apply it anyway, but the Writings tab routing might
+fall back to "Other".
