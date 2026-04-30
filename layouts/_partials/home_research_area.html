@@ -3,11 +3,17 @@
 
   Renders one research area (e.g. "Ecological Inference") as a collapsible
   <details>. Inside, the area's description appears immediately, followed by
-  one collapsible <details> per subcategory (e.g. "Publications", "Software",
-  "Discussions and Extensions"). The accordion JS at the bottom of
-  layouts/landing/list.html closes any other open subcategory within the
-  same area when the user opens a new one, so the section never splays out
-  into a wall of papers.
+  the papers organised by subcategory:
+
+    - When the area has exactly ONE subcategory, the papers render inline
+      (no inner expander) — opening the area shows them directly. Avoids a
+      redundant second click when the only subcategory's name just echoes
+      the area's name.
+    - When the area has multiple subcategories, each renders as its own
+      collapsible <details>. The accordion JS at the bottom of
+      layouts/landing/list.html closes any other open subcategory within
+      the same area when the user opens a new one, so the section never
+      splays out into a wall of papers.
 
   Receives the area dict directly: { name, description, subcategories }.
 */}}
@@ -23,20 +29,32 @@
     {{ with $area.description }}
     <p style="font-size:0.82rem;line-height:1.5;color:#666;margin:0 0 8px;">{{ . }}</p>
     {{ end }}
-    {{ range $subsWithPapers }}
-    <details class="gk-hp-subcat" style="margin-top:4px;">
-      <summary style="font-size:0.8rem;cursor:pointer;color:#337ab7;padding:2px 0;list-style:none;display:flex;align-items:center;gap:4px;">
-        <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span> {{ .name }}
-      </summary>
-      <ul style="list-style:none;padding:0 0 0 12px;margin:4px 0 8px;">
-        {{ range .papers }}
+    {{ if eq (len $subsWithPapers) 1 }}
+      {{ $only := index $subsWithPapers 0 }}
+      <ul style="list-style:none;padding:0;margin:4px 0 4px;">
+        {{ range $only.papers }}
           {{ $page := site.GetPage (printf "/%s/%s" .section .slug) }}
           {{ with $page }}
           {{ partial "research_areas_pub_item" (dict "page" . "compact" true) }}
           {{ end }}
         {{ end }}
       </ul>
-    </details>
+    {{ else }}
+      {{ range $subsWithPapers }}
+      <details class="gk-hp-subcat" style="margin-top:4px;">
+        <summary style="font-size:0.8rem;cursor:pointer;color:#337ab7;padding:2px 0;list-style:none;display:flex;align-items:center;gap:4px;">
+          <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span> {{ .name }}
+        </summary>
+        <ul style="list-style:none;padding:0 0 0 12px;margin:4px 0 8px;">
+          {{ range .papers }}
+            {{ $page := site.GetPage (printf "/%s/%s" .section .slug) }}
+            {{ with $page }}
+            {{ partial "research_areas_pub_item" (dict "page" . "compact" true) }}
+            {{ end }}
+          {{ end }}
+        </ul>
+      </details>
+      {{ end }}
     {{ end }}
   </div>
 </details>
