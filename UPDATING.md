@@ -33,16 +33,17 @@ redirects, refreshes first-commit dates for the spotlight, and publishes.
    "See Also" links, the Writings tabs, the redirect stubs, and the
    Working-Papers spotlight.
 
-> **Adding a new paper?** Skip the manual template entirely — just
-> [drop the PDF in `intake/`](#quick-add-upload-a-pdf) and the bot fills
-> in the rest.
+> **Adding a new paper, talk, book, software entry, or patent?** Skip
+> the manual templates entirely — see [Quick add](#quick-add) for the
+> shortest path for each content type. Most flows are "drop a PDF" or
+> "one terminal command".
 
 ---
 
 ## Table of contents
 
 1. [One-time setup (terminal)](#one-time-setup-terminal)
-2. [Quick add: upload a PDF](#quick-add-upload-a-pdf)
+2. [Quick add (every content type)](#quick-add)
 3. [How the repo is organized](#how-the-repo-is-organized)
 4. [Two ways to edit](#two-ways-to-edit)
 5. [Add a paper / article / book (manual template)](#add-a-paper--article--book-manual-template)
@@ -102,51 +103,255 @@ For a local preview before pushing, see [Local preview](#local-preview).
 
 ---
 
-## Quick add: upload a PDF
+## Quick add
 
-This is the **fastest way to add a new paper** — drop a PDF, wait, click
-Merge. The bot does title/authors/year/abstract/DOI/citation/featured
-image/Writings-tab routing for you.
+Five content types, one shortcut each. If your content has a PDF, drop
+it under `intake/` (in the right subfolder) and a bot fills in the
+metadata. If it doesn't (software, patents, or anything you already
+have the metadata for), `scripts/quick_add.py` scaffolds the file in
+one command.
 
-### Terminal flow (~30 seconds of work)
+| Content type           | If you have a PDF…                          | If you don't…                                          |
+|------------------------|---------------------------------------------|---------------------------------------------------------|
+| Paper / article         | `intake/<file>.pdf` → bot uses Crossref     | `python3 scripts/quick_add.py paper …`                  |
+| Talk / presentation     | `intake/talk/<file>.pdf` → slide-deck flow  | `python3 scripts/quick_add.py talk …`                   |
+| Book                    | `intake/book/<file>.pdf` → book flow        | `python3 scripts/quick_add.py book …`                   |
+| Software / R package    | _(no PDF flow — software is URL-based)_     | `python3 scripts/quick_add.py software --github …`      |
+| Patent                  | optional `intake/<file>.pdf` then `/type patent` | `python3 scripts/quick_add.py patent --source …`   |
+
+After every shortcut, `git commit` + push (auto-push pushes for you)
+and the deploy workflow makes it live in ~3 minutes.
+
+### Quick add: paper / article
+
+The fastest path. Drop a PDF in `intake/` and the bot looks up the
+DOI / Crossref metadata for you.
+
+**Terminal flow (~30 seconds of work):**
 
 ```bash
 git checkout -b add-my-paper            # any branch name
 cp ~/Downloads/whatever.pdf intake/     # filename doesn't matter
 git add intake/whatever.pdf
 git commit -m "Drop PDF for auto-import"
-git push -u origin add-my-paper
+git push -u origin add-my-paper         # auto-push handles this on subsequent commits
 gh pr create --fill                     # or open the URL git printed
 ```
 
-Now wait ~1–2 minutes and the bot pushes a follow-up commit to your
-branch (see [What happens automatically](#what-happens-automatically)
-below).
+Wait ~1–2 minutes; the bot pushes a follow-up commit to your branch
+with a generated `content/publication/<slug>/index.md`, the moved PDF,
+an updated `data/writings_legacy_map.json`, and a featured-image
+thumbnail (see [What happens automatically](#what-happens-automatically)).
 
-### GitHub.com flow
+**GitHub.com flow:**
 
 1. Open <https://github.com/iqss-research/gking-site/tree/main/intake>
    (or click into the `intake/` folder from the repo's main page).
-2. Click **Add file → Upload files** in the upper right.
+2. Click **Add file → Upload files**.
 3. Drag the paper's PDF onto the page.
-4. At the bottom, pick **"Create a new branch for this commit and start
-   a pull request"**, then click **Propose changes**.
+4. Pick **"Create a new branch for this commit and start a pull
+   request"**, then click **Propose changes**.
 5. On the next page click **Create pull request**. No description
    needed; the bot writes one.
+
+**Already have all the metadata (no PDF, or skipping Crossref)?**
+
+```bash
+python3 scripts/quick_add.py paper \
+    --title "An Example Paper" \
+    --slug an-example-paper \
+    --year 2026 \
+    --authors "Gary King; Jane Doe" \
+    --doi 10.1017/example.2026.1 \
+    --publication "Political Analysis, 32, 1, Pp. 1-20" \
+    --pdf ~/Downloads/example.pdf      # optional
+git add -A && git commit -m "Add example paper"
+```
+
+### Quick add: talk / presentation
+
+Drop a slide-deck PDF in `intake/talk/` (note the `talk/` subfolder).
+The bot writes `content/talk/<slug>/index.md` (not `publication/`),
+sets `publication_types: ["presentation"]`, routes the Writings tab to
+**Presentations**, and skips Crossref (slide decks aren't indexed).
+
+**Terminal flow:**
+
+```bash
+git checkout -b add-my-talk
+mkdir -p intake/talk
+cp ~/Downloads/slides.pdf intake/talk/
+git add intake/talk/slides.pdf
+git commit -m "Drop slides for auto-import"
+git push -u origin add-my-talk
+gh pr create --fill
+```
+
+**GitHub.com flow:** same as paper, but click into the `intake/talk/`
+subfolder before **Add file → Upload files**. (If the subfolder doesn't
+exist yet, create it first via **Add file → Create new file** and type
+`talk/.gitkeep` as the path.)
+
+The talk schema is intentionally minimal — `title`, `date`, `authors`,
+`publication_types`, `links` — matching every existing entry under
+`content/talk/`. After the PR opens you can fix anything via the
+[slash commands](#slash-commands-for-the-pr-bot) or the **Files
+changed** pencil.
+
+**No PDF for the talk?**
+
+```bash
+python3 scripts/quick_add.py talk \
+    --title "Misadventures in Survey Methodology" \
+    --slug misadventures-survey-methodology \
+    --date 2026-04-30 \
+    --authors "Gary King"
+```
+
+### Quick add: book
+
+Drop the book PDF (or a manuscript / chapter sample) in `intake/book/`.
+The bot still consults Crossref (book metadata IS indexed there) but
+forces the type to `book` regardless, so it lands on the **Books** tab
+of the Writings page.
+
+```bash
+git checkout -b add-my-book
+mkdir -p intake/book
+cp ~/Downloads/manuscript.pdf intake/book/
+git add intake/book/manuscript.pdf
+git commit -m "Drop book PDF for auto-import"
+git push -u origin add-my-book
+gh pr create --fill
+```
+
+If Crossref doesn't have a hit, the bot scaffolds title / authors /
+year from the PDF text and prompts you (in its PR comment) to add the
+`publication:` line — typically `Cambridge University Press, 2026`.
+Use the `/publication …` slash command or the pencil to fill it in.
+
+**No PDF, just metadata?**
+
+```bash
+python3 scripts/quick_add.py book \
+    --title "Demographic Forecasting" \
+    --slug demographic-forecasting \
+    --year 2008 \
+    --authors "Federico Girosi; Gary King" \
+    --publisher "Princeton University Press" \
+    --abstract "..."
+```
+
+### Quick add: software / R package
+
+Software entries are URL-based, not PDF-based, so there's no `intake/`
+flow. The helper script is the easy path:
+
+```bash
+python3 scripts/quick_add.py software \
+    --title "MyTool: An R Package for Quick Adds" \
+    --slug my-tool \
+    --year 2026 \
+    --authors "Gary King; Jane Doe" \
+    --github https://github.com/IQSS/my-tool \
+    --abstract "Short summary of what the tool does."
+git add -A && git commit -m "Add my-tool software entry"
+```
+
+That single command:
+
+- Writes `content/publication/my-tool/index.md` with
+  `publication_types: ["software"]` and a `code` link to the GitHub URL.
+- Appends a row to `data/software_legacy_rows.yaml` so the entry shows
+  up at the top of `/software/` (newest year first). Pass
+  `--status older` to put it in the desaturated "Older" section.
+- Adds the slug to `data/writings_legacy_map.json` (`tab: software`)
+  so it also lands on the Writings → Software tab.
+
+Other supported flags: `--cran <url>`, `--site <url>` (project website),
+`--pdf <path>` (rare — only if there's an accompanying PDF).
+
+**GitHub.com flow** (no terminal): click **Add file → Create new file**
+in the repo and type `content/publication/<slug>/index.md` as the path.
+Paste this template, fill it in, then commit on a new branch and merge
+the PR:
+
+```yaml
+---
+title: "MyTool: An R Package for ..."
+date: "2026-01-01"
+authors:
+  - Gary King
+publication_types:
+  - software
+abstract: |-
+  Short summary of what the tool does.
+links:
+  - type: code
+    url: "https://github.com/IQSS/my-tool"
+---
+```
+
+After merging, edit `data/software_legacy_rows.yaml` to add a row at
+the top:
+
+```yaml
+  - year: 2026
+    slug: my-tool
+```
+
+…and add an entry to `data/writings_legacy_map.json`:
+
+```json
+"my-tool": { "tab": "software", "drupal": "software" },
+```
+
+(The terminal helper does all three in one shot.)
+
+### Quick add: patent
+
+Patents almost never have Crossref metadata, so the helper is the
+easy path:
+
+```bash
+python3 scripts/quick_add.py patent \
+    --title "Participant Grouping for Enhanced Interactive Experience" \
+    --slug participant-grouping-enhanced-experience-2026 \
+    --year 2026 \
+    --authors "Gary King; Co-Inventor Name" \
+    --publication "United States of America 12,345,678 B2" \
+    --source https://patents.google.com/patent/US12345678 \
+    --pdf ~/Downloads/us12345678.pdf       # optional
+git add -A && git commit -m "Add new patent"
+```
+
+That single command writes `content/publication/<slug>/index.md` with
+`publication_types: ["patent"]`, routes the Writings tab to **Patents**,
+and (if you passed `--pdf`) copies the PDF to `static/files/<slug>.pdf`.
+The `--source` URL becomes the **Publisher's Version** button link.
+
+If you _do_ have a PDF and would rather use the github.com upload UI,
+drop it in `intake/` (default flow), let the bot scaffold the page,
+then post `/type patent` and `/publication …` on the resulting PR.
 
 ### What happens automatically
 
 The `Auto-import publication from PDF` workflow
-(`.github/workflows/intake-publication.yml`) runs on every PDF added in
-a pull request. For each PDF it:
+(`.github/workflows/intake-publication.yml`) runs on every PDF added
+under `intake/`, `intake/talk/`, or `intake/book/` in a pull request.
+For each PDF it:
 
-- Reads the PDF and looks for a printed DOI; if absent, falls back to a
-  Crossref title+author search.
-- Pulls Crossref's canonical title, full author list, journal name,
-  volume / issue / pages (or article number), year, and abstract.
-- Generates a slug from the title and creates
-  `content/publication/<slug>/index.md` with the front matter
-  pre-filled.
+- Detects the content kind from the subfolder
+  (`intake/foo.pdf` = paper, `intake/talk/foo.pdf` = presentation,
+  `intake/book/foo.pdf` = book).
+- Reads the PDF and looks for a printed DOI; if absent, falls back to
+  a Crossref title+author search (skipped for talks).
+- Pulls Crossref's canonical title, full author list, journal /
+  publisher name, volume / issue / pages (or article number), year,
+  and abstract.
+- Generates a slug from the title and creates the right `index.md`
+  under `content/publication/<slug>/` (papers, books, patents) or
+  `content/talk/<slug>/` (talks).
 - Moves the PDF from `intake/` to `static/files/<slug>.pdf` and links
   it from the page.
 - Adds the slug to `data/writings_legacy_map.json` so it routes to the
@@ -168,11 +373,11 @@ publication type, and any review notes (e.g. *"Abstract was extracted
 from PDF body text — skim it for OCR artifacts"*).
 
 If everything looks right, click **Merge pull request**. The deploy
-workflow runs and the paper is live in another ~3 minutes.
+workflow runs and the entry is live in another ~3 minutes.
 
-### If something needs editing
+### Slash commands for the PR bot
 
-The fastest path is to **post a comment on the PR with one or more
+If something needs editing, **post a comment on the PR with one or more
 slash commands**. The bot picks them up within ~30 seconds and pushes
 a follow-up commit:
 
@@ -207,8 +412,8 @@ commits the result to the PR branch. You can keep iterating.
 
 If you'd rather edit `index.md` directly, you still can: from the
 terminal, edit the file the bot just generated; or from github.com,
-open the **Files changed** tab and click the pencil on
-`content/publication/<slug>/index.md`. Either path works; mix and match.
+open the **Files changed** tab and click the pencil on the new
+`index.md`. Either path works; mix and match.
 
 The site rebuilds automatically once the PR is merged. The "See Also"
 box at the bottom of the page is filled in automatically (the build
@@ -225,23 +430,36 @@ pip install pyyaml certifi pymupdf      # one time
 python3 scripts/intake_publication.py intake/whatever.pdf --dry-run
 # happy with the report? drop --dry-run:
 python3 scripts/intake_publication.py intake/whatever.pdf
-git add -A && git commit -m "Add new paper" && git push
+# subfolders work too:
+python3 scripts/intake_publication.py intake/talk/slides.pdf
+python3 scripts/intake_publication.py intake/book/manuscript.pdf
+git add -A && git commit -m "Add new content"
 ```
+
+`scripts/quick_add.py` runs entirely locally too — no PR opened, just
+direct file writes. Add `--dry-run` to preview the rendered front
+matter without touching anything.
 
 ### When this won't work / fallbacks
 
-- The PR-triggered bot **only** runs from a pull-request branch, never a
-  direct push to `main`. If you accidentally pushed straight to `main`,
-  remove the file from `intake/` and re-do it on a branch.
+- The PR-triggered bot **only** runs from a pull-request branch, never
+  a direct push to `main`. If you accidentally pushed straight to
+  `main`, remove the file from `intake/` and re-do it on a branch.
 - The bot also skips PRs from forks (the GitHub token can't push back
   to a fork's branch). Open the PR from a branch in this repo.
 - If Crossref has nothing for the paper (very recent working paper,
   unindexed conference proceedings, etc.), the bot still creates a
   scaffolded `index.md` from the PDF text — but it'll flag every field
   that needs human verification in the PR comment.
+- If a slide-deck PDF doesn't have a useful first slide (or any
+  embedded figures), the bot renders page 1 as a thumbnail anyway. To
+  override, drop a `featured.png` (or `.jpg`) next to the new
+  `index.md` before merging.
 - If you'd rather hand-write the front matter from scratch, the manual
-  template is still there:
-  [Add a paper (manual template)](#add-a-paper--article--book-manual-template).
+  templates are still there:
+  [Add a paper (manual template)](#add-a-paper--article--book-manual-template),
+  [Add a talk](#add-a-talk-or-presentation),
+  [Add software](#add-a-software--r-package-page).
 
 ---
 
@@ -266,6 +484,8 @@ hugo-site/
 │   └── images/             ← bio photo, site-wide images
 ├── data/                   ← YAML/JSON data files driving dynamic pages
 ├── intake/                 ← drop-zone for the auto-import bot (normally empty)
+│   ├── talk/               ← drop slide-deck PDFs here for the talk flow
+│   └── book/               ← drop book PDFs here for the book flow
 ├── layouts/                ← Hugo templates (edit only for design tweaks)
 ├── assets/css/custom.css   ← site-wide CSS overrides
 ├── i18n/en.yaml            ← UI strings (button labels, etc.)
@@ -316,10 +536,11 @@ finishes in 3–4 minutes.
 ## Add a paper / article / book (manual template)
 
 > Most of the time you should use the
-> [Quick add (upload a PDF)](#quick-add-upload-a-pdf) flow above and
-> let the bot handle this. The manual template here is a fallback for
-> cases where the bot can't find Crossref data, or when you want fine-
-> grained control over every field from the start.
+> [Quick add](#quick-add) flow above (drop a PDF in `intake/` and let
+> the bot handle this, or run `scripts/quick_add.py paper …`). The
+> manual template here is a fallback for cases where the bot can't
+> find Crossref data, or when you want fine-grained control over every
+> field from the start.
 
 ### Step 1 — upload the PDF
 
@@ -950,7 +1171,8 @@ they touch files.
 | Script | What it does |
 |---|---|
 | `enable-auto-push.sh` | One-shot — registers `.githooks/post-commit` so every commit auto-pushes to `origin`. |
-| `intake_publication.py` | The auto-import pipeline used by CI. Run locally with `python3 scripts/intake_publication.py intake/foo.pdf [--dry-run]` to bypass the PR flow. |
+| `intake_publication.py` | The auto-import pipeline used by CI. Run locally with `python3 scripts/intake_publication.py intake/foo.pdf [--dry-run]` to bypass the PR flow. Subfolder picks the type: `intake/foo.pdf` = paper, `intake/talk/foo.pdf` = presentation, `intake/book/foo.pdf` = book. |
+| `quick_add.py` | Companion to `intake_publication.py` for content that doesn't have a PDF (software, patents) or where you already have all the metadata. `python3 scripts/quick_add.py {software,patent,paper,talk,book} --title ... --slug ...`. See [Quick add](#quick-add). |
 | `apply_pr_edits.py` | The slash-command processor used by CI. Useful for testing locally: `python3 scripts/apply_pr_edits.py --comment body.txt --report r.json content/publication/foo/index.md`. |
 | `build_redirects.py` | Regenerates the meta-refresh stubs and Netlify `_redirects` file from `data/redirects.yaml`. Runs automatically in CI. |
 | `compute_publication_first_commit.py` | Refreshes `data/publication_first_commit.json` (drives the spotlight ordering). Runs automatically in CI. |
@@ -983,8 +1205,9 @@ have dedicated `requirements-*.txt` files next to them.
   builds the site, builds the Pagefind search index, and publishes to
   GitHub Pages. Usually finishes in 3–4 minutes.
 - **`intake-publication.yml` — Auto-import publication from PDF.**
-  Triggered when a PR adds a PDF under `intake/**`. See
-  [Quick add](#quick-add-upload-a-pdf) for the user-facing details.
+  Triggered when a PR adds a PDF under `intake/`, `intake/talk/`, or
+  `intake/book/`. See [Quick add](#quick-add) for the user-facing
+  details and the per-subfolder routing.
 - **`intake-edit.yml` — Apply PR comment edits.** Triggered when
   someone posts a comment on an open intake PR that contains slash
   commands like `/title`, `/authors`, `/year`, `/abstract`, `/doi`,

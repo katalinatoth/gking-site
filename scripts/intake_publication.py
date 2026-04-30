@@ -6,15 +6,30 @@ Gary uploads a PDF to intake/ in a pull request. The workflow runs:
 
     python3 scripts/intake_publication.py intake/the-paper.pdf
 
+The location of the PDF inside intake/ picks the content type:
+
+    intake/<file>.pdf        -> journal article (default)
+                                writes content/publication/<slug>/index.md
+    intake/talk/<file>.pdf   -> presentation (slide deck)
+                                writes content/talk/<slug>/index.md
+                                Crossref is skipped (slides aren't indexed).
+                                Empty event / event_url / location are
+                                scaffolded for the user to fill in.
+    intake/book/<file>.pdf   -> book
+                                writes content/publication/<slug>/index.md
+                                Crossref is still consulted (books are indexed)
+                                but the type is forced to `book`.
+
 This script:
 
 1.  Reads the PDF, extracts a DOI when one is printed (PyMuPDF).
-2.  When no DOI is in the PDF, searches Crossref by title+author.
+2.  When no DOI is in the PDF, searches Crossref by title+author
+    (skipped for talks).
 3.  Pulls full Crossref metadata (journal, volume, issue, pages,
     canonical title, full author list, abstract, year).
 4.  Generates a slug from the title.
-5.  Writes content/publication/<slug>/index.md with front matter that
-    Hugo + the existing related_finder.html will render correctly.
+5.  Writes <target>/<slug>/index.md with front matter that Hugo + the
+    existing related_finder.html will render correctly.
 6.  Moves the PDF from intake/ to static/files/<slug>.pdf and links it
     from the index.md.
 7.  Adds the new slug to data/writings_legacy_map.json so the Writings
@@ -26,7 +41,8 @@ This script:
 Manual local use (from hugo-site/):
 
     python3 scripts/intake_publication.py intake/foo.pdf
-    python3 scripts/intake_publication.py intake/foo.pdf --dry-run
+    python3 scripts/intake_publication.py intake/talk/slides.pdf --dry-run
+    python3 scripts/intake_publication.py intake/book/manuscript.pdf
 """
 
 from __future__ import annotations
@@ -387,6 +403,13 @@ _FIELD_ORDER = (
     "abstract", "doi", "links",
 )
 
+# Keys whose empty-string scaffold value should still render in the YAML.
+# (Empty by default; populated only when a content type wants visible
+# placeholder fields. Talks deliberately don't use this — existing
+# content/talk/* index.md files keep a minimal title/date/authors/links
+# schema, so we follow suit.)
+_KEEP_EMPTY: frozenset[str] = frozenset()
+
 
 class _LiteralStr(str):
     """str subclass tagged so yaml renders it as a block scalar (|-)."""
@@ -417,13 +440,16 @@ def _yaml_dump(fm: dict[str, Any]) -> str:
     """
     ordered: dict[str, Any] = {}
     for k in _FIELD_ORDER:
-        if k in fm and fm[k] not in (None, "", []):
-            v = fm[k]
-            if isinstance(v, str) and (k == "abstract" or "\n" in v):
-                v = _LiteralStr(v)
-            ordered[k] = v
+        if k not in fm:
+            continue
+        v = fm[k]
+        if v in (None, "", []) and k not in _KEEP_EMPTY:
+            continue
+        if isinstance(v, str) and (k == "abstract" or "\n" in v):
+            v = _LiteralStr(v)
+        ordered[k] = v
     for k, v in sorted(fm.items()):
-        if k not in _FIELD_ORDER and v not in (None, "", []):
+        if k not in _FIELD_ORDER and (v not in (None, "", []) or k in _KEEP_EMPTY):
             ordered[k] = v
     return yaml.dump(
         ordered,
@@ -645,24 +671,51 @@ def find_research_area_suggestions(
     return candidates[:top]
 
 
+def _intake_kind_from_path(pdf_path: Path) -> str:
+    """Map an intake/ subdirectory to a content kind.
+
+    intake/foo.pdf       -> 'paper' (default)
+    intake/talk/foo.pdf  -> 'talk'
+    intake/book/foo.pdf  -> 'book'
+
+    The intake-publication.yml workflow finds PDFs with `find -maxdepth 2`,
+    so PDFs nested two levels deep under intake/ are picked up here.
+    Anything beyond that (or any subfolder name we don't recognise) falls
+    back to the paper flow.
+    """
+    parent = pdf_path.parent.name.lower()
+    if parent == "talk":
+        return "talk"
+    if parent == "book":
+        return "book"
+    return "paper"
+
+
 def run(pdf_path: Path, dry_run: bool = False) -> dict[str, Any]:
     if not pdf_path.is_file():
         raise SystemExit(f"PDF not found: {pdf_path}")
     if fitz is None:
         raise SystemExit("PyMuPDF (fitz) is required: pip install pymupdf")
 
+    intake_kind = _intake_kind_from_path(pdf_path)
+
     static_files = ROOT / "static" / "files"
     pub_dir = ROOT / "content" / "publication"
+    talk_dir = ROOT / "content" / "talk"
     legacy_map = ROOT / "data" / "writings_legacy_map.json"
     research_areas = ROOT / "data" / "research_areas.json"
 
     text = _pdf_text(pdf_path)
-    pdf_dois = dois_in_pdf(pdf_path)
     review_notes: list[str] = []
 
     msg: dict[str, Any] | None = None
     doi: str | None = None
     doi_source = "none"
+
+    # Slide decks are virtually never indexed in Crossref, so don't bother
+    # looking. We still attempt DOI / title lookups for books — book metadata
+    # IS in Crossref and getting publisher / year for free is worth it.
+    pdf_dois = [] if intake_kind == "talk" else dois_in_pdf(pdf_path)
 
     if pdf_dois:
         doi = first_crossref_doi(pdf_dois)
@@ -676,7 +729,7 @@ def run(pdf_path: Path, dry_run: bool = False) -> dict[str, Any]:
 
     pdf_title, pdf_title_source = best_title_from_pdf(pdf_path, text)
 
-    if not msg:
+    if not msg and intake_kind != "talk":
         if pdf_title:
             guess_authors = _guess_authors_from_pdf(text, pdf_title)
             doi_t, msg_t, _ = crossref_search_by_title(pdf_title, guess_authors, None)
@@ -701,13 +754,34 @@ def run(pdf_path: Path, dry_run: bool = False) -> dict[str, Any]:
         year = ""
         abstract = ""
         publication_line = ""
-        pub_types, drupal, tab = (["working_paper"], "working_paper", "journal")
-        review_notes.append(
-            "No DOI in the PDF and no Crossref title-match. Front matter is a scaffold "
-            f"from PDF (title source: {pdf_title_source}) - title, authors, year, "
-            "and abstract all need verification."
-        )
-    if not abstract:
+        if intake_kind == "talk":
+            pub_types, drupal, tab = (["presentation"], "presentation", "presentation")
+        elif intake_kind == "book":
+            pub_types, drupal, tab = (["book"], "book", "book")
+            review_notes.append(
+                "Book PDF with no Crossref match. Title/authors/year/abstract were "
+                "scaffolded from the PDF text — verify each. Set the `publication:` "
+                "line (e.g. \"Cambridge University Press, 2026\") via /publication "
+                "or the pencil icon."
+            )
+        else:
+            pub_types, drupal, tab = (["working_paper"], "working_paper", "journal")
+            review_notes.append(
+                "No DOI in the PDF and no Crossref title-match. Front matter is a scaffold "
+                f"from PDF (title source: {pdf_title_source}) - title, authors, year, "
+                "and abstract all need verification."
+            )
+
+    # The intake/<subfolder>/ convention is authoritative for type. If Gary
+    # dropped a PDF under intake/talk/ but Crossref decided it's a journal
+    # article (e.g. a published-version reprint of a talk), we still treat
+    # the dropped location as the source of truth and route accordingly.
+    if intake_kind == "talk":
+        pub_types, drupal, tab = (["presentation"], "presentation", "presentation")
+    elif intake_kind == "book":
+        pub_types, drupal, tab = (["book"], "book", "book")
+
+    if not abstract and intake_kind != "talk":
         abstract_match = re.search(
             r"\bAbstract\b[\s:.\-]*([\s\S]{50,2500}?)(?:\n\s*\n|\bIntroduction\b|\bKeywords?\b|\bBackground\b)",
             text,
@@ -723,23 +797,39 @@ def run(pdf_path: Path, dry_run: bool = False) -> dict[str, Any]:
             year = m.group(0)
             review_notes.append(f"Year ({year}) was guessed from the PDF; double-check.")
 
+    if intake_kind == "talk":
+        target_root = talk_dir
+        review_notes.append(
+            "Slide deck imported under content/talk/. The PDF text was used to "
+            "guess title and date — verify both. Use slash commands "
+            "(/title, /date, /authors) or the Files changed pencil to fix."
+        )
+    else:
+        target_root = pub_dir
+
     slug = slugify(title)
-    if (pub_dir / slug).exists():
+    # Avoid collisions in EITHER content/publication/ or content/talk/ — same
+    # slug across the two would still clash for static/files/<slug>.pdf and
+    # writings_legacy_map keys.
+    def _slug_taken(s: str) -> bool:
+        return (pub_dir / s).exists() or (talk_dir / s).exists()
+
+    if _slug_taken(slug):
         for n in range(2, 9):
             new_slug = f"{slug}-{n}"
-            if not (pub_dir / new_slug).exists():
+            if not _slug_taken(new_slug):
                 review_notes.append(f"Slug '{slug}' was already taken - using '{new_slug}'.")
                 slug = new_slug
                 break
 
     target_pdf = static_files / f"{slug}.pdf"
-    target_md_dir = pub_dir / slug
+    target_md_dir = target_root / slug
     target_md = target_md_dir / "index.md"
 
     links: list[dict[str, str]] = [
         {"type": "pdf", "url": f"files/{target_pdf.name}"},
     ]
-    if doi:
+    if doi and intake_kind != "talk":
         links.append({"type": "source", "url": f"https://doi.org/{doi}"})
 
     fm: dict[str, Any] = {
@@ -747,13 +837,13 @@ def run(pdf_path: Path, dry_run: bool = False) -> dict[str, Any]:
         "date": f"{year}-01-01" if year else "2026-01-01",
         "authors": authors,
         "publication_types": pub_types,
-        "links": links,
     }
-    if publication_line:
+    fm["links"] = links
+    if publication_line and intake_kind != "talk":
         fm["publication"] = publication_line
     if abstract:
         fm["abstract"] = abstract
-    if doi:
+    if doi and intake_kind != "talk":
         fm["doi"] = doi
 
     area_suggestions = find_research_area_suggestions(title, abstract, research_areas)
@@ -766,6 +856,7 @@ def run(pdf_path: Path, dry_run: bool = False) -> dict[str, Any]:
 
     report = {
         "slug": slug,
+        "intake_kind": intake_kind,
         "source_pdf": _rel(pdf_path),
         "target_pdf": _rel(target_pdf),
         "target_index_md": _rel(target_md),
