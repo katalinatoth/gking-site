@@ -1071,14 +1071,30 @@ The old Drupal site had short URLs that forwarded elsewhere — e.g.
 a specific paper. The new site keeps the same idea, but in a much
 simpler way: **one YAML file for the whole list**.
 
-> **41 vanity short URLs from the old Drupal site are already restored.**
-> `/amelia`, `/cem`, `/clarify`, `/ei`, `/judgeit`, `/psi`, `/relogit`,
-> `/whatif`, `/sibs`, `/10k`, `/yourcast`, `/kkv`, `/dpd`, `/covid-italy`,
-> etc. all forward to their current pages. They were recovered from
-> `scraped_data/publications.json` by `scripts/import_legacy_short_urls.py`
-> and live in the `# -- BEGIN auto-recovered legacy short URLs --` block
-> at the top of `data/redirects.yaml`. Re-run the script to refresh that
-> block; new hand-edits go below the matching `END` marker.
+> **136 redirects from the old Drupal site are already restored.**
+> Every redirect Harvard's web team had registered on the old
+> `gking.harvard.edu` Drupal admin is now live on the new site —
+> including `/zoom`, `/Gov2020`, all the long-form Drupal slugs
+> (`/cem-coarsened-exact-matching-software` → `/publication/cem-...-software/`),
+> all the legacy `/research-interests/...` and `/category/research-interests/...`
+> taxonomy paths (forward to `/research-areas/`), all the `/classes/...` and
+> `/class/...` course paths (forward to `/teaching/...`), the homepage
+> aliases (`/home`, `/home3`, `/home-page`, `/original-home-page`, …),
+> and many file-path redirects (`/files/gking/files/teaching.pdf` →
+> `/files/teaching.pdf`).
+>
+> The source of truth is `scraped_data/drupal_redirects.csv` (a CSV
+> copy of the official Harvard Web Publishing redirect-summary export
+> for `gking.harvard.edu`). The translation lives in
+> `scripts/import_drupal_redirects.py` and is materialised into the
+> `# BEGIN drupal-redirects-import` block in `data/redirects.yaml`.
+> Hand-edits *outside* that block are preserved across re-runs; edits
+> *inside* will be overwritten. To regenerate after editing the
+> resolver / rewrite tables, run:
+>
+> ```bash
+> python3 scripts/import_drupal_redirects.py --apply
+> ```
 
 ### (A) Short URL that forwards somewhere
 
@@ -1104,10 +1120,15 @@ redirects:
 
 Field reference:
 
-- `from` (required) — the URL path you want to own. Lowercase letters,
-  digits, and dashes only. Must NOT collide with an existing top-level
-  page (e.g. `bio` is already `/bio/`); the build fails with a clear
-  message if it does, so you can pick a different one.
+- `from` (required) — the URL path you want to own. Either a single
+  segment (`rd`, `quest`) or a multi-segment path (`research-interests/methods/missing-data`,
+  `class/workshop-applied-statistics`). Each segment must start with a
+  letter or digit, then contain only letters, digits, dashes,
+  underscores, or dots. **Case is preserved** — `/Gov2020/` and
+  `/gov2020/` are different URLs; add both forms if you want both to
+  work. A *single*-segment `from` MUST NOT collide with an existing
+  top-level page (e.g. `bio` is already `/bio/`); the build fails with
+  a clear message if it does, so you can pick a different one.
 - `to` (required) — full external URL (`https://…`) or internal path
   (`/publication/my-paper/`).
 - `status` (optional) — `301` (default, permanent), `302`/`307`
@@ -1183,8 +1204,8 @@ they touch files.
 | `intake_publication.py` | The auto-import pipeline used by CI. Run locally with `python3 scripts/intake_publication.py intake/foo.pdf [--dry-run]` to bypass the PR flow. Subfolder picks the type: `intake/foo.pdf` = paper, `intake/talk/foo.pdf` = presentation, `intake/book/foo.pdf` = book. |
 | `quick_add.py` | Companion to `intake_publication.py` for content that doesn't have a PDF (software, patents) or where you already have all the metadata. `python3 scripts/quick_add.py {software,patent,paper,talk,book} --title ... --slug ...`. See [Quick add](#quick-add). |
 | `apply_pr_edits.py` | The slash-command processor used by CI. Useful for testing locally: `python3 scripts/apply_pr_edits.py --comment body.txt --report r.json content/publication/foo/index.md`. |
-| `build_redirects.py` | Regenerates the meta-refresh stubs and Netlify `_redirects` file from `data/redirects.yaml`. Runs automatically in CI. |
-| `import_legacy_short_urls.py` | One-time recovery: scans `scraped_data/publications.json` for the old Drupal vanity URLs (`/amelia`, `/sibs`, `/10k`, etc.) and writes them into the auto-recovered block at the top of `data/redirects.yaml`. Idempotent — hand-edits below the END marker are preserved. |
+| `build_redirects.py` | Regenerates the meta-refresh stubs and Netlify `_redirects` file from `data/redirects.yaml`. Supports single- and multi-segment paths and preserves case. Runs automatically in CI. |
+| `import_drupal_redirects.py` | One-time recovery from the old Drupal site: reads `scraped_data/drupal_redirects.csv` (the official Harvard Web Publishing redirect-summary export), translates each entry's target through to a real new-site URL, and writes the result into the `BEGIN drupal-redirects-import` block of `data/redirects.yaml`. Idempotent — re-runs replace only that block, leaving hand-added redirects elsewhere in the file untouched. |
 | `compute_publication_first_commit.py` | Refreshes `data/publication_first_commit.json` (drives the spotlight ordering). Runs automatically in CI. |
 | `fill_publication_from_doi.py` | Fills the `publication:` citation line on existing pages from Crossref by DOI. Add `--apply` to write. |
 | `repair_publication_links.py` | Audits external URLs in publication front matter; rewrites tinyurl/ezproxy/dead links to canonical DOIs. `--apply` to write. |

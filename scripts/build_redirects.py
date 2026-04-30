@@ -33,7 +33,10 @@ OUT_DIR = ROOT / "content" / "_redirects"
 CONTENT_DIR = ROOT / "content"
 NETLIFY_REDIRECTS_FILE = ROOT / "static" / "_redirects"
 
-SLUG_RE = re.compile(r"^[a-z0-9][a-z0-9-]*$")
+# A redirect `from` is a URL path with one or more segments, separated by `/`.
+# Each segment must be alnum/dash/underscore/dot. We preserve case because the
+# new site is case-sensitive (e.g. `/Gov2020/` and `/gov2020/` differ).
+SEGMENT_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]*$")
 ALLOWED_STATUSES = {301, 302, 307, 308}
 DEFAULT_STATUS = 301
 
@@ -46,9 +49,10 @@ def die(msg: str) -> None:
 def existing_top_level_slugs() -> set[str]:
     """Slugs currently owned by something else in content/.
 
-    We only guard against direct collisions with existing top-level
-    directories or single-file pages (e.g. content/bio/, content/apply/).
-    Section-internal slugs like /publication/foo/ are fine.
+    We only guard against direct collisions where a redirect's *single-segment*
+    `from` would shadow an existing top-level page (e.g. content/bio/,
+    content/apply/). Multi-segment redirect paths and section-internal
+    paths like /publication/foo/ are fine.
     """
     slugs: set[str] = set()
     if not CONTENT_DIR.exists():
@@ -61,6 +65,27 @@ def existing_top_level_slugs() -> set[str]:
         elif entry.name.endswith(".md"):
             slugs.add(entry.stem.lower())
     return slugs
+
+
+def parse_path(raw: str, *, source_label: str = "from") -> str:
+    """Normalize and validate a redirect `from`-path.
+
+    Strips leading/trailing slashes and validates each segment. Returns the
+    cleaned path (no leading slash, segments preserved). Multi-segment paths
+    are allowed: `research-interests/methods/missing-data` is valid.
+    Case is preserved.
+    """
+    cleaned = (raw or "").strip().lstrip("/").rstrip("/")
+    if not cleaned:
+        die(f"An entry has an empty `{source_label}` value.")
+    for seg in cleaned.split("/"):
+        if not SEGMENT_RE.match(seg):
+            die(
+                f"Path segment {seg!r} in `{source_label}: /{cleaned}/` is "
+                f"invalid. Each segment must start with an alnum and contain "
+                f"only letters, digits, dashes, underscores, or dots."
+            )
+    return cleaned
 
 
 def yaml_quote(value: str) -> str:
@@ -125,10 +150,40 @@ def write_netlify_redirects(rules: list[tuple[str, str, int]]) -> None:
         "# which serves the meta-refresh stubs in content/_redirects/ instead.",
         "",
     ]
-    for slug, target, status in rules:
-        lines.append(f"/{slug}/   {target}   {status}")
-        lines.append(f"/{slug}    {target}   {status}")
+    for path, target, status in rules:
+        lines.append(f"/{path}/   {target}   {status}")
+        lines.append(f"/{path}    {target}   {status}")
     NETLIFY_REDIRECTS_FILE.write_text("\n".join(lines) + "\n")
+
+
+_HEADLESS_INTERMEDIATE = """---
+title: ""
+headless: true
+sitemap:
+  disable: true
+robotsNoIndex: true
+build:
+  list: never
+  render: never
+---
+"""
+
+
+def ensure_intermediate_index(parent: Path) -> None:
+    """Make sure every intermediate directory under content/_redirects/
+    has a non-rendering `_index.md`.
+
+    Without this, Hugo would auto-generate a section listing at e.g.
+    `/research-interests/` once we put a redirect stub at
+    `/research-interests/methods/missing-data/`. We don't want those
+    listings to compete with real content.
+    """
+    if parent == OUT_DIR:
+        return
+    index = parent / "_index.md"
+    if not index.exists():
+        index.write_text(_HEADLESS_INTERMEDIATE)
+    ensure_intermediate_index(parent.parent)
 
 
 def main() -> int:
@@ -143,6 +198,18 @@ def main() -> int:
     existing = existing_top_level_slugs()
     seen: set[str] = set()
     OUT_DIR.mkdir(parents=True)
+
+    # Pre-pass: build the set of paths that are *parents* of other
+    # redirects. For those, we must emit `_index.md` (a Hugo section
+    # page), not `index.md` (a leaf bundle), or Hugo will treat the
+    # whole directory as a leaf bundle and ignore its child redirects.
+    all_paths = {parse_path(str(e.get("from", ""))) for e in entries}
+    parents_of_other_redirects: set[str] = set()
+    for p in all_paths:
+        for q in all_paths:
+            if p != q and q.startswith(p + "/"):
+                parents_of_other_redirects.add(p)
+                break
     # Suppress the section page itself: every redirect child sets its own
     # absolute `url:` (e.g. /quest/) so the synthetic section listing at
     # /_redirects/ is unwanted, and would also clash with the Netlify
@@ -163,36 +230,44 @@ build:
     netlify_rules: list[tuple[str, str, int]] = []
 
     for entry in entries:
-        slug = str(entry.get("from", "")).strip().strip("/").lower()
+        path = parse_path(str(entry.get("from", "")))
         target = str(entry.get("to", "")).strip()
         note = str(entry.get("note", "") or "")
-        status = parse_status(entry.get("status"), slug or "<unknown>")
+        status = parse_status(entry.get("status"), path or "<unknown>")
 
-        if not slug:
-            die("An entry is missing its `from` value.")
         if not target:
-            die(f"Entry `{slug}` is missing its `to` value.")
-        if not SLUG_RE.match(slug):
-            die(
-                f"Entry `from: {slug}` is invalid. Use lowercase letters, "
-                "digits, and dashes only (no slashes, no spaces)."
-            )
-        if slug in seen:
-            die(f"Duplicate `from: {slug}` in data/redirects.yaml.")
-        if slug in existing:
-            die(
-                f"Entry `from: {slug}` collides with an existing page "
-                f"content/{slug}/ — pick a different short URL."
-            )
-        seen.add(slug)
-        netlify_rules.append((slug, target, status))
+            die(f"Entry `from: /{path}/` is missing its `to` value.")
+        # Normalize for duplicate detection (path is case-sensitive on
+        # output, but `/Foo/` and `/Foo/` are still the same redirect).
+        if path in seen:
+            die(f"Duplicate `from: /{path}/` in data/redirects.yaml.")
 
-        page_dir = OUT_DIR / slug
-        page_dir.mkdir()
-        (page_dir / "index.md").write_text(
+        # Collision check: a single-segment redirect must not shadow an
+        # existing top-level page. Multi-segment redirects are allowed to
+        # nest under section directories (those are owned by Hugo's normal
+        # content tree, but we don't write into them — we route via
+        # content/_redirects/<segs>/index.md and an absolute `url:`).
+        first_seg = path.split("/", 1)[0].lower()
+        if "/" not in path and first_seg in existing:
+            die(
+                f"Entry `from: /{path}/` collides with an existing page "
+                f"content/{first_seg}/ — pick a different short URL."
+            )
+        seen.add(path)
+        netlify_rules.append((path, target, status))
+
+        page_dir = OUT_DIR / path
+        page_dir.mkdir(parents=True, exist_ok=True)
+        ensure_intermediate_index(page_dir.parent)
+        # If this path is a parent of another redirect, emit `_index.md`
+        # (section page) so Hugo continues into child directories. Else
+        # emit `index.md` (leaf bundle).
+        is_parent = path in parents_of_other_redirects
+        index_filename = "_index.md" if is_parent else "index.md"
+        (page_dir / index_filename).write_text(
             f"""---
 title: "Redirect to {yaml_quote(target)}"
-url: /{slug}/
+url: /{path}/
 layout: redirect
 target_url: "{yaml_quote(target)}"
 redirect_status: {status}

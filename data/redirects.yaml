@@ -14,11 +14,16 @@
 # ---------------------------------------------------------------------------
 # Fields
 # ---------------------------------------------------------------------------
-#   from   (required)  The URL path to own, without slashes. Must be made
-#                      of lowercase letters, digits, and dashes only.
-#                      MUST NOT collide with an existing page (e.g. "bio"
-#                      is already the bio page). The build will fail and
-#                      tell you if it collides.
+#   from   (required)  The URL path to own. Single segment (e.g. "rd") or
+#                      multi-segment with slashes between (e.g.
+#                      "research-interests/methods/missing-data"). Each
+#                      segment must start with a letter or digit, then
+#                      contain only letters, digits, dashes, underscores,
+#                      or dots. CASE IS PRESERVED — `/Gov2020/` and
+#                      `/gov2020/` are different URLs. A SINGLE-segment
+#                      `from` MUST NOT collide with an existing top-level
+#                      page (e.g. "bio" is already the bio page). The
+#                      build will fail and tell you if it collides.
 #   to     (required)  Target URL. Can be:
 #                        - a full external URL    (https://...)
 #                        - an internal path        (/publication/quest-paper/)
@@ -66,191 +71,567 @@
 
 redirects:
 
-  # -- BEGIN auto-recovered legacy short URLs --
-  # Vanity short URLs recovered from the legacy Drupal site
-  # via scripts/import_legacy_short_urls.py reading
-  # ../scraped_data/publications.json. Re-run that script to refresh
-  # this block; hand-edits below the END marker are preserved.
+  # Placeholder examples — uncomment to use, or replace with your own.
+  # These resolve at e.g. /rd/, /quest/. Add new entries above the
+  # `BEGIN drupal-redirects-import` marker; entries inside that block
+  # are auto-regenerated and will be overwritten on the next import.
   #
-  # The old site was case-insensitive on path aliases. Mixed-case
-  # originals (e.g. /CompSS, /EzI, /IndiaChild) are stored here as
-  # lowercase per the build's slug constraint; users typing the
-  # lowercase form get redirected, users typing the original
-  # mixed case will see a 404.
-
-  - from: 10k
-    to:   /publication/if-a-statistical-model-predicts-that-common-events-should-occur-only-once-in-100/
-    note: "old short URL was /10k; goes to: If a Statistical Model Predicts That Common Events Should Occur Only Once in ..."
-
-  - from: 2k1
-    to:   /publication/statistical-intuition-without-coding-or-teachers/
-    note: "old short URL was /2k1; goes to: Statistical Intuition Without Coding (or Teachers)"
-
-  - from: 50c
-    to:   /publication/how-the-chinese-government-fabricates-social-media-posts-for-strategic-distracti-2017-166/
-    note: "old short URL was /50c; goes to: How the Chinese Government Fabricates Social Media Posts for Strategic Distra..."
-
-  - from: acc
-    to:   /publication/how-american-politics-ensures-electoral-accountability-in-congress/
-    note: "old short URL was /acc; goes to: How American Politics Ensures Electoral Accountability in Congress"
-
-  - from: amelia
-    to:   /publication/amelia-ii-a-program-for-missing-data/
-    note: "old short URL was /amelia; goes to: AMELIA II: A Program for Missing Data"
-
-  - from: cem
-    to:   /publication/cem-coarsened-exact-matching-software/
-    note: "old short URL was /cem; goes to: CEM: Coarsened Exact Matching Software"
-
-  - from: clarify
-    to:   /publication/clarify-software-for-interpreting-and-presenting-statistical-results/
-    note: "old short URL was /clarify; goes to: CLARIFY: Software for Interpreting and Presenting Statistical Results"
-
-  - from: compact
-    to:   /publication/how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-2021/
-    note: "old short URL was /compact; goes to: How to Measure Legislative District Compactness If You Only Know It When You ..."
-
-  - from: compss
-    to:   /publication/computational-social-science-obstacles-and-opportunities/
-    note: "old short URL was /CompSS; goes to: Computational Social Science: Obstacles and Opportunities"
-
-  - from: conjointe
-    to:   /publication/correcting-measurement-error-bias-in-conjoint-survey-experiments/
-    note: "old short URL was /conjointE; goes to: Correcting Measurement Error Bias in Conjoint Survey Experiments"
-
-  - from: covid-ccc
-    to:   /publication/building-an-international-consortium-for-tracking-coronavirus-health-status/
-    note: "old short URL was /covid-ccc; goes to: Building an International Consortium for Tracking Coronavirus Health Status"
-
-  - from: covid-italy
-    to:   /publication/evaluating-covid-19-public-health-messaging-in-italy-self-reported-compliance-an/
-    note: "old short URL was /covid-italy; goes to: Evaluating COVID-19 Public Health Messaging in Italy: Self-Reported Complianc..."
-
-  - from: deford
-    to:   /publication/the-essential-role-of-statistical-inference-in-evaluating-electoral-systems-a-re/
-    note: "old short URL was /deford; goes to: The Essential Role of Statistical Inference in Evaluating Electoral Systems: ..."
-
-  - from: dp
-    to:   /publication/statistically-valid-inferences-from-privacy-protected-data/
-    note: "old short URL was /dp; goes to: Statistically Valid Inferences from Privacy Protected Data"
-
-  - from: dp-oped
-    to:   /publication/theres-a-simple-solution-to-the-latest-census-fight/
-    note: "old short URL was /dp-oped; goes to: There’s a Simple Solution to the Latest Census Fight"
-
-  - from: dpd
-    to:   /publication/statistically-valid-inferences-from-differentially-private-data-releases-with-ap/
-    note: "old short URL was /dpd; goes to: Statistically Valid Inferences from Differentially Private Data Releases, Wit..."
-
-  - from: dpd2
-    to:   /publication/statistically-valid-inferences-from-differentially-private-data-releases-ii-exte/
-    note: "old short URL was /dpd2; goes to: Statistically Valid Inferences from Differentially Private Data Releases, II:..."
-
-  - from: dpsurvey
-    to:   /publication/differentially-private-survey-research/
-    note: "old short URL was /DPsurvey; goes to: Differentially Private Survey Research"
-
-  - from: ei
-    to:   /publication/ei-a-program-for-ecological-inference-jss/
-    note: "old short URL was /ei; goes to: EI: A Program for Ecological Inference"
-
-  - from: ezi
-    to:   /publication/ezi-an-easy-program-for-ecological-inference/
-    note: "old short URL was /EzI; goes to: EzI: A(n Easy) Program for Ecological Inference"
-
-  - from: hacking
-    to:   /publication/a-theory-of-statistical-inference-for-ensuring-the-robustness-of-scientific-resu/
-    note: "old short URL was /hacking; goes to: A Theory of Statistical Inference for Ensuring the Robustness of Scientific R..."
-
-  - from: indiachild
-    to:   /publication/precision-mapping-child-undernutrition-for-nearly-600000-inhabited-census-villag/
-    note: "old short URL was /IndiaChild; goes to: Precision Mapping Child Undernutrition for Nearly 600,000 Inhabited Census Vi..."
-
-  - from: judgeit
-    to:   /publication/judgeit-ii-a-program-for-evaluating-electoral-systems-and-redistricting-plans/
-    note: "old short URL was /judgeit; goes to: JudgeIt II: A Program for Evaluating Electoral Systems and Redistricting Plans"
-
-  - from: kkv
-    to:   /publication/designing-social-inquiry-scientific-inference-in-qualitative-research-new-editio/
-    note: "old short URL was /kkv; goes to: Designing Social Inquiry: Scientific Inference in Qualitative Research, New E..."
-
-  - from: matchingtheory
-    to:   /publication/a-theory-of-statistical-inference-for-matching-methods-in-causal-research/
-    note: "old short URL was /matchingtheory; goes to: A Theory of Statistical Inference for Matching Methods in Causal Research"
-
-  - from: mediaactivate
-    to:   /publication/how-the-news-media-activate-public-expression-and-influence-national-agendas-2017/
-    note: "old short URL was /mediaActivate; goes to: How the News Media Activate Public Expression and Influence National Agendas"
-
-  - from: partnerships
-    to:   /publication/a-new-model-for-industry-academic-partnerships/
-    note: "old short URL was /partnerships; goes to: A New Model for Industry-Academic Partnerships"
-
-  - from: partyswitch
-    to:   /publication/the-stability-of-party-identification-among-us-representatives-political-loyalty/
-    note: "old short URL was /partyswitch; goes to: The Stability of Party Identification Among U.S. Representatives: Political L..."
-
-  - from: prefresher
-    to:   /publication/the-math-prefresher-and-the-collective-future-of-political-science-graduate-trai/
-    note: "old short URL was /prefresher; goes to: The ‘Math Prefresher’ and The Collective Future of Political Science Graduate..."
-
-  - from: psi
-    to:   /publication/psi-ψ-a-private-data-sharing-interface/
-    note: "old short URL was /psi; goes to: PSI (Ψ): A Private Data Sharing Interface"
-
-  - from: readme
-    to:   /publication/readme-software-for-automated-content-analysis/
-    note: "old short URL was /readme; goes to: ReadMe: Software for Automated Content Analysis"
-
-  - from: relogit
-    to:   /publication/relogit-rare-events-logistic-regression/
-    note: "old short URL was /relogit; goes to: ReLogit: Rare Events Logistic Regression"
-
-  - from: reputable
-    to:   /publication/experimental-evidence-on-the-limited-influence-of-reputable-media-outlets/
-    note: "old short URL was /reputable; goes to: Experimental Evidence on the (Limited) Influence of Reputable Media Outlets"
-
-  - from: sibs
-    to:   /publication/survey-estimates-of-wartime-mortality/
-    note: "old short URL was /sibs; goes to: Survey Estimates of Wartime Mortality"
-
-  - from: symmetry
-    to:   /publication/theoretical-foundations-and-empirical-evaluations-of-partisan-fairness-in-distri/
-    note: "old short URL was /symmetry; goes to: Theoretical Foundations and Empirical Evaluations of Partisan Fairness in Dis..."
-
-  - from: va
-    to:   /publication/va-verbal-autopsies/
-    note: "old short URL was /va; goes to: VA: Verbal Autopsies"
-
-  - from: videos
-    to:   /publication/education-and-scholarship-by-video/
-    note: "old short URL was /videos; goes to: Education and Scholarship by Video"
-
-  - from: vpresent
-    to:   /publication/video-presentations/
-    note: "old short URL was /vpresent; goes to: Video Presentations"
-
-  - from: whatif
-    to:   /publication/whatif-software-for-evaluating-counterfactuals/
-    note: "old short URL was /whatif; goes to: WhatIf: Software for Evaluating Counterfactuals"
-
-  - from: words
-    to:   /publication/an-improved-method-of-automated-nonparametric-content-analysis-for-social-scienc/
-    note: "old short URL was /words; goes to: An Improved Method of Automated Nonparametric Content Analysis for Social Sci..."
-
-  - from: yourcast
-    to:   /publication/yourcast/
-    note: "old short URL was /yourcast; goes to: YourCast"
-
-  # -- END auto-recovered legacy short URLs --
-  # Placeholder examples — replace with real ones, or delete, at will.
-  # The short URLs below will resolve at e.g. /rd/, /quest/.
-
   # - from: rd
   #   to:   https://docs.google.com/document/d/your-doc-id/edit
   #   note: "Research Directions living document."
-
+  #
   # - from: quest
   #   to:   /publication/quest/
   #   status: 301
   #   note: "Quest paper short URL."
+
+# BEGIN drupal-redirects-import (auto-managed by scripts/import_drupal_redirects.py — do not edit by hand)
+# Source: scraped_data/drupal_redirects.csv
+# Origin: gking.harvard.edu Drupal admin redirect-summary export
+#         (Harvard Web Publishing, exported 2025-2026).
+# Re-generate with: python3 scripts/import_drupal_redirects.py --apply
+#
+# Each entry's `to:` has been chain-resolved through to a real new-site
+# URL — vanity short URLs (/amelia, /cem, …) were path aliases on the old
+# Drupal site, not redirects, so they don't appear in the spreadsheet's
+# `from` column. The resolver in scripts/import_drupal_redirects.py
+# substitutes their actual new-site location so each redirect lands
+# directly on its destination (no chains).
+
+  - from: "amelia-ii-program-missing-data"
+    to:   "/publication/amelia-ii-program-missing-data/"
+    note: "drupal target: /amelia"
+
+  - from: "anchoring-vignettes-interpersonal-incomparability"
+    to:   "/research-areas/"
+    note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/anchoring-vignettes-for-interpersonal-inco…)"
+
+  - from: "anchors-software-anchoring-vignettes"
+    to:   "/publication/anchors-software-for-anchoring-vignettes-data/"
+    note: "drupal target: /anchors"
+
+  - from: "autocast-automated-bayesian-forecasting-yourcast"
+    to:   "/publication/autocast-automated-bayesian-forecasting-with-yourcast/"
+    note: "spreadsheet target was /software/<slug>; matched a /publication/ page on the new site (drupal target: /software/autocast-automated-bayesian-forecasting-yourcast)"
+
+  - from: "automated-text-analysis"
+    to:   "/research-areas/"
+    note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/applications/automated-text-analysis)"
+
+  - from: "blanktitle"
+    to:   "/"
+    note: "drupal target: /blanktitle-7"
+
+  - from: "blanktitle-0"
+    to:   "/"
+    note: "drupal target: /blanktitle-8"
+
+  - from: "boocio-software-education-system-hierarchical-concept-maps-0"
+    to:   "/software/boocio-an-education-system-with-hierarchical-concept-maps/"
+    note: "drupal target: /software/boocio-software-education-system-hierarchical-concept-maps"
+
+  - from: "book/export/html/5611"
+    to:   "/teaching/"
+    note: "drupal target: /classes/materials/book-selection-and-purchasing-decision-making"
+
+  - from: "book/export/html/64141"
+    to:   "/software/anchors-software-for-anchoring-vignettes-data/"
+    note: "drupal target: /vign"
+
+  - from: "categories/esearch-interests/methods/unifying-statistical-analysis"
+    to:   "/research-areas/"
+    note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /categories/research-interests/methods/unifying-statistical-analysis)"
+
+  - from: "category/research-interests/applications"
+    to:   "/research-areas/"
+    note: "drupal target: /research-interests#applications"
+
+  - from: "category/research-interests/methods"
+    to:   "/research-areas/"
+    note: "drupal target: /research-interests#methods"
+
+  - from: "causal-inference"
+    to:   "/research-areas/"
+    note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/causal-inference)"
+
+  - from: "cem-coarsened-exact-matching-software"
+    to:   "/publication/cem-coarsened-exact-matching-software/"
+    note: "drupal target: /cem"
+
+  - from: "cem-coarsened-exact-matching-software-1114"
+    to:   "/software/cem-coarsened-exact-matching-software/"
+    note: "drupal target: /software/cem-coarsened-exact-matching-software/1114"
+
+  - from: "cem-coarsened-exact-matching-software-115"
+    to:   "/software/cem-coarsened-exact-matching-software/"
+    note: "drupal target: /software/cem-coarsened-exact-matching-software/115"
+
+  - from: "cem-coarsened-exact-matching-software-116"
+    to:   "/software/cem-coarsened-exact-matching-software/"
+    note: "drupal target: /software/cem-coarsened-exact-matching-software/116"
+
+  - from: "cem-coarsened-exact-matching-software-117"
+    to:   "/software/cem-coarsened-exact-matching-software/"
+    note: "drupal target: /software/cem-coarsened-exact-matching-software/117"
+
+  - from: "cem-coarsened-exact-matching-software-118"
+    to:   "/software/cem-coarsened-exact-matching-software/"
+    note: "drupal target: /software/cem-coarsened-exact-matching-software/118"
+
+  - from: "cem/imp1.dta"
+    to:   "https://gking.harvard.edu/files/gking/files/imp1.dta"
+    note: "file not in new static/files/ — preserved as absolute archived URL (drupal target: /files/gking/files/imp1.dta)"
+
+  - from: "cem/lalonde.dta"
+    to:   "https://gking.harvard.edu/files/gking/files/lalonde.dta"
+    note: "file not in new static/files/ — preserved as absolute archived URL (drupal target: /files/gking/files/lalonde.dta)"
+
+  - from: "cem/lelonde.dta"
+    to:   "https://gking.harvard.edu/files/gking/files/lelonde.dta"
+    note: "file not in new static/files/ — preserved as absolute archived URL (drupal target: /files/gking/files/lelonde.dta)"
+
+  - from: "clarify-software-interpreting-and-presenting-statistical-results"
+    to:   "/publication/clarify-software-interpreting-and-presenting-statistical-results/"
+    note: "drupal target: /clarify"
+
+  - from: "clarify/stata.toc"
+    to:   "https://github.com/IQSS/garyking_website_files/blob/main/stata.toc"
+
+  - from: "class/gov-2020-hidden-curriculum"
+    to:   "/teaching/gov2020/"
+    note: "drupal target: /Gov2020"
+
+  - from: "classes"
+    to:   "/teaching/"
+    note: "drupal target: /class"
+
+  - from: "classes/advanced-quantitative-political-methodology-government-2001-government-1002-and-e-2001"
+    to:   "/teaching/gov2001/"
+    note: "drupal target: /class/quantitative-social-science-methods-i-government-2001-and-e-200"
+
+  - from: "classes/designing-political-inquiry-government-1003-undergrads"
+    to:   "/teaching/gov1003/"
+    note: "drupal target: /class/designing-political-inquiry-government-1003-undergrads"
+
+  - from: "classes/gking/classes/designing-political-inquiry-government-1003-undergrads/materials/syllabu"
+    to:   "/teaching/gov1003/"
+    note: "drupal target: /class/designing-political-inquiry-government-1003-undergrads"
+
+  - from: "classes/introduction-quantitative-political-methodology-g1000"
+    to:   "/teaching/g1000/"
+    note: "drupal target: /class/introduction-quantitative-political-methodology-g1000"
+
+  - from: "classes/math-prefresher-political-scientists"
+    to:   "/teaching/math-prefresher/"
+    note: "drupal target: /class/math-prefresher-political-scientists-faculty-advisor"
+
+  - from: "classes/strategies-political-inquiry-government-2010"
+    to:   "/teaching/gov2010/"
+    note: "drupal target: /class/strategies-political-inquiry-government-2010"
+
+  - from: "classes/workshop-applied-statistics"
+    to:   "/teaching/workshop-applied-statistics/"
+    note: "drupal target: /class/workshop-applied-statistics"
+
+  - from: "clone-gary-king"
+    to:   "/"
+    note: "drupal target: /gary-king-home-page"
+
+  - from: "count-program-estimating-event-count-and-duration-regressions"
+    to:   "/publication/count-a-program-for-estimating-event-count-and-duration-regressions/"
+    note: "drupal target: /count"
+
+  - from: "dataverse.org"
+    to:   "https://dataverse.org/"
+
+  - from: "ecological-inference"
+    to:   "/research-areas/"
+    note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/ecological-inference)"
+
+  - from: "ei-program-ecological-inference"
+    to:   "/publication/ei-program-ecological-inference/"
+    note: "drupal target: /ei"
+
+  - from: "ei-r-program-ecological-inference"
+    to:   "/publication/ei-r-program-ecological-inference/"
+    note: "drupal target: /eiR"
+
+  - from: "evaluating-social-security-forecasts"
+    to:   "/ssa/"
+    note: "drupal target: /ssa"
+
+  - from: "event-counts-and-durations"
+    to:   "/research-areas/"
+    note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/event-counts-and-durations)"
+
+  - from: "ezi-easy-program-ecological-inference"
+    to:   "/publication/ezi-easy-program-ecological-inference/"
+    note: "drupal target: /Ezi"
+
+  - from: "faq"
+    to:   "/"
+    note: "drupal target: /faqs"
+
+  - from: "files/gking/files/lalonde.dta"
+    to:   "https://gking.harvard.edu/sites/g/files/omnuum7116/files/gking/files/lalonde.dta"
+    note: "file not in new static/files/ — preserved as absolute archived URL (drupal target: /sites/g/files/omnuum7116/files/gking/files/lalonde.dta)"
+
+  - from: "files/gking/files/teaching.pdf"
+    to:   "/files/teaching.pdf"
+    note: "drupal target: /sites/g/files/omnuum7116/files/gking/files/teaching.pdf"
+
+  - from: "gauss-procedures"
+    to:   "/software/"
+    note: "drupal target: /gauss"
+
+  - from: "gking/eicamera/kinroot.html"
+    to:   "/"
+    note: "drupal target: /eicamera/kinroot.html"
+
+  - from: "gking/files/censored.pdf"
+    to:   "/files/censored.pdf"
+    note: "drupal target: /sites/g/files/omnuum7116/files/gking/files/censored.pdf"
+
+  - from: "home"
+    to:   "/"
+
+  - from: "home-columns"
+    to:   "/"
+    note: "drupal target: /original-home-page"
+
+  - from: "home3"
+    to:   "/"
+    note: "drupal target: /home"
+
+  - from: "incumbency-advantage"
+    to:   "/research-areas/"
+    note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/applications/incumbency-advantage)"
+
+  - from: "inducing-sustained-creativity-and-diversity-large-language-models"
+    to:   "/publication/inducing-sustained-creativity-and-diversity-in-large-language-models/"
+    note: "drupal target: /quest"
+
+  - from: "issues"
+    to:   "/teaching/"
+    note: "drupal target: /classes/materials/issues"
+
+  - from: "judgeit-ii-program-evaluating-electoral-systems-and-redistricting-plans"
+    to:   "/publication/judgeit-ii-program-evaluating-electoral-systems-and-redistricting-plans/"
+    note: "drupal target: /judgeit"
+
+  - from: "matchingfrontier-r-package-calculating-balance-sample-size-frontier"
+    to:   "/software/matchingfrontier-r-package-for-calculating-the-balance-sample-size-frontier/"
+    note: "drupal target: /software/matchingfrontier-r-package-calculating-balance-sample-size-frontier/s…"
+
+  - from: "matchit-nonparametric-preprocessing-parametric-causal-inference"
+    to:   "/publication/matchit-nonparametric-preprocessing-for-parametric-causal-inference/"
+    note: "drupal target: /matchit"
+
+  - from: "matchit-nonparametric-preprocessing-parametric-causal-inference-24-21"
+    to:   "/software/matchit-nonparametric-preprocessing-for-parametric-causal-inference/"
+    note: "drupal target: /software/matchit-nonparametric-preprocessing-parametric-causal-inference/24-21"
+
+  - from: "maxlik"
+    to:   "/software/maxlik/"
+    note: "drupal target: /scholar_software/maxlik"
+
+  - from: "missing-data-measurement-error-differential-privacy"
+    to:   "/research-areas/"
+    note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/missing-data)"
+
+  - from: "new-condensed-home-page"
+    to:   "/"
+    note: "drupal target: /home-page"
+
+  - from: "new-home-page"
+    to:   "/"
+    note: "drupal target: /home-page"
+
+  - from: "people/researchers-last-name/k-l"
+    to:   "/people/"
+    note: "drupal target: /people?f%5B0%5D=hwp_c_vocabulary_175%3A1589&f%5B1%5D=hwp_c_researchersbylastna…"
+
+  - from: "publication/assessing-differences-country-level-estimates-maternal-mortality-comparison-gmath-un"
+    to:   "/publication/assessing-differences-in-country-level-estimates-of-maternal-mortality-a-compari/"
+    note: "drupal target: /publications/assessing-differences-country-level-estimates-maternal-mortality-…"
+
+  - from: "publication/correcting-measurement-error-bias-conjoint-survey-experiments"
+    to:   "/publication/correcting-measurement-error-bias-in-conjoint-survey-experiments/"
+    note: "drupal target: /conjointE"
+
+  - from: "publication/correcting-measurement-error-bias-conjoint-survey-experiments-university-central"
+    to:   "/talk/reverse-engineering-chinese-government-information-controls-2017/"
+    note: "drupal target: /presentations/reverse-engineering-chinese-government-information-controls-univ…"
+
+  - from: "publication/evaluating-impacts-swapping-us-decennial-census"
+    to:   "/publication/evaluating-the-impacts-of-swapping-on-the-us-decennial-census/"
+    note: "drupal target: /publications/evaluating-impacts-swapping-us-decennial-census"
+
+  - from: "publication/experimental-evidence-limited-influence-reputable-media-outlets"
+    to:   "/publication/experimental-evidence-limited-influence-reputable-media-outlets/"
+    note: "drupal target: /reputable"
+
+  - from: "publication/how-american-politics-ensures-electoral-accountability-congress"
+    to:   "/publication/how-american-politics-ensures-electoral-accountability-congress/"
+    note: "drupal target: /acc"
+
+  - from: "publication/if-statistical-model-predicts-common-events-should-occur-only-once-10000-elections"
+    to:   "/publication/if-statistical-model-predicts-common-events-should-occur-only-once-10000-elections/"
+    note: "drupal target: /10k"
+
+  - from: "publication/statistically-valid-inferences-differentially-private-data-releases-ii-extensions"
+    to:   "/publication/statistically-valid-inferences-differentially-private-data-releases-ii-extensions/"
+    note: "drupal target: /dpd2"
+
+  - from: "publication/statistically-valid-inferences-privacy-protected-data-pew-research-center-1"
+    to:   "/talk/statistically-valid-inferences-from-privacy-protected-data-pew-research-center/"
+    note: "drupal target: /presentations/statistically-valid-inferences-privacy-protected-data-pew-resear…"
+
+  - from: "publication/survey-estimates-wartime-mortality"
+    to:   "/publication/survey-estimates-wartime-mortality/"
+    note: "drupal target: /sibs"
+
+  - from: "publication/whos-blame-survey-instability-respondents-random-preferences-or-researchers-flawed"
+    to:   "/publication/"
+    note: "publication slug not found on new site — sent to /publication/ index (drupal target: /publication/whos-blame-survey-instability-respondents-nonexistent-preferences-…)"
+
+  - from: "publication/whos-blame-survey-instability-respondents-random-preferences-or-researchers-flawed-0"
+    to:   "/publication/"
+    note: "publication slug not found on new site — sent to /publication/ index (drupal target: /publication/whos-blame-survey-instability-respondents-nonexistent-preferences-…)"
+
+  - from: "publications/cem-coarsened-exact-matching-software"
+    to:   "/publication/cem-coarsened-exact-matching-software/"
+    note: "drupal target: /cem"
+
+  - from: "publications/how-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-it"
+    to:   "/talk/how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see/"
+    note: "drupal target: /presentations/how-measure-legislative-district-compactness-if-you-only-know-it…"
+
+  - from: "publications/propensity-score"
+    to:   "/publication/why-propensity-scores-should-not-be-used-for-matching/"
+    note: "drupal target: /publications/why-propensity-scores-should-not-be-used-formatching"
+
+  - from: "publications/term/1573"
+    to:   "/research-areas/"
+    note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/qualitative-research/scientific-inference-…)"
+
+  - from: "publications/term/1586"
+    to:   "/research-areas/"
+    note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/applications/legislative-redistricting/us-legislat…)"
+
+  - from: "publications/term/1588"
+    to:   "/research-areas/"
+    note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/applications/legislative-redistricting/us-legislat…)"
+
+  - from: "publications/type/book-chapter"
+    to:   "/publication/"
+    note: "drupal target: /publications?f%5B0%5D=bibcite_reference_type%3Abook_chapter"
+
+  - from: "publications/type/journal-article"
+    to:   "/publication/"
+    note: "drupal target: /publications?f%5B0%5D=bibcite_reference_type%3Ajournal_article&page=0"
+
+  - from: "publications/type/miscellaneous"
+    to:   "/publication/"
+    note: "drupal target: /publications?f%5B0%5D=bibcite_reference_type%3Amiscellaneous&page=0"
+
+  - from: "publications/types/book"
+    to:   "/publication/"
+    note: "drupal target: /publications?f%5B0%5D=bibcite_reference_type%3Abook"
+
+  - from: "publications/year/1995"
+    to:   "/publication/"
+    note: "drupal target: /publications?f%5B0%5D=bibcite_reference_year%3A1995"
+
+  - from: "qualitative-research"
+    to:   "/research-areas/"
+    note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/qualitative-research)"
+
+  - from: "rare-events"
+    to:   "/research-areas/"
+    note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/rare-events)"
+
+  - from: "readme-software-automated-content-analysis"
+    to:   "/publication/readme-software-for-automated-content-analysis/"
+    note: "drupal target: /readme"
+
+  - from: "readme-software-automated-content-analysis-0-199836"
+    to:   "/software/readme-software-for-automated-content-analysis/"
+    note: "drupal target: /software/readme-software-automated-content-analysis/0-199836"
+
+  - from: "readme-software-automated-content-analysis-099836"
+    to:   "/software/readme-software-for-automated-content-analysis/"
+    note: "drupal target: /software/readme-software-automated-content-analysis/099836"
+
+  - from: "readme-software-automated-content-analysis-099837"
+    to:   "/software/readme-software-for-automated-content-analysis/"
+    note: "drupal target: /software/readme-software-automated-content-analysis/099837"
+
+  - from: "research-group-0"
+    to:   "/people/"
+    note: "drupal target: /people"
+
+  - from: "research-interests/applications/automated-text-analysis"
+    to:   "/research-areas/"
+    note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/applications/automated-text-analysis)"
+
+  - from: "research-interests/applications/china"
+    to:   "/research-areas/"
+    note: "drupal target: /china"
+
+  - from: "research-interests/applications/incumbency-advantage"
+    to:   "/research-areas/"
+    note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/applications/incumbency-advantage)"
+
+  - from: "research-interests/applications/informatics-and-data-sharing"
+    to:   "/research-areas/"
+    note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/applications/informatics-and-data-sharing)"
+
+  - from: "research-interests/applications/international-conflict"
+    to:   "/research-areas/"
+    note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/applications/international-conflict)"
+
+  - from: "research-interests/applications/legislative-redistricting"
+    to:   "/research-areas/"
+    note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/applications/legislative-redistricting)"
+
+  - from: "research-interests/applications/mexican-health-care-evaluation"
+    to:   "/research-areas/"
+    note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/applications/mexican-health-care-evaluation)"
+
+  - from: "research-interests/applications/mortality-studies"
+    to:   "/research-areas/"
+    note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/applications/mortality-studies)"
+
+  - from: "research-interests/applications/presidency-research-voting-behavior"
+    to:   "/research-areas/"
+    note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/applications/presidency-research-voting-behavior)"
+
+  - from: "research-interests/applications/ssa"
+    to:   "/ssa/"
+    note: "drupal target: /ssa"
+
+  - from: "research-interests/applications/teaching-and-administration"
+    to:   "/research-areas/"
+    note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/applications/teaching-and-administration)"
+
+  - from: "research-interests/methods/anchoring-vignettes-for-interpersonal-incomparability"
+    to:   "/research-areas/"
+    note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/anchoring-vignettes-for-interpersonal-inco…)"
+
+  - from: "research-interests/methods/causal-inference"
+    to:   "/research-areas/"
+    note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/causal-inference)"
+
+  - from: "research-interests/methods/ecological-inference"
+    to:   "/research-areas/"
+    note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/ecological-inference)"
+
+  - from: "research-interests/methods/event-counts-and-durations"
+    to:   "/research-areas/"
+    note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/event-counts-and-durations)"
+
+  - from: "research-interests/methods/missing-data"
+    to:   "/research-areas/"
+    note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/missing-data)"
+
+  - from: "research-interests/methods/qualitative-research"
+    to:   "/research-areas/"
+    note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/qualitative-research)"
+
+  - from: "research-interests/methods/rare-events"
+    to:   "/research-areas/"
+    note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/rare-events)"
+
+  - from: "research-interests/methods/survey-research"
+    to:   "/research-areas/"
+    note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/survey-research)"
+
+  - from: "research-interests/methods/unifying-statistical-analysis"
+    to:   "/research-areas/"
+    note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/unifying-statistical-analysis)"
+
+  - from: "reverse-engineering-censorship-china-randomized-experimentation-and-participant-observation"
+    to:   "/publication/reverse-engineering-censorship-in-china-randomized-experimentation-and-participa/"
+    note: "drupal target: /publications/randomized-experimental-study-censorship-china"
+
+  - from: "sites/scholar.harvard.edu/files/fn-supp.pdf"
+    to:   "https://gking.harvard.edu/sites/g/files/omnuum7116/files/2025-09/fn-supp.pdf"
+
+  - from: "sites/scholar.harvard.edu/files/fn.pdf"
+    to:   "https://gking.harvard.edu/sites/g/files/omnuum7116/files/2025-09/fn.pdf"
+
+  - from: "sites/scholar.harvard.edu/files/gking/files/baby0s.pdf"
+    to:   "/files/baby0s.pdf"
+    note: "drupal target: /sites/g/files/omnuum7116/files/gking/files/baby0s.pdf"
+
+  - from: "sites/scholar.harvard.edu/files/sibs_1.pdf"
+    to:   "/files/sibs-supp.pdf"
+    note: "drupal target: /sites/g/files/omnuum7116/files/2025-09/sibs-supp.pdf"
+
+  - from: "sites/scholar.harvard.edu/files/sibs_2.pdf"
+    to:   "/files/sibs_2.pdf"
+    note: "drupal target: /sites/g/files/omnuum7116/files/2025-09/sibs_2.pdf"
+
+  - from: "survey-research"
+    to:   "/research-areas/"
+    note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/survey-research)"
+
+  - from: "va-verbal-autopsy-software"
+    to:   "/publication/va-verbal-autopsy-software/"
+    note: "drupal target: /va"
+
+  - from: "vign/faq"
+    to:   "/software/anchors-software-for-anchoring-vignettes-data/"
+    note: "drupal target: /anchoring-vignettes-faqs"
+
+  - from: "whatif-software-evaluating-counterfactuals"
+    to:   "/publication/whatif-software-for-evaluating-counterfactuals/"
+    note: "drupal target: /whatif"
+
+  - from: "whatif-software-evaluating-counterfactuals-15-6"
+    to:   "/software/whatif-software-for-evaluating-counterfactuals/"
+    note: "drupal target: /software/whatif-software-evaluating-counterfactuals/15-6"
+
+  - from: "yourcast-time-series-cross-sectional-forecasting-your-assumptions"
+    to:   "/publication/yourcast/"
+    note: "drupal target: /yourcast"
+
+  - from: "yourcast-time-series-cross-sectional-forecasting-your-assumptions-04-1"
+    to:   "/software/yourcast/"
+    note: "drupal target: /software/yourcast-time-series-cross-sectional-forecasting-your-assumptions/04-1"
+
+  - from: "yourcast-time-series-cross-sectional-forecasting-your-assumptions-04-2"
+    to:   "/software/yourcast/"
+    note: "drupal target: /software/yourcast-time-series-cross-sectional-forecasting-your-assumptions/04-2"
+
+  - from: "yourcast-time-series-cross-sectional-forecasting-your-assumptions-04-3"
+    to:   "/software/yourcast/"
+    note: "drupal target: /software/yourcast-time-series-cross-sectional-forecasting-your-assumptions/04-3"
+
+  - from: "yourcast-time-series-cross-sectional-forecasting-your-assumptions-04-4"
+    to:   "/software/yourcast/"
+    note: "drupal target: /software/yourcast-time-series-cross-sectional-forecasting-your-assumptions/04-4"
+
+  - from: "yourcast-time-series-cross-sectional-forecasting-your-assumptions-15-1"
+    to:   "/software/yourcast/"
+    note: "drupal target: /software/yourcast-time-series-cross-sectional-forecasting-your-assumptions/15-1"
+
+  - from: "yourcast-time-series-cross-sectional-forecasting-your-assumptions-15-2-0"
+    to:   "/software/yourcast/"
+    note: "drupal target: /software/yourcast-time-series-cross-sectional-forecasting-your-assumptions/15-2"
+
+  - from: "zelig-everyones-statistical-software"
+    to:   "/publication/zelig-everyones-statistical-software/"
+    note: "drupal target: /zelig"
+
+  - from: "zelig/docs"
+    to:   "https://zeligproject.org/"
+
+  - from: "zelig/docs/Installation.html"
+    to:   "https://zeligproject.org/docs/articles/quickstart#installing-and-loading-zelig"
+
+  - from: "zoom"
+    to:   "https://harvard.zoom.us/j/2404208778?pwd=cEV4RTBmY0R1UXNBRk5yR25yTVJMdz09"
+
+# END drupal-redirects-import
