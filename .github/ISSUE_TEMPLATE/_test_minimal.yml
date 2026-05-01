@@ -1,9 +1,0 @@
-name: Bisect test (delete after)
-description: Minimal Issue Form to verify GitHub recognises any template at all.
-body:
-  - type: input
-    id: anything
-    attributes:
-      label: Anything
-    validations:
-      required: true
