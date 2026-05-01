@@ -17,6 +17,7 @@ redirects, refreshes first-commit dates for the spotlight, and publishes.
 
 > Repository: <https://github.com/iqss-research/gking-site>
 > Live site: <https://gking.harvard.edu/>
+> Shortcut: <https://GaryKing.org>
 
 ---
 
