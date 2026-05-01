@@ -38,5 +38,6 @@ body:
   - type: textarea
     id: notes
     attributes:
-      label: Notes
-      description: Optional. Anything you want the bot or a future-you to know.
+      label: Notes for reviewers
+      description: Optional. Copied verbatim into the draft PR description for humans to read. The bot does not parse or act on this text, so do not put corrections here. To fix the title, abstract, figure, etc., post a slash command (like /title or /figure 3) as a comment on the PR after it opens.
+      placeholder: e.g. supersedes the working paper at /wp-instability/, or @gking please review the citation
