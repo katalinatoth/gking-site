@@ -1,20 +1,10 @@
 name: Upload a paper
-description: Upload a PDF and let the bot scaffold the publication page. You will get a draft PR with the extracted abstract, the auto-picked figure, and a thumbnail grid of every other figure from the PDF so you can swap with one click.
-labels: ["intake"]
+description: Upload a PDF and the bot will scaffold a publication page in a draft PR.
 body:
-  - type: markdown
-    attributes:
-      value: |
-        Drop a PDF below, set a short URL, attach any supplementary materials, and submit. The bot opens a draft PR you can edit directly. No terminal needed.
-
-        - Each PDF must be 25 MB or smaller (a GitHub upload limit). For oversized files, drop them straight into static/files/ on the PR after it opens.
-        - You can edit every field in the PR Files changed tab once the bot finishes. This form is just the entry point.
-
   - type: dropdown
     id: kind
     attributes:
       label: Type
-      description: Picks which folder the page goes into. The bot will still try Crossref for articles and books.
       options:
         - Article
         - Book
@@ -28,8 +18,7 @@ body:
     id: pdf
     attributes:
       label: Main PDF
-      description: Drag the paper PDF into this box. GitHub uploads it and inserts a link automatically. Leave that link in place.
-      placeholder: Drag the PDF here. GitHub will replace this text with a download link to your file.
+      description: Drag the paper PDF into this box.
     validations:
       required: true
 
@@ -37,25 +26,17 @@ body:
     id: short_url
     attributes:
       label: Short URL
-      description: Optional vanity path that should redirect to this page. Type just the name with no slashes. For example, instability becomes gking.harvard.edu/instability/. Leave blank if you do not want one.
+      description: Optional vanity path. Type just the name with no slashes.
       placeholder: instability
-    validations:
-      required: false
 
   - type: textarea
     id: supplementary
     attributes:
       label: Supplementary materials
-      description: Drag in extra PDFs (appendices, replication notes, slide decks, etc.). One per line. To label a file, append a pipe character and a display name after its link. Leave blank if there are not any.
-      placeholder: Drag any additional PDFs here. Each appears on its own line as a download link.
-    validations:
-      required: false
+      description: Optional. Drag in extra PDFs.
 
   - type: textarea
     id: notes
     attributes:
-      label: Notes (optional)
-      description: Anything you want the bot or a future-you to know. Goes into the PR description so it is easy to find later, but is not written into the published page.
-      placeholder: Use Figure 4 (the policy decision tree) as the featured image, not whatever the bot picks automatically.
-    validations:
-      required: false
+      label: Notes
+      description: Optional. Anything you want the bot or a future-you to know.
