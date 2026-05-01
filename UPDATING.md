@@ -15,8 +15,8 @@ push to `main` triggers the `Deploy Hugo site to GitHub Pages` workflow,
 which builds Hugo, regenerates the search index, regenerates short-URL
 redirects, refreshes first-commit dates for the spotlight, and publishes.
 
-> Repository: <https://github.com/iqss-research/gking-site>
-> Live site: <https://gking.harvard.edu/>
+> Repository: <https://github.com/iqss-research/gking-site>,
+> Live site: <https://gking.harvard.edu/>,
 > Shortcut: <https://GaryKing.org>
 
 ---
