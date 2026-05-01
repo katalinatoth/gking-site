@@ -2,7 +2,8 @@
 title: 'Who''s to Blame for Survey Instability: Respondents with Nonexistent Preferences or Researchers with Flawed Measures?'
 date: '2026-01-01'
 authors:
-  - Libby Jenke Gary King May
+  - Libby Jenke
+  - Gary King
 publication_types:
   - working_paper
 abstract: |-
