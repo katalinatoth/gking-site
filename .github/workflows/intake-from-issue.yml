@@ -22,7 +22,13 @@ name: Auto-import publication from issue form
 
 on:
   issues:
-    types: [opened]
+    # `opened` covers the normal flow where the Issue Form auto-applies
+    # the `intake` label. `labeled` is a rescue path: if somebody
+    # uploads via a template that didn't carry the label (e.g. an old
+    # cached template, or a manually-created issue), a maintainer can
+    # add the `intake` label by hand and the bot will pick it up.
+    # The `intake-handled` gate inside the job prevents re-runs.
+    types: [opened, labeled]
 
 permissions:
   contents: write

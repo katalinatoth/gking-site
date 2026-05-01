@@ -1,5 +1,6 @@
 name: Upload a paper
 description: Upload a PDF and the bot will scaffold a publication page in a draft PR.
+labels: ["intake"]
 body:
   - type: dropdown
     id: kind
