@@ -1,6 +1,8 @@
 ---
 title: 'Who''s to Blame for Survey Instability: Respondents with Nonexistent Preferences or Researchers with Flawed Measures?'
 date: '2026-01-01'
+aliases:
+  - /instability/
 authors:
   - Libby Jenke
   - Gary King
