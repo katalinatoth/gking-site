@@ -2,11 +2,7 @@ blank_issues_enabled: false
 contact_links:
   - name: Just edit a file directly
     url: https://github.com/iqss-research/gking-site/tree/main/content
-    about: >
-      For typo fixes, photo updates, or any other small tweak, click into
-      the file under `content/` and use the pencil icon. No issue needed.
+    about: For typo fixes, photo updates, or any other small tweak, click into the file under content/ and use the pencil icon. No issue needed.
   - name: Quick add (terminal users)
     url: https://github.com/iqss-research/gking-site/blob/main/UPDATING.md#quick-add
-    about: >
-      Prefer the command line? See UPDATING.md for the `intake/` folder
-      flow and the `scripts/quick_add.py` helper.
+    about: Prefer the command line? See UPDATING.md for the intake/ folder flow and the scripts/quick_add.py helper.

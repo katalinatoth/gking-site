@@ -1,10 +1,6 @@
 name: Upload a paper
-description: >
-  Upload a PDF and let the bot fill in the page. You'll get a draft PR with
-  the extracted abstract, the auto-picked figure, and a thumbnail grid of
-  every other figure from the PDF so you can swap with one click.
-title: "Upload: <paste the paper title here>"
-labels: [intake]
+description: Upload a PDF and let the bot scaffold the publication page. You'll get a draft PR with the extracted abstract, the auto-picked figure, and a thumbnail grid of every other figure from the PDF so you can swap with one click.
+labels: ["intake"]
 body:
   - type: markdown
     attributes:
@@ -30,7 +26,6 @@ body:
         - Patent
         - Software
         - Talk (slide deck)
-      default: 0
     validations:
       required: true
 
