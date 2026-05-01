@@ -36,6 +36,13 @@ Recognised commands (case-insensitive):
                                 Publisher's Version link too
     /type <slug>                replace publication_types and re-route
                                 the Writings tab via writings_legacy_map.json
+    /figure <N>                 swap featured.png for the Nth figure
+                                rendered into _intake_figures/figure-N.png
+    /alias </foo/>              add a vanity short URL to `aliases:`
+                                (multiple aliases supported; pass several
+                                /alias lines to add several)
+    /supplement <url> | <label> append a links: entry. <label> is optional;
+                                defaults to "Supplementary Material".
 
 A comment with no recognised commands produces no diff and no report rows.
 
@@ -105,6 +112,7 @@ CMD_PATTERN = re.compile(r"^\s{0,3}/([a-zA-Z][\w-]*)\b[ \t]*(.*)$")
 
 SINGLE_LINE_CMDS = {
     "title", "authors", "year", "date", "doi", "type", "publication",
+    "figure", "alias", "supplement",
 }
 MULTI_LINE_CMDS = {"abstract"}
 
@@ -265,6 +273,113 @@ def apply_type(
     return True, warnings
 
 
+def apply_alias(fm: dict[str, Any], value: str) -> tuple[bool, list[str]]:
+    """Add a vanity short-URL alias to the page.
+
+    Accepts `/instability/`, `instability`, `/instability`, `Instability/`
+    — anything that looks like a single path segment. Hugo expects the
+    alias as `/foo/` so we normalise to that form before storing.
+    Multiple `/alias` commands accumulate into the existing aliases
+    list rather than overwriting it.
+    """
+    warnings: list[str] = []
+    raw = value.strip()
+    if not raw:
+        return False, ["/alias: empty value, skipped"]
+    cleaned = raw.strip("/").strip()
+    if not cleaned:
+        return False, ["/alias: empty after stripping slashes"]
+    if "/" in cleaned or " " in cleaned:
+        warnings.append(
+            f"/alias: '{raw}' contains a slash or space; using "
+            f"'/{cleaned.split('/')[0].split()[0]}/' as the alias"
+        )
+        cleaned = cleaned.split("/")[0].split()[0]
+    alias = f"/{cleaned}/"
+    existing = fm.get("aliases") or []
+    if not isinstance(existing, list):
+        existing = [existing] if existing else []
+    if alias in existing:
+        warnings.append(f"/alias: '{alias}' is already set; nothing changed")
+        return False, warnings
+    existing.append(alias)
+    fm["aliases"] = existing
+    return True, warnings
+
+
+def apply_supplement(fm: dict[str, Any], value: str) -> tuple[bool, list[str]]:
+    """Append a `links:` entry from `/supplement <url> | <label>`.
+
+    Accepts:
+        /supplement files/foo.pdf | Online Appendix
+        /supplement https://example.com/notes.pdf
+        /supplement files/foo.pdf
+
+    The label defaults to "Supplementary Material" if no `| label` is
+    given. URLs without a scheme are stored verbatim, so existing
+    site conventions like `files/foo.pdf` (resolved by Hugo's
+    `staticrel`) keep working.
+    """
+    warnings: list[str] = []
+    raw = value.strip()
+    if not raw:
+        return False, ["/supplement: empty value, skipped"]
+    if "|" in raw:
+        url_part, label_part = raw.split("|", 1)
+        url = url_part.strip()
+        label = label_part.strip() or "Supplementary Material"
+    else:
+        url = raw
+        label = "Supplementary Material"
+    if not url:
+        return False, ["/supplement: no URL/path specified"]
+    links = fm.get("links")
+    if not isinstance(links, list):
+        links = []
+    links.append({"name": label, "url": url})
+    fm["links"] = links
+    return True, warnings
+
+
+def apply_figure(
+    md_path: Path, value: str
+) -> tuple[bool, list[str]]:
+    """Swap `featured.png` for `_intake_figures/figure-N.png` in the page dir.
+
+    Returns (changed, warnings). Side-effects on the filesystem (file
+    copy + `featured.*` cleanup) are performed when the source figure
+    exists. The caller is responsible for `git add`-ing the page dir.
+    """
+    import shutil  # noqa: PLC0415 — keep close to use site
+
+    warnings: list[str] = []
+    raw = value.strip()
+    m = re.fullmatch(r"#?(\d+)", raw)
+    if not m:
+        return False, [f"/figure: '{raw}' is not a number; expected /figure 3"]
+    n = int(m.group(1))
+
+    page_dir = md_path.parent
+    src = page_dir / "_intake_figures" / f"figure-{n}.png"
+    if not src.is_file():
+        return False, [
+            f"/figure: figure-{n}.png isn't in {page_dir}/_intake_figures/. "
+            f"Either no Figure {n} was detected in the PDF, or the "
+            f"_intake_figures/ folder has already been cleaned up "
+            f"(this PR may have been re-run after a merge)."
+        ]
+    # Remove any stale featured.{png,jpg,jpeg,webp} so we don't end up
+    # with two files Hugo would have to disambiguate between.
+    for stale in page_dir.glob("featured.*"):
+        try:
+            stale.unlink()
+        except OSError:
+            pass
+    target = page_dir / "featured.png"
+    shutil.copyfile(src, target)
+    return True, warnings
+
+
 def apply_edits_to_file(
     md_path: Path,
     commands: list[tuple[str, str]],
@@ -341,6 +456,28 @@ def apply_edits_to_file(
             ok, warns = apply_type(fm, v, slug, legacy_map_path)
             if ok:
                 report["changes"].append("publication_types")
+            report["warnings"].extend(warns)
+        elif cmd == "alias":
+            ok, warns = apply_alias(fm, v)
+            if ok:
+                report["changes"].append("aliases")
+            report["warnings"].extend(warns)
+        elif cmd == "supplement":
+            ok, warns = apply_supplement(fm, v)
+            if ok:
+                report["changes"].append("links")
+            report["warnings"].extend(warns)
+        elif cmd == "figure":
+            # /figure swaps a binary file rather than editing YAML, so
+            # it's tracked separately from the front-matter changes
+            # but still rolls into `any_changes` upstream so the
+            # workflow commits and pushes.
+            ok, warns = apply_figure(md_path, v)
+            if ok:
+                report["changes"].append("featured.png")
+                report["touched_files"] = list(set(
+                    report.get("touched_files", []) + [str(md_path.parent / "featured.png")]
+                ))
             report["warnings"].extend(warns)
         else:
             report["unknown_cmds"].append(cmd)

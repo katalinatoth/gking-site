@@ -79,107 +79,65 @@ jobs:
             echo "::group::Processing $pdf"
             python3 scripts/intake_publication.py "$pdf" \
               --report "/tmp/intake_reports/${name}.json"
+            # After intake_publication.py moves the PDF to static/files/
+            # and writes content/.../index.md, render every numbered
+            # figure into _intake_figures/ so the maintainer can swap
+            # the featured image with `/figure N`. Skip silently if
+            # the report json wasn't produced (e.g. import error).
+            if [ -s "/tmp/intake_reports/${name}.json" ]; then
+              target_pdf=$(python3 -c "import json,sys; print(json.load(open('/tmp/intake_reports/${name}.json'))['target_pdf'])")
+              target_md=$(python3 -c "import json,sys; print(json.load(open('/tmp/intake_reports/${name}.json'))['target_index_md'])")
+              page_dir=$(dirname "$target_md")
+              python3 scripts/extract_all_figures.py "$target_pdf" \
+                --out "$page_dir/_intake_figures" || true
+            fi
             echo "::endgroup::"
           done < /tmp/intake_pdfs.txt
 
       - name: Build PR comment summary
         if: steps.list_pdfs.outputs.any == 'true'
+        env:
+          BRANCH:    ${{ github.event.pull_request.head.ref }}
+          OWNER:     ${{ github.repository_owner }}
+          REPO_NAME: ${{ github.event.repository.name }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
-          python3 - <<'PY' > /tmp/intake_summary.md
-          import glob, json, os
-          out = ["## Auto-import results", ""]
-          reports = sorted(glob.glob("/tmp/intake_reports/*.json"))
-          if not reports:
-              out.append("_No reports were generated._")
-          for path in reports:
-              if os.path.getsize(path) == 0:
-                  continue
-              try:
-                  with open(path) as f:
-                      d = json.load(f)
-              except Exception as e:
-                  out.append(f"- Could not parse `{path}`: {e}")
-                  continue
-              out.append(f"### `{d.get('source_pdf')}` -> `{d.get('target_index_md')}`")
-              out.append("")
-              out.append(f"- **Title:** {d.get('title') or '_(missing)_'}")
-              authors = d.get("authors") or []
-              out.append(f"- **Authors:** {', '.join(authors) if authors else '_(missing)_'}")
-              out.append(f"- **Year:** {d.get('year') or '_(unknown - please verify)_'}")
-              if d.get("doi"):
-                  out.append(
-                      f"- **DOI:** [{d['doi']}](https://doi.org/{d['doi']}) "
-                      f"(source: {d.get('doi_source')})"
-                  )
-              else:
-                  out.append("- **DOI:** _(none found - Crossref had no match)_")
-              if d.get("publication"):
-                  out.append(f"- **Citation:** {d['publication']}")
-              types = d.get("publication_types") or []
-              out.append(
-                  f"- **Type:** {', '.join(types)} -> Writings tab: **{d.get('legacy_tab')}**"
-              )
-              out.append(f"- **Abstract:** {d.get('abstract_chars', 0)} characters")
-              img_src = d.get("featured_image_source")
-              if img_src == "embedded_figure":
-                  out.append("- **Featured image:** extracted the largest embedded figure from the PDF")
-              elif img_src == "first_page_render":
-                  out.append("- **Featured image:** no usable figures in PDF; rendered page 1 as a thumbnail")
-              elif img_src:
-                  out.append(f"- **Featured image:** _(could not extract: {img_src})_")
-              notes = d.get("review_notes") or []
-              if notes:
-                  out.append("")
-                  out.append("**Things to double-check before merging:**")
-                  for n in notes:
-                      out.append(f"- {n}")
-              areas = d.get("research_area_suggestions") or []
-              if areas:
-                  out.append("")
-                  out.append(
-                      "**Suggested Research Areas** (optional - add the slug to "
-                      "`data/research_areas.json` for tighter See Also coverage):"
-                  )
-                  for a in areas:
-                      out.append(f"- _{a['area']} > {a['subcategory']}_ (overlap score {a['score']})")
-              out.append("")
-              out.append("<details><summary>Generated front matter</summary>")
-              out.append("")
-              out.append("```yaml")
-              out.append((d.get("rendered_front_matter") or "").rstrip())
-              out.append("```")
-              out.append("")
-              out.append("</details>")
-              out.append("")
-          out.append("---")
-          out.append("")
-          out.append("### Need to fix any of the auto-filled values?")
-          out.append("")
-          out.append(
-              "**Just post a comment on this PR** with one or more slash "
-              "commands. The bot picks them up within ~30 seconds and pushes "
-              "a follow-up commit to this branch:"
-          )
-          out.append("")
-          out.append("| Command | Example | Effect |")
-          out.append("|---|---|---|")
-          out.append("| `/title` | `/title The Real Paper Title` | replace title |")
-          out.append("| `/authors` | `/authors Gary King; Jane Doe` | semicolon-separated list |")
-          out.append("| `/year` | `/year 2024` _or_ `/year 2024-03-15` | year-only or full ISO date |")
-          out.append("| `/abstract` | `/abstract The new abstract.` | spans multiple lines until the next slash command |")
-          out.append("| `/publication` | `/publication Political Analysis, 31, 2, Pp. 100-110` | citation line |")
-          out.append("| `/doi` | `/doi 10.1017/pan.2021.48` | also rewrites the Publisher's Version button |")
-          out.append("| `/type` | `/type journal_article` | also re-routes the Writings tab |")
-          out.append("")
-          out.append(
-              "Or click **Files changed** at the top of this PR to edit "
-              "`index.md` directly in YAML if you'd rather. Either way, "
-              "merge the PR when everything looks right and the paper goes live."
-          )
-          print("\n".join(out))
-          PY
+          set -euo pipefail
+          # Each report becomes a section rendered by build_intake_pr_body.py
+          # so the legacy `intake/` flow shares the same abstract preview +
+          # figure picker layout as the issue-form flow.
+          : > /tmp/intake_summary.md
+          echo "## Auto-import results" >> /tmp/intake_summary.md
+          echo "" >> /tmp/intake_summary.md
+
+          shopt -s nullglob
+          reports=(/tmp/intake_reports/*.json)
+          if [ "${#reports[@]}" -eq 0 ]; then
+            echo "_No reports were generated._" >> /tmp/intake_summary.md
+          fi
+          for report in "${reports[@]}"; do
+            [ -s "$report" ] || continue
+            target_md=$(python3 -c "import json; print(json.load(open('$report'))['target_index_md'])")
+            page_dir=$(dirname "$target_md")
+            figures="$page_dir/_intake_figures/figures.json"
+            figures_arg=""
+            if [ -f "$figures" ]; then
+              figures_arg="--figures $figures"
+            fi
+            python3 scripts/build_intake_pr_body.py \
+              --report "$report" \
+              $figures_arg \
+              --owner  "$OWNER" \
+              --repo   "$REPO_NAME" \
+              --branch "$BRANCH" \
+              --pr-number "$PR_NUMBER" \
+              >> /tmp/intake_summary.md
+            echo "" >> /tmp/intake_summary.md
+            echo "---" >> /tmp/intake_summary.md
+            echo "" >> /tmp/intake_summary.md
+          done
           echo "Summary built ($(wc -c < /tmp/intake_summary.md) bytes):"
-          head -30 /tmp/intake_summary.md
+          head -40 /tmp/intake_summary.md
 
       - name: Configure git
         if: steps.list_pdfs.outputs.any == 'true'

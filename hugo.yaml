@@ -9,6 +9,15 @@ hasCSSJSConfigInAssets: true
 build:
   writeStats: true
 
+# Skip files inside `_intake_figures/` directories. The intake bots
+# render every numbered Figure N from a paper's PDF into one of these
+# folders so reviewers can swap the featured image with `/figure N`,
+# but they shouldn't ship as page resources on the published site.
+# A separate workflow (cleanup-intake-figures.yml) removes them from
+# `main` post-merge; this ignore is the belt-and-braces complement.
+ignoreFiles:
+  - "_intake_figures/.*"
+
 module:
   imports:
     - path: github.com/HugoBlox/hugo-blox-builder/modules/blox-plugin-netlify

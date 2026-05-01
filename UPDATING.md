@@ -106,22 +106,66 @@ For a local preview before pushing, see [Local preview](#local-preview).
 
 ## Quick add
 
-Five content types, one shortcut each. If your content has a PDF, drop
-it under `intake/` (in the right subfolder) and a bot fills in the
-metadata. If it doesn't (software, patents, or anything you already
-have the metadata for), `scripts/quick_add.py` scaffolds the file in
-one command.
+Five content types, three entry points. **The simplest path for any
+PDF — no terminal, no folder navigation — is the Issue Form below.**
+If you prefer the terminal, drop a PDF under `intake/` (in the right
+subfolder) and a bot fills in the metadata. If you already have all
+the metadata typed up (or for software / patents that don't have a
+PDF), `scripts/quick_add.py` scaffolds the file in one command.
 
-| Content type           | If you have a PDF…                          | If you don't…                                          |
-|------------------------|---------------------------------------------|---------------------------------------------------------|
-| Paper / article         | `intake/<file>.pdf` → bot uses Crossref     | `python3 scripts/quick_add.py paper …`                  |
-| Talk / presentation     | `intake/talk/<file>.pdf` → slide-deck flow  | `python3 scripts/quick_add.py talk …`                   |
-| Book                    | `intake/book/<file>.pdf` → book flow        | `python3 scripts/quick_add.py book …`                   |
-| Software / R package    | _(no PDF flow — software is URL-based)_     | `python3 scripts/quick_add.py software --github …`      |
-| Patent                  | optional `intake/<file>.pdf` then `/type patent` | `python3 scripts/quick_add.py patent --source …`   |
+| Content type           | Easiest (any browser)             | Terminal                                  | No PDF / metadata-only                              |
+|------------------------|-----------------------------------|-------------------------------------------|------------------------------------------------------|
+| Paper / article         | [Issue Form](#quick-add-issue-form) | `intake/<file>.pdf`                       | `python3 scripts/quick_add.py paper …`              |
+| Talk / presentation     | [Issue Form](#quick-add-issue-form) | `intake/talk/<file>.pdf`                  | `python3 scripts/quick_add.py talk …`               |
+| Book                    | [Issue Form](#quick-add-issue-form) | `intake/book/<file>.pdf`                  | `python3 scripts/quick_add.py book …`               |
+| Software / R package    | _(no PDF flow — software is URL-based)_ | _(none)_                                  | `python3 scripts/quick_add.py software --github …`  |
+| Patent                  | [Issue Form](#quick-add-issue-form) (then `/type patent`) | optional `intake/<file>.pdf` then `/type patent` | `python3 scripts/quick_add.py patent --source …`   |
 
 After every shortcut, `git commit` + push (auto-push pushes for you)
 and the deploy workflow makes it live in ~3 minutes.
+
+### Quick add: Issue Form
+
+The fastest path with the least cognitive overhead — works from any
+browser, including a phone or iPad. Recommended unless you're already
+in your terminal.
+
+1. Open <https://github.com/iqss-research/gking-site/issues/new/choose>
+   and click **Upload a paper**.
+2. Pick the **Type** (Article / Book / Patent / Software / Talk),
+   drag the main PDF into the **Main PDF** box, type a short URL
+   (optional — `instability` becomes `gking.harvard.edu/instability/`),
+   drag any supplementary PDFs into the **Supplementary materials**
+   box (one per line, optional `| Label` after each), and **Submit
+   new issue**.
+3. Wait ~2 minutes. The bot:
+   - downloads every PDF you attached
+   - runs the same auto-import that powers the `intake/` flow
+     (Crossref lookup, abstract extraction, slug from the title,
+     featured image picked from the PDF, writings-legacy-map row)
+   - **renders every numbered figure from the PDF** as a thumbnail
+   - **opens a draft PR** whose description shows the extracted
+     abstract, the auto-picked featured image, and a thumbnail
+     grid of every other figure with a `/figure N` swap command
+     under each
+   - closes your issue with a link to the PR
+4. Edit anything in the PR's **Files changed** tab — every field of
+   `index.md` is plain YAML, and GitHub's web editor handles it
+   inline. Or post a comment with one of the [slash commands][slash]
+   (e.g. `/figure 3` to swap the featured image, `/abstract …` to
+   replace a long abstract).
+5. Click **Merge pull request**. The deploy workflow makes it live
+   in another ~3 minutes.
+
+[slash]: #slash-commands-for-the-pr-bot
+
+The Issue Form lives at
+[`.github/ISSUE_TEMPLATE/upload-paper.yml`](.github/ISSUE_TEMPLATE/upload-paper.yml);
+the workflow that processes it is
+[`.github/workflows/intake-from-issue.yml`](.github/workflows/intake-from-issue.yml).
+Both flows (Issue Form and `intake/` folder upload) share the same
+auto-import code, so the resulting PR description and slash-command
+edit surface are identical.
 
 ### Quick add: paper / article
 
@@ -337,14 +381,22 @@ then post `/type patent` and `/publication …` on the resulting PR.
 
 ### What happens automatically
 
-The `Auto-import publication from PDF` workflow
-(`.github/workflows/intake-publication.yml`) runs on every PDF added
-under `intake/`, `intake/talk/`, or `intake/book/` in a pull request.
-For each PDF it:
+Two workflows handle PDF uploads. They share the same
+auto-populate code, just triggered differently:
 
-- Detects the content kind from the subfolder
-  (`intake/foo.pdf` = paper, `intake/talk/foo.pdf` = presentation,
-  `intake/book/foo.pdf` = book).
+- `.github/workflows/intake-from-issue.yml` runs when somebody
+  submits the [Upload a paper Issue Form](#quick-add-issue-form).
+  It downloads every PDF from the form, applies the form's short URL
+  / supplementary materials, and **opens a draft PR** automatically.
+- `.github/workflows/intake-publication.yml` runs on every PDF added
+  under `intake/`, `intake/talk/`, or `intake/book/` in an
+  already-open pull request. **You open the PR; the bot fills it in.**
+
+For each PDF, the auto-import:
+
+- Detects the content kind (from the dropdown in the issue form, or
+  from the subfolder under `intake/`: `intake/foo.pdf` = paper,
+  `intake/talk/foo.pdf` = presentation, `intake/book/foo.pdf` = book).
 - Reads the PDF and looks for a printed DOI; if absent, falls back to
   a Crossref title+author search (skipped for talks).
 - Pulls Crossref's canonical title, full author list, journal /
@@ -360,11 +412,19 @@ For each PDF it:
 - Extracts a thumbnail: walks the PDF for embedded raster figures and
   saves the largest one (≥250 px on a side, with anti-monochrome
   filtering) as `featured.png` (or `.jpg`). If none qualifies (e.g. a
-  text-heavy working paper), it renders page 1 as a fallback. The PR
-  comment tells you which path was used.
-- Pushes one extra commit to your PR branch and posts a comment that
-  summarizes everything it found, plus a "**things to double-check**"
-  list if it had to guess anything.
+  text-heavy working paper), it renders page 1 as a fallback.
+- **Renders every numbered Figure N from the PDF** into
+  `content/.../<slug>/_intake_figures/figure-N.png`. These power the
+  PR description's thumbnail grid: under each thumbnail is a
+  `/figure N` swap command. Pick a different one and the bot copies
+  it over `featured.png` and pushes. (After the PR merges,
+  `cleanup-intake-figures.yml` strips the `_intake_figures/`
+  directory off `main`.)
+- Posts a PR description (issue-form flow) or follow-up comment
+  (legacy `intake/` flow) that includes the title / authors /
+  citation / abstract preview, the auto-picked featured image, the
+  figure-picker grid, supplementary-materials list, the slash-command
+  reference, and a deep-link to the PR's **Files changed** tab.
 
 ### Reviewing the PR
 
@@ -406,6 +466,9 @@ Recognised commands (case-insensitive):
 | `/publication <text>` | replaces the citation line | e.g. `Political Analysis, 31, 2, Pp. 100-110` |
 | `/doi <doi>` | sets the DOI | also rewrites the **Publisher's Version** link to `https://doi.org/<doi>` |
 | `/type <slug>` | replaces `publication_types` | also re-routes the Writings tab. Valid slugs: `journal_article`, `book`, `book_chapter`, `working_paper`, `conference_paper`, `report`, `data`, `software`, `courtbrief`, `presentation`, `other` |
+| `/figure <N>` | swaps the featured image for Figure N from the PDF | the bot renders every numbered figure into `_intake_figures/figure-N.png` during intake; this command copies the chosen one over `featured.png`. Run it as many times as you like to try different ones. |
+| `/alias </foo/>` | adds a vanity short URL to `aliases:` | `/alias /instability/` makes `gking.harvard.edu/instability/` redirect to the page. Multiple `/alias` lines accumulate. |
+| `/supplement <url> | <label>` | appends a links entry | e.g. `/supplement files/foo.pdf \| Online Appendix`. Label is optional and defaults to "Supplementary Material". |
 
 The bot reacts 👍 on the comment, posts a confirmation listing what
 changed (and warnings for any commands it didn't understand), and

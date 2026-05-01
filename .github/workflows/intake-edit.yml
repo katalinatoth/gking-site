@@ -3,12 +3,15 @@ name: Apply PR comment edits
 # Triggered when a maintainer posts a comment on an open intake PR.
 # If the comment contains slash commands like `/title ...`, `/authors ...`,
 # `/year ...`, `/abstract ...`, `/doi ...`, `/publication ...`, `/type ...`,
-# we apply them to every publication index.md added/changed by the PR,
-# commit the result back to the PR branch, react +1 to the comment, and
-# post a follow-up comment listing what changed and any warnings.
+# `/figure N`, `/alias /foo/`, or `/supplement <url> | <label>`, we apply
+# them to every publication index.md added/changed by the PR, commit the
+# result back to the PR branch, react +1 to the comment, and post a
+# follow-up comment listing what changed and any warnings.
 #
 # This is the "edit-from-the-comment-thread" half of the intake flow.
-# The "auto-populate-from-the-PDF" half lives in intake-publication.yml.
+# The "auto-populate-from-the-PDF" half lives in intake-publication.yml
+# (legacy `intake/` folder upload) and intake-from-issue.yml (new
+# Issue Form upload).
 
 on:
   issue_comment:
@@ -170,7 +173,8 @@ jobs:
                         + ", ".join(f"`/{u}`" for u in sorted(unknown)))
               out.append("")
               out.append("Valid commands: `/title`, `/authors`, `/year`, "
-                        "`/date`, `/abstract`, `/publication`, `/doi`, `/type`")
+                        "`/date`, `/abstract`, `/publication`, `/doi`, "
+                        "`/type`, `/figure`, `/alias`, `/supplement`")
           out.append("")
           out.append("---")
           out.append("Want to make more changes? Just post another comment with "
