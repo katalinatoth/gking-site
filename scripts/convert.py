@@ -2,6 +2,11 @@
 """
 Convert scraped data from gking.harvard.edu into Hugo content files
 for the Hugo Blox academic theme.
+
+One-time migration script kept for reference. The scraped_data/
+folder it consumes (~1 GB of crawled HTML, JSON, and PDFs) is not
+committed to the repo; copy it next to the gking-site checkout
+or pass an explicit path if you ever need to re-run this.
 """
 
 import json
@@ -11,8 +16,31 @@ import shutil
 from pathlib import Path
 from urllib.parse import urlparse, unquote
 
-SCRAPED_DIR = Path(__file__).parent.parent / "scraped_data"
-HUGO_DIR = Path(__file__).parent.parent / "hugo-site"
+HUGO_DIR = Path(__file__).resolve().parents[1]  # the gking-site checkout root
+
+
+def _find_scraped_dir() -> Path:
+    """Locate the scraped_data/ folder across common layouts.
+
+    Tries (in order):
+      * <repo>/scraped_data/         — copied into the checkout
+      * <repo>/../scraped_data/      — sibling of the checkout (the
+                                       layout used during the original
+                                       migration)
+    Returns the in-repo candidate as a fallback so error messages
+    point somewhere predictable.
+    """
+    candidates = [
+        HUGO_DIR / "scraped_data",
+        HUGO_DIR.parent / "scraped_data",
+    ]
+    for c in candidates:
+        if c.is_dir():
+            return c
+    return candidates[0]
+
+
+SCRAPED_DIR = _find_scraped_dir()
 CONTENT_DIR = HUGO_DIR / "content"
 STATIC_DIR = HUGO_DIR / "static"
 

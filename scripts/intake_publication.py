@@ -38,7 +38,7 @@ This script:
     everything we found, everything we guessed, and everything Gary
     should double-check. The workflow turns that into a PR comment.
 
-Manual local use (from hugo-site/):
+Manual local use (from the root of the gking-site checkout):
 
     python3 scripts/intake_publication.py intake/foo.pdf
     python3 scripts/intake_publication.py intake/talk/slides.pdf --dry-run

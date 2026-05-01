@@ -5,7 +5,7 @@ front matter (links, abstract; Dataverse DOIs are skipped). Only journal and
 proceedings articles with a container title and at least volume, issue, or
 pages in Crossref are updated.
 
-Usage (from hugo-site/):
+Usage (from the root of the gking-site checkout):
   python3 scripts/fill_publication_from_doi.py
   python3 scripts/fill_publication_from_doi.py --apply
 """

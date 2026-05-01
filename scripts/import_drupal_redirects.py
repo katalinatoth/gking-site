@@ -40,8 +40,35 @@ from pathlib import Path
 from typing import Iterable
 
 ROOT = Path(__file__).resolve().parents[1]
-WORKSPACE = ROOT.parent  # repo root contains hugo-site/ and scraped_data/
-DEFAULT_SRC = WORKSPACE / "scraped_data" / "drupal_redirects.csv"
+
+
+def _find_default_source() -> Path:
+    """Locate scraped_data/drupal_redirects.csv across common layouts.
+
+    The scraped Drupal data is large (~1 GB) and not committed to the
+    repo, so different developers keep it in different places:
+
+      * Inside the repo at `scraped_data/drupal_redirects.csv`
+        — convenient if you've copied the data into your checkout.
+      * One level up at `../scraped_data/drupal_redirects.csv`
+        — the layout used by the original migration workspace,
+        where the repo lived inside a wrapper folder alongside
+        `scraped_data/`.
+
+    We try each in turn. If neither exists, return the in-repo path
+    so the script's `--source` error message points somewhere sensible.
+    """
+    candidates = [
+        ROOT / "scraped_data" / "drupal_redirects.csv",
+        ROOT.parent / "scraped_data" / "drupal_redirects.csv",
+    ]
+    for c in candidates:
+        if c.is_file():
+            return c
+    return candidates[0]
+
+
+DEFAULT_SRC = _find_default_source()
 DATA_FILE = ROOT / "data" / "redirects.yaml"
 
 BEGIN_MARK = "# BEGIN drupal-redirects-import (auto-managed by " \
@@ -775,8 +802,12 @@ def replace_block(existing_text: str, *new_blocks: str) -> str:
 def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(description=__doc__,
                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    try:
+        _default_display = DEFAULT_SRC.relative_to(ROOT.parent)
+    except ValueError:
+        _default_display = DEFAULT_SRC
     p.add_argument("--source", default=str(DEFAULT_SRC),
-                   help=f"CSV path (default: {DEFAULT_SRC.relative_to(WORKSPACE)})")
+                   help=f"CSV path (default: {_default_display})")
     p.add_argument("--apply", action="store_true",
                    help="Write into data/redirects.yaml. Without this, run "
                         "in dry-run mode and just print the proposed block.")

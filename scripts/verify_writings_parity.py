@@ -2,7 +2,8 @@
 """Compare scraped publications.json to Hugo content/publication + content/talk.
 
 Uses the same slugify + duplicate-resolution rules as scripts/convert.py.
-Run: python3 hugo-site/scripts/verify_writings_parity.py
+Run from the root of the gking-site checkout:
+  python3 scripts/verify_writings_parity.py
 
 Exit 1 if a JSON entry is missing a matching bundle or index title.
 """

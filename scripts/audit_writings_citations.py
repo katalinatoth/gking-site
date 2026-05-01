@@ -5,7 +5,7 @@ using any DOI found in links, dataverse_url, or abstract.
 
 Outputs JSON + a short text summary. Requires: PyYAML (yaml).
 
-Usage (from hugo-site/):
+Usage (from the root of the gking-site checkout):
   python3 scripts/audit_writings_citations.py
   python3 scripts/audit_writings_citations.py --writings-only
 

@@ -23,11 +23,11 @@ redirects, refreshes first-commit dates for the spotlight, and publishes.
 
 ## TL;DR — three things to remember
 
-1. Every piece of content is a folder under `hugo-site/content/` containing
+1. Every piece of content is a folder under `content/` containing
    an `index.md` (or `_index.md` for section landing pages). Copy an
    existing one and edit it.
-2. PDFs and images go under `hugo-site/static/files/` (PDFs) or
-   `hugo-site/static/images/` (one-off images), or alongside the page's
+2. PDFs and images go under `static/files/` (PDFs) or
+   `static/images/` (one-off images), or alongside the page's
    `index.md` (featured / per-page assets).
 3. After you commit + push, wait ~3 minutes and refresh. GitHub Actions
    rebuilds everything automatically — the Pagefind search index, the
@@ -76,7 +76,7 @@ github.com.
 
 ```bash
 git clone https://github.com/iqss-research/gking-site.git
-cd gking-site/hugo-site
+cd gking-site
 
 # Install the auto-push hook so every `git commit` immediately
 # `git push`es to origin. Removes the easy-to-forget last step.
@@ -423,10 +423,10 @@ related content).
 
 ### Manual run (terminal, no PR needed)
 
-If you'd rather run the import locally without opening a PR:
+If you'd rather run the import locally without opening a PR (run from
+the root of your `gking-site` clone):
 
 ```bash
-cd hugo-site
 pip install pyyaml certifi pymupdf      # one time
 python3 scripts/intake_publication.py intake/whatever.pdf --dry-run
 # happy with the report? drop --dry-run:
@@ -467,7 +467,7 @@ matter without touching anything.
 ## How the repo is organized
 
 ```
-hugo-site/
+gking-site/                 ← root of the git checkout
 ├── content/                ← every page lives here
 │   ├── publication/        ← papers, articles, books, datasets, patents
 │   ├── talk/               ← presentations
@@ -506,7 +506,7 @@ Example: `content/publication/ecological-inference/index.md` →
 ### Terminal
 
 ```bash
-cd gking-site/hugo-site
+cd gking-site
 $EDITOR content/publication/some-paper/index.md
 git add -A && git commit -m "Fix typo in abstract"
 # (auto-push hook pushes; otherwise: `git push`)
@@ -518,14 +518,14 @@ editor — Hugo picks up new content automatically on the next build.
 ### GitHub.com
 
 1. Go to <https://github.com/iqss-research/gking-site>.
-2. Click into `hugo-site/…`.
+2. Click into the folder you want (e.g. `content/publication/`).
 3. Click any file → pencil icon → make changes → scroll down →
    **Commit changes**.
 4. To **add a new file**: browse to the parent folder → **Add file →
    Create new file**. Type the full path in the filename box, e.g.
-   `hugo-site/content/publication/my-new-paper/index.md`, then paste
+   `content/publication/my-new-paper/index.md`, then paste
    the template below.
-5. To **upload PDFs**: browse to `hugo-site/static/files/` →
+5. To **upload PDFs**: browse to `static/files/` →
    **Add file → Upload files** → drag the PDF in → Commit.
 
 Watch the build at
@@ -545,7 +545,7 @@ finishes in 3–4 minutes.
 
 ### Step 1 — upload the PDF
 
-Put the PDF at `hugo-site/static/files/<slug>.pdf`. Use a short,
+Put the PDF at `static/files/<slug>.pdf`. Use a short,
 lowercase, hyphenated filename, e.g.
 `gerrymandering-partisan-symmetry-2026.pdf`.
 
@@ -554,7 +554,7 @@ lowercase, hyphenated filename, e.g.
 Create a new file at:
 
 ```
-hugo-site/content/publication/<slug>/index.md
+content/publication/<slug>/index.md
 ```
 
 `<slug>` is whatever you want in the URL (lowercase, hyphens, no
@@ -648,7 +648,7 @@ helper can render page 1 of the PDF for you.
 Same pattern as a publication, but under `content/talk/`:
 
 ```
-hugo-site/content/talk/<slug>/index.md
+content/talk/<slug>/index.md
 ```
 
 ```yaml
@@ -679,7 +679,7 @@ tab is driven from the publication side, not the talk side.
 Under `content/software/`:
 
 ```
-hugo-site/content/software/<slug>/index.md
+content/software/<slug>/index.md
 ```
 
 ```yaml
@@ -714,7 +714,7 @@ The software landing page groups items into two visual sections:
   superseded, or no-longer-maintained software.
 
 Which group a row lands in is controlled by
-`hugo-site/data/software_legacy_rows.yaml`:
+`data/software_legacy_rows.yaml`:
 
 ```yaml
 rows:
@@ -773,7 +773,7 @@ you usually don't edit it directly.
 ## Featured publications spotlight
 
 The "Working Papers" spotlight at the top of `/publication/` is
-controlled by `hugo-site/data/featured_publications.yaml`:
+controlled by `data/featured_publications.yaml`:
 
 ```yaml
 count: 5
@@ -845,14 +845,14 @@ paper, talk, and software page. The rules:
 
 ## Update the bio or CV
 
-**Bio text** — edit `hugo-site/content/bio/index.md`. The portion below
+**Bio text** — edit `content/bio/index.md`. The portion below
 the front matter `---` is plain Markdown / HTML; write naturally.
 
-**CV PDF** — replace `hugo-site/static/files/vitae.pdf` (overwrite the
+**CV PDF** — replace `static/files/vitae.pdf` (overwrite the
 old one). The "Download CV (PDF)" button on the Bio page already points
 there.
 
-**Bio photo** — replace `hugo-site/static/images/gking-bio-photo.jpg`
+**Bio photo** — replace `static/images/gking-bio-photo.jpg`
 (overwrite the old one).
 
 ---
@@ -861,9 +861,9 @@ there.
 
 People are managed in two places:
 
-- `hugo-site/content/people/<slug>/index.md` — one folder per person
+- `content/people/<slug>/index.md` — one folder per person
   with a tiny YAML stub.
-- `hugo-site/data/research_group.json` — Harvard taxonomy (categories,
+- `data/research_group.json` — Harvard taxonomy (categories,
   affiliations, last-name letter buckets) that drives the filter
   sidebar on the People page.
 
@@ -871,7 +871,7 @@ People are managed in two places:
 
 The "Current Research Group" box at the top of `/research-group/` is
 **curated by hand** in
-`hugo-site/layouts/research-group/single.html`. It has three
+`layouts/research-group/single.html`. It has three
 subsections — *PhD Students & Research Assistants*, *Undergraduate
 Research Assistants*, and *Other*. To add or remove someone here, edit
 that template directly (look for the `<a href="...">` cards under each
@@ -882,7 +882,7 @@ that template directly (look for the `<a href="...">` cards under each
 Everyone else (alumni, post-docs, collaborators) lives below in the
 filterable list. To add someone:
 
-1. Create `hugo-site/content/people/<slug>/index.md`:
+1. Create `content/people/<slug>/index.md`:
 
    ```yaml
    ---
@@ -900,7 +900,7 @@ filterable list. To add someone:
    below).
 
 2. (Optional but recommended) add a row to
-   `hugo-site/data/research_group.json` so the affiliation /
+   `data/research_group.json` so the affiliation /
    letter-bucket filters count them correctly:
 
    ```json
@@ -954,7 +954,7 @@ that as a developer task).
 
 ## Edit the navigation menu
 
-The top menu is defined in `hugo-site/hugo.yaml` under `menus.main`.
+The top menu is defined in `hugo.yaml` under `menus.main`.
 Each entry has a `name`, a `url`, and a `weight` (lower = more to the
 left):
 
@@ -994,7 +994,7 @@ Add, remove, or reorder by editing this list.
 ## Change a button label
 
 Button text such as "Article" or "Publisher's Version" is controlled
-in `hugo-site/i18n/en.yaml`:
+in `i18n/en.yaml`:
 
 ```yaml
 - id: btn_pdf
@@ -1010,7 +1010,7 @@ Change the value on the right, commit.
 ## Add a paper to a Research Area
 
 Research-area groupings live in
-`hugo-site/data/research_areas.json`. The file has two top-level keys —
+`data/research_areas.json`. The file has two top-level keys —
 `methods` and `applications` — each containing areas, each with
 subcategories, each with a `papers:` list. To add a paper, append an
 entry to the right `papers` list:
@@ -1039,7 +1039,7 @@ slug + subcategory waiting for you.
 
 ## Edit the teaching / contact / other pages
 
-Plain pages all live under `hugo-site/content/`, one folder each, with
+Plain pages all live under `content/`, one folder each, with
 an `index.md` (or `_index.md` for section pages). Edit the Markdown
 directly.
 
@@ -1115,7 +1115,7 @@ simpler way: **one YAML file for the whole list**.
 
 ### (A) Short URL that forwards somewhere
 
-Edit `hugo-site/data/redirects.yaml`. It's a list under `redirects:`,
+Edit `data/redirects.yaml`. It's a list under `redirects:`,
 one entry per short URL:
 
 ```yaml
@@ -1211,7 +1211,7 @@ will work again.
 
 ## Helper scripts (terminal only)
 
-These all live under `hugo-site/scripts/`. Most are dry-run by default
+These all live under `scripts/`. Most are dry-run by default
 and ask for `--apply` (or have an obvious side-effect path) before
 they touch files.
 
@@ -1276,7 +1276,7 @@ github.com.
 
 ```bash
 brew install hugo                         # one time, macOS
-cd hugo-site
+cd gking-site
 hugo server                               # http://localhost:1313/
 ```
 
@@ -1309,7 +1309,7 @@ on. If it's still not running, check that
 (`git config core.hooksPath` should print `.githooks`).
 
 **"A PDF returns 404 on the live site."**
-Confirm the file is in `hugo-site/static/files/` and the `url:` in the
+Confirm the file is in `static/files/` and the `url:` in the
 page's `links:` starts with `files/` (no leading slash).
 
 **"The 'See Also' box is empty or wrong."**

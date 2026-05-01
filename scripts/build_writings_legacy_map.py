@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Build hugo-site/data/writings_legacy_map.json from scraped Drupal HTML + publications.json.
+"""Build data/writings_legacy_map.json from scraped Drupal HTML + publications.json.
 
 Each bundle folder gets legacy tab ids matching gking.harvard.edu Writings filters:
   journal, presentation, patent, software, other
 
-Run after updating scraped_data:  python3 hugo-site/scripts/build_writings_legacy_map.py
+Run after updating scraped_data (from the root of the gking-site checkout):
+  python3 scripts/build_writings_legacy_map.py
 """
 from __future__ import annotations
 

@@ -24,7 +24,23 @@ import requests
 from bs4 import BeautifulSoup
 
 BASE_URL = "https://gking.harvard.edu"
-SCRAPED_DIR = Path(__file__).parent.parent / "scraped_data"
+
+
+def _find_scraped_dir() -> Path:
+    """Locate the scraped_data/ folder across common layouts.
+
+    Tries the repo-internal location first, then the sibling-of-repo
+    location (the original migration workspace). Falls back to the
+    in-repo path so a fresh run creates it there if neither exists.
+    """
+    repo = Path(__file__).resolve().parents[1]
+    for candidate in (repo / "scraped_data", repo.parent / "scraped_data"):
+        if candidate.is_dir():
+            return candidate
+    return repo / "scraped_data"
+
+
+SCRAPED_DIR = _find_scraped_dir()
 FILES_DIR = SCRAPED_DIR / "files"
 PAGES_DIR = SCRAPED_DIR / "pages"
 SESSION = requests.Session()

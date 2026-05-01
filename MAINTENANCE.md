@@ -1,11 +1,17 @@
 # Site Maintenance Guide
 
+> **Older notes — kept for reference.** The current canonical guide is
+> [`UPDATING.md`](UPDATING.md). Some of the helper-script paths below
+> (`python3 ../scripts/...`) refer to scripts that lived outside the
+> repo during the initial migration and aren't shipped with the
+> checkout. Use `UPDATING.md` for anything you actually need to do.
+
 This document explains how to add, edit, and manage content on the Gary King academic website built with Hugo.
 
 ## Quick Start
 
 ```bash
-cd hugo-site
+cd gking-site        # the root of your `git clone`
 hugo server          # Local preview at http://localhost:1313/gking-site/
 hugo --gc --minify   # Production build to public/
 ```
@@ -245,7 +251,7 @@ Pushes to `main` trigger `.github/workflows/deploy.yml` which builds Hugo + Page
 brew install hugo
 
 # Preview locally
-cd hugo-site
+cd gking-site     # the root of your `git clone`
 hugo server
 
 # Build for production
@@ -260,7 +266,7 @@ npx pagefind --site public
 ## File Structure
 
 ```
-hugo-site/
+gking-site/               # root of the git checkout
 ├── content/              # All site content (markdown files)
 │   ├── publication/      # Papers, datasets, patents
 │   ├── talk/             # Presentations

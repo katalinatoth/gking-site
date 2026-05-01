@@ -24,7 +24,7 @@ No manual build step needed for normal content updates.
 
 ```bash
 brew install hugo
-cd hugo-site
+cd gking-site     # the root of your `git clone`
 hugo server       # http://localhost:1313/gking-site/
 ```
 
