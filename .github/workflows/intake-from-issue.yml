@@ -143,7 +143,10 @@ jobs:
           Slug: $SLUG
           EOF
           )"
-          git push origin "$BRANCH"
+          # Force-push: the workflow exclusively owns intake/issue-* branches,
+          # so on a rerun (e.g. after a permission/API failure further down) we
+          # want the freshly-rebuilt commit to replace the previous attempt.
+          git push --force-with-lease origin "$BRANCH"
 
       - name: Open the draft PR
         if: steps.gate.outputs.skip != 'true'
