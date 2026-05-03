@@ -5,7 +5,7 @@ authors:
   - "Bharat Anand"
   - "Gary King"
   - "Kiran Misra"
-  - "Sasha Riaz"
+  - "Sascha Riaz"
 publication_types:
   - "journal_article"
 abstract: |-
