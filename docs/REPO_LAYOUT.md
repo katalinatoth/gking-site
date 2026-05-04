@@ -12,11 +12,13 @@ functional website.
 
 The folders fall into four groups:
 
-1. **Website-section folders** — one per section in the site's top menu (Bio,
-   Writings, Software, etc.). Anything you'd want to edit about that section
-   lives in its folder.
+1. **`EditMe/`** — the one place to look for anything you might want to
+   change. Has one sub-folder per item in the site's main menu, plus a
+   `UI/` folder for the visual / aesthetic settings (CSS, page templates,
+   per-section layout overrides). If you can edit it on the website, it
+   lives somewhere inside `EditMe/`.
 2. **Underscore folders** (`_site/`, `_automation/`, `_vendor/`) — supporting
-   pieces that aren't a section of the website themselves but make the site
+   pieces that aren't part of the website's content but make the build
    work. The leading underscore is a hint to "skip this when you're looking
    for content."
 3. **Hidden folders** (names that start with a dot, like `.github/`) — used by
@@ -24,94 +26,118 @@ The folders fall into four groups:
 4. **Configuration files at the very top** — small files that tell the
    website-builder robot how to assemble everything.
 
+There's also a small handful of folders (`assets/`, `layouts/`, `themes/`)
+that have to live at the top level next to `EditMe/` because the
+website-builder robot looks for them by literal name. They're listed
+under "Folders pinned at the root" below, and explained more fully in
+[`EditMe/UI/PINNED-AT-ROOT.md`](../EditMe/UI/PINNED-AT-ROOT.md).
+
 ---
 
-## 1. Website-section folders (the ones you'll edit most)
+## 1. `EditMe/` — everything you can change about the site
 
-Each of these matches one entry in the website's top menu. To change anything
-about a section, look here first. Every section folder typically contains:
+There is exactly **one sub-folder for each item in the site's top menu**,
+plus an extra folder (`UI/`) for visual settings. To change anything about
+a page, look here first. Each folder has its own `README.md` with a more
+detailed cheat sheet for that section.
 
-- `content/` — the actual words and pictures of the section's pages.
-- `layouts/` — instructions for how those pages should look.
-- `data/` — supporting lists (e.g., a list of co-authors, a list of software
-  packages).
-- `scripts/` — small helper programs specific to that section.
-- `README.md` — a short note explaining how that section is organized.
+### `EditMe/UI/`
+All the aesthetic / visual bits in one place: per-section page-template
+overrides (`PerSectionLayouts/`), CSS overrides via the project root
+(see `EditMe/UI/PINNED-AT-ROOT.md`), and config snippets for the global
+menu and visual parameters (`Config/`).
 
-Not every section has all five of those — some are simple and only need
-`content/`.
+### `EditMe/HomePage/`
+The website's home page (the very first page you see at
+<https://gking.harvard.edu/>).
 
-### `bio/`
+### `EditMe/Bio/`
 Gary's bio, CV, and photo. Lives at <https://gking.harvard.edu/bio/>.
 
-### `writings/`
-The "Writings" page and every individual paper page (~298 papers). The biggest
-folder in the repo by file count. Lives at
-<https://gking.harvard.edu/publication/>.
+### `EditMe/Writings/`
+Every paper, book, report, patent, court brief, slide deck, and
+software-paper Gary has published — about 300 in total. Organised by
+type, then research topic, then decade, so you can drop a new paper
+into the right slot without scrolling through hundreds of folders:
 
-### `software/`
-The "Software" page and pages for each software package (Amelia, EI, Clarify,
-etc.). Lives at <https://gking.harvard.edu/software/>.
+- `Articles/<Topic>/<Decade>/<slug>/` — journal articles and working
+  papers (e.g. `Articles/CausalInference/2010s/foo/`).
+- `Books/<Decade>/<slug>/` — books.
+- `Reports/<Decade>/<slug>/` — technical reports and similar.
+- `Patents/<Decade>/<slug>/` — patents.
+- `CourtBriefs/<Decade>/<slug>/` — amicus / court-brief filings.
+- `SoftwareNotes/<Decade>/<slug>/` — papers describing a software
+  package (the actual `/software/` pages live under `EditMe/Software/`).
+- `Presentations/<title-slug>/<venue-slug>/` — slide decks. Same talk
+  given at multiple venues clusters under one title-slug folder.
+- `Data/` — small JSON / YAML files that drive the Writings page tabs,
+  the Featured carousel, and so on.
 
-### `dataverse/`
+URLs at `/publication/<slug>/` and `/talk/<slug>/` are unchanged from
+the previous flat layout — Hugo's `module.mounts` block in `hugo.yaml`
+remaps the deep tree onto the URL space.
+
+### `EditMe/ResearchAreas/`
+The "Research Areas" page that groups Gary's work by topic. Lives at
+<https://gking.harvard.edu/research-areas/>. The list of areas and the
+papers they include live in `EditMe/ResearchAreas/Data/research_areas.json`.
+
+### `EditMe/Software/`
+The "Software" page and pages for each software package (Amelia, EI,
+Clarify, etc.). Lives at <https://gking.harvard.edu/software/>.
+
+### `EditMe/Dataverse/`
 The "Dataverse" page (the data-sharing service). Lives at
 <https://gking.harvard.edu/dataverse/>.
 
-### `people/`
-The "People" page in the menu. Includes three sub-categories:
-- `people/content/group/` — Gary's current and former research-group members.
-- `people/content/profiles/` — short profile cards for ~350 collaborators.
-- `people/content/authors/` — the credit listing on each paper page.
+### `EditMe/People/`
+The People area in the menu. Includes three sub-categories:
 
-### `teaching/`
+- `EditMe/People/ResearchGroup/` — Gary's current and former research-group members.
+- `EditMe/People/Profiles/` — short profile cards for ~350 collaborators.
+- `EditMe/People/Authors/` — the credit listing on each paper page.
+
+The roster itself lives at `EditMe/People/Data/research_group.json`.
+
+### `EditMe/Teaching/`
 The "Teaching" page and individual class pages. Lives at
 <https://gking.harvard.edu/teaching/>.
 
-### `talks/`
-The "Talks" listing — each entry typically points to a video or slides.
-URLs use the path `/talk/...`.
+### `EditMe/Blog/`
+The blog. Lives at <https://gking.harvard.edu/blog/>. Reachable via direct
+URL even though it isn't in the top menu.
 
-### `blog/`
-The blog. Lives at <https://gking.harvard.edu/blog/>.
-
-### `research-areas/`
-The "Research Areas" page that groups Gary's work by topic. Lives at
-<https://gking.harvard.edu/research-areas/>.
-
-### `contact/`
+### `EditMe/Contact/`
 The "Contact" page. Lives at <https://gking.harvard.edu/contact/>.
 
-### `home/`
-The website's home page (the very first page you see at
-<https://gking.harvard.edu/>). Kept separate from `pages/` because it's the
-landing page, not a regular content page.
-
-### `pages/`
+### `EditMe/Misc/`
 A handful of standalone pages that don't fit into any of the menu sections —
 things like the accessibility statement, the "advice to grad students" page,
 the "miscellanea" page, recommendation-letter info, etc. They each have their
 own URL but you'd never find them by clicking the menu.
 
-### `redirects/`
+### `EditMe/Redirects/`
 A list of "shortcuts" — short URLs like `/amelia/` or `/zoom/` that
 automatically forward visitors to the right page. The actual list is one
-file: `redirects/data/redirects.yaml`. Edit that file to add or remove a
-shortcut.
+file: `EditMe/Redirects/Data/redirects.yaml`. Edit that file to add or
+remove a shortcut. The deploy step regenerates the matching content
+stubs into `EditMe/Redirects/content/` (auto-generated, gitignored).
 
 ---
 
 ## 2. Underscore folders (supporting plumbing)
 
-These aren't sections of the website you'd ever browse to. They're behind-
-the-scenes pieces. The leading underscore is a convention that says "skip
-this when you're looking for content."
+These aren't part of the content. They're behind-the-scenes pieces. The
+leading underscore is a convention that says "skip this when you're looking
+for content."
 
 ### `_site/`
 Cross-section plumbing for the website-builder robot:
 - `_site/data/` — site-wide data files used by multiple sections.
 - `_site/static/` — the giant collection of PDF papers, supplementary
   materials, and historical images that get served as-is. Anything in
-  `static/files/` becomes available at `/files/...` on the live site.
+  `_site/static/files/` becomes available at `/files/...` on the live
+  site.
 - `_site/archetypes/` — templates for what a "new paper" or "new talk"
   should look like when one gets created.
 - `_site/i18n/` — text strings for translations (currently English only;
@@ -119,12 +145,19 @@ Cross-section plumbing for the website-builder robot:
 
 ### `_automation/`
 The robots and helper scripts that automate maintenance:
-- `_automation/scripts/` — Python helpers that run during deploys (rebuild
-  redirect stubs, compute publication dates, etc.) or that maintainers run
-  by hand.
+- `_automation/scripts/` — every Python helper in the repo lives here,
+  organised by topic:
+  - `_automation/scripts/writings/` — paper-intake bot, DOI fillers,
+    citation audits, link repair, etc.
+  - `_automation/scripts/people/` — profile scrapers and research-group
+    sync.
+  - top-level scripts (`build_redirects.py`, `generate_mounts.py`,
+    `apply_pr_edits.py`, ...) — anything that runs across multiple
+    sections.
 - `_automation/intake/` — a drop folder used by the "upload a new paper"
-  GitHub-Issue workflow. When someone submits a paper through the form, the
-  PDF lands here briefly and an automation moves it into `writings/`.
+  GitHub flow. When someone submits a paper through the form, the PDF
+  lands here briefly and an automation moves it into
+  `EditMe/Writings/Articles/Unsorted/`.
 
 ### `_vendor/`
 Pinned copies of external dependencies (the website's theme, in particular).
@@ -133,10 +166,13 @@ break if an upstream theme changes unexpectedly.
 
 ---
 
-## 3. Folders that have to live at the top level (Hugo / theme conventions)
+## 3. Folders pinned at the root (Hugo / theme conventions)
 
-A handful of folders can't be moved into the section layout because the
-website-builder robot expects them in fixed locations:
+A handful of folders can't be moved into `EditMe/` because the
+website-builder robot expects them in fixed locations. The full list and
+the reason for each is in
+[`EditMe/UI/PINNED-AT-ROOT.md`](../EditMe/UI/PINNED-AT-ROOT.md). The most
+visible ones:
 
 ### `assets/`
 CSS and small media files that get processed (minified, fingerprinted) before
@@ -147,8 +183,9 @@ being included in the final pages. The most important file is
 The site's shared page templates: the overall page skeleton (`baseof.html`),
 the default list/single-page templates (`_default/`), reusable building blocks
 like the navigation bar and footer (`_partials/`), and small reusable
-ingredients you can drop into a page (`shortcodes/`). Section-specific
-layouts live inside each section folder; only the shared ones live here.
+ingredients you can drop into a page (`shortcodes/`). Per-section layout
+overrides live under `EditMe/UI/PerSectionLayouts/`; only the shared ones
+live here.
 
 ### `themes/`
 Empty in this repository — themes are pulled in via the configuration file
@@ -164,8 +201,9 @@ ignore them.
 
 ### `.github/`
 Files that configure GitHub itself:
-- `.github/workflows/` — the seven robots that run automatically (deploy the
-  site, link-check, accept paper uploads via Issues, etc.).
+- `.github/workflows/` — the half-dozen robots that run automatically
+  (deploy the site, link-check, accept paper uploads via Issues, strip
+  intake artefacts from `main`, etc.).
 - `.github/ISSUE_TEMPLATE/` — the forms people see when they click "New
   Issue" on GitHub (e.g., the "Upload a paper" form).
 
@@ -197,8 +235,10 @@ mat that explains the layout and points at the docs.
 ### `hugo.yaml`
 The main configuration file. Tells the website-builder which sections exist,
 what their URLs should be, what the menu should look like, and which folders
-to assemble together when building. The "remap" instructions that let the
-section-driven layout work all live in this file.
+to assemble together when building. The big "remap" block (`module.mounts`)
+that lets the `EditMe/` layout work without changing any URLs is
+auto-generated by `_automation/scripts/generate_mounts.py` — re-run that
+script after adding or removing folders under `EditMe/`.
 
 ### `go.mod`, `go.sum`
 A pair of files that lock down which version of the website's theme to use.
@@ -219,14 +259,17 @@ each build.
 
 | Want to change | Look in |
 |---|---|
-| The home page | `home/content/_index.md` |
-| Gary's bio | `bio/content/index.md` |
-| A specific paper | `writings/content/<paper-slug>/index.md` |
-| The featured-papers list on the home page | `writings/data/featured_publications.yaml` |
-| A software package's page | `software/content/<software-slug>/index.md` |
-| A research-group member's bio | `people/content/group/<their-slug>/_index.md` |
-| The list of research-group members | `people/data/research_group.json` |
-| Add a new short URL like `/foo/` | `redirects/data/redirects.yaml` |
+| The home page | `EditMe/HomePage/_index.md` |
+| Gary's bio | `EditMe/Bio/index.md` |
+| A specific paper | `EditMe/Writings/<Type>/<Topic>/<Decade>/<slug>/index.md` (e.g. `Articles/CausalInference/2010s/foo/`) |
+| A specific talk | `EditMe/Writings/Presentations/<title-slug>/<venue-slug>/index.md` |
+| The featured-papers list on the home page | `EditMe/Writings/Data/featured_publications.yaml` |
+| The Writings page tab routing | `EditMe/Writings/Data/writings_legacy_map.json` |
+| A software package's page | `EditMe/Software/<software-slug>/index.md` |
+| A research-group member's bio | `EditMe/People/ResearchGroup/<their-slug>/_index.md` |
+| The list of research-group members | `EditMe/People/Data/research_group.json` |
+| The Research Areas grid | `EditMe/ResearchAreas/Data/research_areas.json` |
+| Add a new short URL like `/foo/` | `EditMe/Redirects/Data/redirects.yaml` |
 | The site's navigation menu | `hugo.yaml` (look for `menus:`) |
 | Site-wide colors or fonts | `assets/css/custom.css` |
 | The "upload a paper" form | `.github/ISSUE_TEMPLATE/upload-paper.yml` |
@@ -246,4 +289,5 @@ each build.
 
 If something in this doc gets out of date, the source of truth is the actual
 folder layout — run `ls -la` at the top of the repo to see what's really
-there. The READMEs inside each folder also have more detail.
+there. The READMEs inside each folder also have more detail (every folder
+under `EditMe/` has one).

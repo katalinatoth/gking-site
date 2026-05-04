@@ -28,10 +28,19 @@ Push to `main` triggers automatic deployment via GitHub Actions.
 
 ## Adding a New Publication
 
-1. Create a new directory under `writings/content/`:
+1. Create a new directory under `EditMe/Writings/<Type>/<Topic>/<Decade>/<slug>/`.
+   The exact path depends on what kind of paper it is:
    ```
-   writings/content/my-new-paper/index.md
+   EditMe/Writings/Articles/CausalInference/2020s/my-new-paper/index.md
+   EditMe/Writings/Books/2020s/my-new-book/index.md
+   EditMe/Writings/Reports/2020s/my-new-report/index.md
    ```
+   If you don't know the right Topic / Decade yet, drop the new folder
+   into `EditMe/Writings/Articles/Unsorted/<slug>/` and run
+   `python3 _automation/scripts/regroup_writings.py` followed by
+   `python3 _automation/scripts/regroup_articles.py` to file it
+   automatically. The auto-import bot does this for you when the PDF
+   is uploaded via a PR.
 
 2. Front matter template:
    ```yaml
@@ -79,11 +88,20 @@ Use one of: `journal_article`, `book`, `book_chapter`,
 
 ## Adding a New Talk/Presentation
 
-Same structure as publications, but under `talks/content/`:
+Same structure as publications, but under
+`EditMe/Writings/Presentations/<title-slug>/<venue-slug>/`. If the same
+talk has been given at multiple venues, all of those venues live as
+sibling sub-folders under one shared `<title-slug>/`:
 
 ```
-talks/content/my-talk-title-2026/index.md
+EditMe/Writings/Presentations/my-talk-title/2026-mit/index.md
+EditMe/Writings/Presentations/my-talk-title/2026-stanford/index.md
 ```
+
+If you're not sure how to slug the title or venue, drop the new folder
+in flat under `EditMe/Writings/Presentations/<slug>/` and run
+`python3 _automation/scripts/regroup_presentations.py` to cluster it
+automatically.
 
 ```yaml
 ---
@@ -141,10 +159,10 @@ The site builds the "See Also" boxes automatically from these fields
 
 ## Adding a New Software Page
 
-Create under `software/content/`:
+Create under `EditMe/Software/`:
 
 ```
-software/content/my-software/index.md
+EditMe/Software/my-software/index.md
 ```
 
 ```yaml
@@ -167,12 +185,12 @@ links:
 
 ## Adding a Research Group Member
 
-Profile pages live under `people/content/profiles/`; the `authors/`
+Profile pages live under `EditMe/People/Profiles/`; the `authors/`
 folder is a separate Hugo taxonomy used only for the `gary-king`
 author page. For a new research-group member create:
 
 ```
-people/content/profiles/person-name/index.md
+EditMe/People/Profiles/person-name/index.md
 ```
 
 ```yaml
@@ -195,14 +213,14 @@ Longer biography text here.
 
 Add an avatar image as `avatar.jpg` in the same directory. To add
 the person to the filterable roster on `/research-group/`, also
-update `people/data/research_group.json` (see `UPDATING.md` for the
+update `EditMe/People/Data/research_group.json` (see `UPDATING.md` for the
 schema).
 
 ---
 
 ## Updating Research Areas
 
-Research area data lives in `research-areas/data/research_areas.json`.
+Research area data lives in `EditMe/ResearchAreas/Data/research_areas.json`.
 Each area has subcategories with lists of paper slugs.
 
 To add a paper to a research area, add its slug to the appropriate
@@ -226,10 +244,12 @@ shipped with the checkout.
 
 The Writings landing page auto-generates from every publication and
 talk bundle. No manual updates needed — just add new content under
-`writings/content/<slug>/` or `talks/content/<slug>/` and they
-appear automatically. Tab placement is driven by
-`writings/data/writings_legacy_map.json`; the intake bots maintain
-that file for new entries.
+the right slot in `EditMe/Writings/` (e.g.
+`Articles/<Topic>/<Decade>/<slug>/`, `Books/<Decade>/<slug>/`, or
+`Presentations/<title-slug>/<venue-slug>/`) and the entry appears
+automatically. Tab placement is driven by
+`EditMe/Writings/Data/writings_legacy_map.json`; the intake bots
+maintain that file for new entries.
 
 ---
 
@@ -242,23 +262,23 @@ order are defined there.
 
 ## Modifying Page Templates
 
-After the section-driven reorg, layout files live under their owning
-section. The shared theme bits (`baseof.html`, `_default/`,
-`_partials/`, `shortcodes/`, `page/`) stay at the project root in
-`layouts/` because HugoBlox's `get_hook` partial reads them with
-`os.ReadDir`, which is not mount-aware.
+After the EditMe/ reorg, every per-section layout override lives under
+`EditMe/UI/PerSectionLayouts/<Section>/`. The shared theme bits
+(`baseof.html`, `_default/`, `_partials/`, `shortcodes/`, `page/`) stay
+at the project root in `layouts/` because HugoBlox's `get_hook` partial
+reads them with `os.ReadDir`, which is not mount-aware.
 
-| Template                                            | Controls                              |
-|-----------------------------------------------------|---------------------------------------|
-| `writings/layouts/single.html`                      | Individual publication pages          |
-| `talks/layouts/single.html`                         | Individual talk pages                 |
-| `writings/layouts/list.html`                        | Writings list page                    |
-| `research-areas/layouts/single.html`                | Research areas page                   |
-| `home/layouts/landing/list.html`                    | Homepage                              |
-| `layouts/_partials/page_links.html`                 | Link button rendering                 |
-| `layouts/_partials/page_author_card.html`           | Author card at bottom of pages        |
-| `assets/css/custom.css`                             | All custom CSS                        |
-| `_site/i18n/en.yaml`                                | Button label overrides (Article, Publisher's Version) |
+| Template                                                            | Controls                     |
+|---------------------------------------------------------------------|------------------------------|
+| `EditMe/UI/PerSectionLayouts/Writings/single.html`                  | Individual publication pages |
+| `EditMe/UI/PerSectionLayouts/Talks/single.html`                     | Individual talk pages        |
+| `EditMe/UI/PerSectionLayouts/Writings/list.html`                    | Writings list page           |
+| `EditMe/UI/PerSectionLayouts/ResearchAreas/single.html`             | Research areas page          |
+| `EditMe/UI/PerSectionLayouts/HomePage/landing/list.html`            | Homepage                     |
+| `layouts/_partials/page_links.html`                                 | Link button rendering        |
+| `layouts/_partials/page_author_card.html`                           | Author card at bottom of pages |
+| `assets/css/custom.css`                                             | All custom CSS               |
+| `_site/i18n/en.yaml`                                                | Button label overrides (Article, Publisher's Version) |
 
 ---
 
@@ -286,15 +306,15 @@ Hugo + Pagefind search index and deploys to GitHub Pages. As part of
 the build, the workflow runs:
 
 - `_automation/scripts/build_redirects.py` — materialise
-  `redirects/data/redirects.yaml` into Hugo content stubs.
-- `writings/scripts/compute_publication_first_commit.py` — refresh
+  `EditMe/Redirects/Data/redirects.yaml` into Hugo content stubs.
+- `_automation/scripts/writings/compute_publication_first_commit.py` — refresh
   the spotlight ordering map.
 
 ### Link Checker
 
 `.github/workflows/link-check.yml` runs every Monday at 9am UTC. It
-walks every `<section>/content/` tree and checks all external URLs;
-if it finds anything broken it creates / updates a GitHub Issue
+walks every markdown file under `EditMe/` and checks all external
+URLs; if it finds anything broken it creates / updates a GitHub Issue
 labelled `link-check`. Can also be triggered manually from the
 Actions tab.
 
@@ -330,33 +350,42 @@ npx pagefind --site public
 ## File Structure
 
 ```
-gking-site/hugo-site/         # root of the git checkout
-├── home/                     # Homepage (content + layouts)
-├── bio/                      # Bio & CV page
-├── writings/                 # Papers, datasets, patents (content + data + layouts + scripts)
-├── talks/                    # Presentations (content + layouts)
-├── software/                 # Software pages (content + data + layouts)
-├── dataverse/                # Dataverse landing (content + data + layouts)
-├── people/                   # Group / profiles / authors (content + data + layouts + scripts)
-├── teaching/                 # Teaching pages (content + layouts)
-├── research-areas/           # Research areas (content + data + layouts)
-├── blog/                     # Blog (content + layouts)
-├── contact/                  # Contact page (content + layouts)
-├── pages/                    # Standalone pages (apply, recs, …)
-├── redirects/                # redirects/data/redirects.yaml + auto-generated stubs
+gking-site/hugo-site/                 # root of the git checkout
+├── EditMe/                           # EVERY editable thing on the site
+│   ├── UI/                           # CSS, layouts, per-section overrides
+│   ├── HomePage/                     # /
+│   ├── Bio/                          # /bio/
+│   ├── Writings/                     # /publication/ + /talk/ tree
+│   │   ├── Articles/<Topic>/<Decade>/<slug>/
+│   │   ├── Books/<Decade>/<slug>/
+│   │   ├── Reports/<Decade>/<slug>/
+│   │   ├── Patents/<Decade>/<slug>/
+│   │   ├── CourtBriefs/<Decade>/<slug>/
+│   │   ├── SoftwareNotes/<Decade>/<slug>/
+│   │   ├── Presentations/<title-slug>/<venue-slug>/
+│   │   └── Data/                     # featured carousel, tab routing
+│   ├── Software/                     # /software/
+│   ├── Dataverse/                    # /dataverse/
+│   ├── People/{ResearchGroup,Profiles,Authors}/   # /research-group/, /people/, /authors/
+│   ├── Teaching/                     # /teaching/
+│   ├── ResearchAreas/                # /research-areas/
+│   ├── Blog/                         # /blog/
+│   ├── Contact/                      # /contact/
+│   ├── Misc/                         # standalone pages (advice, recs, …)
+│   └── Redirects/                    # legacy URL aliases
 │
-├── layouts/                  # Shared theme bits — STAYS at project root
-├── assets/css/custom.css     # Custom CSS — STAYS at project root
+├── layouts/                          # Shared theme bits — STAYS at project root
+├── assets/css/custom.css             # Custom CSS — STAYS at project root
 │
-├── _site/                    # Cross-section Hugo plumbing
-│   ├── static/files/         # PDFs and downloadable files
-│   ├── static/images/        # Site-wide images
+├── _site/                            # Cross-section Hugo plumbing
+│   ├── static/files/                 # PDFs and downloadable files
+│   ├── static/images/                # Site-wide images
 │   ├── archetypes/, i18n/
-│   └── data/                 # Cross-section data outputs
-├── _automation/              # Maintenance + intake bots
-│   ├── intake/               # Drop-zone for the auto-import bot
-│   └── scripts/              # Cross-section helper scripts
-├── docs/                     # Repo docs (UPDATING.md, etc.)
+│   └── data/                         # Cross-section data outputs
+├── _automation/                      # Maintenance + intake bots
+│   ├── intake/                       # Drop-zone for the auto-import bot
+│   └── scripts/                      # Every Python helper (writings/, people/, top-level)
+├── docs/                             # Repo docs (UPDATING.md, etc.)
 │
 ├── .github/workflows/        # CI/CD, intake bots, link checker
 ├── .githooks/                # post-commit auto-push hook

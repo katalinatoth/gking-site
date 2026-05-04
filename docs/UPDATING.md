@@ -184,9 +184,13 @@ gh pr create --fill                     # or open the URL git printed
 ```
 
 Wait ~1–2 minutes; the bot pushes a follow-up commit to your branch
-with a generated `writings/content/<slug>/index.md`, the moved PDF,
-an updated `writings/data/writings_legacy_map.json`, and a featured-image
+with a generated `EditMe/Writings/Articles/Unsorted/<slug>/index.md`,
+the moved PDF, an updated
+`EditMe/Writings/Data/writings_legacy_map.json`, and a featured-image
 thumbnail (see [What happens automatically](#what-happens-automatically)).
+Once you merge the PR, run `python3 _automation/scripts/regroup_articles.py`
+locally (or wait for the next scheduled run) to file the new bundle
+into the right Topic/Decade folder.
 
 **GitHub.com flow:**
 
@@ -216,7 +220,7 @@ git add -A && git commit -m "Add example paper"
 ### Quick add: talk / presentation
 
 Drop a slide-deck PDF in `_automation/intake/talk/` (note the `talk/` subfolder).
-The bot writes `talks/content/<slug>/index.md` (not `publication/`),
+The bot writes `EditMe/Writings/Presentations/<slug>/index.md` (not `publication/`),
 sets `publication_types: ["presentation"]`, routes the Writings tab to
 **Presentations**, and skips Crossref (slide decks aren't indexed).
 
@@ -239,9 +243,12 @@ exist yet, create it first via **Add file → Create new file** and type
 
 The talk schema is intentionally minimal — `title`, `date`, `authors`,
 `publication_types`, `links` — matching every existing entry under
-`talks/<section>/content/`. After the PR opens you can fix anything via the
-[slash commands](#slash-commands-for-the-pr-bot) or the **Files
-changed** pencil.
+`EditMe/Writings/Presentations/`. After the PR opens you can fix
+anything via the [slash commands](#slash-commands-for-the-pr-bot) or
+the **Files changed** pencil. Once merged, run
+`python3 _automation/scripts/regroup_presentations.py` to cluster the
+new talk under its title-slug if it shares a title with an existing
+talk.
 
 **No PDF for the talk?**
 
@@ -305,21 +312,25 @@ git add -A && git commit -m "Add my-tool software entry"
 
 That single command:
 
-- Writes `writings/content/my-tool/index.md` with
+- Writes `EditMe/Writings/Articles/Unsorted/my-tool/index.md` with
   `publication_types: ["software"]` and a `code` link to the GitHub URL.
-- Appends a row to `software/data/software_legacy_rows.yaml` so the entry shows
+  Run `_automation/scripts/regroup_writings.py` afterwards to file it
+  into `EditMe/Writings/SoftwareNotes/<Decade>/`.
+- Appends a row to `EditMe/Software/Data/software_legacy_rows.yaml` so the entry shows
   up at the top of `/software/` (newest year first). Pass
   `--status older` to put it in the desaturated "Older" section.
-- Adds the slug to `writings/data/writings_legacy_map.json` (`tab: software`)
+- Adds the slug to `EditMe/Writings/Data/writings_legacy_map.json` (`tab: software`)
   so it also lands on the Writings → Software tab.
 
 Other supported flags: `--cran <url>`, `--site <url>` (project website),
 `--pdf <path>` (rare — only if there's an accompanying PDF).
 
 **GitHub.com flow** (no terminal): click **Add file → Create new file**
-in the repo and type `writings/content/<slug>/index.md` as the path.
-Paste this template, fill it in, then commit on a new branch and merge
-the PR:
+in the repo and type
+`EditMe/Writings/Articles/Unsorted/<slug>/index.md` as the path
+(it'll be filed into `EditMe/Writings/SoftwareNotes/<Decade>/` later
+when you run `regroup_writings.py`). Paste this template, fill it in,
+then commit on a new branch and merge the PR:
 
 ```yaml
 ---
@@ -337,7 +348,7 @@ links:
 ---
 ```
 
-After merging, edit `software/data/software_legacy_rows.yaml` to add a row at
+After merging, edit `EditMe/Software/Data/software_legacy_rows.yaml` to add a row at
 the top:
 
 ```yaml
@@ -345,7 +356,7 @@ the top:
     slug: my-tool
 ```
 
-…and add an entry to `writings/data/writings_legacy_map.json`:
+…and add an entry to `EditMe/Writings/Data/writings_legacy_map.json`:
 
 ```json
 "my-tool": { "tab": "software", "drupal": "software" },
@@ -370,9 +381,13 @@ python3 _automation/scripts/quick_add.py patent \
 git add -A && git commit -m "Add new patent"
 ```
 
-That single command writes `writings/content/<slug>/index.md` with
+That single command writes
+`EditMe/Writings/Articles/Unsorted/<slug>/index.md` with
 `publication_types: ["patent"]`, routes the Writings tab to **Patents**,
-and (if you passed `--pdf`) copies the PDF to `_site/static/files/<slug>.pdf`.
+and (if you passed `--pdf`) copies the PDF to
+`_site/static/files/<slug>.pdf`. Run
+`_automation/scripts/regroup_writings.py` afterwards to file it into
+`EditMe/Writings/Patents/<Decade>/`.
 The `--source` URL becomes the **Publisher's Version** button link.
 
 If you _do_ have a PDF and would rather use the github.com upload UI,
@@ -403,11 +418,15 @@ For each PDF, the auto-import:
   publisher name, volume / issue / pages (or article number), year,
   and abstract.
 - Generates a slug from the title and creates the right `index.md`
-  under `writings/content/<slug>/` (papers, books, patents) or
-  `talks/content/<slug>/` (talks).
+  under `EditMe/Writings/Articles/Unsorted/<slug>/` (papers, books,
+  patents — a follow-up `regroup_articles.py` /
+  `regroup_writings.py` run files them into the right
+  `<Type>/<Topic>/<Decade>/` folder) or
+  `EditMe/Writings/Presentations/<slug>/` (talks — clustered later by
+  `regroup_presentations.py`).
 - Moves the PDF from `_automation/intake/` to `_site/static/files/<slug>.pdf` and links
   it from the page.
-- Adds the slug to `writings/data/writings_legacy_map.json` so it routes to the
+- Adds the slug to `EditMe/Writings/Data/writings_legacy_map.json` so it routes to the
   correct Writings-page tab.
 - Extracts a thumbnail: walks the PDF for embedded raster figures and
   saves the largest one (≥250 px on a side, with anti-monochrome
@@ -491,12 +510,12 @@ the root of your `gking-site` clone):
 
 ```bash
 pip install pyyaml certifi pymupdf      # one time
-python3 writings/scripts/intake_publication.py _automation/intake/whatever.pdf --dry-run
+python3 _automation/scripts/writings/intake_publication.py _automation/intake/whatever.pdf --dry-run
 # happy with the report? drop --dry-run:
-python3 writings/scripts/intake_publication.py _automation/intake/whatever.pdf
+python3 _automation/scripts/writings/intake_publication.py _automation/intake/whatever.pdf
 # subfolders work too:
-python3 writings/scripts/intake_publication.py _automation/intake/talk/slides.pdf
-python3 writings/scripts/intake_publication.py _automation/intake/book/manuscript.pdf
+python3 _automation/scripts/writings/intake_publication.py _automation/intake/talk/slides.pdf
+python3 _automation/scripts/writings/intake_publication.py _automation/intake/book/manuscript.pdf
 git add -A && git commit -m "Add new content"
 ```
 
@@ -529,89 +548,106 @@ matter without touching anything.
 
 ## How the repo is organized
 
-The repo is organised by **website section**, not by Hugo's hard-coded
-folder names. Anything Writings-related lives under `writings/`,
-everything People-related under `people/`, and so on. Hugo's expected
-`content/`, `layouts/`, `data/`, etc. paths are reassembled at build
-time via `module.mounts` in `hugo.yaml` — same URLs, same templates,
-the files just live in section folders on disk.
+Everything you can edit on the site lives under one top-level folder:
+`EditMe/`. Inside that folder there's one sub-folder per item in the
+site's main navigation, plus a `UI/` folder for the visual / aesthetic
+settings. Hugo's expected `content/`, `layouts/`, `data/` paths are
+reassembled at build time via `module.mounts` in `hugo.yaml` — same
+URLs, same templates, the files just live under `EditMe/` on disk.
 
 ```
-gking-site/                ← root of the git checkout
-├── home/                  ← homepage (content/_index.md → home/content/_index.md)
-├── bio/                   ← "Bio & C.V." (content + layouts)
-├── writings/              ← papers, articles, books, datasets, patents
-│   ├── content/           ← one folder per publication
-│   ├── data/              ← featured_publications.yaml, writings_legacy_map.json,
-│   │                          publication_first_commit.json, …
-│   ├── layouts/           ← publication-specific templates
-│   └── scripts/           ← intake_publication.py, fill_publication_from_doi.py, …
-├── talks/                 ← presentations / slide decks
-├── software/              ← software & R-package pages (+ software/data/*.yaml)
-├── dataverse/             ← Dataverse landing + dataverse/data/dataverse.json
-├── people/                ← research group, alumni, collaborators, authors
-│   ├── content/group/     ← /research-group/
-│   ├── content/profiles/  ← /people/<slug>/   (~350 profiles)
-│   ├── content/authors/   ← author taxonomy pages
-│   ├── data/research_group.json
-│   ├── layouts/           ← people/, research-group/ templates
-│   └── scripts/           ← rescrape_people.py, sync_research_group.py, …
-├── teaching/              ← Teaching page + per-class sub-pages
-├── research-areas/        ← Research Areas section
-├── blog/                  ← /blog/
-├── contact/               ← Contact page
-├── pages/                 ← standalone pages (apply, recs, aiwrite, …)
-├── redirects/             ← redirects/data/redirects.yaml + auto-generated stubs
+gking-site/hugo-site/             ← root of the git checkout
+├── EditMe/                       ← EVERY editable thing on the site
+│   ├── UI/                       ← per-section layout overrides + a pointer
+│   │                                to the project-root assets/ + layouts/
+│   │                                folders that can't move (PINNED-AT-ROOT.md)
+│   ├── HomePage/                 ← homepage (/_index.md)
+│   ├── Bio/                      ← "Bio & C.V."
+│   ├── Writings/                 ← papers, books, reports, patents, court
+│   │   │                            briefs, software-papers, slide decks —
+│   │   │                            organised by type, then research topic,
+│   │   │                            then decade. Same URLs as before.
+│   │   ├── Articles/<Topic>/<Decade>/<slug>/
+│   │   ├── Books/<Decade>/<slug>/
+│   │   ├── Reports/<Decade>/<slug>/
+│   │   ├── Patents/<Decade>/<slug>/
+│   │   ├── CourtBriefs/<Decade>/<slug>/
+│   │   ├── SoftwareNotes/<Decade>/<slug>/
+│   │   ├── Presentations/<title-slug>/<venue-slug>/
+│   │   └── Data/                 ← featured_publications.yaml,
+│   │                                writings_legacy_map.json, …
+│   ├── ResearchAreas/            ← Research Areas section
+│   ├── Software/                 ← software & R-package pages (+ Data/*.yaml)
+│   ├── Dataverse/                ← Dataverse landing (+ Data/dataverse.json)
+│   ├── People/                   ← research group, alumni, collaborators
+│   │   ├── ResearchGroup/        ← /research-group/
+│   │   ├── Profiles/             ← /people/<slug>/  (~350 profiles)
+│   │   ├── Authors/              ← author taxonomy pages
+│   │   └── Data/research_group.json
+│   ├── Teaching/                 ← Teaching page + per-class sub-pages
+│   ├── Blog/                     ← /blog/
+│   ├── Contact/                  ← Contact page
+│   ├── Misc/                     ← standalone pages (advice, recs, aiwrite, …)
+│   └── Redirects/Data/redirects.yaml  ← legacy URL aliases
 │
-├── layouts/               ← shared Hugo theme bits — baseof.html, _default/,
-│                              _partials/, shortcodes/, page/. STAYS at the
-│                              project root because HugoBlox's get_hook partial
-│                              calls os.ReadDir on this path literally and is
-│                              not mount-aware. Section-specific layouts live
-│                              under <section>/layouts/.
-├── assets/                ← css/custom.css + media/. STAYS at the project root
-│                              for the same reason (HugoBlox's site_head.html
-│                              uses fileExists on this path).
+├── layouts/                      ← shared Hugo theme bits — baseof.html,
+│                                    _default/, _partials/, shortcodes/, page/.
+│                                    STAYS at the project root because HugoBlox's
+│                                    get_hook partial calls os.ReadDir literally.
+├── assets/                       ← css/custom.css + media/. STAYS at the project
+│                                    root for the same reason (HugoBlox's
+│                                    site_head.html uses fileExists on this path).
 │
-├── _site/                 ← cross-section Hugo plumbing
-│   ├── static/files/      ← PDFs, slides, supplementary downloads
-│   ├── static/images/     ← bio photo, site-wide images
-│   ├── archetypes/, i18n/ ← Hugo's archetypes + i18n strings
-│   └── data/              ← cross-section data (citation audits, etc.)
+├── _site/                        ← cross-section Hugo plumbing
+│   ├── static/files/             ← PDFs, slides, supplementary downloads
+│   ├── static/images/            ← bio photo, site-wide images
+│   ├── archetypes/, i18n/        ← Hugo's archetypes + i18n strings
+│   └── data/                     ← cross-section data (citation audits, etc.)
 │
-├── _automation/           ← maintenance + intake bots
-│   ├── intake/            ← drop-zone for the auto-import bot
-│   │   ├── talk/          ← drop slide-deck PDFs here for the talk flow
-│   │   └── book/          ← drop book PDFs here for the book flow
-│   └── scripts/           ← cross-section helpers: build_redirects.py,
-│                              quick_add.py, intake_from_issue.py, …
+├── _automation/                  ← maintenance + intake bots
+│   ├── intake/                   ← drop-zone for the auto-import bot
+│   │   ├── talk/                 ← drop slide-deck PDFs here for the talk flow
+│   │   └── book/                 ← drop book PDFs here for the book flow
+│   └── scripts/                  ← every Python helper in the repo
+│       ├── writings/             ← intake_publication.py, fill_publication_from_doi.py, …
+│       ├── people/               ← rescrape_people.py, sync_research_group.py, …
+│       └── (top-level)           ← build_redirects.py, generate_mounts.py,
+│                                    quick_add.py, apply_pr_edits.py, …
 │
-├── docs/                  ← UPDATING.md (this file), MAINTENANCE.md,
-│                              WEBSITE_PRINCIPLES.md, audits/
+├── docs/                         ← UPDATING.md (this file), MAINTENANCE.md,
+│                                    WEBSITE_PRINCIPLES.md, REPO_LAYOUT.md, audits/
 │
-├── .github/workflows/     ← deploy + intake + link-check automations.
-├── .githooks/             ← post-commit auto-push hook.  Both stay at the
-│                              project root: GitHub Actions and git look for
-│                              these by literal path and don't follow Hugo
-│                              mounts.
+├── .github/workflows/            ← deploy + intake + link-check automations.
+├── .githooks/                    ← post-commit auto-push hook. Both stay at the
+│                                    project root: GitHub Actions and git look
+│                                    for these by literal path and don't follow
+│                                    Hugo mounts.
 │
-└── hugo.yaml              ← top-level Hugo config (menus, theme, mounts)
+└── hugo.yaml                     ← top-level Hugo config (menus, theme, mounts).
+                                     The mounts: block is auto-generated by
+                                     _automation/scripts/generate_mounts.py.
 ```
 
 Each piece of content is a folder whose name becomes part of the URL.
 The **target path** in `module.mounts` (not the source folder on disk)
-drives the URL. Example: `writings/content/ecological-inference/index.md`
+drives the URL. Example:
+`EditMe/Writings/Articles/EcologicalInference/2010s/ecological-inference/index.md`
 mounts onto `content/publication/ecological-inference/index.md`, which
 Hugo serves at
 `https://gking.harvard.edu/publication/ecological-inference/`.
 
-To trace history across the renames introduced by the section-driven
-reorg, pass `--follow` to `git log` / `git blame`:
+To trace history across the renames introduced by the EditMe/ reorg
+(and the section-driven reorg before it), pass `--follow` to
+`git log` / `git blame`:
 
 ```bash
-git log --follow -- writings/content/<slug>/index.md
-git blame --follow writings/content/<slug>/index.md
+git log --follow -- EditMe/Writings/Articles/<Topic>/<Decade>/<slug>/index.md
+git blame --follow EditMe/Writings/Articles/<Topic>/<Decade>/<slug>/index.md
 ```
+
+If you don't know the new physical home, point `--follow` at the
+original path (e.g. `writings/content/<slug>/index.md`) and git will
+trace forward through every rename automatically.
 
 ---
 
@@ -621,7 +657,7 @@ git blame --follow writings/content/<slug>/index.md
 
 ```bash
 cd gking-site
-$EDITOR writings/content/some-paper/index.md
+$EDITOR EditMe/Writings/Articles/CausalInference/2020s/some-paper/index.md
 git add -A && git commit -m "Fix typo in abstract"
 # (auto-push hook pushes; otherwise: `git push`)
 ```
@@ -632,12 +668,13 @@ editor — Hugo picks up new content automatically on the next build.
 ### GitHub.com
 
 1. Go to <https://github.com/iqss-research/gking-site>.
-2. Click into the folder you want (e.g. `writings/<section>/content/`).
+2. Click into the folder you want (e.g.
+   `EditMe/Writings/Articles/<Topic>/<Decade>/`).
 3. Click any file → pencil icon → make changes → scroll down →
    **Commit changes**.
 4. To **add a new file**: browse to the parent folder → **Add file →
    Create new file**. Type the full path in the filename box, e.g.
-   `writings/content/my-new-paper/index.md`, then paste
+   `EditMe/Writings/Articles/Unsorted/my-new-paper/index.md`, then paste
    the template below.
 5. To **upload PDFs**: browse to `_site/static/files/` →
    **Add file → Upload files** → drag the PDF in → Commit.
@@ -665,15 +702,28 @@ lowercase, hyphenated filename, e.g.
 
 ### Step 2 — create the page folder
 
-Create a new file at:
+Create a new file at one of:
 
 ```
-writings/content/<slug>/index.md
+EditMe/Writings/Articles/<Topic>/<Decade>/<slug>/index.md
+EditMe/Writings/Books/<Decade>/<slug>/index.md
+EditMe/Writings/Reports/<Decade>/<slug>/index.md
+EditMe/Writings/Patents/<Decade>/<slug>/index.md
+EditMe/Writings/CourtBriefs/<Decade>/<slug>/index.md
+EditMe/Writings/SoftwareNotes/<Decade>/<slug>/index.md
 ```
 
-`<slug>` is whatever you want in the URL (lowercase, hyphens, no
-spaces). It becomes the page URL permanently — pick something readable
-and stable.
+`<Topic>` is one of the categories in `EditMe/Writings/Articles/`
+(`CausalInference`, `EcologicalInference`, `SurveyResearch`, …).
+`<Decade>` is the publication decade (`2020s`, `2010s`, …). `<slug>`
+is whatever you want in the URL (lowercase, hyphens, no spaces). The
+slug becomes the page URL permanently — pick something readable and
+stable.
+
+If you're not sure what the right Topic / Decade is, drop the page
+into `EditMe/Writings/Articles/Unsorted/<slug>/index.md` and run
+`python3 _automation/scripts/regroup_articles.py` afterwards to file
+it automatically.
 
 ### Step 3 — paste this template and edit
 
@@ -724,7 +774,7 @@ links:
 
 ### Step 4 — pick the Writings tab
 
-Tab placement is driven by `writings/data/writings_legacy_map.json`, which
+Tab placement is driven by `EditMe/Writings/Data/writings_legacy_map.json`, which
 records each item's legacy category. The intake bot updates this for
 you; if you're hand-writing a page, append an entry like:
 
@@ -752,18 +802,25 @@ separate edit there.
 
 Drop a `featured.jpg` or `featured.png` next to `index.md`. It's shown
 at the top of the page and as the card thumbnail on the Writings list.
-If you don't, the [`writings/scripts/add_featured_from_pdf.py`](#helper-scripts-terminal-only)
+If you don't, the [`_automation/scripts/writings/add_featured_from_pdf.py`](#helper-scripts-terminal-only)
 helper can render page 1 of the PDF for you.
 
 ---
 
 ## Add a talk or presentation
 
-Same pattern as a publication, but under `talks/<section>/content/`:
+Same pattern as a publication, but under
+`EditMe/Writings/Presentations/`. Talks cluster by title-slug so
+multiple venues for the same talk live as siblings:
 
 ```
-talks/content/<slug>/index.md
+EditMe/Writings/Presentations/<title-slug>/<venue-slug>/index.md
 ```
+
+If you're a single one-off venue and unsure how to slug, drop the page
+in flat under `EditMe/Writings/Presentations/<slug>/index.md` and run
+`python3 _automation/scripts/regroup_presentations.py` to cluster it
+automatically.
 
 ```yaml
 ---
@@ -790,10 +847,10 @@ tab is driven from the publication side, not the talk side.
 
 ## Add a software / R package page
 
-Under `software/<section>/content/`:
+Under `EditMe/Software/`:
 
 ```
-software/content/<slug>/index.md
+EditMe/Software/<slug>/index.md
 ```
 
 ```yaml
@@ -828,7 +885,7 @@ The software landing page groups items into two visual sections:
   superseded, or no-longer-maintained software.
 
 Which group a row lands in is controlled by
-`software/data/software_legacy_rows.yaml`:
+`EditMe/Software/Data/software_legacy_rows.yaml`:
 
 ```yaml
 rows:
@@ -843,17 +900,17 @@ rows:
 `status` accepts `current` (or omit) and `older`. Within each group,
 rows are sorted by `year` descending. To add a new item, append a row
 with `year`, `slug`, and (optionally) `status`. The `slug` must match a
-folder under `writings/<section>/content/` *or* `software/<section>/content/`.
+folder somewhere under `EditMe/Writings/` *or* `EditMe/Software/`.
 
 A few related data files you usually don't need to touch:
 
-- `software/data/software_legacy_overrides.yaml` — per-slug citation lines, list
+- `EditMe/Software/Data/software_legacy_overrides.yaml` — per-slug citation lines, list
   titles, alternate links, abstract suppression.
-- `software/data/software_fallback_urls.yaml` — direct URLs for software whose
+- `EditMe/Software/Data/software_fallback_urls.yaml` — direct URLs for software whose
   publication+software bundle has no http(s) link.
-- `software/data/software_prefer_internal.yaml` — slugs where lists should link
+- `EditMe/Software/Data/software_prefer_internal.yaml` — slugs where lists should link
   to `/software/<slug>/` first instead of an external project URL.
-- `software/data/software_list_exclude.yaml` — currently empty hook for one-off
+- `EditMe/Software/Data/software_list_exclude.yaml` — currently empty hook for one-off
   exclusions.
 
 ---
@@ -879,7 +936,7 @@ related_paper: "publication-slug-of-the-paper"
 ```
 
 The Dataverse landing page (`/dataverse/`) is built from
-`dataverse/data/dataverse.json`, which is regenerated by scrapers when needed —
+`EditMe/Dataverse/Data/dataverse.json`, which is regenerated by scrapers when needed —
 you usually don't edit it directly.
 
 ---
@@ -887,7 +944,7 @@ you usually don't edit it directly.
 ## Featured publications spotlight
 
 The "Working Papers" spotlight at the top of `/publication/` is
-controlled by `writings/data/featured_publications.yaml`:
+controlled by `EditMe/Writings/Data/featured_publications.yaml`:
 
 ```yaml
 count: 5
@@ -914,13 +971,13 @@ How the displayed list is built:
 3. The displayed list is capped at `count` entries (set `count: 0` to
    hide the spotlight).
 
-First-commit dates live in `writings/data/publication_first_commit.json` and are
+First-commit dates live in `EditMe/Writings/Data/publication_first_commit.json` and are
 refreshed automatically in CI by
-`writings/scripts/compute_publication_first_commit.py`. Run it locally any time
+`_automation/scripts/writings/compute_publication_first_commit.py`. Run it locally any time
 with:
 
 ```bash
-python3 writings/scripts/compute_publication_first_commit.py
+python3 _automation/scripts/writings/compute_publication_first_commit.py
 ```
 
 Edit `order` to pin a slug into the list, or `exclude` to keep a recent
@@ -959,7 +1016,7 @@ paper, talk, and software page. The rules:
 
 ## Update the bio or CV
 
-**Bio text** — edit `bio/content/index.md`. The portion below
+**Bio text** — edit `EditMe/Bio/index.md`. The portion below
 the front matter `---` is plain Markdown / HTML; write naturally.
 
 **CV PDF** — replace `_site/static/files/vitae.pdf` (overwrite the
@@ -975,9 +1032,9 @@ there.
 
 People are managed in two places:
 
-- `people/content/profiles/<slug>/index.md` — one folder per person
+- `EditMe/People/Profiles/<slug>/index.md` — one folder per person
   with a tiny YAML stub.
-- `people/data/research_group.json` — Harvard taxonomy (categories,
+- `EditMe/People/Data/research_group.json` — Harvard taxonomy (categories,
   affiliations, last-name letter buckets) that drives the filter
   sidebar on the People page.
 
@@ -996,7 +1053,7 @@ that template directly (look for the `<a href="...">` cards under each
 Everyone else (alumni, post-docs, collaborators) lives below in the
 filterable list. To add someone:
 
-1. Create `people/content/profiles/<slug>/index.md`:
+1. Create `EditMe/People/Profiles/<slug>/index.md`:
 
    ```yaml
    ---
@@ -1010,11 +1067,11 @@ filterable list. To add someone:
 
    Valid `research_group_category` values:
    `alumni_students`, `alumni_postdocs`, `collaborators`. Multiple
-   categories per person come from `people/data/research_group.json` (see
+   categories per person come from `EditMe/People/Data/research_group.json` (see
    below).
 
 2. (Optional but recommended) add a row to
-   `people/data/research_group.json` so the affiliation /
+   `EditMe/People/Data/research_group.json` so the affiliation /
    letter-bucket filters count them correctly:
 
    ```json
@@ -1034,14 +1091,14 @@ To **move someone between alumni / collaborators**, edit
 `research_group_category` (in their `index.md`) or
 `research_group_categories` (in `research_group.json`).
 
-To **remove** someone, delete the folder under `people/content/profiles/` and
-the matching row in `people/data/research_group.json`.
+To **remove** someone, delete the folder under `EditMe/People/Profiles/` and
+the matching row in `EditMe/People/Data/research_group.json`.
 
 ---
 
 ## Edit the homepage
 
-The homepage at `home/content/_index.md` is intentionally minimal:
+The homepage at `EditMe/HomePage/_index.md` is intentionally minimal:
 
 ```yaml
 ---
@@ -1055,9 +1112,9 @@ papers, books, software, etc.) are rendered by
 `home/layouts/landing/list.html`, which pulls from:
 
 - `writings/<section>/content/` (newest entries by `date`)
-- `writings/data/writings_legacy_map.json` (for "Books")
-- `writings/data/featured_publications.yaml` (for the Working Papers spotlight)
-- `research-areas/data/research_areas.json` (for the Research Areas grid)
+- `EditMe/Writings/Data/writings_legacy_map.json` (for "Books")
+- `EditMe/Writings/Data/featured_publications.yaml` (for the Working Papers spotlight)
+- `EditMe/ResearchAreas/Data/research_areas.json` (for the Research Areas grid)
 
 So most homepage updates happen by editing one of those files (a paper
 front-matter, the spotlight, the research area), not the homepage
@@ -1108,7 +1165,7 @@ Add, remove, or reorder by editing this list.
 ## Change a button label
 
 Button text such as "Article" or "Publisher's Version" is controlled
-in `i18n/en.yaml`:
+in `_site/i18n/en.yaml`:
 
 ```yaml
 - id: btn_pdf
@@ -1124,7 +1181,7 @@ Change the value on the right, commit.
 ## Add a paper to a Research Area
 
 Research-area groupings live in
-`research-areas/data/research_areas.json`. The file has two top-level keys —
+`EditMe/ResearchAreas/Data/research_areas.json`. The file has two top-level keys —
 `methods` and `applications` — each containing areas, each with
 subcategories, each with a `papers:` list. To add a paper, append an
 entry to the right `papers` list:
@@ -1153,24 +1210,24 @@ slug + subcategory waiting for you.
 
 ## Edit the teaching / contact / other pages
 
-Plain pages all live under `<section>/content/`, one folder each, with
-an `index.md` (or `_index.md` for section pages). Edit the Markdown
-directly.
+Plain pages all live under their section folder inside `EditMe/`, one
+folder each, with an `index.md` (or `_index.md` for section pages).
+Edit the Markdown directly.
 
 | Page                        | File                                |
 | --------------------------- | ----------------------------------- |
-| Teaching                    | `teaching/home/content/_index.md`        |
-| Per-class teaching sub-page | `teaching/content/<class>/index.md` |
-| Contact                     | `contact/content/index.md`          |
-| Dataverse                   | `dataverse/content/index.md`        |
-| Research Group landing      | `people/content/group/index.md`   |
-| Homepage                    | `home/content/_index.md`                 |
-| Bio                         | `bio/content/index.md`              |
+| Teaching                    | `EditMe/Teaching/_index.md`        |
+| Per-class teaching sub-page | `EditMe/Teaching/<class>/index.md` |
+| Contact                     | `EditMe/Contact/index.md`          |
+| Dataverse                   | `EditMe/Dataverse/index.md`        |
+| Research Group landing      | `EditMe/People/ResearchGroup/index.md`   |
+| Homepage                    | `EditMe/HomePage/_index.md`                 |
+| Bio                         | `EditMe/Bio/index.md`              |
 
 ### Advice & Suggestions
 
 All of the "Advice and Suggestions" links live at the **bottom of the
-Teaching page** (`teaching/home/content/_index.md`, under the `<h2
+Teaching page** (`EditMe/Teaching/_index.md`, under the `<h2
 id="advice">` heading). The footer bar's "Advice and Suggestions" link
 jumps there via the `#advice` anchor, and the legacy `/advice/` URL
 auto-redirects to the Teaching page (via the `aliases:` entry at the
@@ -1192,7 +1249,7 @@ simpler way: **one YAML file for the whole list**.
 > including `/zoom`, `/Gov2020`, all the long-form Drupal slugs
 > (`/cem-coarsened-exact-matching-software` → `/publication/cem-...-software/`),
 > all the legacy `/research-interests/...` and `/category/research-interests/...`
-> taxonomy paths (forward to `/research-areas/`), all the `/classes/...` and
+> taxonomy paths (forward to `/EditMe/ResearchAreas/`), all the `/classes/...` and
 > `/class/...` course paths (forward to `/teaching/...`), the homepage
 > aliases (`/home`, `/home3`, `/home-page`, `/original-home-page`, …),
 > and many file-path redirects (`/files/gking/files/teaching.pdf` →
@@ -1205,7 +1262,7 @@ simpler way: **one YAML file for the whole list**.
 > Drupal stored as path *aliases* — not as redirects — and so don't
 > appear in the CSV. The translation lives in
 > `_automation/scripts/import_drupal_redirects.py` and is materialised into two
-> blocks in `redirects/data/redirects.yaml`:
+> blocks in `EditMe/Redirects/Data/redirects.yaml`:
 >
 > - `# BEGIN drupal-redirects-import` — every spreadsheet row, with
 >   each `to:` chain-resolved through to a real new-site URL.
@@ -1229,7 +1286,7 @@ simpler way: **one YAML file for the whole list**.
 
 ### (A) Short URL that forwards somewhere
 
-Edit `redirects/data/redirects.yaml`. It's a list under `redirects:`,
+Edit `EditMe/Redirects/Data/redirects.yaml`. It's a list under `redirects:`,
 one entry per short URL:
 
 ```yaml
@@ -1282,7 +1339,7 @@ and writes the actual HTML stubs into `redirects/<section>/content/` (gitignored
 If the short URL is *about* a particular paper and should redirect to
 that paper's page, you have two equally-good options:
 
-**Option 1** — add it to `redirects/data/redirects.yaml` (same as above), pointing
+**Option 1** — add it to `EditMe/Redirects/Data/redirects.yaml` (same as above), pointing
 `to:` at the paper's path. Simple, and keeps all redirects in one place.
 
 **Option 2** — add it to the paper's own `index.md` as an `aliases:`
@@ -1314,11 +1371,11 @@ Every paper, talk, and software page on the new site uses the **same
 slug** as the old Drupal site, so URLs like
 `/publication/quest-a-better-way.../` already work without any extra
 configuration. Section pages (`/bio/`, `/contact/`, `/dataverse/`,
-`/teaching/`, `/research-areas/`, `/research-group/`, etc.) are
+`/teaching/`, `/EditMe/ResearchAreas/`, `/research-group/`, etc.) are
 preserved too.
 
 If you spot an old URL that stopped working after the migration, add
-it to `redirects/data/redirects.yaml` pointing at its new home, and the old link
+it to `EditMe/Redirects/Data/redirects.yaml` pointing at its new home, and the old link
 will work again.
 
 ---
@@ -1326,8 +1383,8 @@ will work again.
 ## Helper scripts (terminal only)
 
 These live under `_automation/scripts/` (cross-section helpers),
-`writings/scripts/` (intake / DOI / link audits), and
-`people/scripts/` (profile sync / rescrape). The table below shows
+`_automation/scripts/writings/` (intake / DOI / link audits), and
+`_automation/scripts/people/` (profile sync / rescrape). The table below shows
 each script's current path. Most are dry-run by default and ask for
 `--apply` (or have an obvious side-effect path) before they touch
 files.
@@ -1335,23 +1392,28 @@ files.
 | Script | What it does |
 |---|---|
 | `_automation/scripts/enable-auto-push.sh` | One-shot — registers `.githooks/post-commit` so every commit auto-pushes to `origin`. |
-| `writings/scripts/intake_publication.py` | The auto-import pipeline used by CI. Run locally with `python3 writings/scripts/intake_publication.py _automation/intake/foo.pdf [--dry-run]` to bypass the PR flow. Subfolder picks the type: `_automation/intake/foo.pdf` = paper, `_automation/intake/talk/foo.pdf` = presentation, `_automation/intake/book/foo.pdf` = book. |
+| `_automation/scripts/writings/intake_publication.py` | The auto-import pipeline used by CI. Run locally with `python3 _automation/scripts/writings/intake_publication.py _automation/intake/foo.pdf [--dry-run]` to bypass the PR flow. Subfolder picks the type: `_automation/intake/foo.pdf` = paper, `_automation/intake/talk/foo.pdf` = presentation, `_automation/intake/book/foo.pdf` = book. |
 | `_automation/scripts/quick_add.py` | Companion to `intake_publication.py` for content that doesn't have a PDF (software, patents) or where you already have all the metadata. `python3 _automation/scripts/quick_add.py {software,patent,paper,talk,book} --title ... --slug ...`. See [Quick add](#quick-add). |
-| `_automation/scripts/apply_pr_edits.py` | The slash-command processor used by CI. Useful for testing locally: `python3 _automation/scripts/apply_pr_edits.py --comment body.txt --report r.json writings/content/foo/index.md`. |
-| `_automation/scripts/build_redirects.py` | Regenerates the meta-refresh stubs and Netlify `_redirects` file from `redirects/data/redirects.yaml`. Supports single- and multi-segment paths and preserves case. Runs automatically in CI. |
-| `_automation/scripts/import_drupal_redirects.py` | Recovers redirects from the old Drupal site. Reads `scraped_data/drupal_redirects.csv` (the official Harvard Web Publishing redirect-summary export) plus a hand-curated `VANITY_TO_NEWSITE` table covering vanity short URLs Drupal stored as path aliases (`/whatif`, `/amelia`, `/Gov2020`, `/CompSS`, …). Translates each entry's target through to a real new-site URL — including translating truncated content directory names to their full Hugo-published URL — and writes the result into the `BEGIN drupal-redirects-import` and `BEGIN vanity-shorts-import` blocks of `redirects/data/redirects.yaml`. For mixed-case vanity originals also emits a lowercase alias (Drupal was case-insensitive, the new site isn't). Idempotent — re-runs replace only those blocks, leaving hand-added redirects elsewhere in the file untouched. |
-| `writings/scripts/compute_publication_first_commit.py` | Refreshes `writings/data/publication_first_commit.json` (drives the spotlight ordering). Runs automatically in CI. |
-| `writings/scripts/fill_publication_from_doi.py` | Fills the `publication:` citation line on existing pages from Crossref by DOI. Add `--apply` to write. |
-| `writings/scripts/repair_publication_links.py` | Audits external URLs in publication front matter; rewrites tinyurl/ezproxy/dead links to canonical DOIs. `--apply` to write. |
-| `writings/scripts/audit_writings_citations.py` | Cross-references each publication with Crossref and writes a JSON + text summary report. |
-| `writings/scripts/add_featured_from_pdf.py` | For each `writings/content/*/` missing a `featured.*`, renders page 1 of the linked PDF as `featured.png`. `--apply` to write. |
-| `writings/scripts/fetch_publication_thumbnails.py` | Re-downloads featured thumbnails from the legacy Drupal site (uses `scraped_data/`). |
-| `writings/scripts/refresh_featured_uncropped.py` | Replaces older Drupal-cropped thumbnails with full-resolution originals (HTML scrape + PDF figure match). |
-| `_automation/scripts/fix_mojibake_markdown.py` | Repairs UTF-8 encoded-as-Latin-1 mojibake (smart quotes, en dashes, NBSP) across every `<section>/content/`. Requires `pip install ftfy`. |
-| `people/scripts/enrich_people_profiles.py`, `people/scripts/rescrape_people.py` | Fill / refresh `people/content/profiles/<slug>/index.md` stubs from upstream sources. |
-| `people/scripts/sync_research_group.py`, `people/scripts/sync_research_group_from_harvard.py` | Refresh `people/data/research_group.json` from the Harvard / IQSS roster. |
-| `writings/scripts/verify_writings_parity.py` | Sanity-check that every legacy slug has a matching new-site page. |
-| `writings/scripts/build_writings_legacy_map.py` | Rebuild `writings/data/writings_legacy_map.json` from `scraped_data/`. |
+| `_automation/scripts/apply_pr_edits.py` | The slash-command processor used by CI. Useful for testing locally: `python3 _automation/scripts/apply_pr_edits.py --comment body.txt --report r.json EditMe/Writings/foo/index.md`. |
+| `_automation/scripts/build_redirects.py` | Regenerates the meta-refresh stubs and Netlify `_redirects` file from `EditMe/Redirects/Data/redirects.yaml`. Supports single- and multi-segment paths and preserves case. Runs automatically in CI. |
+| `_automation/scripts/import_drupal_redirects.py` | Recovers redirects from the old Drupal site. Reads `scraped_data/drupal_redirects.csv` (the official Harvard Web Publishing redirect-summary export) plus a hand-curated `VANITY_TO_NEWSITE` table covering vanity short URLs Drupal stored as path aliases (`/whatif`, `/amelia`, `/Gov2020`, `/CompSS`, …). Translates each entry's target through to a real new-site URL — including translating truncated content directory names to their full Hugo-published URL — and writes the result into the `BEGIN drupal-redirects-import` and `BEGIN vanity-shorts-import` blocks of `EditMe/Redirects/Data/redirects.yaml`. For mixed-case vanity originals also emits a lowercase alias (Drupal was case-insensitive, the new site isn't). Idempotent — re-runs replace only those blocks, leaving hand-added redirects elsewhere in the file untouched. |
+| `_automation/scripts/writings/compute_publication_first_commit.py` | Refreshes `EditMe/Writings/Data/publication_first_commit.json` (drives the spotlight ordering). Runs automatically in CI. |
+| `_automation/scripts/writings/fill_publication_from_doi.py` | Fills the `publication:` citation line on existing pages from Crossref by DOI. Add `--apply` to write. |
+| `_automation/scripts/writings/repair_publication_links.py` | Audits external URLs in publication front matter; rewrites tinyurl/ezproxy/dead links to canonical DOIs. `--apply` to write. |
+| `_automation/scripts/writings/audit_writings_citations.py` | Cross-references each publication with Crossref and writes a JSON + text summary report. |
+| `_automation/scripts/writings/add_featured_from_pdf.py` | For each leaf bundle under `EditMe/Writings/` missing a `featured.*`, renders page 1 of the linked PDF as `featured.png`. `--apply` to write. |
+| `_automation/scripts/writings/fetch_publication_thumbnails.py` | Re-downloads featured thumbnails from the legacy Drupal site (uses `scraped_data/`). |
+| `_automation/scripts/writings/refresh_featured_uncropped.py` | Replaces older Drupal-cropped thumbnails with full-resolution originals (HTML scrape + PDF figure match). |
+| `_automation/scripts/fix_mojibake_markdown.py` | Repairs UTF-8 encoded-as-Latin-1 mojibake (smart quotes, en dashes, NBSP) across every markdown file under `EditMe/`. Requires `pip install ftfy`. |
+| `_automation/scripts/people/enrich_people_profiles.py`, `_automation/scripts/people/rescrape_people.py` | Fill / refresh `EditMe/People/Profiles/<slug>/index.md` stubs from upstream sources. |
+| `_automation/scripts/people/sync_research_group.py`, `_automation/scripts/people/sync_research_group_from_harvard.py` | Refresh `EditMe/People/Data/research_group.json` from the Harvard / IQSS roster. |
+| `_automation/scripts/writings/verify_writings_parity.py` | Sanity-check that every legacy slug has a matching new-site page. |
+| `_automation/scripts/writings/build_writings_legacy_map.py` | Rebuild `EditMe/Writings/Data/writings_legacy_map.json` from `scraped_data/`. |
+| `_automation/scripts/regroup_writings.py` | Move bundles out of `EditMe/Writings/Articles/Unsorted/` into the right `Books/`, `Reports/`, `Patents/`, `CourtBriefs/`, or `SoftwareNotes/` bucket (by `<Decade>/`). Run after the intake bot lands a new non-article paper. |
+| `_automation/scripts/regroup_articles.py` | Sort `EditMe/Writings/Articles/Unsorted/` bundles into `<Topic>/<Decade>/` using `EditMe/ResearchAreas/Data/research_areas.json` and the bundle's `date`. Run after the intake bot lands a new article. |
+| `_automation/scripts/regroup_presentations.py` | Cluster flat `EditMe/Writings/Presentations/<slug>/` bundles into `<title-slug>/<venue-slug>/` so multi-venue talks share one parent folder. Run after the intake bot lands a new talk. |
+| `_automation/scripts/redecade_unknown.py` | One-shot helper for re-filing bundles whose `date` couldn't be parsed on the first regroup pass. |
+| `_automation/scripts/generate_mounts.py` | Regenerate the auto-generated `module.mounts` block in `hugo.yaml` after adding or removing folders under `EditMe/`. `--check` exits non-zero if `hugo.yaml` is stale. |
 | `_automation/scripts/convert.py`, `_automation/scripts/scrape.py` | Original migration scripts (one-time, kept for reference). |
 
 Most scripts only need `pip install -r _automation/scripts/requirements.txt`. A

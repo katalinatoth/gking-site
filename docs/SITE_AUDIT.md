@@ -144,7 +144,7 @@ two research areas.
    `layouts/landing/list.html`. Expected saving: ~250 KB HTML,
    ~30 KB gzipped.
 2. *(Medium)* Inline only area titles/descriptions; move paper
-   metadata into `/research-areas/data.json` and hydrate each
+   metadata into `/EditMe/ResearchAreas/Data.json` and hydrate each
    area's subcategory lazily when the user opens it (one-shot
    `fetch` on first `toggle`). Expected saving: ~800 KB HTML,
    and cheaper renders for a page that already fails the "only
@@ -245,7 +245,7 @@ Two micro-fixes:
 
 1. Make the area title itself open in-place *and* show a thin
    "→ See all" link that jumps to a dedicated
-   `/research-areas/ecological-inference/` page (already exists
+   `/EditMe/ResearchAreas/ecological-inference/` page (already exists
    — it's how the site is structured). That gives both a quick
    peek and a deep-dive in one click.
 2. On the subcategory rows, make the whole row clickable (not
@@ -325,14 +325,14 @@ area" and double the discovery paths.
 
 Give each research area a page-size hero:
 
-- `/research-areas/ecological-inference/` with a 1-paragraph
+- `/EditMe/ResearchAreas/ecological-inference/` with a 1-paragraph
   overview + the 3–5 representative papers + the software +
   the talks, not the exhaustive list.
 
 Many of these URLs already resolve; they're currently rendered
-with the generic `/research-areas/` list template. Swapping in
+with the generic `/EditMe/ResearchAreas/` list template. Swapping in
 a `section.html` that uses the curated first-line blurbs in
-`research-areas/data/research_areas.json` would be a 30-minute job
+`EditMe/ResearchAreas/Data/research_areas.json` would be a 30-minute job
 and give the site five new "shop window" pages.
 
 ### Small polish
@@ -399,7 +399,7 @@ and give the site five new "shop window" pages.
    paper is a 20-minute read rather than a 90-minute one.
 8. **Paper series / co-author graph landing page.** Given all
    the coauthor metadata you already have in
-   `people/content/authors/`, a small D3 or sigma.js graph on
+   `EditMe/People/Authors/`, a small D3 or sigma.js graph on
    `/people/` or `/research-group/` would be a conversation
    piece and a genuine discovery tool.
 9. **Canonical "How to cite Gary's work"** page linked from the
