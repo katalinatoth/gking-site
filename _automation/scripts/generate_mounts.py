@@ -170,34 +170,44 @@ def has_real_content(path: Path) -> bool:
 def find_page_bundle_parents(root: Path) -> list[Path]:
     """Find the smallest directories that directly contain page bundles.
 
-    A page bundle is a directory containing `index.md` (the leaf-page
-    convention used by Hugo). The "parent" of a page bundle is the
-    directory immediately above it; that's what we mount.
+    A page bundle is a directory containing `index.md`. The "parent" of
+    a page bundle is the directory immediately above it; that's what we
+    mount. Multiple sibling bundles under the same parent collapse into
+    one mount.
 
-    `_index.md` files are *section* markers that travel with their parent
-    mount; we don't walk them separately, because doing so would emit
-    redundant ancestor mounts when a section folder also contains a
-    sub-section.
+    `_index.md` files are *section* markers that travel with their
+    parent mount, so we only walk `index.md` here — walking `_index.md`
+    would emit redundant ancestor mounts whenever a section folder also
+    contains a sub-section.
+
+    Sanity: this function ALSO checks that bundle directory names are
+    unique across the returned set, so multiple mounts to the same Hugo
+    target directory don't accidentally clobber each other. If it ever
+    fails, switch the caller to per-leaf mounts.
     """
     if not root.exists():
         return []
     parents: set[Path] = set()
+    bundles_by_name: dict[str, Path] = {}
     for index_md in root.rglob("index.md"):
         bundle = index_md.parent
         if bundle == root:
-            # index.md directly in root means root itself wraps a page bundle.
-            # Skip — caller handles via CONTENT_SHALLOW for these cases.
             continue
         bundle_parent = bundle.parent
-        # Stay within `root`.
         try:
             bundle_parent.relative_to(root)
         except ValueError:
             continue
         parents.add(bundle_parent)
+        prior = bundles_by_name.get(bundle.name)
+        if prior is not None and prior != bundle:
+            print(
+                f"WARN: duplicate bundle name '{bundle.name}' under {root}: "
+                f"{prior} vs {bundle}",
+                file=sys.stderr,
+            )
+        bundles_by_name[bundle.name] = bundle
 
-    # Prune ancestors when a strict descendant is also present. Keeps mounts
-    # narrow so we never double-mount the same content.
     pruned = set(parents)
     for p in parents:
         for q in parents:

@@ -1,0 +1,170 @@
+{{ define "main" }}
+{{ $rows := site.Data.software_legacy_rows.rows | default slice }}
+{{ $ovAll := site.Data.software_legacy_overrides.per_slug | default dict }}
+
+<div class="gk-sw-page page-body" style="max-width:900px;margin:0 auto;padding:2rem 1.5rem;">
+  <h1 style="font-size:2.5rem;font-weight:700;margin:0 0 1rem;">{{ .Title }}</h1>
+  <p style="margin:0 0 1.25rem;font-size:1rem;color:#333;">Follow links for the software or where to ask questions</p>
+
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.25rem;flex-wrap:wrap;gap:8px;">
+    <span id="gk-sw-count" style="font-size:0.9rem;color:#666;">{{ len $rows }} software citation{{ if ne (len $rows) 1 }}s{{ end }}</span>
+    <button id="gk-sw-download" type="button" style="padding:4px 12px;background:#337ab7;color:#fff;border:none;border-radius:4px;font-size:0.85rem;cursor:pointer;">Download citations</button>
+  </div>
+
+  {{/* Two groups: the default (unnamed) group lists actively-maintained
+       software; "Older" collects items where code is archived, superseded,
+       or no longer actively maintained. Rows default to "current" when
+       `status` is omitted. */}}
+  {{ $statusGroups := slice
+      (dict "id" "current" "label" "" "blurb" "")
+      (dict "id" "older" "label" "Older" "blurb" "")
+  }}
+
+  <div id="gk-sw-list">
+  {{ range $group := $statusGroups }}
+    {{ $gid := $group.id }}
+    {{ $matches := where $rows "status" $gid }}
+    {{ if eq $gid "current" }}
+      {{/* Rows without an explicit status default to "current". */}}
+      {{ $noStatus := where $rows "status" nil }}
+      {{ $matches = $matches | append $noStatus }}
+    {{ end }}
+    {{ if gt (len $matches) 0 }}
+      {{ $matches = sort $matches "year" "desc" }}
+      <section class="gk-sw-group gk-sw-group--{{ $gid }}" id="sw-{{ $gid }}" style="margin-top:1.75rem;">
+        {{ if $group.label }}
+        <h2 class="gk-sw-group__heading">{{ $group.label | safeHTML }}</h2>
+        {{ end }}
+        {{ if $group.blurb }}
+        <p class="gk-sw-group__blurb">{{ $group.blurb }}</p>
+        {{ end }}
+        {{ range $matches }}
+          {{ $slug := .slug }}
+          {{ $yr := printf "%d" .year }}
+          {{ $p := site.GetPage (printf "/publication/%s" $slug) }}
+          {{ $o := index $ovAll $slug | default dict }}
+          {{ $cite := "" }}
+          {{ with $o.citation_line }}{{ $cite = . }}{{ else }}{{ $cite = partial "software_legacy_author_year.html" (dict "page" $p "year" $yr) }}{{ end }}
+          {{ $listTitle := $p.Title }}
+          {{ with $o.list_title }}{{ $listTitle = . }}{{ end }}
+          {{ $href := "" }}
+          {{ with $o.href }}{{ $href = . }}{{ else }}{{ $href = partial "software_page_href.html" $p }}{{ end }}
+          {{ $abs := "" }}
+          {{ if not ($o.suppress_abstract | default false) }}
+            {{ with $o.abstract }}{{ $abs = . }}{{ else }}{{ with $p.Params.summary }}{{ $abs = . }}{{ else }}{{ with $p.Params.abstract }}{{ $abs = . }}{{ end }}{{ end }}{{ end }}
+          {{ end }}
+          <div class="gk-sw-row gk-sw-card" data-slug="{{ $slug }}" data-status="{{ $gid }}" data-year="{{ $yr }}">
+            <p style="margin:0;font-size:0.98rem;line-height:1.5;color:#111;">{{ $cite }} “<a class="gk-sw-title" href="{{ $href }}"{{ if strings.HasPrefix $href "http" }} target="_blank" rel="noopener"{{ end }} style="color:#337ab7;text-decoration:underline;text-underline-offset:2px;">{{ $listTitle }}</a>”</p>
+            {{ if $abs }}
+            <details class="gk-sw-abs" style="margin-top:10px;font-size:0.9rem;">
+              <summary style="cursor:pointer;list-style:none;color:#337ab7;font-weight:500;display:inline-flex;align-items:center;gap:6px;">
+                <span class="gk-sw-abs-icon" style="display:inline-flex;align-items:center;justify-content:center;width:1.1rem;height:1.1rem;border:1px solid #337ab7;border-radius:50%;font-size:0.75rem;line-height:1;color:#fff;background:#337ab7;">+</span>
+                Abstract
+              </summary>
+              <div class="gk-sw-abs-body prose prose-sm max-w-none dark:prose-invert" style="margin-top:10px;padding:10px 12px;background:#fff;border:1px solid #dde7ef;border-radius:6px;color:#333;line-height:1.55;overflow:visible;max-height:none;white-space:normal;">{{ $abs | markdownify }}</div>
+            </details>
+            {{ end }}
+          </div>
+        {{ end }}
+      </section>
+    {{ end }}
+  {{ end }}
+  </div>
+
+</div>
+
+<style>
+  .gk-sw-group__heading {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin: 0 0 0.25rem;
+    color: #222;
+    border-bottom: 2px solid #A51C30;
+    padding-bottom: 0.3rem;
+  }
+  .gk-sw-group__blurb {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0.25rem 0 1rem;
+    line-height: 1.5;
+  }
+  .gk-sw-card {
+    background: #e9f1f7;
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+  }
+  .gk-sw-abs > summary { list-style: none; }
+  .gk-sw-abs > summary::-webkit-details-marker { display: none; }
+  .gk-sw-abs[open] > summary .gk-sw-abs-icon { background: #2b6cb0; border-color: #2b6cb0; color: #fff; }
+  .gk-sw-abs-body * { text-overflow: clip; -webkit-line-clamp: unset; }
+
+  /* "Older" section — visually muted so active vs. legacy is obvious at a glance. */
+  .gk-sw-group--older .gk-sw-group__heading {
+    color: #64748b;
+    border-bottom-color: #cbd5e1;
+  }
+  .gk-sw-group--older .gk-sw-card {
+    background: #f3f4f6;
+    opacity: 0.88;
+  }
+  .gk-sw-group--older .gk-sw-card p { color: #4b5563; }
+  .gk-sw-group--older a.gk-sw-title { color: #64748b; }
+  .gk-sw-group--older .gk-sw-abs > summary,
+  .gk-sw-group--older .gk-sw-abs-icon {
+    color: #64748b;
+  }
+  .gk-sw-group--older .gk-sw-abs-icon {
+    background: #94a3b8;
+    border-color: #94a3b8;
+  }
+  .gk-sw-group--older .gk-sw-abs[open] > summary .gk-sw-abs-icon {
+    background: #475569;
+    border-color: #475569;
+  }
+  .gk-sw-group--older .gk-sw-abs-body {
+    color: #4b5563;
+  }
+</style>
+
+<script>
+(function() {
+  document.querySelectorAll(".gk-sw-abs").forEach(function(d) {
+    d.addEventListener("toggle", function() {
+      var icon = this.querySelector(".gk-sw-abs-icon");
+      if (icon) icon.textContent = this.open ? "−" : "+";
+    });
+  });
+
+  var btn = document.getElementById("gk-sw-download");
+  if (!btn) return;
+  btn.addEventListener("click", function() {
+    var rows = document.querySelectorAll("#gk-sw-list .gk-sw-row");
+    var bib = "";
+    var i = 0;
+    rows.forEach(function(row) {
+      var a = row.querySelector("a.gk-sw-title");
+      if (!a) return;
+      var title = a.textContent.trim();
+      var slug = row.getAttribute("data-slug") || ("software_" + i);
+      var cite = row.querySelector("p") ? row.querySelector("p").textContent.trim() : "";
+      var authorPart = cite.split("“")[0] || "";
+      authorPart = authorPart.replace(/\s+/g, " ").trim();
+      var authorStr = authorPart.replace(/\.\s*\d{4}\.\s*$/, "").replace(/\.$/, "").trim();
+      if (!authorStr) authorStr = "Gary King";
+      authorStr = authorStr.replace(/, and /g, " and ");
+      var key = slug.replace(/[^a-zA-Z0-9]/g, "_");
+      bib += "@misc{" + key + ",\n  title = {" + title + "},\n  author = {" + authorStr + "},\n  note = {Software}\n}\n\n";
+      i++;
+    });
+    if (!bib) return;
+    var blob = new Blob([bib], { type: "text/plain" });
+    var dl = document.createElement("a");
+    dl.href = URL.createObjectURL(blob);
+    dl.download = "software-citations.bib";
+    dl.click();
+  });
+})();
+</script>
+
+{{ end }}

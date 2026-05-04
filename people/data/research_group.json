@@ -1,0 +1,3206 @@
+[
+  {
+    "slug": "lada-adamic",
+    "name": "Lada Adamic",
+    "affiliation": "Independent (formerly Meta)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "greg-adams",
+    "name": "Greg Adams",
+    "affiliation": "",
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "christopher-adolph",
+    "name": "Christopher Adolph",
+    "affiliation": "University of Washington",
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "william-e-allen",
+    "name": "William E. Allen",
+    "affiliation": "Stanford University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "james-alt",
+    "name": "James Alt",
+    "affiliation": "Harvard University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "han-altae-tran",
+    "name": "Han Altae-Tran",
+    "affiliation": "University of Washington",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "micah-altman",
+    "name": "Micah Altman",
+    "affiliation": "MIT Libraries (Research Scientist, CREOS)",
+    "research_group_categories": [
+      "alumni_postdocs",
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "leonid-andreev",
+    "name": "Leonid Andreev",
+    "affiliation": "Harvard University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "josephine-t-andrews",
+    "name": "Josephine T. Andrews",
+    "affiliation": "UC Davis",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "stephen-ansolabehere",
+    "name": "Stephen Ansolabehere",
+    "affiliation": "Harvard University (Department of Government)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "sinan-aral",
+    "name": "Sinan Aral",
+    "affiliation": "MIT Sloan School of Management (David Austin Professor of Management)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "aslaug-asgeirsdottir",
+    "name": "Aslaug Asgeirsdottir",
+    "affiliation": "University of Akureyri (Rector)",
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "susan-athey",
+    "name": "Susan Athey",
+    "affiliation": "Stanford University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "rifat-atun",
+    "name": "Rifat Atun",
+    "affiliation": "Harvard T.H. Chan School of Public Health",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "jean-aurambault",
+    "name": "Jean Aurambault",
+    "affiliation": "OpenAI",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "natalie-ayers",
+    "name": "Natalie Ayers",
+    "affiliation": "Harvard University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "ian-ayres",
+    "name": "Ian Ayres",
+    "affiliation": "Yale University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "delia-bailey-0",
+    "name": "Delia Bailey",
+    "affiliation": "YouGov (Senior VP of Data Science)",
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "daniel-baissa",
+    "name": "Daniel K. Baissa",
+    "affiliation": "Harvard University",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "pamela-ban",
+    "name": "Pamela Ban",
+    "affiliation": "UC San Diego (Associate Professor)",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "albert-l%C3%A1szl%C3%B3-barab%C3%A1si",
+    "name": "Albert-L\u00e1szl\u00f3 Barab\u00e1si",
+    "affiliation": "Northeastern University (Robert Gray Dodge Professor of Network Science)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "soubhik-barari",
+    "name": "Soubhik Barari",
+    "affiliation": "NORC at the University of Chicago",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "william-barnett",
+    "name": "William K. Barnett",
+    "affiliation": "UMass Chan Medical School",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "sebastian-bauhoff",
+    "name": "Sebastian Bauhoff",
+    "affiliation": "Inter-American Development Bank",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "brady-baybeck",
+    "name": "Brady Baybeck",
+    "affiliation": "Wayne State University (Associate Professor of Political Science)",
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "hannah-bayer",
+    "name": "Hannah Bayer",
+    "affiliation": "Simons Foundation",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "nathaniel-beck",
+    "name": "Nathaniel Beck",
+    "affiliation": "NYU",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "kenneth-benoit",
+    "name": "Kenneth Benoit",
+    "affiliation": "Singapore Management University (Dean, School of Social Sciences)",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "helen-bentley",
+    "name": "Helen Bentley",
+    "affiliation": "How We Feel Project",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "richard-berk",
+    "name": "Richard A. Berk",
+    "affiliation": "University of Pennsylvania",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "avleen-bijral",
+    "name": "Avleen S. Bijral",
+    "affiliation": "Microsoft",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "nancy-billica",
+    "name": "Nancy Billica",
+    "affiliation": "University of Colorado",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "christopher-bingham",
+    "name": "Christopher Bingham",
+    "affiliation": "Crimson Hexagon (former)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "jonathan-bischof",
+    "name": "Jonathan Bischof",
+    "affiliation": "Microsoft AI",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "ben-bishin",
+    "name": "Ben Bishin",
+    "affiliation": "University of California, Riverside (Professor of Political Science)",
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "matthew-blackwell",
+    "name": "Matthew Blackwell",
+    "affiliation": "Harvard University",
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "jeffrey-blossom",
+    "name": "Jeffrey C. Blossom",
+    "affiliation": "Harvard University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "john-boscardin",
+    "name": "John Boscardin",
+    "affiliation": "UCSF (Professor of Medicine and Biostatistics)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "paul-brace",
+    "name": "Paul Brace",
+    "affiliation": "Rice University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "dawn-brancati",
+    "name": "Dawn Brancati",
+    "affiliation": "Brown University (Senior Lecturer / Associate Teaching Professor)",
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "patrick-brandt",
+    "name": "Patrick Brandt",
+    "affiliation": "University of Texas at Dallas",
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "devon-brewer",
+    "name": "Devon Brewer",
+    "affiliation": "University of Washington and Interdisciplinary Scientific Research",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "james-briggs",
+    "name": "James Briggs",
+    "affiliation": "How We Feel Project",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "mitchell-brooks",
+    "name": "Mitchell Brooks",
+    "affiliation": "Brandwatch",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "richard-brooks",
+    "name": "Richard R.W. Brooks",
+    "affiliation": "New York University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "robert-x-browning",
+    "name": "Robert X Browning",
+    "affiliation": "Purdue University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "john-bruce",
+    "name": "John M. Bruce",
+    "affiliation": "University of Mississippi",
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "nancy-burns",
+    "name": "Nancy Burns",
+    "affiliation": "University of Michigan",
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "antonio-camara",
+    "name": "Antonio C\u00e2mara",
+    "affiliation": "Harvard University",
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "sean-carey",
+    "name": "Sean Carey",
+    "affiliation": "University of Mannheim (Professor of Political Science)",
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "evan-chen",
+    "name": "Evan Chen",
+    "affiliation": "",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "david-r-cheng",
+    "name": "David R. Cheng",
+    "affiliation": "",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "nicholas-christakis",
+    "name": "Nicholas Christakis",
+    "affiliation": "Yale University (Sterling Professor)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "miyoung-chun",
+    "name": "Miyoung Chun",
+    "affiliation": "The Kavli Foundation",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "katherine-clayton",
+    "name": "Katherine Clayton",
+    "affiliation": "Stanford University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "beau-coker",
+    "name": "Beau Coker",
+    "affiliation": "Columbia University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "katie-colton",
+    "name": "Katie Colton",
+    "affiliation": "UC Berkeley",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "aleksandra-conevska",
+    "name": "Aleksandra Conevska",
+    "affiliation": "Harvard University",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "noshir-contractor",
+    "name": "Noshir Contractor",
+    "affiliation": "Northwestern University (Jane S. & William J. White Professor of Behavioral Sciences)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "anders-corr",
+    "name": "Anders Corr",
+    "affiliation": "Corr Analytics Inc. (Principal)",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "brent-coull",
+    "name": "Brent A. Coull",
+    "affiliation": "Harvard T.H. Chan School of Public Health (Biostatistics)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "skyler-cranmer",
+    "name": "Skyler Cranmer",
+    "affiliation": "Ohio State University (Professor)",
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "michael-croatto",
+    "name": "Michael Croatto",
+    "affiliation": "",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "merce-crosas",
+    "name": "Merc\u00e8 Crosas",
+    "affiliation": "Barcelona Supercomputing Center",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "christopher-danford",
+    "name": "Chris Danford",
+    "affiliation": "Pinterest",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "A-C"
+  },
+  {
+    "slug": "juan-eugenio-hern%C3%A1ndez-%C3%A1vila",
+    "name": "Juan Eugenio Hern\u00e1ndez \u00c1vila",
+    "affiliation": "Instituto Nacional de Salud P\u00fablica (National Institute of Public Health, Mexico)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "suzanna-de-boef",
+    "name": "Suzanna De Boef",
+    "affiliation": "Penn State University",
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "brenda-sequeira-dmello",
+    "name": "Brenda Sequeira D'Mello",
+    "affiliation": "CCBRT (Tanzania)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "jack-deschler",
+    "name": "Jack Deschler",
+    "affiliation": "Harvard University",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "elizabeth-desombre",
+    "name": "Elizabeth Desombre",
+    "affiliation": "Wellesley College",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "scott-desposato",
+    "name": "Scott Desposato",
+    "affiliation": "University of California",
+    "research_group_categories": [
+      "alumni_postdocs",
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "neelam-dhingra-kumar",
+    "name": "Neelam Dhingra-Kumar",
+    "affiliation": "World Health Organization",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "alexis-diamond",
+    "name": "Alexis Diamond",
+    "affiliation": "Minerva University (Professor)",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "mark-diggory",
+    "name": "Mark Diggory",
+    "affiliation": "Atmire, Inc. (Head of US Operations)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "meredith-dost",
+    "name": "Meredith Dost",
+    "affiliation": "University of Wisconsin-Madison",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "cynthia-dwork",
+    "name": "Cynthia Dwork",
+    "affiliation": "Harvard University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "peter-dyrud",
+    "name": "Peter Dyrud",
+    "affiliation": "U.S. Air Force",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "danny-ebanks",
+    "name": "Danny Ebanks",
+    "affiliation": "Harvard University (IQSS) / Caltech",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "andrew-eggers",
+    "name": "Andrew C. Eggers",
+    "affiliation": "University of Chicago",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "lee-epstein",
+    "name": "Lee Epstein",
+    "affiliation": "Washington University in St. Louis",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "shusei-eshima",
+    "name": "Shusei Eshima",
+    "affiliation": "Netflix",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "georgina-evans",
+    "name": "Georgina 'Georgie' Evans",
+    "affiliation": "Google DeepMind",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "dennis-feehan",
+    "name": "Dennis M. Feehan",
+    "affiliation": "UC Berkeley (Demography)",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "karen-ferree",
+    "name": "Karen Ferree",
+    "affiliation": "UC San Diego",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "aykut-firat",
+    "name": "Aykut Firat",
+    "affiliation": "Brandwatch",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "rebecca-firestone",
+    "name": "Rebecca Firestone",
+    "affiliation": "Global Alliance for Improved Nutrition (GAIN); formerly PSI / Ariadne Labs",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "james-fowler",
+    "name": "James Fowler",
+    "affiliation": "University of California, San Diego",
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "colin-fredericks",
+    "name": "Colin Fredericks",
+    "affiliation": "Harvard University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "deen-freelon",
+    "name": "Deen Freelon",
+    "affiliation": "University of Pennsylvania",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "chengyu-fu",
+    "name": "Chengyu Fu",
+    "affiliation": "Harvard University",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "hung-der-fu",
+    "name": "Hung-Der Fu",
+    "affiliation": "Tunghai University, Taiwan",
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "marco-gaboardi",
+    "name": "Marco Gaboardi",
+    "affiliation": "Boston University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "emmanuela-gakidou",
+    "name": "Emmanuela Gakidou",
+    "affiliation": "University of Washington (Professor, IHME)",
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "atul-gawande",
+    "name": "Atul Gawande",
+    "affiliation": "Harvard T.H. Chan School of Public Health / Ariadne Labs",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "claudine-gay",
+    "name": "Claudine Gay",
+    "affiliation": "Harvard University",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "andrew-gelman",
+    "name": "Andrew Gelman",
+    "affiliation": "Columbia University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "heather-gerken",
+    "name": "Heather K. Gerken",
+    "affiliation": "Yale Law School / Ford Foundation",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "daniel-gilbert",
+    "name": "Daniel Gilbert",
+    "affiliation": "Harvard University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "jeff-gill",
+    "name": "Jeff Gill",
+    "affiliation": "American University (Distinguished Professor)",
+    "research_group_categories": [
+      "alumni_postdocs",
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "michael-gill",
+    "name": "Michael Gill",
+    "affiliation": "New York University (Assistant Professor, Center for Data Science)",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "michael-gilligan",
+    "name": "Michael Gilligan",
+    "affiliation": "NYU University",
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "federico-girosi",
+    "name": "Federico Girosi",
+    "affiliation": "The Rand Corporation",
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "kristian-gleditsch",
+    "name": "Kristian Gleditsch",
+    "affiliation": "University of Essex (Regius Professor of Political Science)",
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "paul-glimcher",
+    "name": "Paul W. Glimcher",
+    "affiliation": "New York University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "sue-goldie",
+    "name": "Sue J. Goldie",
+    "affiliation": "Harvard T.H. Chan School of Public Health / Harvard Medical School",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "sandra-gonzalez-bailon",
+    "name": "Sandra Gonz\u00e1lez-Bail\u00f3n",
+    "affiliation": "University of Pennsylvania (Annenberg)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "prateek-goorha",
+    "name": "Prateek Goorha",
+    "affiliation": "Bridgewater State University (Part-Time Faculty)",
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "max-goplerud",
+    "name": "Max Goplerud",
+    "affiliation": "University of Texas at Austin (Assistant Professor)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "patrik-gothe",
+    "name": "Patrik Gothe",
+    "affiliation": "How We Feel Project / Pinterest",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "casey-greene",
+    "name": "Casey S. Greene",
+    "affiliation": "University of Colorado Anschutz Medical Campus",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "ruth-greenwood",
+    "name": "Ruth Greenwood",
+    "affiliation": "Harvard University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "justin-grimmer",
+    "name": "Justin Grimmer",
+    "affiliation": "Stanford University",
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "bernard-grofman",
+    "name": "Bernard Grofman",
+    "affiliation": "University of California, Irvine",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "yichen-guan",
+    "name": "Yichen Guan",
+    "affiliation": "Harvard University (Graduate Student, Middle Eastern Studies)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "myron-gutmann",
+    "name": "Myron Gutmann",
+    "affiliation": "University of Colorado Boulder (Professor Emeritus of History)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "D-G"
+  },
+  {
+    "slug": "mauricio-hern%C3%A1ndez-%C3%A1vila",
+    "name": "Mauricio Hern\u00e1ndez \u00c1vila",
+    "affiliation": "Instituto Mexicano del Seguro Social (Director de Prestaciones Econ\u00f3micas y Sociales)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "H-J"
+  },
+  {
+    "slug": "andrew-hall",
+    "name": "Andrew B. Hall",
+    "affiliation": "Stanford University",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "H-J"
+  },
+  {
+    "slug": "christine-harrington",
+    "name": "Christine Harrington",
+    "affiliation": "NYU",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "H-J"
+  },
+  {
+    "slug": "amac-herdagdelen",
+    "name": "Amac Herdagdelen",
+    "affiliation": "Meta",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "H-J"
+  },
+  {
+    "slug": "michael-herron",
+    "name": "Michael Herron",
+    "affiliation": "Dartmouth College",
+    "research_group_categories": [
+      "alumni_postdocs",
+      "collaborators"
+    ],
+    "last_name_range": "H-J"
+  },
+  {
+    "slug": "frederick-m-hess",
+    "name": "Frederick M. Hess",
+    "affiliation": "American Enterprise Institute (Senior Fellow, Director of Education Policy Studies)",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "H-J"
+  },
+  {
+    "slug": "dana-higgins",
+    "name": "Dana Higgins",
+    "affiliation": "Fidelity Investments",
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "H-J"
+  },
+  {
+    "slug": "jennifer-hill",
+    "name": "Jennifer Hill",
+    "affiliation": "New York University (Professor)",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "H-J"
+  },
+  {
+    "slug": "sophie-hill",
+    "name": "Sophie E. Hill",
+    "affiliation": "Harvard University (PhD candidate, Government)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "H-J"
+  },
+  {
+    "slug": "lisa-hirschhorn",
+    "name": "Lisa R. Hirschhorn",
+    "affiliation": "Northwestern University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "H-J"
+  },
+  {
+    "slug": "dan-ho",
+    "name": "Dan Ho",
+    "affiliation": "Stanford Law School",
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "H-J"
+  },
+  {
+    "slug": "james-honaker",
+    "name": "James Honaker",
+    "affiliation": "OpenDP / Harvard University (Chief Privacy Engineer; SEAS Research Associate)",
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "H-J"
+  },
+  {
+    "slug": "daniel-hopkins",
+    "name": "Daniel Hopkins",
+    "affiliation": "University of Pennsylvania (Julie and Martin Franklin Presidential Professor of Political Science)",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "H-J"
+  },
+  {
+    "slug": "yusaku-horiuchi",
+    "name": "Yusaku Horiuchi",
+    "affiliation": "Dartmouth College",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "H-J"
+  },
+  {
+    "slug": "connor-huff",
+    "name": "Connor D. Huff",
+    "affiliation": "UCLA (Political Science)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "H-J"
+  },
+  {
+    "slug": "ben-w-hunt",
+    "name": "Ben W. Hunt",
+    "affiliation": "Perscient (Co-Founder and President)",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "H-J"
+  },
+  {
+    "slug": "tuan-huynh",
+    "name": "Tuan Huynh",
+    "affiliation": "Pinterest",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "H-J"
+  },
+  {
+    "slug": "stefano-iacus",
+    "name": "Stefano Iacus",
+    "affiliation": "European Commission Joint Research Centre (Scientific Officer)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "H-J"
+  },
+  {
+    "slug": "kosuke-imai",
+    "name": "Kosuke Imai",
+    "affiliation": "Harvard University (Professor of Government and of Statistics)",
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "H-J"
+  },
+  {
+    "slug": "josh-inkenbrandt",
+    "name": "Josh Inkenbrandt",
+    "affiliation": "How We Feel Project",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "H-J"
+  },
+  {
+    "slug": "katherine-irajpanah",
+    "name": "Katherine Irajpanah",
+    "affiliation": "Dartmouth College",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "H-J"
+  },
+  {
+    "slug": "sundeep-iyer",
+    "name": "Sundeep Iyer",
+    "affiliation": "New Jersey Office of the Attorney General (Director, Division on Civil Rights)",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "H-J"
+  },
+  {
+    "slug": "debra-javeline",
+    "name": "Debra Javeline",
+    "affiliation": "Notre Dame",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "H-J"
+  },
+  {
+    "slug": "tony-jebara",
+    "name": "Tony Jebara",
+    "affiliation": "Spotify (VP of Engineering, Head of AI/ML)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "H-J"
+  },
+  {
+    "slug": "libby-jenke",
+    "name": "Libby Jenke",
+    "affiliation": "University of Houston",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "H-J"
+  },
+  {
+    "slug": "connor-jerzak",
+    "name": "Connor T. Jerzak",
+    "affiliation": "UT Austin",
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "H-J"
+  },
+  {
+    "slug": "wenxin-jiang",
+    "name": "Wenxin Jiang",
+    "affiliation": "Northwestern University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "H-J"
+  },
+  {
+    "slug": "xin-jin",
+    "name": "Xin Jin",
+    "affiliation": "Scripps Research",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "H-J"
+  },
+  {
+    "slug": "richard-johnston",
+    "name": "Richard Johnston",
+    "affiliation": "Microsoft",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "H-J"
+  },
+  {
+    "slug": "ann-joseph",
+    "name": "Ann Joseph",
+    "affiliation": "Stanford Law School (Professor)",
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "H-J"
+  },
+  {
+    "slug": "h%C3%A9ctor-hern%C3%A1ndez-llama",
+    "name": "H\u00e9ctor Hern\u00e1ndez Llama",
+    "affiliation": "Secretar\u00eda de Salud (Ministry of Health, Mexico)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "H-J"
+  },
+  {
+    "slug": "juan-lavista-ferres",
+    "name": "Juan M. Lavista Ferres",
+    "affiliation": "Microsoft (AI for Good Lab)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "mireille-kamariza",
+    "name": "Mireille Kamariza",
+    "affiliation": "UCLA",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "amine-kamel",
+    "name": "Amine Kamel",
+    "affiliation": "Pinterest",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "david-kane",
+    "name": "David Kane",
+    "affiliation": "New College of Florida (Adjunct Instructor)",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "konstantin-kashin",
+    "name": "Konstantin Kashin",
+    "affiliation": "Anthropic (formerly Meta)",
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "ethan-katz",
+    "name": "Ethan Katz",
+    "affiliation": "Cleveland Clinic Foundation Orit Kedar, University of Michigan",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "jonathan-n-katz",
+    "name": "Jonathan N. Katz",
+    "affiliation": "Caltech",
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "aaron-kaufman",
+    "name": "Aaron Kaufman",
+    "affiliation": "NYU Abu Dhabi (Assistant Professor of Political Science)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "ryan-kennedy",
+    "name": "Ryan Kennedy",
+    "affiliation": "University of Houston",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "christopher-kenny",
+    "name": "Christopher T. Kenny",
+    "affiliation": "Princeton University",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "robert-o-keohane",
+    "name": "Robert O. Keohane",
+    "affiliation": "Princeton University Daniel L. Kiskis, University of Michigan",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "grace-kim",
+    "name": "Grace Kim",
+    "affiliation": "Harvard University",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "rockli-kim",
+    "name": "Rockli Kim",
+    "affiliation": "Korea University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "tami-kim",
+    "name": "Tami Kim",
+    "affiliation": "Dartmouth Tuck School of Business (Associate Professor of Marketing)",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "tim-king",
+    "name": "Tim King",
+    "affiliation": "",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "daniel-l-kiskis",
+    "name": "Daniel L Kiskis",
+    "affiliation": "",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "matthew-knowles",
+    "name": "Matthew Knowles",
+    "affiliation": "Harvard University",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "bhala-kodkany",
+    "name": "Bhalachandra S. Kodkany",
+    "affiliation": "Jawaharlal Nehru Medical College, Belgaum (deceased 2024)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "elizabeth-kolster",
+    "name": "Elizabeth Kolster",
+    "affiliation": "University of New Zealand",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "mayya-komisarchik",
+    "name": "Mayya Komisarchik",
+    "affiliation": "University of Rochester (Assistant Professor)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "steven-koonin",
+    "name": "Steven Koonin",
+    "affiliation": "New York University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "ardys-kozbial",
+    "name": "Ardys Kozbial",
+    "affiliation": "Harvard University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "michael-krot",
+    "name": "Michael Krot",
+    "affiliation": "JSTOR",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "etienne-krug",
+    "name": "Etienne Krug",
+    "affiliation": "World Health Organization",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "alok-kumar",
+    "name": "Alok Kumar",
+    "affiliation": "NITI Aayog, Government of India",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "bharath-kumar",
+    "name": "Bharath Kumar",
+    "affiliation": "",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "vishwajeet-kumar",
+    "name": "Vishwajeet Kumar",
+    "affiliation": "Community Empowerment Lab",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "shiro-kuriwaki",
+    "name": "Shiro Kuriwaki",
+    "affiliation": "Yale University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "gi-heon-kwon",
+    "name": "Gi-Heon Kwon",
+    "affiliation": "Sungkyunkwan University (Professor Emeritus)",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "jason-lakin",
+    "name": "Jason Lakin",
+    "affiliation": "Institute of Public Finance (Kenya, Senior Advisor)",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "patrick-lam",
+    "name": "Patrick Lam",
+    "affiliation": "Airbnb (Staff Analytics Engineer)",
+    "research_group_categories": [
+      "alumni_postdocs",
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "olivia-lau",
+    "name": "Olivia Lau",
+    "affiliation": "Google (Staff Product Analyst)",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "michael-laver",
+    "name": "Michael Laver",
+    "affiliation": "NYU",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "david-lazer",
+    "name": "David Lazer",
+    "affiliation": "Northeastern University (University Distinguished Professor of Political Science and Computer Sciences)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "david-leal",
+    "name": "David Leal",
+    "affiliation": "University of Texas at Austin",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "matthew-lebo",
+    "name": "Matthew Lebo",
+    "affiliation": "Western University (Professor and Chair, Political Science)",
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "christina-lee",
+    "name": "Christina Lee",
+    "affiliation": "How We Feel Project / Pinterest",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "jeff-lewis",
+    "name": "Jeff Lewis",
+    "affiliation": "UCLA",
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "weijie-li",
+    "name": "Weijie Li",
+    "affiliation": "",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "xihong-lin",
+    "name": "Xihong Lin",
+    "affiliation": "Harvard T.H. Chan School of Public Health / Harvard FAS (Statistics)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "stuart-lipsitz",
+    "name": "Stuart R. Lipsitz",
+    "affiliation": "Harvard Medical School / Brigham and Women's Hospital",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "chuanhai-liu",
+    "name": "Chuanhai Liu",
+    "affiliation": "Purdue University (Professor of Statistics)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "alan-lopez",
+    "name": "Alan Lopez",
+    "affiliation": "The University of Melbourne (Melbourne Laureate Professor and Rowden-White Chair of Global Health)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "will-lowe",
+    "name": "Will Lowe",
+    "affiliation": "Hertie School Berlin (Senior Research Scientist)",
+    "research_group_categories": [
+      "alumni_postdocs",
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "wendy-lu",
+    "name": "Wendy Lu",
+    "affiliation": "Independent / Stealth (former Pinterest and Airtable)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "ying-lu",
+    "name": "Ying Lu",
+    "affiliation": "New York University (Professor of Applied Statistics, Steinhardt)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "david-lublin",
+    "name": "David Lublin",
+    "affiliation": "American University",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "christopher-lucas",
+    "name": "Christopher Lucas",
+    "affiliation": "Washington University in St. Louis (Associate Professor)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "brian-lukoff",
+    "name": "Brian Lukoff",
+    "affiliation": "UT Austin / Perusall",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "zheng-ma",
+    "name": "Zheng Ma",
+    "affiliation": "Harvard University",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "kelly-miller",
+    "name": "Kelly Miller",
+    "affiliation": "Harvard University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "K-L"
+  },
+  {
+    "slug": "michael-macy",
+    "name": "Michael Macy",
+    "affiliation": "Cornell University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "helen-margetts",
+    "name": "Helen Margetts",
+    "affiliation": "University of Oxford (Oxford Internet Institute)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "lisa-martin",
+    "name": "Lisa Martin",
+    "affiliation": "University of Wisconsin - Madison",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "russ-mayer",
+    "name": "Russ Mayer",
+    "affiliation": "Loyola Marymount University (most recent)",
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "eric-mazur",
+    "name": "Eric Mazur",
+    "affiliation": "Harvard University (Physics & Applied Physics)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "james-mccann",
+    "name": "James McCann",
+    "affiliation": "Purdue University",
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "cory-mccartan",
+    "name": "Cory McCartan",
+    "affiliation": "Pennsylvania State University",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "michael-mcdonald",
+    "name": "Michael McDonald",
+    "affiliation": "University of Florida (Professor)",
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "glen-mcgee",
+    "name": "Glen McGee",
+    "affiliation": "University of Waterloo",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "richard-merelman",
+    "name": "Richard Merelman",
+    "affiliation": "University of Wisconsin, Madison",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "evrhet-milam",
+    "name": "Evrhet Milam",
+    "affiliation": "Pinterest",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "ryan-moore",
+    "name": "Ryan Moore",
+    "affiliation": "American University (Associate Professor of Government); The Lab @ DC",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "mitsuru-mukaigawara",
+    "name": "Mitsuru Mukaigawara",
+    "affiliation": "Harvard University (PhD candidate, Government)",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "zagreb-mukerjee",
+    "name": "Zagreb Mukerjee",
+    "affiliation": "Yale University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "christopher-murray",
+    "name": "Christopher Murray",
+    "affiliation": "University of Washington",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "robert-murray",
+    "name": "Robert Murray",
+    "affiliation": "How We Feel Project",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "clayton-nall",
+    "name": "Clayton Nall",
+    "affiliation": "UC Santa Barbara (Associate Professor)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "alondra-nelson",
+    "name": "Alondra Nelson",
+    "affiliation": "Institute for Advanced Study",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "michael-new",
+    "name": "Michael New",
+    "affiliation": "The Catholic University of America (Assistant Professor of Social Research)",
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "joel-newberger",
+    "name": "Joel Newberger",
+    "affiliation": "",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "norman-nie",
+    "name": "Norman Nie",
+    "affiliation": "Stanford University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "richard-nielsen",
+    "name": "Richard A. Nielsen",
+    "affiliation": "MIT (Associate Professor of Political Science)",
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "kobbi-nissim",
+    "name": "Kobbi Nissim",
+    "affiliation": "Georgetown University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "nicole-nova",
+    "name": "Nicole Nova",
+    "affiliation": "Princeton University (High Meadows Environmental Institute, postdoctoral)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "john-openshaw",
+    "name": "John Openshaw",
+    "affiliation": "Stanford University School of Medicine (Infectious Diseases)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "max-palmer",
+    "name": "Maxwell Palmer",
+    "affiliation": "Boston University",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "bradley-palmquist",
+    "name": "Bradley Palmquist",
+    "affiliation": "YouGov/Polimetrix",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "jennifer-pan",
+    "name": "Jennifer Pan",
+    "affiliation": "Stanford University",
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "philip-paolino",
+    "name": "Philip Paolino",
+    "affiliation": "University of North Texas",
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "yon-soo-park",
+    "name": "Yon Soo Park",
+    "affiliation": "R.care (Co-Founder)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "shannon-parker",
+    "name": "Shannon L. Parker",
+    "affiliation": "Harvard University",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "aristides-patrinos",
+    "name": "Aristides A. N. Patrinos",
+    "affiliation": "",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "claudia-pedroza",
+    "name": "Claudia Pedroza",
+    "affiliation": "University of Texas",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "alex-pentland",
+    "name": "Alex Pentland",
+    "affiliation": "Massachusetts Institute of Technology",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "albert-pereta",
+    "name": "Albert Pereta",
+    "affiliation": "Pinterest",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "nathaniel-persily",
+    "name": "Nathaniel Persily",
+    "affiliation": "Stanford University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "casey-petroff",
+    "name": "Casey Petroff",
+    "affiliation": "University of Rochester (Assistant Professor)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "stephen-pettigrew",
+    "name": "Stephen Pettigrew",
+    "affiliation": "University of Pennsylvania (Director of Data Sciences, PORES)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "hanspeter-pfister",
+    "name": "Hanspeter Pfister",
+    "affiliation": "Harvard University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "giuseppe-porro",
+    "name": "Giuseppe Porro",
+    "affiliation": "Universit\u00e0 dell'Insubria (Professore Ordinario)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "eleanor-powell",
+    "name": "Eleanor Powell",
+    "affiliation": "University of Wisconsin-Madison (Associate Professor)",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "soledad-prillaman",
+    "name": "Soledad Prillaman",
+    "affiliation": "Stanford University (Assistant Professor of Political Science)",
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "thorben-primke",
+    "name": "Thorben Primke",
+    "affiliation": "Pinterest",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "timothy-prinz",
+    "name": "Timothy Prinz",
+    "affiliation": "Optum (Director, Strategy & Growth)",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "ryan-probasco",
+    "name": "Ryan Probasco",
+    "affiliation": "How We Feel Project / Pinterest",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "martha-mar%C3%AD-t%C3%A9llez-rojo",
+    "name": "Martha Mar\u00eda T\u00e9llez-Rojo",
+    "affiliation": "Instituto Nacional de Salud P\u00fablica (National Institute of Public Health, Mexico)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "M-P"
+  },
+  {
+    "slug": "kevin-quinn",
+    "name": "Kevin Quinn",
+    "affiliation": "Emory University (Charles Howard Candler Professor of Law and QTM)",
+    "research_group_categories": [
+      "alumni_postdocs",
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "rumya-raghavan",
+    "name": "Rumya Raghavan",
+    "affiliation": "Broad Institute / Massachusetts General Hospital",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "lyn-ragsdale",
+    "name": "Lyn Ragsdale",
+    "affiliation": "Rice University (In Memoriam)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "mohan-penubarti-rao",
+    "name": "Mohan (Penubarti) Rao",
+    "affiliation": "Epsilon Economics (Chairman and CEO)",
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "nirmala-ravishankar",
+    "name": "Nirmala Ravishankar",
+    "affiliation": "Bill & Melinda Gates Foundation (Deputy Director, Primary Health Care)",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "andrew-reeves",
+    "name": "Andrew Reeves",
+    "affiliation": "Washington University in St. Louis (Professor of Political Science; Director, Weidenbaum Center)",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "eric-reinhardt",
+    "name": "Eric Reinhardt",
+    "affiliation": "Emory University",
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "sascha-riaz",
+    "name": "Sascha Riaz",
+    "affiliation": "European University Institute",
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "viridiana-rios",
+    "name": "Viridiana Rios",
+    "affiliation": "Harvard University (Visiting Assistant Professor); Wilson Center Global Fellow",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "margaret-roberts",
+    "name": "Margaret E. 'Molly' Roberts",
+    "affiliation": "UC San Diego (Political Science)",
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "ori-rosen",
+    "name": "Ori Rosen",
+    "affiliation": "University of Texas at El Paso",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "elizabeth-rosenblatt",
+    "name": "Elizabeth Rosenblatt",
+    "affiliation": "D. E. Shaw Group",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "deb-roy",
+    "name": "Deb Roy",
+    "affiliation": "MIT",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "donald-rubin",
+    "name": "Donald B. Rubin",
+    "affiliation": "Harvard University (Emeritus); Tsinghua University; Temple University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "cynthia-rudin",
+    "name": "Cynthia Rudin",
+    "affiliation": "Duke University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "larry-sabato",
+    "name": "Larry J. Sabato",
+    "affiliation": "",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "matthew-salganik",
+    "name": "Matthew J. Salganik",
+    "affiliation": "Princeton University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "joshua-salomon",
+    "name": "Joshua Salomon",
+    "affiliation": "Stanford University (Professor of Health Policy)",
+    "research_group_categories": [
+      "alumni_postdocs",
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "melissa-sands",
+    "name": "Melissa Sands",
+    "affiliation": "London School of Economics (Assistant Professor of Politics and Data Science)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "rakesh-sarwal",
+    "name": "Rakesh Sarwal",
+    "affiliation": "",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "kenneth-scheve",
+    "name": "Kenneth Scheve",
+    "affiliation": "University of Notre Dame (Dean, College of Arts and Letters)",
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "kay-schlozman",
+    "name": "Kay Schlozman",
+    "affiliation": "Boston College",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "allen-schmaltz",
+    "name": "Allen Schmaltz",
+    "affiliation": "Reexpress AI, Inc. (Principal Researcher)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "benjamin-schneer",
+    "name": "Benjamin Schneer",
+    "affiliation": "Harvard Kennedy School",
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "alexander-schuessler",
+    "name": "Alexander Schuessler",
+    "affiliation": "SmartEquip",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "michail-schwab",
+    "name": "Michail Schwab",
+    "affiliation": "Google",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "meg-schwenzfeier",
+    "name": "Meg Schwenzfeier",
+    "affiliation": "Harris for President 2024",
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "jeffrey-segal",
+    "name": "Jeffrey Segal",
+    "affiliation": "SUNY at Stony Brook",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "jasjeet-sekhon",
+    "name": "Jasjeet Sekhon",
+    "affiliation": "Google DeepMind (Chief Strategy Officer)",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "katherine-semrau",
+    "name": "Katherine Semrau",
+    "affiliation": "Ariadne Labs / Harvard Medical School / Brigham and Women's Hospital",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "maya-sen",
+    "name": "Maya Sen",
+    "affiliation": "Harvard Kennedy School (Professor of Public Policy)",
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "ophir-shalem",
+    "name": "Ophir Shalem",
+    "affiliation": "University of Pennsylvania",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "narender-sharma",
+    "name": "Narender Sharma",
+    "affiliation": "Population Services International (India)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "andy-shi",
+    "name": "Andy Shi",
+    "affiliation": "Harvard T.H. Chan School of Public Health (Biostatistics)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "kenji-shibuya",
+    "name": "Kenji Shibuya",
+    "affiliation": "Tokyo Foundation for Policy Research (Research Director)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "kenneth-shotts",
+    "name": "Kenneth Shotts",
+    "affiliation": "Stanford University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "curtis-signorino",
+    "name": "Curtis Signorino",
+    "affiliation": "University of Rochester",
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "benjamin-silbermann",
+    "name": "Ben Silbermann",
+    "affiliation": "Pinterest",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "naunihal-singh",
+    "name": "Naunihal Singh",
+    "affiliation": "U.S. Naval War College (Associate Professor of National Security Affairs)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "vinay-pratap-singh",
+    "name": "Vinay Pratap Singh",
+    "affiliation": "Community Empowerment Lab (Lucknow, India); formerly PSI-India",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "dominic-skinnion",
+    "name": "Dominic Skinnion",
+    "affiliation": "MIT",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "evann-smith",
+    "name": "Evann Smith",
+    "affiliation": "",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "stu-snydman",
+    "name": "Stu Snydman",
+    "affiliation": "Harvard University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "miguel-solano",
+    "name": "Miguel Solano",
+    "affiliation": "",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "samir-soneji",
+    "name": "Samir Soneji",
+    "affiliation": "Duke University (Principal Biostatistician, Population Health Sciences)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "jonathan-spector",
+    "name": "Jonathan M. Spector",
+    "affiliation": "Novartis Biomedical Research",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "brandon-stewart",
+    "name": "Brandon M. Stewart",
+    "affiliation": "Princeton University",
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "heather-stoll",
+    "name": "Heather Stoll",
+    "affiliation": "University of California, Santa Barbara",
+    "research_group_categories": [
+      "alumni_postdocs",
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "anton-strezhnev",
+    "name": "Anton Strezhnev",
+    "affiliation": "University of Chicago (Assistant Professor of Political Science)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "hendrik-strobelt",
+    "name": "Hendrik Strobelt",
+    "affiliation": "MIT-IBM Watson AI Lab / IBM Research",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "markus-strohmaier",
+    "name": "Markus Strohmaier",
+    "affiliation": "University of Mannheim / GESIS",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "elizabeth-stuart",
+    "name": "Elizabeth Stuart",
+    "affiliation": "Johns Hopkins Bloomberg School of Public Health (Chair, Biostatistics)",
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "sv-subramanian",
+    "name": "S. V. Subramanian",
+    "affiliation": "Harvard T.H. Chan School of Public Health",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "chiara-superti",
+    "name": "Chiara Superti",
+    "affiliation": "Columbia University",
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "akshay-swaminathan",
+    "name": "Akshay Swaminathan",
+    "affiliation": "Stanford University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "latanya-sweeney",
+    "name": "Latanya Sweeney",
+    "affiliation": "Harvard University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "Q-S"
+  },
+  {
+    "slug": "marshall-van-alstyne",
+    "name": "Marshall Van Alstyne",
+    "affiliation": "Boston University (Questrom Professor of Management)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "T-V"
+  },
+  {
+    "slug": "carlos-velasco-rivera",
+    "name": "Carlos Velasco Rivera",
+    "affiliation": "Meta",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "T-V"
+  },
+  {
+    "slug": "bernard-tamas",
+    "name": "Bernard Tamas",
+    "affiliation": "Valdosta State University (Professor of Political Science)",
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "T-V"
+  },
+  {
+    "slug": "ajay-tandon",
+    "name": "Ajay Tandon",
+    "affiliation": "World Bank (Lead Economist)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "T-V"
+  },
+  {
+    "slug": "martin-tanner",
+    "name": "Martin Tanner",
+    "affiliation": "Northwestern University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "T-V"
+  },
+  {
+    "slug": "amher-tarar",
+    "name": "Amher Tarar",
+    "affiliation": "Texas A&amp;M University",
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "T-V"
+  },
+  {
+    "slug": "abhradeep-guha-thakurta",
+    "name": "Abhradeep Guha Thakurta",
+    "affiliation": "Google Research (Brain Team)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "T-V"
+  },
+  {
+    "slug": "sherod-thaxton",
+    "name": "Sherod Thaxton",
+    "affiliation": "UCLA School of Law",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "T-V"
+  },
+  {
+    "slug": "andrew-c-thomas",
+    "name": "Andrew C Thomas",
+    "affiliation": "SportsMEDIA Technology (Director, Data Science)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "T-V"
+  },
+  {
+    "slug": "michael-ting",
+    "name": "Michael Ting",
+    "affiliation": "Columbia University",
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "T-V"
+  },
+  {
+    "slug": "niels-tomijima",
+    "name": "Niels Tomijima",
+    "affiliation": "World Health Organization",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "T-V"
+  },
+  {
+    "slug": "james-tompkin",
+    "name": "James Tompkin",
+    "affiliation": "Brown University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "T-V"
+  },
+  {
+    "slug": "michael-tomz",
+    "name": "Michael Tomz",
+    "affiliation": "Stanford University",
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "T-V"
+  },
+  {
+    "slug": "mark-travassos",
+    "name": "Mark A. Travassos",
+    "affiliation": "University of Maryland School of Medicine",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "T-V"
+  },
+  {
+    "slug": "margaret-trevor",
+    "name": "Margaret Trevor",
+    "affiliation": "Cook County Board of Commissioners (Illinois, District 9)",
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "T-V"
+  },
+  {
+    "slug": "joshua-tucker",
+    "name": "Joshua Tucker",
+    "affiliation": "NYU",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "T-V"
+  },
+  {
+    "slug": "richard-tucker",
+    "name": "Richard Tucker",
+    "affiliation": "Zayed University",
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "T-V"
+  },
+  {
+    "slug": "danielle-tuller",
+    "name": "Danielle E. Tuller",
+    "affiliation": "Ariadne Labs (Brigham and Women's / Harvard Chan)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "T-V"
+  },
+  {
+    "slug": "jonathan-ullman",
+    "name": "Jonathan Ullman",
+    "affiliation": "Northeastern University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "T-V"
+  },
+  {
+    "slug": "salil-vadhan",
+    "name": "Salil Vadhan",
+    "affiliation": "Harvard University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "T-V"
+  },
+  {
+    "slug": "manett-vargas",
+    "name": "Manett Vargas",
+    "affiliation": "Secretar\u00eda de Salud, Mexico (Directora General, Direcci\u00f3n General de Evaluaci\u00f3n del Desempe\u00f1o)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "T-V"
+  },
+  {
+    "slug": "sidney-verba",
+    "name": "Sidney Verba",
+    "affiliation": "Harvard University (Emeritus, deceased)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "T-V"
+  },
+  {
+    "slug": "alessandro-vespignani",
+    "name": "Alessandro Vespignani",
+    "affiliation": "Northeastern University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "T-V"
+  },
+  {
+    "slug": "d-stephen-voss",
+    "name": "D. Stephen Voss",
+    "affiliation": "University of Kentucky",
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "T-V"
+  },
+  {
+    "slug": "steven-d-voss",
+    "name": "Steven D. Voss",
+    "affiliation": "University of Kentucky",
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "T-V"
+  },
+  {
+    "slug": "samuel-wang",
+    "name": "Samuel S.-H. Wang",
+    "affiliation": "Princeton University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "T-V"
+  },
+  {
+    "slug": "alexander-wagner",
+    "name": "Alexander Wagner",
+    "affiliation": "University of Zurich",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "W-Z"
+  },
+  {
+    "slug": "claudia-wagner",
+    "name": "Claudia Wagner",
+    "affiliation": "RWTH Aachen University / GESIS",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "W-Z"
+  },
+  {
+    "slug": "robert-walker",
+    "name": "Robert Walker",
+    "affiliation": "Willamette University (Associate Professor of Quantitative Methods, Atkinson Graduate School of Management)",
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "W-Z"
+  },
+  {
+    "slug": "daniel-j-walsh",
+    "name": "Daniel J. Walsh",
+    "affiliation": "University of Illinois at Urbana-Champaign",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "W-Z"
+  },
+  {
+    "slug": "jonathan-wand",
+    "name": "Jonathan Wand",
+    "affiliation": "Stanford University",
+    "research_group_categories": [
+      "alumni_postdocs",
+      "collaborators"
+    ],
+    "last_name_range": "W-Z"
+  },
+  {
+    "slug": "dan-ward",
+    "name": "Dan Ward",
+    "affiliation": "Pfizer, Inc.",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "W-Z"
+  },
+  {
+    "slug": "zachary-ward",
+    "name": "Zachary J. Ward",
+    "affiliation": "Harvard T.H. Chan School of Public Health (Health Decision Science)",
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "W-Z"
+  },
+  {
+    "slug": "kenesia-washington",
+    "name": "Kenesia Washington",
+    "affiliation": "Harvard University",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "W-Z"
+  },
+  {
+    "slug": "duncan-watts",
+    "name": "Duncan J. Watts",
+    "affiliation": "University of Pennsylvania",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "W-Z"
+  },
+  {
+    "slug": "gregory-wawro",
+    "name": "Gregory Wawro",
+    "affiliation": "Columbia University",
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "W-Z"
+  },
+  {
+    "slug": "yi-william-wei",
+    "name": "Yi William Wei",
+    "affiliation": "Executive Director at America Asia Alliances",
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "W-Z"
+  },
+  {
+    "slug": "ariel-white",
+    "name": "Ariel R. White",
+    "affiliation": "MIT (Political Science)",
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "W-Z"
+  },
+  {
+    "slug": "timothy-wilson",
+    "name": "Timothy D. Wilson",
+    "affiliation": "University of Virginia",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "W-Z"
+  },
+  {
+    "slug": "rainer-winkelmann",
+    "name": "Rainer Winkelmann",
+    "affiliation": "University of Zurich",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "W-Z"
+  },
+  {
+    "slug": "jason-wittenberg",
+    "name": "Jason Wittenberg",
+    "affiliation": "University of California, Berkeley",
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "W-Z"
+  },
+  {
+    "slug": "jason-wittenburg",
+    "name": "Jason Wittenburg",
+    "affiliation": "University of California, Berkeley",
+    "research_group_categories": [
+      "alumni_students",
+      "collaborators"
+    ],
+    "last_name_range": "W-Z"
+  },
+  {
+    "slug": "stefan-wojcik",
+    "name": "Stefan Wojcik",
+    "affiliation": "Nanocentury AI",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "W-Z"
+  },
+  {
+    "slug": "patrick-wolf",
+    "name": "Patrick Wolf",
+    "affiliation": "University of Arkansas",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "W-Z"
+  },
+  {
+    "slug": "miya-woolfalk",
+    "name": "Miya Woolfalk",
+    "affiliation": "Analyst Institute / Democracy & Power Innovation Fund (Senior Advisor/Researcher)",
+    "research_group_categories": [
+      "alumni_postdocs"
+    ],
+    "last_name_range": "W-Z"
+  },
+  {
+    "slug": "yun-xu",
+    "name": "Yun Xu",
+    "affiliation": "",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "W-Z"
+  },
+  {
+    "slug": "george-yean",
+    "name": "George Yean",
+    "affiliation": "Harvard University",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "W-Z"
+  },
+  {
+    "slug": "scott-yockel",
+    "name": "Scott Yockel",
+    "affiliation": "Harvard University (University Research Computing Officer)",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "W-Z"
+  },
+  {
+    "slug": "langche-zeng",
+    "name": "Langche Zeng",
+    "affiliation": "UC San Diego",
+    "research_group_categories": [
+      "alumni_postdocs",
+      "collaborators"
+    ],
+    "last_name_range": "W-Z"
+  },
+  {
+    "slug": "david-wendong-zhang",
+    "name": "David (Wendong) Zhang",
+    "affiliation": "Harvard University",
+    "research_group_categories": [
+      "alumni_students"
+    ],
+    "last_name_range": "W-Z"
+  },
+  {
+    "slug": "feng-zhang",
+    "name": "Feng Zhang",
+    "affiliation": "MIT / Broad Institute",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "W-Z"
+  },
+  {
+    "slug": "xiuyuan-zhang",
+    "name": "Xiuyuan Zhang",
+    "affiliation": "Peking University",
+    "research_group_categories": [
+      "collaborators"
+    ],
+    "last_name_range": "W-Z"
+  }
+]

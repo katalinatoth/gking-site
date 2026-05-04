@@ -1,0 +1,6 @@
+# Slugs excluded from any Hugo query that lists all publication_type=software.
+# Duplicate year-variants (e.g. perusall-2015) used to live here, but they have
+# since been deleted outright in favor of the canonical short-slug pages, so
+# this list is intentionally empty. Keep the file around as a hook for future
+# one-off exclusions.
+slugs: []

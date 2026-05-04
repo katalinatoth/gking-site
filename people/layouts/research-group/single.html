@@ -1,0 +1,313 @@
+{{ define "main" }}
+
+{{ $labels := dict "alumni_students" "Alumni: Students" "alumni_postdocs" "Alumni: Post-Docs" "collaborators" "Collaborators" }}
+
+<div style="max-width:1200px;margin:0 auto;padding:2rem 1.5rem;">
+  <h1 style="font-size:2.5rem;font-weight:700;margin:0 0 1.5rem;">{{ .Title }}</h1>
+
+  {{/* ---- Current Research Group (static, curated) ---- */}}
+  {{ $crgCard := "display:block;padding:10px 12px;background:#f0f5fa;border-radius:6px;text-decoration:none;color:inherit;line-height:1.25;" }}
+  {{ $crgGrid := "display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:0.6rem;margin:0 0 1.25rem;" }}
+  {{ $crgSubhead := "font-size:0.9rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#555;margin:1.25rem 0 0.6rem;" }}
+
+  <section aria-label="Current Research Group" style="margin:0 0 2.5rem;padding:1.5rem 1.5rem 1.75rem;background:#fafafa;border:1px solid #e2e8f0;border-radius:8px;">
+    <h2 style="font-size:1.5rem;font-weight:700;margin:0 0 0.25rem;">Current Research Group</h2>
+    <p style="margin:0;color:#666;font-size:0.95rem;">Harvard affiliates currently working with Gary King.</p>
+
+    <h3 style="{{ $crgSubhead | safeCSS }}">PhD Students &amp; Research Assistants</h3>
+    <div style="{{ $crgGrid | safeCSS }}">
+      <a href="https://www.danielbaissa.com/" style="{{ $crgCard | safeCSS }}"><strong style="color:#1a3a5c;text-decoration:underline;text-underline-offset:2px;">Dan Baissa</strong></a>
+      <a href="http://mariaballesteros.com/" style="{{ $crgCard | safeCSS }}"><strong style="color:#1a3a5c;text-decoration:underline;text-underline-offset:2px;">María Ballesteros</strong></a>
+      <a href="https://ascamara.github.io/" style="{{ $crgCard | safeCSS }}"><strong style="color:#1a3a5c;text-decoration:underline;text-underline-offset:2px;">Antonio Camara</strong></a>
+      <a href="https://www.michaelbcerny.net/" style="{{ $crgCard | safeCSS }}"><strong style="color:#1a3a5c;text-decoration:underline;text-underline-offset:2px;">Michael Cerny</strong></a>
+      <a href="https://noahdasanaike.github.io/" style="{{ $crgCard | safeCSS }}"><strong style="color:#1a3a5c;text-decoration:underline;text-underline-offset:2px;">Noah Dasanaike</strong></a>
+      <a href="https://www.gov.harvard.edu/directory/zhiyu-li/" style="{{ $crgCard | safeCSS }}"><strong style="color:#1a3a5c;text-decoration:underline;text-underline-offset:2px;">Zhiyu Li</strong></a>
+      <a href="https://sites.harvard.edu/queenieluo/" style="{{ $crgCard | safeCSS }}"><strong style="color:#1a3a5c;text-decoration:underline;text-underline-offset:2px;">Queenie Luo</strong></a>
+      <a href="https://www.gov.harvard.edu/directory/zheng-ma/" style="{{ $crgCard | safeCSS }}"><strong style="color:#1a3a5c;text-decoration:underline;text-underline-offset:2px;">Zheng Ma</strong></a>
+      <a href="https://www.mitsurumukaigawara.com/" style="{{ $crgCard | safeCSS }}"><strong style="color:#1a3a5c;text-decoration:underline;text-underline-offset:2px;">Mitsuru Mukaigawara</strong></a>
+      <a href="https://k-nakam.github.io/" style="{{ $crgCard | safeCSS }}"><strong style="color:#1a3a5c;text-decoration:underline;text-underline-offset:2px;">Kentaro Nakamura</strong></a>
+      <a href="https://georgeyean.github.io/" style="{{ $crgCard | safeCSS }}"><strong style="color:#1a3a5c;text-decoration:underline;text-underline-offset:2px;">George Yean</strong></a>
+    </div>
+
+    <h3 style="{{ $crgSubhead | safeCSS }}">Undergraduate Research Assistants</h3>
+    <div style="{{ $crgGrid | safeCSS }}">
+      <a href="https://www.linkedin.com/in/andrew-dou-73681a359" style="{{ $crgCard | safeCSS }}"><strong style="color:#1a3a5c;text-decoration:underline;text-underline-offset:2px;">Andrew Dou</strong></a>
+      <a href="https://zgladney.com/" style="{{ $crgCard | safeCSS }}"><strong style="color:#1a3a5c;text-decoration:underline;text-underline-offset:2px;">Zakiriya Gladney</strong></a>
+    </div>
+
+    <h3 style="{{ $crgSubhead | safeCSS }}">Other</h3>
+    <div style="{{ $crgGrid | safeCSS }} margin-bottom:0;">
+      <a href="https://dannyebanks.com/" style="{{ $crgCard | safeCSS }}"><strong style="color:#1a3a5c;text-decoration:underline;text-underline-offset:2px;">Danny Ebanks</strong><div style="font-size:0.82rem;color:#666;margin-top:2px;">Research Associate</div></a>
+      <a href="https://www.linkedin.com/in/katalina-toth/" style="{{ $crgCard | safeCSS }}"><strong style="color:#1a3a5c;text-decoration:underline;text-underline-offset:2px;">Katalina Toth</strong><div style="font-size:0.82rem;color:#666;margin-top:2px;">Pre-Doctoral Research Fellow</div></a>
+    </div>
+  </section>
+
+  <h2 style="font-size:1.5rem;font-weight:700;margin:0 0 1rem;">Alumni &amp; Collaborators</h2>
+
+  <div style="display:flex;gap:2rem;align-items:flex-start;">
+    <!-- Sidebar Filters (matches original site: category + name range + search) -->
+    <div id="gk-sidebar" style="min-width:220px;max-width:280px;flex-shrink:0;border:1px solid #e2e8f0;border-radius:8px;padding:1.25rem;background:#fafafa;position:sticky;top:5rem;">
+      <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.75rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;">Category</h3>
+      <div id="gk-cat-filters" style="margin-bottom:1.25rem;"></div>
+
+      <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.75rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;">Researchers by Last Name</h3>
+      <div id="gk-name-filters" style="margin-bottom:1.25rem;"></div>
+
+      <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.75rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;">University / Affiliation</h3>
+      <div id="gk-univ-filters" style="max-height:200px;overflow-y:auto;margin-bottom:1.25rem;"></div>
+
+      <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.5rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;"><label for="gk-people-search">Search</label></h3>
+      <input type="text" id="gk-people-search" aria-label="Filter people by name or affiliation" placeholder="Name or affiliation..." style="width:100%;padding:6px 10px;border:1px solid #767676;border-radius:4px;font-size:0.9rem;box-sizing:border-box;">
+    </div>
+
+    <!-- Results -->
+    <div style="flex:1;min-width:0;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem;">
+        <span id="gk-people-count" style="font-size:1.05rem;font-weight:600;color:#333;"></span>
+        <select id="gk-people-sort" aria-label="Sort people" style="padding:4px 8px;border:1px solid #767676;border-radius:4px;font-size:0.85rem;">
+          <option value="az">Last Name A–Z</option>
+          <option value="za">Last Name Z–A</option>
+        </select>
+      </div>
+      <div id="gk-people-results" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1rem;"></div>
+    </div>
+  </div>
+</div>
+
+{{/* Merge data/research_group.json (Harvard taxonomy + letter buckets) with live people pages */}}
+{{ $rg := index site.Data "research_group" }}
+{{ $meta := dict }}
+{{ range $rg }}
+  {{ $meta = merge $meta (dict .slug .) }}
+{{ end }}
+{{ $people := where site.RegularPages "Type" "people" }}
+{{ $entries := slice }}
+{{ range $people }}
+  {{ $slug := path.Base (path.Dir .File.Path) }}
+  {{ $row := index $meta $slug }}
+  {{ $cats := slice }}
+  {{ if $row }}
+    {{ $cats = $row.research_group_categories }}
+  {{ end }}
+  {{ if not $cats }}
+    {{ $cats = slice (.Params.research_group_category | default "collaborators") }}
+  {{ end }}
+  {{ $rng := "" }}
+  {{ if $row }}{{ $rng = $row.last_name_range }}{{ end }}
+  {{ if not $rng }}{{ $rng = .Params.last_name_range | default "" }}{{ end }}
+  {{ $labParts := slice }}
+  {{ range $cats }}
+    {{ $labParts = $labParts | append (index $labels . | default "") }}
+  {{ end }}
+  {{ $catJoined := delimit $labParts ", " }}
+  {{ $role := .Params.role | default "" }}
+  {{ if and $row (not $role) }}{{ $role = $row.affiliation }}{{ end }}
+  {{/* Mirror the Current Research Group box: link straight to the person's
+       external site (personal page / LinkedIn / university profile) when
+       one is set. People without an external URL render as plain text so
+       we don't dead-end visitors on an empty internal landing page. */}}
+  {{ $href := .Params.website | default "" }}
+  {{ $external := ne $href "" }}
+  {{ $entry := dict "name" .Title "url" $href "external" $external "role" $role "categories" $cats "range" $rng "categoryLabel" $catJoined }}
+  {{ $entries = $entries | append $entry }}
+{{ end }}
+
+<script>
+(function() {
+  if (window.__gkResearchGroupInitialized) { return; }
+  window.__gkResearchGroupInitialized = true;
+
+  var data = {{ $entries | jsonify | safeJS }};
+  var searchTerm = "";
+  var sortMode = "az";
+  var activeRanges = {};
+  var activeUnivs = {};
+  var activeCats = {};
+  /* Same letter buckets as legacy /people */
+  var ranges = ["A-C","D-G","H-J","K-L","M-P","Q-S","T-V","W-Z"];
+  ranges.forEach(function(r) { activeRanges[r] = true; });
+
+  var catKeys = ["alumni_students","alumni_postdocs","collaborators"];
+  catKeys.forEach(function(c) { activeCats[c] = true; });
+
+  function getLastName(name) {
+    var parts = name.trim().split(/\s+/);
+    return parts[parts.length - 1];
+  }
+
+  function getRange(name) {
+    var c = getLastName(name).charAt(0).toUpperCase();
+    if (c >= "A" && c <= "C") return "A-C";
+    if (c >= "D" && c <= "G") return "D-G";
+    if (c >= "H" && c <= "J") return "H-J";
+    if (c >= "K" && c <= "L") return "K-L";
+    if (c >= "M" && c <= "P") return "M-P";
+    if (c >= "Q" && c <= "S") return "Q-S";
+    if (c >= "T" && c <= "V") return "T-V";
+    return "W-Z";
+  }
+
+  function getRangeForEntry(d) {
+    if (d.range) return d.range;
+    return getRange(d.name);
+  }
+
+  /* Categories: people may have multiple tags (matches legacy facet counts). Ranges: exclusive per person. */
+  function computeFacetCounts(rows) {
+    var cat = { current: 0, alumni_students: 0, alumni_postdocs: 0, collaborators: 0 };
+    var rng = { "A-C": 0, "D-G": 0, "H-J": 0, "K-L": 0, "M-P": 0, "Q-S": 0, "T-V": 0, "W-Z": 0 };
+    rows.forEach(function(d) {
+      var cs = d.categories && d.categories.length ? d.categories : ["collaborators"];
+      cs.forEach(function(c) {
+        if (Object.prototype.hasOwnProperty.call(cat, c)) cat[c]++;
+      });
+      var rr = getRangeForEntry(d);
+      if (Object.prototype.hasOwnProperty.call(rng, rr)) rng[rr]++;
+    });
+    return { cat: cat, rng: rng };
+  }
+
+  var facet = computeFacetCounts(data);
+  var rngSum = 0;
+  ranges.forEach(function(r) { rngSum += facet.rng[r]; });
+  if (rngSum !== data.length) {
+    console.warn("Research group letter-bucket sum:", { members: data.length, rngSum: rngSum });
+  }
+
+  var univCounts = {};
+  data.forEach(function(d) {
+    var u = d.role || "—";
+    univCounts[u] = (univCounts[u] || 0) + 1;
+  });
+
+  var catLabels = {
+    alumni_students: "Alumni: Students",
+    alumni_postdocs: "Alumni: Post-Docs",
+    collaborators: "Collaborators"
+  };
+
+  var catContainer = document.getElementById("gk-cat-filters");
+  catKeys.forEach(function(k) {
+    var count = facet.cat[k];
+    var div = document.createElement("div");
+    div.style.cssText = "padding:2px 0;font-size:0.88rem;";
+    div.innerHTML = '<label style="cursor:pointer;display:flex;align-items:center;gap:6px;">' +
+      '<input type="checkbox" data-cat="' + k + '" checked> ' + catLabels[k] +
+      ' <span style="color:#999;">(' + count + ')</span></label>';
+    catContainer.appendChild(div);
+  });
+
+  var nameContainer = document.getElementById("gk-name-filters");
+  ranges.forEach(function(r) {
+    var count = facet.rng[r];
+    var div = document.createElement("div");
+    div.style.cssText = "padding:2px 0;font-size:0.88rem;";
+    div.innerHTML = '<label style="cursor:pointer;display:flex;align-items:center;gap:6px;">' +
+      '<input type="checkbox" data-range="' + r + '" checked> ' + r +
+      ' <span style="color:#999;">(' + count + ')</span></label>';
+    nameContainer.appendChild(div);
+  });
+
+  var univContainer = document.getElementById("gk-univ-filters");
+  var sortedUnivs = Object.keys(univCounts).sort(function(a, b) {
+    return univCounts[b] - univCounts[a];
+  });
+  sortedUnivs.forEach(function(u) {
+    activeUnivs[u] = true;
+    var div = document.createElement("div");
+    div.style.cssText = "padding:1px 0;font-size:0.85rem;";
+    div.innerHTML = '<label style="cursor:pointer;display:flex;align-items:center;gap:6px;">' +
+      '<input type="checkbox" data-univ="' + escapeAttr(u) + '" checked> ' +
+      escapeHtml(u) + ' <span style="color:#999;">(' + univCounts[u] + ')</span></label>';
+    univContainer.appendChild(div);
+  });
+
+  catContainer.addEventListener("change", function(e) {
+    var k = e.target.dataset.cat;
+    if (k) { activeCats[k] = e.target.checked; render(); }
+  });
+  nameContainer.addEventListener("change", function(e) {
+    var r = e.target.dataset.range;
+    if (r) { activeRanges[r] = e.target.checked; render(); }
+  });
+  univContainer.addEventListener("change", function(e) {
+    var u = e.target.dataset.univ;
+    if (u !== undefined) { activeUnivs[u] = e.target.checked; render(); }
+  });
+  document.getElementById("gk-people-search").addEventListener("input", function(e) {
+    searchTerm = e.target.value.toLowerCase();
+    render();
+  });
+  document.getElementById("gk-people-sort").addEventListener("change", function(e) {
+    sortMode = e.target.value;
+    render();
+  });
+
+  function anyCategoryActive(d) {
+    var cs = d.categories && d.categories.length ? d.categories : ["collaborators"];
+    for (var i = 0; i < cs.length; i++) {
+      if (activeCats[cs[i]]) return true;
+    }
+    return false;
+  }
+
+  function render() {
+    var filtered = data.filter(function(d) {
+      if (!anyCategoryActive(d)) return false;
+      if (!activeRanges[getRangeForEntry(d)]) return false;
+      var u = d.role || "—";
+      if (!activeUnivs[u]) return false;
+      if (searchTerm) {
+        var haystack = (d.name + " " + (d.role || "") + " " + (d.categoryLabel || "")).toLowerCase();
+        if (haystack.indexOf(searchTerm) === -1) return false;
+      }
+      return true;
+    });
+
+    filtered.sort(function(a, b) {
+      var la = getLastName(a.name).toLowerCase();
+      var lb = getLastName(b.name).toLowerCase();
+      return sortMode === "za" ? lb.localeCompare(la) : la.localeCompare(lb);
+    });
+
+    document.getElementById("gk-people-count").textContent = filtered.length + " result" + (filtered.length !== 1 ? "s" : "");
+
+    var html = "";
+    filtered.forEach(function(d) {
+      html += '<div style="padding:10px 12px;background:#f0f5fa;border-radius:6px;">';
+      if (d.external && d.url) {
+        /* Same colour as un-clickable names; the underline is the sole
+           clickability cue, matching the user's preference. */
+        html += '<strong><a href="' + escapeAttr(d.url) + '" target="_blank" rel="noopener noreferrer" style="color:#1a3a5c;text-decoration:underline;text-underline-offset:2px;">' + escapeHtml(d.name) + '</a></strong>';
+      } else {
+        html += '<strong style="color:#1a3a5c;">' + escapeHtml(d.name) + '</strong>';
+      }
+      if (d.role) html += '<div style="font-size:0.82rem;color:#666;margin-top:2px;">' + escapeHtml(d.role) + '</div>';
+      if (d.categoryLabel) html += '<div style="font-size:0.75rem;color:#595959;margin-top:2px;">' + escapeHtml(d.categoryLabel) + '</div>';
+      html += '</div>';
+    });
+    document.getElementById("gk-people-results").innerHTML = html;
+  }
+
+  function escapeHtml(s) {
+    var div = document.createElement("div");
+    div.appendChild(document.createTextNode(s));
+    return div.innerHTML;
+  }
+
+  function escapeAttr(s) {
+    return s.replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  }
+
+  render();
+})();
+</script>
+
+<style>
+  #gk-sidebar input[type="checkbox"] { accent-color: #337ab7; }
+  @media (max-width: 768px) {
+    #gk-sidebar { display: none; }
+  }
+</style>
+
+{{ end }}

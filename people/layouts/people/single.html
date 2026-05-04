@@ -1,0 +1,65 @@
+{{ define "main" }}
+
+<article class="gk-people-profile" style="max-width:56rem;margin:0 auto;padding:0 1.25rem 3rem;">
+  <nav aria-label="Breadcrumb" style="font-size:0.9rem;color:#666;margin:1rem 0 1.25rem;">
+    <a href="{{ "" | relURL }}" style="color:#337ab7;text-decoration:none;">Home</a>
+    <span style="margin:0 0.35rem;">&gt;</span>
+    <a href="{{ "research-group/" | relURL }}" style="color:#337ab7;text-decoration:none;">People</a>
+    <span style="margin:0 0.35rem;">&gt;</span>
+    <span style="color:#333;">{{ .Title }}</span>
+  </nav>
+
+  <!-- Title band (similar to original orange banner) -->
+  <header style="background:#8c3e0a;color:#fff;padding:1.75rem 1.5rem 1.5rem;margin:0 -0.25rem 0;border-radius:4px 4px 0 0;">
+    <h1 style="margin:0;font-size:1.85rem;font-weight:600;font-family:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;">{{ .Title }}</h1>
+    {{ with .Params.role }}
+    <p style="margin:0.5rem 0 0;font-size:1.05rem;color:#fff;">{{ . }}</p>
+    {{ end }}
+  </header>
+
+  <div style="display:flex;flex-wrap:wrap;gap:1.5rem;align-items:stretch;padding:1.75rem 0 0;border:1px solid #e8e8e8;border-top:none;border-radius:0 0 4px 4px;margin:0 -0.25rem;padding-left:1.25rem;padding-right:1.25rem;padding-bottom:1.5rem;background:#fff;">
+    <!-- Photo -->
+    <div style="flex:0 0 11rem;max-width:100%;align-self:flex-start;">
+      {{ if .Params.avatar }}
+      <img src="{{ .Params.avatar }}" alt="" style="width:100%;max-width:11rem;height:auto;display:block;border-radius:4px;border:1px solid #e2e8f0;" loading="lazy" />
+      {{ else }}
+      <div style="width:100%;min-height:13rem;max-width:11rem;background:#1a3a5c;border-radius:4px;display:flex;align-items:center;justify-content:center;color:#b8c9dc;padding:1rem;box-sizing:border-box;" aria-hidden="true" title="Photo placeholder">
+        <svg xmlns="http://www.w3.org/2000/svg" width="72" height="72" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+      </div>
+      {{ end }}
+    </div>
+
+    <!-- Contact: email + website (legacy person card layout) -->
+    <div style="flex:1;min-width:12rem;display:flex;flex-direction:column;gap:0.75rem;">
+      {{ if .Params.email }}
+      <div style="background:#e8f2fa;border:1px solid #c5d9eb;border-radius:6px;padding:0.85rem 1rem;display:flex;align-items:center;gap:0.6rem;max-width:28rem;">
+        <span style="font-size:1.2rem;" aria-hidden="true">&#9993;</span>
+        <a href="mailto:{{ .Params.email }}" style="color:#337ab7;word-break:break-all;text-decoration:none;font-size:0.95rem;">{{ .Params.email }}</a>
+      </div>
+      {{ end }}
+      {{ with .Params.website }}
+      {{ $wl := $.Params.website_label | default "Website" }}
+      <div style="background:#e8f2fa;border:1px solid #c5d9eb;border-radius:6px;padding:0.85rem 1rem;display:flex;align-items:center;gap:0.6rem;max-width:28rem;">
+        <span style="flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;color:#337ab7;" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2H0v2h24v-2h-4zM4 8V6h16v2H4z"/></svg>
+        </span>
+        <a href="{{ . }}" rel="noopener noreferrer" style="color:#337ab7;word-break:break-all;text-decoration:none;font-size:0.95rem;">{{ $wl }}</a>
+      </div>
+      {{ end }}
+      {{ if and (not .Params.email) (not .Params.website) }}
+      <p style="color:#595959;font-size:0.9rem;margin:0;">&nbsp;</p>
+      {{ end }}
+    </div>
+  </div>
+
+  <!-- Bio (from Gary King site field-hwp-body; generic fallback when absent) -->
+  <div class="prose prose-slate max-w-none" style="margin-top:1.5rem;padding:0 0.25rem;font-size:1rem;line-height:1.65;color:#333;max-width:none;">
+    {{ .Content }}
+  </div>
+
+  <p style="margin-top:2rem;">
+    <a href="{{ "research-group/" | relURL }}" style="color:#337ab7;text-decoration:none;font-size:0.95rem;">&larr; Back to People</a>
+  </p>
+</article>
+
+{{ end }}

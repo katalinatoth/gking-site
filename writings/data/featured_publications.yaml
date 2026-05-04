@@ -1,0 +1,47 @@
+# Working Papers spotlight (shown above the Journal Articles tab on the
+# writings page).
+#
+# How the list is built
+# ---------------------
+# Start with the manually curated `order` list below. Before each build,
+# any journal-article publication NOT already in `order` (and NOT in
+# `exclude`) is prepended by its first-commit date (newest first) — so
+# when Gary adds a new paper to /content/publication/ and pushes it, the
+# paper auto-enters the spotlight, and the oldest curated entry rolls
+# off the end. The displayed list is capped at `count` entries.
+#
+# Overrides
+# ---------
+# count    How many entries to display. Default 6. Bump to 7 or 8 to
+#          keep more; set to 0 to hide the spotlight entirely.
+# order    The manually curated sequence. Edit freely: reorder, add an
+#          older slug to pin it in, or remove a slug to let it roll off
+#          earlier than the auto-rule would.
+# exclude  Slugs that should never be auto-prepended. Use this to keep a
+#          recently committed paper OUT of the spotlight. Note that a
+#          slug listed in `order` is always shown (subject to `count`)
+#          even if it's also in `exclude`.
+#
+# First-commit dates live in data/publication_first_commit.json and are
+# refreshed by scripts/compute_publication_first_commit.py, which runs
+# automatically in CI before every build. You can run it locally any
+# time with `python3 scripts/compute_publication_first_commit.py`.
+
+count: 5
+
+order:
+  - inducing-sustained-creativity-and-diversity-in-large-language-models
+  - survey-estimates-of-wartime-mortality
+  - if-a-statistical-model-predicts-that-common-events-should-occur-only-once-in-100
+  - experimental-evidence-on-the-limited-influence-of-reputable-media-outlets
+  - how-american-politics-ensures-electoral-accountability-in-congress
+
+exclude:
+  # The four -jss companion entries split out from existing software pages on
+  # 2026-04-26. Their fresh first-commit date is newer than anything in
+  # `order`, so without this they auto-prepend and push real working papers
+  # off the bottom (e.g. Anchors 2011 / EI 2004 reappearing as "new").
+  - amelia-ii-a-program-for-missing-data-jss
+  - anchors-software-for-anchoring-vignettes-data-jss
+  - ei-a-program-for-ecological-inference-jss
+  - matchit-nonparametric-preprocessing-for-parametric-causal-inference-jss
