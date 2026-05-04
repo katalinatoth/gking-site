@@ -41,46 +41,46 @@ module:
   # build to catch drift.
   mounts:
     # === BEGIN AUTO-GENERATED MOUNTS (run _automation/scripts/generate_mounts.py) ===
-    - {source: layouts,                                target: layouts} # shared theme bits (pinned at root)
-    - {source: bio/layouts,                            target: layouts/bio}
-    - {source: blog/layouts,                           target: layouts/blog}
-    - {source: contact/layouts,                        target: layouts/contact}
-    - {source: dataverse/layouts,                      target: layouts/dataverse}
-    - {source: home/layouts,                           target: layouts}
-    - {source: people/layouts/people,                  target: layouts/people}
-    - {source: research-areas/layouts,                 target: layouts/research-areas}
-    - {source: people/layouts/research-group,          target: layouts/research-group}
-    - {source: software/layouts,                       target: layouts/software}
-    - {source: talks/layouts,                          target: layouts/talk}
-    - {source: teaching/layouts/teaching,              target: layouts/teaching}
-    - {source: teaching/layouts/teaching-class,        target: layouts/teaching-class}
-    - {source: writings/layouts,                       target: layouts/publication}
-    - {source: EditMe/HomePage,                        target: content}
-    - {source: EditMe/Bio,                             target: content/bio}
-    - {source: EditMe/Misc,                            target: content}
-    - {source: EditMe/Blog,                            target: content/blog}
-    - {source: EditMe/ResearchAreas,                   target: content/research-areas}
-    - {source: EditMe/Software,                        target: content/software}
-    - {source: EditMe/Dataverse,                       target: content/dataverse}
-    - {source: EditMe/People/ResearchGroup,            target: content/research-group}
-    - {source: EditMe/People/Profiles,                 target: content/people}
-    - {source: EditMe/People/Authors,                  target: content/authors}
-    - {source: EditMe/Teaching,                        target: content/teaching}
-    - {source: EditMe/Contact,                         target: content/contact}
-    - {source: redirects/content,                      target: content/_redirects}
-    - {source: EditMe/Writings/Articles/Unsorted,      target: content/publication}
-    - {source: EditMe/Writings/Presentations/Unsorted, target: content/talk}
-    - {source: _site/data,                             target: data}   # cross-section data files
-    - {source: EditMe/Writings/Data,                   target: data}
-    - {source: EditMe/Software/Data,                   target: data}
-    - {source: EditMe/Dataverse/Data,                  target: data}
-    - {source: EditMe/People/Data,                     target: data}
-    - {source: EditMe/ResearchAreas/Data,              target: data}
-    - {source: EditMe/Redirects/Data,                  target: data}
-    - {source: assets,                                 target: assets} # pinned at root: HugoBlox theme uses fileExists
-    - {source: _site/static,                           target: static}
-    - {source: _site/archetypes,                       target: archetypes}
-    - {source: _site/i18n,                             target: i18n}
+    - {source: layouts,                                   target: layouts} # shared theme bits (pinned at root)
+    - {source: EditMe/UI/PerSectionLayouts/Bio,           target: layouts/bio}
+    - {source: EditMe/UI/PerSectionLayouts/Blog,          target: layouts/blog}
+    - {source: EditMe/UI/PerSectionLayouts/Contact,       target: layouts/contact}
+    - {source: EditMe/UI/PerSectionLayouts/Dataverse,     target: layouts/dataverse}
+    - {source: EditMe/UI/PerSectionLayouts/HomePage,      target: layouts}
+    - {source: EditMe/UI/PerSectionLayouts/People,        target: layouts/people}
+    - {source: EditMe/UI/PerSectionLayouts/ResearchAreas, target: layouts/research-areas}
+    - {source: EditMe/UI/PerSectionLayouts/ResearchGroup, target: layouts/research-group}
+    - {source: EditMe/UI/PerSectionLayouts/Software,      target: layouts/software}
+    - {source: EditMe/UI/PerSectionLayouts/Talks,         target: layouts/talk}
+    - {source: EditMe/UI/PerSectionLayouts/Teaching,      target: layouts/teaching}
+    - {source: EditMe/UI/PerSectionLayouts/TeachingClass, target: layouts/teaching-class}
+    - {source: EditMe/UI/PerSectionLayouts/Writings,      target: layouts/publication}
+    - {source: EditMe/HomePage,                           target: content}
+    - {source: EditMe/Bio,                                target: content/bio}
+    - {source: EditMe/Misc,                               target: content}
+    - {source: EditMe/Blog,                               target: content/blog}
+    - {source: EditMe/ResearchAreas,                      target: content/research-areas}
+    - {source: EditMe/Software,                           target: content/software}
+    - {source: EditMe/Dataverse,                          target: content/dataverse}
+    - {source: EditMe/People/ResearchGroup,               target: content/research-group}
+    - {source: EditMe/People/Profiles,                    target: content/people}
+    - {source: EditMe/People/Authors,                     target: content/authors}
+    - {source: EditMe/Teaching,                           target: content/teaching}
+    - {source: EditMe/Contact,                            target: content/contact}
+    - {source: redirects/content,                         target: content/_redirects}
+    - {source: EditMe/Writings/Articles/Unsorted,         target: content/publication}
+    - {source: EditMe/Writings/Presentations/Unsorted,    target: content/talk}
+    - {source: _site/data,                                target: data} # cross-section data files
+    - {source: EditMe/Writings/Data,                      target: data}
+    - {source: EditMe/Software/Data,                      target: data}
+    - {source: EditMe/Dataverse/Data,                     target: data}
+    - {source: EditMe/People/Data,                        target: data}
+    - {source: EditMe/ResearchAreas/Data,                 target: data}
+    - {source: EditMe/Redirects/Data,                     target: data}
+    - {source: assets,                                    target: assets} # pinned at root: HugoBlox theme uses fileExists
+    - {source: _site/static,                              target: static}
+    - {source: _site/archetypes,                          target: archetypes}
+    - {source: _site/i18n,                                target: i18n}
     # === END AUTO-GENERATED MOUNTS ===
 
 markup:
