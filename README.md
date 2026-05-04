@@ -84,6 +84,9 @@ unchanged.
 
 ## Docs
 
+- [**docs/REPO_LAYOUT.md**](docs/REPO_LAYOUT.md) — plain-language tour of
+  every top-level folder and what it's for. Start here if folder names like
+  `_site/`, `_automation/`, `.githooks/`, or `assets/` are confusing.
 - [**docs/UPDATING.md**](docs/UPDATING.md) — how to add papers, talks,
   software, etc. All edits can be done through github.com in a browser;
   no terminal required.
