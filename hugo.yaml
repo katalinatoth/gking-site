@@ -22,6 +22,73 @@ module:
   imports:
     - path: github.com/HugoBlox/hugo-blox-builder/modules/blox-plugin-netlify
     - path: github.com/HugoBlox/hugo-blox-builder/modules/blox-tailwind
+  # The repo is organised by website section (bio/, writings/, people/, ...).
+  # Hugo expects content/, layouts/, data/, static/, assets/, archetypes/, i18n/
+  # at the project root, so we remap each section folder onto those targets.
+  # If you add/rename a top-level section, update both this block and the
+  # matching nav entry in `menus.main` below.
+  #
+  # Note: as soon as ANY mount is declared for a target type (content, layouts,
+  # data, ...), Hugo's automatic default mount for that type is replaced. The
+  # block below therefore enumerates every section explicitly.
+  mounts:
+    # --- content ---
+    - {source: home/content,            target: content}
+    - {source: pages/content,           target: content}
+    - {source: bio/content,             target: content/bio}
+    - {source: writings/content,        target: content/publication}
+    - {source: software/content,        target: content/software}
+    - {source: dataverse/content,       target: content/dataverse}
+    - {source: people/content/group,    target: content/research-group}
+    - {source: people/content/profiles, target: content/people}
+    - {source: people/content/authors,  target: content/authors}
+    - {source: teaching/content,        target: content/teaching}
+    - {source: talks/content,           target: content/talk}
+    - {source: blog/content,            target: content/blog}
+    - {source: research-areas/content,  target: content/research-areas}
+    - {source: contact/content,         target: content/contact}
+    - {source: redirects/content,       target: content/_redirects}
+
+    # --- layouts ---
+    # The shared theme bits (baseof.html, alias.html, _default/, _partials/,
+    # shortcodes/, page/) intentionally live at the project root in
+    # `layouts/`, NOT under a section folder. The HugoBlox theme calls
+    # `os.ReadDir "layouts/_partials/hooks/body-end/"` (and similar) which
+    # are literal filesystem reads that do not follow Hugo mounts.
+    # Section-specific layouts mount onto layouts/<section>/ as expected.
+    - {source: layouts,                           target: layouts}
+    - {source: home/layouts,                      target: layouts}
+    - {source: bio/layouts,                       target: layouts/bio}
+    - {source: blog/layouts,                      target: layouts/blog}
+    - {source: contact/layouts,                   target: layouts/contact}
+    - {source: dataverse/layouts,                 target: layouts/dataverse}
+    - {source: research-areas/layouts,            target: layouts/research-areas}
+    - {source: software/layouts,                  target: layouts/software}
+    - {source: talks/layouts,                     target: layouts/talk}
+    - {source: writings/layouts,                  target: layouts/publication}
+    - {source: people/layouts/people,             target: layouts/people}
+    - {source: people/layouts/research-group,     target: layouts/research-group}
+    - {source: teaching/layouts/teaching,         target: layouts/teaching}
+    - {source: teaching/layouts/teaching-class,   target: layouts/teaching-class}
+
+    # --- data (Hugo merges all sources into a single logical site.Data tree) ---
+    - {source: _site/data,           target: data}
+    - {source: writings/data,        target: data}
+    - {source: software/data,        target: data}
+    - {source: dataverse/data,       target: data}
+    - {source: people/data,          target: data}
+    - {source: research-areas/data,  target: data}
+    - {source: redirects/data,       target: data}
+
+    # --- static / archetypes / i18n ---
+    # `assets/` stays at the project root (not under _site/) because the
+    # HugoBlox tailwind theme partial (_vendor/.../site_head.html) calls
+    # `fileExists "assets/css/custom.css"`, which checks the literal
+    # filesystem path and does not follow mounts.
+    - {source: assets,            target: assets}
+    - {source: _site/static,      target: static}
+    - {source: _site/archetypes,  target: archetypes}
+    - {source: _site/i18n,        target: i18n}
 
 markup:
   goldmark:

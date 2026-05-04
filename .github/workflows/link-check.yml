@@ -32,9 +32,17 @@ jobs:
           import requests
           from concurrent.futures import ThreadPoolExecutor, as_completed
 
-          CONTENT_DIRS = ["content/publication", "content/talk", "content/software",
-                          "content/bio", "content/teaching", "content/research-areas",
-                          "content/dataverse", "content/research-group"]
+          # After the section-driven repo reorg, content lives under
+          # <section>/content/ on disk rather than a single content/ root.
+          # The Hugo build still merges these via module.mounts in
+          # hugo.yaml, but this workflow reads markdown straight off the
+          # filesystem so it has to walk the physical layout.
+          CONTENT_DIRS = ["writings/content", "talks/content", "software/content",
+                          "bio/content", "teaching/content", "research-areas/content",
+                          "dataverse/content", "people/content/group",
+                          "people/content/profiles", "people/content/authors",
+                          "blog/content", "contact/content", "home/content",
+                          "pages/content"]
 
           def extract_urls(filepath):
               with open(filepath) as f:

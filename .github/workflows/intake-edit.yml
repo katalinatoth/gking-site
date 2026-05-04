@@ -10,8 +10,8 @@ name: Apply PR comment edits
 #
 # This is the "edit-from-the-comment-thread" half of the intake flow.
 # The "auto-populate-from-the-PDF" half lives in intake-publication.yml
-# (legacy `intake/` folder upload) and intake-from-issue.yml (new
-# Issue Form upload).
+# (legacy `_automation/intake/` folder upload) and intake-from-issue.yml
+# (new Issue Form upload).
 
 on:
   issue_comment:
@@ -101,14 +101,17 @@ jobs:
           PR_NUMBER: ${{ steps.pr.outputs.number }}
         run: |
           set -euo pipefail
-          # The PR's diff against base, restricted to publication index.md
-          # files. This catches both the index.md created by the auto-
-          # import workflow and any subsequent manual edits in the same PR.
+          # The PR's diff against base, restricted to publication / talk
+          # index.md files. After the section-driven repo reorg those
+          # live under writings/content/<slug>/ and talks/content/<slug>/
+          # on disk; the regex below covers both. This catches both the
+          # index.md created by the auto-import workflow and any
+          # subsequent manual edits in the same PR.
           gh pr view "$PR_NUMBER" --json files -q '.files[].path' > /tmp/pr_files.txt || true
-          grep -E '^content/publication/[^/]+/index\.md$' /tmp/pr_files.txt \
+          grep -E '^(writings|talks)/content/[^/]+/index\.md$' /tmp/pr_files.txt \
             | sort -u > /tmp/targets.txt || true
           if [ ! -s /tmp/targets.txt ]; then
-            echo "No publication index.md in this PR's diff; nothing to edit."
+            echo "No publication/talk index.md in this PR's diff; nothing to edit."
             echo "any=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
@@ -121,7 +124,7 @@ jobs:
         run: |
           set -euo pipefail
           mapfile -t targets < /tmp/targets.txt
-          python3 scripts/apply_pr_edits.py \
+          python3 _automation/scripts/apply_pr_edits.py \
             --comment /tmp/comment_body.txt \
             --report  /tmp/edit_report.json \
             "${targets[@]}"

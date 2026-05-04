@@ -1,0 +1,7 @@
+# Used by writings/scripts/add_featured_from_pdf.py and
+# writings/scripts/refresh_featured_uncropped.py.
+pymupdf>=1.24.0
+# Used by writings/scripts/refresh_featured_uncropped.py for PDF-figure
+# perceptual-hash matching.
+imagehash>=4.3.1
+Pillow>=10.0.0

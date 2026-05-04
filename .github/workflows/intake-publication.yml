@@ -1,12 +1,13 @@
 name: Auto-import publication from PDF
 
-# Triggered when a PDF lands in `intake/` as part of a pull request.
-# Reads the PDF, fills out the front matter from Crossref, moves the PDF
-# to `static/files/`, updates `data/writings_legacy_map.json`, and commits
-# everything back into the same PR branch with a summary comment.
+# Triggered when a PDF lands in `_automation/intake/` as part of a pull
+# request. Reads the PDF, fills out the front matter from Crossref, moves
+# the PDF to `_site/static/files/`, updates
+# `writings/data/writings_legacy_map.json`, and commits everything back
+# into the same PR branch with a summary comment.
 #
 # Gary's workflow (no terminal needed):
-#   1. On github.com, navigate into `intake/`.
+#   1. On github.com, navigate into `_automation/intake/`.
 #   2. "Add file -> Upload files", drag the PDF in.
 #   3. Choose "Create a new branch for this commit and start a pull request".
 #   4. "Propose changes" -> "Create pull request".
@@ -21,8 +22,8 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
     paths:
-      - "intake/**/*.pdf"
-      - "intake/**/*.PDF"
+      - "_automation/intake/**/*.pdf"
+      - "_automation/intake/**/*.PDF"
 
 permissions:
   contents: write
@@ -57,9 +58,9 @@ jobs:
         id: list_pdfs
         run: |
           set -euo pipefail
-          mapfile -t pdfs < <(find intake -maxdepth 2 -type f \( -iname '*.pdf' \) 2>/dev/null | sort || true)
+          mapfile -t pdfs < <(find _automation/intake -maxdepth 2 -type f \( -iname '*.pdf' \) 2>/dev/null | sort || true)
           if [ "${#pdfs[@]}" -eq 0 ]; then
-            echo "No PDFs in intake/, nothing to do."
+            echo "No PDFs in _automation/intake/, nothing to do."
             echo "any=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
@@ -77,18 +78,19 @@ jobs:
             [ -z "$pdf" ] && continue
             name=$(basename "$pdf" .pdf)
             echo "::group::Processing $pdf"
-            python3 scripts/intake_publication.py "$pdf" \
+            python3 writings/scripts/intake_publication.py "$pdf" \
               --report "/tmp/intake_reports/${name}.json"
-            # After intake_publication.py moves the PDF to static/files/
-            # and writes content/.../index.md, render every numbered
-            # figure into _intake_figures/ so the maintainer can swap
-            # the featured image with `/figure N`. Skip silently if
-            # the report json wasn't produced (e.g. import error).
+            # After intake_publication.py moves the PDF to
+            # _site/static/files/ and writes <section>/content/.../index.md,
+            # render every numbered figure into _intake_figures/ so the
+            # maintainer can swap the featured image with `/figure N`.
+            # Skip silently if the report json wasn't produced (e.g.
+            # import error).
             if [ -s "/tmp/intake_reports/${name}.json" ]; then
               target_pdf=$(python3 -c "import json,sys; print(json.load(open('/tmp/intake_reports/${name}.json'))['target_pdf'])")
               target_md=$(python3 -c "import json,sys; print(json.load(open('/tmp/intake_reports/${name}.json'))['target_index_md'])")
               page_dir=$(dirname "$target_md")
-              python3 scripts/extract_all_figures.py "$target_pdf" \
+              python3 writings/scripts/extract_all_figures.py "$target_pdf" \
                 --out "$page_dir/_intake_figures" || true
             fi
             echo "::endgroup::"
@@ -104,8 +106,8 @@ jobs:
         run: |
           set -euo pipefail
           # Each report becomes a section rendered by build_intake_pr_body.py
-          # so the legacy `intake/` flow shares the same abstract preview +
-          # figure picker layout as the issue-form flow.
+          # so the legacy `_automation/intake/` flow shares the same abstract
+          # preview + figure picker layout as the issue-form flow.
           : > /tmp/intake_summary.md
           echo "## Auto-import results" >> /tmp/intake_summary.md
           echo "" >> /tmp/intake_summary.md
@@ -124,7 +126,7 @@ jobs:
             if [ -f "$figures" ]; then
               figures_arg="--figures $figures"
             fi
-            python3 scripts/build_intake_pr_body.py \
+            python3 _automation/scripts/build_intake_pr_body.py \
               --report "$report" \
               $figures_arg \
               --owner  "$OWNER" \
