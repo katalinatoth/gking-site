@@ -5,22 +5,28 @@ Designed to be invoked by .github/workflows/intake-publication.yml when
 Gary uploads a PDF to _automation/intake/ in a pull request. The
 workflow runs:
 
-    python3 writings/scripts/intake_publication.py _automation/intake/the-paper.pdf
+    python3 _automation/scripts/writings/intake_publication.py _automation/intake/the-paper.pdf
 
 The location of the PDF inside _automation/intake/ picks the content
 type:
 
     _automation/intake/<file>.pdf       -> journal article (default)
-                                           writes writings/content/<slug>/index.md
+                                           writes EditMe/Writings/Articles/Unsorted/<slug>/index.md
+                                           A follow-up `regroup_articles.py` run files it
+                                           into the right Topic/Decade folder.
     _automation/intake/talk/<file>.pdf  -> presentation (slide deck)
-                                           writes talks/content/<slug>/index.md
+                                           writes EditMe/Writings/Presentations/<slug>/index.md
                                            Crossref is skipped (slides aren't indexed).
                                            Empty event / event_url / location are
-                                           scaffolded for the user to fill in.
+                                           scaffolded for the user to fill in. A follow-up
+                                           `regroup_presentations.py` run clusters by
+                                           title-slug -> venue-slug.
     _automation/intake/book/<file>.pdf  -> book
-                                           writes writings/content/<slug>/index.md
+                                           writes EditMe/Writings/Articles/Unsorted/<slug>/index.md
                                            Crossref is still consulted (books are indexed)
-                                           but the type is forced to `book`.
+                                           but the type is forced to `book`. A follow-up
+                                           `regroup_writings.py` run promotes it into
+                                           EditMe/Writings/Books/<Decade>/.
 
 This script:
 
@@ -34,18 +40,18 @@ This script:
     existing related_finder.html will render correctly.
 6.  Moves the PDF from _automation/intake/ to _site/static/files/<slug>.pdf
     and links it from the index.md.
-7.  Adds the new slug to writings/data/writings_legacy_map.json so the
+7.  Adds the new slug to EditMe/Writings/Data/writings_legacy_map.json so the
     Writings page tabs route correctly.
-8.  Writes a JSON intake report (writings/data/_intake_report.json)
+8.  Writes a JSON intake report (EditMe/Writings/Data/_intake_report.json)
     summarising everything we found, everything we guessed, and
     everything Gary should double-check. The workflow turns that into
     a PR comment.
 
 Manual local use (from the root of the gking-site checkout):
 
-    python3 writings/scripts/intake_publication.py _automation/intake/foo.pdf
-    python3 writings/scripts/intake_publication.py _automation/intake/talk/slides.pdf --dry-run
-    python3 writings/scripts/intake_publication.py _automation/intake/book/manuscript.pdf
+    python3 _automation/scripts/writings/intake_publication.py _automation/intake/foo.pdf
+    python3 _automation/scripts/writings/intake_publication.py _automation/intake/talk/slides.pdf --dry-run
+    python3 _automation/scripts/writings/intake_publication.py _automation/intake/book/manuscript.pdf
 """
 
 from __future__ import annotations
@@ -62,10 +68,10 @@ from typing import Any
 
 import yaml
 
-# Repo layout: this script lives at writings/scripts/intake_publication.py,
-# so the repo root is two levels up.
+# Repo layout: this script lives at _automation/scripts/writings/intake_publication.py,
+# so the repo root is three levels up.
 THIS_DIR = Path(__file__).resolve().parent
-ROOT = THIS_DIR.parents[1]
+ROOT = THIS_DIR.parents[2]
 
 _doi_spec = importlib.util.spec_from_file_location(
     "fill_publication_from_doi", THIS_DIR / "fill_publication_from_doi.py"
@@ -102,7 +108,7 @@ PUB_TYPE_TO_TAB = {
 
 
 def slugify(text: str, max_len: int = 80) -> str:
-    """URL-safe slug. Mirrors the convention in existing writings/content/* dirs."""
+    """URL-safe slug. Mirrors the convention in existing EditMe/Writings/* dirs."""
     if not text:
         return "paper"
     s = unicodedata.normalize("NFKD", text)
@@ -411,7 +417,7 @@ _FIELD_ORDER = (
 # Keys whose empty-string scaffold value should still render in the YAML.
 # (Empty by default; populated only when a content type wants visible
 # placeholder fields. Talks deliberately don't use this — existing
-# talks/content/* index.md files keep a minimal title/date/authors/links
+# EditMe/Writings/Presentations/* index.md files keep a minimal title/date/authors/links
 # schema, so we follow suit.)
 _KEEP_EMPTY: frozenset[str] = frozenset()
 
@@ -426,7 +432,7 @@ def _literal_representer(dumper: yaml.Dumper, data: _LiteralStr):
 
 class _IndentedDumper(yaml.SafeDumper):
     """SafeDumper variant that indents list items under their parent
-    key, matching the style of existing writings/content/*/index.md
+    key, matching the style of existing EditMe/Writings/*/index.md
     files (e.g. `authors:\n  - Gary King` not `authors:\n- Gary King`)."""
 
     def increase_indent(self, flow=False, indentless=False):  # noqa: ARG002
@@ -441,7 +447,7 @@ def _yaml_dump(fm: dict[str, Any]) -> str:
 
     Field ordering is preserved (Hugo doesn't care, but humans do).
     Multi-line strings (e.g. abstract) render as `|-` block scalars to
-    match the convention used by writings/content/* index.md files.
+    match the convention used by EditMe/Writings/* index.md files.
     """
     ordered: dict[str, Any] = {}
     for k in _FIELD_ORDER:
@@ -705,10 +711,19 @@ def run(pdf_path: Path, dry_run: bool = False) -> dict[str, Any]:
     intake_kind = _intake_kind_from_path(pdf_path)
 
     static_files = ROOT / "_site" / "static" / "files"
-    pub_dir = ROOT / "writings" / "content"
-    talk_dir = ROOT / "talks" / "content"
-    legacy_map = ROOT / "writings" / "data" / "writings_legacy_map.json"
-    research_areas = ROOT / "research-areas" / "data" / "research_areas.json"
+    # Newly-imported papers land in the "Unsorted" tray under the Articles
+    # bucket; a follow-up `regroup_articles.py` / `regroup_writings.py` run
+    # files them into the right Topic/Decade or Books/Reports/etc. folder.
+    # Talks go straight into Presentations/ and a follow-up
+    # `regroup_presentations.py` clusters them by title-slug -> venue-slug.
+    pub_dir = ROOT / "EditMe" / "Writings" / "Articles" / "Unsorted"
+    talk_dir = ROOT / "EditMe" / "Writings" / "Presentations"
+    legacy_map = ROOT / "EditMe" / "Writings" / "Data" / "writings_legacy_map.json"
+    research_areas = ROOT / "EditMe" / "ResearchAreas" / "Data" / "research_areas.json"
+    # Slug uniqueness is checked across the whole EditMe/Writings/ tree
+    # (papers + talks), since a same-named bundle in either branch would
+    # collide on _site/static/files/<slug>.pdf and on the legacy-map keys.
+    writings_tree = ROOT / "EditMe" / "Writings"
 
     text = _pdf_text(pdf_path)
     review_notes: list[str] = []
@@ -805,7 +820,7 @@ def run(pdf_path: Path, dry_run: bool = False) -> dict[str, Any]:
     if intake_kind == "talk":
         target_root = talk_dir
         review_notes.append(
-            "Slide deck imported under talks/content/. The PDF text was used to "
+            "Slide deck imported under EditMe/Writings/Presentations/. The PDF text was used to "
             "guess title and date — verify both. Use slash commands "
             "(/title, /date, /authors) or the Files changed pencil to fix."
         )
@@ -813,11 +828,14 @@ def run(pdf_path: Path, dry_run: bool = False) -> dict[str, Any]:
         target_root = pub_dir
 
     slug = slugify(title)
-    # Avoid collisions in EITHER writings/content/ or talks/content/ — same
-    # slug across the two would still clash for _site/static/files/<slug>.pdf
-    # and writings_legacy_map keys.
+
     def _slug_taken(s: str) -> bool:
-        return (pub_dir / s).exists() or (talk_dir / s).exists()
+        if not writings_tree.is_dir():
+            return False
+        for cand in writings_tree.rglob(s):
+            if cand.is_dir() and (cand / "index.md").exists():
+                return True
+        return False
 
     if _slug_taken(slug):
         for n in range(2, 9):
@@ -928,7 +946,7 @@ def main() -> int:
     ap.add_argument(
         "--report",
         type=Path,
-        default=ROOT / "writings" / "data" / "_intake_report.json",
+        default=ROOT / "EditMe" / "Writings" / "Data" / "_intake_report.json",
     )
     args = ap.parse_args()
     pdf = args.pdf if args.pdf.is_absolute() else (ROOT / args.pdf)

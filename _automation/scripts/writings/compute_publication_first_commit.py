@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Capture the first-commit date for every writings/content/ markdown.
+"""Capture the first-commit date for every EditMe/Writings/ markdown.
 
 Hugo's built-in .GitInfo only exposes the *latest* commit that touched a
 file, which means editing a paper later (e.g. fixing a link) would bump
@@ -7,9 +7,9 @@ it to the top of any git-based ordering. For the "Current Working
 Papers" spotlight we want "when was this paper added to the site" —
 i.e. the file's *first* commit.
 
-This script walks writings/content/*/index.md, asks git for each
+This script walks EditMe/Writings/*/index.md, asks git for each
 file's earliest commit timestamp, and writes the result to
-writings/data/publication_first_commit.json as {slug: iso8601-date}.
+EditMe/Writings/Data/publication_first_commit.json as {slug: iso8601-date}.
 Hugo reads that file to order the spotlight.
 
 Run locally after adding a new paper to refresh the map; CI runs it
@@ -57,23 +57,31 @@ def first_commit_iso(repo_root: Path, rel_path: Path) -> str | None:
 
 
 def main() -> int:
-    repo_root = Path(__file__).resolve().parents[2]
-    pub_dir = repo_root / "writings" / "content"
-    out_path = repo_root / "writings" / "data" / "publication_first_commit.json"
+    repo_root = Path(__file__).resolve().parents[3]
+    pub_dir = repo_root / "EditMe" / "Writings"
+    out_path = repo_root / "EditMe" / "Writings" / "Data" / "publication_first_commit.json"
 
     if not pub_dir.is_dir():
         print(f"error: {pub_dir} not found", file=sys.stderr)
         return 1
 
     data: dict[str, str] = {}
-    for child in sorted(pub_dir.iterdir()):
-        md = child / "index.md"
-        if not md.is_file():
+    # Papers and talks are nested several levels deep under EditMe/Writings/
+    # (e.g. Articles/<topic>/<decade>/<slug>/index.md, Presentations/<title>/<venue>/index.md).
+    # rglob walks the whole tree; the bundle slug is the parent dir's name. We
+    # skip the data/ side-tree and any README markers.
+    for md in sorted(pub_dir.rglob("index.md")):
+        bundle = md.parent
+        try:
+            rel_to_pub = bundle.relative_to(pub_dir)
+        except ValueError:
+            continue
+        if rel_to_pub.parts and rel_to_pub.parts[0] in {"Data", "data"}:
             continue
         rel = md.relative_to(repo_root)
         iso = first_commit_iso(repo_root, rel)
         if iso:
-            data[child.name] = iso
+            data[bundle.name] = iso
 
     out_path.parent.mkdir(parents=True, exist_ok=True)
     with out_path.open("w", encoding="utf-8") as fh:

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-For each writings/content/*/ missing featured.{png,jpg,...}, if index.md
+For each EditMe/Writings/*/ missing featured.{png,jpg,...}, if index.md
 links to _site/static/files/<name>.pdf, render the first page to
 featured.png.
 Requires: pip install pymupdf
@@ -38,7 +38,7 @@ def main() -> int:
     ap.add_argument(
         "--root",
         type=Path,
-        default=Path(__file__).resolve().parents[2],
+        default=Path(__file__).resolve().parents[3],
     )
     ap.add_argument("--apply", action="store_true")
     ap.add_argument(
@@ -55,7 +55,7 @@ def main() -> int:
     )
     args = ap.parse_args()
     root: Path = args.root
-    pub_root = root / "writings" / "content"
+    pub_root = root / "EditMe" / "Writings"
     static_files = root / "_site" / "static" / "files"
     n_ok = 0
     n_skip = 0

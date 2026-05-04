@@ -29,8 +29,8 @@ This script:
     the new index.md to add a `links:` entry for each one.
 5.  Patches `aliases:` if a short URL was set.
 6.  Renders every numbered figure from the PDF into
-    `writings/content/<slug>/_intake_figures/` (or
-    `talks/content/<slug>/_intake_figures/`).
+    `EditMe/Writings/<slug>/_intake_figures/` (or
+    `EditMe/Writings/Presentations/<slug>/_intake_figures/`).
 7.  Writes the PR body (abstract preview + figure picker + edit
     instructions) by calling `build_intake_pr_body.render_pr_body`.
 8.  Emits a slugified branch name (`intake/issue-<N>-<slug>`) so the
@@ -75,8 +75,8 @@ ROOT = THIS_DIR.parents[1]
 # Loading by file path lets the workflow run without installing the
 # package or fiddling with PYTHONPATH. After the section-driven repo
 # reorg, intake_publication and extract_all_figures live in
-# writings/scripts/.
-_writings_scripts = ROOT / "writings" / "scripts"
+# _automation/scripts/writings/.
+_writings_scripts = ROOT / "_automation" / "scripts" / "writings"
 _intake_spec = importlib.util.spec_from_file_location(
     "intake_publication", _writings_scripts / "intake_publication.py"
 )
@@ -337,7 +337,7 @@ def main() -> int:
         return 3
 
     # 1) Run the existing pipeline. This moves target -> _site/static/files/<slug>.pdf
-    #    and writes writings/content/<slug>/index.md (or talks/content/<slug>/).
+    #    and writes EditMe/Writings/<slug>/index.md (or EditMe/Writings/Presentations/<slug>/).
     report = _intake.run(target, dry_run=False)
     slug = report["slug"]
     intake_kind = report["intake_kind"]

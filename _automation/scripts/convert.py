@@ -45,12 +45,12 @@ SCRAPED_DIR = _find_scraped_dir()
 # than a single content/ root. Map Hugo's logical section names to the physical
 # folders that the new module.mounts in hugo.yaml expose.
 _SECTION_DIRS = {
-    "publication": HUGO_DIR / "writings" / "content",
-    "talk": HUGO_DIR / "talks" / "content",
-    "software": HUGO_DIR / "software" / "content",
-    "bio": HUGO_DIR / "bio" / "content",
-    "authors": HUGO_DIR / "people" / "content" / "authors",
-    "_index": HUGO_DIR / "home" / "content",
+    "publication": HUGO_DIR / "EditMe" / "Writings",
+    "talk": HUGO_DIR / "EditMe" / "Writings" / "Presentations",
+    "software": HUGO_DIR / "EditMe" / "Software",
+    "bio": HUGO_DIR / "EditMe" / "Bio",
+    "authors": HUGO_DIR / "EditMe" / "People" / "Authors",
+    "_index": HUGO_DIR / "EditMe" / "HomePage",
 }
 STATIC_DIR = HUGO_DIR / "_site" / "static"
 

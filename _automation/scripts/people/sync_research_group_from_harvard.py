@@ -4,7 +4,7 @@ Fetch each https://gking.harvard.edu/people/<slug> and extract:
   - research_group_categories (may be multiple — matches Drupal facet counts)
   - last_name_range (e.g. A-C) from /researchers-last-name/ link text
 
-Rewrites people/data/research_group.json with:
+Rewrites EditMe/People/Data/research_group.json with:
   research_group_categories: [ ... ]
   last_name_range: "A-C"
 
@@ -20,8 +20,8 @@ import sys
 import time
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
-DATA = ROOT / "people" / "data" / "research_group.json"
+ROOT = Path(__file__).resolve().parents[3]
+DATA = ROOT / "EditMe" / "People" / "Data" / "research_group.json"
 BASE = "https://gking.harvard.edu/people"
 
 PATH_TO_KEY = {

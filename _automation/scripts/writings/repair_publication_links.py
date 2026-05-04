@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Audit and repair external URLs in publication links.
 
-For every writings/content/<slug>/index.md, walk the `links:` block:
+For every EditMe/Writings/<slug>/index.md, walk the `links:` block:
 
   * Probe each external URL with HEAD->GET (10s timeout, follow redirects).
   * Classify each link as ok / redirected / broken / proxy / shortener.
@@ -16,11 +16,11 @@ For every writings/content/<slug>/index.md, walk the `links:` block:
       - 4xx / 5xx / timeout -> https://doi.org/<doi> if available.
       - 301/302 to a different host -> the final URL.
 
-Writes a JSON report to writings/data/publication_link_repair_report.json.
+Writes a JSON report to EditMe/Writings/Data/publication_link_repair_report.json.
 
 Usage:
-  python3 writings/scripts/repair_publication_links.py             # dry run
-  python3 writings/scripts/repair_publication_links.py --apply
+  python3 _automation/scripts/writings/repair_publication_links.py             # dry run
+  python3 _automation/scripts/writings/repair_publication_links.py --apply
 """
 
 from __future__ import annotations
@@ -58,7 +58,7 @@ _HTTPS_OPENER.addheaders = [("User-Agent",
                              " +https://github.com/KatalinaToth/gking-site)")]
 
 THIS_DIR = Path(__file__).resolve().parent
-ROOT = THIS_DIR.parents[1]
+ROOT = THIS_DIR.parents[2]
 
 _doi_spec = importlib.util.spec_from_file_location(
     "fill_publication_from_doi", THIS_DIR / "fill_publication_from_doi.py"
@@ -254,7 +254,7 @@ def main() -> int:
     ap.add_argument("--workers", type=int, default=8)
     args = ap.parse_args()
 
-    pub_dir = ROOT / "writings" / "content"
+    pub_dir = ROOT / "EditMe" / "Writings"
     static_files = ROOT / "_site" / "static" / "files"
     md_files = sorted(pub_dir.glob("*/index.md"))
 
@@ -332,7 +332,7 @@ def main() -> int:
         if new and new != t["url"]:
             edits_per_md.setdefault(t["md"], []).append((t["url"], new))
 
-    out = ROOT / "writings" / "data" / "publication_link_repair_report.json"
+    out = ROOT / "EditMe" / "Writings" / "Data" / "publication_link_repair_report.json"
     out.write_text(json.dumps(rows, indent=2) + "\n", encoding="utf-8")
     print("Wrote", out, flush=True)
 

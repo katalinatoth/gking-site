@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 from urllib.parse import unquote
 
 CONTENT_DIR = os.path.join(
-    os.path.dirname(__file__), '..', 'content', 'profiles'
+    os.path.dirname(__file__), '..', '..', '..', 'EditMe', 'People', 'Profiles'
 )
 BASE_URL = 'https://gking.harvard.edu/people/'
 HEADERS = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)'}

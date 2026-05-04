@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Compare scraped publications.json to Hugo writings/content + talks/content.
+"""Compare scraped publications.json to Hugo EditMe/Writings + EditMe/Writings/Presentations.
 
 Uses the same slugify + duplicate-resolution rules as
 _automation/scripts/convert.py. Run from the root of the gking-site
 checkout:
-  python3 writings/scripts/verify_writings_parity.py
+  python3 _automation/scripts/writings/verify_writings_parity.py
 
 Exit 1 if a JSON entry is missing a matching bundle or index title.
 """
@@ -15,10 +15,10 @@ import re
 import sys
 from pathlib import Path
 
-BASE = Path(__file__).resolve().parents[2]
+BASE = Path(__file__).resolve().parents[3]
 SCRAPED = BASE.parent / "scraped_data" / "publications.json"
-PUBS_CONTENT = BASE / "writings" / "content"
-TALKS_CONTENT = BASE / "talks" / "content"
+PUBS_CONTENT = BASE / "EditMe" / "Writings"
+TALKS_CONTENT = BASE / "EditMe" / "Writings" / "Presentations"
 
 def slugify(text: str) -> str:
     text = text.lower().strip()

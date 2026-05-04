@@ -14,8 +14,8 @@ import subprocess
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
-PEOPLE = ROOT / "people" / "content" / "profiles"
+ROOT = Path(__file__).resolve().parents[3]
+PEOPLE = ROOT / "EditMe" / "People" / "Profiles"
 
 CURL = [
     "curl",

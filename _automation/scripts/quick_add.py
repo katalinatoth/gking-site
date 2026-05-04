@@ -1,13 +1,13 @@
 """Quick-add a new piece of content to the website from the terminal.
 
-Companion to writings/scripts/intake_publication.py. The intake bot is
+Companion to _automation/scripts/writings/intake_publication.py. The intake bot is
 great for papers/talks/books that come as a PDF — drop the file under
 _automation/intake/ and the bot fills in the front matter from Crossref.
 But:
 
   * Software pages don't have a PDF; the canonical artefact is a GitHub
     or CRAN URL. They also need a row appended to
-    software/data/software_legacy_rows.yaml.
+    EditMe/Software/Data/software_legacy_rows.yaml.
   * Patent pages rarely have a Crossref hit — Gary has the patent number
     and a USPTO/Google Patents URL in hand.
   * Sometimes Gary already has all the metadata for a paper, talk, or
@@ -64,8 +64,8 @@ ROOT = Path(__file__).resolve().parents[2]
 
 # Reuse intake_publication's YAML helpers so output style matches.
 # After the section-driven repo reorg, intake_publication lives under
-# writings/scripts/ rather than alongside us in _automation/scripts/.
-sys.path.insert(0, str(ROOT / "writings" / "scripts"))
+# _automation/scripts/writings/ rather than alongside us in _automation/scripts/.
+sys.path.insert(0, str(ROOT / "_automation" / "scripts" / "writings"))
 from intake_publication import (  # type: ignore[import-not-found]
     _yaml_dump,
     slugify,
@@ -90,11 +90,11 @@ def _parse_authors(raw: str | None) -> list[str]:
 def _section_dir(kind: str) -> Path:
     """Map content type to the section folder that owns its bundles."""
     if kind == "talk":
-        return ROOT / "talks" / "content"
+        return ROOT / "EditMe" / "Writings" / "Presentations"
     if kind == "software":
-        return ROOT / "software" / "content"
+        return ROOT / "EditMe" / "Software"
     # Papers, books, patents all live alongside the rest of /publication/.
-    return ROOT / "writings" / "content"
+    return ROOT / "EditMe" / "Writings"
 
 
 def _pick_slug(requested: str | None, title: str) -> str:
@@ -110,9 +110,9 @@ def _pick_slug(requested: str | None, title: str) -> str:
 def _ensure_unique_slug(slug: str) -> str:
     """Append -2, -3, … if a folder already exists in either content
     section. Same logic as intake_publication.run()."""
-    pub_dir = ROOT / "writings" / "content"
-    talk_dir = ROOT / "talks" / "content"
-    sw_dir = ROOT / "software" / "content"
+    pub_dir = ROOT / "EditMe" / "Writings"
+    talk_dir = ROOT / "EditMe" / "Writings" / "Presentations"
+    sw_dir = ROOT / "EditMe" / "Software"
 
     def _taken(s: str) -> bool:
         return (pub_dir / s).exists() or (talk_dir / s).exists() or (sw_dir / s).exists()
@@ -210,12 +210,12 @@ def _build_front_matter(
 
 
 def _append_software_row(slug: str, year: int, status: str, dry_run: bool) -> Path:
-    """Append a row to software/data/software_legacy_rows.yaml.
+    """Append a row to EditMe/Software/Data/software_legacy_rows.yaml.
 
     Manual append (rather than yaml.dump of the whole file) preserves the
     extensive header comments and the existing per-row formatting.
     """
-    path = ROOT / "software" / "data" / "software_legacy_rows.yaml"
+    path = ROOT / "EditMe" / "Software" / "Data" / "software_legacy_rows.yaml"
     text = path.read_text(encoding="utf-8")
 
     if f"slug: {slug}\n" in text or f"slug: '{slug}'\n" in text:
@@ -577,8 +577,8 @@ def main(argv: list[str] | None = None) -> int:
         prog="quick_add",
         description=(
             "Scaffold a <section>/content/<slug>/index.md and update "
-            "writings/data/writings_legacy_map.json (and "
-            "software/data/software_legacy_rows.yaml for software). "
+            "EditMe/Writings/Data/writings_legacy_map.json (and "
+            "EditMe/Software/Data/software_legacy_rows.yaml for software). "
             "One subcommand per content type."
         ),
         epilog=_COMMON_ARGS_HELP,

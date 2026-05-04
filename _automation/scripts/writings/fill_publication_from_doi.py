@@ -354,9 +354,9 @@ def extract_old_publication(yml_raw: str) -> str | None:
 
 
 def run(pub_dir: Path, apply: bool, delay: float) -> None:
-    # `pub_dir` is `<repo_root>/writings/content`, so two parents up is the
+    # `pub_dir` is `<repo_root>/EditMe/Writings`, so two parents up is the
     # repo root. Static files live under `_site/static/files`; the DOI-fill
-    # report lives next to the section it describes (writings/data).
+    # report lives next to the section it describes (EditMe/Writings/Data).
     repo_root = pub_dir.parent.parent
     rows: list[dict[str, Any]] = []
     static_files = repo_root / "_site" / "static" / "files"
@@ -469,7 +469,7 @@ def run(pub_dir: Path, apply: bool, delay: float) -> None:
             new_yml = set_publication_in_yml(yml_raw, new_pub)
             write_front_matter(index_md, new_yml, body)
 
-    out_path = repo_root / "writings" / "data" / "publication_doi_fill_report.json"
+    out_path = repo_root / "EditMe" / "Writings" / "Data" / "publication_doi_fill_report.json"
     out_path.write_text(json.dumps(rows, indent=2) + "\n", encoding="utf-8")
 
     changed = [r for r in rows if r.get("status") == "ok" and r.get("new") != r.get("old")]
@@ -496,12 +496,12 @@ def main() -> None:
     ap.add_argument(
         "--hugo-root",
         type=Path,
-        default=Path(__file__).resolve().parents[2],
+        default=Path(__file__).resolve().parents[3],
     )
     ap.add_argument("--apply", action="store_true")
     ap.add_argument("--delay", type=float, default=0.12)
     args = ap.parse_args()
-    pub = args.hugo_root / "writings" / "content"
+    pub = args.hugo_root / "EditMe" / "Writings"
     if not args.apply:
         print("DRY RUN — no files written. Use --apply to update.\n")
     run(pub, apply=args.apply, delay=args.delay)

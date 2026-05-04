@@ -3,7 +3,7 @@ name: Auto-import publication from PDF
 # Triggered when a PDF lands in `_automation/intake/` as part of a pull
 # request. Reads the PDF, fills out the front matter from Crossref, moves
 # the PDF to `_site/static/files/`, updates
-# `writings/data/writings_legacy_map.json`, and commits everything back
+# `EditMe/Writings/Data/writings_legacy_map.json`, and commits everything back
 # into the same PR branch with a summary comment.
 #
 # Gary's workflow (no terminal needed):
@@ -78,11 +78,12 @@ jobs:
             [ -z "$pdf" ] && continue
             name=$(basename "$pdf" .pdf)
             echo "::group::Processing $pdf"
-            python3 writings/scripts/intake_publication.py "$pdf" \
+            python3 _automation/scripts/writings/intake_publication.py "$pdf" \
               --report "/tmp/intake_reports/${name}.json"
             # After intake_publication.py moves the PDF to
-            # _site/static/files/ and writes <section>/content/.../index.md,
-            # render every numbered figure into _intake_figures/ so the
+            # _site/static/files/ and writes the new bundle's index.md
+            # somewhere under EditMe/Writings/, render every numbered
+            # figure into the bundle's _intake_figures/ so the
             # maintainer can swap the featured image with `/figure N`.
             # Skip silently if the report json wasn't produced (e.g.
             # import error).
@@ -90,7 +91,7 @@ jobs:
               target_pdf=$(python3 -c "import json,sys; print(json.load(open('/tmp/intake_reports/${name}.json'))['target_pdf'])")
               target_md=$(python3 -c "import json,sys; print(json.load(open('/tmp/intake_reports/${name}.json'))['target_index_md'])")
               page_dir=$(dirname "$target_md")
-              python3 writings/scripts/extract_all_figures.py "$target_pdf" \
+              python3 _automation/scripts/writings/extract_all_figures.py "$target_pdf" \
                 --out "$page_dir/_intake_figures" || true
             fi
             echo "::endgroup::"

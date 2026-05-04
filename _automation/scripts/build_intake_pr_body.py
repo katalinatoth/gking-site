@@ -20,7 +20,7 @@ CLI:
 
     python3 _automation/scripts/build_intake_pr_body.py \
         --report /tmp/intake_report.json \
-        --figures writings/content/<slug>/_intake_figures/figures.json \
+        --figures EditMe/Writings/<slug>/_intake_figures/figures.json \
         --branch  intake/issue-12-foo \
         --pr-context > /tmp/pr_body.md
 
@@ -80,11 +80,11 @@ def render_pr_body(
     Parameters
     ----------
     report : dict
-        Output of `writings/scripts/intake_publication.py` (the JSON
-        written to `writings/data/_intake_report.json`).
+        Output of `_automation/scripts/writings/intake_publication.py` (the JSON
+        written to `EditMe/Writings/Data/_intake_report.json`).
     figures : list[dict] or None
         The `figures.json` manifest produced by
-        `writings/scripts/extract_all_figures.py`. Pass `None` if no
+        `_automation/scripts/writings/extract_all_figures.py`. Pass `None` if no
         figures were extracted (e.g. talks with no numbered captions).
     owner, repo, branch : str
         Used to build raw.githubusercontent.com URLs for image

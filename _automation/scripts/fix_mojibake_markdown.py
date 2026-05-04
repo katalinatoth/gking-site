@@ -63,7 +63,7 @@ def main() -> int:
         for content_root in sorted(root.glob("*/content")):
             if content_root.is_dir():
                 files.extend(content_root.rglob("*.md"))
-        # people/content/ has nested subfolders (group/, profiles/, authors/)
+        # EditMe/People/ has nested subfolders (group/, profiles/, authors/)
         # that already match the *.md glob above via rglob, so no extra logic
         # is required.
         files = sorted(files)

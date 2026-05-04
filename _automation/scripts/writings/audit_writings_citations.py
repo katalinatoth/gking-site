@@ -9,7 +9,7 @@ Usage (from the root of the gking-site checkout):
   python3 scripts/audit_writings_citations.py
   python3 scripts/audit_writings_citations.py --writings-only
 
-  --writings-only: only slugs listed in writings/data/writings_legacy_map.json
+  --writings-only: only slugs listed in EditMe/Writings/Data/writings_legacy_map.json
 """
 from __future__ import annotations
 
@@ -235,7 +235,7 @@ def run_audit(
     writings_slugs: set[str] | None,
     delay: float,
 ) -> dict[str, Any]:
-    pub_dir = hugo_root / "writings" / "content"
+    pub_dir = hugo_root / "EditMe" / "Writings"
     results: list[dict[str, Any]] = []
     for index_md in sorted(pub_dir.glob("*/index.md")):
         slug = index_md.parent.name
@@ -316,12 +316,12 @@ def main() -> None:
     ap.add_argument(
         "--hugo-root",
         type=Path,
-        default=Path(__file__).resolve().parents[2],
+        default=Path(__file__).resolve().parents[3],
     )
     ap.add_argument(
         "--writings-only",
         action="store_true",
-        help="Only publication slugs in writings/data/writings_legacy_map.json",
+        help="Only publication slugs in EditMe/Writings/Data/writings_legacy_map.json",
     )
     ap.add_argument(
         "--delay",
@@ -333,14 +333,14 @@ def main() -> None:
         "-o",
         "--output",
         type=Path,
-        help="JSON output path (default: writings/data/citation_audit_report.json).",
+        help="JSON output path (default: EditMe/Writings/Data/citation_audit_report.json).",
     )
     args = ap.parse_args()
     hugo_root: Path = args.hugo_root
 
     writings_slugs: set[str] | None = None
     if args.writings_only:
-        mpath = hugo_root / "writings" / "data" / "writings_legacy_map.json"
+        mpath = hugo_root / "EditMe" / "Writings" / "Data" / "writings_legacy_map.json"
         data = json.loads(mpath.read_text(encoding="utf-8"))
         entries = data.get("entries") or {}
         writings_slugs = set(entries.keys())
@@ -349,7 +349,7 @@ def main() -> None:
 
     out_path = args.output
     if out_path is None:
-        out_path = hugo_root / "writings" / "data" / "citation_audit_report.json"
+        out_path = hugo_root / "EditMe" / "Writings" / "Data" / "citation_audit_report.json"
 
     out_path.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     print("Wrote", out_path)

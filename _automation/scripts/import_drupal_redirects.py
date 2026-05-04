@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Import the official Drupal redirect table into redirects/data/redirects.yaml.
+"""Import the official Drupal redirect table into EditMe/Redirects/Data/redirects.yaml.
 
 The source of truth is the redirect summary that Harvard's web team exported
 from the old Drupal admin UI — see scraped_data/drupal_redirects.csv (a CSV
@@ -16,12 +16,12 @@ one redirect that was active on the legacy site. This script:
      `/publications/<slug>`, `/presentations/<slug>`, `/software/<slug>/<id>`)
      to where their content actually lives on the new Hugo site.
   4. Writes the resulting redirects between BEGIN_MARK / END_MARK comments
-     in redirects/data/redirects.yaml so re-runs are idempotent and the
+     in EditMe/Redirects/Data/redirects.yaml so re-runs are idempotent and the
      file stays hand-editable outside the managed block.
 
 The translation table below was hand-curated against the new site as it
 exists at the time of import. If a target's resolution looks wrong, edit
-this script (or the resulting block in redirects/data/redirects.yaml
+this script (or the resulting block in EditMe/Redirects/Data/redirects.yaml
 directly) and re-run with --apply.
 
 Usage:
@@ -46,18 +46,18 @@ ROOT = Path(__file__).resolve().parents[2]
 # files on disk, since Hugo's mount remapping is only visible at build
 # time.
 _SECTION_TO_PATH: dict[str, Path] = {
-    "publication": ROOT / "writings" / "content",
-    "talk": ROOT / "talks" / "content",
-    "software": ROOT / "software" / "content",
-    "people": ROOT / "people" / "content" / "profiles",
-    "research-group": ROOT / "people" / "content" / "group",
-    "authors": ROOT / "people" / "content" / "authors",
-    "bio": ROOT / "bio" / "content",
-    "blog": ROOT / "blog" / "content",
-    "contact": ROOT / "contact" / "content",
-    "dataverse": ROOT / "dataverse" / "content",
-    "research-areas": ROOT / "research-areas" / "content",
-    "teaching": ROOT / "teaching" / "content",
+    "publication": ROOT / "EditMe" / "Writings",
+    "talk": ROOT / "EditMe" / "Writings" / "Presentations",
+    "software": ROOT / "EditMe" / "Software",
+    "people": ROOT / "EditMe" / "People" / "Profiles",
+    "research-group": ROOT / "EditMe" / "People" / "ResearchGroup",
+    "authors": ROOT / "EditMe" / "People" / "Authors",
+    "bio": ROOT / "EditMe" / "Bio",
+    "blog": ROOT / "EditMe" / "Blog",
+    "contact": ROOT / "EditMe" / "Contact",
+    "dataverse": ROOT / "EditMe" / "Dataverse",
+    "research-areas": ROOT / "EditMe" / "ResearchAreas",
+    "teaching": ROOT / "EditMe" / "Teaching",
 }
 
 
@@ -88,7 +88,7 @@ def _find_default_source() -> Path:
 
 
 DEFAULT_SRC = _find_default_source()
-DATA_FILE = ROOT / "redirects" / "data" / "redirects.yaml"
+DATA_FILE = ROOT / "EditMe" / "Redirects" / "Data" / "redirects.yaml"
 
 BEGIN_MARK = "# BEGIN drupal-redirects-import (auto-managed by " \
              "_automation/scripts/import_drupal_redirects.py — do not edit by hand)"
@@ -502,9 +502,9 @@ def _conflicts_with_existing(path: str) -> bool:
         candidate = section_dir / rest
         if candidate.is_dir() or candidate.with_suffix(".md").is_file():
             return True
-    # Fall back to checking pages/content/ and home/content/ for top-
+    # Fall back to checking EditMe/Misc/ and EditMe/HomePage/ for top-
     # level URLs that aren't tied to a named section (apply, recs, ...).
-    for source in (ROOT / "pages" / "content", ROOT / "home" / "content"):
+    for source in (ROOT / "EditMe" / "Misc", ROOT / "EditMe" / "HomePage"):
         candidate = source / rel
         if candidate.is_dir() or candidate.with_suffix(".md").is_file():
             return True
@@ -842,11 +842,11 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--source", default=str(DEFAULT_SRC),
                    help=f"CSV path (default: {_default_display})")
     p.add_argument("--apply", action="store_true",
-                   help="Write into redirects/data/redirects.yaml. Without this, run "
+                   help="Write into EditMe/Redirects/Data/redirects.yaml. Without this, run "
                         "in dry-run mode and just print the proposed block.")
     p.add_argument("--diff", action="store_true",
                    help="Print a unified diff against the current "
-                        "redirects/data/redirects.yaml without writing.")
+                        "EditMe/Redirects/Data/redirects.yaml without writing.")
     args = p.parse_args(argv)
 
     src = Path(args.source).expanduser().resolve()

@@ -8,7 +8,7 @@ intake PR. The workflow runs:
     python3 _automation/scripts/apply_pr_edits.py \
         --comment /tmp/comment_body.txt \
         --report  /tmp/edit_report.json \
-        writings/content/foo/index.md [writings/content/bar/index.md ...]
+        EditMe/Writings/foo/index.md [EditMe/Writings/bar/index.md ...]
 
 For every target index.md, this script:
 
@@ -51,7 +51,7 @@ Manual local use:
     echo '/title New Title' > /tmp/body.txt
     python3 _automation/scripts/apply_pr_edits.py \
         --comment /tmp/body.txt --report /tmp/r.json \
-        writings/content/foo/index.md
+        EditMe/Writings/foo/index.md
 """
 
 from __future__ import annotations
@@ -72,9 +72,10 @@ ROOT = THIS_DIR.parents[1]
 # Reuse the YAML dumper / legacy-map updater from intake_publication so
 # the formatting and routing stay byte-for-byte consistent with the
 # files generated at intake time. After the section-driven repo reorg,
-# intake_publication lives in writings/scripts/.
+# intake_publication lives in _automation/scripts/writings/.
 _intake_spec = importlib.util.spec_from_file_location(
-    "intake_publication", ROOT / "writings" / "scripts" / "intake_publication.py"
+    "intake_publication",
+    ROOT / "_automation" / "scripts" / "writings" / "intake_publication.py",
 )
 assert _intake_spec and _intake_spec.loader
 _intake = importlib.util.module_from_spec(_intake_spec)
@@ -497,7 +498,7 @@ def main() -> int:
     ap.add_argument("--report", type=Path, required=True,
                     help="Where to write the JSON report")
     ap.add_argument("--legacy-map", type=Path,
-                    default=ROOT / "writings" / "data" / "writings_legacy_map.json",
+                    default=ROOT / "EditMe" / "Writings" / "Data" / "writings_legacy_map.json",
                     help="Path to writings_legacy_map.json (for /type)")
     args = ap.parse_args()
 

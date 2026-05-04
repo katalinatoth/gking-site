@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Scrape https://gking.harvard.edu/people and sync
-people/data/research_group.json plus people/content/profiles/<slug>/index.md
+EditMe/People/Data/research_group.json plus EditMe/People/Profiles/<slug>/index.md
 (role + research_group_category).
 
 Requires: curl on PATH.
@@ -15,9 +15,9 @@ import subprocess
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[2]
-DATA_OUT = ROOT / "people" / "data" / "research_group.json"
-PEOPLE = ROOT / "people" / "content" / "profiles"
+ROOT = Path(__file__).resolve().parents[3]
+DATA_OUT = ROOT / "EditMe" / "People" / "Data" / "research_group.json"
+PEOPLE = ROOT / "EditMe" / "People" / "Profiles"
 BASE = "https://gking.harvard.edu"
 
 # Query value for f[0]= — must match original site facets

@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Build writings/data/writings_legacy_map.json from scraped Drupal HTML + publications.json.
+"""Build EditMe/Writings/Data/writings_legacy_map.json from scraped Drupal HTML + publications.json.
 
 Each bundle folder gets legacy tab ids matching gking.harvard.edu Writings filters:
   journal, presentation, patent, software, other
 
 Run after updating scraped_data (from the root of the gking-site checkout):
-  python3 writings/scripts/build_writings_legacy_map.py
+  python3 _automation/scripts/writings/build_writings_legacy_map.py
 """
 from __future__ import annotations
 
@@ -14,18 +14,18 @@ import re
 import sys
 from pathlib import Path
 
-# This script lives at writings/scripts/, so the repo root is two levels up.
+# This script lives at _automation/scripts/writings/, so the repo root is two levels up.
 # scraped_data lives one level above the repo (untracked local archive).
-BASE = Path(__file__).resolve().parents[2]
+BASE = Path(__file__).resolve().parents[3]
 SCRAPED = BASE.parent / "scraped_data"
 PAGES = SCRAPED / "pages"
 PUBS_JSON = SCRAPED / "publications.json"
-OUT = BASE / "writings" / "data" / "writings_legacy_map.json"
+OUT = BASE / "EditMe" / "Writings" / "Data" / "writings_legacy_map.json"
 # CONTENT is the merged content tree (publications + talks) used to drive
-# the legacy-map's slug detection. We point it at writings/content/ where
+# the legacy-map's slug detection. We point it at EditMe/Writings/ where
 # all publication bundles now live; talks are checked separately.
-CONTENT = BASE / "writings" / "content"
-TALKS_CONTENT = BASE / "talks" / "content"
+CONTENT = BASE / "EditMe" / "Writings"
+TALKS_CONTENT = BASE / "EditMe" / "Writings" / "Presentations"
 
 
 def slugify(text: str) -> str:

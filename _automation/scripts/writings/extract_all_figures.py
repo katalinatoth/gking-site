@@ -21,7 +21,7 @@ to pull Figure 3 out of the survey-instability paper:
 
 CLI:
 
-    python3 writings/scripts/extract_all_figures.py <pdf> --out <dir>
+    python3 _automation/scripts/writings/extract_all_figures.py <pdf> --out <dir>
 
 Importable:
 

@@ -17,8 +17,8 @@ import time
 from pathlib import Path
 from urllib.parse import quote, urljoin, urlparse, urlunparse
 
-BASE = Path(__file__).resolve().parents[2]
-PUB = BASE / "writings" / "content"
+BASE = Path(__file__).resolve().parents[3]
+PUB = BASE / "EditMe" / "Writings"
 SCRAPED = BASE.parent / "scraped_data" / "pages"
 LEGACY_BASE = "https://gking.harvard.edu"
 

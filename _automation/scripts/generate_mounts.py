@@ -106,27 +106,27 @@ DATA_DIRS = [
 # ---------------------------------------------------------------------------
 
 LEGACY_FALLBACKS = {
-    "EditMe/HomePage":           "home/content",
-    "EditMe/Misc":               "pages/content",
-    "EditMe/Bio":                "bio/content",
-    "EditMe/Blog":               "blog/content",
-    "EditMe/ResearchAreas":      "research-areas/content",
-    "EditMe/Software":           "software/content",
-    "EditMe/Dataverse":          "dataverse/content",
-    "EditMe/People/ResearchGroup": "people/content/group",
-    "EditMe/People/Profiles":    "people/content/profiles",
-    "EditMe/People/Authors":     "people/content/authors",
-    "EditMe/Teaching":           "teaching/content",
-    "EditMe/Contact":            "contact/content",
-    "EditMe/Redirects/content":  "redirects/content",
+    "EditMe/HomePage":           "EditMe/HomePage",
+    "EditMe/Misc":               "EditMe/Misc",
+    "EditMe/Bio":                "EditMe/Bio",
+    "EditMe/Blog":               "EditMe/Blog",
+    "EditMe/ResearchAreas":      "EditMe/ResearchAreas",
+    "EditMe/Software":           "EditMe/Software",
+    "EditMe/Dataverse":          "EditMe/Dataverse",
+    "EditMe/People/ResearchGroup": "EditMe/People/ResearchGroup",
+    "EditMe/People/Profiles":    "EditMe/People/Profiles",
+    "EditMe/People/Authors":     "EditMe/People/Authors",
+    "EditMe/Teaching":           "EditMe/Teaching",
+    "EditMe/Contact":            "EditMe/Contact",
+    "EditMe/Redirects/content":  "EditMe/Redirects/content",
 
     # deep sections fall back to the flat legacy folders
-    "EditMe/Writings/Articles":      "writings/content",
-    "EditMe/Writings/Books":         None,    # legacy folds books into writings/content
+    "EditMe/Writings/Articles":      "EditMe/Writings",
+    "EditMe/Writings/Books":         None,    # legacy folds books into EditMe/Writings
     "EditMe/Writings/Reports":       None,
     "EditMe/Writings/Patents":       None,
     "EditMe/Writings/CourtBriefs":   None,
-    "EditMe/Writings/Presentations": "talks/content",
+    "EditMe/Writings/Presentations": "EditMe/Writings/Presentations",
 
     # layouts
     "EditMe/UI/PerSectionLayouts/Bio":           "bio/layouts",
@@ -144,12 +144,12 @@ LEGACY_FALLBACKS = {
     "EditMe/UI/PerSectionLayouts/Writings":      "writings/layouts",
 
     # data
-    "EditMe/Writings/Data":      "writings/data",
-    "EditMe/Software/Data":      "software/data",
-    "EditMe/Dataverse/Data":     "dataverse/data",
-    "EditMe/People/Data":        "people/data",
-    "EditMe/ResearchAreas/Data": "research-areas/data",
-    "EditMe/Redirects/Data":     "redirects/data",
+    "EditMe/Writings/Data":      "EditMe/Writings/Data",
+    "EditMe/Software/Data":      "EditMe/Software/Data",
+    "EditMe/Dataverse/Data":     "EditMe/Dataverse/Data",
+    "EditMe/People/Data":        "EditMe/People/Data",
+    "EditMe/ResearchAreas/Data": "EditMe/ResearchAreas/Data",
+    "EditMe/Redirects/Data":     "EditMe/Redirects/Data",
 }
 
 

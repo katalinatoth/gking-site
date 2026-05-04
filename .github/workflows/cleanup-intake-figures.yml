@@ -36,11 +36,12 @@ jobs:
         id: find
         run: |
           set -euo pipefail
-          # _intake_figures/ subfolders are nested under whichever section
-          # the intake bot wrote into (writings/content/<slug>/ or
-          # talks/content/<slug>/ today). Search every section's content/
-          # tree rather than a single top-level content/.
-          mapfile -t dirs < <(find writings/content talks/content -type d -name "_intake_figures" 2>/dev/null | sort)
+          # _intake_figures/ subfolders are nested under whichever leaf
+          # bundle the intake bot wrote into (an article slug, a talk
+          # venue, etc.). After the EditMe/ reorg every editable bundle
+          # lives somewhere under EditMe/, so a single recursive find
+          # there catches all of them.
+          mapfile -t dirs < <(find EditMe -type d -name "_intake_figures" 2>/dev/null | sort)
           if [ "${#dirs[@]}" -eq 0 ]; then
             echo "No _intake_figures directories present; nothing to clean."
             echo "any=false" >> "$GITHUB_OUTPUT"

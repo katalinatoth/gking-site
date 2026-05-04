@@ -19,9 +19,9 @@ import time
 from pathlib import Path
 from urllib.parse import urljoin
 
-ROOT = Path(__file__).resolve().parents[2]
-DATA = ROOT / "people" / "data" / "research_group.json"
-PEOPLE = ROOT / "people" / "content" / "profiles"
+ROOT = Path(__file__).resolve().parents[3]
+DATA = ROOT / "EditMe" / "People" / "Data" / "research_group.json"
+PEOPLE = ROOT / "EditMe" / "People" / "Profiles"
 BASE = "https://gking.harvard.edu"
 
 

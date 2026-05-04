@@ -102,13 +102,17 @@ jobs:
         run: |
           set -euo pipefail
           # The PR's diff against base, restricted to publication / talk
-          # index.md files. After the section-driven repo reorg those
-          # live under writings/content/<slug>/ and talks/content/<slug>/
-          # on disk; the regex below covers both. This catches both the
-          # index.md created by the auto-import workflow and any
-          # subsequent manual edits in the same PR.
+          # index.md files. After the EditMe/ reorg, papers and talks
+          # both live somewhere under EditMe/Writings/, nested by type
+          # (Articles/Books/.../Presentations) and then by topic /
+          # decade / venue, so the leaf bundle index.md is several
+          # directories deep. We match any index.md under EditMe/Writings/
+          # — that scopes us to publication and talk bundles while
+          # ignoring section _index.md files (those are mounted but
+          # always live at a known path and are never created by the
+          # intake bot anyway).
           gh pr view "$PR_NUMBER" --json files -q '.files[].path' > /tmp/pr_files.txt || true
-          grep -E '^(writings|talks)/content/[^/]+/index\.md$' /tmp/pr_files.txt \
+          grep -E '^EditMe/Writings/.+/index\.md$' /tmp/pr_files.txt \
             | sort -u > /tmp/targets.txt || true
           if [ ! -s /tmp/targets.txt ]; then
             echo "No publication/talk index.md in this PR's diff; nothing to edit."

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Replace cropped Drupal-styled publication thumbnails with their uncropped originals.
 
-Pipeline per writings/content/<slug>/:
+Pipeline per EditMe/Writings/<slug>/:
 
   1. Find scraped_data/pages/<slug>.html (using the same slug-stripping
      heuristics as fetch_publication_thumbnails.py). Extract the original
@@ -20,10 +20,10 @@ hwp_* style box (480x600, 800x800, 960x1200, ...) are touched. Use --force
 to also rewrite anything that already has a non-fingerprint size.
 
 Usage:
-  python3 writings/scripts/refresh_featured_uncropped.py             # dry run
-  python3 writings/scripts/refresh_featured_uncropped.py --apply     # do it
-  python3 writings/scripts/refresh_featured_uncropped.py --only foo  # one slug
-  python3 writings/scripts/refresh_featured_uncropped.py --apply --force
+  python3 _automation/scripts/writings/refresh_featured_uncropped.py             # dry run
+  python3 _automation/scripts/writings/refresh_featured_uncropped.py --apply     # do it
+  python3 _automation/scripts/writings/refresh_featured_uncropped.py --only foo  # one slug
+  python3 _automation/scripts/writings/refresh_featured_uncropped.py --apply --force
 
 Requires:
   pip install -r _automation/scripts/requirements-featured.txt
@@ -42,7 +42,7 @@ from pathlib import Path
 from urllib.parse import urljoin
 
 THIS_DIR = Path(__file__).resolve().parent
-ROOT = THIS_DIR.parents[1]
+ROOT = THIS_DIR.parents[2]
 
 _spec = importlib.util.spec_from_file_location(
     "fetch_publication_thumbnails", THIS_DIR / "fetch_publication_thumbnails.py"
