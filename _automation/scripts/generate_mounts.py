@@ -64,12 +64,13 @@ CONTENT_SHALLOW = [
 # mount per directory that DIRECTLY CONTAINS page-bundle subdirectories
 # (i.e., subdirectories that have an index.md or _index.md inside).
 CONTENT_DEEP = [
-    ("Writings/Articles",      "content/publication"),
-    ("Writings/Books",         "content/publication"),
-    ("Writings/Reports",       "content/publication"),
-    ("Writings/Patents",       "content/publication"),
-    ("Writings/CourtBriefs",   "content/publication"),
-    ("Writings/Presentations", "content/talk"),
+    ("Writings/Articles",       "content/publication"),
+    ("Writings/Books",          "content/publication"),
+    ("Writings/Reports",        "content/publication"),
+    ("Writings/Patents",        "content/publication"),
+    ("Writings/CourtBriefs",    "content/publication"),
+    ("Writings/SoftwareNotes",  "content/publication"),
+    ("Writings/Presentations",  "content/talk"),
 ]
 
 LAYOUTS = [

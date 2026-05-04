@@ -28,6 +28,9 @@ Writings/
 ├── Reports/<decade>/<slug>/        (~17 reports / "other")
 ├── Patents/<decade>/<slug>/        (17 patents)
 ├── CourtBriefs/<decade>/<slug>/    (5 court briefs)
+├── SoftwareNotes/<decade>/<slug>/  (~34 papers describing software packages,
+│                                    distinct from the actual /software/ pages
+│                                    which live under EditMe/Software/)
 │
 ├── Presentations/                  (~259 talks)
 │   └── <title-slug>/

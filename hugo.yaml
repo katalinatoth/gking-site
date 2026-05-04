@@ -69,6 +69,26 @@ module:
     - {source: EditMe/Contact,                            target: content/contact}
     - {source: redirects/content,                         target: content/_redirects}
     - {source: EditMe/Writings/Articles/Unsorted,         target: content/publication}
+    - {source: EditMe/Writings/Books/1980s,               target: content/publication}
+    - {source: EditMe/Writings/Books/1990s,               target: content/publication}
+    - {source: EditMe/Writings/Books/2000s,               target: content/publication}
+    - {source: EditMe/Writings/Books/2020s,               target: content/publication}
+    - {source: EditMe/Writings/Reports/1970s,             target: content/publication}
+    - {source: EditMe/Writings/Reports/1980s,             target: content/publication}
+    - {source: EditMe/Writings/Reports/1990s,             target: content/publication}
+    - {source: EditMe/Writings/Reports/2000s,             target: content/publication}
+    - {source: EditMe/Writings/Reports/2010s,             target: content/publication}
+    - {source: EditMe/Writings/Reports/2020s,             target: content/publication}
+    - {source: EditMe/Writings/Patents/2010s,             target: content/publication}
+    - {source: EditMe/Writings/Patents/2020s,             target: content/publication}
+    - {source: EditMe/Writings/CourtBriefs/2000s,         target: content/publication}
+    - {source: EditMe/Writings/CourtBriefs/2010s,         target: content/publication}
+    - {source: EditMe/Writings/CourtBriefs/2020s,         target: content/publication}
+    - {source: EditMe/Writings/SoftwareNotes/1980s,       target: content/publication}
+    - {source: EditMe/Writings/SoftwareNotes/1990s,       target: content/publication}
+    - {source: EditMe/Writings/SoftwareNotes/2000s,       target: content/publication}
+    - {source: EditMe/Writings/SoftwareNotes/2010s,       target: content/publication}
+    - {source: EditMe/Writings/SoftwareNotes/2020s,       target: content/publication}
     - {source: EditMe/Writings/Presentations/Unsorted,    target: content/talk}
     - {source: _site/data,                                target: data} # cross-section data files
     - {source: EditMe/Writings/Data,                      target: data}
