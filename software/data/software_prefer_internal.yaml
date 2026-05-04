@@ -1,7 +1,0 @@
-# Slugs for which list/publication links should use /software/<slug>/ first (legacy
-# stand-alone pages recreated on this site), even if an external project URL exists.
-slugs:
-  - an-overview-of-the-virtual-data-center-project-and-software
-  - yourcast
-  - maxlik
-  - zelig-everyones-statistical-software
