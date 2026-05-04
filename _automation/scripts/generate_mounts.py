@@ -167,23 +167,43 @@ def has_real_content(path: Path) -> bool:
 
 
 def find_page_bundle_parents(root: Path) -> list[Path]:
-    """Find directories that directly contain page-bundle subdirs.
+    """Find the smallest directories that directly contain page bundles.
 
-    A page bundle is a directory containing index.md or _index.md.
-    The "parent" of a page bundle is the directory immediately above it.
-    Multiple page bundles under the same parent collapse to one mount.
+    A page bundle is a directory containing `index.md` (the leaf-page
+    convention used by Hugo). The "parent" of a page bundle is the
+    directory immediately above it; that's what we mount.
+
+    `_index.md` files are *section* markers that travel with their parent
+    mount; we don't walk them separately, because doing so would emit
+    redundant ancestor mounts when a section folder also contains a
+    sub-section.
     """
     if not root.exists():
         return []
     parents: set[Path] = set()
-    for index_md in list(root.rglob("index.md")) + list(root.rglob("_index.md")):
+    for index_md in root.rglob("index.md"):
         bundle = index_md.parent
         if bundle == root:
-            # _index.md directly inside `root` means root itself is a bundle parent
-            parents.add(root)
-        else:
-            parents.add(bundle.parent)
-    return sorted(parents)
+            # index.md directly in root means root itself wraps a page bundle.
+            # Skip — caller handles via CONTENT_SHALLOW for these cases.
+            continue
+        bundle_parent = bundle.parent
+        # Stay within `root`.
+        try:
+            bundle_parent.relative_to(root)
+        except ValueError:
+            continue
+        parents.add(bundle_parent)
+
+    # Prune ancestors when a strict descendant is also present. Keeps mounts
+    # narrow so we never double-mount the same content.
+    pruned = set(parents)
+    for p in parents:
+        for q in parents:
+            if p != q and p in q.parents:
+                pruned.discard(p)
+                break
+    return sorted(pruned)
 
 
 def resolve_source(editme_relpath: str) -> str | None:
