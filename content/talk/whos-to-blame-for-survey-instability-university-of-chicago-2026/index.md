@@ -1,5 +1,8 @@
 ---
 title: "Who's to Blame for Survey Instability: Respondents with Nonexistent Preferences or Researchers with Flawed Measures? (talk at University of Chicago, 4/14/2026)"
+slug: whos-to-blame-for-survey-instability-university-of-chicago-2026
+aliases:
+  - /talk/whos-to-blame-for-survey-instability-respondents-with-nonexistent-preferences-or-researchers-with-flawed-measures-talk-at-university-of-chicago-4/14/2026/
 date: '2026-04-14'
 authors:
   - Gary King
