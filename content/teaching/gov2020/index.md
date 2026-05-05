@@ -19,13 +19,8 @@ type: "teaching-class"
 <div class="class-card class-card--short hwp-bg-light-base hwp-class-details">
 <div class="class-card--short__inner">
 <div class="class-card--short__item">
-<span>Semester: </span>
-<span> Fall</span>
-</div>
-<div class="class-card--short__delimiter">|</div>
-<div class="class-card--short__item">
-<span>Year offered: </span>
-<span>2025</span>
+<span>Offered next: </span>
+<span>Fall, 2026</span>
 </div>
 </div>
 </div>
