@@ -3,9 +3,9 @@ authors:
 - Gary King
 date: '1998-01-01'
 links:
-- type: pdf
+- type: custom
   url: files/uoschg_0.pdf
-  name: Book
+  name: "Errata"
 - type: custom
   url: "https://openlibrary.org/books/OL2049556M/Unifying_political_methodology"
   name: "Open Library"
