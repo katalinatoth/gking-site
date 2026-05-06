@@ -14,4 +14,9 @@ abstract: |-
 links:
   - type: pdf
     url: "files/ecinf04.pdf"
+    name: Book
+  - type: custom
+    url: "https://www.cambridge.org/core/books/ecological-inference/FFFF97E9F8052D80B1C23617EEC01168"
+    name: "Publisher's Site"
+    icon: hero/building-library
 ---

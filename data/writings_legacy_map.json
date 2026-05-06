@@ -1465,8 +1465,8 @@
       "drupal": "presentation"
     },
     "demographic-forecasting": {
-      "tab": "presentation",
-      "drupal": "presentation"
+      "tab": "book",
+      "drupal": "book"
     },
     "matching-for-causal-inference-without-balance-checking-2008": {
       "tab": "presentation",
