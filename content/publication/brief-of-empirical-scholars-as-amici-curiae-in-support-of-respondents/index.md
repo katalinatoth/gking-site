@@ -15,6 +15,6 @@ links:
 - type: pdf
   url: files/314663_brief.pdf
 publication_types:
-- miscellaneous
+- court_brief
 title: Brief of Empirical Scholars As Amici Curiae in Support of Respondents
 ---

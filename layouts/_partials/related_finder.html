@@ -397,6 +397,7 @@
           {{ else if in $pt "software" }}{{ $label = "Software" }}
           {{ else if or (in $pt "book") (in $pt "book_chapter") (in $pt "chapter") }}{{ $label = "Book" }}
           {{ else if in $pt "patent" }}{{ $label = "Patent" }}
+          {{ else if in $pt "court_brief" }}{{ $label = "Court Brief" }}
           {{ else if in $pt "data" }}{{ $label = "Dataset" }}
           {{ else if in $pt "presentation" }}{{ $label = "Presentation" }}
           {{ else }}{{ $label = "Paper" }}{{ end }}

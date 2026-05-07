@@ -8,7 +8,7 @@ authors:
   - "Larry J. Sabato"
   - "Samuel S.-H. Wang"
 publication_types:
-  - "miscellaneous"
+  - "court_brief"
 abstract: |-
   SUMMARY OF ARGUMENT
   Plaintiffs ask this Court to do what it has done many times before. For generations, it has resolved cases involving elections and cases on which elections ride. It has adjudicated controversies that divide the American people and those, like this one, where Americans are largely in agreement. In doing so, the Court has sensibly adhered to its long-standing and circumspect approach: it has announced a workable principle, one that lends itself to a manageable test, while allowing the lower courts to work out the precise contours of that test with time and experience.
