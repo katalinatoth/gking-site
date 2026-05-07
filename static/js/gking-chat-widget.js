@@ -319,9 +319,10 @@
     "  }",
     "  .header { padding: 16px; padding-top: max(16px, env(safe-area-inset-top)); }",
     "  .messages { padding: 10px; }",
-    "  .bubble { max-width: 92%; }",
-    "  .input-row { padding: 8px 10px max(8px, env(safe-area-inset-bottom)); }",
-    "  .input-row textarea { font-size: 13px; padding: 9px 10px; }",
+    "  .bubble { max-width: 95%; }",
+    "  .input-row { padding: 8px 8px max(8px, env(safe-area-inset-bottom)); gap: 6px; }",
+    "  .input-row textarea { font-size: 13px; padding: 8px 10px; }",
+    "  .input-row .send { width: 34px; height: 34px; }",
     "  .footer { padding-bottom: max(8px, env(safe-area-inset-bottom)); }",
     "}"
   ].join("\n");
