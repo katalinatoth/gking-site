@@ -318,8 +318,10 @@
     "    box-shadow: none;",
     "  }",
     "  .header { padding: 16px; padding-top: max(16px, env(safe-area-inset-top)); }",
-    "  .messages { padding: 12px; }",
-    "  .input-row { padding: 10px 12px max(10px, env(safe-area-inset-bottom)); }",
+    "  .messages { padding: 10px; }",
+    "  .bubble { max-width: 92%; }",
+    "  .input-row { padding: 8px 10px max(8px, env(safe-area-inset-bottom)); }",
+    "  .input-row textarea { font-size: 13px; padding: 9px 10px; }",
     "  .footer { padding-bottom: max(8px, env(safe-area-inset-bottom)); }",
     "}"
   ].join("\n");
