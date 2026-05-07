@@ -41,7 +41,8 @@
     {{ partial "hooks/body-end/hbx-debug-export.html" . }}
     {{ partial "hooks/body-end/hbx-debug-hud.html" . }}
 
-    {{/* Gary King AI Avatar — popup chat widget (site-wide, self-hosted) */}}
+    {{/* Gary King AI Avatar — popup chat widget (site-wide, self-hosted). Hidden on /ask-gary which has its own full-page chat. */}}
+    {{ if ne .Type "chatbot" }}
     <script
       src="{{ "js/gking-chat-widget.js" | relURL }}"
       data-api-url="https://y455vtbsy5pinfj5c2s3xmxqo40nwkno.lambda-url.us-east-2.on.aws/"
@@ -52,5 +53,6 @@
       data-avatar-label="GK"
       data-input-placeholder="Ask me about my research..."
       defer></script>
+    {{ end }}
   </body>
 </html>
