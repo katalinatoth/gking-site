@@ -41,9 +41,9 @@
     {{ partial "hooks/body-end/hbx-debug-export.html" . }}
     {{ partial "hooks/body-end/hbx-debug-hud.html" . }}
 
-    {{/* Gary King AI Avatar — popup chat widget (site-wide) */}}
+    {{/* Gary King AI Avatar — popup chat widget (site-wide, self-hosted) */}}
     <script
-      src="https://gking-avatar-deploy-750630108795.s3.us-east-2.amazonaws.com/widget/gking-chat-widget.js"
+      src="{{ "js/gking-chat-widget.js" | relURL }}"
       data-api-url="https://y455vtbsy5pinfj5c2s3xmxqo40nwkno.lambda-url.us-east-2.on.aws/"
       data-feedback-url="https://sn74dkx04g.execute-api.us-east-2.amazonaws.com/feedback"
       data-bot-id="gking"
