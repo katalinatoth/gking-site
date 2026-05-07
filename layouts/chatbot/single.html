@@ -34,6 +34,15 @@
     padding: 20px 16px 8px;
     display: flex; flex-direction: column; gap: 14px;
   }
+  .gk-chat-messages:empty + .gk-input-area {
+    margin-top: auto; margin-bottom: auto;
+  }
+  .gk-chat.gk-empty {
+    justify-content: center;
+  }
+  .gk-chat.gk-empty .gk-chat-messages {
+    flex: 0;
+  }
 
   .gk-msg { display: flex; gap: 10px; align-items: flex-start; }
   .gk-msg.user { justify-content: flex-end; }
@@ -252,7 +261,7 @@
 
   <div class="gk-input-area">
     <div class="gk-input-row">
-      <textarea id="gk-input" rows="1" placeholder="Ask me about my research..."></textarea>
+      <textarea id="gk-input" rows="1" placeholder="This is Gary King's AI chatbot. How can I help?"></textarea>
       <button id="gk-send" class="gk-send" type="button" disabled>Send &rarr;</button>
     </div>
   </div>
@@ -281,7 +290,7 @@
   var FEEDBACK_URL = "https://4jk1rwjz4a.execute-api.us-east-2.amazonaws.com/feedback";
   var BOT_ID = "gking";
   var AVATAR_LABEL = "GK";
-  var WELCOME = "This is Gary King\u2019s AI chatbot. How can I help?";
+  var chatEl = document.querySelector(".gk-chat");
 
   var messagesEl = document.getElementById("gk-messages");
   var textarea = document.getElementById("gk-input");
@@ -393,13 +402,9 @@
     });
 
     messagesEl.innerHTML = "";
+    chatEl.classList.toggle("gk-empty", messages.length === 0);
 
-    if (messages.length === 0) {
-      var w = document.createElement("div");
-      w.className = "gk-welcome";
-      w.textContent = WELCOME;
-      messagesEl.appendChild(w);
-    } else {
+    if (messages.length > 0) {
       messages.forEach(function(m, mi) {
         var node = document.createElement("div");
         node.className = "gk-msg " + (m.role === "user" ? "user" : "bot");
