@@ -34,15 +34,10 @@
     padding: 20px 16px 8px;
     display: flex; flex-direction: column; gap: 14px;
   }
-  .gk-chat-messages:empty + .gk-input-area {
-    margin-top: auto; margin-bottom: auto;
-  }
-  .gk-chat.gk-empty {
-    justify-content: center;
-  }
-  .gk-chat.gk-empty .gk-chat-messages {
-    flex: 0;
-  }
+  .gk-chat.gk-empty .gk-chat-messages { display: none; }
+  .gk-chat.gk-empty .gk-chat-header { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 16px; }
+  .gk-chat.gk-empty .gk-input-area { flex: 0; }
+  .gk-chat.gk-empty .gk-footer { flex: 1; padding-top: 8px; }
 
   .gk-msg { display: flex; gap: 10px; align-items: flex-start; }
   .gk-msg.user { justify-content: flex-end; }
