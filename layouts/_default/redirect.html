@@ -3,6 +3,15 @@
     (a) auto-generated short URLs from data/redirects.yaml
     (b) any page that sets `layout: redirect` and a `target_url:` param.
 
+  Build-time rewriting
+  --------------------
+  For INTERNAL targets (paths starting with "/"), a post-build step
+  (scripts/apply_rewrites.py) copies the fully rendered target page
+  over this redirect stub so the visitor sees the real content at the
+  short URL with no redirect.  This meta-refresh page therefore only
+  survives in practice for EXTERNAL targets, or as a fallback if the
+  post-build rewrite is skipped (e.g. local dev builds).
+
   Redirect "status code" semantics on a static host
   --------------------------------------------------
   GitHub Pages cannot send a real HTTP 3xx status, so the redirect is
