@@ -3,6 +3,7 @@
   .page-body.my-10 { margin: 0 !important; }
   @media (max-width: 600px) {
     .gk-chatbot-iframe { display: none !important; }
+    .page-body.my-10 { padding: 0 !important; }
   }
 </style>
 <iframe
@@ -14,15 +15,40 @@
   loading="lazy"></iframe>
 <script>
 (function() {
-  if (window.innerWidth <= 600 && window.GKingChat) {
+  if (window.innerWidth > 600) return;
+
+  function setup() {
+    if (!window.GKingChat) return false;
+    var host = document.getElementById('gking-chat-widget');
+    if (!host || !host.shadowRoot) return false;
+
+    var shadow = host.shadowRoot;
+
+    var embedStyle = document.createElement('style');
+    embedStyle.textContent = [
+      '.btn { display: none !important; }',
+      '.header .close { display: none !important; }',
+      '.panel {',
+      '  position: fixed !important;',
+      '  top: var(--navbar-height, 64px) !important;',
+      '  left: 0 !important; right: 0 !important; bottom: 0 !important;',
+      '  width: 100% !important; height: auto !important;',
+      '  border-radius: 0 !important; border: none !important;',
+      '  box-shadow: none !important;',
+      '}'
+    ].join('\n');
+    shadow.appendChild(embedStyle);
+
     window.GKingChat.open();
-  } else {
+    window.GKingChat.close = function() {};
+
+    return true;
+  }
+
+  if (!setup()) {
     var check = setInterval(function() {
-      if (window.GKingChat) {
-        if (window.innerWidth <= 600) window.GKingChat.open();
-        clearInterval(check);
-      }
-    }, 200);
+      if (setup()) clearInterval(check);
+    }, 150);
     setTimeout(function() { clearInterval(check); }, 5000);
   }
 })();
