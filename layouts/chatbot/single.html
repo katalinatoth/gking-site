@@ -4,6 +4,7 @@
   @media (max-width: 600px) {
     .gk-chatbot-iframe { display: none !important; }
     .page-body.my-10 { padding: 0 !important; }
+    #site-header.header { position: relative; z-index: 9999; }
   }
 </style>
 <iframe
@@ -35,6 +36,7 @@
       '  width: 100% !important; height: auto !important;',
       '  border-radius: 0 !important; border: none !important;',
       '  box-shadow: none !important;',
+      '  z-index: 100 !important;',
       '}'
     ].join('\n');
     shadow.appendChild(embedStyle);
