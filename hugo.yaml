@@ -108,6 +108,9 @@ menus:
     - name: Teaching
       url: /teaching/
       weight: 70
+    - name: Ask Gary
+      url: /ask-gary/
+      weight: 75
     - name: Contact
       url: /contact/
       weight: 80

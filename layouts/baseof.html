@@ -40,5 +40,17 @@
     {{/* HBX Dev: ensure debug export and HUD are injected in dev */}}
     {{ partial "hooks/body-end/hbx-debug-export.html" . }}
     {{ partial "hooks/body-end/hbx-debug-hud.html" . }}
+
+    {{/* Gary King AI Avatar — popup chat widget (site-wide) */}}
+    <script
+      src="https://gking-avatar-deploy-750630108795.s3.us-east-2.amazonaws.com/widget/gking-chat-widget.js"
+      data-api-url="https://y455vtbsy5pinfj5c2s3xmxqo40nwkno.lambda-url.us-east-2.on.aws/"
+      data-feedback-url="https://sn74dkx04g.execute-api.us-east-2.amazonaws.com/feedback"
+      data-bot-id="gking"
+      data-bot-name="Gary King's AI Avatar"
+      data-welcome-message="Hello, I'm Gary King. Let's discuss the intersection of politics and quantitative analysis."
+      data-avatar-label="GK"
+      data-input-placeholder="Ask me about my research..."
+      defer></script>
   </body>
 </html>
