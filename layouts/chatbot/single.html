@@ -233,14 +233,14 @@
   }
 
   @media (max-width: 600px) {
-    .gk-chat { max-width: 100%; }
-    .gk-chat-header { padding: 20px 12px 0; }
-    .gk-bubble { max-width: 90%; }
-    .gk-chat-messages { padding: 14px 12px 6px; }
-    .gk-input-area { padding: 10px 12px; }
-    .gk-input-row textarea { font-size: 12px; padding: 10px 14px; }
-    .gk-input-row .gk-send { font-size: 11px; padding: 0 14px; height: 40px; }
-    .gk-footer { padding: 4px 12px 10px; }
+    .gk-chat, .gk-modal-overlay { display: none !important; }
+    .page-body.my-10 { padding: 0 !important; }
+    #site-header.header { position: relative; z-index: 9999; }
+  }
+
+  @media (min-width: 601px) {
+    .gk-chat { max-width: 820px; }
+    .gk-chat-header { padding: 32px 16px 0; }
   }
 </style>
 
@@ -615,6 +615,57 @@
 
   renderMessages();
   textarea.focus();
+
+  /* On the /ask-gary page: hide the popup widget button on desktop,
+     auto-open it full-screen on mobile (where the native chat is hidden). */
+  (function() {
+    var isMobile = window.innerWidth <= 600;
+
+    function getWidgetShadow() {
+      var host = document.getElementById('gking-chat-widget');
+      return host && host.shadowRoot ? host.shadowRoot : null;
+    }
+
+    function setupDesktop(shadow) {
+      var s = document.createElement('style');
+      s.textContent = '.btn { display: none !important; }';
+      shadow.appendChild(s);
+      return true;
+    }
+
+    function setupMobile(shadow) {
+      if (!window.GKingChat) return false;
+      var s = document.createElement('style');
+      s.textContent = [
+        '.btn { display: none !important; }',
+        '.header .close { display: none !important; }',
+        '.panel {',
+        '  position: fixed !important;',
+        '  top: var(--navbar-height, 64px) !important;',
+        '  left: 0 !important; right: 0 !important; bottom: 0 !important;',
+        '  width: 100% !important; height: auto !important;',
+        '  border-radius: 0 !important; border: none !important;',
+        '  box-shadow: none !important;',
+        '  z-index: 100 !important;',
+        '}'
+      ].join('\n');
+      shadow.appendChild(s);
+      window.GKingChat.open();
+      window.GKingChat.close = function() {};
+      return true;
+    }
+
+    function trySetup() {
+      var shadow = getWidgetShadow();
+      if (!shadow) return false;
+      return isMobile ? setupMobile(shadow) : setupDesktop(shadow);
+    }
+
+    if (!trySetup()) {
+      var check = setInterval(function() { if (trySetup()) clearInterval(check); }, 150);
+      setTimeout(function() { clearInterval(check); }, 5000);
+    }
+  })();
 })();
 </script>
 {{ end }}

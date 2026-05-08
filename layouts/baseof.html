@@ -41,8 +41,9 @@
     {{ partial "hooks/body-end/hbx-debug-export.html" . }}
     {{ partial "hooks/body-end/hbx-debug-hud.html" . }}
 
-    {{/* Gary King AI Avatar — popup chat widget (site-wide, self-hosted). Hidden on /ask-gary which has its own full-page chat. */}}
-    {{ if ne .Type "chatbot" }}
+    {{/* Gary King AI Avatar — popup chat widget (site-wide, self-hosted).
+         On /ask-gary desktop the native chat UI is used and the widget button is hidden via JS.
+         On /ask-gary mobile the native chat is hidden and the widget opens full-screen instead. */}}
     <script
       src="{{ "js/gking-chat-widget.js" | relURL }}"
       data-api-url="https://smf5e3hgygflv6o2nibp47vvse0digjb.lambda-url.us-east-2.on.aws/"
@@ -53,6 +54,5 @@
       data-avatar-label="GK"
       data-input-placeholder="Type a message..."
       defer></script>
-    {{ end }}
   </body>
 </html>
