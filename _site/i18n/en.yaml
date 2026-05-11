@@ -3,3 +3,6 @@
 
 - id: btn_source
   translation: "Publisher's Version"
+
+- id: pub_court_brief
+  translation: Court Brief

@@ -18,6 +18,6 @@ links:
 - type: pdf
   url: files/fisher_amicus_final_8-13-12_0.pdf
 publication_types:
-- miscellaneous
+- court_brief
 title: Brief of Empirical Scholars As Amici Curiae
 ---

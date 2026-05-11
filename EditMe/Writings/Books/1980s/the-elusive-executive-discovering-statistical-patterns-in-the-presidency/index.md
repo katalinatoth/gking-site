@@ -9,6 +9,8 @@ address: "Washington, DC"
 publication_types:
   - "book"
 links:
-  - type: source
-    url: "http://www.amazon.com/exec/obidos/tg/detail/-/0871874326/ref=lpr_g_1/102-2774965-4828120?v=glance&s=books"
+  - type: custom
+    url: "https://openlibrary.org/works/OL1910102W/The_elusive_executive?edition=key%3A/books/OL2402699M"
+    name: "Open Library"
+    icon: hero/book-open
 ---

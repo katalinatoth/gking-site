@@ -124,6 +124,26 @@ html.dark .dark\:prose-invert { --tw-prose-body: #374151 !important; --tw-prose-
   margin-bottom: 1.25em;
 }
 
+/* Gov 2020 teaching page: single line between meta card and body list */
+main.gk-gov2020-teaching-spacing .hwp-class-details {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+main.gk-gov2020-teaching-spacing .hwp-class-details > .hwp-container-px {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+main.gk-gov2020-teaching-spacing .hwp-class-details .class-card {
+  margin-bottom: 0 !important;
+}
+main.gk-gov2020-teaching-spacing .hwp-class--main-content {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+main.gk-gov2020-teaching-spacing .hwp-class--main-content .hwp-text-block > p:first-child {
+  margin-top: 0 !important;
+}
+
 /* Better hero section spacing */
 .hbx-hero {
   padding-top: 3rem;
@@ -420,6 +440,43 @@ article.gk-people-profile > p a {
   border-color: #e2e8f0;
 }
 
+/* ---- Research area cards (homepage) ---- */
+.gk-hp-area {
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+.gk-hp-area:hover,
+.gk-hp-area:focus-within {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+  border-color: #cbd5e1;
+}
+.gk-hp-area > summary {
+  transition: background-color 0.15s ease, color 0.15s ease;
+  border-radius: 4px;
+}
+.gk-hp-area > summary:hover {
+  background-color: rgba(51, 122, 183, 0.08);
+  color: #285f8f;
+}
+.gk-hp-subcat > summary {
+  transition: background-color 0.15s ease, color 0.15s ease;
+  border-radius: 4px;
+}
+.gk-hp-subcat > summary:hover {
+  background-color: rgba(51, 122, 183, 0.06);
+  color: #285f8f;
+}
+
+/* ---- Hero CTA button ---- */
+#hero a[href*="bio"] {
+  transition: background 0.2s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+#hero a[href*="bio"]:hover,
+#hero a[href*="bio"]:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(160, 74, 2, 0.3);
+}
+
 /* ---- Collapsible summaries / abstract toggles ---- */
 .gk-hp-item__summary,
 .gk-sw-abs > summary,
@@ -541,6 +598,8 @@ button.gk-cite-button:focus-visible {
   .gk-pub-card,
   .gk-pub-card-featured,
   .gk-people-profile,
+  .gk-hp-area,
+  #hero a[href*="bio"],
   .gk-hp-card__footer a,
   .gk-hp-item__more a,
   .gk-hp-card__news a,
@@ -557,6 +616,8 @@ button.gk-cite-button:focus-visible {
   .gk-pub-card:hover,
   .gk-pub-card-featured:hover,
   .gk-people-profile:hover,
+  .gk-hp-area:hover,
+  #hero a[href*="bio"]:hover,
   .gk-hp-card__footer a:hover,
   .gk-hp-item__more a:hover,
   .gk-hp-card__news a:hover,

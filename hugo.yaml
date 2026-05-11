@@ -347,6 +347,9 @@ menus:
     - name: Teaching
       url: /teaching/
       weight: 70
+    - name: GaryAI
+      url: /ask-gary/
+      weight: 75
     - name: Contact
       url: /contact/
       weight: 80

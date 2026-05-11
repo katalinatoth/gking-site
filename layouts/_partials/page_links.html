@@ -103,6 +103,10 @@
     {{ end }}
     {{ if and $isPrimary $isTalkLike }}
       {{ $label = "Presentation" }}
+    {{ else if and $isPrimary (in $pubTypes "patent") }}
+      {{ $label = "Patent" }}
+    {{ else if and $isPrimary (in $pubTypes "court_brief") }}
+      {{ $label = "Brief" }}
     {{ end }}
 
     {{ if eq .type "bibtex" }}

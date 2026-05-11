@@ -40,5 +40,19 @@
     {{/* HBX Dev: ensure debug export and HUD are injected in dev */}}
     {{ partial "hooks/body-end/hbx-debug-export.html" . }}
     {{ partial "hooks/body-end/hbx-debug-hud.html" . }}
+
+    {{/* Gary King AI Avatar — popup chat widget (site-wide, self-hosted).
+         On /ask-gary desktop the native chat UI is used and the widget button is hidden via JS.
+         On /ask-gary mobile the native chat is hidden and the widget opens full-screen instead. */}}
+    <script
+      src="{{ "js/gking-chat-widget.js" | relURL }}"
+      data-api-url="https://smf5e3hgygflv6o2nibp47vvse0digjb.lambda-url.us-east-2.on.aws/"
+      data-feedback-url="https://4jk1rwjz4a.execute-api.us-east-2.amazonaws.com/feedback"
+      data-bot-id="gking"
+      data-bot-name="Gary King's AI Avatar"
+      data-welcome-message="This is Gary King's AI chatbot. How can I help?"
+      data-avatar-label="GK"
+      data-input-placeholder="Type a message..."
+      defer></script>
   </body>
 </html>

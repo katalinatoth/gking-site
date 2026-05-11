@@ -1,0 +1,671 @@
+{{ define "main" }}
+<style>
+  .page-body.my-10 { margin: 0 !important; padding: 0 !important; }
+
+  .gk-chat {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    display: flex; flex-direction: column;
+    height: calc(100vh - var(--navbar-height, 64px));
+    max-width: 820px; margin: 0 auto;
+    background: #fff;
+    color: #3a4a6b;
+  }
+
+  .gk-chat-header {
+    text-align: center;
+    padding: 32px 16px 0;
+    flex-shrink: 0;
+  }
+  .gk-chat-header h1 {
+    font-size: clamp(18px, 4vw, 32px);
+    font-weight: 700; color: #5876a9;
+    margin: 0 0 6px; letter-spacing: -0.02em;
+  }
+  .gk-chat-header .sep {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    margin-top: 10px;
+  }
+  .gk-chat-header .sep-line { width: 28px; height: 1.5px; border-radius: 2px; background: #abc5ec; }
+  .gk-chat-header .sep-dot { width: 6px; height: 6px; border-radius: 50%; background: #efc5de; }
+
+  .gk-chat-messages {
+    flex: 1; overflow-y: auto;
+    padding: 20px 16px 8px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .gk-chat.gk-empty .gk-chat-messages { display: none; }
+  .gk-chat.gk-empty .gk-chat-header { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 16px; }
+  .gk-chat.gk-empty .gk-input-area { flex: 0; }
+  .gk-chat.gk-empty .gk-footer { flex: 1; padding-top: 8px; }
+
+  .gk-msg { display: flex; gap: 10px; align-items: flex-start; }
+  .gk-msg.user { justify-content: flex-end; }
+
+  .gk-avatar {
+    width: 30px; height: 30px; border-radius: 50%;
+    background: linear-gradient(135deg, #5876a9, #abc5ec);
+    color: #fff; display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 2px;
+  }
+
+  .gk-bubble {
+    max-width: 75%; padding: 10px 14px;
+    font-size: 15px; line-height: 1.8;
+    word-break: break-word; white-space: pre-wrap;
+  }
+  .gk-msg.user .gk-bubble {
+    border-radius: 16px 16px 4px 16px;
+    background: #5876a9; color: #fff;
+  }
+  .gk-msg.bot .gk-bubble {
+    border-radius: 16px 16px 16px 4px;
+    background: #f7f9fc; color: #3a4a6b;
+    border: 1px solid #dde8f5;
+  }
+  .gk-bubble strong { color: #5876a9; font-weight: 700; }
+  .gk-bubble code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    background: #eef2f9; border: 1px solid #dde8f5; border-radius: 4px;
+    padding: 1px 5px; font-size: 0.9em; color: #5876a9;
+  }
+  .gk-bubble a { color: #5876a9; text-decoration: underline; }
+  .gk-msg.user .gk-bubble strong { color: #fff; }
+  .gk-msg.user .gk-bubble a { color: #fff; }
+
+  .gk-welcome {
+    color: #7a8fb5; font-size: 14px; text-align: center;
+    margin: 0 0 8px; padding: 0 8px;
+  }
+
+  .gk-typing {
+    background: #f7f9fc; border: 1px solid #dde8f5;
+    border-radius: 16px 16px 16px 4px;
+    padding: 12px 16px; display: flex; gap: 5px;
+  }
+  .gk-typing span {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #5876a9; animation: gkPulse 1.2s infinite;
+  }
+  .gk-typing span:nth-child(2) { animation-delay: 120ms; }
+  .gk-typing span:nth-child(3) { animation-delay: 240ms; }
+  @keyframes gkPulse {
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+    30% { transform: translateY(-4px); opacity: 1; }
+  }
+
+  .gk-feedback-row {
+    display: flex; gap: 4px; align-items: center;
+    margin: 2px 0 0 40px;
+  }
+  .gk-fb-btn {
+    background: transparent; border: none; cursor: pointer;
+    padding: 4px; border-radius: 6px; line-height: 0;
+    color: #8a9ab8; transition: background 0.15s, color 0.15s;
+  }
+  .gk-fb-btn.up:hover:not(:disabled) { background: #e6f7f0; color: #2bb673; }
+  .gk-fb-btn.down:hover:not(:disabled) { background: #fdeceb; color: #e15554; }
+  .gk-fb-btn.up.active { color: #2bb673; }
+  .gk-fb-btn.down.active { color: #e15554; }
+  .gk-fb-btn:disabled { cursor: default; }
+  .gk-fb-btn.active:disabled { opacity: 1; }
+  .gk-fb-thanks { font-size: 11px; color: #8a9ab8; margin-left: 4px; }
+
+  .gk-fb-comment {
+    margin: 6px 0 0 40px;
+    display: flex; flex-direction: column; gap: 6px;
+    background: #fff; border: 1px solid #dde8f5; border-radius: 10px;
+    padding: 8px;
+  }
+  .gk-fb-comment textarea {
+    border: none; outline: none; resize: vertical;
+    min-height: 48px; max-height: 120px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px; color: #3a4a6b;
+  }
+  .gk-fb-comment .gk-fb-actions {
+    display: flex; gap: 6px; justify-content: flex-end;
+  }
+  .gk-fb-comment button {
+    font-size: 12px; padding: 5px 10px; border-radius: 6px;
+    border: 1px solid #dde8f5; background: #fff; color: #5876a9;
+    cursor: pointer; font-family: inherit;
+  }
+  .gk-fb-comment button.primary {
+    background: linear-gradient(135deg, #5876a9, #abc5ec);
+    border-color: transparent; color: #fff;
+  }
+
+  .gk-figures {
+    margin-top: 10px; padding-top: 8px;
+    border-top: 1px dashed #dde8f5;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .gk-figures-label {
+    font-size: 9px; font-weight: 700; letter-spacing: 1.2px;
+    text-transform: uppercase; color: #8a9ab8;
+  }
+  .gk-figure a { display: block; line-height: 0; }
+  .gk-figure img {
+    display: block; width: 100%; height: auto;
+    max-height: 260px; object-fit: contain;
+    background: #f7f9fc; border: 1px solid #dde8f5; border-radius: 6px;
+    cursor: zoom-in;
+  }
+  .gk-figure-caption {
+    font-size: 11px; color: #8a9ab8; font-style: italic; line-height: 1.35;
+  }
+
+  .gk-input-area {
+    flex-shrink: 0; padding: 12px 16px;
+    border-top: 1px solid #eef2f9;
+  }
+  .gk-input-row {
+    display: flex; gap: 10px; align-items: flex-end;
+    border: 1.5px solid #dde8f5; border-radius: 28px;
+    background: #fff; overflow: hidden;
+    box-shadow: 0 2px 20px rgba(88,118,169,0.08);
+  }
+  .gk-input-row textarea {
+    flex: 1; resize: none; border: none; background: transparent;
+    padding: 12px 18px; font-size: 14px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    color: #3a4a6b; outline: none; line-height: 1.5;
+    max-height: 120px;
+  }
+  .gk-input-row textarea::placeholder { color: #b0bfd4; }
+  .gk-input-row .gk-send {
+    background: transparent; color: #b0bfd4;
+    border: none; padding: 0 20px; font-size: 13px;
+    font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    cursor: default; transition: color 0.2s;
+    white-space: nowrap; border-radius: 0 26px 26px 0;
+    height: 46px;
+  }
+  .gk-input-row .gk-send:not(:disabled) {
+    color: #5876a9; cursor: pointer;
+  }
+  .gk-input-row .gk-send:not(:disabled):hover { color: #3a5a8c; }
+
+  .gk-footer {
+    flex-shrink: 0; padding: 6px 16px 12px;
+    text-align: center;
+    font-size: 11px; color: #7a8fb5;
+  }
+  .gk-footer-link {
+    background: transparent; border: none; cursor: pointer;
+    font-size: 11px; color: #7a8fb5; text-decoration: underline;
+    font-family: inherit; padding: 0;
+  }
+  .gk-footer-link:hover { color: #5876a9; }
+
+  .gk-modal-overlay {
+    position: fixed; inset: 0;
+    background: rgba(58,74,107,0.35);
+    display: flex; align-items: center; justify-content: center;
+    padding: 16px; z-index: 10000;
+  }
+  .gk-modal-overlay[hidden] { display: none; }
+  .gk-modal {
+    background: #fff; border-radius: 12px; padding: 16px;
+    width: 100%; max-width: 440px;
+    box-shadow: 0 8px 24px rgba(58,74,107,0.2);
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .gk-modal h3 { margin: 0; font-size: 14px; color: #3a4a6b; font-weight: 700; }
+  .gk-modal p { margin: 0; font-size: 12px; color: #8a9ab8; }
+  .gk-modal textarea {
+    border: 1px solid #dde8f5; border-radius: 8px; padding: 8px;
+    resize: vertical; min-height: 80px; max-height: 180px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px; color: #3a4a6b; outline: none;
+  }
+  .gk-modal .gk-modal-actions { display: flex; gap: 8px; justify-content: flex-end; }
+  .gk-modal button {
+    font-size: 13px; padding: 6px 12px; border-radius: 8px;
+    border: 1px solid #dde8f5; background: #fff; color: #5876a9;
+    cursor: pointer; font-family: inherit;
+  }
+  .gk-modal button.primary {
+    background: linear-gradient(135deg, #5876a9, #abc5ec);
+    border-color: transparent; color: #fff;
+  }
+
+  @media (max-width: 600px) {
+    .gk-chat, .gk-modal-overlay { display: none !important; }
+    .page-body.my-10 { padding: 0 !important; }
+    #site-header.header { position: relative; z-index: 9999; }
+  }
+
+  @media (min-width: 601px) {
+    .gk-chat { max-width: 820px; }
+    .gk-chat-header { padding: 32px 16px 0; }
+  }
+</style>
+
+<div class="gk-chat">
+  <div class="gk-chat-header">
+    <h1>Gary King's AI Avatar</h1>
+    <div class="sep">
+      <div class="sep-line"></div>
+      <div class="sep-dot"></div>
+      <div class="sep-line"></div>
+    </div>
+  </div>
+
+  <div class="gk-chat-messages" id="gk-messages"></div>
+
+  <div class="gk-input-area">
+    <div class="gk-input-row">
+      <textarea id="gk-input" rows="1" placeholder="This is Gary King's AI chatbot. How can I help?"></textarea>
+      <button id="gk-send" class="gk-send" type="button" disabled>Send &rarr;</button>
+    </div>
+  </div>
+
+  <div class="gk-footer">
+    Designed to improve automatically;
+    <button type="button" class="gk-footer-link" id="gk-general-fb">suggestions welcome</button>.
+  </div>
+</div>
+
+<div class="gk-modal-overlay" id="gk-modal-overlay" hidden>
+  <div class="gk-modal" role="dialog" aria-label="Send feedback">
+    <h3>Share feedback</h3>
+    <p>Tell us what worked, what didn't, or anything you'd like to see improved.</p>
+    <textarea id="gk-modal-textarea" placeholder="Your feedback..."></textarea>
+    <div class="gk-modal-actions">
+      <button type="button" id="gk-modal-cancel">Cancel</button>
+      <button type="button" id="gk-modal-send" class="primary">Send</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  var API_URL = "https://smf5e3hgygflv6o2nibp47vvse0digjb.lambda-url.us-east-2.on.aws/";
+  var FEEDBACK_URL = "https://4jk1rwjz4a.execute-api.us-east-2.amazonaws.com/feedback";
+  var BOT_ID = "gking";
+  var AVATAR_LABEL = "GK";
+  var chatEl = document.querySelector(".gk-chat");
+
+  var messagesEl = document.getElementById("gk-messages");
+  var textarea = document.getElementById("gk-input");
+  var sendBtn = document.getElementById("gk-send");
+  var modalOverlay = document.getElementById("gk-modal-overlay");
+  var modalTextarea = document.getElementById("gk-modal-textarea");
+  var modalSendBtn = document.getElementById("gk-modal-send");
+  var modalCancelBtn = document.getElementById("gk-modal-cancel");
+  var generalFbBtn = document.getElementById("gk-general-fb");
+
+  var messages = [];
+  var loading = false;
+  var streaming = false;
+  var conversationId = null;
+  var streamTarget = "";
+  var streamRevealed = 0;
+  var streamRevealActive = false;
+  var streamMsgIdx = -1;
+  var feedbackState = {};
+
+  function uuid() {
+    if (typeof crypto !== "undefined" && crypto.randomUUID) return crypto.randomUUID();
+    return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(c) {
+      var r = (Math.random() * 16) | 0;
+      return (c === "x" ? r : (r & 0x3) | 0x8).toString(16);
+    });
+  }
+
+  function ensureConversationId() {
+    if (!conversationId) conversationId = uuid();
+    return conversationId;
+  }
+
+  function esc(s) {
+    return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+  }
+
+  function renderInline(text) {
+    var html = esc(text);
+    html = html.replace(/^(#{1,6})\s+(.+)$/gm, function(_, h, c) { return "<strong>" + c + "</strong>"; });
+    html = html.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+    html = html.replace(/`([^`]+)`/g, "<code>$1</code>");
+    html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, function(_, t, u) {
+      var safe = /^(https?:|mailto:|\/)/i.test(u) ? u : "#";
+      return '<a href="' + esc(safe) + '" target="_blank" rel="noopener noreferrer">' + t + '</a>';
+    });
+    return html;
+  }
+
+  function renderFigures(figs) {
+    if (!figs || !figs.length) return "";
+    var items = figs.map(function(f) {
+      if (!f || !f.url) return "";
+      var cap = [];
+      if (f.caption) cap.push(esc(f.caption));
+      if (f.source_title) cap.push("&mdash; " + esc(f.source_title));
+      return '<div class="gk-figure"><a href="' + esc(f.url) + '" target="_blank" rel="noopener"><img src="' + esc(f.url) + '" alt="' + esc(f.caption || "") + '" loading="lazy"></a>' +
+        (cap.length ? '<div class="gk-figure-caption">' + cap.join(" ") + '</div>' : '') + '</div>';
+    }).join("");
+    return '<div class="gk-figures"><div class="gk-figures-label">Referenced figure' + (figs.length > 1 ? "s" : "") + '</div>' + items + '</div>';
+  }
+
+  function stripAttach(s) {
+    return String(s).replace(/\[ATTACH:[^\]]*\]/g, "").replace(/\n{3,}/g, "\n\n").trim();
+  }
+
+  function snapshotMessages() {
+    return messages.map(function(m) { return { role: m.role, content: m.content }; });
+  }
+
+  function postFeedback(payload) {
+    if (!FEEDBACK_URL) return;
+    try {
+      fetch(FEEDBACK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+        keepalive: true
+      }).catch(function() {});
+    } catch(e) {}
+  }
+
+  function buildFeedbackPayload(opts) {
+    return {
+      conversation_id: ensureConversationId(),
+      message_id: opts.messageId,
+      bot_id: BOT_ID,
+      timestamp: new Date().toISOString(),
+      feedback_type: opts.feedbackType,
+      rating: opts.rating || null,
+      comment: opts.comment || null,
+      messages_snapshot: snapshotMessages(),
+      rated_message_index: opts.ratedIndex == null ? null : opts.ratedIndex,
+      page_url: location.href,
+      user_agent: navigator.userAgent,
+      source: "fullpage"
+    };
+  }
+
+  function thumbSvg(dir, filled) {
+    if (dir === "up") return '<svg width="15" height="15" viewBox="0 0 24 24" fill="' + (filled ? "currentColor" : "none") + '" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11v9a1 1 0 0 0 1 1h9.5a2 2 0 0 0 2-1.7l1.4-7A2 2 0 0 0 19 10h-5l1-4a2 2 0 0 0-2-2.5L8 11z"/><path d="M3 11h4v10H3z"/></svg>';
+    return '<svg width="15" height="15" viewBox="0 0 24 24" fill="' + (filled ? "currentColor" : "none") + '" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 13V4a1 1 0 0 0-1-1H6.5a2 2 0 0 0-2 1.7l-1.4 7A2 2 0 0 0 5 14h5l-1 4a2 2 0 0 0 2 2.5L16 13z"/><path d="M21 13h-4V3h4z"/></svg>';
+  }
+
+  function renderMessages() {
+    messagesEl.querySelectorAll("[data-comment-textarea]").forEach(function(ta) {
+      var id = ta.getAttribute("data-comment-textarea");
+      if (feedbackState[id]) feedbackState[id].commentDraft = ta.value;
+    });
+
+    messagesEl.innerHTML = "";
+    chatEl.classList.toggle("gk-empty", messages.length === 0);
+
+    if (messages.length > 0) {
+      messages.forEach(function(m, mi) {
+        var node = document.createElement("div");
+        node.className = "gk-msg " + (m.role === "user" ? "user" : "bot");
+        if (m.role === "user") {
+          node.innerHTML = '<div class="gk-bubble">' + esc(m.content) + '</div>';
+        } else {
+          var vis = stripAttach(m.content);
+          var isLast = mi === messages.length - 1;
+          var showFigs = m.figures && m.figures.length && !(streaming && isLast);
+          node.innerHTML = '<div class="gk-avatar">' + esc(AVATAR_LABEL) + '</div>' +
+            '<div class="gk-bubble">' + renderInline(vis) +
+            (showFigs ? renderFigures(m.figures) : "") + '</div>';
+        }
+        messagesEl.appendChild(node);
+
+        var canRate = m.role === "assistant" && !!stripAttach(m.content) && !(streaming && mi === messages.length - 1);
+        if (canRate) {
+          var st = feedbackState[m.id] || {};
+          var rated = st.rated || null;
+          var row = document.createElement("div");
+          row.className = "gk-feedback-row";
+          row.innerHTML =
+            '<button class="gk-fb-btn up' + (rated === "up" ? " active" : "") + '"' + (rated ? " disabled" : "") +
+            ' data-action="rate-up" data-msg-id="' + esc(m.id) + '" data-msg-idx="' + mi + '" aria-label="Helpful">' + thumbSvg("up", rated === "up") + '</button>' +
+            '<button class="gk-fb-btn down' + (rated === "down" ? " active" : "") + '"' + (rated ? " disabled" : "") +
+            ' data-action="rate-down" data-msg-id="' + esc(m.id) + '" data-msg-idx="' + mi + '" aria-label="Not helpful">' + thumbSvg("down", rated === "down") + '</button>' +
+            (st.commentSent ? '<span class="gk-fb-thanks">Thanks for your feedback.</span>' : '');
+          messagesEl.appendChild(row);
+
+          if (st.commentOpen) {
+            var box = document.createElement("div");
+            box.className = "gk-fb-comment";
+            box.innerHTML =
+              '<textarea data-comment-textarea="' + esc(m.id) + '" placeholder="What was wrong? (optional)"></textarea>' +
+              '<div class="gk-fb-actions">' +
+              '<button type="button" data-action="comment-cancel" data-msg-id="' + esc(m.id) + '">No thanks</button>' +
+              '<button type="button" class="primary" data-action="comment-send" data-msg-id="' + esc(m.id) + '" data-msg-idx="' + mi + '">Send</button></div>';
+            box.querySelector("textarea").value = st.commentDraft || "";
+            messagesEl.appendChild(box);
+          }
+        }
+      });
+    }
+
+    if (loading && (messages.length === 0 || messages[messages.length - 1].role !== "assistant")) {
+      var t = document.createElement("div");
+      t.className = "gk-msg bot";
+      t.innerHTML = '<div class="gk-avatar">' + esc(AVATAR_LABEL) + '</div><div class="gk-typing"><span></span><span></span><span></span></div>';
+      messagesEl.appendChild(t);
+    }
+
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function updateSendState() {
+    sendBtn.disabled = !textarea.value.trim() || loading;
+  }
+
+  function setLoading(v) {
+    loading = v;
+    updateSendState();
+    renderMessages();
+  }
+
+  function startRevealLoop() {
+    if (streamRevealActive) return;
+    streamRevealActive = true;
+    function tick() {
+      if (!streamRevealActive) return;
+      if (streamRevealed < streamTarget.length && streamMsgIdx >= 0 && messages[streamMsgIdx]) {
+        var remaining = streamTarget.length - streamRevealed;
+        var step = Math.max(3, Math.min(8, Math.ceil(remaining * 0.08)));
+        streamRevealed = Math.min(streamRevealed + step, streamTarget.length);
+        messages[streamMsgIdx].content = streamTarget.slice(0, streamRevealed);
+        renderMessages();
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  function stopRevealLoop() {
+    streamRevealActive = false;
+    if (streamMsgIdx >= 0 && messages[streamMsgIdx] && streamTarget) {
+      messages[streamMsgIdx].content = streamTarget;
+      renderMessages();
+    }
+    streamTarget = "";
+    streamRevealed = 0;
+    streamMsgIdx = -1;
+  }
+
+  async function send() {
+    var text = textarea.value.trim();
+    if (!text || loading) return;
+    textarea.value = "";
+    textarea.style.height = "auto";
+    ensureConversationId();
+    messages.push({ id: uuid(), role: "user", content: text });
+    setLoading(true);
+
+    try {
+      var res = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          botId: BOT_ID, messages: messages,
+          conversation_id: ensureConversationId(), source: "fullpage"
+        })
+      });
+
+      var ct = res.headers.get("Content-Type") || "";
+      if (ct.indexOf("text/event-stream") !== -1 && res.body && res.body.getReader) {
+        var reader = res.body.getReader();
+        var decoder = new TextDecoder();
+        var buffer = "";
+        messages.push({ id: uuid(), role: "assistant", content: "" });
+        var idx = messages.length - 1;
+        streaming = true;
+        setLoading(false);
+
+        streamTarget = ""; streamRevealed = 0; streamMsgIdx = idx;
+        startRevealLoop();
+
+        while (true) {
+          var chunk = await reader.read();
+          if (chunk.done) break;
+          buffer += decoder.decode(chunk.value, { stream: true });
+          var lines = buffer.split("\n");
+          buffer = lines.pop() || "";
+          for (var i = 0; i < lines.length; i++) {
+            var line = lines[i];
+            if (line.indexOf("data: ") !== 0) continue;
+            try {
+              var evt = JSON.parse(line.slice(6));
+              if (evt.type === "token" && evt.content) streamTarget += evt.content;
+              else if (evt.type === "attached_figures") messages[idx].figures = Array.isArray(evt.figures) ? evt.figures : [];
+              else if (evt.type === "meta") messages[idx].meta = evt;
+            } catch(e) {}
+          }
+        }
+
+        stopRevealLoop();
+        if (!messages[idx].content) messages[idx].content = "Sorry, I couldn't generate a response.";
+        streaming = false;
+        renderMessages();
+      } else {
+        var data;
+        try { data = await res.json(); } catch(e) { data = null; }
+        var reply = (data && (data.reply || data.message || data.response)) || "Sorry, I couldn't generate a response.";
+        var figs = data && Array.isArray(data.figures) ? data.figures : [];
+        messages.push({ id: uuid(), role: "assistant", content: reply, figures: figs });
+        setLoading(false);
+      }
+    } catch(e) {
+      streaming = false;
+      messages.push({ id: uuid(), role: "assistant", content: "Sorry, something went wrong. Please try again." });
+      setLoading(false);
+    }
+  }
+
+  sendBtn.addEventListener("click", send);
+  textarea.addEventListener("input", function() {
+    updateSendState();
+    this.style.height = "auto";
+    this.style.height = Math.min(this.scrollHeight, 120) + "px";
+  });
+  textarea.addEventListener("keydown", function(e) {
+    if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); send(); }
+  });
+
+  messagesEl.addEventListener("click", function(e) {
+    var target = e.target;
+    while (target && target !== messagesEl && !target.getAttribute("data-action")) target = target.parentNode;
+    if (!target || target === messagesEl) return;
+    var action = target.getAttribute("data-action");
+    var msgId = target.getAttribute("data-msg-id");
+    var msgIdx = target.getAttribute("data-msg-idx");
+    msgIdx = msgIdx == null ? null : parseInt(msgIdx, 10);
+    if (!msgId) return;
+
+    if (action === "rate-up" || action === "rate-down") {
+      if (feedbackState[msgId] && feedbackState[msgId].rated) return;
+      var rating = action === "rate-up" ? "up" : "down";
+      feedbackState[msgId] = { rated: rating, commentOpen: rating === "down", commentDraft: "", commentSent: false };
+      postFeedback(buildFeedbackPayload({ messageId: msgId, ratedIndex: msgIdx, feedbackType: "rating", rating: rating }));
+      renderMessages();
+    } else if (action === "comment-cancel") {
+      if (feedbackState[msgId]) { feedbackState[msgId].commentOpen = false; feedbackState[msgId].commentDraft = ""; }
+      renderMessages();
+    } else if (action === "comment-send") {
+      var ta = messagesEl.querySelector('[data-comment-textarea="' + msgId + '"]');
+      var comment = ta ? ta.value.trim() : "";
+      if (!feedbackState[msgId]) feedbackState[msgId] = {};
+      feedbackState[msgId].commentOpen = false;
+      feedbackState[msgId].commentDraft = "";
+      feedbackState[msgId].commentSent = true;
+      if (comment) postFeedback(buildFeedbackPayload({ messageId: msgId, ratedIndex: msgIdx, feedbackType: "comment", rating: feedbackState[msgId].rated || null, comment: comment }));
+      renderMessages();
+    }
+  });
+
+  generalFbBtn.addEventListener("click", function() { modalTextarea.value = ""; modalOverlay.hidden = false; modalTextarea.focus(); });
+  modalCancelBtn.addEventListener("click", function() { modalOverlay.hidden = true; });
+  modalSendBtn.addEventListener("click", function() {
+    var text = modalTextarea.value.trim();
+    if (text) postFeedback(buildFeedbackPayload({ messageId: "general", ratedIndex: null, feedbackType: "general", rating: null, comment: text }));
+    modalOverlay.hidden = true;
+  });
+  modalOverlay.addEventListener("click", function(e) { if (e.target === modalOverlay) modalOverlay.hidden = true; });
+
+  renderMessages();
+  textarea.focus();
+
+  /* On the /ask-gary page: hide the popup widget button on desktop,
+     auto-open it full-screen on mobile (where the native chat is hidden). */
+  (function() {
+    var isMobile = window.innerWidth <= 600;
+
+    function getWidgetShadow() {
+      var host = document.getElementById('gking-chat-widget');
+      return host && host.shadowRoot ? host.shadowRoot : null;
+    }
+
+    function setupDesktop(shadow) {
+      var s = document.createElement('style');
+      s.textContent = '.btn { display: none !important; }';
+      shadow.appendChild(s);
+      return true;
+    }
+
+    function setupMobile(shadow) {
+      if (!window.GKingChat) return false;
+      var s = document.createElement('style');
+      s.textContent = [
+        '.btn { display: none !important; }',
+        '.header .close { display: none !important; }',
+        '.panel {',
+        '  position: fixed !important;',
+        '  top: var(--navbar-height, 64px) !important;',
+        '  left: 0 !important; right: 0 !important; bottom: 0 !important;',
+        '  width: 100% !important; height: auto !important;',
+        '  border-radius: 0 !important; border: none !important;',
+        '  box-shadow: none !important;',
+        '  z-index: 100 !important;',
+        '}'
+      ].join('\n');
+      shadow.appendChild(s);
+      window.GKingChat.open();
+      window.GKingChat.close = function() {};
+      return true;
+    }
+
+    function trySetup() {
+      var shadow = getWidgetShadow();
+      if (!shadow) return false;
+      return isMobile ? setupMobile(shadow) : setupDesktop(shadow);
+    }
+
+    if (!trySetup()) {
+      var check = setInterval(function() { if (trySetup()) clearInterval(check); }, 150);
+      setTimeout(function() { clearInterval(check); }, 5000);
+    }
+  })();
+})();
+</script>
+{{ end }}

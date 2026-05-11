@@ -5,7 +5,15 @@
 #
 #     https://gking.harvard.edu/<from>/
 #
-# will forward to the <to> target.
+# will show the content from the <to> target.
+#
+#   - INTERNAL targets (paths like /publication/quest-paper/) are rendered
+#     inline at build time: the deploy pipeline copies the fully rendered
+#     target page to the short URL path, so the browser address bar
+#     keeps showing the short URL (e.g. /quest/ instead of jumping to
+#     the long canonical path).
+#
+#   - EXTERNAL targets (https://...) still redirect as before.
 #
 # Edit this file directly on GitHub (pencil icon), commit, and the site
 # will rebuild within a couple of minutes. The new redirect is live as

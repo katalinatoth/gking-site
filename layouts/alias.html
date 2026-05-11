@@ -2,6 +2,13 @@
   Custom alias template. Normal Hugo aliases redirect to the target page's
   canonical URL. We additionally honour a fragment in the FIRST alias entry
   so that (for example) /advice/ can land on /teaching/#advice.
+
+  For aliases that point to internal pages, a post-build step
+  (scripts/apply_rewrites.py) copies the fully rendered target page
+  over this redirect stub so the visitor sees the real content at the
+  alias URL with no redirect. This meta-refresh page therefore only
+  survives as a fallback (e.g. local dev builds without the post-build
+  step).
 */ -}}
 {{- $target := .Permalink -}}
 {{- with .Page -}}

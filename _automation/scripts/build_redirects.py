@@ -168,12 +168,22 @@ def parse_status(raw, slug: str) -> int:
     return code
 
 
+def _is_external(url: str) -> bool:
+    return url.startswith("http://") or url.startswith("https://")
+
+
 def write_netlify_redirects(rules: list[tuple[str, str, int]]) -> None:
     """Write a Netlify/Cloudflare-Pages style `_redirects` file.
 
     GitHub Pages ignores this file, but emitting it keeps the redirect
     table portable: a future migration to a host that honours `_redirects`
     will pick up the real HTTP status codes automatically.
+
+    Internal targets use status 200 (rewrite / proxy), which tells
+    Netlify to serve the target page's content at the source URL without
+    changing the address bar — matching the build-time rewriting done
+    by scripts/apply_rewrites.py for GitHub Pages.  External targets
+    keep their configured 3xx status.
     """
     NETLIFY_REDIRECTS_FILE.parent.mkdir(parents=True, exist_ok=True)
     if not rules:
@@ -185,11 +195,15 @@ def write_netlify_redirects(rules: list[tuple[str, str, int]]) -> None:
         "# from EditMe/Redirects/Data/redirects.yaml.",
         "# Honoured by Netlify, Cloudflare Pages, etc. Ignored by GitHub Pages,",
         "# which serves the meta-refresh stubs in EditMe/Redirects/content/ instead.",
+        "#",
+        "# Internal targets use 200 (rewrite) so the short URL stays in the",
+        "# address bar. External targets use their configured 3xx status.",
         "",
     ]
     for path, target, status in rules:
-        lines.append(f"/{path}/   {target}   {status}")
-        lines.append(f"/{path}    {target}   {status}")
+        effective = 200 if not _is_external(target) else status
+        lines.append(f"/{path}/   {target}   {effective}")
+        lines.append(f"/{path}    {target}   {effective}")
     NETLIFY_REDIRECTS_FILE.write_text("\n".join(lines) + "\n")
 
 

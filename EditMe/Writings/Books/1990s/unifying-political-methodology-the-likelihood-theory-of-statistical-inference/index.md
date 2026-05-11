@@ -3,8 +3,13 @@ authors:
 - Gary King
 date: '1998-01-01'
 links:
-- type: pdf
+- type: custom
+  url: "https://openlibrary.org/books/OL2049556M/Unifying_political_methodology"
+  name: "Open Library"
+  icon: hero/book-open
+- type: custom
   url: files/uoschg_0.pdf
+  name: "Errata"
 publication_types:
 - book
 publisher: "University of Michigan Press"

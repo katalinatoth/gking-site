@@ -11,7 +11,12 @@ publication_types:
   - "book"
 links:
   - type: pdf
-    url: "files/part1.pdf"
+    url: "files/ei-book.pdf"
+    name: Book
+  - type: custom
+    url: "https://press.princeton.edu/books/paperback/9780691012407/a-solution-to-the-ecological-inference-problem"
+    name: "Publisher's Site"
+    icon: hero/building-library
 related_papers:
 - the-future-of-ecological-inference-research-a-reply-to-freedman-et-al
 ---

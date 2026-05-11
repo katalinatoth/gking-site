@@ -13,4 +13,6 @@ abstract: |-
 links:
   - type: pdf
     url: files/whos-to-blame-for-survey-instability-respondents-with-nonexistent-preferences-or-2.pdf
+related_talks:
+  - whos-to-blame-for-survey-instability-university-of-chicago-2026
 ---
