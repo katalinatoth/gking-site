@@ -206,6 +206,8 @@
     "  display: flex; align-items: center; justify-content: center; flex-shrink: 0;",
     "}",
     ".input-row .send:disabled { background: #b0bfd4; cursor: not-allowed; }",
+    ".input-row .send.stop { background: #b0bfd4; cursor: pointer; }",
+    ".input-row .send.stop:hover { background: #9aacc4; }",
     ".feedback-row {",
     "  display: flex; gap: 4px; align-items: center;",
     "  margin: 4px 0 0 34px;",
@@ -464,6 +466,17 @@
     '</div>'
   ].join("\n");
 
+  var SEND_ICON_SVG =
+    '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">' +
+    '<line x1="22" y1="2" x2="11" y2="13"/>' +
+    '<polygon points="22 2 15 22 11 13 2 9 22 2"/>' +
+    '</svg>';
+
+  var STOP_ICON_SVG =
+    '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">' +
+    '<rect x="6" y="6" width="12" height="12" rx="2"/>' +
+    '</svg>';
+
   function escapeHtml(s) {
     return String(s)
       .replace(/&/g, "&amp;")
@@ -713,6 +726,7 @@
     var messages = [];
     var loading = false;
     var streaming = false;
+    var abortController = null;
     var open = false;
     var conversationId = null;
     // Smooth streaming: tokens accumulate in streamTarget; an rAF loop copies
@@ -930,8 +944,30 @@
       }
     }
 
+    function isBusy() { return loading || streaming; }
+
     function updateSendState() {
-      sendBtn.disabled = !textarea.value.trim() || loading;
+      if (isBusy()) {
+        sendBtn.disabled = false;
+        sendBtn.innerHTML = STOP_ICON_SVG;
+        sendBtn.setAttribute("aria-label", "Stop");
+        sendBtn.classList.add("stop");
+      } else {
+        sendBtn.disabled = !textarea.value.trim();
+        sendBtn.innerHTML = SEND_ICON_SVG;
+        sendBtn.setAttribute("aria-label", "Send");
+        sendBtn.classList.remove("stop");
+      }
+    }
+
+    function handleSendClick() {
+      if (isBusy()) {
+        if (abortController) {
+          try { abortController.abort(); } catch (e) {}
+        }
+      } else {
+        send();
+      }
     }
 
     function setLoading(v) {
@@ -977,6 +1013,7 @@
       messages.push({ id: uuid(), role: "user", content: text });
       setLoading(true);
 
+      abortController = new AbortController();
       try {
         var res = await fetch(config.apiUrl, {
           method: "POST",
@@ -986,7 +1023,8 @@
             messages: messages,
             conversation_id: ensureConversationId(),
             source: "embed"
-          })
+          }),
+          signal: abortController.signal
         });
 
         var ct = res.headers.get("Content-Type") || "";
@@ -1036,6 +1074,7 @@
             messages[idx].content = "Sorry, I couldn't generate a response.";
           }
           streaming = false;
+          updateSendState();
           renderMessages();
         } else {
           var data;
@@ -1053,14 +1092,26 @@
           setLoading(false);
         }
       } catch (e) {
-        console.error("[GKing Chat Widget] request error:", e);
+        var wasAbort =
+          e && (e.name === "AbortError" || /aborted/i.test(String(e.message || "")));
+        stopRevealLoop();
         streaming = false;
-        messages.push({
-          id: uuid(),
-          role: "assistant",
-          content: "Sorry, something went wrong. Please try again."
-        });
+        if (wasAbort) {
+          var last = messages[messages.length - 1];
+          if (last && last.role === "assistant" && !last.content) {
+            last.content = "_(stopped)_";
+          }
+        } else {
+          console.error("[GKing Chat Widget] request error:", e);
+          messages.push({
+            id: uuid(),
+            role: "assistant",
+            content: "Sorry, something went wrong. Please try again."
+          });
+        }
         setLoading(false);
+      } finally {
+        abortController = null;
       }
     }
 
@@ -1070,12 +1121,12 @@
     closeBtn.addEventListener("click", function () {
       setOpen(false);
     });
-    sendBtn.addEventListener("click", send);
+    sendBtn.addEventListener("click", handleSendClick);
     textarea.addEventListener("input", updateSendState);
     textarea.addEventListener("keydown", function (e) {
       if (e.key === "Enter" && !e.shiftKey) {
         e.preventDefault();
-        send();
+        handleSendClick();
       }
     });
 
