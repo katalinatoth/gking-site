@@ -10,6 +10,9 @@ Thumbs.db
 # Node modules
 node_modules/
 
+# Local dev env (Hugo binary etc., user-installed)
+.env-local/
+
 # Scraped data (large, not needed for Hugo build)
 ../scraped_data/
 

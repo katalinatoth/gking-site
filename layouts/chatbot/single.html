@@ -156,6 +156,95 @@
     font-size: 11px; color: #8a9ab8; font-style: italic; line-height: 1.35;
   }
 
+  .gk-preview {
+    margin-top: 10px; padding-top: 8px;
+    border-top: 1px dashed #dde8f5;
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .gk-preview-label {
+    font-size: 9px; font-weight: 700; letter-spacing: 1.2px;
+    text-transform: uppercase; color: #8a9ab8;
+  }
+  .gk-preview-block {
+    background: #f7f9fc; border: 1px solid #dde8f5;
+    border-radius: 8px; padding: 8px 10px; font-size: 12px;
+  }
+  .gk-preview-block-title {
+    font-size: 9px; font-weight: 700; letter-spacing: 1.2px;
+    text-transform: uppercase; color: #8a9ab8; margin-bottom: 6px;
+  }
+  .gk-preview-nav {
+    display: flex; flex-wrap: wrap; gap: 4px;
+  }
+  .gk-preview-nav-item {
+    background: #fff; border: 1px solid #dde8f5; border-radius: 5px;
+    padding: 3px 8px; font-size: 11px; color: #7a8fb5; font-weight: 500;
+  }
+  .gk-preview-nav-item.active {
+    background: linear-gradient(135deg, #5876a9, #abc5ec);
+    border-color: transparent; color: #fff; font-weight: 700;
+  }
+  .gk-preview-path {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 4px;
+  }
+  .gk-preview-path-crumb {
+    background: #fff; border: 1px solid #dde8f5; border-radius: 5px;
+    padding: 2px 8px; font-size: 11px; color: #7a8fb5;
+  }
+  .gk-preview-path-crumb.last { color: #5876a9; font-weight: 700; }
+  .gk-preview-path-sep { color: #b0bfd4; font-weight: 700; }
+  .gk-preview-steps { display: flex; flex-direction: column; gap: 5px; }
+  .gk-preview-step { display: flex; gap: 8px; align-items: flex-start; }
+  .gk-preview-step-num {
+    min-width: 18px; height: 18px; border-radius: 50%;
+    background: linear-gradient(135deg, #5876a9, #abc5ec);
+    color: #fff; font-size: 10px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .gk-preview-step-text { font-size: 12px; color: #3a4a6b; line-height: 1.5; }
+  .gk-preview-link {
+    align-self: flex-start; font-size: 11px; color: #5876a9; text-decoration: underline;
+  }
+
+  .gk-previews { margin-top: 14px; display: grid; gap: 10px; }
+  .gk-preview-card {
+    display: flex; align-items: stretch; gap: 12px;
+    padding: 10px; border: 1px solid #dde8f5; border-radius: 8px;
+    background: #f7f9fc; text-decoration: none; color: #3a4a6b;
+    transition: border-color 120ms, background 120ms;
+  }
+  .gk-preview-card:hover { border-color: #abc5ec; background: #fff; }
+  .gk-preview-card-image {
+    flex: 0 0 auto; width: 80px; height: 80px;
+    object-fit: cover; border-radius: 6px;
+    border: 1px solid #dde8f5; background: #fff;
+  }
+  .gk-preview-card-favicon-wrap {
+    flex: 0 0 auto; width: 80px; height: 80px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 6px; border: 1px solid #dde8f5; background: #fff;
+  }
+  .gk-preview-card-favicon {
+    width: 48px; height: 48px; object-fit: contain;
+  }
+  .gk-preview-card-body {
+    min-width: 0; display: flex; flex-direction: column; justify-content: center;
+  }
+  .gk-preview-card-site {
+    font-size: 10px; font-weight: 700; letter-spacing: 1.2px;
+    text-transform: uppercase; color: #7a8fb5;
+    margin-bottom: 2px;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .gk-preview-card-title {
+    font-size: 13px; font-weight: 600; color: #5876a9; line-height: 1.3;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .gk-preview-card-desc {
+    font-size: 12px; color: #7a8fb5; line-height: 1.4; margin-top: 3px;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+
   .gk-input-area {
     flex-shrink: 0; padding: 12px 16px;
     border-top: 1px solid #eef2f9;
@@ -350,8 +439,120 @@
     return '<div class="gk-figures"><div class="gk-figures-label">Referenced figure' + (figs.length > 1 ? "s" : "") + '</div>' + items + '</div>';
   }
 
+  var SITE_NAV = [
+    { name: "Bio & C.V.",     url: "/bio/" },
+    { name: "Writings",       url: "/publication/" },
+    { name: "Research Areas", url: "/#research-areas" },
+    { name: "Software",       url: "/software/" },
+    { name: "Dataverse",      url: "/dataverse/" },
+    { name: "People",         url: "/research-group/" },
+    { name: "Teaching",       url: "/teaching/" },
+    { name: "GaryAI",         url: "/ask-gary/" },
+    { name: "Contact",        url: "/contact/" }
+  ];
+
+  var SECTIONS = {
+    bio:       { active: "Bio & C.V.",     path: ["Home", "Bio & C.V."],     url: "/bio/",            label: "Bio & C.V.",       steps: ["Click <strong>Bio &amp; C.V.</strong> in the top navigation", "Read the short biography and download the full CV"] },
+    writings:  { active: "Writings",       path: ["Home", "Writings"],       url: "/publication/",    label: "Writings page",    steps: ["Click <strong>Writings</strong> in the top navigation", "Filter by type (articles, books, slides, briefs) or research area", "Click any title to open the abstract and PDF"] },
+    research:  { active: "Research Areas", path: ["Home", "Research Areas"], url: "/#research-areas", label: "Research Areas",   steps: ["Click <strong>Research Areas</strong> in the top navigation", "Browse the topical clusters (Causal Inference, Health Policy, &hellip;)", "Each card links to related papers and software"] },
+    software:  { active: "Software",       path: ["Home", "Software"],       url: "/software/",       label: "Software index",   steps: ["Click <strong>Software</strong> in the top navigation", "Pick a package (Amelia, MatchIt, Zelig, &hellip;)", "Each page has install commands, vignettes, and citations"] },
+    dataverse: { active: "Dataverse",      path: ["Home", "Dataverse"],      url: "/dataverse/",      label: "Dataverse",        steps: ["Click <strong>Dataverse</strong> in the top navigation", "Find replication archives for published papers"] },
+    people:    { active: "People",         path: ["Home", "People"],         url: "/research-group/", label: "Research group",   steps: ["Click <strong>People</strong> in the top navigation", "Browse current group members, alumni, and collaborators"] },
+    teaching:  { active: "Teaching",       path: ["Home", "Teaching"],       url: "/teaching/",       label: "Teaching page",    steps: ["Click <strong>Teaching</strong> in the top navigation", "See current courses, syllabi, and recordings where available"] },
+    askgary:   { active: "GaryAI",         path: ["Home", "GaryAI"],         url: "/ask-gary/",       label: "GaryAI chat",      steps: ["Click <strong>GaryAI</strong> in the top navigation", "Type a question &mdash; you&rsquo;re already here!"] },
+    contact:   { active: "Contact",        path: ["Home", "Contact"],        url: "/contact/",        label: "Contact page",     steps: ["Click <strong>Contact</strong> in the top navigation", "Find email, office address, and assistant info"] }
+  };
+
+  var KEYWORD_MAP = [
+    { keys: ["bio", "biography", "cv", "curriculum vitae", "resume", "about gary"], key: "bio" },
+    { keys: ["writing", "paper", "publication", "article", "book", "preprint", "pdf", "slides", "presentation", "talk"], key: "writings" },
+    { keys: ["research area", "research topic", "topic", "what does gary work on", "research interest"], key: "research" },
+    { keys: ["software", "package", "amelia", "matchit", "zelig", "ei ", "ezi", "r package", "stata"], key: "software" },
+    { keys: ["dataverse", "replication", "dataset", "data archive"], key: "dataverse" },
+    { keys: ["people", "research group", "lab member", "student", "collaborator", "alumni", "postdoc"], key: "people" },
+    { keys: ["teaching", "course", "syllabus", "class", "lecture"], key: "teaching" },
+    { keys: ["ask gary", "garyai", "chatbot", "this bot", "the avatar", "this chat"], key: "askgary" },
+    { keys: ["contact", "email", "reach", "office", "address"], key: "contact" }
+  ];
+
+  function findSitePreview(query) {
+    var q = String(query || "").toLowerCase();
+    if (!q) return null;
+    for (var i = 0; i < KEYWORD_MAP.length; i++) {
+      var entry = KEYWORD_MAP[i];
+      for (var j = 0; j < entry.keys.length; j++) {
+        if (q.indexOf(entry.keys[j]) !== -1) return SECTIONS[entry.key];
+      }
+    }
+    return null;
+  }
+
+  function renderSitePreview(p) {
+    if (!p) return "";
+    var navHtml = SITE_NAV.map(function(item) {
+      var cls = item.name === p.active ? "gk-preview-nav-item active" : "gk-preview-nav-item";
+      return '<span class="' + cls + '">' + esc(item.name) + '</span>';
+    }).join("");
+    var pathHtml = p.path.map(function(c, i) {
+      var cls = i === p.path.length - 1 ? "gk-preview-path-crumb last" : "gk-preview-path-crumb";
+      var sep = i < p.path.length - 1 ? '<span class="gk-preview-path-sep">&rsaquo;</span>' : "";
+      return '<span class="' + cls + '">' + esc(c) + '</span>' + sep;
+    }).join("");
+    var stepsHtml = (p.steps || []).map(function(s, i) {
+      return '<div class="gk-preview-step"><div class="gk-preview-step-num">' + (i + 1) + '</div><div class="gk-preview-step-text">' + s + '</div></div>';
+    }).join("");
+    var link = p.url ? '<a class="gk-preview-link" href="' + esc(p.url) + '" target="_blank" rel="noopener">Open ' + esc(p.label) + ' &rarr;</a>' : "";
+    return '<div class="gk-preview">' +
+      '<div class="gk-preview-label">Site preview &mdash; ' + esc(p.label) + '</div>' +
+      '<div class="gk-preview-block">' +
+        '<div class="gk-preview-block-title">Top navigation</div>' +
+        '<div class="gk-preview-nav">' + navHtml + '</div>' +
+      '</div>' +
+      '<div class="gk-preview-block">' +
+        '<div class="gk-preview-block-title">Where to go</div>' +
+        '<div class="gk-preview-path">' + pathHtml + '</div>' +
+      '</div>' +
+      (stepsHtml ? '<div class="gk-preview-block"><div class="gk-preview-block-title">Steps</div><div class="gk-preview-steps">' + stepsHtml + '</div></div>' : "") +
+      link +
+    '</div>';
+  }
+
   function stripAttach(s) {
     return String(s).replace(/\[ATTACH:[^\]]*\]/g, "").replace(/\n{3,}/g, "\n\n").trim();
+  }
+
+  function hostOf(u) {
+    try { return new URL(u).hostname; }
+    catch(e) { return u; }
+  }
+
+  function renderPreviews(previews) {
+    if (!previews || !previews.length) return "";
+    var items = previews.map(function(p) {
+      var host = hostOf(p.url).replace(/^www\./, "");
+      var siteName = p.site_name || host;
+      var imgHtml;
+      if (p.image) {
+        imgHtml = '<img class="gk-preview-card-image" src="' + esc(p.image) + '" alt="" loading="lazy" onerror="this.style.display=\'none\'">';
+      } else {
+        var favicon = "https://www.google.com/s2/favicons?domain=" + encodeURIComponent(host) + "&sz=128";
+        imgHtml = '<div class="gk-preview-card-favicon-wrap">' +
+          '<img class="gk-preview-card-favicon" src="' + esc(favicon) + '" alt="" loading="lazy" onerror="this.parentElement.style.display=\'none\'">' +
+        '</div>';
+      }
+      var descHtml = p.description
+        ? '<div class="gk-preview-card-desc">' + esc(p.description) + '</div>'
+        : '';
+      return '<a class="gk-preview-card" href="' + esc(p.url) + '" target="_blank" rel="noopener noreferrer">' +
+        imgHtml +
+        '<div class="gk-preview-card-body">' +
+          '<div class="gk-preview-card-site">' + esc(siteName) + '</div>' +
+          '<div class="gk-preview-card-title">' + esc(p.title || p.url) + '</div>' +
+          descHtml +
+        '</div>' +
+      '</a>';
+    }).join("");
+    return '<div class="gk-previews">' + items + '</div>';
   }
 
   function snapshotMessages() {
@@ -410,10 +611,15 @@
         } else {
           var vis = stripAttach(m.content);
           var isLast = mi === messages.length - 1;
-          var showFigs = m.figures && m.figures.length && !(streaming && isLast);
+          var showExtras = !(streaming && isLast);
+          var showFigs = m.figures && m.figures.length && showExtras;
+          var showPrev = m.sitePreview && showExtras;
+          var showPreviews = m.previews && m.previews.length && showExtras;
           node.innerHTML = '<div class="gk-avatar">' + esc(AVATAR_LABEL) + '</div>' +
             '<div class="gk-bubble">' + renderInline(vis) +
-            (showFigs ? renderFigures(m.figures) : "") + '</div>';
+            (showPreviews ? renderPreviews(m.previews) : "") +
+            (showFigs ? renderFigures(m.figures) : "") +
+            (showPrev ? renderSitePreview(m.sitePreview) : "") + '</div>';
         }
         messagesEl.appendChild(node);
 
@@ -500,6 +706,7 @@
     textarea.value = "";
     textarea.style.height = "auto";
     ensureConversationId();
+    var pendingPreview = findSitePreview(text);
     messages.push({ id: uuid(), role: "user", content: text });
     setLoading(true);
 
@@ -518,7 +725,7 @@
         var reader = res.body.getReader();
         var decoder = new TextDecoder();
         var buffer = "";
-        messages.push({ id: uuid(), role: "assistant", content: "" });
+        messages.push({ id: uuid(), role: "assistant", content: "", sitePreview: pendingPreview });
         var idx = messages.length - 1;
         streaming = true;
         setLoading(false);
@@ -539,6 +746,7 @@
               var evt = JSON.parse(line.slice(6));
               if (evt.type === "token" && evt.content) streamTarget += evt.content;
               else if (evt.type === "attached_figures") messages[idx].figures = Array.isArray(evt.figures) ? evt.figures : [];
+              else if (evt.type === "previews") messages[idx].previews = Array.isArray(evt.items) ? evt.items : [];
               else if (evt.type === "meta") messages[idx].meta = evt;
             } catch(e) {}
           }
@@ -553,7 +761,8 @@
         try { data = await res.json(); } catch(e) { data = null; }
         var reply = (data && (data.reply || data.message || data.response)) || "Sorry, I couldn't generate a response.";
         var figs = data && Array.isArray(data.figures) ? data.figures : [];
-        messages.push({ id: uuid(), role: "assistant", content: reply, figures: figs });
+        var previews = data && Array.isArray(data.previews) ? data.previews : [];
+        messages.push({ id: uuid(), role: "assistant", content: reply, figures: figs, previews: previews, sitePreview: pendingPreview });
         setLoading(false);
       }
     } catch(e) {
