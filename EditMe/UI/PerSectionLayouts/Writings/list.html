@@ -128,7 +128,7 @@
     {{ $u = partial "software_page_href.html" . }}
   {{ end }}
   {{ $abs := partial "abstract_for_display.html" . }}
-  {{ $entry := dict "slug" $slug "legacyTab" $ltab "legacyDrupal" $ldrupal "title" .Title "url" $u "year" (.Date.Format "2006") "authors" (.Params.authors | default slice) "types" (.Params.publication_types | default slice) "publication" (.Params.publication | default "") "publisher" (.Params.publisher | default "") "address" (.Params.address | default "") "abstract" $abs }}
+  {{ $entry := dict "slug" $slug "legacyTab" $ltab "legacyDrupal" $ldrupal "title" .Title "url" $u "year" (.Date.Format "2006") "date" (.Date.Format "2006-01-02") "authors" (.Params.authors | default slice) "types" (.Params.publication_types | default slice) "publication" (.Params.publication | default "") "publisher" (.Params.publisher | default "") "address" (.Params.address | default "") "abstract" $abs }}
   {{ $entries = $entries | append $entry }}
 {{ end }}
 {{ range $talkPages }}
@@ -143,7 +143,7 @@
   {{ $ltab := "presentation" }}
   {{ $ldrupal := "presentation" }}
   {{ $absTalk := partial "abstract_for_display.html" . }}
-  {{ $entry := dict "slug" $slug "legacyTab" $ltab "legacyDrupal" $ldrupal "title" .Title "url" .RelPermalink "year" (.Date.Format "2006") "authors" (.Params.authors | default slice) "types" (.Params.publication_types | default slice) "publication" (.Params.publication | default "") "publisher" "" "address" "" "abstract" $absTalk }}
+  {{ $entry := dict "slug" $slug "legacyTab" $ltab "legacyDrupal" $ldrupal "title" .Title "url" .RelPermalink "year" (.Date.Format "2006") "date" (.Date.Format "2006-01-02") "authors" (.Params.authors | default slice) "types" (.Params.publication_types | default slice) "publication" (.Params.publication | default "") "publisher" "" "address" "" "abstract" $absTalk }}
   {{ $entries = $entries | append $entry }}
 {{ end }}
 
@@ -361,7 +361,7 @@
     var sorted = items.slice();
     switch (sortMode) {
       case "year-asc":
-        sorted.sort(function(a, b) { return a.year.localeCompare(b.year) || a.title.localeCompare(b.title); });
+        sorted.sort(function(a, b) { return (a.date || a.year).localeCompare(b.date || b.year) || a.title.localeCompare(b.title); });
         break;
       case "alpha-az":
         sorted.sort(function(a, b) { return a.title.localeCompare(b.title); });
@@ -370,7 +370,7 @@
         sorted.sort(function(a, b) { return b.title.localeCompare(a.title); });
         break;
       default:
-        sorted.sort(function(a, b) { return b.year.localeCompare(a.year) || a.title.localeCompare(b.title); });
+        sorted.sort(function(a, b) { return (b.date || b.year).localeCompare(a.date || a.year) || a.title.localeCompare(b.title); });
     }
     return sorted;
   }
