@@ -1,5 +1,7 @@
 ---
 title: "Video Presentations"
+aliases:
+  - /publication/video-presentations/
 date: "2022-01-01"
 authors:
   - "Gary King"
