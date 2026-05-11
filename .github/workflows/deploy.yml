@@ -76,7 +76,7 @@ jobs:
         run: npx pagefind --site public
 
       - name: Rewrite short URLs to serve target content inline
-        run: python3 scripts/apply_rewrites.py
+        run: python3 _automation/scripts/apply_rewrites.py
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
