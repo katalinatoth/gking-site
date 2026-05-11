@@ -97,6 +97,29 @@
       });
     });
   });
+  /* Deep-link support: if the URL hash matches a research-area id,
+     auto-open that dropdown and scroll it into view. Also handles
+     clicks on the per-area anchor links. */
+  function openAreaByHash() {
+    var hash = location.hash.replace('#', '');
+    if (!hash) return;
+    var target = section.querySelector('details.gk-hp-area#' + CSS.escape(hash));
+    if (!target) return;
+    areas.forEach(function (other) { if (other !== target && other.open) other.open = false; });
+    if (!target.open) target.open = true;
+    setTimeout(function () {
+      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 100);
+  }
+
+  openAreaByHash();
+  window.addEventListener('hashchange', openAreaByHash);
+
+  section.querySelectorAll('.gk-hp-anchor').forEach(function (a) {
+    a.addEventListener('click', function (ev) {
+      ev.stopPropagation();
+    });
+  });
 })();
 </script>
 
@@ -422,6 +445,21 @@
     flex-shrink: 0;
   }
   details[open] > summary .gk-hp-arrow { transform: rotate(180deg); }
+
+  .gk-hp-anchor {
+    margin-left: auto;
+    opacity: 0;
+    font-size: 0.75em;
+    text-decoration: none;
+    color: #999;
+    transition: opacity 0.15s, color 0.15s;
+    padding: 2px 4px;
+    line-height: 1;
+  }
+  .gk-hp-area:hover .gk-hp-anchor,
+  .gk-hp-area:focus-within .gk-hp-anchor { opacity: 1; }
+  .gk-hp-anchor:hover { color: #337ab7; }
+  .gk-hp-area:target { outline: 2px solid #337ab7; outline-offset: 2px; }
 
   /* Homepage recent-items cards (Recent Papers / Books / Presentations /
      Startups / Patents / Software). All six cards share the same visual

@@ -24,6 +24,7 @@
 <details class="gk-hp-area" id="{{ $area.name | urlize }}" style="background:#f8f9fa;border:1px solid #e2e8f0;border-radius:6px;padding:4px 14px;margin-bottom:8px;">
   <summary style="font-size:0.9rem;font-weight:500;cursor:pointer;padding:6px 0;list-style:none;display:flex;align-items:center;gap:5px;color:#337ab7;">
     <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span> {{ $area.name }}
+    <a class="gk-hp-anchor" href="#{{ $area.name | urlize }}" title="Copy link to {{ $area.name }}" aria-label="Link to {{ $area.name }}">&#128279;</a>
   </summary>
   <div style="padding:4px 0 10px 16px;">
     {{ with $area.description }}
