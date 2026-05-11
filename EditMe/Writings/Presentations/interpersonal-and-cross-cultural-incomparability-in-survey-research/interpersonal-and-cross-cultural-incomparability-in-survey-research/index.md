@@ -1,6 +1,6 @@
 ---
-title: "Interpersonal and Cross-Cultural Incomparability in Survey Research"
-date: "2025-01-01"
+title: "Interpersonal and Cross-Cultural Incomparability in Survey Research (In Honor of Dean Barry Bloom)"
+date: "2008-01-01"
 authors:
   - "Gary King"
 publication_types:
