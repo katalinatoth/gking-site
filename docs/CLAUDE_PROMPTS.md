@@ -26,7 +26,7 @@ Copy-paste any prompt below into Claude (or Cursor). Replace every **`XXX`** wit
 **Upload:** The article PDF (and supplementary material PDF, if any).
 
 ```
-Add a new journal article to the website. Here are the details:
+Add a new journal article to gking-site. Here are the details:
 
 - Title: XXX
 - Authors: XXX (comma-separated, e.g. "Gary King, Jane Doe, John Smith")
@@ -57,7 +57,7 @@ as "files/<filename>.pdf" in the links. Commit and push.
 **Upload:** Nothing required, but optionally attach a cover image (named `featured.jpg` or `featured.png`).
 
 ```
-Add a new book to the website. Here are the details:
+Add a new book to gking-site. Here are the details:
 
 - Title: XXX
 - Authors: XXX
@@ -82,7 +82,7 @@ front matter (publication_types: book). Commit and push.
 **Upload:** The presentation PDF (slides).
 
 ```
-Add a new presentation to the website. Here are the details:
+Add a new presentation to gking-site. Here are the details:
 
 - Talk title: XXX
 - Presenter(s): XXX
@@ -107,7 +107,7 @@ publication_types: presentation, put the PDF in _site/static/files/, and add
 **Upload:** The court brief PDF.
 
 ```
-Add a new court brief to the website. Here are the details:
+Add a new court brief to gking-site. Here are the details:
 
 - Title: XXX (e.g. "Brief of Amici Curiae Professors ... in Support of ...")
 - Authors: XXX (all signatories, comma-separated)
@@ -129,7 +129,7 @@ Commit and push.
 **Upload:** The patent PDF.
 
 ```
-Add a new patent to the website. Here are the details:
+Add a new patent to gking-site. Here are the details:
 
 - Title: XXX
 - Inventors: XXX (comma-separated)
@@ -151,7 +151,7 @@ patent number string. Put the PDF in _site/static/files/. Commit and push.
 **Upload:** Nothing required.
 
 ```
-Add a new software package page to the website. Here are the details:
+Add a new software package page to gking-site. Here are the details:
 
 - Software name: XXX
 - Authors / maintainers: XXX
@@ -172,7 +172,7 @@ title/section/slug entries. Commit and push.
 **Upload:** The new PDF file.
 
 ```
-Replace the PDF for an existing item on the website.
+Replace the PDF for an existing item on gking-site.
 
 - Item title: XXX
 - Type (article / book / presentation / brief / patent): XXX
@@ -192,7 +192,7 @@ update the links in index.md too. Commit and push.
 **Upload:** Nothing required.
 
 ```
-Add a new short URL redirect to the website.
+Add a new short URL redirect to gking-site.
 
 - Short URL path: XXX (e.g. "privacy" → gking.harvard.edu/privacy/)
 - Target: XXX (e.g. "/publication/statistically-valid-inferences-from-privacy-protected-data/"
@@ -212,7 +212,7 @@ top-level page. Commit and push.
 **Upload:** Nothing required.
 
 ```
-Add a paper to one of the Research Areas on the homepage.
+Add a paper to one of the Research Areas on gking-site.
 
 - Paper title: XXX
 - Paper slug (the folder name under EditMe/Writings/ or content/): XXX
@@ -234,7 +234,7 @@ Commit and push.
 **Upload:** Nothing required.
 
 ```
-Add a new teaching class to the website.
+Add a new teaching class to gking-site.
 
 - Class name / number: XXX (e.g. "Gov 2001")
 - Slug for the URL: XXX (e.g. "gov2001" → /teaching/gov2001/)
@@ -254,7 +254,7 @@ landing page. Commit and push.
 **Upload:** The new CV PDF (if updating the CV).
 
 ```
-Update the Bio/CV page on the website.
+Update the Bio/CV page on gking-site.
 
 Changes to make:
 XXX (describe what should change — e.g. "update the job title to ...",
@@ -271,7 +271,7 @@ The bio page content is in EditMe/Bio/. Commit and push.
 **Upload:** Any images for the post (optional).
 
 ```
-Add a new blog post to the website.
+Add a new blog post to gking-site.
 
 - Title: XXX
 - Date: XXX (YYYY-MM-DD)
