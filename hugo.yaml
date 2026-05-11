@@ -248,6 +248,7 @@ module:
     - {source: EditMe/Writings/Presentations/what-to-do-about-biases-in-survey-research,                                                                                                              target: content/talk}
     - {source: EditMe/Writings/Presentations/whos-to-blame-for-survey-instability-respondents-with-nonexistent-preferences-or-researchers-with-flawed-measures-talk-at-bocconi-university-3-24-2026,  target: content/talk}
     - {source: EditMe/Writings/Presentations/whos-to-blame-for-survey-instability-respondents-with-random-preferences-or-researchers-with-flawed-measures-talk-at-johns-hopkins-university-2-12-2026, target: content/talk}
+    - {source: EditMe/Writings/Presentations/whos-to-blame-for-survey-instability-university-of-chicago-2026,                                                                                             target: content/talk}
     - {source: EditMe/Writings/Presentations/why-propensity-scores-should-not-be-used-for-matching,                                                                                                   target: content/talk}
     - {source: _site/data,                                                                                                                                                                            target: data} # cross-section data files
     - {source: EditMe/Writings/Data,                                                                                                                                                                  target: data}
