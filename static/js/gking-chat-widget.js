@@ -363,7 +363,7 @@
     '    </button>',
     '  </div>',
     '  <div class="footer">',
-    '    <span class="footer-text">This app is part of a research project. Don\'t enter identifying information, but all <button type="button" class="footer-link general-feedback-btn">suggestions welcome</button>.</span>',
+    '    <span class="footer-text">Designed to improve automatically; <button type="button" class="footer-link general-feedback-btn">suggestions welcome</button>.</span>',
     '  </div>',
     '  <div class="modal-overlay" hidden>',
     '    <div class="modal" role="dialog" aria-label="Send feedback">',
