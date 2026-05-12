@@ -7,6 +7,7 @@ publication_types:
   - "miscellaneous"
 image:
   filename: featured.png
+  caption: "Harvard Professor Gary King (left) collaborated with Professor Eric Mazur to ally his data analytic skills with Mazur's teaching technology and methodology to form Learning Catalytics in 2011, which focused on improving classroom education. *Rose Lincoln/Harvard Staff Photographer*"
 abstract: |-
   <p style="font-style:italic;color:#666">From the Harvard Gazette &mdash; <a href="https://news.harvard.edu/gazette/story/2013/08/fueling-the-entrepreneurial-spirit/" target="_blank" rel="noopener">"Fueling the entrepreneurial spirit"</a>, August 2013</p>
   <p>"We're not businesspeople, but we are entrepreneurs."</p>
