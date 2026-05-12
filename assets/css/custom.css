@@ -692,7 +692,7 @@ button.gk-cite-button:focus-visible {
 }
 .gk-startup-card__image {
   flex-shrink: 0;
-  width: 120px;
+  width: 240px;
 }
 .gk-startup-card__image img {
   width: 100%;
@@ -729,7 +729,7 @@ button.gk-cite-button:focus-visible {
     gap: 0.75rem;
   }
   .gk-startup-card__image {
-    width: 80px;
+    width: 160px;
   }
   .gk-startup-dropdown__subtitle {
     display: none;

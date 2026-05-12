@@ -24,7 +24,7 @@
       <div class="gk-startup-card__header">
         {{ if $img }}
         <div class="gk-startup-card__image">
-          {{ $fitted := $img.Fit "200x200" }}
+          {{ $fitted := $img.Fit "400x400" }}
           <img src="{{ $fitted.RelPermalink }}" width="{{ $fitted.Width }}" height="{{ $fitted.Height }}" alt="{{ .Title }}" loading="lazy">
         </div>
         {{ end }}
