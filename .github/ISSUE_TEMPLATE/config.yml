@@ -4,5 +4,5 @@ contact_links:
     url: https://github.com/iqss-research/gking-site/tree/main
     about: For typo fixes, photo updates, or any other small tweak, click into the file under the matching section folder (EditMe/Writings/, EditMe/People/Profiles/, EditMe/Software/, ...) and use the pencil icon. No issue needed.
   - name: Quick add (terminal users)
-    url: https://github.com/iqss-research/gking-site/blob/main/docs/UPDATING.md#quick-add
-    about: Prefer the command line? See docs/UPDATING.md for the _automation/intake/ folder flow and the _automation/scripts/quick_add.py helper.
+    url: https://github.com/iqss-research/gking-site/blob/main/README.md#quick-add-every-content-type
+    about: Prefer the command line? See README.md for the _automation/intake/ folder flow and the _automation/scripts/quick_add.py helper.

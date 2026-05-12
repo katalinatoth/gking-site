@@ -4,7 +4,7 @@
 > [**Upload a paper** Issue Form][issue-form] instead. It's a
 > one-screen GitHub form (PDF + short URL + supplementary materials)
 > and the bot opens a draft PR for you with a figure picker built in.
-> See [UPDATING.md → Quick add: Issue Form](../UPDATING.md#quick-add-issue-form)
+> See [README.md → Quick add](../../README.md#quick-add-every-content-type)
 > for the walk-through.
 
 [issue-form]: https://github.com/iqss-research/gking-site/issues/new?template=upload-paper.yml
@@ -12,7 +12,7 @@
 This folder is the **one-stop drop zone for content that comes as a
 PDF** if you'd rather work from the terminal (or just prefer the
 folder-based workflow). See
-[UPDATING.md → Quick add](../UPDATING.md#quick-add) for the
+[README.md → Quick add](../../README.md#quick-add-every-content-type) for the
 click-by-click instructions for every content type (including the
 ones that don't have a PDF, like software and patents).
 
@@ -26,7 +26,7 @@ ones that don't have a PDF, like software and patents).
 
 There is no PDF flow for software or patents — use the
 [`scripts/quick_add.py`](../scripts/quick_add.py) helper or the
-github.com "Add file → Create new file" path documented in UPDATING.md.
+github.com "Add file → Create new file" path documented in the README.
 
 ## TL;DR (paper, the default)
 
