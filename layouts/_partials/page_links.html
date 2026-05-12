@@ -109,6 +109,10 @@
       {{ $label = "Patent" }}
     {{ else if and $isPrimary (in $pubTypes "court_brief") }}
       {{ $label = "Brief" }}
+    {{ else if and $isPrimary (in $pubTypes "poster") }}
+      {{ $label = "Poster" }}
+    {{ else if and $isPrimary (in $pubTypes "letter") }}
+      {{ $label = "Letter" }}
     {{ end }}
 
     {{ if eq .type "bibtex" }}

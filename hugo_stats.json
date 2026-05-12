@@ -249,6 +249,8 @@
       "gk-hp-item__pub",
       "gk-hp-item__summary",
       "gk-hp-section",
+      "gk-hp-startup-story",
+      "gk-hp-startup-story__meta",
       "gk-hp-subcat",
       "gk-input-area",
       "gk-input-row",

@@ -11,6 +11,6 @@ links:
   url: files/polmeth_poster_v3.pdf
 publication: In Society for Political Methodology. Athens, GA
 publication_types:
-- conference_paper
+- poster
 title: Methods for Extremely Large Scale Media Experiments and Observational Studies (Poster)
 ---

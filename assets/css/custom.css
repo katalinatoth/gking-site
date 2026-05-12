@@ -290,6 +290,9 @@ button.gk-cite-button:hover {
   line-height: 1.6;
   color: #444;
 }
+.gk-pub-text p {
+  margin: 0.6em 0;
+}
 /* Inline text links in body copy: blue + underlined at rest (site-wide convention). */
 .gk-pub-text a,
 .gk-pub-text a:visited,
@@ -509,19 +512,30 @@ article.gk-people-profile > p a {
   transform: translateX(2px);
 }
 
-/* "The story" links in startup blurbs — body text is grey; these must read as links even at rest */
-.gk-hp-item__pub a.gk-story-link {
-  color: #285f8f;
-  font-weight: 600;
-  text-decoration: underline;
-  text-decoration-thickness: 1.5px;
-  text-underline-offset: 3px;
-  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+/* Inline startup story text (replaces former Google Docs links) */
+.gk-hp-startup-story {
+  margin-top: 0.5rem;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: #444;
 }
-.gk-hp-item__pub a.gk-story-link:hover,
-.gk-hp-item__pub a.gk-story-link:focus-visible {
-  color: #1a3a5c;
-  text-decoration-thickness: 2px;
+.gk-hp-startup-story p {
+  margin: 0.4em 0;
+}
+.gk-hp-startup-story__meta {
+  font-style: italic;
+  color: #666;
+  margin-bottom: 0.5em !important;
+}
+.gk-hp-startup-story a {
+  color: #337ab7;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.15s ease;
+}
+.gk-hp-startup-story a:hover,
+.gk-hp-startup-story a:focus-visible {
+  color: #23527c;
 }
 
 /* ---- Breadcrumb navigation (inline-styled <a> inside [aria-label=Breadcrumb]) ---- */

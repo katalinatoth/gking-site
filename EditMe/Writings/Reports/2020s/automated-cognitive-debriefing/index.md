@@ -18,6 +18,6 @@ links:
   url: files/automated_cognitive_debriefing_poster_1.pdf
 publication: ""
 publication_types:
-- conference_paper
+- poster
 title: Automated Cognitive Debriefing
 ---

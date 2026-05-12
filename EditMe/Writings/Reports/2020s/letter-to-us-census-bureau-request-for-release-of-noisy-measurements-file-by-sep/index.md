@@ -10,6 +10,6 @@ links:
 - type: pdf
   url: files/2021.08.12_group_letter_to_abowd_re_noisy_measurements.pdf
 publication_types:
-- miscellaneous
+- letter
 title: "Letter to US Census Bureau: 'Request for Release of 'noisy Measurements File' by September 30 Along With Redistricting Data Products'"
 ---

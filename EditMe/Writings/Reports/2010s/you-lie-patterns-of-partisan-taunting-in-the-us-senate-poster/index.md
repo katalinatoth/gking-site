@@ -11,6 +11,6 @@ links:
   url: files/polmethposter_1.pdf
 publication: In Society for Political Methodology. Athens, GA
 publication_types:
-- conference_paper
+- poster
 title: You Lie! Patterns of Partisan Taunting in the U.S. Senate (Poster)
 ---
