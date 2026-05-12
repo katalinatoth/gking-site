@@ -1,10 +1,11 @@
 ---
-title: "Crimson Hexagon (merged With Brandwatch, Acquired by Cision)"
+title: "Crimson Hexagon"
+summary: "Merged with Brandwatch, acquired by Cision."
 date: "2007-01-01"
-authors:
-  - "Gary King"
-publication_types:
-  - "miscellaneous"
+weight: 1
+external_site: "https://www.brandwatch.com/"
+aliases:
+  - /publication/crimson-hexagon-merged-with-brandwatch-acquired-by-cision/
 image:
   filename: featured.png
 abstract: |-

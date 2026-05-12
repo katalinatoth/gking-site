@@ -643,3 +643,95 @@ button.gk-cite-button:focus-visible {
     transform: none;
   }
 }
+
+/* ---- Startups section (dropdown style) ---- */
+.gk-startup-dropdown {
+  margin-bottom: 0.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.gk-startup-dropdown__summary {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  list-style: none;
+  font-size: 1rem;
+  transition: background-color 0.15s ease;
+}
+.gk-startup-dropdown__summary::-webkit-details-marker { display: none; }
+.gk-startup-dropdown__summary:hover {
+  background-color: rgba(51, 122, 183, 0.06);
+}
+.gk-startup-dropdown__summary .gk-hp-arrow {
+  font-size: 0.55rem;
+  transition: transform 0.2s ease;
+  color: #888;
+}
+.gk-startup-dropdown[open] > .gk-startup-dropdown__summary .gk-hp-arrow {
+  transform: rotate(-180deg);
+}
+.gk-startup-dropdown__title {
+  font-weight: 700;
+  color: #1a202c;
+}
+.gk-startup-dropdown__subtitle {
+  color: #666;
+  font-size: 0.9rem;
+}
+.gk-startup-dropdown__body {
+  padding: 0.75rem 1rem 1.25rem;
+  border-top: 1px solid #e2e8f0;
+}
+.gk-startup-card__header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+.gk-startup-card__image {
+  flex-shrink: 0;
+  width: 120px;
+}
+.gk-startup-card__image img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  display: block;
+}
+.gk-startup-card__body {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #444;
+  flex: 1;
+}
+.gk-startup-card__body p {
+  margin: 0.6em 0;
+}
+.gk-startup-dropdown__links {
+  margin-top: 0.75rem;
+}
+.gk-startup-dropdown__links a {
+  color: #337ab7;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-size: 0.9rem;
+  transition: color 0.15s ease;
+}
+.gk-startup-dropdown__links a:hover {
+  color: #23527c;
+}
+@media (max-width: 640px) {
+  .gk-startup-card__header {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .gk-startup-card__image {
+    width: 80px;
+  }
+  .gk-startup-dropdown__subtitle {
+    display: none;
+  }
+}

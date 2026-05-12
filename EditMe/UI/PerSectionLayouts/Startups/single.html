@@ -1,0 +1,7 @@
+{{ define "main" }}
+{{/* Redirect to the list page anchored at this startup */}}
+<meta http-equiv="refresh" content="0; url={{ "startups/" | relURL }}#{{ .File.ContentBaseName }}">
+<div style="max-width:800px;margin:2rem auto;padding:0 1.5rem;">
+  <p>Redirecting to <a href="{{ "startups/" | relURL }}#{{ .File.ContentBaseName }}">Startups</a>&hellip;</p>
+</div>
+{{ end }}

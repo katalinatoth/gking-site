@@ -1,0 +1,61 @@
+{{ define "main" }}
+
+<div style="max-width:1000px;margin:0 auto;padding:2rem 1.5rem;">
+  <h1 style="font-size:2.5rem;font-weight:700;margin:0 0 0.5rem;">Startups</h1>
+  <p style="color:#555;font-size:1rem;line-height:1.6;margin-bottom:2rem;">
+    News story: <a href="https://www.thecrimson.com/article/2024/3/9/gary-king-profile/" target="_blank" rel="noopener" style="color:#337ab7;text-decoration:underline;">&ldquo;Entrepreneurial Academia with Gary King&rdquo;</a>
+  </p>
+
+  {{ $pages := .Pages }}
+  {{ $sorted := sort $pages "Params.weight" "asc" }}
+
+  {{ range $sorted }}
+  {{ $hasStory := .Params.abstract }}
+  {{ $slug := .File.ContentBaseName }}
+  <details class="gk-startup-dropdown" id="{{ $slug }}">
+    <summary class="gk-startup-dropdown__summary">
+      <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span>
+      <span class="gk-startup-dropdown__title">{{ .Title }}</span>
+      {{ with .Params.summary }}<span class="gk-startup-dropdown__subtitle">&mdash; {{ . }}</span>{{ end }}
+    </summary>
+    <div class="gk-startup-dropdown__body">
+      {{ $img := (.Resources.ByType "image").GetMatch "*featured*" }}
+      {{ if or $img $hasStory }}
+      <div class="gk-startup-card__header">
+        {{ if $img }}
+        <div class="gk-startup-card__image">
+          {{ $fitted := $img.Fit "200x200" }}
+          <img src="{{ $fitted.RelPermalink }}" width="{{ $fitted.Width }}" height="{{ $fitted.Height }}" alt="{{ .Title }}" loading="lazy">
+        </div>
+        {{ end }}
+        {{ if $hasStory }}
+        <div class="gk-startup-card__body gk-pub-text">
+          {{ .Params.abstract | markdownify }}
+        </div>
+        {{ end }}
+      </div>
+      {{ end }}
+      {{ $site := .Params.external_site | default .Params.external_url | default "" }}
+      {{ with $site }}
+      <div class="gk-startup-dropdown__links">
+        <a href="{{ . }}" target="_blank" rel="noopener">Visit site &rarr;</a>
+      </div>
+      {{ end }}
+    </div>
+  </details>
+  {{ end }}
+</div>
+
+<script>
+(function() {
+  if (location.hash) {
+    var el = document.getElementById(location.hash.substring(1));
+    if (el && el.tagName === 'DETAILS') {
+      el.open = true;
+      setTimeout(function() { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100);
+    }
+  }
+})();
+</script>
+
+{{ end }}

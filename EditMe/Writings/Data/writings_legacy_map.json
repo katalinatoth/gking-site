@@ -656,10 +656,6 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "thresher-acquired-by-two-six-technologies-a-carlyle-group-company": {
-      "tab": "other",
-      "drupal": "website"
-    },
     "openscholar": {
       "tab": "software",
       "drupal": "software"
@@ -1260,10 +1256,6 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "learning-catalytics-acquired-by-pearson": {
-      "tab": "other",
-      "drupal": "website"
-    },
     "comparative-effectiveness-of-matching-methods-for-causal-inference": {
       "tab": "journal",
       "drupal": "journal_article"
@@ -1643,10 +1635,6 @@
     "anchors-software-for-anchoring-vignettes-data-2007": {
       "tab": "software",
       "drupal": "software"
-    },
-    "crimson-hexagon-merged-with-brandwatch-acquired-by-cision": {
-      "tab": "other",
-      "drupal": "miscellaneous"
     },
     "dataverse-open-source-research-data-repository-software": {
       "tab": "software",

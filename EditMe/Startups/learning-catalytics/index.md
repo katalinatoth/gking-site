@@ -1,10 +1,11 @@
 ---
-title: "Learning Catalytics (acquired by Pearson)"
+title: "Learning Catalytics"
+summary: "Acquired by Pearson."
 date: "2011-01-01"
-authors:
-  - "Gary King"
-publication_types:
-  - "miscellaneous"
+weight: 3
+external_site: "https://www.pearson.com/us/higher-education/products-services-teaching/learning-engagement-tools/learning-catalytics.html"
+aliases:
+  - /publication/learning-catalytics-acquired-by-pearson/
 image:
   filename: featured.png
   caption: "Harvard Professor Gary King (left) collaborated with Professor Eric Mazur to ally his data analytic skills with Mazur's teaching technology and methodology to form Learning Catalytics in 2011, which focused on improving classroom education. *Rose Lincoln/Harvard Staff Photographer*"
