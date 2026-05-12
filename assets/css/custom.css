@@ -653,7 +653,7 @@ button.gk-cite-button:focus-visible {
 }
 .gk-startup-dropdown__summary {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1rem;
   cursor: pointer;
@@ -672,6 +672,18 @@ button.gk-cite-button:focus-visible {
 }
 .gk-startup-dropdown[open] > .gk-startup-dropdown__summary .gk-hp-arrow {
   transform: rotate(-180deg);
+}
+.gk-startup-dropdown__logo {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+.gk-startup-dropdown__logo img {
+  height: 32px;
+  width: auto;
+  max-width: 140px;
+  display: block;
+  object-fit: contain;
 }
 .gk-startup-dropdown__title {
   font-weight: 700;
@@ -733,5 +745,9 @@ button.gk-cite-button:focus-visible {
   }
   .gk-startup-dropdown__subtitle {
     display: none;
+  }
+  .gk-startup-dropdown__logo img {
+    height: 24px;
+    max-width: 100px;
   }
 }

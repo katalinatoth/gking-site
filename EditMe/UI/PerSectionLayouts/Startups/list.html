@@ -12,19 +12,26 @@
   {{ range $sorted }}
   {{ $hasStory := .Params.abstract }}
   {{ $slug := .File.ContentBaseName }}
+  {{ $logo := (.Resources.ByType "image").GetMatch "*logo*" }}
+  {{ $featured := (.Resources.ByType "image").GetMatch "*featured*" }}
   <details class="gk-startup-dropdown" id="{{ $slug }}">
     <summary class="gk-startup-dropdown__summary">
       <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span>
+      {{ if $logo }}
+      <span class="gk-startup-dropdown__logo">
+        {{ $logoFit := $logo.Fit "280x64" }}
+        <img src="{{ $logoFit.RelPermalink }}" width="{{ $logoFit.Width }}" height="{{ $logoFit.Height }}" alt="{{ .Title }} logo" loading="lazy">
+      </span>
+      {{ end }}
       <span class="gk-startup-dropdown__title">{{ .Title }}</span>
       {{ with .Params.summary }}<span class="gk-startup-dropdown__subtitle">&mdash; {{ . }}</span>{{ end }}
     </summary>
     <div class="gk-startup-dropdown__body">
-      {{ $img := (.Resources.ByType "image").GetMatch "*featured*" }}
-      {{ if or $img $hasStory }}
+      {{ if or $featured $hasStory }}
       <div class="gk-startup-card__header">
-        {{ if $img }}
+        {{ if $featured }}
         <div class="gk-startup-card__image">
-          {{ $fitted := $img.Fit "400x400" }}
+          {{ $fitted := $featured.Fit "400x400" }}
           <img src="{{ $fitted.RelPermalink }}" width="{{ $fitted.Width }}" height="{{ $fitted.Height }}" alt="{{ .Title }}" loading="lazy">
         </div>
         {{ end }}
