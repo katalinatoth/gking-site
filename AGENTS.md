@@ -102,6 +102,8 @@ All editable content is under `EditMe/`:
     - `Presentations/<title-slug>/<venue-slug>/` — talks, one folder per
       title with subfolders per venue
     - `Data/` — YAML/JSON inputs for the auto-clustering and audit scripts
+    - `_SectionPages/` — `_index.md` files for the `/publication/` and
+      `/talk/` section list pages (controls page titles)
 - `EditMe/ResearchAreas/` — `/research-areas/`
 - `EditMe/Software/` — `/software/`, one folder per package
 - `EditMe/Dataverse/` — `/dataverse/`
@@ -117,8 +119,6 @@ Edits scattered outside `EditMe/` break that contract.
 
 ## What NOT to edit (or: edit only with care)
 
-- `content/` — Hugo regenerates this from `EditMe/` via `module.mounts`.
-  Edits here are clobbered on the next build.
 - `public/` — Hugo build output. Never committed, never edited by hand.
 - `assets/`, `layouts/`, `themes/`, `_vendor/`, `hugo_stats.json`,
   `go.mod`, `go.sum`, `package.json`, `package-lock.json` — pinned at
@@ -162,6 +162,26 @@ become 404s for the rest of the world.
 **Why:** Clustering moves real folders around. An incorrect cluster
 applied to a live push files real content under the wrong heading and
 breaks URLs.
+
+### GaryAI chatbot
+The site has an AI chatbot ("GaryAI") with two surfaces:
+
+- **Popup widget** — a floating chat bubble on every page, powered by
+  `_site/static/js/gking-chat-widget.js`. The script tag is in
+  `layouts/baseof.html`.
+- **Dedicated page** — `/ask-gary/`, content at
+  `EditMe/Misc/ask-gary/index.md`, layout at
+  `layouts/chatbot/single.html`. Uses a custom `type: chatbot` layout
+  that renders a full-page chat UI.
+
+The backend API endpoints are hardcoded in the widget JS and the
+chatbot layout. Don't change them unless the AWS deployment changes.
+
+### Google Analytics
+Tracking is loaded via
+`layouts/_partials/hooks/head-start/google-analytics.html` (tag
+`G-NDZT9P326S`). The hook fires on every page because HugoBlox's
+`site_head.html` scans the `hooks/head-start/` directory automatically.
 
 ---
 

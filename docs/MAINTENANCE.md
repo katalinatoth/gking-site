@@ -1,11 +1,10 @@
 # Site Maintenance Guide
 
 > **Older notes — kept for reference.** The current canonical guide is
-> [`UPDATING.md`](UPDATING.md). After the 2026 section-driven repo
-> reorg, every "where does X live?" answer in this file points at the
-> new section folders (`writings/`, `people/`, `software/`, …) rather
-> than the old monolithic `content/`/`layouts/`/`data/` trees. Some of
-> the legacy helper-script invocations referenced here
+> [`UPDATING.md`](UPDATING.md). After the 2026 EditMe/ repo reorg,
+> every "where does X live?" answer in this file points at `EditMe/`
+> sub-folders rather than the old monolithic `content/`/`layouts/`/`data/`
+> trees. Some of the legacy helper-script invocations referenced here
 > (`python3 ../scripts/cross_link.py`, `link_dataverse.py`,
 > `scrape_research_areas.py`) are migration scripts that lived outside
 > the repo and aren't shipped with the checkout. Use `UPDATING.md` for
@@ -18,7 +17,7 @@ Gary King academic website built with Hugo.
 
 ```bash
 cd gking-site/hugo-site   # the repo root
-hugo server               # Local preview at http://localhost:1313/gking-site/
+hugo server               # Local preview at http://localhost:1313/
 hugo --gc --minify        # Production build to public/
 ```
 
@@ -339,7 +338,7 @@ cd gking-site/hugo-site            # the repo root
 hugo server
 
 # Build for production
-hugo --gc --minify --baseURL "https://katalinatoth.github.io/gking-site/"
+hugo --gc --minify --baseURL "https://gking.harvard.edu/"
 
 # Build search index
 npx pagefind --site public

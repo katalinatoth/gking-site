@@ -23,7 +23,7 @@ redirects, refreshes first-commit dates for the spotlight, and publishes.
 
 ## TL;DR — three things to remember
 
-1. Every piece of content is a folder under `<section>/content/` containing
+1. Every piece of content is a folder under `EditMe/` containing
    an `index.md` (or `_index.md` for section landing pages). Copy an
    existing one and edit it.
 2. PDFs and images go under `_site/static/files/` (PDFs) or
@@ -433,7 +433,7 @@ For each PDF, the auto-import:
   filtering) as `featured.png` (or `.jpg`). If none qualifies (e.g. a
   text-heavy working paper), it renders page 1 as a fallback.
 - **Renders every numbered Figure N from the PDF** into
-  `<section>/content/<slug>/_intake_figures/figure-N.png`. These power the
+  `EditMe/Writings/…/<slug>/_intake_figures/figure-N.png`. These power the
   PR description's thumbnail grid: under each thumbnail is a
   `/figure N` swap command. Pick a different one and the bot copies
   it over `featured.png` and pushes. (After the PR merges,
@@ -918,7 +918,7 @@ A few related data files you usually don't need to touch:
 ## Add a dataset / Dataverse link
 
 A dataset is just a publication with `publication_types: data`. Put it
-under `writings/<section>/content/` like any paper. Two extra fields unlock the
+under `EditMe/Writings/` like any paper. Two extra fields unlock the
 green "Harvard Dataverse" banner on the page:
 
 ```yaml
@@ -1042,7 +1042,7 @@ People are managed in two places:
 
 The "Current Research Group" box at the top of `/research-group/` is
 **curated by hand** in
-`people/layouts/research-group/single.html`. It has three
+`EditMe/UI/PerSectionLayouts/ResearchGroup/single.html`. It has three
 subsections — *PhD Students & Research Assistants*, *Undergraduate
 Research Assistants*, and *Other*. To add or remove someone here, edit
 that template directly (look for the `<a href="...">` cards under each
@@ -1109,17 +1109,18 @@ type: landing
 
 All of the visual blocks (welcome, research-area cards, featured
 papers, books, software, etc.) are rendered by
-`home/layouts/landing/list.html`, which pulls from:
+`EditMe/UI/PerSectionLayouts/HomePage/landing/list.html`, which pulls from:
 
-- `writings/<section>/content/` (newest entries by `date`)
+- `EditMe/Writings/` (newest entries by `date`)
 - `EditMe/Writings/Data/writings_legacy_map.json` (for "Books")
 - `EditMe/Writings/Data/featured_publications.yaml` (for the Working Papers spotlight)
 - `EditMe/ResearchAreas/Data/research_areas.json` (for the Research Areas grid)
 
 So most homepage updates happen by editing one of those files (a paper
 front-matter, the spotlight, the research area), not the homepage
-itself. To restyle a block, edit `home/layouts/landing/list.html` (treat
-that as a developer task).
+itself. To restyle a block, edit
+`EditMe/UI/PerSectionLayouts/HomePage/landing/list.html` (treat that as
+a developer task).
 
 ---
 
@@ -1153,6 +1154,9 @@ menus:
     - name: Teaching
       url: /teaching/
       weight: 70
+    - name: GaryAI
+      url: /ask-gary/
+      weight: 75
     - name: Contact
       url: /contact/
       weight: 80
@@ -1332,7 +1336,7 @@ Field reference:
 
 Commit, wait ~3 minutes, and the redirect is live at `/<from>/`. The
 generator (`_automation/scripts/build_redirects.py`) runs in CI on every deploy
-and writes the actual HTML stubs into `redirects/<section>/content/` (gitignored).
+and writes the actual HTML stubs into `EditMe/Redirects/content/` (gitignored).
 
 ### (B) Short URL that forwards to one specific paper / talk / software
 
@@ -1371,7 +1375,7 @@ Every paper, talk, and software page on the new site uses the **same
 slug** as the old Drupal site, so URLs like
 `/publication/quest-a-better-way.../` already work without any extra
 configuration. Section pages (`/bio/`, `/contact/`, `/dataverse/`,
-`/teaching/`, `/EditMe/ResearchAreas/`, `/research-group/`, etc.) are
+`/teaching/`, `/research-areas/`, `/research-group/`, etc.) are
 preserved too.
 
 If you spot an old URL that stopped working after the migration, add
@@ -1396,6 +1400,7 @@ files.
 | `_automation/scripts/quick_add.py` | Companion to `intake_publication.py` for content that doesn't have a PDF (software, patents) or where you already have all the metadata. `python3 _automation/scripts/quick_add.py {software,patent,paper,talk,book} --title ... --slug ...`. See [Quick add](#quick-add). |
 | `_automation/scripts/apply_pr_edits.py` | The slash-command processor used by CI. Useful for testing locally: `python3 _automation/scripts/apply_pr_edits.py --comment body.txt --report r.json EditMe/Writings/foo/index.md`. |
 | `_automation/scripts/build_redirects.py` | Regenerates the meta-refresh stubs and Netlify `_redirects` file from `EditMe/Redirects/Data/redirects.yaml`. Supports single- and multi-segment paths and preserves case. Runs automatically in CI. |
+| `_automation/scripts/apply_rewrites.py` | Post-build step: replaces meta-refresh redirect stubs in `public/` with copies of the target page's rendered HTML, so short URLs serve real content instead of redirecting. External targets are left untouched. Runs automatically in CI after `hugo` and Pagefind. |
 | `_automation/scripts/import_drupal_redirects.py` | Recovers redirects from the old Drupal site. Reads `scraped_data/drupal_redirects.csv` (the official Harvard Web Publishing redirect-summary export) plus a hand-curated `VANITY_TO_NEWSITE` table covering vanity short URLs Drupal stored as path aliases (`/whatif`, `/amelia`, `/Gov2020`, `/CompSS`, …). Translates each entry's target through to a real new-site URL — including translating truncated content directory names to their full Hugo-published URL — and writes the result into the `BEGIN drupal-redirects-import` and `BEGIN vanity-shorts-import` blocks of `EditMe/Redirects/Data/redirects.yaml`. For mixed-case vanity originals also emits a lowercase alias (Drupal was case-insensitive, the new site isn't). Idempotent — re-runs replace only those blocks, leaving hand-added redirects elsewhere in the file untouched. |
 | `_automation/scripts/writings/compute_publication_first_commit.py` | Refreshes `EditMe/Writings/Data/publication_first_commit.json` (drives the spotlight ordering). Runs automatically in CI. |
 | `_automation/scripts/writings/fill_publication_from_doi.py` | Fills the `publication:` citation line on existing pages from Crossref by DOI. Add `--apply` to write. |
@@ -1424,23 +1429,32 @@ have dedicated `requirements-*.txt` files next to them.
 
 ## Automation: workflows that run on every change
 
-`.github/workflows/` has four pieces of automation:
+`.github/workflows/` has six workflows:
 
 - **`deploy.yml` — Deploy Hugo site to GitHub Pages.** Triggered by
   every push to `main`. Installs Hugo + Node + Go + Python, runs
-  `build_redirects.py` and `compute_publication_first_commit.py`,
-  builds the site, builds the Pagefind search index, and publishes to
-  GitHub Pages. Usually finishes in 3–4 minutes.
+  `build_redirects.py`, `apply_rewrites.py`, and
+  `compute_publication_first_commit.py`, builds the site, builds the
+  Pagefind search index, and publishes to GitHub Pages. Usually
+  finishes in 3–4 minutes.
 - **`intake-publication.yml` — Auto-import publication from PDF.**
   Triggered when a PR adds a PDF under `_automation/intake/`, `_automation/intake/talk/`, or
   `_automation/intake/book/`. See [Quick add](#quick-add) for the user-facing
   details and the per-subfolder routing.
+- **`intake-from-issue.yml` — Auto-import publication from Issue Form.**
+  Triggered when someone submits the "Upload a paper" Issue Form.
+  Downloads every PDF from the form, runs the same auto-import as
+  `intake-publication.yml`, and opens a draft PR automatically.
 - **`intake-edit.yml` — Apply PR comment edits.** Triggered when
   someone posts a comment on an open intake PR that contains slash
   commands like `/title`, `/authors`, `/year`, `/abstract`, `/doi`,
   `/publication`, `/type`. Applies them to every publication
   `index.md` added/changed by the PR, commits the result, and reacts
   +1 with a summary.
+- **`cleanup-intake-figures.yml` — Strip intake figure artefacts.**
+  Removes `_intake_figures/` directories from `main` after an intake
+  PR is merged, so temporary figure thumbnails don't persist in the
+  repo.
 - **`link-check.yml` — Weekly external link check.** Runs every
   Monday at 09:00 UTC (also `workflow_dispatch`). Checks every
   external URL in content files; if it finds anything broken, it

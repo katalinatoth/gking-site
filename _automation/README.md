@@ -1,23 +1,33 @@
 # _automation/
 
 Repository-wide automation: cross-section Python scripts plus the issue-driven
-intake bot. Section-specific scripts (e.g. `intake_publication.py`) live next
-to the section they belong to (`writings/scripts/`).
+intake bot. Writings-specific scripts (e.g. `intake_publication.py`) live in
+`_automation/scripts/writings/`; people-related scripts live in
+`_automation/scripts/people/`.
 
 ```
 _automation/
-├── intake/                  GitHub-issue intake bot
+├── intake/                  drop-zone for the auto-import bot
 │   ├── README.md            how the intake flow works end to end
-│   ├── book/                book intake configuration
-│   └── talk/                talk intake configuration
-└── scripts/                 cross-section Python tooling
+│   ├── book/                drop book PDFs here
+│   └── talk/                drop talk PDFs here
+└── scripts/                 all Python tooling
+    ├── writings/            intake, DOI fillers, citation audits, link repair
+    ├── people/              profile scrapers, research-group sync
     ├── build_redirects.py
+    ├── apply_rewrites.py
+    ├── generate_mounts.py
     ├── import_drupal_redirects.py
     ├── intake_from_issue.py
     ├── build_intake_pr_body.py
     ├── apply_pr_edits.py
     ├── quick_add.py
+    ├── regroup_articles.py
+    ├── regroup_writings.py
+    ├── regroup_presentations.py
+    ├── regroup_presentations_fuzzy.py
     ├── fix_mojibake_markdown.py
+    ├── enable-auto-push.sh
     ├── scrape.py
     ├── convert.py
     └── requirements*.txt
@@ -27,7 +37,7 @@ _automation/
 
 GitHub Actions only scans `.github/workflows/` at the **repository root**, so
 `.github/` cannot move under `_automation/`. The workflows there call into
-`_automation/scripts/` and `<section>/scripts/` for their actual logic.
+`_automation/scripts/` for their actual logic.
 
 ## A note on `.githooks/`
 

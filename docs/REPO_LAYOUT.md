@@ -72,6 +72,10 @@ into the right slot without scrolling through hundreds of folders:
   given at multiple venues clusters under one title-slug folder.
 - `Data/` — small JSON / YAML files that drive the Writings page tabs,
   the Featured carousel, and so on.
+- `_SectionPages/` — section `_index.md` files that set the title and
+  display options for the `/publication/` and `/talk/` list pages (e.g.
+  "Writings" as the page title instead of "Publications"). Mounted
+  separately via `hugo.yaml`.
 
 URLs at `/publication/<slug>/` and `/talk/<slug>/` are unchanged from
 the previous flat layout — Hugo's `module.mounts` block in `hugo.yaml`
@@ -113,8 +117,8 @@ The "Contact" page. Lives at <https://gking.harvard.edu/contact/>.
 ### `EditMe/Misc/`
 A handful of standalone pages that don't fit into any of the menu sections —
 things like the accessibility statement, the "advice to grad students" page,
-the "miscellanea" page, recommendation-letter info, etc. They each have their
-own URL but you'd never find them by clicking the menu.
+the "miscellanea" page, recommendation-letter info, the GaryAI chatbot page
+(`/ask-gary/`), etc.
 
 ### `EditMe/Redirects/`
 A list of "shortcuts" — short URLs like `/amelia/` or `/zoom/` that
@@ -137,7 +141,8 @@ Cross-section plumbing for the website-builder robot:
 - `_site/static/` — the giant collection of PDF papers, supplementary
   materials, and historical images that get served as-is. Anything in
   `_site/static/files/` becomes available at `/files/...` on the live
-  site.
+  site. Also contains `_site/static/js/gking-chat-widget.js` (the
+  GaryAI popup chatbot widget).
 - `_site/archetypes/` — templates for what a "new paper" or "new talk"
   should look like when one gets created.
 - `_site/i18n/` — text strings for translations (currently English only;
@@ -183,9 +188,11 @@ being included in the final pages. The most important file is
 The site's shared page templates: the overall page skeleton (`baseof.html`),
 the default list/single-page templates (`_default/`), reusable building blocks
 like the navigation bar and footer (`_partials/`), and small reusable
-ingredients you can drop into a page (`shortcodes/`). Per-section layout
-overrides live under `EditMe/UI/PerSectionLayouts/`; only the shared ones
-live here.
+ingredients you can drop into a page (`shortcodes/`). Also contains the
+GaryAI chatbot layout (`layouts/chatbot/single.html`) and the Google Analytics
+hook (`layouts/_partials/hooks/head-start/google-analytics.html`). Per-section
+layout overrides live under `EditMe/UI/PerSectionLayouts/`; only the shared
+ones live here.
 
 ### `themes/`
 Empty in this repository — themes are pulled in via the configuration file
@@ -272,6 +279,9 @@ each build.
 | Add a new short URL like `/foo/` | `EditMe/Redirects/Data/redirects.yaml` |
 | The site's navigation menu | `hugo.yaml` (look for `menus:`) |
 | Site-wide colors or fonts | `assets/css/custom.css` |
+| The GaryAI chatbot page | `EditMe/Misc/ask-gary/index.md` (content), `layouts/chatbot/single.html` (layout) |
+| The GaryAI popup chat widget | `_site/static/js/gking-chat-widget.js` |
+| Google Analytics tracking | `layouts/_partials/hooks/head-start/google-analytics.html` |
 | The "upload a paper" form | `.github/ISSUE_TEMPLATE/upload-paper.yml` |
 | What runs when something gets pushed to `main` | `.github/workflows/deploy.yml` |
 

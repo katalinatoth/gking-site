@@ -1,6 +1,6 @@
 # gking-site
 
-Source for <https://katalinatoth.github.io/gking-site/> — Gary King's
+Source for <https://gking.harvard.edu/> — Gary King's
 academic website, built with Hugo + Hugo Blox.
 
 ## Repository layout
@@ -97,6 +97,9 @@ removing folders under `EditMe/`.
 | Intake bot upload folder                   | `_automation/intake/` (PDFs land here in PRs)                   |
 | GitHub workflows                           | `.github/workflows/` (root-level — see note above)              |
 | Site-wide partials / shortcodes            | `layouts/_partials/`, `layouts/shortcodes/` (root-level)        |
+| GaryAI chatbot page                       | `EditMe/Misc/ask-gary/index.md` + `layouts/chatbot/single.html`|
+| GaryAI popup widget                       | `_site/static/js/gking-chat-widget.js`                         |
+| Google Analytics                          | `layouts/_partials/hooks/head-start/google-analytics.html`      |
 
 If you can't find what you're looking for in the table, browse
 `EditMe/<Section>/README.md` — every menu-item folder has its own
@@ -128,13 +131,13 @@ No manual build step needed for normal content updates.
 ```bash
 brew install hugo
 cd gking-site/hugo-site    # the repo root
-hugo server                # http://localhost:1313/gking-site/
+hugo server                # http://localhost:1313/
 ```
 
 Production build:
 
 ```bash
-hugo --gc --minify --baseURL "https://katalinatoth.github.io/gking-site/"
+hugo --gc --minify --baseURL "https://gking.harvard.edu/"
 npx pagefind --site public
 ```
 

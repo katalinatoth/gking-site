@@ -20,9 +20,9 @@ ones that don't have a PDF, like software and patents).
 
 | Drop the PDF here | The bot creates                                     | Used for                          |
 |-------------------|------------------------------------------------------|-----------------------------------|
-| `intake/`         | `content/publication/<slug>/index.md`                | journal articles, working papers (default) |
-| `intake/talk/`    | `content/talk/<slug>/index.md`                       | conference / seminar slide decks  |
-| `intake/book/`    | `content/publication/<slug>/index.md` (`type: book`) | books                             |
+| `intake/`         | `EditMe/Writings/Articles/Unsorted/<slug>/index.md`  | journal articles, working papers (default) |
+| `intake/talk/`    | `EditMe/Writings/Presentations/<slug>/index.md`      | conference / seminar slide decks  |
+| `intake/book/`    | `EditMe/Writings/Articles/Unsorted/<slug>/index.md` (`type: book`) | books                  |
 
 There is no PDF flow for software or patents — use the
 [`scripts/quick_add.py`](../scripts/quick_add.py) helper or the
@@ -36,9 +36,10 @@ github.com "Add file → Create new file" path documented in UPDATING.md.
 3. Pick **"Create a new branch for this commit and start a pull
    request"**, then click **Propose changes** → **Create pull request**.
 4. Wait ~1–2 minutes. A bot pushes a follow-up commit to the same PR
-   with a generated `content/publication/<slug>/index.md`, the moved
-   PDF (now under `static/files/`), and an updated
-   `data/writings_legacy_map.json`. It also posts a summary comment.
+   with a generated `EditMe/Writings/Articles/Unsorted/<slug>/index.md`,
+   the moved PDF (now under `_site/static/files/`), and an updated
+   `EditMe/Writings/Data/writings_legacy_map.json`. It also posts a
+   summary comment.
 5. Skim the PR diff. Edit any field in the **Files changed** tab if the
    auto-populate got something wrong (title, authors, year, abstract,
    citation line, etc.) — or comment with slash commands like
@@ -54,14 +55,14 @@ clicking **Add file → Upload files**, OR rename the dropped file to
 `talk/your-slides.pdf` in the github.com upload dialog before
 committing. The bot will:
 
-- write `content/talk/<slug>/index.md` (not `publication/`)
+- write `EditMe/Writings/Presentations/<slug>/index.md` (not `Articles/`)
 - set `publication_types: ["presentation"]` and route the Writings page
   tab to **Presentations**
 - skip Crossref (slide decks are virtually never indexed)
 
 The schema for talks is intentionally minimal — `title`, `date`,
 `authors`, `publication_types`, `links` — matching every existing entry
-under `content/talk/`. If you want to remember the conference / venue,
+under `EditMe/Writings/Presentations/`. If you want to remember the conference / venue,
 edit the title or add it to the slides themselves.
 
 ## TL;DR (books)
@@ -94,9 +95,10 @@ verification in the PR comment.
 
 The bot derives the URL slug from the paper's canonical title. If you
 want something different, just rename the folder
-`content/publication/<slug>/` (or `content/talk/<slug>/` for talks) and
-the file `static/files/<slug>.pdf` in the PR diff before merging. Hugo
-will use whatever folder name you end with.
+`EditMe/Writings/Articles/Unsorted/<slug>/` (or
+`EditMe/Writings/Presentations/<slug>/` for talks) and the file
+`_site/static/files/<slug>.pdf` in the PR diff before merging. Hugo will
+use whatever folder name you end with.
 
 ## Don't leave anything stale here
 

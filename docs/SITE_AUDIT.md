@@ -2,7 +2,7 @@
 
 Captured: 2026-04-23. Based on a fresh crawl of the built site
 (`public/`), the source templates, and the live site at
-<https://katalinatoth.github.io/gking-site/>.
+<https://gking.harvard.edu/>.
 
 The headline is that the site is in good structural shape. The
 real low-hanging fruit is (1) a small list of actually-broken

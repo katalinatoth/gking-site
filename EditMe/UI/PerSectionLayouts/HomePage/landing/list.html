@@ -117,7 +117,17 @@
 
   section.querySelectorAll('.gk-hp-anchor').forEach(function (a) {
     a.addEventListener('click', function (ev) {
+      ev.preventDefault();
       ev.stopPropagation();
+      var url = location.origin + location.pathname + a.getAttribute('href');
+      history.replaceState(null, '', a.getAttribute('href'));
+      navigator.clipboard.writeText(url).then(function () {
+        var orig = a.textContent;
+        a.textContent = '✓ Copied';
+        a.style.opacity = '1';
+        setTimeout(function () { a.textContent = orig; a.style.opacity = ''; }, 1500);
+      });
+      openAreaByHash();
     });
   });
 })();

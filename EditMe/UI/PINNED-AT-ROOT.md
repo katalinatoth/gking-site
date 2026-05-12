@@ -61,7 +61,7 @@ etc.).
 
 Used by GitHub itself, not by the website-builder:
 
-- `.github/workflows/` — the seven robots that run automatically (deploy
+- `.github/workflows/` — the six robots that run automatically (deploy
   the site, link-check, accept paper uploads via Issues, etc.).
 - `.github/ISSUE_TEMPLATE/` — the forms people see when they click "New
   Issue" on GitHub (e.g., the "Upload a paper" form).
