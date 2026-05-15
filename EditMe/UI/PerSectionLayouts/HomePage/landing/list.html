@@ -179,10 +179,12 @@
 {{ $courtBriefCount := 0 }}
 {{ range $slug, $meta := $wlMap.entries }}
   {{ $tab := index $meta "tab" | default "other" }}
-  {{ if eq $tab "journal" }}{{ $paperCount = add $paperCount 1 }}{{ end }}
-  {{ if eq $tab "patent" }}{{ $patentCount = add $patentCount 1 }}{{ end }}
-  {{ if eq $tab "book" }}{{ $bookCount = add $bookCount 1 }}{{ end }}
-  {{ if eq $tab "courtbrief" }}{{ $courtBriefCount = add $courtBriefCount 1 }}{{ end }}
+  {{ with site.GetPage (printf "/publication/%s" $slug) }}
+    {{ if eq $tab "journal" }}{{ $paperCount = add $paperCount 1 }}{{ end }}
+    {{ if eq $tab "patent" }}{{ $patentCount = add $patentCount 1 }}{{ end }}
+    {{ if eq $tab "book" }}{{ $bookCount = add $bookCount 1 }}{{ end }}
+    {{ if eq $tab "courtbrief" }}{{ $courtBriefCount = add $courtBriefCount 1 }}{{ end }}
+  {{ end }}
 {{ end }}
 {{ $softwareCount := len (where site.RegularPages "Section" "software") }}
 {{ $talkCount := len (where site.RegularPages "Section" "talk") }}
