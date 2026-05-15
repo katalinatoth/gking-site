@@ -6,6 +6,67 @@
 }
 
 /* =========================================================================
+   HARVARD UNIVERSITY IDENTITY BANNER
+   Black bar with shield + wordmark (left) and harvard.edu link (right).
+   Matches the standard branding bar used across Harvard sites.
+   ========================================================================= */
+
+.gk-harvard-banner {
+  background: #1e1e1e;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.8125rem;
+  line-height: 1;
+}
+
+.gk-harvard-banner__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gk-harvard-banner__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+.gk-harvard-banner__brand:hover {
+  color: #fff;
+  opacity: 0.85;
+}
+
+.gk-harvard-banner__shield {
+  width: 28px;
+  height: 33px;
+  flex-shrink: 0;
+}
+
+.gk-harvard-banner__wordmark {
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.gk-harvard-banner__link {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-size: 0.8125rem;
+  letter-spacing: 0.04em;
+}
+
+.gk-harvard-banner__link:hover {
+  color: #ccc;
+}
+
+/* =========================================================================
    ACCESSIBILITY (WCAG 2.1 AA) UTILITIES
    - Skip-to-main-content link (visible on focus)
    - Visually-hidden helper (.sr-only) for screen-reader-only text

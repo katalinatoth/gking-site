@@ -9,6 +9,19 @@
     {{/* Skip-to-main-content link (WCAG 2.4.1 Bypass Blocks). Visible when focused. */}}
     <a href="#main-content" class="gk-skip-link">Skip to main content</a>
 
+    {{/* Harvard University identity banner — matches the standard Harvard
+         branding bar used across university sites (black bar, shield + wordmark
+         left, harvard.edu link right). */}}
+    <div class="gk-harvard-banner">
+      <div class="gk-harvard-banner__inner">
+        <a href="https://www.harvard.edu/" class="gk-harvard-banner__brand" aria-label="Harvard University home">
+          <img src="{{ "images/harvard-crest.png" | relURL }}" alt="" class="gk-harvard-banner__shield" aria-hidden="true">
+          <span class="gk-harvard-banner__wordmark">Harvard University</span>
+        </a>
+        <a href="https://www.harvard.edu/" class="gk-harvard-banner__link">HARVARD.EDU</a>
+      </div>
+    </div>
+
     <div id="page-bg"></div>
     <div class="page-header {{ if site.Params.header.navbar.fixed_to_top }}sticky top-0 z-30{{ end }}">
       {{/* Load header block */}}
