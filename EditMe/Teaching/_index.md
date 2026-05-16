@@ -64,7 +64,7 @@ aliases:
 - [Are you applying to our Ph.D. program at Harvard?](/apply/)
 - [Should you use AI to write for you?](/aiwrite/)
 - Presentations:
-  - My [Room Setup Preferences](https://docs.google.com/document/d/1HVZPTGijc6-PheS6_GIigCUmRW7eH6e41FfX8e9CFSE/edit?usp=sharing)
+  - My [Room Setup Preferences](/roomsetup/)
   - [IQSS Beamer theme](https://github.com/IQSS/iqss-beamer-theme) with presentation tricks
 - Text editing:
   - [IQSS emacs configuration](https://github.com/IQSS/IQSS.emacs)
