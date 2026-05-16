@@ -93,8 +93,9 @@
     {{ if and (not $isPrimary) (eq .type "custom") (or (eq $label "Article") (eq $label "Presentation")) }}
       {{ $isPrimary = true }}
     {{ end }}
+    {{ $isAppendix := or (eq .type "appendix") (and (eq .type "custom") (eq $label "Appendix")) }}
     {{ $classes := "" }}
-    {{ if eq .type "bibtex" }}
+    {{ if or (eq .type "bibtex") $isAppendix }}
       {{ $classes = "gk-cite-button" }}
     {{ else if $isPrimary }}
       {{ $classes = "gk-link-primary" }}
@@ -120,6 +121,11 @@
         {{ partial "functions/get_icon" (dict "name" (.icon | default "hero/document-duplicate") "attributes" "style=\"height: 1em\" class='inline-block'") }}
         <span>{{ $label }}</span>
       </button>
+    {{ else if $isAppendix }}
+      <a class="{{ $classes }}" href="{{ $url | safeURL }}" {{ $target | safeHTMLAttr }} {{ with $rel }}rel="{{ delimit . " " }}"{{ end }}>
+        {{ partial "functions/get_icon" (dict "name" (.icon | default "hero/document-plus") "attributes" "style=\"height: 1em\" class='inline-block'") }}
+        <span>{{ $label }}</span>
+      </a>
     {{ else }}
       <a class="{{ $classes }}" href="{{ $url | safeURL }}" {{ $target | safeHTMLAttr }} {{ with $rel }}rel="{{ delimit . " " }}"{{ end }}>
         {{ if $isPrimary }}

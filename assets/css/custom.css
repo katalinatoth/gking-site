@@ -282,7 +282,8 @@ button.gk-link-secondary:hover {
   opacity: 0.85;
 }
 
-/* Cite / BibTeX control */
+/* Cite / BibTeX control (appendix links use the same chrome as an <a>) */
+a.gk-cite-button,
 button.gk-cite-button {
   display: inline-flex;
   align-items: center;
@@ -297,9 +298,11 @@ button.gk-cite-button {
   cursor: pointer;
   line-height: 1.25;
 }
+a.gk-cite-button:hover,
 button.gk-cite-button:hover {
   background: #eef2f6 !important;
   border-color: #9ca3af !important;
+  text-decoration: none;
 }
 
 /* Compact publication page */
@@ -635,10 +638,14 @@ nav[aria-label="Breadcrumb"] a:focus-visible {
 }
 
 /* Existing .gk-cite-button already darkens on hover; add the matching lift. */
+a.gk-cite-button,
 button.gk-cite-button {
   transition: background-color 0.15s ease, border-color 0.15s ease,
               color 0.15s ease, transform 0.15s ease;
+  text-decoration: none;
 }
+a.gk-cite-button:hover,
+a.gk-cite-button:focus-visible,
 button.gk-cite-button:hover,
 button.gk-cite-button:focus-visible {
   transform: translateY(-1px);
