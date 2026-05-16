@@ -86,7 +86,7 @@
             {{ with .Params.address }}{{ $bib = printf "%s  address = {%s},\n" $bib (. | plainify) }}{{ end }}
             {{ $bib = printf "%s}\n" $bib }}
             <button type="button" class="gk-cite-button js-cite-clipboard-inline cursor-pointer" data-bibtex="{{ $bib }}">
-              {{ partial "functions/get_icon" (dict "name" "hero/document-duplicate" "attributes" "style=\"height: 1em\" class='inline-block'") }}
+              {{ partial "icons/cite.html" }}
               <span class="gk-cite-inline-label">Cite</span>
             </button>
           {{ end }}

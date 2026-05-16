@@ -118,7 +118,7 @@
 
     {{ if eq .type "bibtex" }}
       <button class="{{ $classes }} js-cite-clipboard cursor-pointer" type="button" data-filename="{{ $url }}">
-        {{ partial "functions/get_icon" (dict "name" (.icon | default "hero/document-duplicate") "attributes" "style=\"width:18px;height:18px\" class='inline-block'") }}
+        {{ if .icon }}{{ partial "functions/get_icon" (dict "name" .icon "attributes" "style=\"width:18px;height:18px\" class='inline-block'") }}{{ else }}{{ partial "icons/cite.html" }}{{ end }}
         <span>{{ $label }}</span>
       </button>
     {{ else if $isAppendix }}
