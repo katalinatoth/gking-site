@@ -326,6 +326,27 @@ button.gk-cite-button:hover {
   align-items: center;
   gap: 8px 12px;
 }
+/* Publication row: Article, Appendix, and Cite share one height, padding, and icon size. */
+.gk-citation-actions .gk-link-primary,
+.gk-citation-actions a.gk-cite-button,
+.gk-citation-actions button.gk-cite-button {
+  box-sizing: border-box;
+  min-height: 2rem;
+  padding: 5px 12px;
+  font-size: 0.88rem;
+  line-height: 1.25;
+  gap: 6px;
+}
+.gk-citation-actions .gk-link-primary {
+  margin-right: 0;
+}
+.gk-citation-actions .gk-link-primary svg,
+.gk-citation-actions .gk-cite-button svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin: 0;
+}
 .gk-citation-text {
   min-width: 0;
   width: 100%;
