@@ -354,6 +354,12 @@ button.gk-cite-button:hover {
 .gk-pub-text p {
   margin: 0.6em 0;
 }
+.gk-pub-text h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 1.25rem 0 0.5rem;
+  color: #333;
+}
 /* Inline text links in body copy: blue + underlined at rest (site-wide convention). */
 .gk-pub-text a,
 .gk-pub-text a:visited,
