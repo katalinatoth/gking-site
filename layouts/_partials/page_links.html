@@ -123,7 +123,7 @@
       </button>
     {{ else if $isAppendix }}
       <a class="{{ $classes }}" href="{{ $url | safeURL }}" {{ $target | safeHTMLAttr }} {{ with $rel }}rel="{{ delimit . " " }}"{{ end }}>
-        {{ partial "functions/get_icon" (dict "name" (.icon | default "hero/document-plus") "attributes" "style=\"height: 1em\" class='inline-block'") }}
+        {{ partial "icons/paperclip-documents.html" }}
         <span>{{ $label }}</span>
       </a>
     {{ else }}
