@@ -130,28 +130,75 @@ def _update_featured(renames: dict[str, str]) -> None:
 
 
 def _update_hugo_yaml_mounts(renames: dict[str, str]) -> None:
-    """Update presentation mount paths in hugo.yaml."""
+    """Update presentation mount paths in hugo.yaml.
+
+    Uses regex with a trailing comma/whitespace boundary to avoid partial
+    matches where one folder name is a prefix of another.
+    """
     if not HUGO_YAML.exists():
         return
     text = HUGO_YAML.read_text(encoding="utf-8")
-    for old, new in renames.items():
-        text = text.replace(f"Presentations/{old}", f"Presentations/{new}")
+    for old, new in sorted(renames.items(), key=lambda x: -len(x[0])):
+        text = re.sub(
+            rf"Presentations/{re.escape(old)}(\s*,)",
+            rf"Presentations/{new}\1",
+            text,
+        )
     HUGO_YAML.write_text(text, encoding="utf-8")
 
 
 def _update_related_refs(renames: dict[str, str]) -> None:
-    """Update related_paper/related_papers/see_also slug references."""
+    """Update related_paper/related_papers/see_also slug references.
+
+    Uses regex with boundary assertions to avoid partial matches.
+    """
     for md in WRITINGS_DIR.rglob("index.md"):
         if md.parent.name == "Data":
             continue
         text = md.read_text(encoding="utf-8")
         changed = False
-        for old, new in renames.items():
+        for old, new in sorted(renames.items(), key=lambda x: -len(x[0])):
             if old in text:
-                new_text = text.replace(f"related_paper: \"{old}\"", f"related_paper: \"{new}\"")
-                new_text = new_text.replace(f"related_paper: {old}", f"related_paper: {new}")
-                new_text = new_text.replace(f"  - {old}\n", f"  - {new}\n")
-                new_text = new_text.replace(f"slug: {old}\n", f"slug: {new}\n")
+                new_text = re.sub(
+                    rf'related_paper:\s*"{re.escape(old)}"',
+                    f'related_paper: "{new}"',
+                    text,
+                )
+                new_text = re.sub(
+                    rf"related_paper:\s*{re.escape(old)}$",
+                    f"related_paper: {new}",
+                    new_text,
+                    flags=re.M,
+                )
+                new_text = re.sub(
+                    rf"^(\s*-\s*){re.escape(old)}$",
+                    rf"\1{new}",
+                    new_text,
+                    flags=re.M,
+                )
+                if new_text != text:
+                    text = new_text
+                    changed = True
+        if changed:
+            md.write_text(text, encoding="utf-8")
+
+
+def _update_relrefs(renames: dict[str, str]) -> None:
+    """Update Hugo relref shortcodes across all content files.
+
+    Handles patterns like: {{< relref "/publication/old-slug" >}}
+    """
+    editme = ROOT / "EditMe"
+    for md in editme.rglob("*.md"):
+        text = md.read_text(encoding="utf-8")
+        changed = False
+        for old, new in sorted(renames.items(), key=lambda x: -len(x[0])):
+            if old in text:
+                new_text = re.sub(
+                    rf'(relref\s+"/[^"]*?/){re.escape(old)}(")',
+                    rf"\1{new}\2",
+                    text,
+                )
                 if new_text != text:
                     text = new_text
                     changed = True
@@ -237,6 +284,9 @@ def main() -> int:
 
     print("Updating related_paper/related_papers/see_also references...")
     _update_related_refs(renames)
+
+    print("Updating relref shortcodes...")
+    _update_relrefs(renames)
 
     print("Adding slug: to front matter of renamed pages...")
     for m in mismatches:
