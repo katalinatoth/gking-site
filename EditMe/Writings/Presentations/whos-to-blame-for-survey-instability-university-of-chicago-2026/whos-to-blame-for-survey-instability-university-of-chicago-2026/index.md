@@ -17,7 +17,7 @@ links:
   - type: pdf
     url: files/mw-uchicago.pdf
 related_papers:
-  - whos-to-blame-for-survey-instability-respondents-with-nonexistent-preferences-or-2
+  - whos-to-blame-for-survey-instability-respondents-with-nonexistent-preferences-or-researchers-with-flawed-measures
 image:
   alt_text: Scatter plot of survey response instability (percent) versus average time on task (seconds), comparing human responses (higher instability on harder items) with synthetic responses (stable near zero).
 ---

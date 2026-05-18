@@ -1,5 +1,5 @@
 ---
-related_paper: "how-the-news-media-activate-public-expression-and-influence-national-agendas-2017"
+related_paper: "how-the-news-media-activate-public-expression-and-influence-national-agendas"
 title: "How the News Media Activate Public Expression and Influence National Agendas"
 date: "2019-01-01"
 authors:

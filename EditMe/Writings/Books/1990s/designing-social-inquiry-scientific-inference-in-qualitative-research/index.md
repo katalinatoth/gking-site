@@ -19,5 +19,5 @@ publication_types:
 - book
 title: 'Designing Social Inquiry: Scientific Inference in Qualitative Research'
 related_papers:
-- designing-social-inquiry-scientific-inference-in-qualitative-research-new-editio
+- designing-social-inquiry-scientific-inference-in-qualitative-research-new-edition
 ---

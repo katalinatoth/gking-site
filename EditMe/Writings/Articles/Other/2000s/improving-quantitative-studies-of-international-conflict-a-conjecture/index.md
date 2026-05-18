@@ -18,5 +18,5 @@ links:
     url: "files/improv.pdf"
 publication: "American Political Science Review, 94, Pp. 21–36"
 related_papers:
-- theory-and-evidence-in-international-conflict-a-response-to-de-marchi-gelpi-and
+- theory-and-evidence-in-international-conflict-a-response-to-de-marchi-gelpi-and-grynaviski
 ---

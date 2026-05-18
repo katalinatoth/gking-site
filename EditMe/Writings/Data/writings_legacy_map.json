@@ -4,7 +4,7 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "if-a-statistical-model-predicts-that-common-events-should-occur-only-once-in-100": {
+    "if-a-statistical-model-predicts-that-common-events-should-occur-only-once-in-10000-elections-maybe-its-the-wrong-model": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -16,7 +16,7 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "statistically-valid-inferences-from-differentially-private-data-releases-ii-exte": {
+    "statistically-valid-inferences-from-differentially-private-data-releases-ii-extensions-to-nonlinear-transformations": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -24,11 +24,11 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "whos-to-blame-for-survey-instability-respondents-with-nonexistent-preferences-or": {
+    "whos-to-blame-for-survey-instability-respondents-with-nonexistent-preferences-or-researchers-with-flawed-measures-talk-at-bocconi-university-3-24-2026": {
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "whos-to-blame-for-survey-instability-respondents-with-random-preferences-or-rese": {
+    "whos-to-blame-for-survey-instability-respondents-with-random-preferences-or-researchers-with-flawed-measures-talk-at-johns-hopkins-university-2-12-2026": {
       "tab": "presentation",
       "drupal": "presentation"
     },
@@ -40,11 +40,11 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "correcting-measurement-error-bias-in-conjoint-survey-experiments-university-of-c": {
+    "correcting-measurement-error-bias-in-conjoint-survey-experiments-university-of-central-florida": {
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "assessing-differences-in-country-level-estimates-of-maternal-mortality-a-compari": {
+    "assessing-differences-in-country-level-estimates-of-maternal-mortality-a-comparison-of-gmath-un-and-gbd-model-results-for-2020": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -64,7 +64,7 @@
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "is-survey-instability-due-to-respondents-who-dont-understand-politics-or-researc": {
+    "is-survey-instability-due-to-respondents-who-dont-understand-politics-or-researchers-who-dont-understand-respondents-caltech": {
       "tab": "presentation",
       "drupal": "presentation"
     },
@@ -72,15 +72,15 @@
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "correcting-measurement-error-bias-in-conjoint-survey-experiments-harvard-experim": {
+    "correcting-measurement-error-bias-in-conjoint-survey-experiments-harvard-experiments-working-group": {
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see": {
+    "how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-it-harvard-law-school": {
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "global-maternal-mortality-projections-by-urban-rural-locationand-education-level": {
+    "global-maternal-mortality-projections-by-urban-rural-locationand-education-level-a-simulation-based-analysis": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -96,51 +96,51 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "statistically-valid-inferences-from-privacy-protected-data-stat188-harvard-unive": {
+    "statistically-valid-inferences-from-privacy-protected-data-stat188-harvard-university": {
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "statistically-valid-inferences-from-privacy-protected-data-washington-university": {
+    "statistically-valid-inferences-from-privacy-protected-data-washington-university-in-st.-louis": {
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "how-american-politics-ensures-electoral-accountability-in-congress-washington-un": {
+    "how-american-politics-ensures-electoral-accountability-in-congress-washington-university-in-st.-louis": {
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "how-american-politics-ensures-electoral-accountability-in-congress-nuffield-coll": {
+    "how-american-politics-ensures-electoral-accountability-in-congress-nuffield-college-oxford-university": {
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "how-american-politics-ensures-electoral-accountability-in-congress-center-for-am": {
+    "how-american-politics-ensures-electoral-accountability-in-congress-center-for-american-political-studies-harvard-university": {
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "how-science-works-and-some-advice-for-you-and-for-me-department-of-politics-and": {
+    "how-science-works-and-some-advice-for-you-and-for-me-department-of-politics-and-international-relations-oxford-university": {
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "correcting-measurement-error-bias-in-conjoint-survey-experiments-stanford-univer": {
+    "correcting-measurement-error-bias-in-conjoint-survey-experiments-stanford-university": {
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "matching-methods-for-observational-and-experimental-causal-inference-facultad-la": {
+    "matching-methods-for-observational-and-experimental-causal-inference-facultad-latinoamericana-de-ciencias-sociales": {
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "solving-data-sharing-challenges-technologically-through-differential-privacy-wes": {
+    "solving-data-sharing-challenges-technologically-through-differential-privacy-wesleyan-university": {
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "simulation-based-estimates-and-projections-of-global-regional-and-country-level": {
+    "simulation-based-estimates-and-projections-of-global-regional-and-country-level-maternal-mortality-by-cause-19902050": {
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "a-simulation-based-comparative-effectiveness-analysis-of-policies-to-improve-glo": {
+    "a-simulation-based-comparative-effectiveness-analysis-of-policies-to-improve-global-maternal-health-outcomes": {
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "statistically-valid-inferences-from-differentially-private-data-releases-with-ap": {
+    "statistically-valid-inferences-from-differentially-private-data-releases-with-application-to-the-facebook-urls-dataset": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -148,7 +148,7 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "the-essential-role-of-statistical-inference-in-evaluating-electoral-systems-a-re": {
+    "the-essential-role-of-statistical-inference-in-evaluating-electoral-systems-a-response-to-deford-et-al.": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -156,7 +156,7 @@
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "statistically-valid-inferences-from-privacy-protected-data-university-of-wiscons": {
+    "statistically-valid-inferences-from-privacy-protected-data-university-of-wisconsin": {
       "tab": "presentation",
       "drupal": "presentation"
     },
@@ -172,23 +172,23 @@
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "statistically-valid-inferences-from-privacy-protected-data-sicss-university-of-r": {
+    "statistically-valid-inferences-from-privacy-protected-data-sicss-university-of-rochester": {
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "public-policy-for-the-poor-a-randomized-evaluation-of-the-mexican-universal-heal": {
+    "public-policy-for-the-poor-a-randomized-evaluation-of-the-mexican-universal-health-insurance-program-harvard-school-of-public-health": {
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "noisy-data-from-the-noisy-census-center-for-discrete-mathematics-and-theoretical": {
+    "noisy-data-from-the-noisy-census-center-for-discrete-mathematics-and-theoretical-computer-science-rutgers-university": {
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "statistically-valid-inferences-from-privacy-protected-data-institute-for-analyti": {
+    "statistically-valid-inferences-from-privacy-protected-data-institute-for-analytical-sociology-norrk\u00f6ping-sweden": {
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "simplifying-matching-methods-for-causal-inference-university-of-wisconsin-at-mad": {
+    "simplifying-matching-methods-for-causal-inference-university-of-wisconsin-at-madison": {
       "tab": "presentation",
       "drupal": "presentation"
     },
@@ -196,9 +196,9 @@
       "tab": "courtbrief",
       "drupal": "miscellaneous"
     },
-    "an-improved-method-of-automated-nonparametric-content-analysis-for-social-scienc": {
-      "tab": "journal",
-      "drupal": "journal_article"
+    "an-improved-method-of-automated-nonparametric-content-analysis-for-social-science": {
+      "tab": "presentation",
+      "drupal": "presentation"
     },
     "rejoinder-concluding-remarks-on-scholarly-communications": {
       "tab": "journal",
@@ -208,19 +208,15 @@
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "simplifying-matching-methods-for-causal-inference-university-of-wisconsin-at-mad-2021": {
+    "how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-it": {
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-2021": {
-      "tab": "journal",
-      "drupal": "journal_article"
-    },
-    "how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-2021-53": {
+    "how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-it-ipsa-world-congress": {
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "empowering-social-science-research-with-industry-partnerships-deans-symposium-on": {
+    "empowering-social-science-research-with-industry-partnerships-deans-symposium-on-social-science-innovations-harvard": {
       "tab": "presentation",
       "drupal": "presentation"
     },
@@ -228,15 +224,15 @@
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "how-to-help-solve-societys-most-pressing-challenges-quote-from-ali-homepage-at-t": {
+    "how-to-help-solve-societys-most-pressing-challenges-quote-from-ali-homepage-at-the-harvard-advanced-leadership-initiative": {
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-2021-57": {
+    "how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-it-department-of-biomedical-informatics-harvard-medical-school": {
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "a-theory-of-statistical-inference-for-ensuring-the-robustness-of-scientific-resu": {
+    "a-theory-of-statistical-inference-for-ensuring-the-robustness-of-scientific-results": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -256,7 +252,7 @@
       "tab": "patent",
       "drupal": "patent"
     },
-    "precision-mapping-child-undernutrition-for-nearly-600000-inhabited-census-villag": {
+    "precision-mapping-child-undernutrition-for-nearly-600000-inhabited-census-villages-in-india": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -264,7 +260,7 @@
       "tab": "software",
       "drupal": "software"
     },
-    "designing-social-inquiry-scientific-inference-in-qualitative-research-new-editio": {
+    "designing-social-inquiry-scientific-inference-in-qualitative-research-new-edition": {
       "tab": "book",
       "drupal": "book"
     },
@@ -272,11 +268,11 @@
       "tab": "journal",
       "drupal": "newspaper_article"
     },
-    "letter-to-us-census-bureau-request-for-release-of-noisy-measurements-file-by-sep": {
+    "letter-to-us-census-bureau-request-for-release-of-noisy-measurements-file-by-september-30-along-with-redistricting-data-products": {
       "tab": "other",
       "drupal": "miscellaneous"
     },
-    "statistically-valid-inferences-from-privacy-protected-data-interagency-arctic-re": {
+    "statistically-valid-inferences-from-privacy-protected-data-interagency-arctic-research-policy-committee": {
       "tab": "presentation",
       "drupal": "presentation"
     },
@@ -284,11 +280,11 @@
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "empowering-social-science-to-understand-and-ameliorate-major-challenges-of-human": {
+    "empowering-social-science-to-understand-and-ameliorate-major-challenges-of-human-society-federal-interagency-conference-on-social-science-and-big-data": {
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "statistically-valid-inferences-from-privacy-protected-data-harvard-privacy-tools": {
+    "statistically-valid-inferences-from-privacy-protected-data-harvard-privacy-tools-project": {
       "tab": "presentation",
       "drupal": "presentation"
     },
@@ -296,7 +292,7 @@
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "statistically-valid-inferences-from-privacy-protected-data-harvard-university-ap": {
+    "statistically-valid-inferences-from-privacy-protected-data-harvard-university-applied-statistics-workshop": {
       "tab": "presentation",
       "drupal": "presentation"
     },
@@ -308,15 +304,15 @@
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "reverse-engineering-chinese-government-information-controls-hebrew-university-of": {
+    "reverse-engineering-chinese-government-information-controls-hebrew-university-of-jerusalem": {
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "do-nonpartisan-programmatic-policies-have-partisan-electoral-effects-evidence-fr": {
+    "do-nonpartisan-programmatic-policies-have-partisan-electoral-effects-evidence-from-two-large-scale-experiments": {
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "theoretical-foundations-and-empirical-evaluations-of-partisan-fairness-in-distri": {
+    "theoretical-foundations-and-empirical-evaluations-of-partisan-fairness-in-district-based-democracies": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -324,11 +320,11 @@
       "tab": "journal",
       "drupal": "book_chapter"
     },
-    "the-math-prefresher-and-the-collective-future-of-political-science-graduate-trai": {
+    "the-math-prefresher-and-the-collective-future-of-political-science-graduate-training": {
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "evaluating-covid-19-public-health-messaging-in-italy-self-reported-compliance-an": {
+    "evaluating-covid-19-public-health-messaging-in-italy-self-reported-compliance-and-growing-mental-health-concerns": {
       "tab": "journal",
       "drupal": "working_paper"
     },
@@ -352,7 +348,7 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "expert-report-of-gary-king-in-bowyer-et-al-v-ducey-governor-et-al-us-district-co": {
+    "expert-report-of-gary-king-in-bowyer-et-al.-v.-ducey-governor-et-al.-us-district-court-district-of-arizona": {
       "tab": "courtbrief",
       "drupal": "miscellaneous"
     },
@@ -368,7 +364,7 @@
       "tab": "software",
       "drupal": "software"
     },
-    "how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-2019": {
+    "how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-it-university-of-chicago": {
       "tab": "presentation",
       "drupal": "presentation"
     },
@@ -384,27 +380,11 @@
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "how-the-news-media-activate-public-expression-and-influence-national-agendas-uni": {
+    "how-the-news-media-activate-public-expression-and-influence-national-agendas-university-of-minho": {
       "tab": "presentation",
       "drupal": "presentation"
     },
     "simplifying-matching-methods-for-causal-inference-university-of-minho": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
-    "how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-2019-97": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
-    "how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-2019-98": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
-    "how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-2019-99": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
-    "how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-2019-100": {
       "tab": "presentation",
       "drupal": "presentation"
     },
@@ -413,8 +393,8 @@
       "drupal": "journal_article"
     },
     "why-propensity-scores-should-not-be-used-for-matching": {
-      "tab": "journal",
-      "drupal": "journal_article"
+      "tab": "presentation",
+      "drupal": "presentation"
     },
     "a-theory-of-statistical-inference-for-matching-methods-in-causal-research": {
       "tab": "journal",
@@ -436,7 +416,7 @@
       "tab": "patent",
       "drupal": "patent"
     },
-    "systems-and-methods-for-keyword-determination-and-document-classification-from-u": {
+    "systems-and-methods-for-keyword-determination-and-document-classification-from-unstructured-text": {
       "tab": "patent",
       "drupal": "patent"
     },
@@ -500,10 +480,6 @@
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-2018": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
     "matching-methods-for-causal-inference": {
       "tab": "presentation",
       "drupal": "presentation"
@@ -516,11 +492,11 @@
       "tab": "software",
       "drupal": "software"
     },
-    "edited-transcript-of-a-talk-on-partisan-symmetry-at-the-redistricting-and-repres": {
+    "edited-transcript-of-a-talk-on-partisan-symmetry-at-the-redistricting-and-representation-forum": {
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "use-of-a-social-annotation-platform-for-pre-class-reading-assignments-in-a-flipp": {
+    "use-of-a-social-annotation-platform-for-pre-class-reading-assignments-in-a-flipped-introductory-physics-class": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -528,11 +504,11 @@
       "tab": "patent",
       "drupal": "patent"
     },
-    "readme2-an-r-package-for-improved-automated-nonparametric-content-analysis-for-s": {
+    "readme2-an-r-package-for-improved-automated-nonparametric-content-analysis-for-social-science": {
       "tab": "software",
       "drupal": "software"
     },
-    "compactness-an-r-package-for-measuring-legislative-district-compactness-if-you-o": {
+    "compactness-an-r-package-for-measuring-legislative-district-compactness-if-you-only-know-it-when-you-see-it": {
       "tab": "software",
       "drupal": "software"
     },
@@ -552,7 +528,7 @@
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "big-data-reveals-made-up-data-how-the-chinese-government-fabricates-social-media": {
+    "big-data-reveals-made-up-data-how-the-chinese-government-fabricates-social-media-posts-for-strategic-distraction-not-engaged-argument": {
       "tab": "presentation",
       "drupal": "presentation"
     },
@@ -560,7 +536,7 @@
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "how-the-chinese-government-fabricates-social-media-posts-for-strategic-distracti": {
+    "how-the-chinese-government-fabricates-social-media-posts-for-strategic-distraction-not-engaged-argument": {
       "tab": "presentation",
       "drupal": "presentation"
     },
@@ -569,14 +545,6 @@
       "drupal": "presentation"
     },
     "analyzing-social-media-data-in-china": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
-    "how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-2017": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
-    "how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-2017-144": {
       "tab": "presentation",
       "drupal": "presentation"
     },
@@ -592,31 +560,11 @@
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "how-the-chinese-government-fabricates-social-media-posts-for-strategic-distracti-2017": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
-    "how-the-chinese-government-fabricates-social-media-posts-for-strategic-distracti-2017-149": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
     "big-data-is-not-about-the-data-2017-150": {
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "how-the-chinese-government-fabricates-social-media-posts-for-strategic-distracti-2017-151": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
     "big-data-is-not-about-the-data-2017-152": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
-    "an-improved-method-of-automated-nonparametric-content-analysis-for-social-scienc-2017": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
-    "how-the-chinese-government-fabricates-social-media-posts-for-strategic-distracti-2017-154": {
       "tab": "presentation",
       "drupal": "presentation"
     },
@@ -633,44 +581,28 @@
       "drupal": "journal_article"
     },
     "the-balance-sample-size-frontier-in-matching-methods-for-causal-inference": {
-      "tab": "journal",
-      "drupal": "journal_article"
+      "tab": "presentation",
+      "drupal": "presentation"
     },
     "boocio-an-education-system-with-hierarchical-concept-maps": {
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "brief-of-heather-k-gerken-jonathan-n-katz-gary-king-larry-j-sabato-and-samuel-s": {
+    "brief-of-heather-k.-gerken-jonathan-n.-katz-gary-king-larry-j.-sabato-and-samuel-s.-h.-wang-as-amici-curiae-in-support-of-appellees": {
       "tab": "courtbrief",
       "drupal": "miscellaneous"
-    },
-    "how-the-news-media-activate-public-expression-and-influence-national-agendas-2017": {
-      "tab": "journal",
-      "drupal": "journal_article"
     },
     "how-to-conquer-partisan-gerrymandering": {
       "tab": "journal",
       "drupal": "newspaper_article"
     },
-    "a-unified-approach-to-measurement-error-and-missing-data-overview-and-applicatio": {
+    "a-unified-approach-to-measurement-error-and-missing-data-overview-and-applications": {
       "tab": "journal",
       "drupal": "journal_article"
     },
     "openscholar": {
       "tab": "software",
       "drupal": "software"
-    },
-    "how-the-chinese-government-fabricates-social-media-posts-for-strategic-distracti-2017-166": {
-      "tab": "journal",
-      "drupal": "journal_article"
-    },
-    "an-improved-method-of-automated-nonparametric-content-analysis-for-social-scienc-2016": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
-    "how-the-chinese-government-fabricates-social-media-posts-for-strategic-distracti-2016": {
-      "tab": "presentation",
-      "drupal": "presentation"
     },
     "big-data-is-not-about-the-data-2016": {
       "tab": "presentation",
@@ -684,15 +616,7 @@
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "how-the-chinese-government-fabricates-social-media-posts-for-strategic-distracti-2016-172": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
     "big-data-is-not-about-the-data-the-power-of-modern-analytics": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
-    "how-the-chinese-government-fabricates-social-media-posts-for-strategic-distracti-2016-174": {
       "tab": "presentation",
       "drupal": "presentation"
     },
@@ -712,11 +636,7 @@
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "why-propensity-scores-should-not-be-used-for-matching-2016": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
-    "discovering-and-explaining-systematic-bias-and-nontransparency-in-us-social-secu": {
+    "discovering-and-explaining-systematic-bias-and-nontransparency-in-us-social-security-administration-forecasts": {
       "tab": "presentation",
       "drupal": "presentation"
     },
@@ -732,11 +652,11 @@
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "explaining-systematic-bias-and-nontransparency-in-us-social-security-administrat": {
-      "tab": "presentation",
-      "drupal": "presentation"
+    "explaining-systematic-bias-and-nontransparency-in-us-social-security-administration-forecasts": {
+      "tab": "journal",
+      "drupal": "journal_article"
     },
-    "the-c-span-archives-as-the-policymaking-record-of-american-representative-democr": {
+    "the-c-span-archives-as-the-policymaking-record-of-american-representative-democracy-a-foreword": {
       "tab": "journal",
       "drupal": "book_chapter"
     },
@@ -744,11 +664,11 @@
       "tab": "journal",
       "drupal": "book_chapter"
     },
-    "how-human-subjects-research-rules-mislead-you-and-your-university-and-what-to-do": {
+    "how-human-subjects-research-rules-mislead-you-and-your-university-and-what-to-do-about-it": {
       "tab": "journal",
       "drupal": "working_paper"
     },
-    "effectiveness-of-the-who-safe-childbirth-checklist-program-in-reducing-severe-ma": {
+    "effectiveness-of-the-who-safe-childbirth-checklist-program-in-reducing-severe-maternal-fetal-and-newborn-harm-study-protocol-for-a-matched-pair-cluster-randomized-controlled-trial-in-uttar-pradesh-india": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -768,10 +688,6 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "why-propensity-scores-should-not-be-used-for-matching-2015": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
     "big-data-is-not-about-the-data-2015": {
       "tab": "presentation",
       "drupal": "presentation"
@@ -780,23 +696,11 @@
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "why-propensity-scores-should-not-be-used-for-matching-2015-196": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
-    "explaining-systematic-bias-and-nontransparency-in-us-social-security-administrat-2015": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
-    "why-propensity-scores-should-not-be-used-for-matching-2015-198": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
     "reverse-engineering-censorship-in-china-2015-199": {
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "the-next-big-social-science-thing-some-suggestions-for-science-magazine": {
+    "the-next-big-social-science-thing.-some-suggestions-for-science-magazine": {
       "tab": "presentation",
       "drupal": "presentation"
     },
@@ -804,23 +708,7 @@
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "why-propensity-scores-should-not-be-used-for-matching-2015-202": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
-    "why-propensity-scores-should-not-be-used-for-matching-2015-203": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
-    "why-propensity-scores-should-not-be-used-for-matching-2015-204": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
     "talks-on-matching-methods-for-causal-inference": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
-    "why-propensity-scores-should-not-be-used-for-matching-2015-206": {
       "tab": "presentation",
       "drupal": "presentation"
     },
@@ -856,23 +744,19 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "explaining-systematic-bias-and-nontransparency-in-us-social-security-administrat-2015-215": {
+    "systematic-bias-and-nontransparency-in-us-social-security-administration-forecasts": {
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "systematic-bias-and-nontransparency-in-us-social-security-administration-forecas": {
-      "tab": "journal",
-      "drupal": "journal_article"
-    },
-    "replication-data-for-explaining-systematic-bias-and-nontransparency-in-us-social": {
+    "replication-data-for-explaining-systematic-bias-and-nontransparency-in-u.s.-social-security-administration-forecasts.": {
       "tab": "other",
       "drupal": "data"
     },
-    "replication-data-for-systematic-bias-and-nontransparency-in-us-social-security-a": {
+    "replication-data-for-systematic-bias-and-nontransparency-in-u.s.-social-security-administration-forecasts.": {
       "tab": "other",
       "drupal": "data"
     },
-    "how-robust-standard-errors-expose-methodological-problems-they-do-not-fix-and-wh": {
+    "how-robust-standard-errors-expose-methodological-problems-they-do-not-fix-and-what-to-do-about-it": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -884,7 +768,7 @@
       "tab": "patent",
       "drupal": "patent"
     },
-    "system-for-estimating-a-distribution-of-message-content-categories-in-source-dat": {
+    "system-for-estimating-a-distribution-of-message-content-categories-in-source-data-2nd": {
       "tab": "patent",
       "drupal": "patent"
     },
@@ -908,7 +792,7 @@
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "public-policy-for-the-poor-a-randomized-evaluation-of-the-mexican-universal-heal-2014": {
+    "public-policy-for-the-poor-a-randomized-evaluation-of-the-mexican-universal-health-insurance-program": {
       "tab": "presentation",
       "drupal": "presentation"
     },
@@ -924,11 +808,11 @@
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "methods-for-extremely-large-scale-media-experiments-and-observational-studies-po": {
+    "methods-for-extremely-large-scale-media-experiments-and-observational-studies-poster": {
       "tab": "other",
       "drupal": "conference_paper"
     },
-    "you-lie-patterns-of-partisan-taunting-in-the-us-senate-poster": {
+    "you-lie-patterns-of-partisan-taunting-in-the-u.s.-senate-poster": {
       "tab": "other",
       "drupal": "conference_paper"
     },
@@ -960,11 +844,7 @@
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "the-balance-sample-size-frontier-in-matching-methods-for-causal-inference-2014": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
-    "reverse-engineering-censorship-in-china-randomized-experimentation-and-participa": {
+    "reverse-engineering-censorship-in-china-randomized-experimentation-and-participant-observation": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -988,7 +868,7 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "restructuring-the-social-sciences-reflections-from-harvards-institute-for-quanti": {
+    "restructuring-the-social-sciences-reflections-from-harvards-institute-for-quantitative-social-science": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -1048,15 +928,11 @@
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "public-policy-for-the-poor-a-randomized-evaluation-of-the-mexican-universal-heal-2013": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
     "simplifying-causal-inference-2013": {
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "how-censorship-in-china-allows-government-criticism-but-silences-collective-expr": {
+    "how-censorship-in-china-allows-government-criticism-but-silences-collective-expression": {
       "tab": "presentation",
       "drupal": "presentation"
     },
@@ -1072,11 +948,7 @@
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "the-troubled-future-of-colleges-and-universities-with-comments-from-five-scholar": {
-      "tab": "journal",
-      "drupal": "journal_article"
-    },
-    "how-censorship-in-china-allows-government-criticism-but-silences-collective-expr-2013": {
+    "the-troubled-future-of-colleges-and-universities-with-comments-from-five-scholar-administrators": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -1084,27 +956,15 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "method-and-apparatus-for-selecting-clusterings-to-classify-a-predetermined-data": {
+    "method-and-apparatus-for-selecting-clusterings-to-classify-a-predetermined-data-set": {
       "tab": "patent",
       "drupal": "patent"
-    },
-    "how-censorship-in-china-allows-government-criticism-but-silences-collective-expr-2012": {
-      "tab": "presentation",
-      "drupal": "presentation"
     },
     "simplifying-causal-inference-2012": {
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "how-censorship-in-china-allows-government-criticism-but-silences-collective-expr-2012-276": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
     "remaking-the-social-sciences": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
-    "public-policy-for-the-poor-a-randomized-evaluation-of-the-mexican-universal-heal-2012": {
       "tab": "presentation",
       "drupal": "presentation"
     },
@@ -1124,7 +984,7 @@
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "estimating-partisan-bias-of-the-electoral-college-under-proposed-changes-in-elec": {
+    "estimating-partisan-bias-of-the-electoral-college-under-proposed-changes-in-elector-apportionment": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -1132,7 +992,7 @@
       "tab": "courtbrief",
       "drupal": "miscellaneous"
     },
-    "letter-to-the-editor-on-the-medicare-health-support-pilot-program-by-mccall-and": {
+    "letter-to-the-editor-on-the-medicare-health-support-pilot-program-by-mccall-and-cromwell": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -1140,11 +1000,11 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "data-analyses-and-reports-for-the-arizona-independent-redistricting-commission-f": {
+    "data-analyses-and-reports-for-the-arizona-independent-redistricting-commission-filed-with-the-u.s.-department-of-justice": {
       "tab": "other",
       "drupal": "report"
     },
-    "system-for-estimating-a-distribution-of-message-content-categories-in-source-dat-2012": {
+    "system-for-estimating-a-distribution-of-message-content-categories-in-source-data": {
       "tab": "patent",
       "drupal": "patent"
     },
@@ -1236,7 +1096,7 @@
       "tab": "software",
       "drupal": "software"
     },
-    "estimating-incidence-curves-of-several-infections-using-symptom-surveillance-dat": {
+    "estimating-incidence-curves-of-several-infections-using-symptom-surveillance-data": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -1249,16 +1109,16 @@
       "drupal": "journal_article"
     },
     "the-future-of-death-in-america": {
-      "tab": "journal",
-      "drupal": "journal_article"
+      "tab": "presentation",
+      "drupal": "presentation"
     },
     "ensuring-the-data-rich-future-of-the-social-sciences": {
       "tab": "journal",
       "drupal": "journal_article"
     },
     "comparative-effectiveness-of-matching-methods-for-causal-inference": {
-      "tab": "journal",
-      "drupal": "journal_article"
+      "tab": "presentation",
+      "drupal": "presentation"
     },
     "avoiding-randomization-failure-in-program-evaluation": {
       "tab": "journal",
@@ -1268,35 +1128,15 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "comparative-effectiveness-of-matching-methods-for-causal-inference-2010": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
-    "comparative-effectiveness-of-matching-methods-for-causal-inference-2010-318": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
     "a-general-purpose-computer-assisted-document-clustering-methodology": {
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "quantitative-discovery-of-qualitative-information-a-general-purpose-document-clu": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
-    "public-policy-for-the-poor-a-randomized-evaluation-of-the-mexican-universal-heal-2010": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
-    "public-policy-for-the-poor-a-randomized-evaluation-of-the-mexican-universal-heal-2010-322": {
+    "quantitative-discovery-of-qualitative-information-a-general-purpose-document-clustering-methodology": {
       "tab": "presentation",
       "drupal": "presentation"
     },
     "a-hard-unsolved-problem-post-treatment-bias-in-big-social-science-questions": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
-    "quantitative-discovery-of-qualitative-information-a-general-purpose-document-clu-2010": {
       "tab": "presentation",
       "drupal": "presentation"
     },
@@ -1316,15 +1156,11 @@
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "quantitative-discovery-of-qualitative-information-a-general-purpose-document-clu-2010-329": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
     "detecting-model-dependence": {
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "improving-anchoring-vignettes-designing-surveys-to-correct-interpersonal-incompa": {
+    "improving-anchoring-vignettes-designing-surveys-to-correct-interpersonal-incomparability": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -1348,19 +1184,15 @@
       "tab": "software",
       "drupal": "software"
     },
-    "deaths-from-heart-failure-using-coarsened-exact-matching-to-correct-cause-of-dea": {
+    "deaths-from-heart-failure-using-coarsened-exact-matching-to-correct-cause-of-death-statistics": {
       "tab": "journal",
       "drupal": "journal_article"
-    },
-    "quantitative-discovery-of-qualitative-information-a-general-purpose-document-clu-2009": {
-      "tab": "presentation",
-      "drupal": "presentation"
     },
     "a-general-purpose-computer-assisted-document-clustering-methodology-2009": {
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "anchoring-vignettes-for-interpersonal-and-cross-cultural-incomparability-in-surv": {
+    "anchoring-vignettes-for-interpersonal-and-cross-cultural-incomparability-in-survey-research": {
       "tab": "presentation",
       "drupal": "presentation"
     },
@@ -1372,31 +1204,15 @@
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "public-policy-for-the-poor-a-randomized-evaluation-of-the-mexican-universal-heal-2009": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
-    "public-policy-for-the-poor-a-randomised-assessment-of-the-mexican-universal-heal": {
+    "public-policy-for-the-poor-a-randomised-assessment-of-the-mexican-universal-health-insurance-programme": {
       "tab": "journal",
       "drupal": "journal_article"
-    },
-    "quantitative-discovery-of-qualitative-information-a-general-purpose-document-clu-2009-345": {
-      "tab": "presentation",
-      "drupal": "presentation"
     },
     "the-changing-evidence-base-of-social-science-research": {
       "tab": "journal",
       "drupal": "book_chapter"
     },
-    "public-policy-for-the-poor-a-randomized-evaluation-of-the-mexican-universal-heal-2009-347": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
     "matching-for-causal-inference-without-balance-checking": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
-    "public-policy-for-the-poor-a-randomized-evaluation-of-the-mexican-universal-heal-2009-349": {
       "tab": "presentation",
       "drupal": "presentation"
     },
@@ -1416,7 +1232,7 @@
       "tab": "book",
       "drupal": "book"
     },
-    "preserving-quantitative-research-elicited-data-for-longitudinal-analysis-new-dev": {
+    "preserving-quantitative-research-elicited-data-for-longitudinal-analysis.-new-developments-in-archiving-survey-data-in-the-u.s.": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -1432,11 +1248,11 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "the-essential-role-of-pair-matching-in-cluster-randomized-experiments-with-appli": {
+    "the-essential-role-of-pair-matching-in-cluster-randomized-experiments-with-application-to-the-mexican-universal-health-insurance-evaluation": {
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "replication-data-for-public-policy-for-the-poor-a-randomised-assessment-of-the-m": {
+    "replication-data-for-public-policy-for-the-poor-a-randomised-assessment-of-the-mexican-universal-health-insurance-programme": {
       "tab": "other",
       "drupal": "data"
     },
@@ -1444,21 +1260,13 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "from-preserving-the-past-to-preserving-the-future-the-data-pass-project-and-the": {
+    "from-preserving-the-past-to-preserving-the-future-the-data-pass-project-and-the-challenges-of-preserving-digital-social-science-data": {
       "tab": "journal",
       "drupal": "journal_article"
-    },
-    "the-changing-evidence-base-of-social-science-research-2009": {
-      "tab": "journal",
-      "drupal": "book_chapter"
     },
     "ordinary-economic-voting-behavior-in-the-extraordinary-election-of-adolf-hitler": {
       "tab": "journal",
       "drupal": "journal_article"
-    },
-    "the-future-of-death-in-america-2008": {
-      "tab": "presentation",
-      "drupal": "presentation"
     },
     "demographic-forecasting": {
       "tab": "book",
@@ -1496,10 +1304,6 @@
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "quantitative-discovery-of-qualitative-information-a-general-purpose-document-clu-2008": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
     "the-dataverse-network-an-infrastructure-for-data-sharing-2008": {
       "tab": "presentation",
       "drupal": "presentation"
@@ -1516,7 +1320,7 @@
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "the-future-of-partisan-symmetry-as-a-judicial-test-for-partisan-gerrymandering-a": {
+    "the-future-of-partisan-symmetry-as-a-judicial-test-for-partisan-gerrymandering-after-lulac-v.-perry": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -1524,11 +1328,7 @@
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "demographic-forecasting-2008": {
-      "tab": "book",
-      "drupal": "book"
-    },
-    "misunderstandings-among-experimentalists-and-observationalists-about-causal-infe": {
+    "misunderstandings-among-experimentalists-and-observationalists-about-causal-inference": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -1564,13 +1364,13 @@
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "a-politically-robust-experimental-design-for-public-policy-evaluation-with-appli": {
+    "a-politically-robust-experimental-design-for-public-policy-evaluation-with-application-to-the-mexican-universal-health-insurance-program": {
       "tab": "presentation",
       "drupal": "presentation"
     },
     "an-introduction-to-the-dataverse-network-as-an-infrastructure-for-data-sharing": {
-      "tab": "presentation",
-      "drupal": "presentation"
+      "tab": "journal",
+      "drupal": "journal_article"
     },
     "how-to-read-100-million-blogs-classify-deaths-without-physicians-2007-395": {
       "tab": "presentation",
@@ -1608,7 +1408,7 @@
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "extracting-systematic-social-science-meaning-from-text-cause-specific-mortality": {
+    "extracting-systematic-social-science-meaning-from-text-cause-specific-mortality-rates-from-symptom-data": {
       "tab": "presentation",
       "drupal": "presentation"
     },
@@ -1616,15 +1416,7 @@
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "a-politically-robust-experimental-design-for-public-policy-evaluation-with-appli-2007": {
-      "tab": "journal",
-      "drupal": "journal_article"
-    },
-    "an-introduction-to-the-dataverse-network-as-an-infrastructure-for-data-sharing-2007-407": {
-      "tab": "journal",
-      "drupal": "journal_article"
-    },
-    "matching-as-nonparametric-preprocessing-for-reducing-model-dependence-in-paramet": {
+    "matching-as-nonparametric-preprocessing-for-reducing-model-dependence-in-parametric-causal-inference": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -1640,13 +1432,9 @@
       "tab": "software",
       "drupal": "software"
     },
-    "a-politically-robust-experimental-design-for-public-policy-evaluation-with-appli-2006": {
+    "death-by-survey-estimating-adult-mortality-without-selection-bias-from-sibling-survival-data": {
       "tab": "presentation",
       "drupal": "presentation"
-    },
-    "death-by-survey-estimating-adult-mortality-without-selection-bias-from-sibling-s": {
-      "tab": "journal",
-      "drupal": "journal_article"
     },
     "evaluation-of-seguro-popular-baseline-analysis": {
       "tab": "presentation",
@@ -1716,11 +1504,7 @@
       "tab": "presentation",
       "drupal": "presentation"
     },
-    "demographic-forecasting-incorporating-qualitative-insight-into-quantitative-mode": {
-      "tab": "presentation",
-      "drupal": "presentation"
-    },
-    "death-by-survey-estimating-adult-mortality-without-selection-bias-from-sibling-s-2005": {
+    "demographic-forecasting-incorporating-qualitative-insight-into-quantitative-modeling": {
       "tab": "presentation",
       "drupal": "presentation"
     },
@@ -1736,33 +1520,29 @@
       "tab": "software",
       "drupal": "software"
     },
-    "brief-of-amici-curiae-professors-gary-king-bernard-grofman-andrew-gelman-and-jon": {
+    "brief-of-amici-curiae-professors-gary-king-bernard-grofman-andrew-gelman-and-jonathan-katz-in-support-of-neither-party": {
       "tab": "courtbrief",
       "drupal": "miscellaneous"
     },
-    "did-illegal-overseas-absentee-ballots-decide-the-2000-us-presidential-election": {
+    "did-illegal-overseas-absentee-ballots-decide-the-2000-u.s.-presidential-election": {
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "what-to-do-when-your-hessian-is-not-invertible-alternatives-to-model-respecifica": {
+    "what-to-do-when-your-hessian-is-not-invertible-alternatives-to-model-respecification-in-nonlinear-estimation": {
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "theory-and-evidence-in-international-conflict-a-response-to-de-marchi-gelpi-and": {
+    "theory-and-evidence-in-international-conflict-a-response-to-de-marchi-gelpi-and-grynaviski": {
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "enhancing-the-validity-and-cross-cultural-comparability-of-measurement-in-survey": {
+    "enhancing-the-validity-and-cross-cultural-comparability-of-measurement-in-survey-research": {
       "tab": "journal",
       "drupal": "journal_article"
     },
     "ecological-inference-new-methodological-strategies": {
       "tab": "book",
       "drupal": "book"
-    },
-    "inference-in-case-control-studies-2004": {
-      "tab": "journal",
-      "drupal": "book_chapter"
     },
     "empirically-evaluating-the-electoral-college": {
       "tab": "journal",
@@ -1780,7 +1560,7 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "finding-new-information-for-ecological-inference-models-a-comment-on-jon-wakefie": {
+    "finding-new-information-for-ecological-inference-models-a-comment-on-jon-wakefield-ecological-inference-in-2x2-tables": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -1804,7 +1584,7 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "an-automated-information-extraction-tool-for-international-conflict-data-with-pe": {
+    "an-automated-information-extraction-tool-for-international-conflict-data-with-performance-as-good-as-human-coders-a-rare-events-evaluation-design": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -1860,11 +1640,11 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "measuring-total-health-inequality-adding-individual-variation-to-group-level-dif": {
+    "measuring-total-health-inequality-adding-individual-variation-to-group-level-differences": {
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "isolating-spatial-autocorrelation-aggregation-bias-and-distributional-violations": {
+    "isolating-spatial-autocorrelation-aggregation-bias-and-distributional-violations-in-ecological-inference": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -1876,7 +1656,7 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "archive-of-the-controversy-involving-wendy-k-tam-cho-brian-j-gaines-and-the-amer": {
+    "archive-of-the-controversy-involving-wendy-k.-tam-cho-brian-j.-gaines-and-the-american-political-science-review": {
       "tab": "journal",
       "drupal": "report"
     },
@@ -1884,15 +1664,15 @@
       "tab": "software",
       "drupal": "software"
     },
-    "aggregation-among-binary-count-and-duration-models-estimating-the-same-quantitie": {
+    "aggregation-among-binary-count-and-duration-models-estimating-the-same-quantities-from-different-levels-of-data": {
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "a-digital-library-for-the-dissemination-and-replication-of-quantitative-social-s": {
+    "a-digital-library-for-the-dissemination-and-replication-of-quantitative-social-science-research": {
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "proper-nouns-and-methodological-propriety-pooling-dyads-in-international-relatio": {
+    "proper-nouns-and-methodological-propriety-pooling-dyads-in-international-relations-data": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -1908,7 +1688,7 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "analyzing-incomplete-political-science-data-an-alternative-algorithm-for-multipl": {
+    "analyzing-incomplete-political-science-data-an-alternative-algorithm-for-multiple-imputation": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -1928,7 +1708,7 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "making-the-most-of-statistical-analyses-improving-interpretation-and-presentatio": {
+    "making-the-most-of-statistical-analyses-improving-interpretation-and-presentation": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -1948,11 +1728,11 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "no-evidence-on-directional-vs-proximity-voting": {
+    "no-evidence-on-directional-vs.-proximity-voting": {
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "the-future-of-ecological-inference-research-a-reply-to-freedman-et-al": {
+    "the-future-of-ecological-inference-research-a-reply-to-freedman-et-al.": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -1960,7 +1740,7 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "estimating-the-probability-of-events-that-have-never-occurred-when-is-your-vote": {
+    "estimating-the-probability-of-events-that-have-never-occurred-when-is-your-vote-decisive": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -1980,7 +1760,7 @@
       "tab": "book",
       "drupal": "book"
     },
-    "a-solution-to-the-ecological-inference-problem-reconstructing-individual-behavio": {
+    "a-solution-to-the-ecological-inference-problem-reconstructing-individual-behavior-from-aggregate-data": {
       "tab": "book",
       "drupal": "book"
     },
@@ -2000,7 +1780,7 @@
       "tab": "journal",
       "drupal": "book_chapter"
     },
-    "the-generalization-in-the-generalized-event-count-model-with-comments-on-achen-a": {
+    "the-generalization-in-the-generalized-event-count-model-with-comments-on-achen-amato-and-londregan": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -2016,7 +1796,7 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "pre-election-survey-methodology-details-from-nine-polling-organizations-1988-and": {
+    "pre-election-survey-methodology-details-from-nine-polling-organizations-1988-and-1992": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -2040,7 +1820,7 @@
       "tab": "book",
       "drupal": "book"
     },
-    "party-competition-and-media-messages-in-us-presidential-election-campaigns": {
+    "party-competition-and-media-messages-in-u.s.-presidential-election-campaigns": {
       "tab": "journal",
       "drupal": "book_chapter"
     },
@@ -2052,7 +1832,7 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "why-are-american-presidential-election-campaign-polls-so-variable-when-votes-are": {
+    "why-are-american-presidential-election-campaign-polls-so-variable-when-votes-are-so-predictable": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -2076,11 +1856,11 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "calculating-standard-errors-of-predicted-values-based-on-nonlinear-functional-fo": {
+    "calculating-standard-errors-of-predicted-values-based-on-nonlinear-functional-forms": {
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "systemic-consequences-of-incumbency-advantage-in-the-us-house": {
+    "systemic-consequences-of-incumbency-advantage-in-the-u.s.-house": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -2112,7 +1892,7 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "measuring-the-consequences-of-delegate-selection-rules-in-presidential-nominatio": {
+    "measuring-the-consequences-of-delegate-selection-rules-in-presidential-nominations": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -2120,7 +1900,7 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "variance-specification-in-event-count-models-from-restrictive-assumptions-to-a-g": {
+    "variance-specification-in-event-count-models-from-restrictive-assumptions-to-a-generalized-estimator": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -2132,7 +1912,7 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "electoral-responsiveness-in-us-congressional-elections-1946-1986": {
+    "electoral-responsiveness-in-u.s.-congressional-elections-1946-1986": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -2140,7 +1920,7 @@
       "tab": "book",
       "drupal": "book"
     },
-    "statistical-models-for-political-science-event-counts-bias-in-conventional-proce": {
+    "statistical-models-for-political-science-event-counts-bias-in-conventional-procedures-and-evidence-for-the-exponential-poisson-regression-model": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -2152,11 +1932,11 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "presidential-appointments-to-the-supreme-court-adding-systematic-explanation-to": {
+    "presidential-appointments-to-the-supreme-court-adding-systematic-explanation-to-probabilistic-description": {
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "seats-votes-and-gerrymandering-measuring-bias-and-representation-in-legislative": {
+    "seats-votes-and-gerrymandering-measuring-bias-and-representation-in-legislative-redistricting": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -2164,11 +1944,11 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "how-not-to-lie-with-statistics-avoiding-common-mistakes-in-quantitative-politica": {
+    "how-not-to-lie-with-statistics-avoiding-common-mistakes-in-quantitative-political-science": {
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "the-significance-of-roll-calls-in-voting-bodies-a-model-and-statistical-estimati": {
+    "the-significance-of-roll-calls-in-voting-bodies-a-model-and-statistical-estimation": {
       "tab": "journal",
       "drupal": "journal_article"
     },
@@ -2180,7 +1960,7 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "the-stability-of-party-identification-among-us-representatives-political-loyalty": {
+    "the-stability-of-party-identification-among-u.s.-representatives-political-loyalty-1789-1984": {
       "tab": "other",
       "drupal": "unpublished"
     },
@@ -2192,7 +1972,7 @@
       "tab": "other",
       "drupal": "newspaper_article"
     },
-    "interpersonal-and-cross-cultural-incomparability-in-survey-research": {
+    "interpersonal-and-cross-cultural-incomparability-in-survey-research-in-honor-of-dean-barry-bloom": {
       "tab": "presentation",
       "drupal": "presentation"
     },
@@ -2200,7 +1980,7 @@
       "tab": "journal",
       "drupal": "journal_article"
     },
-    "whos-to-blame-for-survey-instability-respondents-with-nonexistent-preferences-or-2": {
+    "whos-to-blame-for-survey-instability-respondents-with-nonexistent-preferences-or-researchers-with-flawed-measures": {
       "tab": "journal",
       "drupal": "working_paper"
     }

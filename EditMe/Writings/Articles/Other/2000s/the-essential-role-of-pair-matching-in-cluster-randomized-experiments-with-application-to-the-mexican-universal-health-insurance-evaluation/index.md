@@ -1,0 +1,23 @@
+---
+dataverse_url: "https://doi.org/10.7910/DVN/9RJGWB"
+dataverse_name: "Replication data for: The Essential Role of Pair Matching in Cluster-Randomized Experiments, with Application to the Mexican Universal Health Insurance Evaluation"
+title: "The Essential Role of Pair Matching in Cluster-Randomized Experiments, With Application to the Mexican Universal Health Insurance Evaluation"
+slug: "the-essential-role-of-pair-matching-in-cluster-randomized-experiments-with-application-to-the-mexican-universal-health-insurance-evaluation"
+date: "2009-01-01"
+authors:
+  - "Kosuke Imai"
+  - "Gary King"
+  - "Clayton Nall"
+publication_types:
+  - "journal_article"
+abstract: |-
+  A basic feature of many field experiments is that investigators are only able to randomize clusters of individuals–-such as households, communities, firms, medical practices, schools, or classrooms–-even when the individual is the unit of interest. To recoup the resulting efficiency loss, some studies pair similar clusters and randomize treatment within pairs. However, many other studies avoid pairing, in part because of claims in the literature, echoed by clinical trials standards organizations, that this matched-pair, cluster-randomization design has serious problems. We argue that all such claims are unfounded. We also prove that the estimator recommended for this design in the literature is unbiased only in situations when matching is unnecessary and and its standard error is also invalid. To overcome this problem without modeling assumptions, we develop a simple design-based estimator with much improved statistical properties. We also propose a model-based approach that includes some of the benefits of our design-based estimator as well as the estimator in the literature. Our methods also address individual-level noncompliance, which is common in applications but not allowed for in most existing methods. We show that from the perspective of bias, efficiency, power, robustness, or research costs, and in large or small samples, pairing should be used in cluster-randomized experiments whenever feasible and failing to do so is equivalent to discarding a considerable fraction of one's data. We develop these techniques in the context of a randomized evaluation we are conducting of the Mexican Universal Health Insurance Program.
+
+  Replication data at the Harvard Dataverse: [https://doi.org/10.7910/DVN/9RJGWB](https://doi.org/10.7910/DVN/9RJGWB).
+links:
+  - type: pdf
+    url: "files/cluster.pdf"
+publication: "Statistical Science, 24, 1, Pp. 29–53"
+related_papers:
+- matched-pairs-and-the-future-of-cluster-randomized-experiments-a-rejoinder
+---
