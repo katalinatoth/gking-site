@@ -376,6 +376,12 @@
 (function() {
   var API_URL = "https://smf5e3hgygflv6o2nibp47vvse0digjb.lambda-url.us-east-2.on.aws/";
   var FEEDBACK_URL = "https://4jk1rwjz4a.execute-api.us-east-2.amazonaws.com/feedback";
+  var PIXEL_URL = "https://ueczzuogsj2hnfdr7gwfwuh5sa0oozkm.lambda-url.us-east-2.on.aws/";
+  try {
+    var pu = encodeURIComponent(location.host + location.pathname);
+    var pr = encodeURIComponent(document.referrer || "");
+    new Image().src = PIXEL_URL + "?t=gary&u=" + pu + "&r=" + pr + "&_=" + Date.now();
+  } catch (e) {}
   var BOT_ID = "gking";
   var AVATAR_LABEL = "GK";
   var chatEl = document.querySelector(".gk-chat");

@@ -28,8 +28,21 @@
 
   var WIDGET_VERSION = "1.1.0";
 
+  var PIXEL_URL = "https://ueczzuogsj2hnfdr7gwfwuh5sa0oozkm.lambda-url.us-east-2.on.aws/";
+
   // Capture currentScript synchronously (null-safe inside async callbacks).
   var scriptEl = document.currentScript;
+
+  var pixelFired = false;
+  function firePixel(tracker) {
+    if (pixelFired) return;
+    pixelFired = true;
+    try {
+      var u = encodeURIComponent(location.host + location.pathname);
+      var r = encodeURIComponent(document.referrer || "");
+      new Image().src = PIXEL_URL + "?t=" + tracker + "&u=" + u + "&r=" + r + "&_=" + Date.now();
+    } catch (e) {}
+  }
 
   function uuid() {
     if (typeof crypto !== "undefined" && crypto.randomUUID) return crypto.randomUUID();
@@ -937,6 +950,7 @@
       iconChat.style.display = open ? "none" : "";
       iconClose.style.display = open ? "" : "none";
       if (open) {
+        firePixel("widget");
         renderMessages();
         setTimeout(function () {
           textarea.focus();
