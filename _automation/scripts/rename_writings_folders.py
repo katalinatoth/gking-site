@@ -35,7 +35,7 @@ STATIC_FILES = ROOT / "_site" / "static" / "files"
 
 def _git_dirty() -> bool:
     result = subprocess.run(
-        ["git", "status", "--porcelain"], capture_output=True, text=True, cwd=ROOT
+        ["git", "status", "--porcelain", "-uno"], capture_output=True, text=True, cwd=ROOT
     )
     return bool(result.stdout.strip())
 
