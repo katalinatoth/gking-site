@@ -16,7 +16,7 @@
      the entry lives on at /publication/), and only fall back to the
      front-matter publication_types when the legacy map has no opinion. */}}
 {{ $wlMap := site.Data.writings_legacy_map | default (dict "entries" dict) }}
-{{ $legacyMeta := index $wlMap.entries (path.Base $page.RelPermalink) }}
+{{ $legacyMeta := index $wlMap.entries (path.Base (path.Dir $page.File.Path)) }}
 {{ $legacyTab := "" }}
 {{ $legacyDrupal := "" }}
 {{ with $legacyMeta }}

@@ -299,7 +299,7 @@ def cmd_software(args: argparse.Namespace) -> dict[str, Any]:
     )
 
     target_md = _section_dir("software") / slug / "index.md"
-    legacy_map = ROOT / "data" / "writings_legacy_map.json"
+    legacy_map = ROOT / "EditMe" / "Writings" / "Data" / "writings_legacy_map.json"
     drupal, tab = _drupal_tab_for("software", pub_types)
     rows_file = _append_software_row(
         slug=slug,
@@ -356,7 +356,7 @@ def cmd_patent(args: argparse.Namespace) -> dict[str, Any]:
     )
 
     target_md = _section_dir("patent") / slug / "index.md"
-    legacy_map = ROOT / "data" / "writings_legacy_map.json"
+    legacy_map = ROOT / "EditMe" / "Writings" / "Data" / "writings_legacy_map.json"
     drupal, tab = _drupal_tab_for("patent", pub_types)
 
     if not args.dry_run:
@@ -406,7 +406,7 @@ def cmd_paper(args: argparse.Namespace) -> dict[str, Any]:
     )
 
     target_md = _section_dir("paper") / slug / "index.md"
-    legacy_map = ROOT / "data" / "writings_legacy_map.json"
+    legacy_map = ROOT / "EditMe" / "Writings" / "Data" / "writings_legacy_map.json"
     drupal, tab = _drupal_tab_for("paper", pub_types)
 
     if not args.dry_run:
@@ -456,7 +456,7 @@ def cmd_talk(args: argparse.Namespace) -> dict[str, Any]:
     )
 
     target_md = _section_dir("talk") / slug / "index.md"
-    legacy_map = ROOT / "data" / "writings_legacy_map.json"
+    legacy_map = ROOT / "EditMe" / "Writings" / "Data" / "writings_legacy_map.json"
     drupal, tab = _drupal_tab_for("talk", pub_types)
 
     if not args.dry_run:
@@ -512,7 +512,7 @@ def cmd_book(args: argparse.Namespace) -> dict[str, Any]:
     )
 
     target_md = _section_dir("book") / slug / "index.md"
-    legacy_map = ROOT / "data" / "writings_legacy_map.json"
+    legacy_map = ROOT / "EditMe" / "Writings" / "Data" / "writings_legacy_map.json"
     drupal, tab = _drupal_tab_for("book", pub_types)
 
     if not args.dry_run:

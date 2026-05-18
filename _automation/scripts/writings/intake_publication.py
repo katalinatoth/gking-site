@@ -72,6 +72,7 @@ import yaml
 # so the repo root is three levels up.
 THIS_DIR = Path(__file__).resolve().parent
 ROOT = THIS_DIR.parents[2]
+sys.path.insert(0, str(ROOT / "_automation" / "lib"))
 
 _doi_spec = importlib.util.spec_from_file_location(
     "fill_publication_from_doi", THIS_DIR / "fill_publication_from_doi.py"
@@ -107,19 +108,30 @@ PUB_TYPE_TO_TAB = {
 }
 
 
-def slugify(text: str, max_len: int = 80) -> str:
-    """URL-safe slug. Mirrors the convention in existing EditMe/Writings/* dirs."""
+def slugify(text: str, max_len: int = 0) -> str:
+    """URL-safe slug matching Hugo's :slug derivation.
+
+    Uses the canonical public_slug() from _automation/lib/slug.py.
+    The max_len parameter is accepted for backward compatibility but
+    ignored (no truncation).
+    """
     if not text:
         return "paper"
-    s = unicodedata.normalize("NFKD", text)
-    s = s.encode("ascii", "ignore").decode("ascii")
-    s = s.lower()
-    s = re.sub(r"['\u2018\u2019\u201c\u201d`]+", "", s)
-    s = re.sub(r"[^a-z0-9]+", "-", s)
-    s = s.strip("-")
-    if len(s) > max_len:
-        s = s[:max_len].rstrip("-")
-    return s or "paper"
+    try:
+        from slug import public_slug as _public_slug
+        return _public_slug(text) or "paper"
+    except ImportError:
+        pass
+    # Inline fallback matching _automation/lib/slug.py:
+    out: list[str] = []
+    for ch in text.lower():
+        if ch.isalnum() or ch in (".", "-"):
+            out.append(ch)
+        elif ch.isspace():
+            out.append("-")
+    s = "".join(out)
+    s = re.sub(r"-{2,}", "-", s)
+    return s.strip("-") or "paper"
 
 
 def _pdf_text(pdf: Path, max_pages: int = 3) -> str:
@@ -857,6 +869,7 @@ def run(pdf_path: Path, dry_run: bool = False) -> dict[str, Any]:
 
     fm: dict[str, Any] = {
         "title": title,
+        "slug": slug,
         "date": f"{year}-01-01" if year else "2026-01-01",
         "authors": authors,
         "publication_types": pub_types,
