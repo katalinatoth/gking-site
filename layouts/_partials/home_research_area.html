@@ -32,26 +32,30 @@
     {{ end }}
     {{ if eq (len $subsWithPapers) 1 }}
       {{ $only := index $subsWithPapers 0 }}
+      {{ $pages := slice }}
+      {{ range $only.papers }}
+        {{ $page := site.GetPage (printf "/%s/%s" .section .slug) }}
+        {{ with $page }}{{ $pages = $pages | append . }}{{ end }}
+      {{ end }}
       <ul style="list-style:none;padding:0;margin:4px 0 4px;">
-        {{ range $only.papers }}
-          {{ $page := site.GetPage (printf "/%s/%s" .section .slug) }}
-          {{ with $page }}
+        {{ range sort $pages "Date" "desc" }}
           {{ partial "research_areas_pub_item" (dict "page" . "compact" true) }}
-          {{ end }}
         {{ end }}
       </ul>
     {{ else }}
       {{ range $subsWithPapers }}
+      {{ $pages := slice }}
+      {{ range .papers }}
+        {{ $page := site.GetPage (printf "/%s/%s" .section .slug) }}
+        {{ with $page }}{{ $pages = $pages | append . }}{{ end }}
+      {{ end }}
       <details class="gk-hp-subcat" style="margin-top:4px;">
         <summary style="font-size:0.8rem;cursor:pointer;color:#337ab7;padding:2px 0;list-style:none;display:flex;align-items:center;gap:4px;">
           <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span> {{ .name }}
         </summary>
         <ul style="list-style:none;padding:0 0 0 12px;margin:4px 0 8px;">
-          {{ range .papers }}
-            {{ $page := site.GetPage (printf "/%s/%s" .section .slug) }}
-            {{ with $page }}
+          {{ range sort $pages "Date" "desc" }}
             {{ partial "research_areas_pub_item" (dict "page" . "compact" true) }}
-            {{ end }}
           {{ end }}
         </ul>
       </details>

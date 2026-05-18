@@ -20,12 +20,17 @@
             {
               "title": "Enhancing the Validity and Cross-Cultural Comparability of Measurement in Survey Research",
               "section": "publication",
-              "slug": "enhancing-the-validity-and-cross-cultural-comparability-of-measurement-in-survey"
+              "slug": "enhancing-the-validity-and-cross-cultural-comparability-of-measurement-in-survey-research"
             },
             {
               "title": "Improving Anchoring Vignettes: Designing Surveys to Correct Interpersonal Incomparability",
               "section": "publication",
-              "slug": "improving-anchoring-vignettes-designing-surveys-to-correct-interpersonal-incompa"
+              "slug": "improving-anchoring-vignettes-designing-surveys-to-correct-interpersonal-incomparability"
+            },
+            {
+              "title": "Anchors: Software for Anchoring Vignettes Data",
+              "section": "publication",
+              "slug": "anchors-software-for-anchoring-vignettes-data-jss"
             }
           ]
         }
@@ -46,12 +51,12 @@
             {
               "title": "An Automated Information Extraction Tool For International Conflict Data With Performance As Good As Human Coders: A Rare Events Evaluation Design",
               "section": "publication",
-              "slug": "an-automated-information-extraction-tool-for-international-conflict-data-with-pe"
+              "slug": "an-automated-information-extraction-tool-for-international-conflict-data-with-performance-as-good-as-human-coders-a-rare-events-evaluation-design"
             },
             {
               "title": "An Improved Method of Automated Nonparametric Content Analysis for Social Science",
               "section": "publication",
-              "slug": "an-improved-method-of-automated-nonparametric-content-analysis-for-social-scienc"
+              "slug": "an-improved-method-of-automated-nonparametric-content-analysis-for-social-science"
             },
             {
               "title": "Computer-Assisted Keyword and Document Set Discovery from Unstructured Text",
@@ -66,22 +71,12 @@
             {
               "title": "How Censorship in China Allows Government Criticism But Silences Collective Expression",
               "section": "publication",
-              "slug": "how-censorship-in-china-allows-government-criticism-but-silences-collective-expr-2013"
-            },
-            {
-              "title": "Method and Apparatus for Selecting Clusterings to Classify A Predetermined Data Set",
-              "section": "publication",
-              "slug": "method-and-apparatus-for-selecting-clusterings-to-classify-a-predetermined-data"
-            },
-            {
-              "title": "Participant Grouping for Enhanced Interactive Experience",
-              "section": "publication",
-              "slug": "participant-grouping-for-enhanced-interactive-experience"
+              "slug": "how-censorship-in-china-allows-government-criticism-but-silences-collective-expression"
             },
             {
               "title": "Reverse-Engineering Censorship in China: Randomized Experimentation and Participant Observation",
               "section": "publication",
-              "slug": "reverse-engineering-censorship-in-china-randomized-experimentation-and-participa"
+              "slug": "reverse-engineering-censorship-in-china-randomized-experimentation-and-participant-observation"
             },
             {
               "title": "Some Statistical Methods for Evaluating Information Extraction Systems",
@@ -89,24 +84,24 @@
               "slug": "some-statistical-methods-for-evaluating-information-extraction-systems"
             },
             {
-              "title": "System for Estimating a Distribution of Message Content Categories in Source Data",
-              "section": "publication",
-              "slug": "system-for-estimating-a-distribution-of-message-content-categories-in-source-dat-2012"
-            },
-            {
-              "title": "System for Estimating a Distribution of Message Content Categories in Source Data (2nd)",
-              "section": "publication",
-              "slug": "system-for-estimating-a-distribution-of-message-content-categories-in-source-dat"
-            },
-            {
-              "title": "Systems and Methods for Calculating Category Proportions",
-              "section": "publication",
-              "slug": "systems-and-methods-for-calculating-category-proportions"
-            },
-            {
               "title": "You Lie! Patterns of Partisan Taunting in the U.S. Senate (Poster)",
               "section": "publication",
-              "slug": "you-lie-patterns-of-partisan-taunting-in-the-us-senate-poster"
+              "slug": "you-lie-patterns-of-partisan-taunting-in-the-u.s.-senate-poster"
+            },
+            {
+              "title": "Inducing Sustained Creativity and Diversity in Large Language Models",
+              "section": "publication",
+              "slug": "inducing-sustained-creativity-and-diversity-in-large-language-models"
+            },
+            {
+              "title": "Computational Social Science: Obstacles and Opportunities",
+              "section": "publication",
+              "slug": "computational-social-science-obstacles-and-opportunities"
+            },
+            {
+              "title": "The SilverLining Project: Finding Social Good in Clouds on the Dark Web",
+              "section": "publication",
+              "slug": "the-silverlining-project-finding-social-good-in-clouds-on-the-dark-web"
             }
           ]
         },
@@ -148,6 +143,16 @@
               "title": "When Can History Be Our Guide? The Pitfalls of Counterfactual Inference",
               "section": "publication",
               "slug": "when-can-history-be-our-guide-the-pitfalls-of-counterfactual-inference"
+            },
+            {
+              "title": "Detecting Model Dependence in Statistical Inference: A Response",
+              "section": "publication",
+              "slug": "detecting-model-dependence-in-statistical-inference-a-response"
+            },
+            {
+              "title": "Empirical versus Theoretical Claims about Extreme Counterfactuals: A Response",
+              "section": "publication",
+              "slug": "empirical-versus-theoretical-claims-about-extreme-counterfactuals-a-response"
             }
           ]
         },
@@ -182,7 +187,7 @@
             {
               "title": "Matching As Nonparametric Preprocessing for Reducing Model Dependence in Parametric Causal Inference",
               "section": "publication",
-              "slug": "matching-as-nonparametric-preprocessing-for-reducing-model-dependence-in-paramet"
+              "slug": "matching-as-nonparametric-preprocessing-for-reducing-model-dependence-in-parametric-causal-inference"
             },
             {
               "title": "MatchIt: Nonparametric Preprocessing for Parametric Causal Inference",
@@ -223,6 +228,11 @@
               "title": "Estimating Risk and Rate Levels, Ratios, and Differences in Case-Control Studies",
               "section": "publication",
               "slug": "estimating-risk-and-rate-levels-ratios-and-differences-in-case-control-studies"
+            },
+            {
+              "title": "Misunderstandings Among Experimentalists and Observationalists about Causal Inference",
+              "section": "publication",
+              "slug": "misunderstandings-among-experimentalists-and-observationalists-about-causal-inference"
             }
           ]
         },
@@ -278,6 +288,26 @@
               "title": "The Supreme Court During Crisis: How War Affects only Non-War Cases",
               "section": "publication",
               "slug": "the-supreme-court-during-crisis-how-war-affects-only-non-war-cases"
+            },
+            {
+              "title": "Deaths From Heart Failure: Using Coarsened Exact Matching to Correct Cause of Death Statistics",
+              "section": "publication",
+              "slug": "deaths-from-heart-failure-using-coarsened-exact-matching-to-correct-cause-of-death-statistics"
+            },
+            {
+              "title": "Avoiding Randomization Failure in Program Evaluation",
+              "section": "publication",
+              "slug": "avoiding-randomization-failure-in-program-evaluation"
+            },
+            {
+              "title": "Experimental Evidence on the (Limited) Influence of Reputable Media Outlets",
+              "section": "publication",
+              "slug": "experimental-evidence-on-the-limited-influence-of-reputable-media-outlets"
+            },
+            {
+              "title": "Methods for Extremely Large Scale Media Experiments and Observational Studies (Poster)",
+              "section": "publication",
+              "slug": "methods-for-extremely-large-scale-media-experiments-and-observational-studies-poster"
             }
           ]
         }
@@ -303,7 +333,7 @@
             {
               "title": "Demographic Forecasting",
               "section": "publication",
-              "slug": "demographic-forecasting-2008"
+              "slug": "demographic-forecasting"
             },
             {
               "title": "Event Count Models for International Relations: Generalizations and Applications",
@@ -313,17 +343,17 @@
             {
               "title": "Presidential Appointments to the Supreme Court: Adding Systematic Explanation to Probabilistic Description",
               "section": "publication",
-              "slug": "presidential-appointments-to-the-supreme-court-adding-systematic-explanation-to"
+              "slug": "presidential-appointments-to-the-supreme-court-adding-systematic-explanation-to-probabilistic-description"
             },
             {
               "title": "Statistical Models for Political Science Event Counts: Bias in Conventional Procedures and Evidence for The Exponential Poisson Regression Model",
               "section": "publication",
-              "slug": "statistical-models-for-political-science-event-counts-bias-in-conventional-proce"
+              "slug": "statistical-models-for-political-science-event-counts-bias-in-conventional-procedures-and-evidence-for-the-exponential-poisson-regression-model"
             },
             {
               "title": "The Generalization in the Generalized Event Count Model, With Comments on Achen, Amato, and Londregan",
               "section": "publication",
-              "slug": "the-generalization-in-the-generalized-event-count-model-with-comments-on-achen-a"
+              "slug": "the-generalization-in-the-generalized-event-count-model-with-comments-on-achen-amato-and-londregan"
             },
             {
               "title": "Unifying Political Methodology: The Likelihood Theory of Statistical Inference",
@@ -333,7 +363,7 @@
             {
               "title": "Variance Specification in Event Count Models: From Restrictive Assumptions to a Generalized Estimator",
               "section": "publication",
-              "slug": "variance-specification-in-event-count-models-from-restrictive-assumptions-to-a-g"
+              "slug": "variance-specification-in-event-count-models-from-restrictive-assumptions-to-a-generalized-estimator"
             }
           ]
         },
@@ -348,7 +378,7 @@
             {
               "title": "Aggregation Among Binary, Count, and Duration Models: Estimating the Same Quantities from Different Levels of Data",
               "section": "publication",
-              "slug": "aggregation-among-binary-count-and-duration-models-estimating-the-same-quantitie"
+              "slug": "aggregation-among-binary-count-and-duration-models-estimating-the-same-quantities-from-different-levels-of-data"
             },
             {
               "title": "Transfers of Governmental Power: The Meaning of Time Dependence",
@@ -394,12 +424,12 @@
             {
               "title": "A Solution to the Ecological Inference Problem: Reconstructing Individual Behavior from Aggregate Data",
               "section": "publication",
-              "slug": "a-solution-to-the-ecological-inference-problem-reconstructing-individual-behavio"
+              "slug": "a-solution-to-the-ecological-inference-problem-reconstructing-individual-behavior-from-aggregate-data"
             },
             {
               "title": "Aggregation Among Binary, Count, and Duration Models: Estimating the Same Quantities from Different Levels of Data",
               "section": "publication",
-              "slug": "aggregation-among-binary-count-and-duration-models-estimating-the-same-quantitie"
+              "slug": "aggregation-among-binary-count-and-duration-models-estimating-the-same-quantities-from-different-levels-of-data"
             },
             {
               "title": "Bayesian and Frequentist Inference for Ecological Inference: The RxC Case",
@@ -414,7 +444,7 @@
             {
               "title": "Did Illegal Overseas Absentee Ballots Decide the 2000 U.S. Presidential Election?",
               "section": "publication",
-              "slug": "did-illegal-overseas-absentee-ballots-decide-the-2000-us-presidential-election"
+              "slug": "did-illegal-overseas-absentee-ballots-decide-the-2000-u.s.-presidential-election"
             },
             {
               "title": "Ecological Inference",
@@ -465,6 +495,11 @@
               "title": "Zelig: Everyone's Statistical Software",
               "section": "publication",
               "slug": "zelig-everyones-statistical-software"
+            },
+            {
+              "title": "A Preview of EI and EzI: Programs for Ecological Inference",
+              "section": "publication",
+              "slug": "a-preview-of-ei-and-ezi-programs-for-ecological-inference"
             }
           ]
         },
@@ -484,7 +519,7 @@
             {
               "title": "Finding New Information for Ecological Inference Models: A Comment on Jon Wakefield, 'Ecological Inference in 2X2 Tables'",
               "section": "publication",
-              "slug": "finding-new-information-for-ecological-inference-models-a-comment-on-jon-wakefie"
+              "slug": "finding-new-information-for-ecological-inference-models-a-comment-on-jon-wakefield-ecological-inference-in-2x2-tables"
             },
             {
               "title": "Geography, Statistics, and Ecological Inference",
@@ -494,12 +529,12 @@
             {
               "title": "Isolating Spatial Autocorrelation, Aggregation Bias, and Distributional Violations in Ecological Inference",
               "section": "publication",
-              "slug": "isolating-spatial-autocorrelation-aggregation-bias-and-distributional-violations"
+              "slug": "isolating-spatial-autocorrelation-aggregation-bias-and-distributional-violations-in-ecological-inference"
             },
             {
               "title": "The Future of Ecological Inference Research: A Reply to Freedman et Al.",
               "section": "publication",
-              "slug": "the-future-of-ecological-inference-research-a-reply-to-freedman-et-al"
+              "slug": "the-future-of-ecological-inference-research-a-reply-to-freedman-et-al."
             }
           ]
         }
@@ -520,12 +555,12 @@
             {
               "title": "Letter to US Census Bureau: 'Request for Release of 'noisy Measurements File' by September 30 Along With Redistricting Data Products'",
               "section": "publication",
-              "slug": "letter-to-us-census-bureau-request-for-release-of-noisy-measurements-file-by-sep"
+              "slug": "letter-to-us-census-bureau-request-for-release-of-noisy-measurements-file-by-september-30-along-with-redistricting-data-products"
             },
             {
               "title": "Statistically Valid Inferences from Differentially Private Data Releases, With Application to the Facebook URLs Dataset",
               "section": "publication",
-              "slug": "statistically-valid-inferences-from-differentially-private-data-releases-with-ap"
+              "slug": "statistically-valid-inferences-from-differentially-private-data-releases-with-application-to-the-facebook-urls-dataset"
             },
             {
               "title": "Statistically Valid Inferences from Privacy Protected Data",
@@ -536,6 +571,16 @@
               "title": "There's a Simple Solution to the Latest Census Fight",
               "section": "publication",
               "slug": "theres-a-simple-solution-to-the-latest-census-fight"
+            },
+            {
+              "title": "Statistically Valid Inferences from Differentially Private Data Releases, II: Extensions to Nonlinear Transformations",
+              "section": "publication",
+              "slug": "statistically-valid-inferences-from-differentially-private-data-releases-ii-extensions-to-nonlinear-transformations"
+            },
+            {
+              "title": "Evaluating the Impacts of Swapping on the US Decennial Census",
+              "section": "publication",
+              "slug": "evaluating-the-impacts-of-swapping-on-the-us-decennial-census"
             }
           ]
         },
@@ -560,12 +605,12 @@
             {
               "title": "A Unified Approach to Measurement Error and Missing Data: Overview and Applications",
               "section": "publication",
-              "slug": "a-unified-approach-to-measurement-error-and-missing-data-overview-and-applicatio"
+              "slug": "a-unified-approach-to-measurement-error-and-missing-data-overview-and-applications"
             },
             {
               "title": "Analyzing Incomplete Political Science Data: An Alternative Algorithm for Multiple Imputation",
               "section": "publication",
-              "slug": "analyzing-incomplete-political-science-data-an-alternative-algorithm-for-multipl"
+              "slug": "analyzing-incomplete-political-science-data-an-alternative-algorithm-for-multiple-imputation"
             },
             {
               "title": "Not Asked and Not Answered: Multiple Imputation for Multiple Surveys",
@@ -581,6 +626,11 @@
               "title": "What to Do About Missing Values in Time Series Cross-Section Data",
               "section": "publication",
               "slug": "what-to-do-about-missing-values-in-time-series-cross-section-data"
+            },
+            {
+              "title": "Correcting Measurement Error Bias in Conjoint Survey Experiments",
+              "section": "publication",
+              "slug": "correcting-measurement-error-bias-in-conjoint-survey-experiments"
             }
           ]
         },
@@ -615,7 +665,7 @@
             {
               "title": "Pre-Election Survey Methodology: Details From Nine Polling Organizations, 1988 and 1992",
               "section": "publication",
-              "slug": "pre-election-survey-methodology-details-from-nine-polling-organizations-1988-and"
+              "slug": "pre-election-survey-methodology-details-from-nine-polling-organizations-1988-and-1992"
             }
           ]
         }
@@ -636,7 +686,7 @@
             {
               "title": "Designing Social Inquiry: Scientific Inference in Qualitative Research, New Edition",
               "section": "publication",
-              "slug": "designing-social-inquiry-scientific-inference-in-qualitative-research-new-editio"
+              "slug": "designing-social-inquiry-scientific-inference-in-qualitative-research-new-edition"
             },
             {
               "title": "How Not to Lie Without Statistics",
@@ -662,6 +712,16 @@
               "title": "The Rules of Inference",
               "section": "publication",
               "slug": "the-rules-of-inference"
+            },
+            {
+              "title": "Empirical Research and The Goals of Legal Scholarship: A Response",
+              "section": "publication",
+              "slug": "empirical-research-and-the-goals-of-legal-scholarship-a-response"
+            },
+            {
+              "title": "Why Context Should Not Count",
+              "section": "publication",
+              "slug": "why-context-should-not-count"
             }
           ]
         }
@@ -697,7 +757,7 @@
             {
               "title": "Inference in Case-Control Studies",
               "section": "publication",
-              "slug": "inference-in-case-control-studies-2004"
+              "slug": "inference-in-case-control-studies"
             }
           ]
         },
@@ -717,12 +777,12 @@
             {
               "title": "Aggregation Among Binary, Count, and Duration Models: Estimating the Same Quantities from Different Levels of Data",
               "section": "publication",
-              "slug": "aggregation-among-binary-count-and-duration-models-estimating-the-same-quantitie"
+              "slug": "aggregation-among-binary-count-and-duration-models-estimating-the-same-quantities-from-different-levels-of-data"
             },
             {
               "title": "Estimating the Probability of Events That Have Never Occurred: When Is Your Vote Decisive?",
               "section": "publication",
-              "slug": "estimating-the-probability-of-events-that-have-never-occurred-when-is-your-vote"
+              "slug": "estimating-the-probability-of-events-that-have-never-occurred-when-is-your-vote-decisive"
             }
           ]
         },
@@ -768,7 +828,7 @@
             {
               "title": "Death by Survey: Estimating Adult Mortality Without Selection Bias from Sibling Survival Data",
               "section": "publication",
-              "slug": "death-by-survey-estimating-adult-mortality-without-selection-bias-from-sibling-s"
+              "slug": "death-by-survey-estimating-adult-mortality-without-selection-bias-from-sibling-survival-data"
             },
             {
               "title": "Designing Verbal Autopsy Studies",
@@ -783,22 +843,22 @@
             {
               "title": "Evaluating COVID-19 Public Health Messaging in Italy: Self-Reported Compliance and Growing Mental Health Concerns",
               "section": "publication",
-              "slug": "evaluating-covid-19-public-health-messaging-in-italy-self-reported-compliance-an"
+              "slug": "evaluating-covid-19-public-health-messaging-in-italy-self-reported-compliance-and-growing-mental-health-concerns"
             },
             {
               "title": "How to Measure Legislative District Compactness If You Only Know It When You See It",
               "section": "publication",
-              "slug": "how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-2021"
+              "slug": "how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-it"
             },
             {
               "title": "Measuring Total Health Inequality: Adding Individual Variation to Group-Level Differences",
               "section": "publication",
-              "slug": "measuring-total-health-inequality-adding-individual-variation-to-group-level-dif"
+              "slug": "measuring-total-health-inequality-adding-individual-variation-to-group-level-differences"
             },
             {
               "title": "Pre-Election Survey Methodology: Details From Nine Polling Organizations, 1988 and 1992",
               "section": "publication",
-              "slug": "pre-election-survey-methodology-details-from-nine-polling-organizations-1988-and"
+              "slug": "pre-election-survey-methodology-details-from-nine-polling-organizations-1988-and-1992"
             },
             {
               "title": "Verbal Autopsy Methods With Multiple Causes of Death",
@@ -808,7 +868,22 @@
             {
               "title": "Why Are American Presidential Election Campaign Polls so Variable When Votes Are so Predictable?",
               "section": "publication",
-              "slug": "why-are-american-presidential-election-campaign-polls-so-variable-when-votes-are"
+              "slug": "why-are-american-presidential-election-campaign-polls-so-variable-when-votes-are-so-predictable"
+            },
+            {
+              "title": "Who's to Blame for Survey Instability: Respondents with Nonexistent Preferences or Researchers with Flawed Measures?",
+              "section": "publication",
+              "slug": "whos-to-blame-for-survey-instability-respondents-with-nonexistent-preferences-or-researchers-with-flawed-measures"
+            },
+            {
+              "title": "Estimating Incidence Curves of Several Infections Using Symptom Surveillance Data",
+              "section": "publication",
+              "slug": "estimating-incidence-curves-of-several-infections-using-symptom-surveillance-data"
+            },
+            {
+              "title": "Survey Estimates of Wartime Mortality",
+              "section": "publication",
+              "slug": "survey-estimates-of-wartime-mortality"
             }
           ]
         }
@@ -824,7 +899,7 @@
             {
               "title": "Calculating Standard Errors of Predicted Values Based on Nonlinear Functional Forms",
               "section": "publication",
-              "slug": "calculating-standard-errors-of-predicted-values-based-on-nonlinear-functional-fo"
+              "slug": "calculating-standard-errors-of-predicted-values-based-on-nonlinear-functional-forms"
             },
             {
               "title": "CLARIFY: Software for Interpreting and Presenting Statistical Results",
@@ -839,12 +914,12 @@
             {
               "title": "How Robust Standard Errors Expose Methodological Problems They Do Not Fix, and What to Do About It",
               "section": "publication",
-              "slug": "how-robust-standard-errors-expose-methodological-problems-they-do-not-fix-and-wh"
+              "slug": "how-robust-standard-errors-expose-methodological-problems-they-do-not-fix-and-what-to-do-about-it"
             },
             {
               "title": "Making the Most of Statistical Analyses: Improving Interpretation and Presentation",
               "section": "publication",
-              "slug": "making-the-most-of-statistical-analyses-improving-interpretation-and-presentatio"
+              "slug": "making-the-most-of-statistical-analyses-improving-interpretation-and-presentation"
             },
             {
               "title": "The Parable of Google Flu: Traps in Big Data Analysis",
@@ -870,6 +945,16 @@
               "title": "Zelig: Everyone's Statistical Software",
               "section": "publication",
               "slug": "zelig-everyones-statistical-software"
+            },
+            {
+              "title": "A Theory of Statistical Inference for Ensuring the Robustness of Scientific Results",
+              "section": "publication",
+              "slug": "a-theory-of-statistical-inference-for-ensuring-the-robustness-of-scientific-results"
+            },
+            {
+              "title": "Stochastic Variation: A Comment on Lewis-Beck and Skalaban's 'The R-Square'",
+              "section": "publication",
+              "slug": "stochastic-variation-a-comment-on-lewis-beck-and-skalabans-the-r-square"
             }
           ]
         },
@@ -879,7 +964,7 @@
             {
               "title": "How Not to Lie With Statistics: Avoiding Common Mistakes in Quantitative Political Science",
               "section": "publication",
-              "slug": "how-not-to-lie-with-statistics-avoiding-common-mistakes-in-quantitative-politica"
+              "slug": "how-not-to-lie-with-statistics-avoiding-common-mistakes-in-quantitative-political-science"
             },
             {
               "title": "Numerical Issues Involved in Inverting Hessian Matrices",
@@ -894,12 +979,22 @@
             {
               "title": "The Changing Evidence Base of Social Science Research",
               "section": "publication",
-              "slug": "the-changing-evidence-base-of-social-science-research-2009"
+              "slug": "the-changing-evidence-base-of-social-science-research"
             },
             {
               "title": "What to Do When Your Hessian Is Not Invertible: Alternatives to Model Respecification in Nonlinear Estimation",
               "section": "publication",
-              "slug": "what-to-do-when-your-hessian-is-not-invertible-alternatives-to-model-respecifica"
+              "slug": "what-to-do-when-your-hessian-is-not-invertible-alternatives-to-model-respecification-in-nonlinear-estimation"
+            },
+            {
+              "title": "Comment on 'Estimating the Reproducibility of Psychological Science'",
+              "section": "publication",
+              "slug": "comment-on-estimating-the-reproducibility-of-psychological-science"
+            },
+            {
+              "title": "If a Statistical Model Predicts That Common Events Should Occur Only Once in 10,000 Elections, Maybe It's the Wrong Model",
+              "section": "publication",
+              "slug": "if-a-statistical-model-predicts-that-common-events-should-occur-only-once-in-10000-elections-maybe-its-the-wrong-model"
             }
           ]
         }
@@ -917,12 +1012,12 @@
             {
               "title": "Explaining Systematic Bias and Nontransparency in US Social Security Administration Forecasts",
               "section": "publication",
-              "slug": "explaining-systematic-bias-and-nontransparency-in-us-social-security-administrat-2015-215"
+              "slug": "explaining-systematic-bias-and-nontransparency-in-us-social-security-administration-forecasts"
             },
             {
               "title": "Systematic Bias and Nontransparency in US Social Security Administration Forecasts",
               "section": "publication",
-              "slug": "systematic-bias-and-nontransparency-in-us-social-security-administration-forecas"
+              "slug": "systematic-bias-and-nontransparency-in-us-social-security-administration-forecasts"
             }
           ]
         },
@@ -932,17 +1027,17 @@
             {
               "title": "Demographic Forecasting",
               "section": "publication",
-              "slug": "demographic-forecasting-2008"
+              "slug": "demographic-forecasting"
             },
             {
               "title": "Replication Data For: Explaining Systematic Bias and Nontransparency in U.S. Social Security Administration Forecasts.",
               "section": "publication",
-              "slug": "replication-data-for-explaining-systematic-bias-and-nontransparency-in-us-social"
+              "slug": "replication-data-for-explaining-systematic-bias-and-nontransparency-in-u.s.-social-security-administration-forecasts."
             },
             {
               "title": "Replication Data For: Systematic Bias and Nontransparency in U.S. Social Security Administration Forecasts.",
               "section": "publication",
-              "slug": "replication-data-for-systematic-bias-and-nontransparency-in-us-social-security-a"
+              "slug": "replication-data-for-systematic-bias-and-nontransparency-in-u.s.-social-security-administration-forecasts."
             },
             {
               "title": "Scoring Social Security Proposals: Response from Kashin, King, and Soneji",
@@ -973,17 +1068,22 @@
             {
               "title": "How Censorship in China Allows Government Criticism But Silences Collective Expression",
               "section": "publication",
-              "slug": "how-censorship-in-china-allows-government-criticism-but-silences-collective-expr-2013"
+              "slug": "how-censorship-in-china-allows-government-criticism-but-silences-collective-expression"
             },
             {
               "title": "How the Chinese Government Fabricates Social Media Posts for Strategic Distraction, Not Engaged Argument",
               "section": "publication",
-              "slug": "how-the-chinese-government-fabricates-social-media-posts-for-strategic-distracti-2017-166"
+              "slug": "how-the-chinese-government-fabricates-social-media-posts-for-strategic-distraction-not-engaged-argument"
             },
             {
               "title": "Reverse-Engineering Censorship in China: Randomized Experimentation and Participant Observation",
               "section": "publication",
-              "slug": "reverse-engineering-censorship-in-china-randomized-experimentation-and-participa"
+              "slug": "reverse-engineering-censorship-in-china-randomized-experimentation-and-participant-observation"
+            },
+            {
+              "title": "Archive of the Controversy Involving Wendy K. Tam Cho, Brian J. Gaines, and the American Political Science Review",
+              "section": "publication",
+              "slug": "archive-of-the-controversy-involving-wendy-k.-tam-cho-brian-j.-gaines-and-the-american-political-science-review"
             }
           ]
         }
@@ -1024,7 +1124,17 @@
             {
               "title": "Systemic Consequences of Incumbency Advantage in the U.S. House",
               "section": "publication",
-              "slug": "systemic-consequences-of-incumbency-advantage-in-the-us-house"
+              "slug": "systemic-consequences-of-incumbency-advantage-in-the-u.s.-house"
+            },
+            {
+              "title": "Electoral Responsiveness in U.S. Congressional Elections, 1946-1986",
+              "section": "publication",
+              "slug": "electoral-responsiveness-in-u.s.-congressional-elections-1946-1986"
+            },
+            {
+              "title": "How American Politics Ensures Electoral Accountability in Congress",
+              "section": "publication",
+              "slug": "how-american-politics-ensures-electoral-accountability-in-congress"
             }
           ]
         },
@@ -1055,12 +1165,12 @@
             {
               "title": "A 'Politically Robust' Experimental Design for Public Policy Evaluation, With Application to the Mexican Universal Health Insurance Program",
               "section": "publication",
-              "slug": "a-politically-robust-experimental-design-for-public-policy-evaluation-with-appli-2007"
+              "slug": "a-politically-robust-experimental-design-for-public-policy-evaluation-with-application-to-the-mexican-universal-health-insurance-program"
             },
             {
               "title": "Do Nonpartisan Programmatic Policies Have Partisan Electoral Effects? Evidence from Two Large Scale Experiments",
               "section": "publication",
-              "slug": "do-nonpartisan-programmatic-policies-have-partisan-electoral-effects-evidence-fr"
+              "slug": "do-nonpartisan-programmatic-policies-have-partisan-electoral-effects-evidence-from-two-large-scale-experiments"
             },
             {
               "title": "Matched Pairs and the Future of Cluster-Randomized Experiments: A Rejoinder",
@@ -1070,17 +1180,22 @@
             {
               "title": "Public Policy for the Poor? A Randomised Assessment of the Mexican Universal Health Insurance Programme",
               "section": "publication",
-              "slug": "public-policy-for-the-poor-a-randomised-assessment-of-the-mexican-universal-heal"
+              "slug": "public-policy-for-the-poor-a-randomised-assessment-of-the-mexican-universal-health-insurance-programme"
             },
             {
               "title": "Replication Data For: Public Policy for the Poor? A Randomised Assessment of the Mexican Universal Health Insurance Programme",
               "section": "publication",
-              "slug": "replication-data-for-public-policy-for-the-poor-a-randomised-assessment-of-the-m"
+              "slug": "replication-data-for-public-policy-for-the-poor-a-randomised-assessment-of-the-mexican-universal-health-insurance-programme"
             },
             {
               "title": "The Essential Role of Pair Matching in Cluster-Randomized Experiments, With Application to the Mexican Universal Health Insurance Evaluation",
               "section": "publication",
-              "slug": "the-essential-role-of-pair-matching-in-cluster-randomized-experiments-with-appli"
+              "slug": "the-essential-role-of-pair-matching-in-cluster-randomized-experiments-with-application-to-the-mexican-universal-health-insurance-evaluation"
+            },
+            {
+              "title": "Effectiveness of the WHO Safe Childbirth Checklist Program in Reducing Severe Maternal, Fetal, and Newborn Harm",
+              "section": "publication",
+              "slug": "effectiveness-of-the-who-safe-childbirth-checklist-program-in-reducing-severe-maternal-fetal-and-newborn-harm-study-protocol-for-a-matched-pair-cluster-randomized-controlled-trial-in-uttar-pradesh-india"
             }
           ]
         }
@@ -1096,17 +1211,17 @@
             {
               "title": "Expert Report of Gary King, in Bowyer et Al. V. Ducey (Governor) et Al., US District Court, District of Arizona",
               "section": "publication",
-              "slug": "expert-report-of-gary-king-in-bowyer-et-al-v-ducey-governor-et-al-us-district-co"
+              "slug": "expert-report-of-gary-king-in-bowyer-et-al.-v.-ducey-governor-et-al.-us-district-court-district-of-arizona"
             },
             {
               "title": "How the News Media Activate Public Expression and Influence National Agendas",
               "section": "publication",
-              "slug": "how-the-news-media-activate-public-expression-and-influence-national-agendas-2017"
+              "slug": "how-the-news-media-activate-public-expression-and-influence-national-agendas"
             },
             {
               "title": "The Stability of Party Identification Among U.S. Representatives: Political Loyalty, 1789-1984",
               "section": "publication",
-              "slug": "the-stability-of-party-identification-among-us-representatives-political-loyalty"
+              "slug": "the-stability-of-party-identification-among-u.s.-representatives-political-loyalty-1789-1984"
             }
           ]
         },
@@ -1121,27 +1236,27 @@
             {
               "title": "Did Illegal Overseas Absentee Ballots Decide the 2000 U.S. Presidential Election?",
               "section": "publication",
-              "slug": "did-illegal-overseas-absentee-ballots-decide-the-2000-us-presidential-election"
+              "slug": "did-illegal-overseas-absentee-ballots-decide-the-2000-u.s.-presidential-election"
             },
             {
               "title": "Do Nonpartisan Programmatic Policies Have Partisan Electoral Effects? Evidence from Two Large Scale Experiments",
               "section": "publication",
-              "slug": "do-nonpartisan-programmatic-policies-have-partisan-electoral-effects-evidence-fr"
+              "slug": "do-nonpartisan-programmatic-policies-have-partisan-electoral-effects-evidence-from-two-large-scale-experiments"
             },
             {
               "title": "Estimating Partisan Bias of the Electoral College Under Proposed Changes in Elector Apportionment",
               "section": "publication",
-              "slug": "estimating-partisan-bias-of-the-electoral-college-under-proposed-changes-in-elec"
+              "slug": "estimating-partisan-bias-of-the-electoral-college-under-proposed-changes-in-elector-apportionment"
             },
             {
               "title": "Estimating the Probability of Events That Have Never Occurred: When Is Your Vote Decisive?",
               "section": "publication",
-              "slug": "estimating-the-probability-of-events-that-have-never-occurred-when-is-your-vote"
+              "slug": "estimating-the-probability-of-events-that-have-never-occurred-when-is-your-vote-decisive"
             },
             {
               "title": "No Evidence on Directional Vs. Proximity Voting",
               "section": "publication",
-              "slug": "no-evidence-on-directional-vs-proximity-voting"
+              "slug": "no-evidence-on-directional-vs.-proximity-voting"
             },
             {
               "title": "On Party Platforms, Mandates, and Government Spending",
@@ -1156,7 +1271,7 @@
             {
               "title": "Party Competition and Media Messages in U.S. Presidential Election Campaigns",
               "section": "publication",
-              "slug": "party-competition-and-media-messages-in-us-presidential-election-campaigns"
+              "slug": "party-competition-and-media-messages-in-u.s.-presidential-election-campaigns"
             },
             {
               "title": "The City's Losing Clout",
@@ -1166,7 +1281,17 @@
             {
               "title": "Why Are American Presidential Election Campaign Polls so Variable When Votes Are so Predictable?",
               "section": "publication",
-              "slug": "why-are-american-presidential-election-campaign-polls-so-variable-when-votes-are"
+              "slug": "why-are-american-presidential-election-campaign-polls-so-variable-when-votes-are-so-predictable"
+            },
+            {
+              "title": "The Development of Political Activists: A Model of Early Learning",
+              "section": "publication",
+              "slug": "the-development-of-political-activists-a-model-of-early-learning"
+            },
+            {
+              "title": "The Significance of Roll Calls in Voting Bodies: A Model and Statistical Estimation",
+              "section": "publication",
+              "slug": "the-significance-of-roll-calls-in-voting-bodies-a-model-and-statistical-estimation"
             }
           ]
         },
@@ -1192,6 +1317,11 @@
               "title": "The Presidency in American Politics",
               "section": "publication",
               "slug": "the-presidency-in-american-politics"
+            },
+            {
+              "title": "Political Parties and Foreign Policy: A Structuralist Approach",
+              "section": "publication",
+              "slug": "political-parties-and-foreign-policy-a-structuralist-approach"
             }
           ]
         }
@@ -1217,7 +1347,7 @@
             {
               "title": "Precision Mapping Child Undernutrition for Nearly 600,000 Inhabited Census Villages in India",
               "section": "publication",
-              "slug": "precision-mapping-child-undernutrition-for-nearly-600000-inhabited-census-villag"
+              "slug": "precision-mapping-child-undernutrition-for-nearly-600000-inhabited-census-villages-in-india"
             },
             {
               "title": "Preface: Big Data Is Not About the Data!",
@@ -1233,6 +1363,46 @@
               "title": "Replication, Replication",
               "section": "publication",
               "slug": "replication-replication"
+            },
+            {
+              "title": "A Digital Library for the Dissemination and Replication of Quantitative Social Science Research",
+              "section": "publication",
+              "slug": "a-digital-library-for-the-dissemination-and-replication-of-quantitative-social-science-research"
+            },
+            {
+              "title": "An Introduction to the Dataverse Network As an Infrastructure for Data Sharing",
+              "section": "publication",
+              "slug": "an-introduction-to-the-dataverse-network-as-an-infrastructure-for-data-sharing"
+            },
+            {
+              "title": "An Introduction to the Virtual Data Center Project and Software",
+              "section": "publication",
+              "slug": "an-introduction-to-the-virtual-data-center-project-and-software"
+            },
+            {
+              "title": "An Overview of the Virtual Data Center Project and Software",
+              "section": "publication",
+              "slug": "an-overview-of-the-virtual-data-center-project-and-software"
+            },
+            {
+              "title": "Automating Open Science for Big Data",
+              "section": "publication",
+              "slug": "automating-open-science-for-big-data"
+            },
+            {
+              "title": "From Preserving the Past to Preserving the Future: The Data-PASS Project and the Challenges of Preserving Digital Social Science Data",
+              "section": "publication",
+              "slug": "from-preserving-the-past-to-preserving-the-future-the-data-pass-project-and-the-challenges-of-preserving-digital-social-science-data"
+            },
+            {
+              "title": "The Future of Replication",
+              "section": "publication",
+              "slug": "the-future-of-replication"
+            },
+            {
+              "title": "An Update on Dataverse",
+              "section": "publication",
+              "slug": "an-update-on-dataverse"
             }
           ]
         },
@@ -1252,12 +1422,17 @@
             {
               "title": "Preserving Quantitative Research-Elicited Data for Longitudinal Analysis. New Developments in Archiving Survey Data in the U.S.",
               "section": "publication",
-              "slug": "preserving-quantitative-research-elicited-data-for-longitudinal-analysis-new-dev"
+              "slug": "preserving-quantitative-research-elicited-data-for-longitudinal-analysis.-new-developments-in-archiving-survey-data-in-the-u.s."
             },
             {
               "title": "The Changing Evidence Base of Social Science Research",
               "section": "publication",
-              "slug": "the-changing-evidence-base-of-social-science-research-2009"
+              "slug": "the-changing-evidence-base-of-social-science-research"
+            },
+            {
+              "title": "Urban Observatories: City Data Can Inform Decision Theory",
+              "section": "publication",
+              "slug": "urban-observatories-city-data-can-inform-decision-theory"
             }
           ]
         }
@@ -1273,7 +1448,7 @@
             {
               "title": "An Automated Information Extraction Tool For International Conflict Data With Performance As Good As Human Coders: A Rare Events Evaluation Design",
               "section": "publication",
-              "slug": "an-automated-information-extraction-tool-for-international-conflict-data-with-pe"
+              "slug": "an-automated-information-extraction-tool-for-international-conflict-data-with-performance-as-good-as-human-coders-a-rare-events-evaluation-design"
             },
             {
               "title": "Armed Conflict As a Public Health Problem",
@@ -1303,7 +1478,7 @@
             {
               "title": "Proper Nouns and Methodological Propriety: Pooling Dyads in International Relations Data",
               "section": "publication",
-              "slug": "proper-nouns-and-methodological-propriety-pooling-dyads-in-international-relatio"
+              "slug": "proper-nouns-and-methodological-propriety-pooling-dyads-in-international-relations-data"
             },
             {
               "title": "Rethinking Human Security",
@@ -1318,12 +1493,17 @@
             {
               "title": "Theory and Evidence in International Conflict: A Response to de Marchi, Gelpi, and Grynaviski",
               "section": "publication",
-              "slug": "theory-and-evidence-in-international-conflict-a-response-to-de-marchi-gelpi-and"
+              "slug": "theory-and-evidence-in-international-conflict-a-response-to-de-marchi-gelpi-and-grynaviski"
             },
             {
               "title": "When Can History Be Our Guide? The Pitfalls of Counterfactual Inference",
               "section": "publication",
               "slug": "when-can-history-be-our-guide-the-pitfalls-of-counterfactual-inference"
+            },
+            {
+              "title": "Political Parties and Foreign Policy: A Structuralist Approach",
+              "section": "publication",
+              "slug": "political-parties-and-foreign-policy-a-structuralist-approach"
             }
           ]
         }
@@ -1339,12 +1519,12 @@
             {
               "title": "Data, Analyses, and Reports for the Arizona Independent Redistricting Commission, Filed With the U.S. Department of Justice",
               "section": "publication",
-              "slug": "data-analyses-and-reports-for-the-arizona-independent-redistricting-commission-f"
+              "slug": "data-analyses-and-reports-for-the-arizona-independent-redistricting-commission-filed-with-the-u.s.-department-of-justice"
             },
             {
               "title": "Edited Transcript of a Talk on Partisan Symmetry at the 'Redistricting and Representation Forum'",
               "section": "publication",
-              "slug": "edited-transcript-of-a-talk-on-partisan-symmetry-at-the-redistricting-and-repres"
+              "slug": "edited-transcript-of-a-talk-on-partisan-symmetry-at-the-redistricting-and-representation-forum"
             },
             {
               "title": "How to Conquer Partisan Gerrymandering",
@@ -1354,22 +1534,32 @@
             {
               "title": "How to Measure Legislative District Compactness If You Only Know It When You See It",
               "section": "publication",
-              "slug": "how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-2021"
+              "slug": "how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-it"
             },
             {
               "title": "The Future of Partisan Symmetry As a Judicial Test for Partisan Gerrymandering After LULAC V. Perry",
               "section": "publication",
-              "slug": "the-future-of-partisan-symmetry-as-a-judicial-test-for-partisan-gerrymandering-a"
+              "slug": "the-future-of-partisan-symmetry-as-a-judicial-test-for-partisan-gerrymandering-after-lulac-v.-perry"
             },
             {
               "title": "Theoretical Foundations and Empirical Evaluations of Partisan Fairness in District-Based Democracies",
               "section": "publication",
-              "slug": "theoretical-foundations-and-empirical-evaluations-of-partisan-fairness-in-distri"
+              "slug": "theoretical-foundations-and-empirical-evaluations-of-partisan-fairness-in-district-based-democracies"
             },
             {
               "title": "There's a Simple Solution to the Latest Census Fight",
               "section": "publication",
               "slug": "theres-a-simple-solution-to-the-latest-census-fight"
+            },
+            {
+              "title": "Brief of Empirical Scholars As Amici Curiae",
+              "section": "publication",
+              "slug": "brief-of-empirical-scholars-as-amici-curiae"
+            },
+            {
+              "title": "Brief of Empirical Scholars As Amici Curiae in Support of Respondents",
+              "section": "publication",
+              "slug": "brief-of-empirical-scholars-as-amici-curiae-in-support-of-respondents"
             }
           ]
         },
@@ -1379,12 +1569,12 @@
             {
               "title": "Brief of Amici Curiae Professors Gary King, Bernard Grofman, Andrew Gelman, and Jonathan Katz in Support of Neither Party",
               "section": "publication",
-              "slug": "brief-of-amici-curiae-professors-gary-king-bernard-grofman-andrew-gelman-and-jon"
+              "slug": "brief-of-amici-curiae-professors-gary-king-bernard-grofman-andrew-gelman-and-jonathan-katz-in-support-of-neither-party"
             },
             {
               "title": "Brief of Heather K. Gerken, Jonathan N. Katz, Gary King, Larry J. Sabato, and Samuel S.-H. Wang As Amici Curiae in Support of Appellees",
               "section": "publication",
-              "slug": "brief-of-heather-k-gerken-jonathan-n-katz-gary-king-larry-j-sabato-and-samuel-s"
+              "slug": "brief-of-heather-k.-gerken-jonathan-n.-katz-gary-king-larry-j.-sabato-and-samuel-s.-h.-wang-as-amici-curiae-in-support-of-appellees"
             },
             {
               "title": "Democratic Representation and Partisan Bias in Congressional Elections",
@@ -1399,7 +1589,12 @@
             {
               "title": "Seats, Votes, and Gerrymandering: Measuring Bias and Representation in Legislative Redistricting",
               "section": "publication",
-              "slug": "seats-votes-and-gerrymandering-measuring-bias-and-representation-in-legislative"
+              "slug": "seats-votes-and-gerrymandering-measuring-bias-and-representation-in-legislative-redistricting"
+            },
+            {
+              "title": "The Essential Role of Statistical Inference in Evaluating Electoral Systems: A Response to DeFord et Al.",
+              "section": "publication",
+              "slug": "the-essential-role-of-statistical-inference-in-evaluating-electoral-systems-a-response-to-deford-et-al."
             }
           ]
         },
@@ -1454,7 +1649,7 @@
             {
               "title": "Measuring the Consequences of Delegate Selection Rules in Presidential Nominations",
               "section": "publication",
-              "slug": "measuring-the-consequences-of-delegate-selection-rules-in-presidential-nominatio"
+              "slug": "measuring-the-consequences-of-delegate-selection-rules-in-presidential-nominations"
             }
           ]
         },
@@ -1495,12 +1690,12 @@
             {
               "title": "A Simulation-Based Comparative Effectiveness Analysis of Policies to Improve Global Maternal Health Outcomes",
               "section": "publication",
-              "slug": "a-simulation-based-comparative-effectiveness-analysis-of-policies-to-improve-glo"
+              "slug": "a-simulation-based-comparative-effectiveness-analysis-of-policies-to-improve-global-maternal-health-outcomes"
             },
             {
               "title": "Assessing Differences in Country-Level Estimates of Maternal Mortality: A Comparison of GMatH, UN, and GBD Model Results for 2020",
               "section": "publication",
-              "slug": "assessing-differences-in-country-level-estimates-of-maternal-mortality-a-compari"
+              "slug": "assessing-differences-in-country-level-estimates-of-maternal-mortality-a-comparison-of-gmath-un-and-gbd-model-results-for-2020"
             },
             {
               "title": "Building an International Consortium for Tracking Coronavirus Health Status",
@@ -1510,12 +1705,12 @@
             {
               "title": "Evaluating COVID-19 Public Health Messaging in Italy: Self-Reported Compliance and Growing Mental Health Concerns",
               "section": "publication",
-              "slug": "evaluating-covid-19-public-health-messaging-in-italy-self-reported-compliance-an"
+              "slug": "evaluating-covid-19-public-health-messaging-in-italy-self-reported-compliance-and-growing-mental-health-concerns"
             },
             {
               "title": "Global Maternal Mortality Projections by Urban Rural Locationand Education Level: A Simulation-Based Analysis",
               "section": "publication",
-              "slug": "global-maternal-mortality-projections-by-urban-rural-locationand-education-level"
+              "slug": "global-maternal-mortality-projections-by-urban-rural-locationand-education-level-a-simulation-based-analysis"
             },
             {
               "title": "Population-Scale Longitudinal Mapping of COVID-19 Symptoms, Behaviour and Testing",
@@ -1525,17 +1720,22 @@
             {
               "title": "Precision Mapping Child Undernutrition for Nearly 600,000 Inhabited Census Villages in India",
               "section": "publication",
-              "slug": "precision-mapping-child-undernutrition-for-nearly-600000-inhabited-census-villag"
+              "slug": "precision-mapping-child-undernutrition-for-nearly-600000-inhabited-census-villages-in-india"
             },
             {
               "title": "Simulation-Based Estimates and Projections of Global, Regional and Country-Level Maternal Mortality by Cause, 1990–2050",
               "section": "publication",
-              "slug": "simulation-based-estimates-and-projections-of-global-regional-and-country-level"
+              "slug": "simulation-based-estimates-and-projections-of-global-regional-and-country-level-maternal-mortality-by-cause-19902050"
             },
             {
               "title": "Survey Data and Human Computation for Improved Flu Tracking",
               "section": "publication",
               "slug": "survey-data-and-human-computation-for-improved-flu-tracking"
+            },
+            {
+              "title": "Global Maternal Health Country Typologies: A Framework to Guide Policy",
+              "section": "publication",
+              "slug": "global-maternal-health-country-typologies-a-framework-to-guide-policy"
             }
           ]
         },
@@ -1545,7 +1745,7 @@
             {
               "title": "Demographic Forecasting",
               "section": "publication",
-              "slug": "demographic-forecasting-2008"
+              "slug": "demographic-forecasting"
             },
             {
               "title": "Statistical Security for Social Security",
@@ -1570,7 +1770,7 @@
             {
               "title": "Global Maternal Mortality Projections by Urban Rural Locationand Education Level: A Simulation-Based Analysis",
               "section": "publication",
-              "slug": "global-maternal-mortality-projections-by-urban-rural-locationand-education-level"
+              "slug": "global-maternal-mortality-projections-by-urban-rural-locationand-education-level-a-simulation-based-analysis"
             }
           ]
         },
@@ -1585,12 +1785,12 @@
             {
               "title": "Explaining Systematic Bias and Nontransparency in US Social Security Administration Forecasts",
               "section": "publication",
-              "slug": "explaining-systematic-bias-and-nontransparency-in-us-social-security-administrat-2015-215"
+              "slug": "explaining-systematic-bias-and-nontransparency-in-us-social-security-administration-forecasts"
             },
             {
               "title": "Measuring Total Health Inequality: Adding Individual Variation to Group-Level Differences",
               "section": "publication",
-              "slug": "measuring-total-health-inequality-adding-individual-variation-to-group-level-dif"
+              "slug": "measuring-total-health-inequality-adding-individual-variation-to-group-level-differences"
             },
             {
               "title": "Rethinking Human Security",
@@ -1605,12 +1805,17 @@
             {
               "title": "Systematic Bias and Nontransparency in US Social Security Administration Forecasts",
               "section": "publication",
-              "slug": "systematic-bias-and-nontransparency-in-us-social-security-administration-forecas"
+              "slug": "systematic-bias-and-nontransparency-in-us-social-security-administration-forecasts"
             },
             {
               "title": "The Effects of International Monetary Fund Loans on Health Outcomes",
               "section": "publication",
               "slug": "the-effects-of-international-monetary-fund-loans-on-health-outcomes"
+            },
+            {
+              "title": "Letter to the Editor on the 'Medicare Health Support Pilot Program' (by McCall and Cromwell)",
+              "section": "publication",
+              "slug": "letter-to-the-editor-on-the-medicare-health-support-pilot-program-by-mccall-and-cromwell"
             }
           ]
         }
@@ -1646,42 +1851,12 @@
             {
               "title": "How Human Subjects Research Rules Mislead You and Your University, and What to Do About It",
               "section": "publication",
-              "slug": "how-human-subjects-research-rules-mislead-you-and-your-university-and-what-to-do"
+              "slug": "how-human-subjects-research-rules-mislead-you-and-your-university-and-what-to-do-about-it"
             },
             {
               "title": "How Social Science Research Can Improve Teaching",
               "section": "publication",
               "slug": "how-social-science-research-can-improve-teaching"
-            },
-            {
-              "title": "Instructional Support Platform for Interactive Learning Platforms",
-              "section": "publication",
-              "slug": "instructional-support-platform-for-interactive-learning-platforms"
-            },
-            {
-              "title": "Instructional Support Platform for Interactive Learning Platforms (2nd)",
-              "section": "publication",
-              "slug": "instructional-support-platform-for-interactive-learning-platforms-2nd"
-            },
-            {
-              "title": "Management of Off-Task Time in a Participatory Environment",
-              "section": "publication",
-              "slug": "management-of-off-task-time-in-a-participatory-environment"
-            },
-            {
-              "title": "Participant Grouping for Enhanced Interactive Experience",
-              "section": "publication",
-              "slug": "participant-grouping-for-enhanced-interactive-experience"
-            },
-            {
-              "title": "Participant Grouping for Enhanced Interactive Experience (2nd)",
-              "section": "publication",
-              "slug": "participant-grouping-for-enhanced-interactive-experience-2nd"
-            },
-            {
-              "title": "Participant Grouping for Enhanced Interactive Experience (3rd)",
-              "section": "publication",
-              "slug": "participant-grouping-for-enhanced-interactive-experience-3rd"
             },
             {
               "title": "Publication, Publication",
@@ -1691,17 +1866,12 @@
             {
               "title": "Restructuring the Social Sciences: Reflections from Harvard's Institute for Quantitative Social Science",
               "section": "publication",
-              "slug": "restructuring-the-social-sciences-reflections-from-harvards-institute-for-quanti"
-            },
-            {
-              "title": "Stimulating Online Discussion in Interactive Learning Environments",
-              "section": "publication",
-              "slug": "stimulating-online-discussion-in-interactive-learning-environments"
+              "slug": "restructuring-the-social-sciences-reflections-from-harvards-institute-for-quantitative-social-science"
             },
             {
               "title": "The Changing Evidence Base of Social Science Research",
               "section": "publication",
-              "slug": "the-changing-evidence-base-of-social-science-research-2009"
+              "slug": "the-changing-evidence-base-of-social-science-research"
             },
             {
               "title": "The Science of Political Science Graduate Admissions",
@@ -1711,17 +1881,47 @@
             {
               "title": "The Troubled Future of Colleges and Universities (with Comments from Five Scholar-Administrators)",
               "section": "publication",
-              "slug": "the-troubled-future-of-colleges-and-universities-with-comments-from-five-scholar"
+              "slug": "the-troubled-future-of-colleges-and-universities-with-comments-from-five-scholar-administrators"
             },
             {
               "title": "The 'Math Prefresher' and The Collective Future of Political Science Graduate Training",
               "section": "publication",
-              "slug": "the-math-prefresher-and-the-collective-future-of-political-science-graduate-trai"
+              "slug": "the-math-prefresher-and-the-collective-future-of-political-science-graduate-training"
             },
             {
               "title": "Use of a Social Annotation Platform for Pre-Class Reading Assignments in a Flipped Introductory Physics Class",
               "section": "publication",
-              "slug": "use-of-a-social-annotation-platform-for-pre-class-reading-assignments-in-a-flipp"
+              "slug": "use-of-a-social-annotation-platform-for-pre-class-reading-assignments-in-a-flipped-introductory-physics-class"
+            },
+            {
+              "title": "Good Research and Bad Research: Extending Zimile's Criticism",
+              "section": "publication",
+              "slug": "good-research-and-bad-research-extending-zimiles-criticism"
+            },
+            {
+              "title": "Rejoinder: Concluding Remarks on Scholarly Communications",
+              "section": "publication",
+              "slug": "rejoinder-concluding-remarks-on-scholarly-communications"
+            },
+            {
+              "title": "So You're a Grad Student Now? Maybe You Should Do This",
+              "section": "publication",
+              "slug": "so-youre-a-grad-student-now-maybe-you-should-do-this"
+            },
+            {
+              "title": "Statistical Intuition Without Coding (or Teachers)",
+              "section": "publication",
+              "slug": "statistical-intuition-without-coding-or-teachers"
+            },
+            {
+              "title": "The C-SPAN Archives As The Policymaking Record of American Representative Democracy: A Foreword",
+              "section": "publication",
+              "slug": "the-c-span-archives-as-the-policymaking-record-of-american-representative-democracy-a-foreword"
+            },
+            {
+              "title": "The Future of Political Science: 100 Perspectives",
+              "section": "publication",
+              "slug": "the-future-of-political-science-100-perspectives"
             }
           ]
         }
