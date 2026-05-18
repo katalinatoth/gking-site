@@ -28,7 +28,8 @@ links:
   url: files/semrau_et_al-2016-trials.pdf
 - type: source
   url: https://doi.org/10.1186/s13063-016-1673-x
-- name: Supplementary Material
+- type: appendix
+  label: Appendix
   url: files/semrau_et_al-2016-trials.sup-1.pdf
 publication: "Trials, 17, 1, Pp. 576"
 publication_types:

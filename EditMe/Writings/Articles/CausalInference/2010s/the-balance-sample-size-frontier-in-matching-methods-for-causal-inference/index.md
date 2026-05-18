@@ -11,7 +11,8 @@ date: '2017-01-01'
 links:
 - type: pdf
   url: files/ajps12272_lr.pdf
-- name: Supplementary Material
+- type: appendix
+  label: Appendix
   url: files/frontier-supp.pdf
 publication: "American Journal of Political Science, 61, 2, Pp. 473–489"
 publication_types:

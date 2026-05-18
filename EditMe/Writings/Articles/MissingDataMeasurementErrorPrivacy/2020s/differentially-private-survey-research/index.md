@@ -19,7 +19,8 @@ links:
     url: "files/dpsurveyr.pdf"
   - type: source
     url: "https://onlinelibrary.wiley.com/share/author/682Q7HPPCU7HRKIUPNQS?target=10.1111/ajps.12890"
-  - name: "Supplementary Material"
+  - type: appendix
+    label: Appendix
     url: "files/udps-supp.pdf"
 publication: "American Journal of Political Science, 70, 1, Pp. 90–103"
 ---

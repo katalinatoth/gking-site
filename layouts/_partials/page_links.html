@@ -95,12 +95,10 @@
     {{ end }}
     {{ $isAppendix := or (eq .type "appendix") (and (eq .type "custom") (eq $label "Appendix")) }}
     {{ $classes := "" }}
-    {{ if or (eq .type "bibtex") $isAppendix }}
-      {{ $classes = "gk-cite-button" }}
-    {{ else if $isPrimary }}
+    {{ if $isPrimary }}
       {{ $classes = "gk-link-primary" }}
     {{ else }}
-      {{ $classes = printf "gk-link-secondary %s" (cond $is_list "gk-link-secondary-small" "gk-link-secondary-large") }}
+      {{ $classes = "gk-cite-button" }}
     {{ end }}
     {{ if and $isPrimary $isTalkLike }}
       {{ $label = "Presentation" }}

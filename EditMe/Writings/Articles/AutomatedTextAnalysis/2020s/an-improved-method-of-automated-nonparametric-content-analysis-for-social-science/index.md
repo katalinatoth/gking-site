@@ -17,7 +17,8 @@ abstract: |-
 links:
   - type: pdf
     url: "files/div-class-title-an-improved-method-of-automated-nonparametric-content-analysis-for-social-science-div.pdf"
-  - name: "Supplementary Material"
+  - type: appendix
+    label: Appendix
     url: "files/word-supp.pdf"
 publication: "Political Analysis, 31, 1, Pp. 42–58"
 ---

@@ -259,9 +259,6 @@
       "gk-input-area",
       "gk-input-row",
       "gk-link-primary",
-      "gk-link-secondary",
-      "gk-link-secondary-large",
-      "gk-link-secondary-small",
       "gk-maxlik-legacy",
       "gk-modal",
       "gk-modal-actions",
@@ -721,12 +718,10 @@
       "z-[9999]"
     ],
     "ids": [
-      "abstract",
       "advice",
       "analysis-of-congressional-redistricting",
       "analysis-of-legislative-redistricting",
       "anchoring-vignettes-for-interpersonal-incomparability",
-      "attachments",
       "automated-text-analysis",
       "block-hwp-global-widget-hwp-class",
       "block-os-pages-main-content",

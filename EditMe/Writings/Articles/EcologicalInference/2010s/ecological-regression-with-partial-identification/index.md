@@ -19,7 +19,8 @@ abstract: |-
 links:
   - type: pdf
     url: "files/ecological_regression_with_partial_identification.pdf"
-  - name: "Supplementary Material"
+  - type: appendix
+    label: Appendix
     url: "files/appendix.pdf"
 publication: "Political Analysis, 28, 1, Pp. 65–86"
 ---

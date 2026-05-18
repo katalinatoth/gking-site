@@ -22,7 +22,8 @@ abstract: |-
 links:
   - type: pdf
     url: "files/conerr.pdf"
-  - name: "Supplementary Material"
+  - type: appendix
+    label: Appendix
     url: "files/conerr-supp.pdf"
 publication: "American Journal of Political Science"
 ---

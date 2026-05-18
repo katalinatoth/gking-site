@@ -13,6 +13,7 @@ abstract: |-
 links:
   - type: pdf
     url: "files/fn.pdf"
-  - name: "Supplementary Material"
+  - type: appendix
+    label: Appendix
     url: "files/fn-supp.pdf"
 ---

@@ -17,6 +17,7 @@ abstract: |-
 links:
   - type: pdf
     url: "files/10k.pdf"
-  - name: "Supplementary Material"
+  - type: appendix
+    label: Appendix
     url: "files/10k-supp.pdf"
 ---

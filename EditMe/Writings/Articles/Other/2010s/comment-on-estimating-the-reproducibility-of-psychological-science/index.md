@@ -16,7 +16,8 @@ links:
   url: files/gkpw_response_to_osc_rebutal.pdf
 - type: source
   url: http://science.sciencemag.org/content/351/6277/1037.2
-- name: Supplementary Material
+- type: appendix
+  label: Appendix
   url: files/gilbert_king_pettigrew_wilson_2016_with_appendix.pdf
 publication: Science, 351, 6277, Pp. 1037a-1038a
 publication_types:

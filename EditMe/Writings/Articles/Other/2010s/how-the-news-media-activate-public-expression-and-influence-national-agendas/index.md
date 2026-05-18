@@ -30,7 +30,8 @@ links:
     url: "files/776.full_.pdf"
   - type: source
     url: "http://science.sciencemag.org/cgi/rapidpdf/358/6364/776?ijkey=yJZhbgQUH1Gi.&keytype=ref&siteid=sci"
-  - name: "Supplementary Material"
+  - type: appendix
+    label: Appendix
     url: "files/aao1100_king_sm.pdf"
 publication: "Science, 358, Pp. 776-80"
 ---

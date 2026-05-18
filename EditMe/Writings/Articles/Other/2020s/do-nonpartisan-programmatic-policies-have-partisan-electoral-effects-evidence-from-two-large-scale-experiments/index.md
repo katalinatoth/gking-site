@@ -13,7 +13,8 @@ links:
   url: files/170507.email_.pdf
 - type: source
   url: http://www.journals.uchicago.edu/doi/10.1086/707059
-- name: Supplementary Material
+- type: appendix
+  label: Appendix
   url: files/progpol-supp.pdf
 publication: "The Journal of Politics, 82, 2, Pp. 714–730"
 publication_types:

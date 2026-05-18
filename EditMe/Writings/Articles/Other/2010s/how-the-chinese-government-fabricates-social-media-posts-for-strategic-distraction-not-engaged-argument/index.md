@@ -21,7 +21,8 @@ links:
     url: "files/how_the_chinese_government_fabricates_social_media_posts_for_strategic_distraction_not_engaged_argument.pdf"
   - type: source
     url: "doi:10.1017/S0003055417000144"
-  - name: "Supplementary Material"
+  - type: appendix
+    label: Appendix
     url: "files/supplementaryappendixglobaltimeseditorial.pdf"
 publication: "American Political Science Review, 111, 3, Pp. 484–501"
 ---

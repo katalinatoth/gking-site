@@ -11,6 +11,7 @@ abstract: |-
 links:
   - type: pdf
     url: "files/sibs_2.pdf"
-  - name: "Supplementary Material"
+  - type: appendix
+    label: Appendix
     url: "files/sibs-supp.pdf"
 ---

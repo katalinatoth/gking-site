@@ -19,7 +19,8 @@ links:
     url: "files/pan1900011_rev.pdf"
   - type: source
     url: "https://doi.org/10.1017/pan.2019.11"
-  - name: "Supplementary Material"
+  - type: appendix
+    label: Appendix
     url: "files/psnot-supp.pdf"
 publication: "Political Analysis, 27, 4, Pp. 435–454"
 ---

@@ -15,7 +15,8 @@ links:
   url: files/chinasci2.pdf
 - type: source
   url: https://doi.org/10.1126/science.1251722
-- name: Supplementary Material
+- type: appendix
+  label: Appendix
   url: files/king.sm_.pdf
 publication: "Science, 345, 6199, Pp. 1251722"
 publication_types:
