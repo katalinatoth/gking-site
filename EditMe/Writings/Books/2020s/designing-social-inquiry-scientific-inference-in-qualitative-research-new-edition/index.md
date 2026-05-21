@@ -23,6 +23,9 @@ publication_types:
 - book
 title: 'Designing Social Inquiry: Scientific Inference in Qualitative Research, New Edition'
 slug: "designing-social-inquiry-scientific-inference-in-qualitative-research-new-edition"
+url: /kkv/
+aliases:
+  - /publication/designing-social-inquiry-scientific-inference-in-qualitative-research-new-edition/
 related_papers:
 - designing-social-inquiry-scientific-inference-in-qualitative-research
 ---

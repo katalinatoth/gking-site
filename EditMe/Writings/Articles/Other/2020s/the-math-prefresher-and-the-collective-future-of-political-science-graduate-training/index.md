@@ -1,6 +1,9 @@
 ---
 title: "The 'Math Prefresher' and The Collective Future of Political Science Graduate Training"
 slug: "the-math-prefresher-and-the-collective-future-of-political-science-graduate-training"
+url: /prefresher/
+aliases:
+  - /publication/the-math-prefresher-and-the-collective-future-of-political-science-graduate-training/
 date: "2020-01-01"
 authors:
   - "Gary King"

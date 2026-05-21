@@ -3,6 +3,9 @@ dataverse_url: "https://doi.org/10.7910/DVN/1SBQCX"
 dataverse_name: "Replication Data for: Evaluating COVID-19 Public Health Messaging in Italy: Self-Reported Compliance and Growing Mental Health Concerns"
 title: "Evaluating COVID-19 Public Health Messaging in Italy: Self-Reported Compliance and Growing Mental Health Concerns"
 slug: "evaluating-covid-19-public-health-messaging-in-italy-self-reported-compliance-and-growing-mental-health-concerns"
+url: /covid-italy/
+aliases:
+  - /publication/evaluating-covid-19-public-health-messaging-in-italy-self-reported-compliance-and-growing-mental-health-concerns/
 date: "2020-01-01"
 authors:
   - "Soubhik Barari"

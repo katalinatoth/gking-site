@@ -1,5 +1,8 @@
 ---
 title: "Statistical Intuition Without Coding (or Teachers)"
+url: /2k1/
+aliases:
+  - /publication/statistical-intuition-without-coding-or-teachers/
 date: "2025-01-01"
 authors:
   - "Natalie Ayers"

@@ -1,5 +1,8 @@
 ---
 title: "COUNT: A Program for Estimating Event Count and Duration Regressions"
+url: /count/
+aliases:
+  - /publication/count-a-program-for-estimating-event-count-and-duration-regressions/
 date: "2002-01-01"
 authors:
   - "Gary King"

@@ -1,5 +1,8 @@
 ---
 title: "Building an International Consortium for Tracking Coronavirus Health Status"
+url: /covid-ccc/
+aliases:
+  - /publication/building-an-international-consortium-for-tracking-coronavirus-health-status/
 date: "2020-01-01"
 authors:
   - "Eran Segal"

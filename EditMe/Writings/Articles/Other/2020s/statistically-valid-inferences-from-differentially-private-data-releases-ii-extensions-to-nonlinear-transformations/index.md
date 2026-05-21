@@ -1,6 +1,9 @@
 ---
 title: "Statistically Valid Inferences from Differentially Private Data Releases, II: Extensions to Nonlinear Transformations"
 slug: "statistically-valid-inferences-from-differentially-private-data-releases-ii-extensions-to-nonlinear-transformations"
+url: /dpd2/
+aliases:
+  - /publication/statistically-valid-inferences-from-differentially-private-data-releases-ii-extensions-to-nonlinear-transformations/
 date: "2025-01-01"
 authors:
   - "Georgina Evans"

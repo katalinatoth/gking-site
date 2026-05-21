@@ -1,6 +1,10 @@
 ---
 title: "Precision Mapping Child Undernutrition for Nearly 600,000 Inhabited Census Villages in India"
 slug: "precision-mapping-child-undernutrition-for-nearly-600000-inhabited-census-villages-in-india"
+url: /IndiaChild/
+aliases:
+  - /publication/precision-mapping-child-undernutrition-for-nearly-600000-inhabited-census-villages-in-india/
+  - /indiachild/
 date: "2021-01-01"
 authors:
   - "Rockli Kim"

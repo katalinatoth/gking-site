@@ -3,6 +3,9 @@ dataverse_url: "https://doi.org/10.7910/DVN/FA8FVF"
 dataverse_name: "Replication Data for: How to Measure Legislative District Compactness If You Only Know It When You See It"
 title: "How to Measure Legislative District Compactness If You Only Know It When You See It"
 slug: "how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-it"
+url: /compact/
+aliases:
+  - /publication/how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-it/
 date: "2021-01-01"
 authors:
   - "Aaron Kaufman"

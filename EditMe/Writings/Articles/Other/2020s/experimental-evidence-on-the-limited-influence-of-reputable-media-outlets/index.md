@@ -1,5 +1,8 @@
 ---
 title: "Experimental Evidence on the (Limited) Influence of Reputable Media Outlets"
+url: /reputable/
+aliases:
+  - /publication/experimental-evidence-on-the-limited-influence-of-reputable-media-outlets/
 date: "2025-01-01"
 authors:
   - "Bharat Anand"

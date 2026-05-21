@@ -1,5 +1,8 @@
 ---
 title: "PSI (Ψ): A Private Data Sharing Interface"
+url: /psi/
+aliases:
+  - /software/psi-ψ-a-private-data-sharing-interface/
 date: "2018-01-01"
 authors:
   - "Marco Gaboardi"

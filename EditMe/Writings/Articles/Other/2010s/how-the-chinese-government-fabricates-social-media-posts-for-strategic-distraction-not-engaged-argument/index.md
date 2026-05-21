@@ -3,6 +3,9 @@ dataverse_url: "https://doi.org/10.7910/DVN/QSZMPD"
 dataverse_name: "Replication data for: How the Chinese Government Fabricates Social Media Posts for Strategic Distraction, not Engaged Argument"
 title: "How the Chinese Government Fabricates Social Media Posts for Strategic Distraction, Not Engaged Argument"
 slug: "how-the-chinese-government-fabricates-social-media-posts-for-strategic-distraction-not-engaged-argument"
+url: /50c/
+aliases:
+  - /publication/how-the-chinese-government-fabricates-social-media-posts-for-strategic-distraction-not-engaged-argument/
 date: "2017-01-01"
 authors:
   - "Gary King"

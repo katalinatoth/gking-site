@@ -5,6 +5,9 @@ related_talks:
   - "how-american-politics-ensures-electoral-accountability-in-congress-ucla"
   - "how-american-politics-ensures-electoral-accountability-in-congress-washington-un"
 title: "How American Politics Ensures Electoral Accountability in Congress"
+url: /acc/
+aliases:
+  - /publication/how-american-politics-ensures-electoral-accountability-in-congress/
 date: "2025-01-01"
 authors:
   - "Danny Ebanks"

@@ -1,5 +1,8 @@
 ---
 title: "Inducing Sustained Creativity and Diversity in Large Language Models"
+url: /quest/
+aliases:
+  - /publication/inducing-sustained-creativity-and-diversity-in-large-language-models/
 date: 2026-03-01
 authors:
   - Queenie Luo

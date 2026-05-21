@@ -1,5 +1,8 @@
 ---
 title: "A New Model for Industry-Academic Partnerships"
+url: /partnerships/
+aliases:
+  - /publication/a-new-model-for-industry-academic-partnerships/
 date: "2019-01-01"
 authors:
   - "Gary King"

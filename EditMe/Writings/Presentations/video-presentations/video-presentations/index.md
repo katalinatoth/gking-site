@@ -1,6 +1,8 @@
 ---
 title: "Video Presentations"
+url: /vpresent/
 aliases:
+  - /talk/video-presentations/
   - /publication/video-presentations/
 date: "2022-01-01"
 authors:

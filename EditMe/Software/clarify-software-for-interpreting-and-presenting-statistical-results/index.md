@@ -1,5 +1,8 @@
 ---
 title: 'CLARIFY: Software for Interpreting and Presenting Statistical Results'
+url: /clarify/
+aliases:
+  - /software/clarify-software-for-interpreting-and-presenting-statistical-results/
 date: '2003-01-01'
 authors:
 - Michael Tomz

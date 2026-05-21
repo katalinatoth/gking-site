@@ -1,5 +1,9 @@
 ---
 title: "MAXLIK"
+url: /maxlik/
+aliases:
+  - /software/maxlik/
+  - /scholar_software/maxlik/
 date: "1998-01-01"
 authors:
   - Gary King

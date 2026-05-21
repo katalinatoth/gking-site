@@ -1,5 +1,8 @@
 ---
 title: "A Theory of Statistical Inference for Matching Methods in Causal Research"
+url: /matchingtheory/
+aliases:
+  - /publication/a-theory-of-statistical-inference-for-matching-methods-in-causal-research/
 date: "2019-01-01"
 authors:
   - "Stefano M. Iacus"

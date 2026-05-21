@@ -19,6 +19,9 @@ related_talks:
   - "statistically-valid-inferences-from-privacy-protected-data-washington-university"
   - "statistically-valid-inferences-from-privacy-protected-data-webcast-project-tier"
 title: "Statistically Valid Inferences from Privacy Protected Data"
+url: /dp/
+aliases:
+  - /publication/statistically-valid-inferences-from-privacy-protected-data/
 date: "2023-01-01"
 authors:
   - "Georgina Evans"

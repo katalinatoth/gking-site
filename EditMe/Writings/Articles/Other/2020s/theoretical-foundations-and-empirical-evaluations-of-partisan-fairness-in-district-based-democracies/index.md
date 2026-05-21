@@ -1,6 +1,9 @@
 ---
 title: "Theoretical Foundations and Empirical Evaluations of Partisan Fairness in District-Based Democracies"
 slug: "theoretical-foundations-and-empirical-evaluations-of-partisan-fairness-in-district-based-democracies"
+url: /symmetry/
+aliases:
+  - /publication/theoretical-foundations-and-empirical-evaluations-of-partisan-fairness-in-district-based-democracies/
 date: "2020-01-01"
 authors:
   - "Jonathan N. Katz"

@@ -6,6 +6,10 @@ related_talks:
   - "correcting-measurement-error-bias-in-conjoint-survey-experiments-stanford-univer"
   - "correcting-measurement-error-bias-in-conjoint-survey-experiments-university-of-c"
 title: "Correcting Measurement Error Bias in Conjoint Survey Experiments"
+url: /conjointE/
+aliases:
+  - /publication/correcting-measurement-error-bias-in-conjoint-survey-experiments/
+  - /conjointe/
 date: "2025-01-01"
 authors:
   - "Katherine Clayton"

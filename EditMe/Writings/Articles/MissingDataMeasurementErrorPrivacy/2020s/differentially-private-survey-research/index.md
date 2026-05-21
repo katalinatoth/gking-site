@@ -2,6 +2,10 @@
 dataverse_url: "https://doi.org/10.7910/DVN/X4Y2FL"
 dataverse_name: "Replication Data for: Differentially Private Survey Research"
 title: "Differentially Private Survey Research"
+url: /DPsurvey/
+aliases:
+  - /publication/differentially-private-survey-research/
+  - /dpsurvey/
 date: "2024-01-01"
 authors:
   - "Georgina Evans"

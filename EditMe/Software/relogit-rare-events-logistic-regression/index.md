@@ -1,5 +1,8 @@
 ---
 title: 'ReLogit: Rare Events Logistic Regression'
+url: /relogit/
+aliases:
+  - /software/relogit-rare-events-logistic-regression/
 date: '2003-01-01'
 authors:
 - Gary King

@@ -1,6 +1,9 @@
 ---
 title: "If a Statistical Model Predicts That Common Events Should Occur Only Once in 10,000 Elections, Maybe It's the Wrong Model"
 slug: "if-a-statistical-model-predicts-that-common-events-should-occur-only-once-in-10000-elections-maybe-its-the-wrong-model"
+url: /10k/
+aliases:
+  - /publication/if-a-statistical-model-predicts-that-common-events-should-occur-only-once-in-10000-elections-maybe-its-the-wrong-model/
 date: "2025-01-01"
 image:
   alt_text: "Scatter plot of model-assigned probabilities for competitive House races"

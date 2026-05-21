@@ -1,5 +1,8 @@
 ---
 title: "Education and Scholarship by Video"
+url: /videos/
+aliases:
+  - /publication/education-and-scholarship-by-video/
 date: "2021-01-01"
 authors:
   - "Gary King"

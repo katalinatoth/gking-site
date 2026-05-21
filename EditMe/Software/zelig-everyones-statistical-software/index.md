@@ -1,5 +1,8 @@
 ---
 title: "Zelig: Everyone's Statistical Software"
+url: /zelig/
+aliases:
+  - /software/zelig-everyones-statistical-software/
 date: "2006-01-01"
 authors:
   - "Kosuke Imai"

@@ -1,5 +1,10 @@
 ---
 title: 'EI: A Program for Ecological Inference'
+url: /ei/
+aliases:
+  - /software/ei-a-program-for-ecological-inference/
+  - /eiR/
+  - /eir/
 date: '2003-01-01'
 authors:
 - Gary King

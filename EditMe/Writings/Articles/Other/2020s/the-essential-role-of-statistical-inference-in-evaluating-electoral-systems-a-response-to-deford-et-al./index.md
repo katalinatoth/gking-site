@@ -1,6 +1,9 @@
 ---
 title: "The Essential Role of Statistical Inference in Evaluating Electoral Systems: A Response to DeFord et Al."
 slug: "the-essential-role-of-statistical-inference-in-evaluating-electoral-systems-a-response-to-deford-et-al."
+url: /deford/
+aliases:
+  - /publication/the-essential-role-of-statistical-inference-in-evaluating-electoral-systems-a-response-to-deford-et-al./
 summary: "Response to DeFord et al. on statistical inference, redistricting, and electoral systems—extending Katz, King & Rosenblatt (2020). Replication data on Harvard Dataverse."
 date: "2023-01-01"
 authors:

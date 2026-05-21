@@ -1,5 +1,8 @@
 ---
 title: "Survey Estimates of Wartime Mortality"
+url: /sibs/
+aliases:
+  - /publication/survey-estimates-of-wartime-mortality/
 date: "2025-01-01"
 authors:
   - "Gary King"

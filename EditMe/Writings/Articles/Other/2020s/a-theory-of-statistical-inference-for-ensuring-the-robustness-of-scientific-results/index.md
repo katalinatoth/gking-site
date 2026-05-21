@@ -1,6 +1,9 @@
 ---
 title: "A Theory of Statistical Inference for Ensuring the Robustness of Scientific Results"
 slug: "a-theory-of-statistical-inference-for-ensuring-the-robustness-of-scientific-results"
+url: /hacking/
+aliases:
+  - /publication/a-theory-of-statistical-inference-for-ensuring-the-robustness-of-scientific-results/
 date: "2021-01-01"
 authors:
   - "Beau Coker"

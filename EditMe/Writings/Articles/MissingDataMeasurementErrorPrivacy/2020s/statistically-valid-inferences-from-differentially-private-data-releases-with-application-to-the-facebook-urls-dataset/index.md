@@ -3,6 +3,9 @@ dataverse_url: "https://doi.org/10.7910/DVN/UDFZJD"
 dataverse_name: "Replication Data for: Statistically Valid Inferences from Differentially Private Data Releases, with Application to the Facebook URLs Dataset"
 title: "Statistically Valid Inferences from Differentially Private Data Releases, With Application to the Facebook URLs Dataset"
 slug: "statistically-valid-inferences-from-differentially-private-data-releases-with-application-to-the-facebook-urls-dataset"
+url: /dpd/
+aliases:
+  - /publication/statistically-valid-inferences-from-differentially-private-data-releases-with-application-to-the-facebook-urls-dataset/
 date: "2023-01-01"
 authors:
   - "Georgina Evans"

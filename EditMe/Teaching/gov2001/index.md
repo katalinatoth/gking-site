@@ -37,7 +37,7 @@ type: "teaching-class"
 </source></picture>
 </div>
 </div>
-<p> Gov2001 is the first (or sometimes second) course for incoming Harvard Government Department PhD students; also taken by graduate and undergraduate students in other departments, and students elsewhere through the Harvard Extension School as Stat E-200. For details, see the class website: <a href="http://j.mp/G2001"><strong>j.mp/G2001</strong></a>, where you can also access all the lecture videos via YouTube or, with collaborative annotation via <a href="http://perusall.com">Perusall.com</a>; a link to a no-coding-required AI assistant; my book <em>Unifying Political Methodology; </em>and other class materials. </p></div>
+<p> Gov2001 is the first (or sometimes second) course for incoming Harvard Government Department PhD students; also taken by graduate and undergraduate students in other departments, and students elsewhere through the Harvard Extension School as Stat E-200. For details, see the class website: <a href="https://gov2001.hsites.harvard.edu/"><strong>gov2001.hsites.harvard.edu</strong></a>, where you can also access all the lecture videos via YouTube or, with collaborative annotation via <a href="http://perusall.com">Perusall.com</a>; a link to a no-coding-required AI assistant; my book <em>Unifying Political Methodology; </em>and other class materials. </p></div>
 </div>
 </div>
 <div class="hwp-container">

@@ -657,34 +657,6 @@ redirects:
 # mixed-case originals (/Gov2020, /CompSS, /EzI, …) a lowercase
 # alias is emitted alongside since the new site is case-sensitive.
 
-  - from: "10k"
-    to:   "/publication/if-a-statistical-model-predicts-that-common-events-should-occur-only-once-in-10000-elections-maybe-its-the-wrong-model/"
-    note: "vanity short URL → /publication/if-a-statistical-model-predicts-that-common-events-should-occur-only-once-in-10000-elections-maybe-its-the-wrong-model/"
-
-  - from: "2k1"
-    to:   "/publication/statistical-intuition-without-coding-or-teachers/"
-    note: "vanity short URL → /publication/statistical-intuition-without-coding-or-teachers/"
-
-  - from: "50c"
-    to:   "/publication/how-the-chinese-government-fabricates-social-media-posts-for-strategic-distraction-not-engaged-argument/"
-    note: "vanity short URL → /publication/how-the-chinese-government-fabricates-social-media-posts-for-strategic-distraction-not-engaged-argument/"
-
-  - from: "acc"
-    to:   "/publication/how-american-politics-ensures-electoral-accountability-in-congress/"
-    note: "vanity short URL → /publication/how-american-politics-ensures-electoral-accountability-in-congress/"
-
-  - from: "amelia"
-    to:   "/software/amelia-ii-a-program-for-missing-data/"
-    note: "vanity short URL → /software/amelia-ii-a-program-for-missing-data/"
-
-  - from: "anchoring-vignettes-faqs"
-    to:   "/software/anchors-software-for-anchoring-vignettes-data/"
-    note: "vanity short URL → /software/anchors-software-for-anchoring-vignettes-data/"
-
-  - from: "anchors"
-    to:   "/software/anchors-software-for-anchoring-vignettes-data/"
-    note: "vanity short URL → /software/anchors-software-for-anchoring-vignettes-data/"
-
   - from: "blanktitle-7"
     to:   "/"
     note: "vanity short URL → /"
@@ -693,17 +665,9 @@ redirects:
     to:   "/"
     note: "vanity short URL → /"
 
-  - from: "cem"
-    to:   "/software/cem-coarsened-exact-matching-software/"
-    note: "vanity short URL → /software/cem-coarsened-exact-matching-software/"
-
   - from: "china"
     to:   "/research-areas/"
     note: "vanity short URL → /research-areas/"
-
-  - from: "clarify"
-    to:   "/software/clarify-software-for-interpreting-and-presenting-statistical-results/"
-    note: "vanity short URL → /software/clarify-software-for-interpreting-and-presenting-statistical-results/"
 
   - from: "class"
     to:   "/teaching/"
@@ -741,89 +705,9 @@ redirects:
     to:   "/teaching/"
     note: "vanity short URL → /teaching/"
 
-  - from: "compact"
-    to:   "/publication/how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-it/"
-    note: "vanity short URL → /publication/how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-it/"
-
-  - from: "CompSS"
-    to:   "/publication/computational-social-science-obstacles-and-opportunities/"
-    note: "vanity short URL → /publication/computational-social-science-obstacles-and-opportunities/"
-
-  - from: "compss"
-    to:   "/publication/computational-social-science-obstacles-and-opportunities/"
-    note: "case-insensitive alias of /CompSS/"
-
-  - from: "conjointE"
-    to:   "/publication/correcting-measurement-error-bias-in-conjoint-survey-experiments/"
-    note: "vanity short URL → /publication/correcting-measurement-error-bias-in-conjoint-survey-experiments/"
-
-  - from: "conjointe"
-    to:   "/publication/correcting-measurement-error-bias-in-conjoint-survey-experiments/"
-    note: "case-insensitive alias of /conjointE/"
-
-  - from: "count"
-    to:   "/publication/count-a-program-for-estimating-event-count-and-duration-regressions/"
-    note: "vanity short URL → /publication/count-a-program-for-estimating-event-count-and-duration-regressions/"
-
-  - from: "covid-ccc"
-    to:   "/publication/building-an-international-consortium-for-tracking-coronavirus-health-status/"
-    note: "vanity short URL → /publication/building-an-international-consortium-for-tracking-coronavirus-health-status/"
-
-  - from: "covid-italy"
-    to:   "/publication/evaluating-covid-19-public-health-messaging-in-italy-self-reported-compliance-and-growing-mental-health-concerns/"
-    note: "vanity short URL → /publication/evaluating-covid-19-public-health-messaging-in-italy-self-reported-compliance-and-growing-mental-health-concerns/"
-
-  - from: "deford"
-    to:   "/publication/the-essential-role-of-statistical-inference-in-evaluating-electoral-systems-a-response-to-deford-et-al./"
-    note: "vanity short URL → /publication/the-essential-role-of-statistical-inference-in-evaluating-electoral-systems-a-response-to-deford-et-al./"
-
-  - from: "dp"
-    to:   "/publication/statistically-valid-inferences-from-privacy-protected-data/"
-    note: "vanity short URL → /publication/statistically-valid-inferences-from-privacy-protected-data/"
-
-  - from: "dp-oped"
-    to:   "/publication/theres-a-simple-solution-to-the-latest-census-fight/"
-    note: "vanity short URL → /publication/theres-a-simple-solution-to-the-latest-census-fight/"
-
-  - from: "dpd"
-    to:   "/publication/statistically-valid-inferences-from-differentially-private-data-releases-with-application-to-the-facebook-urls-dataset/"
-    note: "vanity short URL → /publication/statistically-valid-inferences-from-differentially-private-data-releases-with-application-to-the-facebook-urls-dataset/"
-
-  - from: "dpd2"
-    to:   "/publication/statistically-valid-inferences-from-differentially-private-data-releases-ii-extensions-to-nonlinear-transformations/"
-    note: "vanity short URL → /publication/statistically-valid-inferences-from-differentially-private-data-releases-ii-extensions-to-nonlinear-transformations/"
-
-  - from: "DPsurvey"
-    to:   "/publication/differentially-private-survey-research/"
-    note: "vanity short URL → /publication/differentially-private-survey-research/"
-
-  - from: "dpsurvey"
-    to:   "/publication/differentially-private-survey-research/"
-    note: "case-insensitive alias of /DPsurvey/"
-
-  - from: "ei"
-    to:   "/software/ei-a-program-for-ecological-inference/"
-    note: "vanity short URL → /software/ei-a-program-for-ecological-inference/"
-
   - from: "eicamera/kinroot.html"
     to:   "/"
     note: "vanity short URL → /"
-
-  - from: "eiR"
-    to:   "/software/ei-a-program-for-ecological-inference/"
-    note: "vanity short URL → /software/ei-a-program-for-ecological-inference/"
-
-  - from: "eir"
-    to:   "/software/ei-a-program-for-ecological-inference/"
-    note: "case-insensitive alias of /eiR/"
-
-  - from: "EzI"
-    to:   "/software/ezi-an-easy-program-for-ecological-inference/"
-    note: "vanity short URL → /software/ezi-an-easy-program-for-ecological-inference/"
-
-  - from: "ezi"
-    to:   "/software/ezi-an-easy-program-for-ecological-inference/"
-    note: "case-insensitive alias of /EzI/"
 
   - from: "faqs"
     to:   "/"
@@ -845,124 +729,12 @@ redirects:
     to:   "/teaching/gov2020/"
     note: "case-insensitive alias of /Gov2020/"
 
-  - from: "hacking"
-    to:   "/publication/a-theory-of-statistical-inference-for-ensuring-the-robustness-of-scientific-results/"
-    note: "vanity short URL → /publication/a-theory-of-statistical-inference-for-ensuring-the-robustness-of-scientific-results/"
-
   - from: "home-page"
     to:   "/"
     note: "vanity short URL → /"
 
-  - from: "IndiaChild"
-    to:   "/publication/precision-mapping-child-undernutrition-for-nearly-600000-inhabited-census-villages-in-india/"
-    note: "vanity short URL → /publication/precision-mapping-child-undernutrition-for-nearly-600000-inhabited-census-villages-in-india/"
-
-  - from: "indiachild"
-    to:   "/publication/precision-mapping-child-undernutrition-for-nearly-600000-inhabited-census-villages-in-india/"
-    note: "case-insensitive alias of /IndiaChild/"
-
-  - from: "judgeit"
-    to:   "/software/judgeit-ii-a-program-for-evaluating-electoral-systems-and-redistricting-plans/"
-    note: "vanity short URL → /software/judgeit-ii-a-program-for-evaluating-electoral-systems-and-redistricting-plans/"
-
-  - from: "kkv"
-    to:   "/publication/designing-social-inquiry-scientific-inference-in-qualitative-research-new-edition/"
-    note: "vanity short URL → /publication/designing-social-inquiry-scientific-inference-in-qualitative-research-new-edition/"
-
-  - from: "matchingtheory"
-    to:   "/publication/a-theory-of-statistical-inference-for-matching-methods-in-causal-research/"
-    note: "vanity short URL → /publication/a-theory-of-statistical-inference-for-matching-methods-in-causal-research/"
-
-  - from: "matchit"
-    to:   "/software/matchit-nonparametric-preprocessing-for-parametric-causal-inference/"
-    note: "vanity short URL → /software/matchit-nonparametric-preprocessing-for-parametric-causal-inference/"
-
-  - from: "mediaActivate"
-    to:   "/publication/how-the-news-media-activate-public-expression-and-influence-national-agendas/"
-    note: "vanity short URL → /publication/how-the-news-media-activate-public-expression-and-influence-national-agendas/"
-
-  - from: "mediaactivate"
-    to:   "/publication/how-the-news-media-activate-public-expression-and-influence-national-agendas/"
-    note: "case-insensitive alias of /mediaActivate/"
-
   - from: "original-home-page"
     to:   "/"
     note: "vanity short URL → /"
-
-  - from: "partnerships"
-    to:   "/publication/a-new-model-for-industry-academic-partnerships/"
-    note: "vanity short URL → /publication/a-new-model-for-industry-academic-partnerships/"
-
-  - from: "partyswitch"
-    to:   "/publication/the-stability-of-party-identification-among-u.s.-representatives-political-loyalty-1789-1984/"
-    note: "vanity short URL → /publication/the-stability-of-party-identification-among-u.s.-representatives-political-loyalty-1789-1984/"
-
-  - from: "prefresher"
-    to:   "/publication/the-math-prefresher-and-the-collective-future-of-political-science-graduate-training/"
-    note: "vanity short URL → /publication/the-math-prefresher-and-the-collective-future-of-political-science-graduate-training/"
-
-  - from: "psi"
-    to:   "/software/psi-ψ-a-private-data-sharing-interface/"
-    note: "vanity short URL → /software/psi-ψ-a-private-data-sharing-interface/"
-
-  - from: "quest"
-    to:   "/publication/inducing-sustained-creativity-and-diversity-in-large-language-models/"
-    note: "vanity short URL → /publication/inducing-sustained-creativity-and-diversity-in-large-language-models/"
-
-  - from: "readme"
-    to:   "/software/readme-software-for-automated-content-analysis/"
-    note: "vanity short URL → /software/readme-software-for-automated-content-analysis/"
-
-  - from: "relogit"
-    to:   "/software/relogit-rare-events-logistic-regression/"
-    note: "vanity short URL → /software/relogit-rare-events-logistic-regression/"
-
-  - from: "reputable"
-    to:   "/publication/experimental-evidence-on-the-limited-influence-of-reputable-media-outlets/"
-    note: "vanity short URL → /publication/experimental-evidence-on-the-limited-influence-of-reputable-media-outlets/"
-
-  - from: "scholar_software/maxlik"
-    to:   "/software/maxlik/"
-    note: "vanity short URL → /software/maxlik/"
-
-  - from: "sibs"
-    to:   "/publication/survey-estimates-of-wartime-mortality/"
-    note: "vanity short URL → /publication/survey-estimates-of-wartime-mortality/"
-
-  - from: "symmetry"
-    to:   "/publication/theoretical-foundations-and-empirical-evaluations-of-partisan-fairness-in-district-based-democracies/"
-    note: "vanity short URL → /publication/theoretical-foundations-and-empirical-evaluations-of-partisan-fairness-in-district-based-democracies/"
-
-  - from: "va"
-    to:   "/software/va-verbal-autopsies/"
-    note: "vanity short URL → /software/va-verbal-autopsies/"
-
-  - from: "videos"
-    to:   "/publication/education-and-scholarship-by-video/"
-    note: "vanity short URL → /publication/education-and-scholarship-by-video/"
-
-  - from: "vign"
-    to:   "/software/anchors-software-for-anchoring-vignettes-data/"
-    note: "vanity short URL → /software/anchors-software-for-anchoring-vignettes-data/"
-
-  - from: "vpresent"
-    to:   "/publication/video-presentations/"
-    note: "vanity short URL → /publication/video-presentations/"
-
-  - from: "whatif"
-    to:   "/software/whatif-software-for-evaluating-counterfactuals/"
-    note: "vanity short URL → /software/whatif-software-for-evaluating-counterfactuals/"
-
-  - from: "words"
-    to:   "/publication/an-improved-method-of-automated-nonparametric-content-analysis-for-social-science/"
-    note: "vanity short URL → /publication/an-improved-method-of-automated-nonparametric-content-analysis-for-social-science/"
-
-  - from: "yourcast"
-    to:   "/software/yourcast/"
-    note: "vanity short URL → /software/yourcast/"
-
-  - from: "zelig"
-    to:   "/software/zelig-everyones-statistical-software/"
-    note: "vanity short URL → /software/zelig-everyones-statistical-software/"
 
 # END vanity-shorts-import

@@ -1,5 +1,9 @@
 ---
 title: "Computational Social Science: Obstacles and Opportunities"
+url: /CompSS/
+aliases:
+  - /publication/computational-social-science-obstacles-and-opportunities/
+  - /compss/
 date: "2020-01-01"
 authors:
   - "David M. J. Lazer"

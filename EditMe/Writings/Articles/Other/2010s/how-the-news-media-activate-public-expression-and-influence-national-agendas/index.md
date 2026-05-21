@@ -12,6 +12,10 @@ related_talks:
   - "how-the-news-media-activate-public-expression-and-influence-national-agendas-uni"
 title: "How the News Media Activate Public Expression and Influence National Agendas"
 slug: "how-the-news-media-activate-public-expression-and-influence-national-agendas"
+url: /mediaActivate/
+aliases:
+  - /publication/how-the-news-media-activate-public-expression-and-influence-national-agendas/
+  - /mediaactivate/
 date: "2017-01-01"
 authors:
   - "Gary King"

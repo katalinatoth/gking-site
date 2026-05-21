@@ -1,5 +1,8 @@
 ---
 title: 'CEM: Coarsened Exact Matching Software'
+url: /cem/
+aliases:
+  - /software/cem-coarsened-exact-matching-software/
 date: '2009-01-01'
 authors:
 - Stefano Iacus

@@ -1,5 +1,9 @@
 ---
 title: 'EzI: A(n Easy) Program for Ecological Inference'
+url: /EzI/
+aliases:
+  - /software/ezi-an-easy-program-for-ecological-inference/
+  - /ezi/
 date: '2003-01-01'
 authors:
 - Gary King
