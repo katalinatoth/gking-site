@@ -16,8 +16,6 @@
 # year descending.
 rows:
   - year: 2020
-    slug: quickcode
-  - year: 2020
     slug: privacyunbiased
   - year: 2020
     slug: opendp-developing-open-source-tools-for-differential-privacy
