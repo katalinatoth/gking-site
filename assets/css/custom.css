@@ -4,6 +4,12 @@
   --hbx-primary-700: #8C1A28;
   --hbx-primary-500: #C62535;
 }
+/* The Harvard banner added a 4th grid child to body (.page-wrapper).
+   The theme's 3-row grid (auto 1fr auto) assigned 1fr to the navbar
+   instead of main content, causing the header area to expand on short pages. */
+.page-wrapper {
+  grid-template-rows: auto auto 1fr auto;
+}
 
 /* =========================================================================
    HARVARD UNIVERSITY IDENTITY BANNER
