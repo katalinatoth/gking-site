@@ -3,9 +3,9 @@
 Source for <https://gking.harvard.edu/> — Gary King's academic website,
 built with Hugo + Hugo Blox and deployed to GitHub Pages via GitHub Actions.
 
-> **Repository:** <https://github.com/iqss-research/gking-site> ·
-> **Live site:** <https://gking.harvard.edu/> ·
-> **Shortcut:** <https://GaryKing.org>
+> **Repository:** <https://github.com/iqss-research/gking-site> ·  
+> **Live site:** <https://gking.harvard.edu/> ·  
+> **Shortcut:** <https://GaryKing.org>  
 
 Every push to `main` triggers a live deploy (~3 minutes). There is no
 staging environment.
