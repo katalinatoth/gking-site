@@ -20,9 +20,9 @@ rows:
   - year: 2020
     slug: opendp-developing-open-source-tools-for-differential-privacy
   - year: 2018
-    slug: readme2-an-r-package-for-improved-automated-nonparametric-content-analysis-for-s
+    slug: readme2-an-r-package-for-improved-automated-nonparametric-content-analysis-for-social-science
   - year: 2018
-    slug: compactness-an-r-package-for-measuring-legislative-district-compactness-if-you-o
+    slug: compactness-an-r-package-for-measuring-legislative-district-compactness-if-you-only-know-it-when-you-see-it
   - year: 2018
     slug: psi-ψ-a-private-data-sharing-interface
     status: older
