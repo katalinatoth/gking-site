@@ -1,5 +1,6 @@
 {{ define "main" }}
 {{ $rows := site.Data.software_legacy_rows.rows | default slice }}
+{{ $entries := partial "software_tab_ordered_rows.html" . }}
 {{ $ovAll := site.Data.software_legacy_overrides.per_slug | default dict }}
 
 <div class="gk-sw-page page-body" style="max-width:900px;margin:0 auto;padding:2rem 1.5rem;">
@@ -23,24 +24,8 @@
   <div id="gk-sw-list">
   {{ range $group := $statusGroups }}
     {{ $gid := $group.id }}
-    {{ $matches := where $rows "status" $gid }}
-    {{ if eq $gid "current" }}
-      {{/* Rows without an explicit status default to "current". */}}
-      {{ $noStatus := where $rows "status" nil }}
-      {{ $matches = $matches | append $noStatus }}
-    {{ end }}
+    {{ $matches := where $entries "status" $gid }}
     {{ if gt (len $matches) 0 }}
-      {{ $pinned := slice }}
-      {{ $rest := slice }}
-      {{ range $matches }}
-        {{ if .list_first }}
-          {{ $pinned = $pinned | append . }}
-        {{ else }}
-          {{ $rest = $rest | append . }}
-        {{ end }}
-      {{ end }}
-      {{ $rest = sort $rest "year" "desc" }}
-      {{ $matches = $pinned | append $rest }}
       <section class="gk-sw-group gk-sw-group--{{ $gid }}" id="sw-{{ $gid }}" style="margin-top:1.75rem;">
         {{ if $group.label }}
         <h2 class="gk-sw-group__heading">{{ $group.label | safeHTML }}</h2>
@@ -51,28 +36,13 @@
         {{ range $matches }}
           {{ $slug := .slug }}
           {{ $yr := printf "%d" .year }}
-          {{ $p := site.GetPage (printf "/publication/%s" $slug) }}
+          {{ $p := .page }}
           {{ $o := index $ovAll $slug | default dict }}
           {{ $cite := "" }}
           {{ with $o.citation_line }}{{ $cite = . }}{{ else }}{{ $cite = partial "software_legacy_author_year.html" (dict "page" $p "year" $yr) }}{{ end }}
-          {{ $listTitle := $p.Title }}
-          {{ with $o.list_title }}{{ $listTitle = . }}{{ end }}
-          {{ $href := "" }}
-          {{ with $o.href }}{{ $href = . }}{{ else }}{{ $href = partial "software_page_href.html" $p }}{{ end }}
-          {{/* When href points at another publication (e.g. Dataverse software → SMR article), use that page's abstract. */}}
-          {{ $absPage := $p }}
-          {{ with $o.href }}
-            {{ if hasPrefix . "/publication/" }}
-              {{ $targetSlug := strings.TrimSuffix "/" (strings.TrimPrefix "/publication/" .) }}
-              {{ with site.GetPage (printf "/publication/%s" $targetSlug) }}
-                {{ $absPage = . }}
-              {{ end }}
-            {{ end }}
-          {{ end }}
-          {{ $abs := "" }}
-          {{ if not ($o.suppress_abstract | default false) }}
-            {{ with $o.abstract }}{{ $abs = . }}{{ else }}{{ with $absPage.Params.summary }}{{ $abs = . }}{{ else }}{{ with $absPage.Params.abstract }}{{ $abs = . }}{{ end }}{{ end }}{{ end }}
-          {{ end }}
+          {{ $listTitle := .listTitle }}
+          {{ $href := .href }}
+          {{ $abs := .abstract }}
           <div class="gk-sw-row gk-sw-card" data-slug="{{ $slug }}" data-status="{{ $gid }}" data-year="{{ $yr }}">
             <p style="margin:0;font-size:0.98rem;line-height:1.5;color:#111;">{{ $cite }} “<a class="gk-sw-title" href="{{ $href }}"{{ if strings.HasPrefix $href "http" }} target="_blank" rel="noopener"{{ end }} style="color:#337ab7;text-decoration:underline;text-underline-offset:2px;">{{ $listTitle }}</a>”</p>
             {{ if $abs }}

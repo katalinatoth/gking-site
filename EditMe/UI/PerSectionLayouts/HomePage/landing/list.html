@@ -148,14 +148,12 @@
      means "real books only" now that book_chapters moved to Articles. */}}
 {{ $bookPages := slice }}
 {{ $patentPages := slice }}
-{{ $softwarePages := slice }}
 {{ $paperPages := slice }}
 {{ range $slug, $meta := $wlMap.entries }}
   {{ $tab := index $meta "tab" | default "" }}
   {{ with site.GetPage (printf "/publication/%s" $slug) }}
     {{ if eq $tab "book" }}{{ $bookPages = $bookPages | append . }}{{ end }}
     {{ if eq $tab "patent" }}{{ $patentPages = $patentPages | append . }}{{ end }}
-    {{ if eq $tab "software" }}{{ $softwarePages = $softwarePages | append . }}{{ end }}
     {{ if eq $tab "journal" }}{{ $paperPages = $paperPages | append . }}{{ end }}
   {{ end }}
 {{ end }}
@@ -170,7 +168,7 @@
        - bookCount       → /publication/#book        (legacyTab === "book";      CV "Books")
        - patentCount     → /publication/#patent      (legacyTab === "patent";    CV "Patents")
        - courtBriefCount → /publication/#courtbrief  (legacyTab === "courtbrief"; CV "US Supreme Court Amici Briefs")
-       - softwareCount   → /software/                (full /software/ listing)
+       - softwareCount   → /software/                (software_legacy_rows.yaml row count)
        - talkCount       → /talk/                    (count of /talk/ pages)
 */}}
 {{ $paperCount := 0 }}
@@ -186,7 +184,8 @@
     {{ if eq $tab "courtbrief" }}{{ $courtBriefCount = add $courtBriefCount 1 }}{{ end }}
   {{ end }}
 {{ end }}
-{{ $softwareCount := len (where site.RegularPages "Section" "software") }}
+{{ $softwareTabRows := site.Data.software_legacy_rows.rows | default slice }}
+{{ $softwareCount := len $softwareTabRows }}
 {{ $talkCount := len (where site.RegularPages "Section" "talk") }}
 
 {{ $recentPapers := first 4 (sort $paperPages ".Date" "desc") }}
@@ -195,7 +194,8 @@
      above isn't derived from a truncated list. */}}
 {{ $recentBooks := first 4 (sort $bookPages ".Date" "desc") }}
 {{ $recentPatents := first 4 (sort $patentPages ".Date" "desc") }}
-{{ $recentSoftware := first 4 (sort $softwarePages ".Date" "desc") }}
+{{/* Same order as the /software/ tab (software_legacy_rows.yaml). */}}
+{{ $recentSoftware := first 4 (partial "software_tab_ordered_rows.html" .) }}
 {{ $recentTalks := first 4 (sort (where site.RegularPages "Section" "talk") ".Date" "desc") }}
 
 <section class="gk-hp-section">
@@ -375,21 +375,23 @@
       </div>
     </div>
 
-    <!-- Software Projects (4 most recent) -->
+    <!-- Software Projects (first 4 on /software/) -->
     <div class="gk-hp-card">
       <h3 class="gk-hp-card__heading">Software Projects</h3>
       {{ range $recentSoftware }}
-      {{ $swHref := partial "software_page_href.html" . }}
+      {{ $swHref := .href }}
       {{ $swIsExt := strings.HasPrefix $swHref "http" }}
       <details class="gk-hp-item">
         <summary class="gk-hp-item__summary">
           <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span>
-          <span>{{ .Title }}</span>
+          <span>{{ .listTitle }}</span>
         </summary>
         <div class="gk-hp-item__body">
+          {{ with .page }}
           {{ $authors := .Params.authors | default slice }}
           {{ if gt (len $authors) 0 }}<div class="gk-hp-item__authors">{{ delimit $authors ", " }}</div>{{ end }}
-          {{ with .Params.abstract }}<div class="gk-hp-item__abs">{{ . | truncate 200 | markdownify }}</div>{{ end }}
+          {{ end }}
+          {{ with .abstract }}<div class="gk-hp-item__abs">{{ . | truncate 200 | markdownify }}</div>{{ end }}
           <div class="gk-hp-item__more"><a href="{{ $swHref }}"{{ if $swIsExt }} target="_blank" rel="noopener"{{ end }}>Read more &rarr;</a></div>
         </div>
       </details>

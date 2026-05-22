@@ -1,0 +1,63 @@
+{{/* Ordered software-tab rows (same sequence as /software/).
+     Returns a slice of dicts: slug, year, status, page, listTitle, href, abstract. */}}
+{{ $rows := site.Data.software_legacy_rows.rows | default slice }}
+{{ $ovAll := site.Data.software_legacy_overrides.per_slug | default dict }}
+{{ $ordered := slice }}
+{{ $statusGroups := slice
+    (dict "id" "current")
+    (dict "id" "older")
+}}
+{{ range $group := $statusGroups }}
+  {{ $gid := $group.id }}
+  {{ $matches := where $rows "status" $gid }}
+  {{ if eq $gid "current" }}
+    {{ $noStatus := where $rows "status" nil }}
+    {{ $matches = $matches | append $noStatus }}
+  {{ end }}
+  {{ if gt (len $matches) 0 }}
+    {{ $pinned := slice }}
+    {{ $rest := slice }}
+    {{ range $matches }}
+      {{ if .list_first }}
+        {{ $pinned = $pinned | append . }}
+      {{ else }}
+        {{ $rest = $rest | append . }}
+      {{ end }}
+    {{ end }}
+    {{ $rest = sort $rest "year" "desc" }}
+    {{ $matches = $pinned | append $rest }}
+    {{ range $matches }}
+      {{ $slug := .slug }}
+      {{ $p := site.GetPage (printf "/publication/%s" $slug) }}
+      {{ $o := index $ovAll $slug | default dict }}
+      {{ $listTitle := "" }}
+      {{ with $p }}{{ $listTitle = .Title }}{{ end }}
+      {{ with $o.list_title }}{{ $listTitle = . }}{{ end }}
+      {{ $href := "" }}
+      {{ with $o.href }}{{ $href = . }}{{ else }}{{ with $p }}{{ $href = partial "software_page_href.html" . }}{{ end }}{{ end }}
+      {{ $absPage := $p }}
+      {{ with $o.href }}
+        {{ if hasPrefix . "/publication/" }}
+          {{ $targetSlug := strings.TrimSuffix "/" (strings.TrimPrefix "/publication/" .) }}
+          {{ with site.GetPage (printf "/publication/%s" $targetSlug) }}
+            {{ $absPage = . }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      {{ $abs := "" }}
+      {{ if not ($o.suppress_abstract | default false) }}
+        {{ with $o.abstract }}{{ $abs = . }}{{ else }}{{ with $absPage }}{{ with .Params.summary }}{{ $abs = . }}{{ else }}{{ with .Params.abstract }}{{ $abs = . }}{{ end }}{{ end }}{{ end }}{{ end }}
+      {{ end }}
+      {{ $ordered = $ordered | append (dict
+          "slug" $slug
+          "year" .year
+          "status" $gid
+          "page" $p
+          "listTitle" $listTitle
+          "href" $href
+          "abstract" $abs
+        ) }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ return $ordered }}
