@@ -12,7 +12,10 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: false
+  # Cancel older deploys so a queued build from an earlier commit cannot
+  # finish after a newer one and roll the live site back (see f98bb43
+  # overwriting 045bfde on 2026-05-22).
+  cancel-in-progress: true
 
 defaults:
   run:
