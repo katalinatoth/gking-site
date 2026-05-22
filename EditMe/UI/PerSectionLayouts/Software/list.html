@@ -59,9 +59,19 @@
           {{ with $o.list_title }}{{ $listTitle = . }}{{ end }}
           {{ $href := "" }}
           {{ with $o.href }}{{ $href = . }}{{ else }}{{ $href = partial "software_page_href.html" $p }}{{ end }}
+          {{/* When href points at another publication (e.g. Dataverse software → SMR article), use that page's abstract. */}}
+          {{ $absPage := $p }}
+          {{ with $o.href }}
+            {{ if hasPrefix . "/publication/" }}
+              {{ $targetSlug := strings.TrimSuffix "/" (strings.TrimPrefix "/publication/" .) }}
+              {{ with site.GetPage (printf "/publication/%s" $targetSlug) }}
+                {{ $absPage = . }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
           {{ $abs := "" }}
           {{ if not ($o.suppress_abstract | default false) }}
-            {{ with $o.abstract }}{{ $abs = . }}{{ else }}{{ with $p.Params.summary }}{{ $abs = . }}{{ else }}{{ with $p.Params.abstract }}{{ $abs = . }}{{ end }}{{ end }}{{ end }}
+            {{ with $o.abstract }}{{ $abs = . }}{{ else }}{{ with $absPage.Params.summary }}{{ $abs = . }}{{ else }}{{ with $absPage.Params.abstract }}{{ $abs = . }}{{ end }}{{ end }}{{ end }}
           {{ end }}
           <div class="gk-sw-row gk-sw-card" data-slug="{{ $slug }}" data-status="{{ $gid }}" data-year="{{ $yr }}">
             <p style="margin:0;font-size:0.98rem;line-height:1.5;color:#111;">{{ $cite }} “<a class="gk-sw-title" href="{{ $href }}"{{ if strings.HasPrefix $href "http" }} target="_blank" rel="noopener"{{ end }} style="color:#337ab7;text-decoration:underline;text-underline-offset:2px;">{{ $listTitle }}</a>”</p>
