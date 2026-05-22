@@ -12,9 +12,12 @@
 #                        superseded / deprecated; row appears in the
 #                        desaturated "Older" group at the bottom
 #
-# The software page groups rows by status and then sorts within each group by
-# year descending.
+# The software page groups rows by status. Within each group, rows with
+# list_first: true appear first (in YAML order), then the rest by year descending.
 rows:
+  - year: 2007
+    slug: dataverse-open-source-research-data-repository-software
+    list_first: true
   - year: 2020
     slug: privacyunbiased
   - year: 2020
@@ -32,8 +35,6 @@ rows:
   - year: 2015
     slug: robustse
     status: older
-  - year: 2015
-    slug: perusall
   - year: 2014
     slug: matchingfrontier-r-package-for-calculating-the-balance-sample-size-frontier
     status: older
@@ -46,13 +47,9 @@ rows:
   - year: 2009
     slug: amelia-ii-a-program-for-missing-data
   - year: 2009
-    slug: openscholar
-  - year: 2009
     slug: cem-coarsened-exact-matching-software
   - year: 2008
     slug: va-verbal-autopsies
-  - year: 2007
-    slug: dataverse-open-source-research-data-repository-software
   - year: 2007
     slug: matchit-nonparametric-preprocessing-for-parametric-causal-inference
   - year: 2007

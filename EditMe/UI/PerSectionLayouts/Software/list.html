@@ -30,7 +30,17 @@
       {{ $matches = $matches | append $noStatus }}
     {{ end }}
     {{ if gt (len $matches) 0 }}
-      {{ $matches = sort $matches "year" "desc" }}
+      {{ $pinned := slice }}
+      {{ $rest := slice }}
+      {{ range $matches }}
+        {{ if .list_first }}
+          {{ $pinned = $pinned | append . }}
+        {{ else }}
+          {{ $rest = $rest | append . }}
+        {{ end }}
+      {{ end }}
+      {{ $rest = sort $rest "year" "desc" }}
+      {{ $matches = $pinned | append $rest }}
       <section class="gk-sw-group gk-sw-group--{{ $gid }}" id="sw-{{ $gid }}" style="margin-top:1.75rem;">
         {{ if $group.label }}
         <h2 class="gk-sw-group__heading">{{ $group.label | safeHTML }}</h2>

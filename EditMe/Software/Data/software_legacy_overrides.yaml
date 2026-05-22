@@ -1,6 +1,8 @@
 # Optional per-slug overrides: legacy citation lines, list titles, external links, and
 # entries with no abstract expander on the original Drupal software page.
 per_slug:
+  dataverse-open-source-research-data-repository-software:
+    href: "/publication/an-introduction-to-the-dataverse-network-as-an-infrastructure-for-data-sharing/"
   matchit-nonparametric-preprocessing-for-parametric-causal-inference:
     citation_line: "Gary King, Kosuke Imai, Daniel Ho, and Elizabeth A. Stuart. 2007."
   anchors-software-for-anchoring-vignettes-data:
