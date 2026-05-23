@@ -36,7 +36,7 @@
 
 {{ $built := partial "functions/build_links" (dict "page" $page "is_list" $is_list) }}
 
-{{ $ctx := cond $is_list "list" "page" }}
+{{ $ctx := .link_context | default (cond $is_list "list" "page") }}
 
 {{ $fallbackByKey := dict
   "btn_pdf" "Article"

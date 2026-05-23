@@ -21,4 +21,9 @@ image:
 links:
   - type: pdf
     url: "files/dvn.pdf"
+  - type: site
+    url: "https://dataverse.org/"
+    name: "Dataverse.org"
+    contexts:
+      - after_cite
 ---

@@ -90,6 +90,7 @@
               <span class="gk-cite-inline-label">Cite</span>
             </button>
           {{ end }}
+          {{ partial "page_links" (dict "page" . "is_list" 0 "link_context" "after_cite") }}
         </div>
       </div>
       {{ end }}
