@@ -44,9 +44,9 @@
 
   <h2 style="font-size:1.5rem;font-weight:700;margin:0 0 1rem;">Alumni &amp; Collaborators</h2>
 
-  <div style="display:flex;gap:2rem;align-items:flex-start;">
+  <div class="gk-people-layout">
     <!-- Sidebar Filters (matches original site: category + name range + search) -->
-    <div id="gk-sidebar" style="min-width:220px;max-width:280px;flex-shrink:0;border:1px solid #e2e8f0;border-radius:8px;padding:1.25rem;background:#fafafa;position:sticky;top:5rem;">
+    <div id="gk-sidebar">
       <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.75rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;">Category</h3>
       <div id="gk-cat-filters" style="margin-bottom:1.25rem;"></div>
 
@@ -61,7 +61,7 @@
     </div>
 
     <!-- Results -->
-    <div style="flex:1;min-width:0;">
+    <div class="gk-people-main">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem;">
         <span id="gk-people-count" style="font-size:1.05rem;font-weight:600;color:#333;"></span>
         <select id="gk-people-sort" aria-label="Sort people" style="padding:4px 8px;border:1px solid #767676;border-radius:4px;font-size:0.85rem;">
@@ -69,7 +69,7 @@
           <option value="za">Last Name Z–A</option>
         </select>
       </div>
-      <div id="gk-people-results" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1rem;"></div>
+      <div id="gk-people-results"></div>
     </div>
   </div>
 </div>
@@ -530,6 +530,32 @@
 </script>
 
 <style>
+  .gk-people-layout {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+  #gk-sidebar {
+    min-width: 220px;
+    max-width: 280px;
+    flex-shrink: 0;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1.25rem;
+    background: #fafafa;
+    position: sticky;
+    top: 5rem;
+    box-sizing: border-box;
+  }
+  .gk-people-main {
+    flex: 1;
+    min-width: 0;
+  }
+  #gk-people-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+  }
   #gk-sidebar input[type="checkbox"] { accent-color: #337ab7; }
   .gk-affil-group { border-bottom: 1px solid #e2e8f0; }
   .gk-affil-group:last-child { border-bottom: none; }
@@ -570,7 +596,19 @@
     font-size: 0.85rem;
   }
   @media (max-width: 768px) {
-    #gk-sidebar { display: none; }
+    .gk-people-layout {
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    #gk-sidebar {
+      position: static;
+      min-width: 0;
+      max-width: none;
+      width: 100%;
+    }
+    #gk-people-results {
+      grid-template-columns: 1fr !important;
+    }
   }
 </style>
 
