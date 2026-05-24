@@ -53,8 +53,8 @@
       <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.75rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;">Researchers by Last Name</h3>
       <div id="gk-name-filters" style="margin-bottom:1.25rem;"></div>
 
-      <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.75rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;">University / Affiliation</h3>
-      <div id="gk-univ-filters" style="max-height:200px;overflow-y:auto;margin-bottom:1.25rem;"></div>
+      <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.75rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;">Affiliation</h3>
+      <div id="gk-affil-filters" style="margin-bottom:1.25rem;"></div>
 
       <h3 style="font-size:0.95rem;font-weight:700;margin:0 0 0.5rem;text-transform:uppercase;letter-spacing:0.05em;color:#555;"><label for="gk-people-search">Search</label></h3>
       <input type="text" id="gk-people-search" aria-label="Filter people by name or affiliation" placeholder="Name or affiliation..." style="width:100%;padding:6px 10px;border:1px solid #767676;border-radius:4px;font-size:0.9rem;box-sizing:border-box;">
@@ -121,7 +121,7 @@
   var searchTerm = "";
   var sortMode = "az";
   var activeRanges = {};
-  var activeUnivs = {};
+  var activeAffils = {};
   var activeCats = {};
   /* Same letter buckets as legacy /people */
   var ranges = ["A-C","D-G","H-J","K-L","M-P","Q-S","T-V","W-Z"];
@@ -152,6 +152,257 @@
     return getRange(d.name);
   }
 
+  /* Sidebar "Affiliation" facet: universities (canonical) plus employer names in gov / corporate groups. */
+  var AFFIL_GROUPS = [
+    { id: "university", label: "University" },
+    { id: "gov", label: "Government / Nonprofit" },
+    { id: "corporate", label: "Corporate" },
+    { id: "unspecified", label: "Unspecified" }
+  ];
+  var UNIVERSITY_WORD_RE = /\b(University|College|Universit[àèéêa-z]+|Universidad|Polytechnic|Academy|École|Wellesley|Notre Dame|A&amp;M|A&M)\b/i;
+  var UNIVERSITY_SCHOOL_RE = /\b(School of|Law School|Medical School|Kennedy School|Chan School|Graduate School)\b/i;
+
+  function stripInstitutionName(role) {
+    if (!role) return "";
+    var s = role.trim();
+    var p = s.indexOf("(");
+    if (p > 0) s = s.substring(0, p).trim();
+    var semi = s.indexOf(";");
+    if (semi > 0) s = s.substring(0, semi).trim();
+    var slash = s.indexOf(" / ");
+    if (slash > 0) s = s.substring(0, slash).trim();
+    return s.replace(/\s+/g, " ").trim();
+  }
+
+  function looksLikePersonName(name) {
+    if (!name) return false;
+    if (UNIVERSITY_WORD_RE.test(name) || UNIVERSITY_SCHOOL_RE.test(name)) return false;
+    if (/^(MIT|NYU|UCLA|UCSF|Caltech|UC |SUNY|BU\b|Harvard|Stanford|Yale|Princeton|Columbia|Berkeley|Oxford|Cambridge|Georgetown|Duke|Cornell|Dartmouth|Brown|Northwestern|Penn|Chicago|Rice|Emory|Purdue|Rochester|MIT-|Massachusetts Institute|Johns Hopkins|London School)/i.test(name)) {
+      return false;
+    }
+    if (/\bUniversity of\b/i.test(name) || /\b[A-Z][\w.'&-]+\s+University\b/.test(name)) return false;
+    var words = name.split(/\s+/);
+    if (words.length < 2 || words.length > 5) return false;
+    var particles = { at: 1, of: 1, and: 1, the: 1, de: 1, la: 1, for: 1, in: 1, on: 1, "&": 1 };
+    var cap = 0;
+    for (var wi = 0; wi < words.length; wi++) {
+      if (particles[words[wi].toLowerCase()]) continue;
+      if (/^[A-Z][a-z]{1,}$/.test(words[wi]) || /^[A-Z]\.$/.test(words[wi])) cap++;
+    }
+    return cap >= 2;
+  }
+
+  function splitAffiliationSegments(raw) {
+    var safe = raw.replace(/University of California,\s/gi, "University of California—");
+    safe = safe.replace(/University of Wisconsin,\s/gi, "University of Wisconsin—");
+    return safe.split(/\s*,\s*/).map(function(seg) {
+      return seg.replace(/University of California—/g, "University of California, ")
+        .replace(/University of Wisconsin—/g, "University of Wisconsin, ").trim();
+    });
+  }
+
+  /* Pull "Princeton University" out of "Princeton University Daniel L. Kiskis". */
+  function leadingUniversityPhrase(s) {
+    if (!s) return "";
+    var m = s.match(/^((?:The\s+)?University of [^,]+,\s*[^,;()]+)/i);
+    if (m) return m[1].trim();
+    m = s.match(/^((?:The\s+)?University of\s+[^,;]+?)(?:\s+(?:at|and)\s+|$|,|;)/i);
+    if (m) return m[1].trim();
+    m = s.match(/^((?:The\s+)?(?:[A-Z][A-Za-z0-9.'&-]+\s+)+University(?:\s+(?:(?:of|in)\s+[A-Za-z0-9.'&\s,-]+|(?:Institute|School|College)(?:\s+of\s+[A-Za-z0-9.'&\s-]+)?))?)/i);
+    if (m) return m[1].trim();
+    m = s.match(/^((?:[A-Z][A-Za-z0-9.'&-]+\s+)+University)\b/);
+    if (m) return m[1].trim();
+    m = s.match(/\b(University of\s+[^,;]+)\b/i);
+    if (m) return m[1].trim();
+    m = s.match(/\b([A-Z][A-Za-z0-9.'&-]+(?:\s+[A-Z][A-Za-z0-9.'&-]+)*\s+University)\b/);
+    if (m) return m[1].trim();
+    return s.trim();
+  }
+
+  function canonicalizeUniversityCore(n) {
+    if (!n || looksLikePersonName(n)) return "";
+    var low = n.toLowerCase();
+
+    if (/^harvard\b/.test(low)) return "Harvard University";
+    if (/^massachusetts institute of technology\b/.test(low) || /^mit\b/.test(low) || /^mit-/.test(low)) return "MIT";
+    if (/^stanford\b/.test(low)) return "Stanford University";
+    if (/^yale\b/.test(low)) return "Yale University";
+    if (/^princeton\b/.test(low)) return "Princeton University";
+    if (/^columbia\b/.test(low)) return "Columbia University";
+    if (/^nyu\b/.test(low) || low.indexOf("new york university") >= 0) return "New York University";
+    if (/^georgetown\b/.test(low)) return "Georgetown University";
+    if (/^duke\b/.test(low)) return "Duke University";
+    if (/^northwestern\b/.test(low)) return "Northwestern University";
+    if (/^cornell\b/.test(low)) return "Cornell University";
+    if (/^dartmouth\b/.test(low)) return "Dartmouth College";
+    if (/^brown\b/.test(low)) return "Brown University";
+    if (/^johns hopkins\b/.test(low)) return "Johns Hopkins University";
+    if (/^london school of economics\b/.test(low)) return "London School of Economics";
+    if (/^chicago\b/.test(low) && low.indexOf("university") < 0) return "University of Chicago";
+    if (low.indexOf("university of chicago") >= 0) return "University of Chicago";
+    if (/^oxford\b/.test(low)) return "University of Oxford";
+    if (/^cambridge\b/.test(low)) return "University of Cambridge";
+    if (/^berkeley\b/.test(low) || low.indexOf("uc berkeley") >= 0) return "University of California, Berkeley";
+    if (/^ucla\b/.test(low) || low.indexOf("university of california, los angeles") >= 0) return "UCLA";
+    if (/^ucsf\b/.test(low)) return "UCSF";
+    if (/^caltech\b/.test(low)) return "Caltech";
+    if (/^notre dame\b/.test(low)) return "University of Notre Dame";
+    if (/^washington university\b/.test(low)) return "Washington University in St. Louis";
+    if (low.indexOf("university of texas") >= 0) return "University of Texas";
+    if (/^ut austin\b/.test(low)) return "University of Texas";
+    if (/^upenn\b/.test(low) || /^penn\b/.test(low)) return "University of Pennsylvania";
+    if (low.indexOf("university of pennsylvania") >= 0) return "University of Pennsylvania";
+    if (/^uc san diego\b/.test(low) || low.indexOf("university of california, san diego") >= 0) return "University of California, San Diego";
+    if (/^uc davis\b/.test(low) || low.indexOf("university of california, davis") >= 0) return "University of California, Davis";
+    if (/^uc santa barbara\b/.test(low) || low.indexOf("university of california, santa barbara") >= 0) return "University of California, Santa Barbara";
+    if (/^uc irvine\b/.test(low) || low.indexOf("university of california, irvine") >= 0) return "University of California, Irvine";
+    if (/^uc riverside\b/.test(low) || low.indexOf("university of california, riverside") >= 0) return "University of California, Riverside";
+    if (low.indexOf("university of wisconsin") >= 0) return "University of Wisconsin–Madison";
+    if (low.indexOf("university of colorado") >= 0) {
+      if (low.indexOf("boulder") >= 0 || low === "university of colorado") return "University of Colorado Boulder";
+      if (low.indexOf("anschutz") >= 0) return "University of Colorado Anschutz Medical Campus";
+    }
+    if (/^penn state\b/.test(low) || low.indexOf("pennsylvania state university") >= 0) return "Pennsylvania State University";
+    if (/^university of washington\b/.test(low)) return "University of Washington";
+    if (/^suny\b/.test(low)) return n.replace(/\s+/g, " ").trim();
+    if (/\btexas a&amp;m\b/.test(low) || /\btexas a&m\b/.test(low)) return "Texas A&M University";
+    if (/\buniversit[aàèéê] dell/i.test(low)) return n.replace(/\s+/g, " ").trim();
+
+    if (UNIVERSITY_WORD_RE.test(n) || UNIVERSITY_SCHOOL_RE.test(n)) return n.replace(/\s+/g, " ").trim();
+    if (/^(MIT|NYU|UCLA|UCSF|Caltech|BU|ETH|LSE|UCL|NUS)(\b|$)/i.test(n)) return n.trim();
+
+    return "";
+  }
+
+  function canonicalizeUniversity(name) {
+    var raw = stripInstitutionName(name);
+    if (!raw) return "";
+    var andIdx = raw.indexOf(" and ");
+    if (andIdx > 0 && !UNIVERSITY_WORD_RE.test(raw.substring(andIdx + 5))) {
+      raw = raw.substring(0, andIdx).trim();
+    }
+    var canon = canonicalizeUniversityCore(leadingUniversityPhrase(raw));
+    if (canon) return canon;
+    var segments = splitAffiliationSegments(raw);
+    var si, seg, phrase;
+    for (si = 0; si < segments.length; si++) {
+      phrase = leadingUniversityPhrase(segments[si]);
+      canon = canonicalizeUniversityCore(phrase);
+      if (canon) return canon;
+    }
+    return "";
+  }
+
+  var CORPORATE_RE = /\b(inc\.|llc|ltd\.|corp\.|investments|biomedical research|deepmind|polimetrix)\b|(?:^|\b)(airbnb|anthropic|atmire|brandwatch|corr analytics|crimson hexagon|d\. e\. shaw|epsilon economics|fidelity|google|meta|facebook|microsoft|netflix|openai|optum|pfizer|pinterest|reexpress|nanocentury|smartequip|sportsmedia|spotify|yougov|novartis|perscient|how we feel|jstor|r\.care)(?:\b|$)/i;
+
+  var GOV_NONPROFIT_RE = /\b(foundation|world bank|world health|development bank|european commission|joint research centre|niti aayog|government of|air force|naval war college|county board|attorney general|secretar[ií]a de salud|salud p[uú]blica|seguro social|inter-american|institute for advanced study|institute of public finance|rand corporation|enterprise institute|analyst institute|kavli|simons|gates foundation|ariadne labs|broad institute|population services|global alliance|ccbrt|community empowerment|barcelona supercomputing|hertie school|tokyo foundation|independent|harris for president|america asia alliances|executive director|alliance for improved|psi-india|population services|scripps research|tokyo foundation|european university institute)\b/i;
+
+  function isCorporateAffiliation(low) {
+    if (GOV_NONPROFIT_RE.test(low)) return false;
+    if (CORPORATE_RE.test(low)) return true;
+    if (/\b(stealth|formerly meta)\b/.test(low)) return true;
+    return false;
+  }
+
+  function affiliationCategory(role) {
+    if (!role || !role.trim()) return "unspecified";
+    if (canonicalizeUniversity(role)) return "university";
+    var s = stripInstitutionName(role).toLowerCase();
+    if (!s) return "unspecified";
+    if (isCorporateAffiliation(s)) return "corporate";
+    return "gov";
+  }
+
+  function affiliationFilterKey(role) {
+    if (!role || !role.trim()) return "__none__";
+    var canon = canonicalizeUniversity(role);
+    if (canon) return canon;
+    var emp = stripInstitutionName(role);
+    return emp || "__none__";
+  }
+
+  function affiliationFilterLabel(key) {
+    if (key === "__none__") return "Unspecified";
+    return key;
+  }
+
+  function sortAffilKeys(a, b) {
+    return affiliationFilterLabel(a).localeCompare(affiliationFilterLabel(b));
+  }
+
+  function escapeHtml(s) {
+    var div = document.createElement("div");
+    div.appendChild(document.createTextNode(s));
+    return div.innerHTML;
+  }
+
+  function escapeAttr(s) {
+    return s.replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  }
+
+  function addAffilCheckbox(container, key, count) {
+    activeAffils[key] = true;
+    var div = document.createElement("div");
+    div.className = "gk-affil-option";
+    div.innerHTML = '<label style="cursor:pointer;display:flex;align-items:center;gap:6px;">' +
+      '<input type="checkbox" data-affil="' + escapeAttr(key) + '" checked> ' +
+      escapeHtml(affiliationFilterLabel(key)) + ' <span style="color:#999;">(' + count + ')</span></label>';
+    container.appendChild(div);
+  }
+
+  function buildAffilAccordion(affilCounts, affilKeyCategory) {
+    var groupKeys = { university: [], gov: [], corporate: [], unspecified: [] };
+    Object.keys(affilCounts).forEach(function(k) {
+      var cat = affilKeyCategory[k] || "unspecified";
+      if (k === "__none__") cat = "unspecified";
+      groupKeys[cat].push(k);
+    });
+    Object.keys(groupKeys).forEach(function(id) {
+      groupKeys[id].sort(sortAffilKeys);
+    });
+
+    var container = document.getElementById("gk-affil-filters");
+    AFFIL_GROUPS.forEach(function(grp) {
+      var keys = groupKeys[grp.id];
+      if (!keys.length) return;
+      var groupTotal = 0;
+      keys.forEach(function(k) { groupTotal += affilCounts[k]; });
+
+      var wrap = document.createElement("div");
+      wrap.className = "gk-affil-group";
+
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "gk-affil-group-toggle";
+      btn.setAttribute("aria-expanded", "false");
+      btn.innerHTML = '<span class="gk-affil-chevron" aria-hidden="true"></span>' +
+        '<span class="gk-affil-group-label">' + escapeHtml(grp.label) +
+        ' <span class="gk-affil-group-count">(' + groupTotal + ')</span></span>';
+
+      var panel = document.createElement("div");
+      panel.className = "gk-affil-group-panel";
+      panel.hidden = true;
+      keys.forEach(function(k) {
+        addAffilCheckbox(panel, k, affilCounts[k]);
+      });
+
+      btn.addEventListener("click", function() {
+        var open = btn.getAttribute("aria-expanded") === "true";
+        btn.setAttribute("aria-expanded", open ? "false" : "true");
+        panel.hidden = open;
+      });
+
+      wrap.appendChild(btn);
+      wrap.appendChild(panel);
+      container.appendChild(wrap);
+    });
+
+    container.addEventListener("change", function(e) {
+      var k = e.target.dataset.affil;
+      if (k !== undefined) { activeAffils[k] = e.target.checked; render(); }
+    });
+  }
+
   /* Categories: people may have multiple tags (matches legacy facet counts). Ranges: exclusive per person. */
   function computeFacetCounts(rows) {
     var cat = { current: 0, alumni_students: 0, alumni_postdocs: 0, collaborators: 0 };
@@ -174,10 +425,12 @@
     console.warn("Research group letter-bucket sum:", { members: data.length, rngSum: rngSum });
   }
 
-  var univCounts = {};
+  var affilCounts = {};
+  var affilKeyCategory = {};
   data.forEach(function(d) {
-    var u = d.role || "—";
-    univCounts[u] = (univCounts[u] || 0) + 1;
+    var k = affiliationFilterKey(d.role);
+    affilCounts[k] = (affilCounts[k] || 0) + 1;
+    affilKeyCategory[k] = affiliationCategory(d.role);
   });
 
   var catLabels = {
@@ -208,19 +461,7 @@
     nameContainer.appendChild(div);
   });
 
-  var univContainer = document.getElementById("gk-univ-filters");
-  var sortedUnivs = Object.keys(univCounts).sort(function(a, b) {
-    return univCounts[b] - univCounts[a];
-  });
-  sortedUnivs.forEach(function(u) {
-    activeUnivs[u] = true;
-    var div = document.createElement("div");
-    div.style.cssText = "padding:1px 0;font-size:0.85rem;";
-    div.innerHTML = '<label style="cursor:pointer;display:flex;align-items:center;gap:6px;">' +
-      '<input type="checkbox" data-univ="' + escapeAttr(u) + '" checked> ' +
-      escapeHtml(u) + ' <span style="color:#999;">(' + univCounts[u] + ')</span></label>';
-    univContainer.appendChild(div);
-  });
+  buildAffilAccordion(affilCounts, affilKeyCategory);
 
   catContainer.addEventListener("change", function(e) {
     var k = e.target.dataset.cat;
@@ -229,10 +470,6 @@
   nameContainer.addEventListener("change", function(e) {
     var r = e.target.dataset.range;
     if (r) { activeRanges[r] = e.target.checked; render(); }
-  });
-  univContainer.addEventListener("change", function(e) {
-    var u = e.target.dataset.univ;
-    if (u !== undefined) { activeUnivs[u] = e.target.checked; render(); }
   });
   document.getElementById("gk-people-search").addEventListener("input", function(e) {
     searchTerm = e.target.value.toLowerCase();
@@ -255,8 +492,7 @@
     var filtered = data.filter(function(d) {
       if (!anyCategoryActive(d)) return false;
       if (!activeRanges[getRangeForEntry(d)]) return false;
-      var u = d.role || "—";
-      if (!activeUnivs[u]) return false;
+      if (!activeAffils[affiliationFilterKey(d.role)]) return false;
       if (searchTerm) {
         var haystack = (d.name + " " + (d.role || "") + " " + (d.categoryLabel || "")).toLowerCase();
         if (haystack.indexOf(searchTerm) === -1) return false;
@@ -289,22 +525,50 @@
     document.getElementById("gk-people-results").innerHTML = html;
   }
 
-  function escapeHtml(s) {
-    var div = document.createElement("div");
-    div.appendChild(document.createTextNode(s));
-    return div.innerHTML;
-  }
-
-  function escapeAttr(s) {
-    return s.replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
-  }
-
   render();
 })();
 </script>
 
 <style>
   #gk-sidebar input[type="checkbox"] { accent-color: #337ab7; }
+  .gk-affil-group { border-bottom: 1px solid #e2e8f0; }
+  .gk-affil-group:last-child { border-bottom: none; }
+  .gk-affil-group-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    padding: 6px 0;
+    border: none;
+    background: none;
+    font: inherit;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #333;
+    text-align: left;
+    cursor: pointer;
+  }
+  .gk-affil-group-toggle:hover { color: #1a3a5c; }
+  .gk-affil-chevron {
+    display: inline-block;
+    width: 0.65rem;
+    flex-shrink: 0;
+    transition: transform 0.15s ease;
+  }
+  .gk-affil-chevron::before { content: "▸"; }
+  .gk-affil-group-toggle[aria-expanded="true"] .gk-affil-chevron {
+    transform: rotate(90deg);
+  }
+  .gk-affil-group-count { font-weight: 400; color: #999; }
+  .gk-affil-group-panel {
+    max-height: 180px;
+    overflow-y: auto;
+    padding: 0 0 8px 1rem;
+  }
+  .gk-affil-option {
+    padding: 1px 0;
+    font-size: 0.85rem;
+  }
   @media (max-width: 768px) {
     #gk-sidebar { display: none; }
   }
