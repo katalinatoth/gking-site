@@ -5,7 +5,7 @@
 <!-- Hero Section -->
 <section id="hero" style="background:#ECF2F8;">
   <div style="max-width:1200px;margin:0 auto;display:flex;align-items:stretch;min-height:420px;">
-    <div style="flex:1;padding:60px 50px 60px 40px;display:flex;flex-direction:column;justify-content:center;">
+    <div style="flex:1;padding:60px 5rem 60px 5rem;display:flex;flex-direction:column;justify-content:center;">
       <p style="font-size:1.15rem;line-height:1.7;color:#1E1E1E;margin:0 0 28px 0;">
         Gary King is the Weatherhead University Professor at Harvard University. He also serves as Director of the Institute for Quantitative Social Science. He and his research group develop and apply empirical methods in many areas of social science research.
       </p>
@@ -23,7 +23,7 @@
 </section>
 
 <!-- Research Areas Section -->
-<section id="research-areas" style="max-width:1200px;margin:0 auto;padding:32px 40px 40px;">
+<section id="research-areas" style="max-width:1200px;margin:0 auto;padding:32px 5rem 40px;">
   <h2 style="font-size:2rem;font-weight:400;color:#1E1E1E;margin:0 0 20px 0;">Research Areas</h2>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;">
     <!-- Methods -->
@@ -148,12 +148,14 @@
      means "real books only" now that book_chapters moved to Articles. */}}
 {{ $bookPages := slice }}
 {{ $patentPages := slice }}
+{{ $softwarePages := slice }}
 {{ $paperPages := slice }}
 {{ range $slug, $meta := $wlMap.entries }}
   {{ $tab := index $meta "tab" | default "" }}
   {{ with site.GetPage (printf "/publication/%s" $slug) }}
     {{ if eq $tab "book" }}{{ $bookPages = $bookPages | append . }}{{ end }}
     {{ if eq $tab "patent" }}{{ $patentPages = $patentPages | append . }}{{ end }}
+    {{ if eq $tab "software" }}{{ $softwarePages = $softwarePages | append . }}{{ end }}
     {{ if eq $tab "journal" }}{{ $paperPages = $paperPages | append . }}{{ end }}
   {{ end }}
 {{ end }}
@@ -168,7 +170,7 @@
        - bookCount       → /publication/#book        (legacyTab === "book";      CV "Books")
        - patentCount     → /publication/#patent      (legacyTab === "patent";    CV "Patents")
        - courtBriefCount → /publication/#courtbrief  (legacyTab === "courtbrief"; CV "US Supreme Court Amici Briefs")
-       - softwareCount   → /software/                (software_legacy_rows.yaml row count)
+       - softwareCount   → /software/                (full /software/ listing)
        - talkCount       → /talk/                    (count of /talk/ pages)
 */}}
 {{ $paperCount := 0 }}
@@ -184,8 +186,7 @@
     {{ if eq $tab "courtbrief" }}{{ $courtBriefCount = add $courtBriefCount 1 }}{{ end }}
   {{ end }}
 {{ end }}
-{{ $softwareTabRows := site.Data.software_legacy_rows.rows | default slice }}
-{{ $softwareCount := len $softwareTabRows }}
+{{ $softwareCount := len (where site.RegularPages "Section" "software") }}
 {{ $talkCount := len (where site.RegularPages "Section" "talk") }}
 
 {{ $recentPapers := first 4 (sort $paperPages ".Date" "desc") }}
@@ -194,8 +195,7 @@
      above isn't derived from a truncated list. */}}
 {{ $recentBooks := first 4 (sort $bookPages ".Date" "desc") }}
 {{ $recentPatents := first 4 (sort $patentPages ".Date" "desc") }}
-{{/* Same order as the /software/ tab (software_legacy_rows.yaml). */}}
-{{ $recentSoftware := first 4 (partial "software_tab_ordered_rows.html" .) }}
+{{ $recentSoftware := first 4 (sort $softwarePages ".Date" "desc") }}
 {{ $recentTalks := first 4 (sort (where site.RegularPages "Section" "talk") ".Date" "desc") }}
 
 <section class="gk-hp-section">
@@ -350,7 +350,7 @@
       </details>
       {{/* Put the opening quote INSIDE the <a> so the browser treats `"Entrepreneurial`
            as one atomic word and can't break between the quote and the title. */}}
-      <p class="gk-hp-card__news">News story: <a href="/entrepreneurial-academia/">&ldquo;Entrepreneurial Academia with Gary King&rdquo;</a></p>
+      <p class="gk-hp-card__news">News story: <a href="https://www.thecrimson.com/article/2024/3/9/gary-king-profile/" target="_blank" rel="noopener">&ldquo;Entrepreneurial Academia with Gary King&rdquo;</a> <span style="font-size:0.85rem;color:#888;">(<a href="/archives/crimson-entrepreneurial-academia-2024.pdf" style="color:#888;text-decoration:underline;">archived copy</a>)</span></p>
     </div>
 
     <!-- Patents (4 most recent) -->
@@ -375,23 +375,21 @@
       </div>
     </div>
 
-    <!-- Software Projects (first 4 on /software/) -->
+    <!-- Software Projects (4 most recent) -->
     <div class="gk-hp-card">
       <h3 class="gk-hp-card__heading">Software Projects</h3>
       {{ range $recentSoftware }}
-      {{ $swHref := .href }}
+      {{ $swHref := partial "software_page_href.html" . }}
       {{ $swIsExt := strings.HasPrefix $swHref "http" }}
       <details class="gk-hp-item">
         <summary class="gk-hp-item__summary">
           <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span>
-          <span>{{ .listTitle }}</span>
+          <span>{{ .Title }}</span>
         </summary>
         <div class="gk-hp-item__body">
-          {{ with .page }}
           {{ $authors := .Params.authors | default slice }}
           {{ if gt (len $authors) 0 }}<div class="gk-hp-item__authors">{{ delimit $authors ", " }}</div>{{ end }}
-          {{ end }}
-          {{ with .abstract }}<div class="gk-hp-item__abs">{{ . | truncate 200 | markdownify }}</div>{{ end }}
+          {{ with .Params.abstract }}<div class="gk-hp-item__abs">{{ . | truncate 200 | markdownify }}</div>{{ end }}
           <div class="gk-hp-item__more"><a href="{{ $swHref }}"{{ if $swIsExt }} target="_blank" rel="noopener"{{ end }}>Read more &rarr;</a></div>
         </div>
       </details>
@@ -405,7 +403,7 @@
 </section>
 
 <!-- An Interview with Gary -->
-<section style="max-width:1200px;margin:0 auto;padding:60px 40px 30px;">
+<section style="max-width:1200px;margin:0 auto;padding:60px 5rem 30px;">
   <h2 style="font-size:2rem;font-weight:400;color:#1E1E1E;margin:0 0 24px 0;text-align:center;">An Interview with Gary</h2>
   <div style="max-width:720px;margin:0 auto;">
     <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;">
@@ -415,7 +413,7 @@
 </section>
 
 <!-- Video Conversations and Lectures -->
-<section style="background:#f8f9fa;padding:40px;">
+<section style="background:#f8f9fa;padding:40px 5rem;">
   <div style="max-width:1200px;margin:0 auto;">
     <h2 style="font-size:2rem;font-weight:400;color:#1E1E1E;margin:0 0 24px 0;text-align:center;">Video Conversations and Lectures</h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;">
@@ -454,7 +452,7 @@
   #hero a:hover { background: #7d3902 !important; }
   @media (max-width: 768px) {
     #hero > div { flex-direction: column !important; }
-    #hero > div > div:first-child { padding: 40px 24px !important; }
+    #hero > div > div:first-child { padding: 40px 5rem !important; }
     #hero > div > div:last-child { max-height: 300px; }
   }
   .gk-hp-area summary,
@@ -494,7 +492,7 @@
   .gk-hp-section {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 40px 40px;
+    padding: 0 5rem 40px;
   }
   .gk-hp-grid {
     display: grid;

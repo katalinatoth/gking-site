@@ -1,10 +1,8 @@
 {{ define "main" }}
 
-<div class="mx-auto flex max-w-screen-xl">
-  {{ partial "components/sidebar.html" (dict "context" . "no_sidebar" true) }}
-  {{ partial "components/toc.html" . }}
-  <article class="w-full break-words flex min-h-[calc(100vh-var(--navbar-height))] min-w-0 justify-center pb-8 pr-[calc(env(safe-area-inset-right)-1.5rem)]">
-    <div class="w-full min-w-0 max-w-6xl px-6 pt-4 md:px-12">
+<div class="mx-auto" style="max-width:1200px;padding-left:5rem;padding-right:5rem;">
+  <article class="w-full break-words min-h-[calc(100vh-var(--navbar-height))] min-w-0 pb-8">
+    <div class="w-full pt-4">
       {{ $pubSlug := "" }}{{ with .File }}{{ $pubSlug = path.Base (path.Dir .Path) }}{{ end }}
       {{ $swPage := false }}
       {{ if $pubSlug }}
