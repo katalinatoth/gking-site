@@ -4,12 +4,20 @@
   --hbx-primary-700: #8C1A28;
   --hbx-primary-500: #C62535;
 }
-/* The Harvard banner added a 4th grid child to body (.page-wrapper).
-   The theme's 3-row grid (auto 1fr auto) assigned 1fr to the navbar
-   instead of main content, causing the header area to expand on short pages. */
+
+/* Fix grid row assignment: the Harvard banner shifted items by one row,
+   putting the navbar in the 1fr slot instead of main content.
+   Explicit row assignments prevent Chrome profile differences (extensions,
+   accessibility zoom, font-size overrides) from reordering the layout. */
 .page-wrapper {
-  grid-template-rows: auto auto 1fr auto;
+  grid-template-rows: auto auto 1fr auto !important;
+  align-content: start;
 }
+.gk-harvard-banner     { grid-row: 1; }
+.page-header           { grid-row: 2; }
+.page-body             { grid-row: 3; align-self: start; }
+.page-footer           { grid-row: 4; }
+#page-bg               { position: fixed; grid-row: 1 / -1; pointer-events: none; }
 
 /* =========================================================================
    HARVARD UNIVERSITY IDENTITY BANNER
@@ -288,8 +296,7 @@ button.gk-link-secondary:hover {
   opacity: 0.85;
 }
 
-/* Cite / BibTeX control (appendix links use the same chrome as an <a>) */
-a.gk-cite-button,
+/* Cite / BibTeX control */
 button.gk-cite-button {
   display: inline-flex;
   align-items: center;
@@ -304,11 +311,9 @@ button.gk-cite-button {
   cursor: pointer;
   line-height: 1.25;
 }
-a.gk-cite-button:hover,
 button.gk-cite-button:hover {
   background: #eef2f6 !important;
   border-color: #9ca3af !important;
-  text-decoration: none;
 }
 
 /* Compact publication page */
@@ -331,27 +336,6 @@ button.gk-cite-button:hover {
   flex-wrap: wrap;
   align-items: center;
   gap: 8px 12px;
-}
-/* Publication row: Article, Appendix, and Cite share one height, padding, and icon size. */
-.gk-citation-actions .gk-link-primary,
-.gk-citation-actions a.gk-cite-button,
-.gk-citation-actions button.gk-cite-button {
-  box-sizing: border-box;
-  min-height: 2rem;
-  padding: 5px 12px;
-  font-size: 0.88rem;
-  line-height: 1.25;
-  gap: 6px;
-}
-.gk-citation-actions .gk-link-primary {
-  margin-right: 0;
-}
-.gk-citation-actions .gk-link-primary svg,
-.gk-citation-actions .gk-cite-button svg {
-  width: 18px;
-  height: 18px;
-  flex-shrink: 0;
-  margin: 0;
 }
 .gk-citation-text {
   min-width: 0;
@@ -383,12 +367,6 @@ button.gk-cite-button:hover {
 }
 .gk-pub-text p {
   margin: 0.6em 0;
-}
-.gk-pub-text h2 {
-  font-size: 1rem;
-  font-weight: 700;
-  margin: 1.25rem 0 0.5rem;
-  color: #333;
 }
 /* Inline text links in body copy: blue + underlined at rest (site-wide convention). */
 .gk-pub-text a,
@@ -665,14 +643,10 @@ nav[aria-label="Breadcrumb"] a:focus-visible {
 }
 
 /* Existing .gk-cite-button already darkens on hover; add the matching lift. */
-a.gk-cite-button,
 button.gk-cite-button {
   transition: background-color 0.15s ease, border-color 0.15s ease,
               color 0.15s ease, transform 0.15s ease;
-  text-decoration: none;
 }
-a.gk-cite-button:hover,
-a.gk-cite-button:focus-visible,
 button.gk-cite-button:hover,
 button.gk-cite-button:focus-visible {
   transform: translateY(-1px);
