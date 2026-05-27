@@ -1,153 +1,59 @@
-# Getting Started: Academic Website in 15 Minutes
+**Quick Start Guide: Building an Academic Website**
 
-This is a plain-English guide to setting up and managing an academic website
-like [gking.harvard.edu](https://gking.harvard.edu). No prior web development
-knowledge required.
+This is a guide meant to help set up and manage an academic website like gking.harvard.edu. 
 
----
-
-## What We Use (and Why)
+What We Use (and Why)
 
 | Tool | What it is | Why we use it |
-|------|-----------|---------------|
-| **Hugo** | A program that turns plain text files into a website | Produces blazingly fast pages (no database, no server-side code), virtually no security risks, free to host |
-| **Hugo Blox** | A pre-built academic theme for Hugo | Gives us publication pages, people profiles, a search bar, and responsive design out of the box |
-| **Tailwind CSS** | A styling system | Makes the site look modern and consistent without writing custom design code |
-| **Pagefind** | A search engine that runs entirely in the browser | No search server to maintain; works automatically on any hosting |
-| **GitHub** | Where the site's files live (version-controlled) | Every change is tracked, reversible, and visible to collaborators |
-| **GitHub Pages** | Free website hosting from GitHub | The site goes live automatically every time you save a change — no manual "deploy" step |
-| **GitHub Actions** | Automatic build system | Rebuilds the site in ~3 minutes whenever a file changes on GitHub |
-| **Claude** (in Cursor) | AI assistant | Handles all the technical complexity — you describe what you want in English, it makes the changes |
+| :---- | :---- | :---- |
+| Hugo | An open-source program that turns plain text files into a functional website (including styling, urls, etc). | Hugo has a number of advantages. Firstly, it produces very fast pages because it is a static site generator (as opposed to website builders like WordPress, which construct pages from scratch every time a person visits them, Hugo sites are built as a static entity, like a brochure, and are just handed to the person trying to access them with no personalization). As a result, security risks are also much lower compared to a dynamic website framework (hackers would normally target live servers or databases, which don’t exist for static sites– Hugo sites are read-only and pre-compiled). The simpler nature of rendering static sites also means that hosting a Hugo site is free.  |
+| Hugo Blox | In order to make website design easier, Hugo has a number of pre-made themes, and Hugo Blox is the academic website theme. | Built into this theme are all the website elements that an academic website would normally need, like our publication pages, people profiles, and search bar. It’s easier to use this structure than to start from scratch. |
+| Tailwind CSS | A styling system that handles the aesthetics of the website | To avoid writing custom design code, Tailwind makes the site look modern and aesthetically consistent.  |
+| Pagefind | A search engine that runs in the browser of the person visiting the site, instead of on the website’s server, as would be the case with dynamic websites. | Static sites have many advantages, but one tradeoff is that because there is no server running in the background, a normal search function wouldn’t work. Instead, Pagefind creates an index (like what would be at the back of a reference book), and ships that as part of the website: when someone types something in the search bar of the website, a program running in their own browser scans that index and shows results without any server necessary. |
+| Github | A version-control system where the site's files live | GitHub is just like a shared drive for the website: it tracks changes, makes those changes quickly reversible, and allows people to easily collaborate on a project like a website. |
+| Github Pages | Free website hosting from GitHub that takes our folder of website files and makes them visible to people on the internet | Once files are in the Github repository, Github serves them at a public url. This is a free way to host a website and is commonly used alongside Hugo. |
+| Github Actions | A digital helper in Github that automates repetitive tasks like automatically running Hugo/Pagefind/etc when you push a change to the website, and deploying the result to Github Pages.  | Without Github Actions, the process of making updates would be long and tedious and require manually rebuilding the site on a local device with every change and uploading the result every time. |
+| Claude (in Cursor) | The LLM that makes website creation/editing accessible to non-technical users | In this particular case, Claude’s main job is to translate English into code (you say “I want to upload this pdf to the website to accompany x paper”, and Claude turns that into code that is understandable to the relevant tools above).  |
+| Cursor | A desktop app that has Claude built in. It is a code editor like VSCode, but you won’t need to actually edit any code yourself. | Cursor is where you talk to Claude.Using Claude in Cursor allows you to build the website locally on your computer and push changes to GitHub all in one place. |
+| HTML | The language web browsers understand, that describes the structure of a web page (every page on the internet is HTML). Hugo generates HTML automatically from the plain text files we edit in GitHub. | HTML is non-negotiable in terms of website-building, but you’ll never have to write it yourself. |
 
-### Benefits of this approach
+**What You’ll Need for Website Setup**
 
-- **Speed**: Pages load in under a second. There's no database or server to slow things down.
-- **Security**: Since the site is just static files (HTML, CSS, images), there's nothing to hack. No WordPress vulnerabilities, no plugin updates.
-- **Zero maintenance**: No servers to patch, no software to update, no hosting bills.
-- **AI-friendly**: The entire site is plain text files. Claude can read, understand, and modify any part of it. You never need to learn code.
-- **Reversible**: Every change is versioned. If something breaks, any previous state can be restored instantly.
+1. The ACADEMIC\_SITE\_PROMPT.md document: this is a detailed document that describes to Claude exactly how the website should look and function (it is essentially the website blueprint).   
+2. The website’s content as laid out in the prompt document (this can either be migrated by Claude from an existing academic website, or uploaded in the form of a CV, bio, publication and presentation pdfs, etc). 
 
----
+**Implementation**
 
-## Installation
+1. Download and install [Cursor](https://cursor.com/agents). This is the only application you need on your computer. Cursor is a code editor with Claude built in — it’s where you’ll talk to Claude and where Claude will do all its work.  
+     
+   During setup, Cursor will ask you to sign in or create an account. Choose a plan that gives you access to Claude (the Pro plan or above).
 
-### Option A: Start from scratch (new site)
+2. Navigate to [https://github.com/](https://github.com/) and create an account. In the home page of your github account, you should see a plus icon (+). Click on it and select “new repository.” Fill out the form so it looks like this, but with a name of your choosing:
 
-1. **Get the tools** — Install [Cursor](https://cursor.com) (a code editor with Claude built in). That's the only thing you need on your computer. Claude handles everything else.
+![][image1]
 
-2. **Create the site** — Open Cursor and tell Claude:
+3. Open the ACADEMIC\_SITE\_PROMPT.md document. Fill out the “Who I am” section. You’ll see that it asks you to provide either the url of a preexisting academic website, or a series of documents and pieces of information. Provide as much as you can up front to reduce back and forth; Claude will ask you for anything else that it needs.  
+     
+4. Tell Claude:  
+   "Create a new academic website for \[Name\], using the website building instructions attached \[attach completed website prompt PDF\]. The GitHub repository I’d like to use is at \[link to the repository you just created\]. Install Hugo so that we can do local builds in future."   
+     
+   Claude will walk you through the authentication process so that it can connect to GitHub.  
+     
+5. Claude will scaffold the site, create the GitHub repository, and deploy it. If there are changes to be made (it is likely that you’ll want to customize the website to some extent), you can ask Claude to make the changes you want. For common changes, the Claude Prompts document may be helpful, or you can refer to the prompts below.   
+     
+6. If you’re making changes to the site after it’s live online, it is wise to build it locally (so you can see the changes you’re making on your own device without immediately putting them on the internet) before pushing changes to the repository. In order to do this, tell Claude “I want to try making X and X changes, but build them locally first and give me a localhost link so I can approve them before we push.”  Claude should give you a localhost link (something like “localhost:1313”) that you can click on to view the website before committing any edits to the internet. Once you’re satisfied, say “commit and push to main”. If multiple people have access to/are editing the site you’re working on, tell Claude to “pull any recent changes to main” before you start working to make sure you don’t end up pushing changes that conflict with changes someone else has made.
 
-   > "Create a new academic website for [Name], hosted at [username].github.io/[repo-name]. Here's their CV [attach PDF]. Set up Hugo with Hugo Blox, GitHub Pages deployment, and Pagefind search."
+**How It Works**
 
-3. **Done** — Claude will scaffold the site, create the GitHub repository, and deploy it. You'll have a live URL in about 15 minutes.
+1\. You tell Claude what you want.  
+2\. Claude edits the relevant text files.  
+3\. Claude pushes the change to GitHub.  
+4\. GitHub Actions automatically rebuilds the site.  
+5\. The live site updates.
 
-### Option B: Bring over an existing site
+**If Something Goes Wrong**
 
-If there's already a website (e.g., an old WordPress or Drupal site), tell Claude:
+\- A new change isn’t visible on the site: Check GitHub Actions (repository → Actions tab). If the latest run has a red X, tell Claude: "The build failed. Here's the error: \[paste\]." If it’s a yellow circle, it’s still working and you’ll just need to wait a while longer. If there is no related update in the Actions tab, it’s possible that Claude didn’t commit and push. Ask Claude to make sure it pushed, and if it already did to check that it pushed to the right branch of the repository.   
+\- A new change doesn’t look good: Everything is versioned. Tell Claude "revert the last change" or "go back to how the site was yesterday."
 
-> "Migrate the site at [old-url] to this Hugo setup. Here's the CV [attach PDF]. Preserve all existing URLs so links don't break."
-
-Claude will scrape the existing content, convert it to the new format, and deploy. The old URLs will still work via automatic redirects.
-
----
-
-## How the Site Is Organized
-
-Everything you'd ever want to edit lives in one folder: **`EditMe/`**. The subfolders map directly to sections of the website:
-
-```
-EditMe/
-├── HomePage/          → The landing page
-├── Bio/               → Biography section
-├── Writings/          → All publications, books, talks
-├── Software/          → Software projects
-├── Teaching/          → Courses
-├── People/            → Research group profiles
-├── Startups/          → Companies/startups
-├── ResearchAreas/     → Topic groupings on the homepage
-├── Blog/              → Blog posts
-├── Contact/           → Contact page
-└── Redirects/         → URL forwarding rules
-```
-
-Each page is a simple text file (`index.md`) with a title, date, authors, and body text. You never need to touch anything outside `EditMe/`.
-
----
-
-## How To: Common Tasks
-
-For all of these, just open Cursor and describe what you want to Claude. Here are examples of the exact kind of instruction that works:
-
-### Add a new publication
-
-> "Add this paper to the site: [paste citation or attach PDF]. The authors are X, Y, Z. It was published in 2025 in [Journal Name]. Here's the PDF [attach file]."
-
-Claude will create the page, extract the metadata, place the PDF, and generate a BibTeX citation — all in the correct location.
-
-### Add a new section or tab to the navigation menu
-
-> "Add a new section called 'Datasets' to the site navigation, between Software and Teaching."
-
-### Edit existing content
-
-> "On the page about [paper title], change the abstract to [new text]."
-
-> "Update Gary's bio to mention his new appointment as [title]."
-
-### Add a person to the research group
-
-> "Add [Name] to the People section. They're a PhD student working on [topic]. Here's their photo [attach image]."
-
-### Change the site's appearance
-
-> "Make the navigation bar darker. Change the accent color to Harvard crimson."
-
-### Add a blog post
-
-> "Create a blog post titled '[Title]' with this content: [paste text]."
-
-### Fix something that looks wrong
-
-> "On the publications page, the buttons for [paper name] are missing. Can you fix that?"
-
----
-
-## How It Works (the 30-second version)
-
-1. You tell Claude what you want (in Cursor).
-2. Claude edits the text files in `EditMe/`.
-3. Claude pushes the change to GitHub.
-4. GitHub Actions automatically rebuilds the site (~3 minutes).
-5. The live site updates. Done.
-
-You can also browse and edit files directly on GitHub.com (click any file → pencil icon → edit → commit). The site rebuilds the same way.
-
----
-
-## Quick Reference
-
-| I want to... | Tell Claude... |
-|---|---|
-| Add a paper | "Add this paper: [citation]. Here's the PDF." |
-| Add a talk | "Add a talk titled [X] given at [venue] on [date]." |
-| Edit a page | "On the [page name] page, change [X] to [Y]." |
-| Add a redirect | "Make [old-url] redirect to [new-url]." |
-| Check the live site | Visit your GitHub Pages URL |
-| See recent changes | "Show me git log" or check GitHub's commit history |
-| Undo a change | "Revert the last commit" |
-
----
-
-## If Something Goes Wrong
-
-- **Site won't load**: Check GitHub Actions (repository → Actions tab). If the latest run has a red X, tell Claude: "The build failed. Here's the error: [paste]."
-- **Change didn't appear**: Wait 3 minutes for the rebuild. If still missing, ask Claude to check.
-- **Want to undo**: Everything is versioned. Tell Claude "revert the last change" or "go back to how the site was yesterday."
-
----
-
-## Further Reading (optional, for the curious)
-
-- `README.md` — Full technical reference for the site's architecture
-- `AGENTS.md` — Rules and conventions for AI assistants working on the site
-- `WEBSITE_PRINCIPLES.md` — Design philosophy and reusable patterns for building academic sites
+[image1]: <data:image/png;base64,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>
