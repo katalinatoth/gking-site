@@ -61,8 +61,9 @@ removing folders under `EditMe/`.
 
 **Two ways to edit:**
 
-- **Terminal** — edit files in your editor, `git commit`, and (with the
-  auto-push hook) the change deploys automatically.
+- **Claude / Cursor** — describe what you want changed in plain English.
+  Claude edits the files and pushes. See [Claude prompts for common
+  tasks](#claude-prompts-for-common-tasks) for ready-made prompts.
 - **GitHub.com** — pencil-icon edits in the browser. No local tools
   needed. Works from a phone or borrowed laptop.
 
@@ -138,17 +139,14 @@ gking-site/hugo-site/                 ← root of the git checkout
 │   ├── i18n/                         ← button label overrides (en.yaml)
 │   └── data/                         ← cross-section data outputs
 │
-├── _automation/                      ← maintenance + intake bots
-│   ├── intake/                       ← drop-zone for auto-import (paper/talk/book)
-│   │   ├── talk/
-│   │   └── book/
+├── _automation/                      ← maintenance scripts
 │   └── scripts/                      ← every Python helper
-│       ├── writings/                 ← intake_publication.py, DOI fillers, audits
+│       ├── writings/                 ← DOI fillers, audits
 │       ├── people/                   ← profile sync, research-group scrapers
 │       └── (top-level)               ← build_redirects.py, generate_mounts.py, …
 │
 ├── docs/audits/                      ← point-in-time audit reports
-├── .github/workflows/                ← CI/CD: deploy, intake, link-check
+├── .github/workflows/                ← CI/CD: deploy, link-check
 ├── .githooks/                        ← post-commit auto-push hook
 └── hugo.yaml                         ← site config (menus, theme, module.mounts)
 ```
@@ -192,13 +190,11 @@ quick navigation on GitHub.
 | Custom CSS | `assets/css/custom.css` |
 | Per-section layout overrides | `EditMe/UI/PerSectionLayouts/<Section>/` |
 | All Python helpers | `_automation/scripts/` |
-| Intake bot upload folder | `_automation/intake/` (PDFs land here in PRs) |
 | GitHub workflows | `.github/workflows/` |
 | Site-wide partials / shortcodes | `layouts/_partials/`, `layouts/shortcodes/` |
 | GaryAI chatbot page | `EditMe/Misc/ask-gary/index.md` + `layouts/chatbot/single.html` |
 | GaryAI popup widget | `_site/static/js/gking-chat-widget.js` |
 | Google Analytics tracking | `layouts/_partials/hooks/head-start/google-analytics.html` (tag `G-NDZT9P326S`) |
-| The "upload a paper" form | `.github/ISSUE_TEMPLATE/upload-paper.yml` |
 | What runs when something is pushed to `main` | `.github/workflows/deploy.yml` |
 | Navigation menu | `hugo.yaml` → `menus.main` |
 | Button label overrides ("Article", etc.) | `_site/i18n/en.yaml` |
@@ -210,101 +206,24 @@ quick navigation on GitHub.
 <details>
 <summary><h2>4. Quick add (every content type)</h2></summary>
 
-Five content types, three entry points. **The simplest path for any PDF
-is the Issue Form — no terminal, no folder navigation.**
+The simplest way to add any content is to tell Claude what you want.
+See [Claude prompts for common tasks](#claude-prompts-for-common-tasks)
+for copy-paste prompts.
 
-| Content type | Easiest (any browser) | Terminal | No PDF / metadata-only |
-|---|---|---|---|
-| Paper / article | [Issue Form](#issue-form) | `_automation/intake/<file>.pdf` | `quick_add.py paper …` |
-| Talk / presentation | [Issue Form](#issue-form) | `_automation/intake/talk/<file>.pdf` | `quick_add.py talk …` |
-| Book | [Issue Form](#issue-form) | `_automation/intake/book/<file>.pdf` | `quick_add.py book …` |
-| Software / R package | _(URL-based — no PDF)_ | — | `quick_add.py software --github …` |
-| Patent | [Issue Form](#issue-form) | `_automation/intake/<file>.pdf` then `/type patent` | `quick_add.py patent --source …` |
+If you prefer to add content by hand on GitHub, use the templates in
+[Manual content templates](#manual-content-templates) below.
 
-After every shortcut, `git commit` + push and the deploy workflow
-makes it live in ~3 minutes.
-
-### Issue Form
-
-1. Open <https://github.com/iqss-research/gking-site/issues/new/choose>
-   and click **Upload a paper**.
-2. Pick the **Type**, drag the PDF in, optionally type a short URL,
-   and **Submit new issue**.
-3. Wait ~2 minutes. The bot downloads the PDF, runs Crossref lookup,
-   extracts figures, and **opens a draft PR** with the metadata,
-   featured image, and a figure-picker grid.
-4. Edit anything via the **Files changed** pencil or post
-   [slash commands](#slash-commands) on the PR.
-5. Click **Merge pull request**. Live in ~3 more minutes.
-
-### Terminal: drop a PDF
-
-```bash
-git checkout -b add-my-paper
-cp ~/Downloads/paper.pdf _automation/intake/      # paper
-cp ~/Downloads/slides.pdf _automation/intake/talk/ # talk
-cp ~/Downloads/book.pdf _automation/intake/book/   # book
-git add -A && git commit -m "Drop PDF for auto-import"
-git push -u origin add-my-paper
-gh pr create --fill
-```
-
-The bot pushes a follow-up commit with the generated `index.md`,
-moved PDF, legacy-map entry, and featured image.
-
-### Terminal: quick_add.py (no PDF)
-
-```bash
-python3 _automation/scripts/quick_add.py paper \
-    --title "An Example Paper" --slug an-example-paper \
-    --year 2026 --authors "Gary King; Jane Doe" \
-    --doi 10.1017/example --pdf ~/Downloads/example.pdf
-git add -A && git commit -m "Add example paper"
-```
-
-Works for `paper`, `talk`, `book`, `software`, `patent`. Add `--dry-run`
-to preview without writing files.
-
-### Slash commands
-
-Post a comment on an intake PR with one or more commands. The bot picks
-them up within ~30 seconds:
-
-| Command | What it does |
+| Content type | What to provide |
 |---|---|
-| `/title <text>` | Replace the title |
-| `/authors A; B; C` | Set the full authors list (use `;` separator) |
-| `/year <YYYY>` or `/date <YYYY-MM-DD>` | Set the publication date |
-| `/abstract <text>` | Replace the abstract (spans to next `/cmd` or end of comment) |
-| `/publication <text>` | Replace the citation line |
-| `/doi <DOI>` | Set the DOI + rewrite Publisher's Version link |
-| `/type <slug>` | Change the publication type + re-route Writings tab |
-| `/figure <N>` | Swap featured image for Figure N from the PDF |
-| `/alias </foo/>` | Add a vanity short URL to `aliases:` |
-| `/supplement <url> \| <label>` | Append a supplementary-material link |
+| Paper / article | PDF + title, authors, year, venue, abstract, DOI |
+| Talk / presentation | Slides PDF + title, venue, year |
+| Book | Title, authors, publisher, year, abstract |
+| Software / R package | Name, URL, brief description |
+| Patent | PDF + title, inventors, year, patent number |
+| Court brief | PDF + title, authors, year, abstract |
 
-### What happens automatically
-
-Both the Issue Form and `_automation/intake/` flows share the same
-auto-import code:
-
-- Detects content kind from the form dropdown or `_automation/intake/` subfolder.
-- Looks up DOI / Crossref metadata (skipped for talks).
-- Generates slug, creates `index.md` under `EditMe/Writings/`.
-- Moves PDF to `_site/static/files/<slug>.pdf`.
-- Adds entry to `writings_legacy_map.json`.
-- Extracts featured image from the PDF.
-- Renders every numbered figure into `_intake_figures/` for the
-  figure-picker grid.
-
-After merging, run the appropriate regroup script to file the content
-into the correct `<Type>/<Topic>/<Decade>/` folder:
-
-```bash
-python3 _automation/scripts/regroup_articles.py     # for articles
-python3 _automation/scripts/regroup_writings.py     # for books/reports/patents
-python3 _automation/scripts/regroup_presentations.py # for talks
-```
+After any change is pushed to `main`, the site rebuilds and goes live
+in ~3 minutes.
 
 </details>
 
@@ -313,8 +232,8 @@ python3 _automation/scripts/regroup_presentations.py # for talks
 <details>
 <summary><h2>5. Manual content templates</h2></summary>
 
-Use these when the bot can't find Crossref data or you want fine-grained
-control.
+Use these when you're editing files directly on GitHub rather than
+through Claude.
 
 ### Paper / article / book
 
@@ -1023,15 +942,11 @@ Add a new blog post to gking-site.
 
 ### GitHub Actions workflows
 
-Six workflows in `.github/workflows/`:
+Two workflows in `.github/workflows/`:
 
 | Workflow | Trigger | What it does |
 |---|---|---|
 | `deploy.yml` | Push to `main` | Build Hugo + Pagefind, run `build_redirects.py` + `apply_rewrites.py` + `compute_publication_first_commit.py`, deploy to GitHub Pages. |
-| `intake-publication.yml` | PR adds PDF in `_automation/intake/` | Auto-import: Crossref lookup, `index.md` generation, featured image, figure extraction. |
-| `intake-from-issue.yml` | Issue with `intake` label | Same auto-import, triggered from Issue Form. Opens a draft PR automatically. |
-| `intake-edit.yml` | PR comment with `/` commands | Applies slash commands (`/title`, `/authors`, etc.) to the PR's `index.md`. |
-| `cleanup-intake-figures.yml` | Push to `main` | Removes `_intake_figures/` directories after intake PRs merge. |
 | `link-check.yml` | Weekly (Monday 09:00 UTC) | Checks all external URLs in content files; opens/updates a GitHub Issue if broken. |
 
 ### Auto-push hook
@@ -1052,21 +967,11 @@ All Python helpers live under `_automation/scripts/`. Most need
 | `build_redirects.py` | Generate redirect stubs from `redirects.yaml`. Runs in CI. |
 | `apply_rewrites.py` | Post-build: replace redirect stubs with rendered HTML. Runs in CI. |
 | `quick_add.py` | Scaffold new content (`paper`, `talk`, `book`, `software`, `patent`). `--dry-run` to preview. |
-| `apply_pr_edits.py` | Process slash commands from PR comments. Used by CI. |
-| `import_drupal_redirects.py` | Recover redirects from old Drupal site. |
 | `regroup_articles.py` | Sort `Unsorted/` articles into `<Topic>/<Decade>/`. |
 | `regroup_writings.py` | Sort into `Books/`, `Reports/`, `Patents/`, etc. |
 | `regroup_presentations.py` | Cluster talks by title-slug. |
-| `regroup_presentations_fuzzy.py` | Second-pass fuzzy merge of talk folders. `--dry-run` first. |
-| `fix_mojibake_markdown.py` | Repair UTF-8 mojibake across markdown files. |
-| `writings/intake_publication.py` | Core PDF intake pipeline (used by CI and locally). |
-| `writings/fill_publication_from_doi.py` | Fill `publication:` line from Crossref. |
-| `writings/repair_publication_links.py` | Audit and rewrite broken external URLs. |
-| `writings/audit_writings_citations.py` | Cross-reference publications with Crossref. |
-| `writings/add_featured_from_pdf.py` | Generate `featured.png` from PDF page 1. |
 | `writings/compute_publication_first_commit.py` | Refresh spotlight ordering. Runs in CI. |
 | `people/sync_research_group.py` | Refresh `research_group.json` from roster. |
-| `people/enrich_people_profiles.py` | Fill profile stubs from upstream sources. |
 
 </details>
 
@@ -1077,9 +982,9 @@ All Python helpers live under `_automation/scripts/`. Most need
 
 Key architectural rules distilled from building this site:
 
-1. **The site owner updates content by committing Markdown on GitHub.**
-   If a terminal is needed to publish a paper, the architecture has
-   failed.
+1. **Content is updated through Claude or direct GitHub edits.**
+   Describe a change to Claude in plain English or edit Markdown files
+   directly on GitHub. No terminal or special tooling is needed.
 
 2. **Content and presentation are fully separated.** Content is
    `EditMe/**/*.md` with YAML front matter. Templates in `layouts/` and
@@ -1192,13 +1097,6 @@ page's `links:` starts with `files/` (no leading slash).
 **"The 'See Also' box is empty or wrong."**
 Add shared `tags:` or pin specific items with `related_papers`, etc.
 
-**"The intake bot didn't run on my PR."**
-Two causes: the PDF was committed to `main` (bot only runs on PRs), or
-the PR is from a fork (token can't push back). Re-do on a branch.
-
-**"My slash command was ignored."**
-The command must start at column 0. Put `/title` on its own line.
-
 **"Search finds nothing."**
 The Pagefind index is rebuilt each deploy. Wait for Actions to finish
 and hard-refresh.
@@ -1247,8 +1145,6 @@ Use exactly one of these strings in `publication_types:`.
 - For `/publication/` section entries, the Writings tab placement is
   driven by `EditMe/Writings/Data/writings_legacy_map.json`, which
   takes precedence over front-matter `publication_types` for tab routing.
-- The slash-command bot validates against the primary list and warns on
-  unrecognised values.
 
 </details>
 
