@@ -202,24 +202,26 @@ quick navigation on GitHub.
 <details>
 <summary><h2>4. Quick add (every content type)</h2></summary>
 
-The simplest way to add any content is to tell Claude what you want.
-See [Claude prompts for common tasks](#claude-prompts-for-common-tasks)
-for copy-paste prompts.
+The easiest way to add content is to paste a prompt into Claude/Cursor.
+Go to [Claude prompts for common tasks](#claude-prompts-for-common-tasks)
+and copy the prompt for the type of content you want to add.
 
-If you prefer to add content by hand on GitHub, use the templates in
-[Manual content templates](#manual-content-templates) below.
+If you prefer to do it by hand on GitHub, follow the step-by-step
+instructions in [Manual content templates](#manual-content-templates).
 
-| Content type | What to provide |
+**What you need for each content type:**
+
+| Content type | What to have ready |
 |---|---|
-| Paper / article | PDF + title, authors, year, venue, abstract, DOI |
-| Talk / presentation | Slides PDF + title, venue, year |
+| Paper / article | The PDF, plus: title, authors, year, journal/venue, abstract, DOI |
+| Talk / presentation | The slides PDF, plus: title, venue name, year |
 | Book | Title, authors, publisher, year, abstract |
-| Software / R package | Name, URL, brief description |
-| Patent | PDF + title, inventors, year, patent number |
-| Court brief | PDF + title, authors, year, abstract |
+| Software / R package | Name, website URL, short description |
+| Patent | The PDF, plus: title, inventors, year, patent number |
+| Court brief | The PDF, plus: title, authors, year, abstract |
 
-After any change is pushed to `main`, the site rebuilds and goes live
-in ~3 minutes.
+After you push any change to `main`, the site rebuilds automatically.
+Your change goes live in about 3 minutes.
 
 </details>
 
@@ -228,142 +230,147 @@ in ~3 minutes.
 <details>
 <summary><h2>5. Manual content templates</h2></summary>
 
-Use these when you're editing files directly on GitHub rather than
-through Claude.
+These are step-by-step instructions for adding content directly on
+GitHub (without using Claude).
 
-### Paper / article / book
+### Adding a paper or article
 
-**Step 1** — Put the PDF at `_site/static/files/<slug>.pdf`.
-
-**Step 2** — Create the page folder:
-
-```
-EditMe/Writings/Articles/<Topic>/<Decade>/<slug>/index.md
-EditMe/Writings/Books/<Decade>/<slug>/index.md
-EditMe/Writings/Reports/<Decade>/<slug>/index.md
-EditMe/Writings/Patents/<Decade>/<slug>/index.md
-EditMe/Writings/CourtBriefs/<Decade>/<slug>/index.md
-```
-
-Topic folders for Articles: `AnchoringVignettes`, `AutomatedTextAnalysis`,
-`CausalInference`, `EcologicalInference`, `EventCountsAndDurations`,
-`MissingDataMeasurementErrorPrivacy`, `QualitativeResearch`, `RareEvents`,
-`SurveyResearch`, `UnifyingStatisticalAnalysis`, `Other`.
-
-If unsure, use `EditMe/Writings/Articles/Unsorted/<slug>/` and run
-`regroup_articles.py` afterwards.
-
-**Step 3** — Paste this template and edit:
+1. Go to https://github.com/iqss-research/gking-site
+2. Click into `_site/static/files/`
+3. Click **"Add file"** → **"Upload files"**
+4. Drag in your PDF. Name it something short with dashes (e.g., `my-paper-title.pdf`)
+5. Click **"Commit changes"**
+6. Now go back to the repo root and click into the folder for your content type:
+   - Journal article → `EditMe/Writings/Articles/`
+   - Book → `EditMe/Writings/Books/`
+   - Report → `EditMe/Writings/Reports/`
+   - Patent → `EditMe/Writings/Patents/`
+   - Court brief → `EditMe/Writings/CourtBriefs/`
+7. For articles, pick the topic subfolder that fits (e.g., `CausalInference/`, `RareEvents/`, etc.). If unsure, use `Unsorted/`.
+8. Click into the decade subfolder (e.g., `2020s/`)
+9. Click **"Add file"** → **"Create new file"**
+10. In the filename box, type: `your-paper-name/index.md` (this creates a folder and file at once)
+11. Paste the following template and replace every placeholder with your actual info:
 
 ```yaml
 ---
-title: "Full Paper Title"
-date: 2026-01-15
+title: "PASTE YOUR PAPER TITLE HERE"
+date: YYYY-MM-DD
 authors:
   - "Gary King"
-  - "Coauthor Name"
+  - "SECOND AUTHOR NAME"
 publication_types:
   - "journal_article"
-publication: "Journal Name, Volume(Issue), pages"
+publication: "JOURNAL NAME, Volume(Issue), Pages"
 abstract: |-
-  Multi-paragraph abstract goes here.
-
-  Paragraph two, etc.
-doi: "10.xxxx/xxxxx"
+  PASTE ABSTRACT HERE.
+doi: "PASTE DOI HERE (e.g., 10.1234/example)"
 links:
   - type: pdf
-    url: "files/my-paper.pdf"
+    url: "files/YOUR-PDF-FILENAME.pdf"
   - type: source
-    url: "https://doi.org/10.xxxx/xxxxx"
-  - name: "Supplementary Material"
-    url: "files/my-paper-supp.pdf"
+    url: "https://doi.org/PASTE-DOI-HERE"
 ---
 ```
 
-**Step 4** — Pick the Writings tab by adding an entry to
-`EditMe/Writings/Data/writings_legacy_map.json`:
+12. Click **"Commit changes"**
+13. Finally, open `EditMe/Writings/Data/writings_legacy_map.json`, click the pencil icon, and add this line near the bottom (before the closing `}`):
 
 ```json
-"<slug>": { "tab": "<tab-id>", "drupal": "<type>" }
+"your-paper-name": { "tab": "journal", "drupal": "journal_article" }
 ```
 
-| `drupal` value | `tab` id | Writings page tab |
-|---|---|---|
-| `journal_article` | `journal` | Journal Articles |
-| `working_paper` | `journal` | Working Papers spotlight |
-| `book` | `book` | Books & Chapters |
-| `book_chapter` | `journal` or `other` | varies |
-| `presentation` | `presentation` | Presentations |
-| `software` | `software` | Software |
-| `patent` | `patent` | Patents |
-| `court_brief` | `courtbrief` | Court Briefs |
-| anything else | `other` | Other |
+Use `"tab": "book"` for books, `"tab": "patent"` for patents, `"tab": "courtbrief"` for court briefs.
 
-**Step 5** (optional) — Drop a `featured.jpg` or `featured.png` next to
-`index.md`.
+14. Click **"Commit changes"**
 
-### Talk / presentation
+The site will rebuild in ~3 minutes with your new paper.
 
-```
-EditMe/Writings/Presentations/<title-slug>/<venue-slug>/index.md
-```
+### Adding a talk / presentation
+
+1. Upload the slides PDF to `_site/static/files/` (same as step 2-5 above)
+2. Navigate to `EditMe/Writings/Presentations/`
+3. Click **"Add file"** → **"Create new file"**
+4. In the filename box, type: `your-talk-title/venue-name-year/index.md`
+5. Paste this template and fill it in:
 
 ```yaml
 ---
-title: "Talk Title"
-date: 2026-03-15
+title: "PASTE TALK TITLE HERE"
+date: YYYY-MM-DD
 authors:
   - "Gary King"
 publication_types:
   - "presentation"
-event: "Conference Name"
-event_url: "https://conference-url.com"
-location: "City, State"
-abstract: "Talk abstract."
+event: "CONFERENCE OR EVENT NAME"
+location: "CITY, STATE"
+abstract: "SHORT DESCRIPTION OF THE TALK."
 links:
   - type: pdf
-    url: "files/my-talk-slides.pdf"
+    url: "files/YOUR-SLIDES-FILENAME.pdf"
 ---
 ```
 
-Talks cluster by title-slug: multiple venues for the same talk live as
-sibling sub-folders under one shared title-slug folder.
+6. Click **"Commit changes"**
 
-### Software / R package page
+If the same talk was given at multiple venues, create another folder
+next to the first one (e.g., `your-talk-title/second-venue-year/index.md`).
 
-```
-EditMe/Software/<slug>/index.md
-```
+### Adding a software page
+
+1. Navigate to `EditMe/Software/`
+2. Click **"Add file"** → **"Create new file"**
+3. In the filename box, type: `your-software-name/index.md`
+4. Paste this template and fill it in:
 
 ```yaml
 ---
-title: "Software Name"
-date: 2024-01-01
+title: "SOFTWARE NAME"
+date: YYYY-MM-DD
 authors:
   - "Gary King"
 publication_types:
   - "software"
-abstract: "Short description."
+abstract: "ONE-SENTENCE DESCRIPTION OF WHAT THE SOFTWARE DOES."
 links:
   - name: "Project Website"
-    url: "https://my-software-site.com"
+    url: "https://YOUR-SOFTWARE-WEBSITE.com"
   - name: "GitHub"
-    url: "https://github.com/IQSS/my-tool"
+    url: "https://github.com/YOUR-ORG/YOUR-REPO"
 ---
 ```
 
-Also add a row to `EditMe/Software/Data/software_legacy_rows.yaml`
-(`year`, `slug`, optional `status: older`) and an entry in
-`writings_legacy_map.json` with `"tab": "software"`.
+5. Click **"Commit changes"**
+6. Also open `EditMe/Software/Data/software_legacy_rows.yaml`, click the pencil icon, and add a line like:
 
-### Link types
+```yaml
+- year: 2026
+  slug: your-software-name
+```
 
-- `type: pdf` → "Article" button (label changes by publication type — see [Publication types reference](#publication-types-reference))
-- `type: source` → "Publisher's Version" button
-- `type: code` → "Code" button
-- `name: "Custom Label"` → custom-labeled button
+7. Click **"Commit changes"**
 
-`files/...` URLs (no leading `/`) resolve to `_site/static/files/`.
+### Adding a featured image
+
+To add a thumbnail image to any paper, talk, or software page:
+
+1. Navigate to the folder that contains the `index.md` you just created
+2. Click **"Add file"** → **"Upload files"**
+3. Upload an image named exactly `featured.jpg` or `featured.png`
+4. Click **"Commit changes"**
+
+### Link types reference
+
+When writing the `links:` section in any template:
+
+| What you type | What button appears on the page |
+|---|---|
+| `type: pdf` | "Article" (or "Presentation", "Brief", etc. depending on content type) |
+| `type: source` | "Publisher's Version" |
+| `type: code` | "Code" |
+| `name: "Any Label"` | A button with whatever label you typed |
+
+For the `url:` value: if it starts with `files/` (no slash at the beginning), it points to a PDF you uploaded to `_site/static/files/`. Otherwise, use a full URL starting with `https://`.
 
 </details>
 
@@ -569,50 +576,63 @@ dataverse_name: "Replication Data for: Paper Title"
 <details>
 <summary><h2>9. Short URLs & redirects</h2></summary>
 
-### Adding a redirect
+### How to add a redirect (short URL)
 
-Edit `EditMe/Redirects/Data/redirects.yaml`:
+This lets you create a short URL like `gking.harvard.edu/quest` that
+sends visitors to a specific page or external link.
+
+1. Go to https://github.com/iqss-research/gking-site
+2. Click into `EditMe/` → `Redirects/` → `Data/`
+3. Click on `redirects.yaml`
+4. Click the **pencil icon** (top right of the file) to edit
+5. Scroll to the bottom of the file
+6. Add a new entry like this (keeping the same spacing as existing entries):
 
 ```yaml
-redirects:
-  - from: rd
-    to:   https://docs.google.com/document/d/abcdef123/edit
-    note: "Research Directions living doc"
+  - from: YOUR-SHORT-URL
+    to:   https://DESTINATION-URL.com
+    note: "SHORT DESCRIPTION OF WHAT THIS REDIRECT IS FOR"
+```
 
+For example, if you want `gking.harvard.edu/quest` to go to a paper page:
+
+```yaml
   - from: quest
     to:   /publication/quest/
-    status: 301
     note: "Short URL for the Quest paper"
 ```
 
-Fields:
+Or to an external link:
 
-- `from` (required) — URL path to own. Case-sensitive.
-- `to` (required) — full external URL or internal path.
-- `status` (optional) — `301` (default), `302`/`307`, `308`.
-- `note` (optional) — reminder to your future self.
+```yaml
+  - from: rd
+    to:   https://docs.google.com/document/d/abcdef123/edit
+    note: "Research Directions living doc"
+```
 
-The generator (`_automation/scripts/build_redirects.py`) runs in CI on
-every deploy. After deploy, `apply_rewrites.py` replaces internal
-redirect stubs with actual page content (so the address bar keeps the
-short URL).
+7. Click **"Commit changes"**
 
-### Alternative: aliases in front matter
+The redirect will start working after the site rebuilds (~3 minutes).
 
-For paper-specific short URLs, add to the paper's `index.md`:
+### Alternative: adding a short URL directly to a paper
+
+If you just want a short URL for a specific paper:
+
+1. Open that paper's `index.md` file on GitHub
+2. Click the **pencil icon** to edit
+3. Add these lines inside the `---` section at the top:
 
 ```yaml
 aliases:
-  - /quest/
+  - /your-short-url/
 ```
 
-Hugo generates the redirect automatically.
+4. Click **"Commit changes"**
 
-### Preserved Drupal URLs
+### Already-set-up Drupal redirects
 
-136 redirects from the old Drupal site are already restored in
-`redirects.yaml`. The import script is
-`_automation/scripts/import_drupal_redirects.py`.
+136 redirects from the old Drupal site are already configured. You don't
+need to do anything about these.
 
 </details>
 
@@ -756,16 +776,21 @@ curated by hand in
 <details>
 <summary><h2>12. Claude prompts for common tasks</h2></summary>
 
-Copy-paste any prompt below into Claude or Cursor. Replace every
-**`XXX`** with your actual information. Where a prompt says to
-**upload** a file, attach it to the same message.
+These are copy-paste prompts. To use one:
+
+1. Copy the prompt text (everything inside the gray box)
+2. Replace every **`XXX`** with your actual information
+3. If the prompt says "Attach:" — drag that file into the same message
+4. Paste into Claude or Cursor and send
+
+---
 
 ### Add a new journal article
 
-**Upload:** the article PDF.
+Attach: the article PDF.
 
 ```
-Add a new journal article to gking-site. Here are the details:
+Add a new journal article to gking-site.
 
 - Title: XXX
 - Authors: XXX (comma-separated)
@@ -774,23 +799,15 @@ Add a new journal article to gking-site. Here are the details:
 - Abstract: XXX
 - Publisher's DOI or URL: XXX
 - Dataverse DOI (if any): XXX
+- Topic: XXX (pick one: AnchoringVignettes, AutomatedTextAnalysis, CausalInference, EcologicalInference, EventCountsAndDurations, MissingDataMeasurementErrorPrivacy, QualitativeResearch, RareEvents, SurveyResearch, UnifyingStatisticalAnalysis, or Other)
 
-The article PDF is attached.
-
-Place it in EditMe/Writings/Articles/ under the correct topic folder and decade.
-The topic folders are: AnchoringVignettes, AutomatedTextAnalysis, CausalInference,
-EcologicalInference, EventCountsAndDurations, MissingDataMeasurementErrorPrivacy,
-QualitativeResearch, RareEvents, SurveyResearch, UnifyingStatisticalAnalysis, or
-Other. The topic for this paper is: XXX
-
-Create a slug, write index.md with standard front matter, put the PDF in
-_site/static/files/. Commit and push.
+The article PDF is attached. Commit and push.
 ```
 
 ### Add a new book
 
 ```
-Add a new book to gking-site. Here are the details:
+Add a new book to gking-site.
 
 - Title: XXX
 - Authors: XXX
@@ -799,32 +816,27 @@ Add a new book to gking-site. Here are the details:
 - Abstract: XXX
 - Publisher's URL (if any): XXX
 
-Place it in EditMe/Writings/Books/<Decade>/<slug>/index.md with
-publication_types: book. Commit and push.
+Commit and push.
 ```
 
 ### Add a new presentation
 
-**Upload:** the slides PDF.
+Attach: the slides PDF.
 
 ```
-Add a new presentation to gking-site. Here are the details:
+Add a new presentation to gking-site.
 
 - Talk title: XXX
 - Venue / event name: XXX
 - Year: XXX
 - Abstract: XXX
-- Related publication slug (if based on a paper already on the site): XXX
 
-The slides PDF is attached.
-
-Presentations live in EditMe/Writings/Presentations/<title-slug>/<venue-slug>/.
-Put the PDF in _site/static/files/. Commit and push.
+The slides PDF is attached. Commit and push.
 ```
 
 ### Add a new court brief
 
-**Upload:** the brief PDF.
+Attach: the brief PDF.
 
 ```
 Add a new court brief to gking-site.
@@ -834,14 +846,12 @@ Add a new court brief to gking-site.
 - Year: XXX
 - Abstract: XXX
 
-Place it in EditMe/Writings/CourtBriefs/<Decade>/<slug>/index.md with
-publication_types: court_brief. Put the PDF in _site/static/files/.
-Commit and push.
+The brief PDF is attached. Commit and push.
 ```
 
 ### Add a new patent
 
-**Upload:** the patent PDF.
+Attach: the patent PDF.
 
 ```
 Add a new patent to gking-site.
@@ -851,9 +861,7 @@ Add a new patent to gking-site.
 - Year: XXX
 - Patent number: XXX
 
-Place it in EditMe/Writings/Patents/<Decade>/<slug>/index.md with
-publication_types: patent. Put the PDF in _site/static/files/.
-Commit and push.
+The patent PDF is attached. Commit and push.
 ```
 
 ### Add a new software package page
@@ -867,13 +875,12 @@ Add a new software package page to gking-site.
 - External website URL: XXX
 - Brief description: XXX
 
-Create EditMe/Software/<package-slug>/index.md with a "site" link.
 Commit and push.
 ```
 
 ### Replace or update a PDF
 
-**Upload:** the new PDF.
+Attach: the new PDF.
 
 ```
 Replace the PDF for an existing item on gking-site.
@@ -881,8 +888,7 @@ Replace the PDF for an existing item on gking-site.
 - Item title: XXX
 - Type: XXX (article / book / presentation / brief / patent)
 
-Find the item's index.md under EditMe/Writings/. Replace the PDF in
-_site/static/files/ keeping the same filename. Commit and push.
+Find the item, replace the PDF keeping the same filename. Commit and push.
 ```
 
 ### Add a short URL (redirect)
@@ -890,26 +896,25 @@ _site/static/files/ keeping the same filename. Commit and push.
 ```
 Add a new short URL redirect to gking-site.
 
-- Short URL path: XXX (e.g. "privacy" → gking.harvard.edu/privacy/)
-- Target: XXX (internal path or external URL)
+- Short URL path: XXX (this becomes gking.harvard.edu/XXX)
+- Destination: XXX (full URL or site path like /publication/quest/)
 
-Add to EditMe/Redirects/Data/redirects.yaml. Commit and push.
+Commit and push.
 ```
 
 ### Add a paper to a Research Area
 
 ```
-Add a paper to one of the Research Areas on gking-site.
+Add a paper to a Research Area on gking-site.
 
 - Paper title: XXX
-- Paper slug: XXX
 - Research area name: XXX
 - Subcategory: XXX
 
-Edit EditMe/ResearchAreas/Data/research_areas.json. Commit and push.
+Commit and push.
 ```
 
-### Other common tasks
+### Other tasks
 
 ```
 Update the Bio/CV page on gking-site.
@@ -925,8 +930,8 @@ Add a new blog post to gking-site.
 
 ### Tips
 
-- **Finding an existing item:** ask Claude to search by title.
-- **Previewing locally:** ask to run `hugo server` before pushing.
+- **To find an existing item:** ask Claude to search by title.
+- **To preview before publishing:** ask Claude to run `hugo server`.
 - **Multiple changes at once:** combine prompts in one message.
 
 </details>
@@ -1028,45 +1033,91 @@ Key architectural rules distilled from building this site:
 <details>
 <summary><h2>15. Local development</h2></summary>
 
-### One-time setup
+### First-time setup (do this once)
+
+1. Open Terminal (on Mac: press Cmd+Space, type "Terminal", press Enter)
+2. Type the following commands one at a time, pressing Enter after each:
 
 ```bash
 git clone https://github.com/iqss-research/gking-site.git
+```
+
+You should see a download progress message. When it finishes:
+
+```bash
 cd gking-site/hugo-site
-brew install hugo    # macOS — Hugo 0.160.1 extended
-
-# Install the auto-push hook (optional):
-_automation/scripts/enable-auto-push.sh
 ```
 
-### Daily flow
+3. Install Hugo (the tool that builds the website). Type:
 
 ```bash
-git pull                               # before you start
-# …edit files…
-git add -A && git commit -m "message"  # auto-push sends it
+brew install hugo
 ```
 
-### Local preview
+If you get "brew: command not found", first install Homebrew by going to https://brew.sh and following their one-line install command, then try again.
+
+4. (Optional) Set up auto-push so every commit automatically publishes:
 
 ```bash
-hugo server    # http://localhost:1313/ with live reload
+bash _automation/scripts/enable-auto-push.sh
 ```
 
-### Production build (rare; CI does this)
+### Previewing the site on your computer
+
+1. Open Terminal
+2. Go to the project folder:
 
 ```bash
-hugo --gc --minify --baseURL "https://gking.harvard.edu/"
-npx pagefind --site public
+cd gking-site/hugo-site
 ```
 
-### Tracing history across renames
-
-The 2026 EditMe/ reorg moved nearly every file with `git mv`:
+3. Start the local preview server:
 
 ```bash
-git log --follow -- EditMe/Writings/Articles/<Topic>/<Decade>/<slug>/index.md
-git blame --follow EditMe/Writings/Articles/<Topic>/<Decade>/<slug>/index.md
+hugo server
+```
+
+4. You should see a message that says "Web Server is available at http://localhost:1313/"
+5. Open your web browser and go to: http://localhost:1313/
+6. You'll see the site. Any changes you make to files will show up instantly in the browser.
+7. When done previewing, go back to Terminal and press Ctrl+C to stop the server.
+
+### Making changes and publishing them
+
+1. Open Terminal and go to the project folder:
+
+```bash
+cd gking-site/hugo-site
+```
+
+2. Before making changes, get the latest version:
+
+```bash
+git pull
+```
+
+3. Make your edits to whatever files you need to change
+4. When done, save your changes:
+
+```bash
+git add -A
+git commit -m "describe what you changed here"
+```
+
+If you set up auto-push in the setup step, this will automatically publish your changes. Otherwise, type:
+
+```bash
+git push
+```
+
+The site will rebuild and go live in ~3 minutes.
+
+### Looking up the history of a file
+
+To see who changed a file and when:
+
+```bash
+git log --follow -- EditMe/Writings/Articles/CausalInference/2020s/your-paper/index.md
 ```
 
 </details>
