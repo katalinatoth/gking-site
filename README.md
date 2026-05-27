@@ -7,13 +7,11 @@ built with Hugo + Hugo Blox and deployed to GitHub Pages via GitHub Actions.
 > **Live site:** <https://gking.harvard.edu/> ·  
 > **Shortcut:** <https://GaryKing.org>  
 
-Every push to `main` triggers a live deploy (~3 minutes). There is no
-staging environment.
+Every push to `main` triggers a live deploy (~3 minutes).
 
 ---
 
-**This file is the single reference for human maintainers.** Click any
-section heading below to expand it. For AI-agent-specific workflow rules
+**This file is the single reference for human maintainers.** For AI-agent-specific workflow rules
 see [`AGENTS.md`](AGENTS.md).
 
 ---
@@ -63,11 +61,9 @@ removing folders under `EditMe/`.
 
 - **Claude / Cursor** — describe what you want changed in plain English.
   Claude edits the files and pushes. See [Claude prompts for common
-  tasks](#claude-prompts-for-common-tasks) for ready-made prompts.
-- **GitHub.com** — pencil-icon edits in the browser. No local tools
-  needed. Works from a phone or borrowed laptop.
+  tasks](#claude-prompts-for-common-tasks) for ready-made prompts. This is the easiest method.
+- **GitHub.com** — click the pencil-icon to make edits to any file in the repo.
 
-Either path makes the change live within ~3 minutes.
 
 </details>
 
@@ -78,7 +74,7 @@ Either path makes the change live within ~3 minutes.
 
 ```
 gking-site/hugo-site/                 ← root of the git checkout
-├── EditMe/                           ← EVERY editable thing on the site
+├── EditMe/                           ← Everything that is likely to need edits lives here
 │   ├── UI/                           ← per-section layout overrides, CSS pointer
 │   │   ├── PerSectionLayouts/        ← one subfolder per section with custom templates
 │   │   │   ├── HomePage/landing/     ← homepage template
