@@ -16,5 +16,8 @@ Disallow: /user/
 
 # Block auto-generated taxonomy pages (not user-facing)
 Disallow: /authors/
+Disallow: /tags/
+Disallow: /categories/
+Disallow: /publication_types/
 
 Sitemap: {{ "sitemap.xml" | absURL }}
