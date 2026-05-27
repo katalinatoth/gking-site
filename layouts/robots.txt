@@ -14,4 +14,7 @@ Disallow: /sites/
 Disallow: /filter/
 Disallow: /user/
 
+# Block auto-generated taxonomy pages (not user-facing)
+Disallow: /authors/
+
 Sitemap: {{ "sitemap.xml" | absURL }}

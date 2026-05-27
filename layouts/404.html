@@ -40,7 +40,12 @@
     { match: /^\/scholar_software\/([^\/]+)/i, to: '/software/$1/' },
 
     // /presentations/<slug> → /talk/ (strip trailing number suffix)
-    { match: /^\/presentations\/(.+?)(?:-\d+)?\/?\s*$/i, to: '/talk/$1/' }
+    { match: /^\/presentations\/(.+?)(?:-\d+)?\/?\s*$/i, to: '/talk/$1/' },
+
+    // Removed taxonomy pages → relevant site sections
+    { match: /^\/tags\/?/i, to: '/publication/' },
+    { match: /^\/categories\/?/i, to: '/#research-areas' },
+    { match: /^\/publication_types\/?/i, to: '/publication/' }
   ];
 
   for (var i = 0; i < rules.length; i++) {

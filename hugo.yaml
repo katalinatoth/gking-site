@@ -325,9 +325,6 @@ params:
       - css/custom.css
 
 taxonomies:
-  tag: tags
-  category: categories
-  publication_type: publication_types
   author: authors
 
 menus:
