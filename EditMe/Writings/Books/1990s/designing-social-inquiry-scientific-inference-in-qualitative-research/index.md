@@ -2,7 +2,7 @@
 abstract: |-
   *Designing Social Inquiry* presents a unified approach to qualitative and quantitative research in political science, showing how the same logic of inference underlies both. This stimulating book discusses issues related to framing research questions, measuring the accuracy of data and the uncertainty of empirical inferences, discovering causal effects, and getting the most out of qualitative research. It addresses topics such as interpretation and inference, comparative case studies, constructing causal theories, dependent and explanatory variables, the limits of random selection, selection bias, and errors in measurement. The book only uses mathematical notation to clarify concepts, and assumes no prior knowledge of mathematics or statistics.
 
-  See the [2021 edition](/publication/designing-social-inquiry-scientific-inference-in-qualitative-research-new-editio/).
+  See the [2021 edition](/kkv/).
 authors:
 - Gary King
 - Robert O. Keohane
