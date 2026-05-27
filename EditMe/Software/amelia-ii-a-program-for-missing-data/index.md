@@ -3,6 +3,7 @@ title: 'AMELIA II: A Program for Missing Data'
 url: /amelia/
 aliases:
   - /software/amelia-ii-a-program-for-missing-data/
+  - /scholar_software/amelia-ii-a-program-for-missing-data/
 date: '2009-01-01'
 authors:
 - James Honaker

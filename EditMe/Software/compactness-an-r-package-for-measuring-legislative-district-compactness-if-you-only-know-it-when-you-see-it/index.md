@@ -1,6 +1,8 @@
 ---
 title: "Compactness: An R Package for Measuring Legislative District Compactness If You Only Know It When You See It"
 date: "2018-01-01"
+aliases:
+  - /scholar_software/compactness-an-r-package-for-measuring-legislative-district-compactness-if-you-only-know-it-when-you-see-it/
 authors:
   - "Aaron Kaufman"
   - "Gary King"

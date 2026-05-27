@@ -1,6 +1,8 @@
 ---
 title: "Readme2: An R Package for Improved Automated Nonparametric Content Analysis for Social Science"
 date: "2018-01-01"
+aliases:
+  - /scholar_software/readme2-an-r-package-for-improved-automated-nonparametric-content-analysis-for-social-science/
 authors:
   - "Connor T. Jerzak"
   - "Gary King"

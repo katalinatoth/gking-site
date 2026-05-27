@@ -3,6 +3,7 @@ title: 'ReadMe: Software for Automated Content Analysis'
 url: /readme/
 aliases:
   - /software/readme-software-for-automated-content-analysis/
+  - /scholar_software/readme-software-for-automated-content-analysis/
 date: '2010-01-01'
 authors:
 - Gary King

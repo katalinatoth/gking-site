@@ -3,6 +3,7 @@ title: 'JudgeIt II: A Program for Evaluating Electoral Systems and Redistricting
 url: /judgeit/
 aliases:
   - /software/judgeit-ii-a-program-for-evaluating-electoral-systems-and-redistricting-plans/
+  - /scholar_software/judgeit-ii-a-program-for-evaluating-electoral-systems-and-redistricting-plans/
 date: '2010-01-01'
 authors:
 - Andrew Gelman

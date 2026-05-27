@@ -3,6 +3,7 @@ title: 'WhatIf: Software for Evaluating Counterfactuals'
 url: /whatif/
 aliases:
   - /software/whatif-software-for-evaluating-counterfactuals/
+  - /scholar_software/whatif-software-for-evaluating-counterfactuals/
 date: '2005-01-01'
 authors:
 - Heather Stoll

@@ -738,3 +738,1068 @@ redirects:
     note: "vanity short URL → /"
 
 # END vanity-shorts-import
+
+# BEGIN publications-plural-redirects
+# Old Drupal URLs used /publications/ (plural); Hugo uses /publication/ (singular)
+  - from: "publications/10-million-international-dyadic-events"
+    to:   "/publication/10-million-international-dyadic-events/"
+
+  - from: "publications/amelia-ii-program-missing-data-0"
+    to:   "/publication/amelia-ii-a-program-for-missing-data/"
+
+  - from: "publications/analyzing-second-stage-ecological-regressions"
+    to:   "/publication/analyzing-second-stage-ecological-regressions/"
+
+  - from: "publications/anchors-software-anchoring-vignettes-data"
+    to:   "/publication/anchors-software-for-anchoring-vignettes-data/"
+
+  - from: "publications/archive-controversy-involving-wendy-k-tam-cho-brian-j-gaines-and-american"
+    to:   "/publication/archive-of-the-controversy-involving-wendy-k.-tam-cho-brian-j.-gaines-and-the-american-political-science-review/"
+
+  - from: "publications/assessing-differences-country-level-estimates-maternal-mortality-comparison-gmath"
+    to:   "/publication/assessing-differences-in-country-level-estimates-of-maternal-mortality-a-comparison-of-gmath-un-and-gbd-model-results-for-2020/"
+
+  - from: "publications/automated-cognitive-debriefing"
+    to:   "/publication/automated-cognitive-debriefing/"
+
+  - from: "publications/automating-open-science-big-data"
+    to:   "/publication/automating-open-science-for-big-data/"
+
+  - from: "publications/avoiding-randomization-failure-program-evaluation"
+    to:   "/publication/avoiding-randomization-failure-in-program-evaluation/"
+
+  - from: "publications/balance-sample-size-frontier-matching-methods-causal-inference"
+    to:   "/publication/the-balance-sample-size-frontier-in-matching-methods-for-causal-inference/"
+
+  - from: "publications/boocio-education-system-hierarchical-concept-maps"
+    to:   "/publication/boocio-an-education-system-with-hierarchical-concept-maps/"
+
+  - from: "publications/book-review-forecasting-presidential-elections"
+    to:   "/publication/book-review-of-forecasting-presidential-elections/"
+
+  - from: "publications/brief-amici-curiae-professors-gary-king-bernard-grofman-andrew-gelman-and"
+    to:   "/publication/brief-of-amici-curiae-professors-gary-king-bernard-grofman-andrew-gelman-and-jonathan-katz-in-support-of-neither-party/"
+
+  - from: "publications/brief-empirical-scholars-amici-curiae"
+    to:   "/publication/brief-of-empirical-scholars-as-amici-curiae/"
+
+  - from: "publications/brief-empirical-scholars-amici-curiae-support-respondents"
+    to:   "/publication/brief-of-empirical-scholars-as-amici-curiae-in-support-of-respondents/"
+
+  - from: "publications/brief-heather-k-gerken-jonathan-n-katz-gary-king-larry-j-sabato-and-samuel-s-h"
+    to:   "/publication/brief-of-heather-k.-gerken-jonathan-n.-katz-gary-king-larry-j.-sabato-and-samuel-s.-h.-wang-as-amici-curiae-in-support-of-appellees/"
+
+  - from: "publications/c-span-archives-policymaking-record-american-representative-democracy-foreword"
+    to:   "/publication/the-c-span-archives-as-the-policymaking-record-of-american-representative-democracy-a-foreword/"
+
+  - from: "publications/calculating-standard-errors-predicted-values-based-nonlinear-functional-forms"
+    to:   "/publication/calculating-standard-errors-of-predicted-values-based-on-nonlinear-functional-forms/"
+
+  - from: "publications/cem-software-coarsened-exact-matching"
+    to:   "/publication/cem-software-for-coarsened-exact-matching/"
+
+  - from: "publications/changing-evidence-base-social-science-research"
+    to:   "/publication/the-changing-evidence-base-of-social-science-research/"
+
+  - from: "publications/citys-losing-clout"
+    to:   "/publication/the-citys-losing-clout/"
+
+  - from: "publications/cluster-analysis-participant-responses-test-generation-or-teaching"
+    to:   "/publication/cluster-analysis-of-participant-responses-for-test-generation-or-teaching/"
+
+  - from: "publications/cluster-analysis-participant-responses-test-generation-or-teaching-2nd"
+    to:   "/publication/cluster-analysis-of-participant-responses-for-test-generation-or-teaching-2nd/"
+
+  - from: "publications/comment-estimating-reproducibility-psychological-science"
+    to:   "/publication/comment-on-estimating-the-reproducibility-of-psychological-science/"
+
+  - from: "publications/comparative-effectiveness-matching-methods-causal-inference"
+    to:   "/publication/comparative-effectiveness-of-matching-methods-for-causal-inference/"
+
+  - from: "publications/computer-assisted-keyword-and-document-set-discovery-fromunstructured-text"
+    to:   "/publication/computer-assisted-keyword-and-document-set-discovery-from-unstructured-text/"
+
+  - from: "publications/cross-classroom-and-cross-institution-item-validation"
+    to:   "/publication/cross-classroom-and-cross-institution-item-validation/"
+
+  - from: "publications/designing-social-inquiry-scientific-inference-qualitative-research-0"
+    to:   "/publication/designing-social-inquiry-scientific-inference-in-qualitative-research/"
+
+  - from: "publications/designing-verbal-autopsy-studies"
+    to:   "/publication/designing-verbal-autopsy-studies/"
+
+  - from: "publications/determinants-inequality-child-survival-results-39-countries"
+    to:   "/publication/determinants-of-inequality-in-child-survival-results-from-39-countries/"
+
+  - from: "publications/do-nonpartisan-programmatic-policies-have-partisan-electoral-effects-evidence-two"
+    to:   "/publication/do-nonpartisan-programmatic-policies-have-partisan-electoral-effects-evidence-from-two-large-scale-experiments/"
+
+  - from: "publications/ecological-regression-partial-identification"
+    to:   "/publication/ecological-regression-with-partial-identification/"
+
+  - from: "publications/effect-war-supreme-court"
+    to:   "/publication/the-effect-of-war-on-the-supreme-court/"
+
+  - from: "publications/ei-program-ecological-inference"
+    to:   "/publication/ei-a-program-for-ecological-inference/"
+
+  - from: "publications/elections-united-states-house-representatives-1898-1992"
+    to:   "/publication/elections-to-the-united-states-house-of-representatives-1898-1992/"
+
+  - from: "publications/electoral-responsiveness-us-congressional-elections-1946-1986"
+    to:   "/publication/electoral-responsiveness-in-u.s.-congressional-elections-1946-1986/"
+
+  - from: "publications/elusive-executive-discovering-statistical-patterns-presidency"
+    to:   "/publication/the-elusive-executive-discovering-statistical-patterns-in-the-presidency/"
+
+  - from: "publications/empirical-research-and-goals-legal-scholarship-response"
+    to:   "/publication/empirical-research-and-the-goals-of-legal-scholarship-a-response/"
+
+  - from: "publications/ensuring-data-rich-future-social-sciences"
+    to:   "/publication/ensuring-the-data-rich-future-of-the-social-sciences/"
+
+  - from: "publications/estimating-incidence-curves-several-infections-using-symptom-surveillance-data"
+    to:   "/publication/estimating-incidence-curves-of-several-infections-using-symptom-surveillance-data/"
+
+  - from: "publications/estimating-partisan-bias-electoral-college-under-proposed-changes-elector-apporti"
+    to:   "/publication/estimating-partisan-bias-of-the-electoral-college-under-proposed-changes-in-elector-apportionment/"
+
+  - from: "publications/expert-report-gary-king-bowyer-et-al-v-ducey-governor-et-al-us-district-court"
+    to:   "/publication/expert-report-of-gary-king-in-bowyer-et-al.-v.-ducey-governor-et-al.-us-district-court-district-of-arizona/"
+
+  - from: "publications/explaining-systematic-bias-and-nontransparency-us-social-securityadministration"
+    to:   "/publication/explaining-systematic-bias-and-nontransparency-in-us-social-security-administrat-2015/"
+
+  - from: "publications/finding-new-information-ecological-inference-models-comment-jon-wakefield-ecological-in"
+    to:   "/publication/finding-new-information-for-ecological-inference-models-a-comment-on-jon-wakefield-ecological-inference-in-2x2-tables/"
+
+  - from: "publications/future-death-america"
+    to:   "/publication/the-future-of-death-in-america/"
+
+  - from: "publications/future-political-science-100-perspectives"
+    to:   "/publication/the-future-of-political-science-100-perspectives/"
+
+  - from: "publications/global-maternal-health-country-typologies-framework-guide-policy"
+    to:   "/publication/global-maternal-health-country-typologies-a-framework-to-guide-policy/"
+
+  - from: "publications/global-maternal-mortality-projections-urbanrural-locationand-education-level-0"
+    to:   "/publication/global-maternal-mortality-projections-by-urban-rural-locationand-education-level-a-simulation-based-analysis/"
+
+  - from: "publications/how-censorship-china-allows-government-criticism-silences-collective-expression"
+    to:   "/publication/how-censorship-in-china-allows-government-criticism-but-silences-collective-expression/"
+
+  - from: "publications/how-conquer-partisan-gerrymandering"
+    to:   "/publication/how-to-conquer-partisan-gerrymandering/"
+
+  - from: "publications/how-robust-standard-errors-expose-methodological-problems-they-do-not-fix"
+    to:   "/publication/how-robust-standard-errors-expose-methodological-problems-they-do-not-fix-and-what-to-do-about-it/"
+
+  - from: "publications/how-social-science-research-can-improve-teaching"
+    to:   "/publication/how-social-science-research-can-improve-teaching/"
+
+  - from: "publications/inference-case-control-studies"
+    to:   "/publication/inference-in-case-control-studies/"
+
+  - from: "publications/information-ecological-inference-introduction"
+    to:   "/publication/information-in-ecological-inference-an-introduction/"
+
+  - from: "publications/instructional-support-platform-interactive-learning-platforms"
+    to:   "/publication/instructional-support-platform-for-interactive-learning-platforms/"
+
+  - from: "publications/instructional-support-platform-interactive-learning-platforms-2nd"
+    to:   "/publication/instructional-support-platform-for-interactive-learning-platforms-2nd/"
+
+  - from: "publications/introduction-virtual-data-center-project-and-software"
+    to:   "/publication/an-introduction-to-the-virtual-data-center-project-and-software/"
+
+  - from: "publications/judgeit-i-program-evaluating-electoral-systems-and-redistricting-plans"
+    to:   "/publication/judgeit-i-a-program-for-evaluating-electoral-systems-and-redistricting-plans/"
+
+  - from: "publications/management-task-time-participatory-environment"
+    to:   "/publication/management-of-off-task-time-in-a-participatory-environment/"
+
+  - from: "publications/method-and-apparatus-selecting-clusterings-classify-data-set"
+    to:   "/publication/method-and-apparatus-for-selecting-clusterings-to-classify-a-data-set/"
+
+  - from: "publications/method-and-apparatus-selecting-clusterings-classify-predetermined-data-set"
+    to:   "/publication/method-and-apparatus-for-selecting-clusterings-to-classify-a-predetermined-data-set/"
+
+  - from: "publications/methods-extremely-large-scale-media-experiments-and-observational-studies"
+    to:   "/publication/methods-for-extremely-large-scale-media-experiments-and-observational-studies-poster/"
+
+  - from: "publications/numerical-issues-involved-inverting-hessian-matrices"
+    to:   "/publication/numerical-issues-involved-in-inverting-hessian-matrices/"
+
+  - from: "publications/ordinary-economic-voting-behavior-extraordinary-election-adolf-hitler"
+    to:   "/publication/ordinary-economic-voting-behavior-in-the-extraordinary-election-of-adolf-hitler/"
+
+  - from: "publications/participant-grouping-enhanced-interactive-experience"
+    to:   "/publication/participant-grouping-for-enhanced-interactive-experience/"
+
+  - from: "publications/participant-grouping-enhanced-interactive-experience-0"
+    to:   "/publication/participant-grouping-for-enhanced-interactive-experience/"
+
+  - from: "publications/participant-grouping-enhanced-interactive-experience-4th"
+    to:   "/publication/participant-grouping-for-enhanced-interactive-experience-4th/"
+
+  - from: "publications/pc-checkbook-manager"
+    to:   "/publication/pc-checkbook-manager/"
+
+  - from: "publications/population-scale-longitudinal-mapping-covid-19-symptoms-behaviour-and-testing"
+    to:   "/publication/population-scale-longitudinal-mapping-of-covid-19-symptoms-behaviour-and-testing/"
+
+  - from: "publications/preface-big-data-not-about-data"
+    to:   "/publication/preface-big-data-is-not-about-the-data/"
+
+  - from: "publications/presidency-american-politics"
+    to:   "/publication/the-presidency-in-american-politics/"
+
+  - from: "publications/record-american-democracy-1984-1990"
+    to:   "/publication/the-record-of-american-democracy-1984-1990/"
+
+  - from: "publications/rejoinder-concluding-remarks-scholarly-communications"
+    to:   "/publication/rejoinder-concluding-remarks-on-scholarly-communications/"
+
+  - from: "publications/relogit-rare-events-logistic-regression"
+    to:   "/publication/relogit-rare-events-logistic-regression/"
+
+  - from: "publications/replication-data-explaining-systematic-bias-and-nontransparency-us-social"
+    to:   "/publication/replication-data-for-explaining-systematic-bias-and-nontransparency-in-u.s.-social-security-administration-forecasts./"
+
+  - from: "publications/replication-data-public-policy-poor-randomised-assessment-mexican-universal-healt"
+    to:   "/publication/replication-data-for-public-policy-for-the-poor-a-randomised-assessment-of-the-mexican-universal-health-insurance-programme/"
+
+  - from: "publications/replication-data-systematic-bias-and-nontransparency-us-social-security"
+    to:   "/publication/replication-data-for-systematic-bias-and-nontransparency-in-u.s.-social-security-administration-forecasts./"
+
+  - from: "publications/revised-proposal-proposal"
+    to:   "/publication/a-revised-proposal-proposal/"
+
+  - from: "publications/scoring-social-security-proposals-response-kashin-king-and-soneji"
+    to:   "/publication/scoring-social-security-proposals-response-from-kashin-king-and-soneji/"
+
+  - from: "publications/simulation-based-comparative-effectiveness-analysis-policies-improve-global"
+    to:   "/publication/a-simulation-based-comparative-effectiveness-analysis-of-policies-to-improve-global-maternal-health-outcomes/"
+
+  - from: "publications/simulation-based-estimates-and-projections-global-regional-and-country-level"
+    to:   "/publication/simulation-based-estimates-and-projections-of-global-regional-and-country-level-maternal-mortality-by-cause-19902050/"
+
+  - from: "publications/so-youre-grad-student-now-maybe-you-should-do"
+    to:   "/publication/so-youre-a-grad-student-now-maybe-you-should-do-this/"
+
+  - from: "publications/some-statistical-methods-evaluating-information-extraction-systems"
+    to:   "/publication/some-statistical-methods-for-evaluating-information-extraction-systems/"
+
+  - from: "publications/statistical-security-social-security"
+    to:   "/publication/statistical-security-for-social-security/"
+
+  - from: "publications/stimulating-online-discussion-interactive-learning-environments"
+    to:   "/publication/stimulating-online-discussion-in-interactive-learning-environments/"
+
+  - from: "publications/stimulating-online-discussion-interactive-learning-environments-0"
+    to:   "/publication/stimulating-online-discussion-in-interactive-learning-environments/"
+
+  - from: "publications/survey-data-and-human-computation-improved-flu-tracking"
+    to:   "/publication/survey-data-and-human-computation-for-improved-flu-tracking/"
+
+  - from: "publications/system-estimating-distribution-message-content-categories-source-data"
+    to:   "/publication/system-for-estimating-a-distribution-of-message-content-categories-in-source-data/"
+
+  - from: "publications/system-estimating-distribution-message-content-categories-source-data-2nd"
+    to:   "/publication/system-for-estimating-a-distribution-of-message-content-categories-in-source-data-2nd/"
+
+  - from: "publications/systematic-bias-and-nontransparency-us-social-securityadministration-forecasts"
+    to:   "/publication/systematic-bias-and-nontransparency-in-us-social-security-administration-forecasts/"
+
+  - from: "publications/systems-and-methods-calculating-category-proportions"
+    to:   "/publication/systems-and-methods-for-calculating-category-proportions/"
+
+  - from: "publications/systems-and-methods-keyword-determination-and-document-classification"
+    to:   "/publication/systems-and-methods-for-keyword-determination-and-document-classification-from-unstructured-text/"
+
+  - from: "publications/unified-approach-measurement-error-and-missing-data-details-and-extensions"
+    to:   "/publication/a-unified-approach-to-measurement-error-and-missing-data-details-and-extensions/"
+
+  - from: "publications/unifying-political-methodology-likelihood-theory-statistical-inference"
+    to:   "/publication/unifying-political-methodology-the-likelihood-theory-of-statistical-inference/"
+
+  - from: "publications/update-dataverse"
+    to:   "/publication/an-update-on-dataverse/"
+
+  - from: "publications/urban-observatories-city-data-can-inform-decision-theory"
+    to:   "/publication/urban-observatories-city-data-can-inform-decision-theory/"
+
+  - from: "publications/use-social-annotation-platform-pre-class-reading-assignments-flipped-introductory"
+    to:   "/publication/use-of-a-social-annotation-platform-for-pre-class-reading-assignments-in-a-flipped-introductory-physics-class/"
+
+  - from: "publications/why-propensity-scores-should-not-be-used-formatching"
+    to:   "/publication/why-propensity-scores-should-not-be-used-for-matching/"
+
+  - from: "publications/you-lie-patterns-partisan-taunting-us-senate-poster"
+    to:   "/publication/you-lie-patterns-of-partisan-taunting-in-the-u.s.-senate-poster/"
+
+# END publications-plural-redirects
+
+# BEGIN presentations-redirects
+# Old Drupal /presentations/ URLs → current /talk/ pages
+  - from: "presentations/analyzing-social-media-data-china"
+    to:   "/talk/analyzing-social-media-data-in-china/"
+
+  - from: "presentations/anchoring-vignettes-interpersonal-and-cross-cultural-incomparability-survey-research"
+    to:   "/talk/anchoring-vignettes-for-interpersonal-and-cross-cultural-incomparability-in-survey-research/"
+
+  - from: "presentations/anchoring-vignettes-interpersonally-incomparable-survey-responses"
+    to:   "/talk/anchoring-vignettes-for-interpersonally-incomparable-survey-responses/"
+
+  - from: "presentations/balance-sample-size-frontier-matching-methods-causal-inference"
+    to:   "/talk/the-balance-sample-size-frontier-in-matching-methods-for-causal-inference/"
+
+  - from: "presentations/big-data-not-about-data"
+    to:   "/talk/big-data-is-not-about-the-data-2013-269/"
+
+  - from: "presentations/big-data-not-about-data-0"
+    to:   "/talk/big-data-is-not-about-the-data-2013-269/"
+
+  - from: "presentations/big-data-not-about-data-1"
+    to:   "/talk/big-data-is-not-about-the-data-2013-269/"
+
+  - from: "presentations/big-data-not-about-data-10"
+    to:   "/talk/big-data-is-not-about-the-data-2013-269/"
+
+  - from: "presentations/big-data-not-about-data-11"
+    to:   "/talk/big-data-is-not-about-the-data-2013-269/"
+
+  - from: "presentations/big-data-not-about-data-12"
+    to:   "/talk/big-data-is-not-about-the-data-2013-269/"
+
+  - from: "presentations/big-data-not-about-data-13"
+    to:   "/talk/big-data-is-not-about-the-data-2013-269/"
+
+  - from: "presentations/big-data-not-about-data-14"
+    to:   "/talk/big-data-is-not-about-the-data-2013-269/"
+
+  - from: "presentations/big-data-not-about-data-15"
+    to:   "/talk/big-data-is-not-about-the-data-2013-269/"
+
+  - from: "presentations/big-data-not-about-data-16"
+    to:   "/talk/big-data-is-not-about-the-data-2013-269/"
+
+  - from: "presentations/big-data-not-about-data-17"
+    to:   "/talk/big-data-is-not-about-the-data-2013-269/"
+
+  - from: "presentations/big-data-not-about-data-18"
+    to:   "/talk/big-data-is-not-about-the-data-2013-269/"
+
+  - from: "presentations/big-data-not-about-data-19"
+    to:   "/talk/big-data-is-not-about-the-data-2013-269/"
+
+  - from: "presentations/big-data-not-about-data-2"
+    to:   "/talk/big-data-is-not-about-the-data-2013-269/"
+
+  - from: "presentations/big-data-not-about-data-3"
+    to:   "/talk/big-data-is-not-about-the-data-2013-269/"
+
+  - from: "presentations/big-data-not-about-data-4"
+    to:   "/talk/big-data-is-not-about-the-data-2013-269/"
+
+  - from: "presentations/big-data-not-about-data-5"
+    to:   "/talk/big-data-is-not-about-the-data-2013-269/"
+
+  - from: "presentations/big-data-not-about-data-6"
+    to:   "/talk/big-data-is-not-about-the-data-2013-269/"
+
+  - from: "presentations/big-data-not-about-data-7"
+    to:   "/talk/big-data-is-not-about-the-data-2013-269/"
+
+  - from: "presentations/big-data-not-about-data-8"
+    to:   "/talk/big-data-is-not-about-the-data-2013-269/"
+
+  - from: "presentations/big-data-not-about-data-9"
+    to:   "/talk/big-data-is-not-about-the-data-2013-269/"
+
+  - from: "presentations/big-data-not-about-data-applications"
+    to:   "/talk/big-data-is-not-about-the-data-with-applications/"
+
+  - from: "presentations/big-data-not-about-data-power-modern-analytics"
+    to:   "/talk/big-data-is-not-about-the-data-the-power-of-modern-analytics/"
+
+  - from: "presentations/big-data-reveals-made-data-how-chinese-government-fabricates-social-media-posts"
+    to:   "/talk/big-data-reveals-made-up-data-how-the-chinese-government-fabricates-social-media-posts-for-strategic-distraction-not-engaged-argument/"
+
+  - from: "presentations/changing-evidence-base-social-science-research"
+    to:   "/talk/the-changing-evidence-base-of-social-science-research/"
+
+  - from: "presentations/coarsened-exact-matching"
+    to:   "/talk/coarsened-exact-matching/"
+
+  - from: "presentations/comparative-effectiveness-matching-methods-causal-inference"
+    to:   "/talk/comparative-effectiveness-of-matching-methods-for-causal-inference/"
+
+  - from: "presentations/comparative-effectiveness-matching-methods-causal-inference-0"
+    to:   "/talk/comparative-effectiveness-of-matching-methods-for-causal-inference/"
+
+  - from: "presentations/computer-assisted-clustering-and-conceptualization"
+    to:   "/talk/computer-assisted-clustering-and-conceptualization/"
+
+  - from: "presentations/computer-assisted-clustering-and-conceptualization-0"
+    to:   "/talk/computer-assisted-clustering-and-conceptualization/"
+
+  - from: "presentations/computer-assisted-clustering-and-conceptualization-unstructured-text"
+    to:   "/talk/computer-assisted-clustering-and-conceptualization-from-unstructured-text-2011/"
+
+  - from: "presentations/computer-assisted-conceptualization"
+    to:   "/talk/computer-assisted-conceptualization-2011/"
+
+  - from: "presentations/computer-assisted-conceptualization-0"
+    to:   "/talk/computer-assisted-conceptualization-2011/"
+
+  - from: "presentations/computer-assisted-reading-and-other-discoveries-quantitative-social-science"
+    to:   "/talk/computer-assisted-reading-and-other-discoveries-from-quantitative-social-science/"
+
+  - from: "presentations/correcting-measurement-error-bias-conjoint-survey-experiments-harvard"
+    to:   "/talk/correcting-measurement-error-bias-in-conjoint-survey-experiments-stanford-university/"
+
+  - from: "presentations/correcting-measurement-error-bias-conjoint-survey-experiments-stanford"
+    to:   "/talk/correcting-measurement-error-bias-in-conjoint-survey-experiments-stanford-university/"
+
+  - from: "presentations/dataverse-network-infrastructure-data-sharing"
+    to:   "/talk/the-dataverse-network-an-infrastructure-for-data-sharing-2008-380/"
+
+  - from: "presentations/dataverse-network-infrastructure-data-sharing-0"
+    to:   "/talk/the-dataverse-network-an-infrastructure-for-data-sharing-2008-380/"
+
+  - from: "presentations/dataverse-network-infrastructure-data-sharing-1"
+    to:   "/talk/the-dataverse-network-an-infrastructure-for-data-sharing-2008-380/"
+
+  - from: "presentations/dataverse-sharing-research-data-building-social-science"
+    to:   "/talk/dataverse-sharing-research-data-building-social-science/"
+
+  - from: "presentations/death-survey-estimating-adult-mortality-without-selection-bias-sibling-survival-data"
+    to:   "/talk/death-by-survey-estimating-adult-mortality-without-selection-bias-from-sibling-survival-data/"
+
+  - from: "presentations/demographic-forecasting"
+    to:   "/talk/demographic-forecasting-2005/"
+
+  - from: "presentations/demographic-forecasting-0"
+    to:   "/talk/demographic-forecasting-2005/"
+
+  - from: "presentations/demographic-forecasting-1"
+    to:   "/talk/demographic-forecasting-2005/"
+
+  - from: "presentations/demographic-forecasting-2"
+    to:   "/talk/demographic-forecasting-2005/"
+
+  - from: "presentations/demographic-forecasting-3"
+    to:   "/talk/demographic-forecasting-2005/"
+
+  - from: "presentations/demographic-forecasting-4"
+    to:   "/talk/demographic-forecasting-2005/"
+
+  - from: "presentations/demographic-forecasting-incorporating-qualitative-insight-quantitative-modeling"
+    to:   "/talk/demographic-forecasting-incorporating-qualitative-insight-into-quantitative-modeling/"
+
+  - from: "presentations/detecting-and-reducing-model-dependence-causal-inference"
+    to:   "/talk/detecting-and-reducing-model-dependence-in-causal-inference/"
+
+  - from: "presentations/detecting-and-reducing-model-dependence-causal-inference-0"
+    to:   "/talk/detecting-and-reducing-model-dependence-in-causal-inference/"
+
+  - from: "presentations/detecting-model-dependence"
+    to:   "/talk/detecting-model-dependence/"
+
+  - from: "presentations/detecting-model-dependence-and-matching-causal-inference"
+    to:   "/talk/detecting-and-reducing-model-dependence-in-causal-inference/"
+
+  - from: "presentations/discovering-and-explaining-systematic-bias-and-nontransparency-us-social"
+    to:   "/talk/discovering-and-explaining-systematic-bias-and-nontransparency-in-us-social-security-administration-forecasts/"
+
+  - from: "presentations/discovery"
+    to:   "/talk/discovery/"
+
+  - from: "presentations/empowering-social-science-research-industry-partnerships-deans-symposium-social"
+    to:   "/talk/empowering-social-science-research-with-industry-partnerships-deans-symposium-on-social-science-innovations-harvard/"
+
+  - from: "presentations/evaluation-seguro-popular-baseline-analysis"
+    to:   "/talk/evaluation-of-seguro-popular-baseline-analysis/"
+
+  - from: "presentations/evaluation-seguro-popular-design-framework"
+    to:   "/talk/evaluation-of-seguro-popular-design-framework/"
+
+  - from: "presentations/explaining-systematic-bias-and-nontransparency-us-social-security-administration"
+    to:   "/talk/explaining-systematic-bias-and-nontransparency-in-us-social-security-administration-forecasts/"
+
+  - from: "presentations/explaining-systematic-bias-and-nontransparency-us-social-security-administration-0"
+    to:   "/talk/explaining-systematic-bias-and-nontransparency-in-us-social-security-administration-forecasts/"
+
+  - from: "presentations/extracting-systematic-social-science-meaning-text"
+    to:   "/talk/extracting-systematic-social-science-meaning-from-text/"
+
+  - from: "presentations/extracting-systematic-social-science-meaning-text-cause-specific-mortality-rates-sympt"
+    to:   "/talk/extracting-systematic-social-science-meaning-from-text-cause-specific-mortality-rates-from-symptom-data/"
+
+  - from: "presentations/fabricating-news-chinese-social-media"
+    to:   "/talk/fabricating-news-in-chinese-social-media/"
+
+  - from: "presentations/finding-citing-analyzing-disseminating-and-preserving-numeric-data"
+    to:   "/talk/finding-citing-analyzing-disseminating-and-preserving-numeric-data/"
+
+  - from: "presentations/finding-citing-analyzing-disseminating-and-preserving-quantitative-data"
+    to:   "/talk/finding-citing-analyzing-disseminating-and-preserving-quantitative-data/"
+
+  - from: "presentations/future-death-america"
+    to:   "/talk/the-future-of-death-in-america/"
+
+  - from: "presentations/general-purpose-computer-assisted-document-clustering-methodology"
+    to:   "/talk/a-general-purpose-computer-assisted-document-clustering-methodology/"
+
+  - from: "presentations/general-purpose-computer-assisted-document-clustering-methodology-0"
+    to:   "/talk/a-general-purpose-computer-assisted-document-clustering-methodology/"
+
+  - from: "presentations/hard-unsolved-problem-post-treatment-bias-big-social-science-questions"
+    to:   "/talk/a-hard-unsolved-problem-post-treatment-bias-in-big-social-science-questions/"
+
+  - from: "presentations/how-american-politics-ensures-electoral-accountability-congress-center-american"
+    to:   "/talk/how-american-politics-ensures-electoral-accountability-in-congress-ucla/"
+
+  - from: "presentations/how-american-politics-ensures-electoral-accountability-congress-nuffield-college"
+    to:   "/talk/how-american-politics-ensures-electoral-accountability-in-congress-ucla/"
+
+  - from: "presentations/how-american-politics-ensures-electoral-accountability-congress-ucla"
+    to:   "/talk/how-american-politics-ensures-electoral-accountability-in-congress-ucla/"
+
+  - from: "presentations/how-american-politics-ensures-electoral-accountability-congress-washington"
+    to:   "/talk/how-american-politics-ensures-electoral-accountability-in-congress-ucla/"
+
+  - from: "presentations/how-censorship-china-allows-government-criticism-silences-collective-expressio-0"
+    to:   "/talk/how-censorship-in-china-allows-government-criticism-but-silences-collective-expression/"
+
+  - from: "presentations/how-censorship-china-allows-government-criticism-silences-collective-expressio-1"
+    to:   "/talk/how-censorship-in-china-allows-government-criticism-but-silences-collective-expression/"
+
+  - from: "presentations/how-censorship-china-allows-government-criticism-silences-collective-expression"
+    to:   "/talk/how-censorship-in-china-allows-government-criticism-but-silences-collective-expression/"
+
+  - from: "presentations/how-chinese-government-fabricates-social-media-posts-strategic-distraction-not"
+    to:   "/talk/how-the-chinese-government-fabricates-social-media-posts-for-strategic-distraction-not-engaged-argument/"
+
+  - from: "presentations/how-chinese-government-fabricates-social-media-posts-strategic-distraction-not-0"
+    to:   "/talk/how-the-chinese-government-fabricates-social-media-posts-for-strategic-distraction-not-engaged-argument/"
+
+  - from: "presentations/how-chinese-government-fabricates-social-media-posts-strategic-distraction-not-1"
+    to:   "/talk/how-the-chinese-government-fabricates-social-media-posts-for-strategic-distraction-not-engaged-argument/"
+
+  - from: "presentations/how-chinese-government-fabricates-social-media-posts-strategic-distraction-not-2"
+    to:   "/talk/how-the-chinese-government-fabricates-social-media-posts-for-strategic-distraction-not-engaged-argument/"
+
+  - from: "presentations/how-chinese-government-fabricates-social-media-posts-strategic-distraction-not-3"
+    to:   "/talk/how-the-chinese-government-fabricates-social-media-posts-for-strategic-distraction-not-engaged-argument/"
+
+  - from: "presentations/how-chinese-government-fabricates-social-media-posts-strategic-distraction-not-4"
+    to:   "/talk/how-the-chinese-government-fabricates-social-media-posts-for-strategic-distraction-not-engaged-argument/"
+
+  - from: "presentations/how-chinese-government-fabricates-social-media-posts-strategic-distraction-not-5"
+    to:   "/talk/how-the-chinese-government-fabricates-social-media-posts-for-strategic-distraction-not-engaged-argument/"
+
+  - from: "presentations/how-chinese-government-fabricates-social-media-posts-strategic-distraction-not-6"
+    to:   "/talk/how-the-chinese-government-fabricates-social-media-posts-for-strategic-distraction-not-engaged-argument/"
+
+  - from: "presentations/how-help-solve-societys-most-pressing-challenges-quote-ali-homepage-harvard"
+    to:   "/talk/how-to-help-solve-societys-most-pressing-challenges-quote-from-ali-homepage-at-the-harvard-advanced-leadership-initiative/"
+
+  - from: "presentations/how-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-it"
+    to:   "/talk/how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-it/"
+
+  - from: "presentations/how-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-it-0"
+    to:   "/talk/how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-it/"
+
+  - from: "presentations/how-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-it-1"
+    to:   "/talk/how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-it/"
+
+  - from: "presentations/how-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-it-2"
+    to:   "/talk/how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-it/"
+
+  - from: "presentations/how-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-it-3"
+    to:   "/talk/how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-it/"
+
+  - from: "presentations/how-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-it-4"
+    to:   "/talk/how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-it/"
+
+  - from: "presentations/how-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-it-5"
+    to:   "/talk/how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-it/"
+
+  - from: "presentations/how-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-it-6"
+    to:   "/talk/how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-it/"
+
+  - from: "presentations/how-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-it-7"
+    to:   "/talk/how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-it/"
+
+  - from: "presentations/how-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-it-8"
+    to:   "/talk/how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-it/"
+
+  - from: "presentations/how-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-it-9"
+    to:   "/talk/how-to-measure-legislative-district-compactness-if-you-only-know-it-when-you-see-it/"
+
+  - from: "presentations/how-news-media-activate-public-expression-and-influence-national-agendas"
+    to:   "/talk/how-the-news-media-activate-public-expression-and-influence-national-agendas/"
+
+  - from: "presentations/how-news-media-activate-public-expression-and-influence-national-agendas-0"
+    to:   "/talk/how-the-news-media-activate-public-expression-and-influence-national-agendas/"
+
+  - from: "presentations/how-news-media-activate-public-expression-and-influence-national-agendas-1"
+    to:   "/talk/how-the-news-media-activate-public-expression-and-influence-national-agendas/"
+
+  - from: "presentations/how-news-media-activate-public-expression-and-influence-national-agendas-2"
+    to:   "/talk/how-the-news-media-activate-public-expression-and-influence-national-agendas/"
+
+  - from: "presentations/how-news-media-activate-public-expression-and-influence-national-agendas-3"
+    to:   "/talk/how-the-news-media-activate-public-expression-and-influence-national-agendas/"
+
+  - from: "presentations/how-news-media-activate-public-expression-and-influence-national-agendas-4"
+    to:   "/talk/how-the-news-media-activate-public-expression-and-influence-national-agendas/"
+
+  - from: "presentations/how-news-media-activate-public-expression-and-influence-national-agendas-5"
+    to:   "/talk/how-the-news-media-activate-public-expression-and-influence-national-agendas/"
+
+  - from: "presentations/how-news-media-activate-public-expression-and-influence-national-agendas-6"
+    to:   "/talk/how-the-news-media-activate-public-expression-and-influence-national-agendas/"
+
+  - from: "presentations/how-read-100-million-blogs-classify-deaths-without-physicians"
+    to:   "/talk/how-to-read-100-million-blogs-classify-deaths-without-physicians-2008/"
+
+  - from: "presentations/how-read-100-million-blogs-classify-deaths-without-physicians-0"
+    to:   "/talk/how-to-read-100-million-blogs-classify-deaths-without-physicians-2008/"
+
+  - from: "presentations/how-read-100-million-blogs-classify-deaths-without-physicians-1"
+    to:   "/talk/how-to-read-100-million-blogs-classify-deaths-without-physicians-2008/"
+
+  - from: "presentations/how-read-100-million-blogs-classify-deaths-without-physicians-2"
+    to:   "/talk/how-to-read-100-million-blogs-classify-deaths-without-physicians-2008/"
+
+  - from: "presentations/how-read-100-million-blogs-classify-deaths-without-physicians-3"
+    to:   "/talk/how-to-read-100-million-blogs-classify-deaths-without-physicians-2008/"
+
+  - from: "presentations/how-read-100-million-blogs-classify-deaths-without-physicians-4"
+    to:   "/talk/how-to-read-100-million-blogs-classify-deaths-without-physicians-2008/"
+
+  - from: "presentations/how-read-100-million-blogs-classify-deaths-without-physicians-5"
+    to:   "/talk/how-to-read-100-million-blogs-classify-deaths-without-physicians-2008/"
+
+  - from: "presentations/how-read-100-million-blogs-classify-deaths-without-physicians-6"
+    to:   "/talk/how-to-read-100-million-blogs-classify-deaths-without-physicians-2008/"
+
+  - from: "presentations/how-read-100-million-blogs-classify-deaths-without-physicians-7"
+    to:   "/talk/how-to-read-100-million-blogs-classify-deaths-without-physicians-2008/"
+
+  - from: "presentations/how-read-100-million-blogs-classify-deaths-without-physicians-8"
+    to:   "/talk/how-to-read-100-million-blogs-classify-deaths-without-physicians-2008/"
+
+  - from: "presentations/how-read-100-million-blogs-classify-deaths-without-physicians-9"
+    to:   "/talk/how-to-read-100-million-blogs-classify-deaths-without-physicians-2008/"
+
+  - from: "presentations/improved-method-automated-nonparametric-content-analysis-social-science"
+    to:   "/talk/an-improved-method-of-automated-nonparametric-content-analysis-for-social-science/"
+
+  - from: "presentations/improved-method-automated-nonparametric-content-analysis-social-science-0"
+    to:   "/talk/an-improved-method-of-automated-nonparametric-content-analysis-for-social-science/"
+
+  - from: "presentations/institute-quantitative-social-science"
+    to:   "/talk/an-overview-of-the-institute-for-quantitative-social-science/"
+
+  - from: "presentations/interpersonal-and-cross-cultural-incomparability-survey-research"
+    to:   "/talk/interpersonal-and-cross-cultural-incomparability-in-survey-research-in-honor-of-dean-barry-bloom/"
+
+  - from: "presentations/introduction-dataverse-network-infrastructure-data-sharing"
+    to:   "/talk/an-introduction-to-the-dataverse-network-as-an-infrastructure-for-data-sharing-2007-403/"
+
+  - from: "presentations/introduction-dataverse-network-infrastructure-data-sharing-0"
+    to:   "/talk/an-introduction-to-the-dataverse-network-as-an-infrastructure-for-data-sharing-2007-403/"
+
+  - from: "presentations/introduction-dataverse-network-infrastructure-data-sharing-1"
+    to:   "/talk/an-introduction-to-the-dataverse-network-as-an-infrastructure-for-data-sharing-2007-403/"
+
+  - from: "presentations/introduction-matching-causal-inference"
+    to:   "/talk/introduction-to-matching-for-causal-inference/"
+
+  - from: "presentations/introduction-perusall"
+    to:   "/talk/introduction-to-perusall/"
+
+  - from: "presentations/matching-causal-inference-without-balance-checking"
+    to:   "/talk/matching-for-causal-inference-without-balance-checking/"
+
+  - from: "presentations/matching-causal-inference-without-balance-checking-0"
+    to:   "/talk/matching-for-causal-inference-without-balance-checking/"
+
+  - from: "presentations/matching-causal-inference-without-balance-checking-1"
+    to:   "/talk/matching-for-causal-inference-without-balance-checking/"
+
+  - from: "presentations/matching-causal-inference-without-balance-checking-2"
+    to:   "/talk/matching-for-causal-inference-without-balance-checking/"
+
+  - from: "presentations/matching-methods-causal-inference"
+    to:   "/talk/matching-methods-for-causal-inference-2012/"
+
+  - from: "presentations/matching-methods-causal-inference-0"
+    to:   "/talk/matching-methods-for-causal-inference-2012/"
+
+  - from: "presentations/matching-methods-causal-inference-1"
+    to:   "/talk/matching-methods-for-causal-inference-2012/"
+
+  - from: "presentations/matching-methods-causal-inference-2"
+    to:   "/talk/matching-methods-for-causal-inference-2012/"
+
+  - from: "presentations/matching-methods-causal-inference-3"
+    to:   "/talk/matching-methods-for-causal-inference-2012/"
+
+  - from: "presentations/matching-methods-causal-inference-and-21-other-topics"
+    to:   "/talk/matching-methods-for-causal-inference-and-21-other-topics/"
+
+  - from: "presentations/matching-methods-observational-and-experimental-causal-inference"
+    to:   "/talk/matching-methods-for-observational-and-experimental-causal-inference-facultad-latinoamericana-de-ciencias-sociales/"
+
+  - from: "presentations/matching-reduce-model-dependence"
+    to:   "/talk/matching-to-reduce-model-dependence/"
+
+  - from: "presentations/method-computer-assisted-conceptualization"
+    to:   "/talk/a-method-for-computer-assisted-conceptualization/"
+
+  - from: "presentations/mexican-seguro-popular-evaluation"
+    to:   "/talk/mexican-seguro-popular-evaluation/"
+
+  - from: "presentations/model-dependence-counterfactual-inference"
+    to:   "/talk/model-dependence-in-counterfactual-inference/"
+
+  - from: "presentations/next-big-social-science-thing-some-suggestions-science"
+    to:   "/talk/the-next-big-social-science-thing.-some-suggestions-for-science-magazine/"
+
+  - from: "presentations/noisy-data-noisy-census-center-discrete-mathematics-and-theoretical-computer"
+    to:   "/talk/noisy-data-from-the-noisy-census-center-for-discrete-mathematics-and-theoretical-computer-science-rutgers-university/"
+
+  - from: "presentations/optimizing-balance-and-sample-size-matching-methods-causal-inference"
+    to:   "/talk/optimizing-balance-and-sample-size-in-matching-methods-for-causal-inference/"
+
+  - from: "presentations/optimizing-balance-and-sample-size-matching-methods-causal-inference-0"
+    to:   "/talk/optimizing-balance-and-sample-size-in-matching-methods-for-causal-inference/"
+
+  - from: "presentations/partisan-gerrymandering-talk-and-participatory-simulation"
+    to:   "/talk/partisan-gerrymandering-a-talk-and-participatory-simulation/"
+
+  - from: "presentations/partisan-taunting-new-conceptualization-how-members-congress-act"
+    to:   "/talk/partisan-taunting-a-new-conceptualization-of-how-members-of-congress-act/"
+
+  - from: "presentations/politically-robust-experimental-design-public-policy-evaluation-application-mexican-u-0"
+    to:   "/talk/a-politically-robust-experimental-design-for-public-policy-evaluation-with-application-to-the-mexican-universal-health-insurance-program/"
+
+  - from: "presentations/politically-robust-experimental-design-public-policy-evaluation-application-mexican-un"
+    to:   "/talk/a-politically-robust-experimental-design-for-public-policy-evaluation-with-application-to-the-mexican-universal-health-insurance-program/"
+
+  - from: "presentations/public-policy-poor-randomized-evaluation-mexican-universal-health-insurance"
+    to:   "/talk/public-policy-for-the-poor-a-randomized-evaluation-of-the-mexican-universal-health-insurance-program/"
+
+  - from: "presentations/public-policy-poor-randomized-evaluation-mexican-universal-health-insurance-0"
+    to:   "/talk/public-policy-for-the-poor-a-randomized-evaluation-of-the-mexican-universal-health-insurance-program/"
+
+  - from: "presentations/public-policy-poor-randomized-evaluation-mexican-universal-health-insurance-1"
+    to:   "/talk/public-policy-for-the-poor-a-randomized-evaluation-of-the-mexican-universal-health-insurance-program/"
+
+  - from: "presentations/public-policy-poor-randomized-evaluation-mexican-universal-health-insurance-pr-0"
+    to:   "/talk/public-policy-for-the-poor-a-randomized-evaluation-of-the-mexican-universal-health-insurance-program/"
+
+  - from: "presentations/public-policy-poor-randomized-evaluation-mexican-universal-health-insurance-prog"
+    to:   "/talk/public-policy-for-the-poor-a-randomized-evaluation-of-the-mexican-universal-health-insurance-program/"
+
+  - from: "presentations/public-policy-poor-randomized-evaluation-mexican-universal-health-insurance-program"
+    to:   "/talk/public-policy-for-the-poor-a-randomized-evaluation-of-the-mexican-universal-health-insurance-program/"
+
+  - from: "presentations/public-policy-poor-randomized-evaluation-mexican-universal-health-insurance-program-0"
+    to:   "/talk/public-policy-for-the-poor-a-randomized-evaluation-of-the-mexican-universal-health-insurance-program/"
+
+  - from: "presentations/public-policy-poor-randomized-evaluation-mexican-universal-health-insurance-program-1"
+    to:   "/talk/public-policy-for-the-poor-a-randomized-evaluation-of-the-mexican-universal-health-insurance-program/"
+
+  - from: "presentations/public-policy-poor-randomized-evaluation-mexican-universal-health-insurance-program-2"
+    to:   "/talk/public-policy-for-the-poor-a-randomized-evaluation-of-the-mexican-universal-health-insurance-program/"
+
+  - from: "presentations/quantitative-discovery-qualitative-information"
+    to:   "/talk/quantitative-discovery-of-qualitative-information/"
+
+  - from: "presentations/quantitative-discovery-qualitative-information-general-purpose-document-clusteri"
+    to:   "/talk/quantitative-discovery-of-qualitative-information-a-general-purpose-document-clustering-methodology/"
+
+  - from: "presentations/quantitative-discovery-qualitative-information-general-purpose-document-clustering-me-0"
+    to:   "/talk/quantitative-discovery-of-qualitative-information-a-general-purpose-document-clustering-methodology/"
+
+  - from: "presentations/quantitative-discovery-qualitative-information-general-purpose-document-clustering-me-1"
+    to:   "/talk/quantitative-discovery-of-qualitative-information-a-general-purpose-document-clustering-methodology/"
+
+  - from: "presentations/quantitative-discovery-qualitative-information-general-purpose-document-clustering-me-2"
+    to:   "/talk/quantitative-discovery-of-qualitative-information-a-general-purpose-document-clustering-methodology/"
+
+  - from: "presentations/quantitative-discovery-qualitative-information-general-purpose-document-clustering-me-3"
+    to:   "/talk/quantitative-discovery-of-qualitative-information-a-general-purpose-document-clustering-methodology/"
+
+  - from: "presentations/quantitative-discovery-qualitative-information-general-purpose-document-clustering-met"
+    to:   "/talk/quantitative-discovery-of-qualitative-information-a-general-purpose-document-clustering-methodology/"
+
+  - from: "presentations/remaking-social-sciences"
+    to:   "/talk/remaking-the-social-sciences/"
+
+  - from: "presentations/reverse-engineering-censorship-china"
+    to:   "/talk/reverse-engineering-censorship-in-china-2015-211/"
+
+  - from: "presentations/reverse-engineering-censorship-china-0"
+    to:   "/talk/reverse-engineering-censorship-in-china-2015-211/"
+
+  - from: "presentations/reverse-engineering-censorship-china-1"
+    to:   "/talk/reverse-engineering-censorship-in-china-2015-211/"
+
+  - from: "presentations/reverse-engineering-censorship-china-2"
+    to:   "/talk/reverse-engineering-censorship-in-china-2015-211/"
+
+  - from: "presentations/reverse-engineering-censorship-china-3"
+    to:   "/talk/reverse-engineering-censorship-in-china-2015-211/"
+
+  - from: "presentations/reverse-engineering-censorship-china-4"
+    to:   "/talk/reverse-engineering-censorship-in-china-2015-211/"
+
+  - from: "presentations/reverse-engineering-censorship-china-5"
+    to:   "/talk/reverse-engineering-censorship-in-china-2015-211/"
+
+  - from: "presentations/reverse-engineering-censorship-china-6"
+    to:   "/talk/reverse-engineering-censorship-in-china-2015-211/"
+
+  - from: "presentations/reverse-engineering-censorship-china-7"
+    to:   "/talk/reverse-engineering-censorship-in-china-2015-211/"
+
+  - from: "presentations/reverse-engineering-censorship-china-8"
+    to:   "/talk/reverse-engineering-censorship-in-china-2015-211/"
+
+  - from: "presentations/reverse-engineering-chinese-censorship"
+    to:   "/talk/reverse-engineering-chinese-censorship-2013-258/"
+
+  - from: "presentations/reverse-engineering-chinese-censorship-0"
+    to:   "/talk/reverse-engineering-chinese-censorship-2013-258/"
+
+  - from: "presentations/reverse-engineering-chinese-censorship-1"
+    to:   "/talk/reverse-engineering-chinese-censorship-2013-258/"
+
+  - from: "presentations/reverse-engineering-chinese-censorship-2"
+    to:   "/talk/reverse-engineering-chinese-censorship-2013-258/"
+
+  - from: "presentations/reverse-engineering-chinese-censorship-3"
+    to:   "/talk/reverse-engineering-chinese-censorship-2013-258/"
+
+  - from: "presentations/reverse-engineering-chinese-censorship-4"
+    to:   "/talk/reverse-engineering-chinese-censorship-2013-258/"
+
+  - from: "presentations/reverse-engineering-chinese-censorship-5"
+    to:   "/talk/reverse-engineering-chinese-censorship-2013-258/"
+
+  - from: "presentations/reverse-engineering-chinese-censorship-6"
+    to:   "/talk/reverse-engineering-chinese-censorship-2013-258/"
+
+  - from: "presentations/reverse-engineering-chinese-censorship-7"
+    to:   "/talk/reverse-engineering-chinese-censorship-2013-258/"
+
+  - from: "presentations/reverse-engineering-chinese-censorship-8"
+    to:   "/talk/reverse-engineering-chinese-censorship-2013-258/"
+
+  - from: "presentations/reverse-engineering-chinese-government-information-controls-0"
+    to:   "/talk/reverse-engineering-chinese-government-information-controls-2017/"
+
+  - from: "presentations/reverse-engineering-chinese-government-information-controls-1"
+    to:   "/talk/reverse-engineering-chinese-government-information-controls-2017/"
+
+  - from: "presentations/reverse-engineering-chinese-government-information-controls-2"
+    to:   "/talk/reverse-engineering-chinese-government-information-controls-2017/"
+
+  - from: "presentations/reverse-engineering-chinese-government-information-controls-3"
+    to:   "/talk/reverse-engineering-chinese-government-information-controls-2017/"
+
+  - from: "presentations/reverse-engineering-chinese-government-information-controls-hebrew-university"
+    to:   "/talk/reverse-engineering-chinese-government-information-controls-harvard-university/"
+
+  - from: "presentations/reverse-engineering-chinese-government-information-controls-suny-new-paltz"
+    to:   "/talk/reverse-engineering-chinese-government-information-controls-suny-new-paltz/"
+
+  - from: "presentations/reverse-engineering-chinese-government-information-controls-university-central"
+    to:   "/talk/reverse-engineering-chinese-government-information-controls-harvard-university/"
+
+  - from: "presentations/scientific-inferences-privatized-census-data-federal-reserve-board-panel"
+    to:   "/talk/scientific-inferences-from-privatized-census-data-federal-reserve-board-panel/"
+
+  - from: "presentations/scientific-measurement-redistricting-research"
+    to:   "/talk/scientific-measurement-in-redistricting-research-princeton-university/"
+
+  - from: "presentations/sequential-experiments-and-news-media-effects"
+    to:   "/talk/sequential-experiments-and-news-media-effects/"
+
+  - from: "presentations/simplifying-casual-inference"
+    to:   "/talk/simplifying-causal-inference-2013/"
+
+  - from: "presentations/simplifying-causal-inference"
+    to:   "/talk/simplifying-causal-inference-2013/"
+
+  - from: "presentations/simplifying-causal-inference-0"
+    to:   "/talk/simplifying-causal-inference-2013/"
+
+  - from: "presentations/simplifying-matching-methods-causal-inference"
+    to:   "/talk/simplifying-matching-methods-for-causal-inference-2017-146/"
+
+  - from: "presentations/simplifying-matching-methods-causal-inference-0"
+    to:   "/talk/simplifying-matching-methods-for-causal-inference-2017-146/"
+
+  - from: "presentations/simplifying-matching-methods-causal-inference-1"
+    to:   "/talk/simplifying-matching-methods-for-causal-inference-2017-146/"
+
+  - from: "presentations/simplifying-matching-methods-causal-inference-10"
+    to:   "/talk/simplifying-matching-methods-for-causal-inference-2017-146/"
+
+  - from: "presentations/simplifying-matching-methods-causal-inference-11"
+    to:   "/talk/simplifying-matching-methods-for-causal-inference-2017-146/"
+
+  - from: "presentations/simplifying-matching-methods-causal-inference-12"
+    to:   "/talk/simplifying-matching-methods-for-causal-inference-2017-146/"
+
+  - from: "presentations/simplifying-matching-methods-causal-inference-2"
+    to:   "/talk/simplifying-matching-methods-for-causal-inference-2017-146/"
+
+  - from: "presentations/simplifying-matching-methods-causal-inference-3"
+    to:   "/talk/simplifying-matching-methods-for-causal-inference-2017-146/"
+
+  - from: "presentations/simplifying-matching-methods-causal-inference-4"
+    to:   "/talk/simplifying-matching-methods-for-causal-inference-2017-146/"
+
+  - from: "presentations/simplifying-matching-methods-causal-inference-5"
+    to:   "/talk/simplifying-matching-methods-for-causal-inference-2017-146/"
+
+  - from: "presentations/simplifying-matching-methods-causal-inference-6"
+    to:   "/talk/simplifying-matching-methods-for-causal-inference-2017-146/"
+
+  - from: "presentations/simplifying-matching-methods-causal-inference-7"
+    to:   "/talk/simplifying-matching-methods-for-causal-inference-2017-146/"
+
+  - from: "presentations/simplifying-matching-methods-causal-inference-8"
+    to:   "/talk/simplifying-matching-methods-for-causal-inference-2017-146/"
+
+  - from: "presentations/simplifying-matching-methods-causal-inference-9"
+    to:   "/talk/simplifying-matching-methods-for-causal-inference-2017-146/"
+
+  - from: "presentations/simplifying-matching-methods-causal-inference-hebrew-university-jerusalem"
+    to:   "/talk/simplifying-matching-methods-for-causal-inference-hebrew-university-of-jerusalem/"
+
+  - from: "presentations/simplifying-matching-methods-causal-inference-university-wisconsin-madison"
+    to:   "/talk/simplifying-matching-methods-for-causal-inference-university-of-wisconsin-at-madison/"
+
+  - from: "presentations/simplifying-matching-methods-causal-inference-university-wisconsin-madison-0"
+    to:   "/talk/simplifying-matching-methods-for-causal-inference-university-of-wisconsin-at-madison/"
+
+  - from: "presentations/social-science-data-revolution"
+    to:   "/talk/the-social-science-data-revolution-2011/"
+
+  - from: "presentations/social-science-data-revolution-0"
+    to:   "/talk/the-social-science-data-revolution-2011/"
+
+  - from: "presentations/solving-data-sharing-challenges-technologically-through-differential-privacy"
+    to:   "/talk/solving-data-sharing-challenges-technologically-through-differential-privacy-wesleyan-university/"
+
+  - from: "presentations/some-iqss-quasi-research-projects"
+    to:   "/talk/a-few-iqss-quasi-research-projects/"
+
+  - from: "presentations/statistical-analysis-missing-data"
+    to:   "/talk/statistical-analysis-with-missing-data/"
+
+  - from: "presentations/statistically-valid-inferences-privacy-protected-data-deloitte"
+    to:   "/talk/statistically-valid-inferences-from-privacy-protected-data-deloitte/"
+
+  - from: "presentations/statistically-valid-inferences-privacy-protected-data-google"
+    to:   "/talk/statistically-valid-inferences-from-privacy-protected-data-google/"
+
+  - from: "presentations/statistically-valid-inferences-privacy-protected-data-google-inc"
+    to:   "/talk/statistically-valid-inferences-from-privacy-protected-data-google-inc/"
+
+  - from: "presentations/statistically-valid-inferences-privacy-protected-data-harvard-privacy-tools"
+    to:   "/talk/statistically-valid-inferences-from-privacy-protected-data-harvard-privacy-tools-project/"
+
+  - from: "presentations/statistically-valid-inferences-privacy-protected-data-harvard-university-applied"
+    to:   "/talk/statistically-valid-inferences-from-privacy-protected-data-stat188-harvard-university/"
+
+  - from: "presentations/statistically-valid-inferences-privacy-protected-data-institute-analytical"
+    to:   "/talk/statistically-valid-inferences-from-privacy-protected-data-mit-analytics-lab/"
+
+  - from: "presentations/statistically-valid-inferences-privacy-protected-data-interagency-arctic"
+    to:   "/talk/statistically-valid-inferences-from-privacy-protected-data-mit-analytics-lab/"
+
+  - from: "presentations/statistically-valid-inferences-privacy-protected-data-microsoft"
+    to:   "/talk/statistically-valid-inferences-from-privacy-protected-data-microsoft/"
+
+  - from: "presentations/statistically-valid-inferences-privacy-protected-data-mit-analytics-lab"
+    to:   "/talk/statistically-valid-inferences-from-privacy-protected-data-mit-analytics-lab/"
+
+  - from: "presentations/statistically-valid-inferences-privacy-protected-data-pew-research-center"
+    to:   "/talk/statistically-valid-inferences-from-privacy-protected-data-pew-research-center/"
+
+  - from: "presentations/statistically-valid-inferences-privacy-protected-data-princeton-university"
+    to:   "/talk/statistically-valid-inferences-from-privacy-protected-data-princeton-university/"
+
+  - from: "presentations/statistically-valid-inferences-privacy-protected-data-sicss-university-rochester"
+    to:   "/talk/statistically-valid-inferences-from-privacy-protected-data-sicss-university-of-rochester/"
+
+  - from: "presentations/statistically-valid-inferences-privacy-protected-data-university-chicago"
+    to:   "/talk/statistically-valid-inferences-from-privacy-protected-data-university-of-chicago/"
+
+  - from: "presentations/statistically-valid-inferences-privacy-protected-data-university-wisconsin"
+    to:   "/talk/statistically-valid-inferences-from-privacy-protected-data-university-of-wisconsin/"
+
+  - from: "presentations/statistically-valid-inferences-privacy-protected-data-washington-university-st"
+    to:   "/talk/statistically-valid-inferences-from-privacy-protected-data-washington-university-in-st.-louis/"
+
+  - from: "presentations/statistically-valid-inferences-privacy-protected-data-webcast-project-tier"
+    to:   "/talk/statistically-valid-inferences-from-privacy-protected-data-webcast-project-tier/"
+
+  - from: "presentations/survey-instability-due-respondents-who-dont-understand-politics-or-researchers"
+    to:   "/talk/is-survey-instability-due-to-respondents-who-dont-understand-politics-or-researchers-who-dont-understand-respondents-caltech/"
+
+  - from: "presentations/talks-matching-methods-causal-inference"
+    to:   "/talk/talks-on-matching-methods-for-causal-inference/"
+
+  - from: "presentations/teaching-innovations-based-social-science-research"
+    to:   "/talk/teaching-innovations-based-on-social-science-research/"
+
+  - from: "presentations/topics-measurement-social-and-health-sciences"
+    to:   "/talk/topics-in-measurement-for-the-social-and-health-sciences/"
+
+  - from: "presentations/what-do-about-biases-survey-research"
+    to:   "/talk/what-to-do-about-biases-in-survey-research/"
+
+  - from: "presentations/what-do-about-biases-survey-research-0"
+    to:   "/talk/what-to-do-about-biases-in-survey-research/"
+
+  - from: "presentations/whos-blame-survey-instability-respondents-random-preferences-or-researchers-flawed-0"
+    to:   "/talk/whos-to-blame-for-survey-instability-respondents-with-random-preferences-or-researchers-with-flawed-measures-talk-at-johns-hopkins-university-2-12-2026/"
+
+  - from: "presentations/why-propensity-scores-should-not-be-used-matching"
+    to:   "/talk/why-propensity-scores-should-not-be-used-for-matching/"
+
+  - from: "presentations/why-propensity-scores-should-not-be-used-matching-0"
+    to:   "/talk/why-propensity-scores-should-not-be-used-for-matching/"
+
+  - from: "presentations/why-propensity-scores-should-not-be-used-matching-1"
+    to:   "/talk/why-propensity-scores-should-not-be-used-for-matching/"
+
+  - from: "presentations/why-propensity-scores-should-not-be-used-matching-2"
+    to:   "/talk/why-propensity-scores-should-not-be-used-for-matching/"
+
+  - from: "presentations/why-propensity-scores-should-not-be-used-matching-3"
+    to:   "/talk/why-propensity-scores-should-not-be-used-for-matching/"
+
+  - from: "presentations/why-propensity-scores-should-not-be-used-matching-4"
+    to:   "/talk/why-propensity-scores-should-not-be-used-for-matching/"
+
+  - from: "presentations/why-propensity-scores-should-not-be-used-matching-5"
+    to:   "/talk/why-propensity-scores-should-not-be-used-for-matching/"
+
+  - from: "presentations/why-propensity-scores-should-not-be-used-matching-6"
+    to:   "/talk/why-propensity-scores-should-not-be-used-for-matching/"
+
+# END presentations-redirects
+

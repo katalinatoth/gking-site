@@ -1,6 +1,8 @@
 ---
 title: "PrivacyUnbiased"
 date: "2021-01-01"
+aliases:
+  - /scholar_software/privacyunbiased/
 authors:
   - "Georgina Evans"
   - "Gary King"

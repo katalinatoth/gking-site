@@ -1,0 +1,17 @@
+User-agent: *
+
+# Block dead Drupal dynamic endpoints (return 403 on GitHub Pages)
+Disallow: /bibcite/
+Disallow: /node/*/export
+Disallow: /file_url/
+
+# Block old file paths that can't be server-redirected (PDFs at nested paths)
+Disallow: /files/gking/
+Disallow: /files/abs/
+Disallow: /sites/
+
+# Block Drupal system paths
+Disallow: /filter/
+Disallow: /user/
+
+Sitemap: {{ "sitemap.xml" | absURL }}

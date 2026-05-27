@@ -1,6 +1,8 @@
 ---
 title: "An Overview of the Virtual Data Center Project and Software"
 date: "2001-01-01"
+aliases:
+  - /scholar_software/an-overview-of-the-virtual-data-center-project-and-software/
 authors:
   - Micah Altman
   - Leonid Andreev

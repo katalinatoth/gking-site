@@ -3,6 +3,7 @@ title: 'VA: Verbal Autopsies'
 url: /va/
 aliases:
   - /software/va-verbal-autopsies/
+  - /scholar_software/va-verbal-autopsies/
 date: '2008-01-01'
 authors:
 - Gary King

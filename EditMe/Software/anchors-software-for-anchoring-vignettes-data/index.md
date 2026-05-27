@@ -5,6 +5,7 @@ aliases:
   - /software/anchors-software-for-anchoring-vignettes-data/
   - /anchoring-vignettes-faqs/
   - /vign/
+  - /scholar_software/anchors-software-for-anchoring-vignettes-data/
 date: "2007-01-01"
 authors:
   - "Jonathan Wand"

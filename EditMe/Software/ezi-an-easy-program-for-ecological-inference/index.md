@@ -4,6 +4,7 @@ url: /EzI/
 aliases:
   - /software/ezi-an-easy-program-for-ecological-inference/
   - /ezi/
+  - /scholar_software/ezi-an-easy-program-for-ecological-inference/
 date: '2003-01-01'
 authors:
 - Gary King

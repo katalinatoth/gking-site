@@ -4,6 +4,7 @@ languageCode: en-us
 copyright: "Gary King"
 enableGitInfo: false
 enableEmoji: true
+enableRobotsTXT: true
 hasCSSJSConfigInAssets: true
 
 build:

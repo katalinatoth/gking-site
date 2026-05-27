@@ -1,6 +1,8 @@
 ---
 title: "Schnabel/Eskow/Cholesky/Factorization"
 date: "2004-01-01"
+aliases:
+  - /scholar_software/schnabeleskowcholeskyfactorization/
 authors:
   - "Jeff Gill"
   - "Gary King"

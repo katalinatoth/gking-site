@@ -1,6 +1,8 @@
 ---
 title: "OpenDP: Developing Open Source Tools for Differential Privacy"
 date: "2020-01-01"
+aliases:
+  - /scholar_software/opendp-developing-open-source-tools-for-differential-privacy/
 authors:
   - "Gary King"
   - "Salil Vadhan"

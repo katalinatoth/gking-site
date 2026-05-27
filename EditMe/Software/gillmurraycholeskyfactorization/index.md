@@ -1,6 +1,8 @@
 ---
 title: "Gill/Murray/Cholesky/Factorization"
 date: "2004-01-01"
+aliases:
+  - /scholar_software/gillmurraycholeskyfactorization/
 authors:
   - "Jeff Gill"
   - "Gary King"

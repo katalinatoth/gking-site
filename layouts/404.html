@@ -1,0 +1,57 @@
+{{- define "main" -}}
+{{/* Exclude 404 page from search indexing */}}
+<div data-pagefind-ignore class="flex flex-col justify-center">
+  <article class="container mx-auto prose prose-slate lg:prose-xl dark:prose-invert">
+    <h1 class="lg:text-6xl">{{ i18n "page_not_found" }}</h1>
+
+    {{/* Suggest recently published pages to the user. */}}
+
+    <p>{{ i18n "404_recommendations" }}</p>
+
+    {{ $query := where (where (where (where site.Pages.ByDate.Reverse "Title" "!=" "") "Kind" "in" (slice "page" "section")) "Params.private" "!=" true) "Permalink" "!=" "" }}
+    {{ $count := len $query }}
+    {{ if gt $count 0 }}
+    <h2>{{ i18n "user_profile_latest" }}</h2>
+    <ul>
+      {{ range first 10 $query }}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{ end }}
+    </ul>
+    {{ end }}
+
+  </article>
+</div>
+
+<script>
+(function() {
+  var path = window.location.pathname;
+
+  var rules = [
+    // Old Drupal PDF paths → flat /files/ layout
+    { match: /^\/files\/gking\/files\/(.+\.pdf)$/i, to: '/files/$1' },
+    { match: /^\/sites\/scholar\.harvard\.edu\/files\/gking\/files\/(.+\.pdf)$/i, to: '/files/$1' },
+    { match: /^\/sites\/g\/files\/omnuum7116\/files\/gking\/files\/(.+\.pdf)$/i, to: '/files/$1' },
+    { match: /^\/sites\/g\/files\/omnuum7116\/files\/(.+\.pdf)$/i, to: '/files/$1' },
+
+    // /publications/ (plural) → /publication/ (singular)
+    { match: /^\/publications\/(.+?)\/?\s*$/i, to: '/publication/$1/' },
+
+    // /scholar_software/<slug> or /scholar_software/<slug>/<anything>
+    { match: /^\/scholar_software\/([^\/]+)/i, to: '/software/$1/' },
+
+    // /presentations/<slug> → /talk/ (strip trailing number suffix)
+    { match: /^\/presentations\/(.+?)(?:-\d+)?\/?\s*$/i, to: '/talk/$1/' }
+  ];
+
+  for (var i = 0; i < rules.length; i++) {
+    var m = path.match(rules[i].match);
+    if (m) {
+      var dest = rules[i].to.replace(/\$1/g, m[1]);
+      window.location.replace(dest);
+      return;
+    }
+  }
+})();
+</script>
+
+{{- end -}}

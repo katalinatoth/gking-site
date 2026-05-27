@@ -3,6 +3,7 @@ title: YourCast
 url: /yourcast/
 aliases:
   - /software/yourcast/
+  - /scholar_software/yourcast/
 banner_title: "YourCast: Time Series Cross-Sectional Forecasting with Your Assumptions"
 date: '2004-01-01'
 authors:

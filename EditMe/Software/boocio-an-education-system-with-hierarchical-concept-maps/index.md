@@ -2,6 +2,8 @@
 title: 'Booc.Io: Software for an Education System With Hierarchical Concept Maps'
 slug: boocio-an-education-system-with-hierarchical-concept-maps
 date: '2017-01-01'
+aliases:
+  - /scholar_software/boocio-an-education-system-with-hierarchical-concept-maps/
 authors:
 - Michail Schwab
 - Hendrik Strobelt

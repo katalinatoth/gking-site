@@ -1,6 +1,8 @@
 ---
 title: "RobustSE"
 date: "2015-01-01"
+aliases:
+  - /scholar_software/robustse/
 authors:
   - "Gary King"
   - "Margaret Roberts"

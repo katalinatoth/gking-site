@@ -5,6 +5,7 @@ aliases:
   - /software/ei-a-program-for-ecological-inference/
   - /eiR/
   - /eir/
+  - /scholar_software/ei-a-program-for-ecological-inference/
 date: '2003-01-01'
 authors:
 - Gary King

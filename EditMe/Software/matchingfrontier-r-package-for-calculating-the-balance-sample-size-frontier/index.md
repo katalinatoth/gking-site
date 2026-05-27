@@ -1,6 +1,8 @@
 ---
 title: "MatchingFrontier: R Package for Calculating the Balance-Sample Size Frontier"
 date: "2014-01-01"
+aliases:
+  - /scholar_software/matchingfrontier-r-package-for-calculating-the-balance-sample-size-frontier/
 authors:
   - "Gary King"
   - "Christopher Lucas"
