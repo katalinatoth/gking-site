@@ -1035,43 +1035,38 @@ Key architectural rules distilled from building this site:
 
 1. **Content is updated through Claude or direct GitHub edits.**
    Describe a change to Claude in plain English or edit Markdown files
-   directly on GitHub. No terminal or special tooling is needed.
+   directly on GitHub. 
 
-2. **Content and presentation are fully separated.** Content is
-   `EditMe/**/*.md` with YAML front matter. Templates in `layouts/` and
-   CSS in `assets/css/` render it. A content change never touches a
+2. **Content and presentation are fully separated.** Content is in
+   `EditMe/**/*.md`. Templates are in `layouts/`. A content change never affects a
    template.
 
-3. **Deployment is automatic on push to `main`.** No manual build step
-   is ever needed for normal content updates.
+3. **Deployment is automatic on push to `main`.** No manual build needed.
 
 4. **The `EditMe/` umbrella scales.** One place to look for everything
    editable, one menu-driven sub-folder per concept. Within
-   `EditMe/Writings/`, papers nest by `<Type>/<Topic>/<Decade>/<slug>/`
-   so even the biggest section stays browsable.
+   `EditMe/Writings/`, papers nest by `<Type>/<Topic>/<Decade>/<slug>/`.
+   
 
-5. **Mounts are transparent for content URLs.** Permalinks are driven by
-   the **target** in `module.mounts`, not by where files live on disk.
-   `EditMe/Writings/Articles/CausalInference/2010s/foo/` mounts onto
-   `content/publication/foo` and serves at `/publication/foo/`.
+5. **Mounts are transparent for content URLs.** The URL of a paper/page doesn't
+   depend on where the file sits in the folder structure.
 
-6. **Three folders MUST stay at the project root:**
-   - `layouts/` — HugoBlox's `get_hook` partial uses `os.ReadDir`.
-   - `assets/` — HugoBlox's `site_head.html` uses `fileExists`.
-   - `.github/`, `.githooks/` — GitHub/git expect literal paths.
-
-7. **Never write `/foo` literally** in templates if it needs to resolve
+7. **Three folders MUST stay at the project root:**
+   `layouts/`, `assets/` and `.github/` can't be moved or renamed because Hugo looks
+   for things in those exact locations.
+   
+9. **Never write `/foo` literally** in templates if it needs to resolve
    under `baseURL`. Use `relURL` without a leading slash:
    `{{ "pagefind/pagefind.js" | relURL }}`.
 
-8. **Preserve URLs.** External links (CVs, citations, search indexes)
+10. **Preserve URLs.** External links (CVs, citations, search indexes)
    point at the original URLs. Silent URL changes become 404s.
 
-9. **`hugo.yaml`'s `module.mounts` block is auto-generated.** Don't
+11. **`hugo.yaml`'s `module.mounts` block is auto-generated.** Don't
    hand-edit it. Run `python3 _automation/scripts/generate_mounts.py`
    after adding or removing `EditMe/` folders.
 
-10. **Vendored theme in `_vendor/`.** Freezes the theme version so a
+12. **Vendored theme in `_vendor/`.** Freezes the theme version so a
     deploy doesn't break if upstream changes. To customize a Blox
     partial, copy it from `_vendor/.../layouts/_partials/<path>` to
     `layouts/_partials/<path>` and edit the project copy.
