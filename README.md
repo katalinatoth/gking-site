@@ -39,7 +39,7 @@ see [`AGENTS.md`](AGENTS.md).
 ---
 
 <details>
-<summary><h2>1. Overview</h2></summary>
+<summary><h2 id="overview">1. Overview</h2></summary>
 
 | Layer | Choice |
 |-------|--------|
@@ -72,7 +72,7 @@ Either path makes the change live within ~3 minutes.
 ---
 
 <details>
-<summary><h2>2. Repository layout</h2></summary>
+<summary><h2 id="repository-layout">2. Repository layout</h2></summary>
 
 ```
 gking-site/hugo-site/                 ← root of the git checkout
@@ -166,7 +166,7 @@ quick navigation on GitHub.
 ---
 
 <details>
-<summary><h2>3. Where do I find X?</h2></summary>
+<summary><h2 id="where-do-i-find-x">3. Where do I find X?</h2></summary>
 
 | You want to edit / find … | Look here |
 | --- | --- |
@@ -202,7 +202,7 @@ quick navigation on GitHub.
 ---
 
 <details>
-<summary><h2>4. Quick add (every content type)</h2></summary>
+<summary><h2 id="quick-add-every-content-type">4. Quick add (every content type)</h2></summary>
 
 The easiest way to add content is to paste a prompt into Claude/Cursor.
 Go to [Claude prompts for common tasks](#claude-prompts-for-common-tasks)
@@ -230,7 +230,7 @@ Your change goes live in about 3 minutes.
 ---
 
 <details>
-<summary><h2>5. Manual content templates</h2></summary>
+<summary><h2 id="manual-content-templates">5. Manual content templates</h2></summary>
 
 These are step-by-step instructions for adding content directly on
 GitHub (without using Claude).
@@ -379,7 +379,7 @@ For the `url:` value: if it starts with `files/` (no slash at the beginning), it
 ---
 
 <details>
-<summary><h2>6. Startups section</h2></summary>
+<summary><h2 id="startups-section">6. Startups section</h2></summary>
 
 The Startups section at `/startups/` showcases Gary's startup companies.
 It has its own menu item and dedicated layout.
@@ -464,7 +464,7 @@ In `hugo.yaml`:
 ---
 
 <details>
-<summary><h2>7. GaryAI chatbot</h2></summary>
+<summary><h2 id="garyai-chatbot">7. GaryAI chatbot</h2></summary>
 
 The site has an AI chatbot ("GaryAI") with two surfaces:
 
@@ -507,7 +507,7 @@ Don't change these unless the AWS deployment changes.
 ---
 
 <details>
-<summary><h2>8. Featured spotlight & See Also</h2></summary>
+<summary><h2 id="featured-spotlight--see-also">8. Featured spotlight & See Also</h2></summary>
 
 ### Working Papers spotlight
 
@@ -576,7 +576,7 @@ dataverse_name: "Replication Data for: Paper Title"
 ---
 
 <details>
-<summary><h2>9. Short URLs & redirects</h2></summary>
+<summary><h2 id="short-urls--redirects">9. Short URLs & redirects</h2></summary>
 
 ### How to add a redirect (short URL)
 
@@ -641,7 +641,7 @@ need to do anything about these.
 ---
 
 <details>
-<summary><h2>10. Research areas, homepage, navigation & other pages</h2></summary>
+<summary><h2 id="research-areas-homepage-navigation--other-pages">10. Research areas, homepage, navigation & other pages</h2></summary>
 
 ### Research areas
 
@@ -728,7 +728,7 @@ The "Advice and Suggestions" links live at the bottom of
 ---
 
 <details>
-<summary><h2>11. People & research group</h2></summary>
+<summary><h2 id="people--research-group">11. People & research group</h2></summary>
 
 ### Profiles
 
@@ -776,7 +776,7 @@ curated by hand in
 ---
 
 <details>
-<summary><h2>12. Claude prompts for common tasks</h2></summary>
+<summary><h2 id="claude-prompts-for-common-tasks">12. Claude prompts for common tasks</h2></summary>
 
 These are copy-paste prompts. To use one:
 
@@ -957,7 +957,7 @@ Commit and push.
 ---
 
 <details>
-<summary><h2>13. Automation & CI/CD</h2></summary>
+<summary><h2 id="automation--cicd">13. Automation & CI/CD</h2></summary>
 
 ### GitHub Actions workflows
 
@@ -1029,7 +1029,7 @@ All Python helpers live under `_automation/scripts/`. Most need
 ---
 
 <details>
-<summary><h2>14. Architecture & principles</h2></summary>
+<summary><h2 id="architecture--principles">14. Architecture & principles</h2></summary>
 
 Key architectural rules distilled from building this site:
 
@@ -1081,7 +1081,7 @@ Key architectural rules distilled from building this site:
 ---
 
 <details>
-<summary><h2>15. Local development</h2></summary>
+<summary><h2 id="local-development">15. Local development</h2></summary>
 
 ### First-time setup (do this once)
 
@@ -1175,7 +1175,7 @@ git log --follow -- EditMe/Writings/Articles/CausalInference/2020s/your-paper/in
 ---
 
 <details>
-<summary><h2>16. Troubleshooting</h2></summary>
+<summary><h2 id="troubleshooting">16. Troubleshooting</h2></summary>
 
 **"I committed and nothing changed on the site."**
 Give it 3–4 minutes, then check
@@ -1207,7 +1207,7 @@ From terminal: `git revert <sha>`. Or on github.com: click the commit →
 ---
 
 <details>
-<summary><h2>17. Publication types reference</h2></summary>
+<summary><h2 id="publication-types-reference">17. Publication types reference</h2></summary>
 
 Use exactly one of these strings in `publication_types:`.
 
