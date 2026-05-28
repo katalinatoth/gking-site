@@ -15,7 +15,14 @@ import os
 import re
 import sys
 from collections import defaultdict
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
+
+try:
+    import requests
+    HAS_REQUESTS = True
+except ImportError:
+    HAS_REQUESTS = False
 
 # ---------------------------------------------------------------------------
 # Configuration
@@ -194,6 +201,74 @@ def check_empty_content():
             if len(text) < 80 and not has_title:
                 stubs.append(slug)
     return stubs
+
+
+def extract_external_urls():
+    """Walk all markdown files and extract external URLs with their source files."""
+    all_urls = {}  # url -> list of files
+    content_dirs = [EDITME]
+    for d in content_dirs:
+        if not d.exists():
+            continue
+        for root, dirs, files in os.walk(d):
+            for f in files:
+                if f.endswith('.md'):
+                    fp = os.path.join(root, f)
+                    try:
+                        text = Path(fp).read_text(encoding="utf-8")
+                    except Exception:
+                        continue
+                    for m in re.finditer(r'https?://[^\s\)\]"\'<>]+', text):
+                        url = m.group(0).rstrip('.,;:')
+                        if url not in all_urls:
+                            all_urls[url] = []
+                        all_urls[url].append(fp)
+    return all_urls
+
+
+def check_external_links(all_urls, max_workers=5):
+    """Check external URLs for broken links. Requires 'requests' library."""
+    if not HAS_REQUESTS:
+        return None  # Signal that we couldn't check
+
+    def check_one(url):
+        try:
+            resp = requests.head(url, timeout=15, allow_redirects=True,
+                                 headers={"User-Agent": "Mozilla/5.0 GKingSiteLinkChecker"})
+            if resp.status_code == 405:
+                resp = requests.get(url, timeout=15, allow_redirects=True,
+                                    headers={"User-Agent": "Mozilla/5.0 GKingSiteLinkChecker"},
+                                    stream=True)
+            return url, resp.status_code, None
+        except requests.exceptions.Timeout:
+            return url, None, "timeout"
+        except requests.exceptions.ConnectionError:
+            return url, None, "connection_error"
+        except Exception as e:
+            return url, None, str(e)[:80]
+
+    broken = []
+    checked = 0
+    total = len(all_urls)
+    print(f"Checking {total} external URLs...", file=sys.stderr)
+
+    with ThreadPoolExecutor(max_workers=max_workers) as pool:
+        futures = {pool.submit(check_one, url): url for url in all_urls}
+        for future in as_completed(futures):
+            url, status, error = future.result()
+            checked += 1
+            if checked % 100 == 0:
+                print(f"  Checked {checked}/{total}...", file=sys.stderr)
+            if error or (status and status >= 400):
+                broken.append({
+                    "url": url,
+                    "status": status,
+                    "error": error,
+                    "files": all_urls[url][:3],
+                })
+
+    print(f"  Done: {checked} checked, {len(broken)} broken", file=sys.stderr)
+    return broken
 
 
 # ---------------------------------------------------------------------------
@@ -376,6 +451,41 @@ def audit():
             "details": empty_dirs[:15],
             "note": "",
         })
+
+    # --- 8. External broken links ---
+    skip_links = os.environ.get("SKIP_LINK_CHECK", "").lower() in ("1", "true", "yes")
+    if not skip_links:
+        all_urls = extract_external_urls()
+        broken_links = check_external_links(all_urls)
+        if broken_links is None:
+            findings.append({
+                "level": "INFO",
+                "category": "External Links",
+                "title": "Skipped — 'requests' library not installed (run: pip install requests)",
+                "details": [],
+                "note": "",
+            })
+        elif broken_links:
+            broken_details = []
+            for b in sorted(broken_links, key=lambda x: x["url"])[:25]:
+                status = b["status"] or b["error"]
+                files_str = ", ".join(os.path.relpath(f, REPO_ROOT) for f in b["files"])
+                broken_details.append(f"{status} — {b['url']} (in: {files_str})")
+            findings.append({
+                "level": "WARN",
+                "category": "External Links",
+                "title": f"{len(broken_links)} broken external links found",
+                "details": broken_details,
+                "note": f"(showing first 25 of {len(broken_links)})" if len(broken_links) > 25 else "",
+            })
+        else:
+            findings.append({
+                "level": "INFO",
+                "category": "External Links",
+                "title": f"All {len(all_urls)} external URLs are reachable",
+                "details": [],
+                "note": "",
+            })
 
     return findings
 
