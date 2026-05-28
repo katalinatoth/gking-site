@@ -105,6 +105,7 @@ jobs:
           password: ${{ secrets.SMTP_PASSWORD }}
           subject: "[gking-site] Weekly Audit Report"
           to: ktoth@iq.harvard.edu
+          cc: king@harvard.edu
           from: ${{ secrets.SMTP_FROM || 'gking-site-audit@github.com' }}
           content_type: text/plain
           body: |

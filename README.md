@@ -61,9 +61,11 @@ removing folders under `EditMe/`.
 
 - **Claude / Cursor** — describe what you want changed in plain English.
   Claude edits the files and pushes. See [Claude prompts for common
-  tasks](#claude-prompts-for-common-tasks) for ready-made prompts. This is the easiest method.
-- **GitHub.com** — click the pencil-icon to make edits to any file in the repo.
+  tasks](#claude-prompts-for-common-tasks) for ready-made prompts.
+- **GitHub.com** — pencil-icon edits in the browser. No local tools
+  needed. Works from a phone or borrowed laptop.
 
+Either path makes the change live within ~3 minutes.
 
 </details>
 
@@ -74,7 +76,7 @@ removing folders under `EditMe/`.
 
 ```
 gking-site/hugo-site/                 ← root of the git checkout
-├── EditMe/                           ← Everything that is likely to need edits lives here
+├── EditMe/                           ← EVERY editable thing on the site
 │   ├── UI/                           ← per-section layout overrides, CSS pointer
 │   │   ├── PerSectionLayouts/        ← one subfolder per section with custom templates
 │   │   │   ├── HomePage/landing/     ← homepage template
@@ -142,7 +144,7 @@ gking-site/hugo-site/                 ← root of the git checkout
 │       └── (top-level)               ← build_redirects.py, generate_mounts.py, …
 │
 ├── docs/audits/                      ← point-in-time audit reports
-├── .github/workflows/                ← CI/CD: deploy, link-check
+├── .github/workflows/                ← CI/CD: deploy, weekly-audit
 ├── .githooks/                        ← post-commit auto-push hook
 └── hugo.yaml                         ← site config (menus, theme, module.mounts)
 ```
@@ -928,6 +930,22 @@ Add a new blog post to gking-site.
 - Content: XXX
 ```
 
+### Update the weekly audit script
+
+```
+Update the weekly audit script (_automation/scripts/audit_site.py) on gking-site.
+
+I want to add a new check: XXX
+
+The script runs every Monday via GitHub Actions and emails a report.
+It currently checks: research area coverage, legacy map sync, PDF integrity,
+broken redirects, duplicate titles, empty dirs, dependency versions, and
+broken external links. Add the new check and make sure it integrates with
+the existing report format (level: ERROR/WARN/INFO, category, title, details list).
+
+Commit and push.
+```
+
 ### Tips
 
 - **To find an existing item:** ask Claude to search by title.
@@ -948,7 +966,39 @@ Two workflows in `.github/workflows/`:
 | Workflow | Trigger | What it does |
 |---|---|---|
 | `deploy.yml` | Push to `main` | Build Hugo + Pagefind, run `build_redirects.py` + `apply_rewrites.py` + `compute_publication_first_commit.py`, deploy to GitHub Pages. |
-| `link-check.yml` | Weekly (Monday 09:00 UTC) | Checks all external URLs in content files; opens/updates a GitHub Issue if broken. |
+| `weekly-audit.yml` | Weekly (Monday 10am ET) | Runs the site audit script and emails the report to ktoth@iq.harvard.edu (CC: king@harvard.edu). |
+
+### Weekly site audit
+
+The audit script (`_automation/scripts/audit_site.py`) automatically
+checks for problems every Monday. It sends an email report covering:
+
+1. Papers not assigned to any research area
+2. Legacy map entries out of sync with content folders
+3. PDFs referenced in content but missing from `_site/static/files/`
+4. PDFs in `static/files/` not referenced by any page
+5. Internal redirect targets that point to non-existent pages
+6. Duplicate titles (possible accidental copies)
+7. Empty directories that can be cleaned up
+8. Dependency versions (Hugo, Hugo Blox, Pagefind) and whether updates are available
+9. Broken external links (checks all URLs in content files)
+
+**To run locally:**
+
+```bash
+cd hugo-site
+python3 _automation/scripts/audit_site.py
+```
+
+To skip the slow external link check:
+
+```bash
+SKIP_LINK_CHECK=1 python3 _automation/scripts/audit_site.py
+```
+
+**Email setup:** The workflow needs 4 repository secrets to send email
+(Settings → Secrets → Actions): `SMTP_SERVER`, `SMTP_PORT`, `SMTP_USERNAME`,
+`SMTP_PASSWORD`. If not configured, it falls back to creating a GitHub Issue.
 
 ### Auto-push hook
 
