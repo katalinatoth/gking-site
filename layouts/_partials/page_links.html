@@ -97,8 +97,11 @@
     {{ $classes := "" }}
     {{ if $isPrimary }}
       {{ $classes = "gk-link-primary" }}
-    {{ else }}
+    {{ else if eq .type "bibtex" }}
       {{ $classes = "gk-cite-button" }}
+    {{ else }}
+      {{/* Publisher's Version, Appendix, etc.: underlined secondary links (not cite-box buttons). */}}
+      {{ $classes = "gk-link-secondary" }}
     {{ end }}
     {{ if and $isPrimary $isTalkLike }}
       {{ $label = "Presentation" }}

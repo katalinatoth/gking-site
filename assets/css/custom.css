@@ -402,13 +402,13 @@ button.gk-cite-button:hover {
 }
 
 /* Prose / markdown bodies in main (bios, teaching, etc.): same link treatment. */
-main#main-content .prose a:not(.gk-link-primary) {
+main#main-content .prose a:not(.gk-link-primary):not(.gk-link-secondary) {
   color: #337ab7;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
-main#main-content .prose a:not(.gk-link-primary):hover,
-main#main-content .prose a:not(.gk-link-primary):focus {
+main#main-content .prose a:not(.gk-link-primary):not(.gk-link-secondary):hover,
+main#main-content .prose a:not(.gk-link-primary):not(.gk-link-secondary):focus {
   color: #23527c;
 }
 
