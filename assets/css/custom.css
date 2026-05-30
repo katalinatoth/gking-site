@@ -296,7 +296,8 @@ button.gk-link-secondary:hover {
   opacity: 0.85;
 }
 
-/* Cite / BibTeX control */
+/* Cite, Publisher's Version, Appendix, and other citation-row controls */
+a.gk-cite-button,
 button.gk-cite-button {
   display: inline-flex;
   align-items: center;
@@ -310,10 +311,24 @@ button.gk-cite-button {
   border-radius: 6px;
   cursor: pointer;
   line-height: 1.25;
+  text-decoration: none;
+  box-sizing: border-box;
 }
+a.gk-cite-button:hover,
 button.gk-cite-button:hover {
   background: #eef2f6 !important;
   border-color: #9ca3af !important;
+  color: #333 !important;
+  text-decoration: none;
+}
+a.gk-cite-button:focus-visible,
+button.gk-cite-button:focus-visible {
+  outline: 3px solid #ffd166;
+  outline-offset: 2px;
+}
+a.gk-cite-button svg,
+button.gk-cite-button svg {
+  flex-shrink: 0;
 }
 
 /* Compact publication page */
@@ -402,13 +417,13 @@ button.gk-cite-button:hover {
 }
 
 /* Prose / markdown bodies in main (bios, teaching, etc.): same link treatment. */
-main#main-content .prose a:not(.gk-link-primary):not(.gk-link-secondary) {
+main#main-content .prose a:not(.gk-link-primary):not(.gk-link-secondary):not(.gk-cite-button) {
   color: #337ab7;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
-main#main-content .prose a:not(.gk-link-primary):not(.gk-link-secondary):hover,
-main#main-content .prose a:not(.gk-link-primary):not(.gk-link-secondary):focus {
+main#main-content .prose a:not(.gk-link-primary):not(.gk-link-secondary):not(.gk-cite-button):hover,
+main#main-content .prose a:not(.gk-link-primary):not(.gk-link-secondary):not(.gk-cite-button):focus {
   color: #23527c;
 }
 
@@ -643,10 +658,13 @@ nav[aria-label="Breadcrumb"] a:focus-visible {
 }
 
 /* Existing .gk-cite-button already darkens on hover; add the matching lift. */
+a.gk-cite-button,
 button.gk-cite-button {
   transition: background-color 0.15s ease, border-color 0.15s ease,
               color 0.15s ease, transform 0.15s ease;
 }
+a.gk-cite-button:hover,
+a.gk-cite-button:focus-visible,
 button.gk-cite-button:hover,
 button.gk-cite-button:focus-visible {
   transform: translateY(-1px);
