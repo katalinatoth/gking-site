@@ -2,6 +2,58 @@
 
 {{ $data := site.Data.research_areas }}
 
+{{/* 404 banner — hidden by default, shown via JS when arriving from a missing page */}}
+<div id="gk-404-banner" style="display:none;background:#fdf6ee;border-bottom:1px solid #e8ddd0;padding:1.25rem 2rem;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <p style="margin:0 0 0.75rem;font-size:1rem;color:#5c4a3a;line-height:1.5;"><strong>The page you were looking for doesn't exist or has moved.</strong> Try searching below, or browse the suggestions.</p>
+    <div style="display:flex;gap:1rem;align-items:flex-start;flex-wrap:wrap;">
+      <input id="gk-404-search" type="text" placeholder="Search for a page..."
+             style="flex:1;min-width:200px;padding:0.6rem 1rem;font-size:0.95rem;border:1px solid #d4cdc4;border-radius:6px;background:#fff;" />
+      <button id="gk-404-dismiss" style="padding:0.6rem 1rem;font-size:0.85rem;background:none;border:1px solid #d4cdc4;border-radius:6px;cursor:pointer;color:#6b6560;">Dismiss</button>
+    </div>
+    <div id="gk-404-results" style="margin-top:0.75rem;"></div>
+  </div>
+</div>
+<script>
+(function() {
+  var hash = window.location.hash;
+  if (!hash || hash.indexOf('#page-not-found=') !== 0) return;
+  var keywords = decodeURIComponent(hash.replace('#page-not-found=', ''));
+  document.getElementById('gk-404-banner').style.display = 'block';
+  var searchInput = document.getElementById('gk-404-search');
+  if (keywords) searchInput.value = keywords;
+  window.scrollTo(0, 0);
+  document.getElementById('gk-404-dismiss').addEventListener('click', function() {
+    document.getElementById('gk-404-banner').style.display = 'none';
+    history.replaceState(null, '', '/');
+  });
+  var pagefind = null;
+  async function loadPagefind() {
+    if (pagefind) return pagefind;
+    try { pagefind = await import({{ "pagefind/pagefind.js" | relURL | jsonify }}); await pagefind.init(); return pagefind; }
+    catch (e) { return null; }
+  }
+  async function doSearch(query) {
+    var el = document.getElementById('gk-404-results');
+    if (!query) { el.innerHTML = ''; return; }
+    var pf = await loadPagefind();
+    if (!pf) { el.innerHTML = '<p style="font-size:0.9rem;color:#888;">Search unavailable.</p>'; return; }
+    var search = await pf.search(query);
+    var results = await Promise.all(search.results.slice(0, 6).map(function(r) { return r.data(); }));
+    if (results.length > 0) {
+      var html = '<p style="font-size:0.85rem;color:#6b6560;margin:0 0 0.5rem;">You might be looking for:</p><ul style="list-style:none;padding:0;margin:0;">';
+      results.forEach(function(r) { html += '<li style="margin-bottom:0.4rem;"><a href="' + r.url + '" style="color:#2d2926;text-decoration:underline;">' + r.meta.title + '</a></li>'; });
+      html += '</ul>';
+      el.innerHTML = html;
+    } else { el.innerHTML = '<p style="font-size:0.85rem;color:#888;">No results found.</p>'; }
+  }
+  if (keywords) loadPagefind().then(function() { doSearch(keywords); });
+  var debounce;
+  searchInput.addEventListener('input', function() { clearTimeout(debounce); debounce = setTimeout(function() { doSearch(searchInput.value); }, 300); });
+  searchInput.addEventListener('keydown', function(e) { if (e.key === 'Enter') { e.preventDefault(); doSearch(searchInput.value); } });
+})();
+</script>
+
 <!-- Hero Section -->
 <section id="hero" style="background:#ECF2F8;">
   <div style="max-width:1200px;margin:0 auto;display:flex;align-items:stretch;min-height:420px;">
@@ -142,20 +194,19 @@
 
 {{/* Card-body lists: for the four-items-per-card preview we only need real
      /publication/ pages whose legacy-map tab matches the card. These drive
-     the "Recent Papers" / "Books" / "Patents" / "Software" blocks below.
+     the "Recent Papers" / "Books" / "Patents" blocks below.
      Filtering by tab (not drupal type) keeps the homepage card list in sync
      with whatever appears on the matching /publication/ tab — e.g. Books
-     means "real books only" now that book_chapters moved to Articles. */}}
+     means "real books only" now that book_chapters moved to Articles.
+     Software Projects uses the same order as /software/ (software_legacy_rows.yaml). */}}
 {{ $bookPages := slice }}
 {{ $patentPages := slice }}
-{{ $softwarePages := slice }}
 {{ $paperPages := slice }}
 {{ range $slug, $meta := $wlMap.entries }}
   {{ $tab := index $meta "tab" | default "" }}
   {{ with site.GetPage (printf "/publication/%s" $slug) }}
     {{ if eq $tab "book" }}{{ $bookPages = $bookPages | append . }}{{ end }}
     {{ if eq $tab "patent" }}{{ $patentPages = $patentPages | append . }}{{ end }}
-    {{ if eq $tab "software" }}{{ $softwarePages = $softwarePages | append . }}{{ end }}
     {{ if eq $tab "journal" }}{{ $paperPages = $paperPages | append . }}{{ end }}
   {{ end }}
 {{ end }}
@@ -186,7 +237,7 @@
     {{ if eq $tab "courtbrief" }}{{ $courtBriefCount = add $courtBriefCount 1 }}{{ end }}
   {{ end }}
 {{ end }}
-{{ $softwareCount := len (where site.RegularPages "Section" "software") }}
+{{ $softwareCount := len (site.Data.software_legacy_rows.rows | default slice) }}
 {{ $talkCount := len (where site.RegularPages "Section" "talk") }}
 
 {{ $recentPapers := first 4 (sort $paperPages ".Date" "desc") }}
@@ -195,7 +246,8 @@
      above isn't derived from a truncated list. */}}
 {{ $recentBooks := first 4 (sort $bookPages ".Date" "desc") }}
 {{ $recentPatents := first 4 (sort $patentPages ".Date" "desc") }}
-{{ $recentSoftware := first 4 (sort $softwarePages ".Date" "desc") }}
+{{/* Match /software/ tab order (software_legacy_rows.yaml via software_tab_ordered_rows). */}}
+{{ $recentSoftware := first 4 (partial "software_tab_ordered_rows.html" .) }}
 {{ $recentTalks := first 4 (sort (where site.RegularPages "Section" "talk") ".Date" "desc") }}
 
 <section class="gk-hp-section">
@@ -203,7 +255,7 @@
 
     <!-- Recent Papers (4 most recent) -->
     <div class="gk-hp-card">
-      <h3 class="gk-hp-card__heading">Recent Papers</h3>
+      <h3 class="gk-hp-card__heading">Papers</h3>
       {{ range $recentPapers }}
       <details class="gk-hp-item">
         <summary class="gk-hp-item__summary">
@@ -375,21 +427,24 @@
       </div>
     </div>
 
-    <!-- Software Projects (4 most recent) -->
+    <!-- Software Projects (first 4 on /software/) -->
     <div class="gk-hp-card">
-      <h3 class="gk-hp-card__heading">Software Projects</h3>
+      <h3 class="gk-hp-card__heading">Software</h3>
       {{ range $recentSoftware }}
-      {{ $swHref := partial "software_page_href.html" . }}
+      {{ $swPage := .page }}
+      {{ $swHref := .href }}
       {{ $swIsExt := strings.HasPrefix $swHref "http" }}
       <details class="gk-hp-item">
         <summary class="gk-hp-item__summary">
           <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span>
-          <span>{{ .Title }}</span>
+          <span>{{ .listTitle }}</span>
         </summary>
         <div class="gk-hp-item__body">
-          {{ $authors := .Params.authors | default slice }}
-          {{ if gt (len $authors) 0 }}<div class="gk-hp-item__authors">{{ delimit $authors ", " }}</div>{{ end }}
-          {{ with .Params.abstract }}<div class="gk-hp-item__abs">{{ . | truncate 200 | markdownify }}</div>{{ end }}
+          {{ with $swPage }}
+            {{ $authors := .Params.authors | default slice }}
+            {{ if gt (len $authors) 0 }}<div class="gk-hp-item__authors">{{ delimit $authors ", " }}</div>{{ end }}
+          {{ end }}
+          {{ with .abstract }}<div class="gk-hp-item__abs">{{ . | truncate 200 | markdownify }}</div>{{ end }}
           <div class="gk-hp-item__more"><a href="{{ $swHref }}"{{ if $swIsExt }} target="_blank" rel="noopener"{{ end }}>Read more &rarr;</a></div>
         </div>
       </details>

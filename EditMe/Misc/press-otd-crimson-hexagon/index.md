@@ -3,7 +3,7 @@ title: 'Harvard Startup Success Story: Crimson Hexagon, Inc.'
 summary: 'Harvard Office of Technology Development, June 27, 2014'
 ---
 
-<p style="font-style:italic;color:#666;margin-bottom:1.5rem;">Harvard Office of Technology Development, June 27, 2014. <a href="https://otd.harvard.edu/news/harvard-startup-success-story-crimson-hexagon-inc/" target="_blank" rel="noopener">Originally published at otd.harvard.edu</a>.</p>
+<p style="font-style:italic;color:#666;margin-bottom:1.5rem;">Harvard Office of Technology Development, June 27, 2014. <a href="https://otd.harvard.edu/news/harvard-startup-success-story-crimson-hexagon-inc/" target="_blank" rel="noopener" data-archive-url="">Originally published at otd.harvard.edu</a>.</p>
 
 ---
 

@@ -3,7 +3,7 @@ title: 'Brandwatch + Cision'
 summary: 'Brandwatch blog by Giles Palmer, CEO and Founder, February 26, 2021'
 ---
 
-<p style="font-style:italic;color:#666;margin-bottom:1.5rem;">By Giles Palmer, CEO and Founder of Brandwatch, February 26, 2021. <a href="https://www.brandwatch.com/blog/cision/" target="_blank" rel="noopener">Originally published at brandwatch.com</a>.</p>
+<p style="font-style:italic;color:#666;margin-bottom:1.5rem;">By Giles Palmer, CEO and Founder of Brandwatch, February 26, 2021. <a href="https://www.brandwatch.com/blog/cision/" target="_blank" rel="noopener" data-archive-url="">Originally published at brandwatch.com</a>.</p>
 
 ---
 
