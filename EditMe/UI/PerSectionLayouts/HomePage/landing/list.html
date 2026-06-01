@@ -28,12 +28,17 @@
   window.scrollTo(0, 0);
   history.replaceState(null, '', '/');
 
+  function stem(s) {
+    return s.replace(/(ies|ied|ing|ed|es|s)$/, '');
+  }
+  var queryStems = keywords.map(stem).filter(function(s) { return s.length >= 3; });
+
   var pages = window.__gk_pages || [];
   var scored = pages.map(function(p) {
     var text = (p.t + ' ' + p.u).toLowerCase();
     var score = 0;
-    keywords.forEach(function(kw) {
-      if (text.indexOf(kw) !== -1) score++;
+    queryStems.forEach(function(qs) {
+      if (text.indexOf(qs) !== -1) score++;
     });
     return { page: p, score: score };
   }).filter(function(s) { return s.score > 0; });
