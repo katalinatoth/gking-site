@@ -67,22 +67,25 @@ jobs:
               current_blox = m.group(1) if m else "unknown"
           results.append(f"- Hugo Blox (blox-tailwind): {current_blox}")
 
-          # Pagefind from package.json
+          # Pagefind: only report if it's actually installed. We removed Pagefind
+          # in favor of an offline page index for the 404 banner, so reporting
+          # "not installed" every week is noise.
           with open("package.json") as f:
               pkg = json.loads(f.read())
           deps = {**pkg.get("dependencies", {}), **pkg.get("devDependencies", {})}
-          current_pf = deps.get("pagefind", "not installed")
-          try:
-              req = urllib.request.Request(
-                  "https://registry.npmjs.org/pagefind/latest",
-                  headers={"User-Agent": "gking-site-audit"}
-              )
-              resp = urllib.request.urlopen(req, timeout=10)
-              data = json.loads(resp.read())
-              latest_pf = data["version"]
-              results.append(f"- Pagefind: using {current_pf}, latest is **{latest_pf}**")
-          except Exception:
-              results.append(f"- Pagefind: {current_pf}")
+          current_pf = deps.get("pagefind")
+          if current_pf:
+              try:
+                  req = urllib.request.Request(
+                      "https://registry.npmjs.org/pagefind/latest",
+                      headers={"User-Agent": "gking-site-audit"}
+                  )
+                  resp = urllib.request.urlopen(req, timeout=10)
+                  data = json.loads(resp.read())
+                  latest_pf = data["version"]
+                  results.append(f"- Pagefind: using {current_pf}, latest is **{latest_pf}**")
+              except Exception:
+                  results.append(f"- Pagefind: {current_pf}")
 
           report = "\n## Dependency Versions\n\n" + "\n".join(results) + "\n"
           print(report)

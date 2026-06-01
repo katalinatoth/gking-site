@@ -113,21 +113,35 @@ def get_legacy_map_slugs():
 
 
 def get_pdf_references():
-    """Scan all index.md files for references to local files/ PDFs."""
+    """Scan all markdown content for references to local files/<name>.pdf.
+
+    Looks in BOTH front-matter `url:` fields AND the markdown body
+    (e.g., `[link](files/foo.pdf)` or raw `files/foo.pdf` references).
+    Restricted to .pdf extension only; this check is "PDF Integrity".
+
+    Skips EditMe/Redirects/ and PINNED-AT-ROOT.md: the former contains
+    redirect FROM-paths (not references to local files), and the latter
+    is internal documentation that uses path examples like /files/foo.pdf.
+    """
     referenced = set()
-    for base in [WRITINGS_DIR, SOFTWARE_DIR]:
+    pdf_pattern = re.compile(r'(?<!/)files/([A-Za-z0-9_\-.]+\.pdf)\b')
+    skip_paths = {
+        EDITME / "Redirects",
+        EDITME / "UI" / "PINNED-AT-ROOT.md",
+    }
+    for base in [EDITME]:
         if not base.exists():
             continue
-        for index_md in base.rglob("index.md"):
+        for index_md in base.rglob("*.md"):
+            if any(str(index_md).startswith(str(p)) for p in skip_paths):
+                continue
             try:
                 text = index_md.read_text(encoding="utf-8")
             except Exception:
                 continue
-            # Match url: "files/something.pdf" patterns in front matter links
-            for m in re.finditer(r'url:\s*"?(files/[^"\s\n]+)"?', text):
-                filename = m.group(1).replace("files/", "", 1)
-                # Only count actual filenames (has an extension, no slashes suggesting external paths)
-                if "." in filename and "/" not in filename and not filename.startswith("http"):
+            for m in pdf_pattern.finditer(text):
+                filename = m.group(1)
+                if " " not in filename:
                     referenced.add(filename)
     return referenced
 
@@ -159,8 +173,33 @@ def get_hugo_version_in_use():
     return m.group(1) if m else None
 
 
+def _section_for_path(path):
+    """Return a high-level section bucket for a content path.
+
+    'Articles', 'Presentations', 'Books', 'SoftwareNotes', 'Patents', 'Reports',
+    'Software', or 'Other'. We use this so the duplicate-title check only flags
+    same-section duplicates: an article that has 8 presentations of the same
+    talk legitimately shares its title across sections; that's not a dupe.
+    """
+    parts = path.parts
+    for marker in ("Articles", "Presentations", "Books", "SoftwareNotes",
+                   "Patents", "Reports", "Software"):
+        if marker in parts:
+            return marker
+    return "Other"
+
+
 def check_duplicate_titles():
-    """Find content items with identical titles (possible duplicates)."""
+    """Find content items with identical titles within the SAME section,
+    excluding Presentations.
+
+    Cross-section matches (Articles + Presentations of the same talk) are
+    expected. Presentations/Presentations matches are also expected: by design
+    one paper has many presentation copies (one per venue/year), all sharing
+    the paper's title. The signal we want is article-level duplicates: e.g.
+    two folders under Articles/ with the same title — that's likely a genuine
+    duplicate that should be merged.
+    """
     titles = defaultdict(list)
     for base in [WRITINGS_DIR, SOFTWARE_DIR]:
         if not base.exists():
@@ -169,10 +208,25 @@ def check_duplicate_titles():
             slug = index_md.parent.name
             if slug == "Data" or slug.startswith("_"):
                 continue
+            section = _section_for_path(index_md)
+            if section == "Presentations":
+                continue
             fm = parse_front_matter(index_md)
             if fm and "title" in fm:
-                titles[fm["title"].lower().strip()].append(slug)
-    return {t: slugs for t, slugs in titles.items() if len(slugs) > 1}
+                titles[fm["title"].lower().strip()].append((section, slug))
+
+    dupes = {}
+    for title, entries in titles.items():
+        by_section = defaultdict(list)
+        for section, slug in entries:
+            by_section[section].append(slug)
+        same_section_dupes = {sec: slugs for sec, slugs in by_section.items() if len(slugs) > 1}
+        if same_section_dupes:
+            flat = []
+            for sec, slugs in same_section_dupes.items():
+                flat.extend(f"{sec}/{slug}" for slug in slugs)
+            dupes[title] = flat
+    return dupes
 
 
 def check_empty_content():
@@ -226,18 +280,63 @@ def extract_external_urls():
     return all_urls
 
 
+# Hosts that consistently 403 bots regardless of UA (Cloudflare/Akamai-protected
+# publishers, university faculty pages behind WAFs). These almost always work in
+# real browsers; flagging them is noise, not signal. Add new entries cautiously
+# — only after confirming the URL works in a browser but the audit reports 403.
+PAYWALL_AND_BOT_BLOCKED_HOSTS = {
+    "pan.oxfordjournals.org",
+    "journals.sagepub.com",
+    "science.sciencemag.org",
+    "www.science.org",
+    "pnas.org", "www.pnas.org",
+    "nejm.org", "www.nejm.org",
+    "journals.uchicago.edu", "www.journals.uchicago.edu",
+    "www.cambridge.org",
+    "onlinelibrary.wiley.com",
+    "www.tandfonline.com",
+    "academic.oup.com",
+    "www.nature.com",
+    "www.sciencedirect.com",
+    "doi.org", "dx.doi.org",  # DOI redirects → publisher page; the publisher
+                              # is what 403s, not doi.org itself.
+    "www.stat.columbia.edu",
+    "blogs.cuit.columbia.edu",
+    "www.american.edu",
+    "ps.ucdavis.edu",
+    "chds.hsph.harvard.edu",
+    "dfreelon.org",
+}
+
+# Browser-style User-Agent. Some servers (Cloudflare, Akamai) block strings that
+# contain "bot", "checker", "crawler" etc. A real browser UA reduces false 403s.
+BROWSER_UA = (
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) "
+    "Chrome/124.0.0.0 Safari/537.36"
+)
+
+
 def check_external_links(all_urls, max_workers=5):
     """Check external URLs for broken links. Requires 'requests' library."""
     if not HAS_REQUESTS:
         return None  # Signal that we couldn't check
 
+    def is_bot_blocked_host(url):
+        try:
+            from urllib.parse import urlparse
+            host = urlparse(url).hostname or ""
+            return host.lower() in PAYWALL_AND_BOT_BLOCKED_HOSTS
+        except Exception:
+            return False
+
     def check_one(url):
         try:
             resp = requests.head(url, timeout=15, allow_redirects=True,
-                                 headers={"User-Agent": "Mozilla/5.0 GKingSiteLinkChecker"})
+                                 headers={"User-Agent": BROWSER_UA})
             if resp.status_code == 405:
                 resp = requests.get(url, timeout=15, allow_redirects=True,
-                                    headers={"User-Agent": "Mozilla/5.0 GKingSiteLinkChecker"},
+                                    headers={"User-Agent": BROWSER_UA},
                                     stream=True)
             return url, resp.status_code, None
         except requests.exceptions.Timeout:
@@ -248,6 +347,7 @@ def check_external_links(all_urls, max_workers=5):
             return url, None, str(e)[:80]
 
     broken = []
+    skipped_bot_blocked = 0
     checked = 0
     total = len(all_urls)
     print(f"Checking {total} external URLs...", file=sys.stderr)
@@ -260,6 +360,12 @@ def check_external_links(all_urls, max_workers=5):
             if checked % 100 == 0:
                 print(f"  Checked {checked}/{total}...", file=sys.stderr)
             if error or (status and status >= 400):
+                # Suppress 403s from known bot-blocking publishers. They're
+                # almost always reachable in a real browser; reporting them
+                # buries the genuine broken links in noise.
+                if status == 403 and is_bot_blocked_host(url):
+                    skipped_bot_blocked += 1
+                    continue
                 broken.append({
                     "url": url,
                     "status": status,
@@ -267,7 +373,9 @@ def check_external_links(all_urls, max_workers=5):
                     "files": all_urls[url][:3],
                 })
 
-    print(f"  Done: {checked} checked, {len(broken)} broken", file=sys.stderr)
+    print(f"  Done: {checked} checked, {len(broken)} broken, "
+          f"{skipped_bot_blocked} bot-blocked publisher 403s suppressed",
+          file=sys.stderr)
     return broken
 
 
@@ -281,16 +389,17 @@ def audit():
     # --- 1. Papers not in any research area ---
     all_slugs = get_all_content_slugs()
     ra_slugs = get_research_area_slugs()
-    # Only check writings (articles, books, reports, etc.) — not software or presentations
+    # Only check writings (articles, books, reports) — not software, presentations, or patents.
+    # Patents legitimately don't fit the research-area taxonomy; presentations and software
+    # have their own home tabs and shouldn't appear in research-area accordions.
     writing_slugs = {}
-    presentation_keywords = {"Presentations", "SoftwareNotes", "_SectionPages", "Data"}
+    skip_section_dirs = {"Presentations", "SoftwareNotes", "Patents", "_SectionPages", "Data"}
     for slug, path in all_slugs.items():
         parts = set(path.parts)
-        if not parts.intersection(presentation_keywords) and "Software" not in str(path):
+        if not parts.intersection(skip_section_dirs) and "Software" not in str(path):
             writing_slugs[slug] = path
 
     not_in_ra = set(writing_slugs.keys()) - ra_slugs
-    # Filter out presentations by checking legacy map
     legacy_slugs_map = {}
     if LEGACY_MAP_JSON.exists():
         data = json.loads(LEGACY_MAP_JSON.read_text(encoding="utf-8"))
@@ -299,7 +408,7 @@ def audit():
     for slug in sorted(not_in_ra):
         entry = legacy_slugs_map.get(slug, {})
         tab = entry.get("tab", "")
-        if tab in ("presentation", "software"):
+        if tab in ("presentation", "software", "patent"):
             continue
         papers_not_in_ra.append(slug)
 
@@ -318,10 +427,24 @@ def audit():
 
     map_without_content = sorted(legacy_map_slugs - content_slugs)
     content_without_map = sorted(content_slugs - legacy_map_slugs)
-    # Filter out known non-writing content (software, section pages)
-    content_without_map = [s for s in content_without_map
-                          if s not in ("_index", "Data")
-                          and not s.startswith("_")]
+
+    # Filter out items that legitimately don't need a legacy-map entry:
+    #   - Section/meta folders (_index, Data, anything starting with _)
+    #   - Presentation subfolders (one talk → many venue/year folders); only the
+    #     canonical talk slug at the top of Presentations/<talk>/ matters.
+    #   - Patents (their own taxonomy, no legacy-map mapping needed)
+    def _needs_map_entry(slug):
+        if slug in ("_index", "Data") or slug.startswith("_"):
+            return False
+        path = all_slugs.get(slug)
+        if path is None:
+            return False
+        parts = path.parts
+        if "Presentations" in parts or "Patents" in parts:
+            return False
+        return True
+
+    content_without_map = [s for s in content_without_map if _needs_map_entry(s)]
 
     if map_without_content:
         findings.append({
@@ -414,7 +537,8 @@ def audit():
         pkg = json.loads(PACKAGE_JSON.read_text())
         deps = {**pkg.get("dependencies", {}), **pkg.get("devDependencies", {})}
         pf = deps.get("pagefind", "")
-        pagefind_version = pf.lstrip("^~>=")
+        if pf:
+            pagefind_version = pf.lstrip("^~>=")
 
     version_info = []
     if hugo_version:
