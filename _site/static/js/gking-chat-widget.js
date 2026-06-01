@@ -365,6 +365,26 @@
     "  display: -webkit-box; -webkit-line-clamp: 2;",
     "  -webkit-box-orient: vertical; overflow: hidden;",
     "}",
+    ".preview-card-thumb {",
+    "  position: relative; flex: 0 0 auto; width: 80px; height: 80px;",
+    "}",
+    ".preview-card-play {",
+    "  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);",
+    "  width: 30px; height: 30px; border-radius: 50%;",
+    "  background: rgba(200, 40, 40, 0.92); pointer-events: none;",
+    "}",
+    ".preview-card-play::after {",
+    "  content: ''; position: absolute; top: 50%; left: 50%;",
+    "  transform: translate(-40%, -50%);",
+    "  border-style: solid; border-width: 6px 0 6px 10px;",
+    "  border-color: transparent transparent transparent #fff;",
+    "}",
+    ".preview-card-ts {",
+    "  position: absolute; right: 3px; bottom: 3px;",
+    "  background: rgba(0, 0, 0, 0.8); color: #fff;",
+    "  font-size: 10px; font-weight: 700; line-height: 1;",
+    "  padding: 2px 4px; border-radius: 3px;",
+    "}",
     ".site-preview {",
     "  margin-top: 10px; padding-top: 8px;",
     "  border-top: 1px dashed #dde8f5;",
@@ -638,6 +658,15 @@
             '<img class="preview-card-favicon" src="' +
             escapeHtml(favicon) +
             '" alt="" loading="lazy" onerror="this.parentElement.style.display=\'none\'">' +
+            "</div>";
+        }
+        // YouTube lecture cards carry a timestamp — wrap the thumbnail with a
+        // play overlay and a "m:ss" badge so it reads as "jump to this moment".
+        if (p.timestamp) {
+          imgHtml =
+            '<div class="preview-card-thumb">' + imgHtml +
+            '<div class="preview-card-play"></div>' +
+            '<div class="preview-card-ts">' + escapeHtml(p.timestamp) + "</div>" +
             "</div>";
         }
         var descHtml = p.description
