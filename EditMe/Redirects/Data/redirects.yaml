@@ -111,7 +111,7 @@ redirects:
     note: "drupal target: /amelia"
 
   - from: "anchoring-vignettes-interpersonal-incomparability"
-    to:   "/research-areas/"
+    to:   "/#anchoring-vignettes-for-interpersonal-incomparability"
     note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/anchoring-vignettes-for-interpersonal-inco…)"
 
   - from: "anchors-software-anchoring-vignettes"
@@ -123,7 +123,7 @@ redirects:
     note: "spreadsheet target was /software/<slug>; matched a /publication/ page on the new site (drupal target: /software/autocast-automated-bayesian-forecasting-yourcast)"
 
   - from: "automated-text-analysis"
-    to:   "/research-areas/"
+    to:   "/#automated-text-analysis"
     note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/applications/automated-text-analysis)"
 
   - from: "blanktitle"
@@ -147,19 +147,19 @@ redirects:
     note: "drupal target: /vign"
 
   - from: "categories/esearch-interests/methods/unifying-statistical-analysis"
-    to:   "/research-areas/"
+    to:   "/#unifying-statistical-analysis"
     note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /categories/research-interests/methods/unifying-statistical-analysis)"
 
   - from: "category/research-interests/applications"
-    to:   "/research-areas/"
+    to:   "/#research-areas"
     note: "drupal target: /research-interests#applications"
 
   - from: "category/research-interests/methods"
-    to:   "/research-areas/"
+    to:   "/#research-areas"
     note: "drupal target: /research-interests#methods"
 
   - from: "causal-inference"
-    to:   "/research-areas/"
+    to:   "/#causal-inference"
     note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/causal-inference)"
 
   - from: "cem-coarsened-exact-matching-software"
@@ -253,7 +253,7 @@ redirects:
     to:   "https://dataverse.org/"
 
   - from: "ecological-inference"
-    to:   "/research-areas/"
+    to:   "/#ecological-inference"
     note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/ecological-inference)"
 
   - from: "ei-program-ecological-inference"
@@ -269,7 +269,7 @@ redirects:
     note: "drupal target: /ssa"
 
   - from: "event-counts-and-durations"
-    to:   "/research-areas/"
+    to:   "/#event-counts-and-durations"
     note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/event-counts-and-durations)"
 
   - from: "ezi-easy-program-ecological-inference"
@@ -312,7 +312,7 @@ redirects:
     note: "drupal target: /home"
 
   - from: "incumbency-advantage"
-    to:   "/research-areas/"
+    to:   "/#incumbency-advantage"
     note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/applications/incumbency-advantage)"
 
   - from: "inducing-sustained-creativity-and-diversity-large-language-models"
@@ -344,7 +344,7 @@ redirects:
     note: "drupal target: /scholar_software/maxlik"
 
   - from: "missing-data-measurement-error-differential-privacy"
-    to:   "/research-areas/"
+    to:   "/#missing-data-measurement-error-differential-privacy"
     note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/missing-data)"
 
   - from: "new-condensed-home-page"
@@ -420,15 +420,15 @@ redirects:
     note: "drupal target: /publications/why-propensity-scores-should-not-be-used-formatching"
 
   - from: "publications/term/1573"
-    to:   "/research-areas/"
+    to:   "/#research-areas"
     note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/qualitative-research/scientific-inference-…)"
 
   - from: "publications/term/1586"
-    to:   "/research-areas/"
+    to:   "/#research-areas"
     note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/applications/legislative-redistricting/us-legislat…)"
 
   - from: "publications/term/1588"
-    to:   "/research-areas/"
+    to:   "/#research-areas"
     note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/applications/legislative-redistricting/us-legislat…)"
 
   - from: "publications/type/book-chapter"
@@ -452,11 +452,11 @@ redirects:
     note: "drupal target: /publications?f%5B0%5D=bibcite_reference_year%3A1995"
 
   - from: "qualitative-research"
-    to:   "/research-areas/"
+    to:   "/#qualitative-research"
     note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/qualitative-research)"
 
   - from: "rare-events"
-    to:   "/research-areas/"
+    to:   "/#rare-events"
     note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/rare-events)"
 
   - from: "readme-software-automated-content-analysis"
@@ -480,39 +480,39 @@ redirects:
     note: "drupal target: /people"
 
   - from: "research-interests/applications/automated-text-analysis"
-    to:   "/research-areas/"
+    to:   "/#automated-text-analysis"
     note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/applications/automated-text-analysis)"
 
   - from: "research-interests/applications/china"
-    to:   "/research-areas/"
+    to:   "/#chinese-censorship"
     note: "drupal target: /china"
 
   - from: "research-interests/applications/incumbency-advantage"
-    to:   "/research-areas/"
+    to:   "/#incumbency-advantage"
     note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/applications/incumbency-advantage)"
 
   - from: "research-interests/applications/informatics-and-data-sharing"
-    to:   "/research-areas/"
+    to:   "/#informatics-and-data-sharing"
     note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/applications/informatics-and-data-sharing)"
 
   - from: "research-interests/applications/international-conflict"
-    to:   "/research-areas/"
+    to:   "/#international-conflict"
     note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/applications/international-conflict)"
 
   - from: "research-interests/applications/legislative-redistricting"
-    to:   "/research-areas/"
+    to:   "/#legislative-redistricting"
     note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/applications/legislative-redistricting)"
 
   - from: "research-interests/applications/mexican-health-care-evaluation"
-    to:   "/research-areas/"
+    to:   "/#mexican-health-care-evaluation"
     note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/applications/mexican-health-care-evaluation)"
 
   - from: "research-interests/applications/mortality-studies"
-    to:   "/research-areas/"
+    to:   "/#mortality-studies"
     note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/applications/mortality-studies)"
 
   - from: "research-interests/applications/presidency-research-voting-behavior"
-    to:   "/research-areas/"
+    to:   "/#presidency-research-voting-behavior"
     note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/applications/presidency-research-voting-behavior)"
 
   - from: "research-interests/applications/ssa"
@@ -520,43 +520,43 @@ redirects:
     note: "drupal target: /ssa"
 
   - from: "research-interests/applications/teaching-and-administration"
-    to:   "/research-areas/"
+    to:   "/#teaching-and-administration"
     note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/applications/teaching-and-administration)"
 
   - from: "research-interests/methods/anchoring-vignettes-for-interpersonal-incomparability"
-    to:   "/research-areas/"
+    to:   "/#anchoring-vignettes-for-interpersonal-incomparability"
     note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/anchoring-vignettes-for-interpersonal-inco…)"
 
   - from: "research-interests/methods/causal-inference"
-    to:   "/research-areas/"
+    to:   "/#causal-inference"
     note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/causal-inference)"
 
   - from: "research-interests/methods/ecological-inference"
-    to:   "/research-areas/"
+    to:   "/#ecological-inference"
     note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/ecological-inference)"
 
   - from: "research-interests/methods/event-counts-and-durations"
-    to:   "/research-areas/"
+    to:   "/#event-counts-and-durations"
     note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/event-counts-and-durations)"
 
   - from: "research-interests/methods/missing-data"
-    to:   "/research-areas/"
+    to:   "/#missing-data-measurement-error-differential-privacy"
     note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/missing-data)"
 
   - from: "research-interests/methods/qualitative-research"
-    to:   "/research-areas/"
+    to:   "/#qualitative-research"
     note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/qualitative-research)"
 
   - from: "research-interests/methods/rare-events"
-    to:   "/research-areas/"
+    to:   "/#rare-events"
     note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/rare-events)"
 
   - from: "research-interests/methods/survey-research"
-    to:   "/research-areas/"
+    to:   "/#survey-research"
     note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/survey-research)"
 
   - from: "research-interests/methods/unifying-statistical-analysis"
-    to:   "/research-areas/"
+    to:   "/#unifying-statistical-analysis"
     note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/unifying-statistical-analysis)"
 
   - from: "reverse-engineering-censorship-china-randomized-experimentation-and-participant-observation"
@@ -582,7 +582,7 @@ redirects:
     note: "drupal target: /sites/g/files/omnuum7116/files/2025-09/sibs_2.pdf"
 
   - from: "survey-research"
-    to:   "/research-areas/"
+    to:   "/#survey-research"
     note: "drupal /category/research-interests/* → /research-areas/ (drupal target: /category/research-interests/methods/survey-research)"
 
   - from: "va-verbal-autopsy-software"
@@ -666,7 +666,7 @@ redirects:
     note: "vanity short URL → /"
 
   - from: "china"
-    to:   "/research-areas/"
+    to:   "/#chinese-censorship"
     note: "vanity short URL → /research-areas/"
 
   - from: "class"
