@@ -142,19 +142,20 @@
 
 {{/* Card-body lists: for the four-items-per-card preview we only need real
      /publication/ pages whose legacy-map tab matches the card. These drive
-     the "Recent Papers" / "Books" / "Patents" blocks below.
+     the "Recent Papers" / "Books" / "Patents" / "Software" blocks below.
      Filtering by tab (not drupal type) keeps the homepage card list in sync
      with whatever appears on the matching /publication/ tab — e.g. Books
-     means "real books only" now that book_chapters moved to Articles.
-     Software Projects uses the same order as /software/ (software_legacy_rows.yaml). */}}
+     means "real books only" now that book_chapters moved to Articles. */}}
 {{ $bookPages := slice }}
 {{ $patentPages := slice }}
+{{ $softwarePages := slice }}
 {{ $paperPages := slice }}
 {{ range $slug, $meta := $wlMap.entries }}
   {{ $tab := index $meta "tab" | default "" }}
   {{ with site.GetPage (printf "/publication/%s" $slug) }}
     {{ if eq $tab "book" }}{{ $bookPages = $bookPages | append . }}{{ end }}
     {{ if eq $tab "patent" }}{{ $patentPages = $patentPages | append . }}{{ end }}
+    {{ if eq $tab "software" }}{{ $softwarePages = $softwarePages | append . }}{{ end }}
     {{ if eq $tab "journal" }}{{ $paperPages = $paperPages | append . }}{{ end }}
   {{ end }}
 {{ end }}
@@ -185,7 +186,7 @@
     {{ if eq $tab "courtbrief" }}{{ $courtBriefCount = add $courtBriefCount 1 }}{{ end }}
   {{ end }}
 {{ end }}
-{{ $softwareCount := len (site.Data.software_legacy_rows.rows | default slice) }}
+{{ $softwareCount := len (where site.RegularPages "Section" "software") }}
 {{ $talkCount := len (where site.RegularPages "Section" "talk") }}
 
 {{ $recentPapers := first 4 (sort $paperPages ".Date" "desc") }}
@@ -194,8 +195,7 @@
      above isn't derived from a truncated list. */}}
 {{ $recentBooks := first 4 (sort $bookPages ".Date" "desc") }}
 {{ $recentPatents := first 4 (sort $patentPages ".Date" "desc") }}
-{{/* Match /software/ tab order (software_legacy_rows.yaml via software_tab_ordered_rows). */}}
-{{ $recentSoftware := first 4 (partial "software_tab_ordered_rows.html" .) }}
+{{ $recentSoftware := first 4 (sort $softwarePages ".Date" "desc") }}
 {{ $recentTalks := first 4 (sort (where site.RegularPages "Section" "talk") ".Date" "desc") }}
 
 <section class="gk-hp-section">
@@ -203,7 +203,7 @@
 
     <!-- Recent Papers (4 most recent) -->
     <div class="gk-hp-card">
-      <h3 class="gk-hp-card__heading">Papers</h3>
+      <h3 class="gk-hp-card__heading">Recent Papers</h3>
       {{ range $recentPapers }}
       <details class="gk-hp-item">
         <summary class="gk-hp-item__summary">
@@ -350,7 +350,7 @@
       </details>
       {{/* Put the opening quote INSIDE the <a> so the browser treats `"Entrepreneurial`
            as one atomic word and can't break between the quote and the title. */}}
-      <p class="gk-hp-card__news">News story: <a href="https://www.thecrimson.com/article/2024/3/9/gary-king-profile/" target="_blank" rel="noopener">&ldquo;Entrepreneurial Academia with Gary King&rdquo;</a> <span style="font-size:0.85rem;color:#888;">(<a href="{{ "archives/crimson-entrepreneurial-academia-2024.pdf" | relURL }}" style="color:#888;text-decoration:underline;">archived copy</a>)</span></p>
+      <p class="gk-hp-card__news">News story: <a href="https://www.thecrimson.com/article/2024/3/9/gary-king-profile/" target="_blank" rel="noopener" data-archive-url="{{ "entrepreneurial-academia/" | relURL }}">&ldquo;Entrepreneurial Academia with Gary King&rdquo;</a></p>
     </div>
 
     <!-- Patents (4 most recent) -->
@@ -375,24 +375,21 @@
       </div>
     </div>
 
-    <!-- Software Projects (first 4 on /software/) -->
+    <!-- Software Projects (4 most recent) -->
     <div class="gk-hp-card">
-      <h3 class="gk-hp-card__heading">Software</h3>
+      <h3 class="gk-hp-card__heading">Software Projects</h3>
       {{ range $recentSoftware }}
-      {{ $swPage := .page }}
-      {{ $swHref := .href }}
+      {{ $swHref := partial "software_page_href.html" . }}
       {{ $swIsExt := strings.HasPrefix $swHref "http" }}
       <details class="gk-hp-item">
         <summary class="gk-hp-item__summary">
           <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span>
-          <span>{{ .listTitle }}</span>
+          <span>{{ .Title }}</span>
         </summary>
         <div class="gk-hp-item__body">
-          {{ with $swPage }}
-            {{ $authors := .Params.authors | default slice }}
-            {{ if gt (len $authors) 0 }}<div class="gk-hp-item__authors">{{ delimit $authors ", " }}</div>{{ end }}
-          {{ end }}
-          {{ with .abstract }}<div class="gk-hp-item__abs">{{ . | truncate 200 | markdownify }}</div>{{ end }}
+          {{ $authors := .Params.authors | default slice }}
+          {{ if gt (len $authors) 0 }}<div class="gk-hp-item__authors">{{ delimit $authors ", " }}</div>{{ end }}
+          {{ with .Params.abstract }}<div class="gk-hp-item__abs">{{ . | truncate 200 | markdownify }}</div>{{ end }}
           <div class="gk-hp-item__more"><a href="{{ $swHref }}"{{ if $swIsExt }} target="_blank" rel="noopener"{{ end }}>Read more &rarr;</a></div>
         </div>
       </details>

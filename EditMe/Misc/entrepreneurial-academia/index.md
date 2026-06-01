@@ -3,7 +3,7 @@ title: 'Entrepreneurial Academia with Gary King'
 summary: 'By Neil H. Shah, The Harvard Crimson, March 9, 2024'
 ---
 
-<p style="font-style:italic;color:#666;margin-bottom:1.5rem;">By Neil H. Shah, <em>The Harvard Crimson</em>, March 9, 2024. <a href="https://www.thecrimson.com/article/2024/3/9/gary-king-profile/" target="_blank" rel="noopener">Originally published at thecrimson.com</a>.</p>
+<p style="font-style:italic;color:#666;margin-bottom:1.5rem;">By Neil H. Shah, <em>The Harvard Crimson</em>, March 9, 2024. <a href="https://www.thecrimson.com/article/2024/3/9/gary-king-profile/" target="_blank" rel="noopener" data-archive-url="">Originally published at thecrimson.com</a>.</p>
 
 <figure style="margin:1.5rem 0;">
   <img src="crimson-photo.jpg" alt="Gary King" style="width:100%;max-width:700px;border-radius:6px;" />

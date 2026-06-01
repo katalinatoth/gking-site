@@ -3,7 +3,7 @@ title: 'Two Six Technologies Acquires Thresher Ventures'
 summary: 'Globe Newswire / Two Six Technologies, May 2, 2022'
 ---
 
-<p style="font-style:italic;color:#666;margin-bottom:1.5rem;">Globe Newswire / Two Six Technologies, May 2, 2022. <a href="https://twosixtech.com/news/two-six-technologies-acquires-thresher-ventures/" target="_blank" rel="noopener">Originally published at twosixtech.com</a>.</p>
+<p style="font-style:italic;color:#666;margin-bottom:1.5rem;">Globe Newswire / Two Six Technologies, May 2, 2022. <a href="https://twosixtech.com/news/two-six-technologies-acquires-thresher-ventures/" target="_blank" rel="noopener" data-archive-url="">Originally published at twosixtech.com</a>.</p>
 
 ---
 

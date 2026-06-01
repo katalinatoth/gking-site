@@ -67,5 +67,21 @@
       data-avatar-label="GK"
       data-input-placeholder="Type a message..."
       defer></script>
+    {{/* Archive link fallback — intercepts clicks on links with data-archive-url.
+         If the original external site is unreachable, redirects to the local archive. */}}
+    <script>
+    document.addEventListener('click', function(e) {
+      var link = e.target.closest('a[data-archive-url]');
+      if (!link) return;
+      var archive = link.dataset.archiveUrl;
+      if (!archive) return; // Empty means user is already on the archive page
+      e.preventDefault();
+      var original = link.href;
+      fetch(original, { method: 'HEAD', mode: 'no-cors' })
+        .then(function() { window.open(original, link.target || '_self'); })
+        .catch(function() { window.location.href = archive; });
+    });
+    </script>
+
   </body>
 </html>
