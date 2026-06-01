@@ -966,12 +966,15 @@ Two workflows in `.github/workflows/`:
 | Workflow | Trigger | What it does |
 |---|---|---|
 | `deploy.yml` | Push to `main` | Build Hugo + Pagefind, run `build_redirects.py` + `apply_rewrites.py` + `compute_publication_first_commit.py`, deploy to GitHub Pages. |
-| `weekly-audit.yml` | Weekly (Monday 10am ET) | Runs the site audit script and emails the report to ktoth@iq.harvard.edu (CC: king@harvard.edu). |
+| `weekly-audit.yml` | Weekly (Monday 10am ET) | Runs the site audit script and posts the report as a GitHub Issue (labeled `audit`). The same issue is updated every week so notifications stay manageable. |
 
 ### Weekly site audit
 
 The audit script (`_automation/scripts/audit_site.py`) automatically
-checks for problems every Monday. It sends an email report covering:
+checks for problems every Monday and posts the report as a GitHub
+Issue in this repo (labeled `audit`). The same issue is updated each
+week, so subscribing to it once gives you a notification email every
+Monday. The report covers:
 
 1. Papers not assigned to any research area
 2. Legacy map entries out of sync with content folders
@@ -996,9 +999,9 @@ To skip the slow external link check:
 SKIP_LINK_CHECK=1 python3 _automation/scripts/audit_site.py
 ```
 
-**Email setup:** The workflow needs 4 repository secrets to send email
-(Settings → Secrets → Actions): `SMTP_SERVER`, `SMTP_PORT`, `SMTP_USERNAME`,
-`SMTP_PASSWORD`. If not configured, it falls back to creating a GitHub Issue.
+**Notifications:** Subscribe to the audit issue (Watch → Custom →
+Issues) so GitHub emails you whenever the report is updated. Find the
+current issue at [Issues → label: audit](https://github.com/iqss-research/gking-site/issues?q=is%3Aissue+label%3Aaudit).
 
 ### Auto-push hook
 
