@@ -1,5 +1,5 @@
 ---
-title: "Patrik Gothe"
+title: "Patrik Goethe"
 type: "people"
 role: "How We Feel Project / Pinterest"
 website: "https://read.cv/gopa"
