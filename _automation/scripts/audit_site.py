@@ -285,6 +285,7 @@ def extract_external_urls():
 # real browsers; flagging them is noise, not signal. Add new entries cautiously
 # — only after confirming the URL works in a browser but the audit reports 403.
 PAYWALL_AND_BOT_BLOCKED_HOSTS = {
+    # Academic publishers / DOI resolvers
     "pan.oxfordjournals.org",
     "journals.sagepub.com",
     "science.sciencemag.org",
@@ -298,14 +299,48 @@ PAYWALL_AND_BOT_BLOCKED_HOSTS = {
     "academic.oup.com",
     "www.nature.com",
     "www.sciencedirect.com",
-    "doi.org", "dx.doi.org",  # DOI redirects → publisher page; the publisher
-                              # is what 403s, not doi.org itself.
+    "doi.org", "dx.doi.org",
+    # University sites with aggressive WAFs
     "www.stat.columbia.edu",
+    "www.columbia.edu",
     "blogs.cuit.columbia.edu",
     "www.american.edu",
     "ps.ucdavis.edu",
     "chds.hsph.harvard.edu",
+    "hsph.harvard.edu", "www.hsph.harvard.edu",
+    "popcenter.harvard.edu",
+    "lsa.umich.edu",
+    "clasprofiles.wayne.edu",
+    "as.nyu.edu",
+    "profiles.rice.edu",
+    "gsg.skku.edu",
+    "research.chop.edu",
     "dfreelon.org",
+    # Social media (always bot-block)
+    "twitter.com", "x.com",
+    "www.linkedin.com", "in.linkedin.com", "linkedin.com",
+    # Government / nonprofit sites with Cloudflare
+    "www.nasonline.org",
+    "www.ssa.gov",
+    "www.cbo.gov",
+    "www.gob.mx",
+    "www.c-span.org",
+    # Major media / corporate sites
+    "www.nytimes.com",
+    "www.fastcompany.com",
+    "www.carlyle.com",
+    "www.aei.org",
+    "www.ariadnelabs.org",
+    "www.umassmed.edu",
+    "www.w3.org",
+    # Misc sites that bot-block but work in browsers
+    "biblatex-biber.sourceforge.net",
+    "www.ctan.org",
+    "psiprivacy.org",
+    "csph.brighamandwomens.org",
+    "www.stephenpettigrew.com",
+    # GitHub rate-limits (429) bots aggressively
+    "github.com",
 }
 
 # Browser-style User-Agent. Some servers (Cloudflare, Akamai) block strings that

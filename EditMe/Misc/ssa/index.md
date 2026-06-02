@@ -83,7 +83,7 @@ type: "page"
 </button>
 </li>
 <li class="hwp-citation__cta-wrap hwp-citation__cta-wrap--desktop">
-<a class="hwp-text-link hwp-text-link--icon-left analytics-cta" href="http://pan.oxfordjournals.org/lookup/doi/10.1093/pan/mpv011">
+<a class="hwp-text-link hwp-text-link--icon-left analytics-cta" href="https://www.cambridge.org/core/journals/political-analysis/article/explaining-systematic-bias-and-nontransparency-in-us-social-security-administration-forecasts/EB6AFB12C2A30FA18F98281C74DF82ED">
 <span aria-hidden="true" class="material-icon">description</span>
 <span class="hwp-text-link__text">Publisher's Version</span>
 </a>
@@ -103,7 +103,7 @@ type: "page"
 </div>
 <ul class="hwp-citation__ctas hwp-citation__ctas--mobile">
 <li>
-<a class="hwp-text-link hwp-text-link--icon-left analytics-cta" href="http://pan.oxfordjournals.org/lookup/doi/10.1093/pan/mpv011">
+<a class="hwp-text-link hwp-text-link--icon-left analytics-cta" href="https://www.cambridge.org/core/journals/political-analysis/article/explaining-systematic-bias-and-nontransparency-in-us-social-security-administration-forecasts/EB6AFB12C2A30FA18F98281C74DF82ED">
 <span aria-hidden="true" class="material-icon">description</span>
 <span class="hwp-text-link__text">Publisher's Version</span>
 </a>

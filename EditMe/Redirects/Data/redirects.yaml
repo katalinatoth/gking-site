@@ -187,7 +187,7 @@ redirects:
     note: "drupal target: /software/cem-coarsened-exact-matching-software/118"
 
   - from: "cem/imp1.dta"
-    to:   "https://gking.harvard.edu/files/gking/files/imp1.dta"
+    to:   "https://raw.githubusercontent.com/IQSS/garyking_website_files/main/imp1.dta"
     note: "file not in new static/files/ — preserved as absolute archived URL (drupal target: /files/gking/files/imp1.dta)"
 
   - from: "cem/lalonde.dta"
@@ -195,7 +195,7 @@ redirects:
     note: "file not in new static/files/ — preserved as absolute archived URL (drupal target: /files/gking/files/lalonde.dta)"
 
   - from: "cem/lelonde.dta"
-    to:   "https://gking.harvard.edu/files/gking/files/lelonde.dta"
+    to:   "https://raw.githubusercontent.com/IQSS/garyking_website_files/main/lelonde.dta"
     note: "file not in new static/files/ — preserved as absolute archived URL (drupal target: /files/gking/files/lelonde.dta)"
 
   - from: "clarify-software-interpreting-and-presenting-statistical-results"
@@ -281,7 +281,7 @@ redirects:
     note: "drupal target: /faqs"
 
   - from: "files/gking/files/lalonde.dta"
-    to:   "https://gking.harvard.edu/sites/g/files/omnuum7116/files/gking/files/lalonde.dta"
+    to:   "https://raw.githubusercontent.com/IQSS/garyking_website_files/main/lalonde.dta"
     note: "file not in new static/files/ — preserved as absolute archived URL (drupal target: /sites/g/files/omnuum7116/files/gking/files/lalonde.dta)"
 
   - from: "files/gking/files/teaching.pdf"
@@ -563,11 +563,15 @@ redirects:
     to:   "/publication/reverse-engineering-censorship-in-china-randomized-experimentation-and-participant-observation/"
     note: "drupal target: /publications/randomized-experimental-study-censorship-china"
 
+  - from: "publications/randomized-experimental-study-censorship-china"
+    to:   "/publication/reverse-engineering-censorship-in-china-randomized-experimentation-and-participant-observation/"
+    note: "old drupal short title → full publication page"
+
   - from: "sites/scholar.harvard.edu/files/fn-supp.pdf"
-    to:   "https://gking.harvard.edu/sites/g/files/omnuum7116/files/2025-09/fn-supp.pdf"
+    to:   "/files/fn-supp.pdf"
 
   - from: "sites/scholar.harvard.edu/files/fn.pdf"
-    to:   "https://gking.harvard.edu/sites/g/files/omnuum7116/files/2025-09/fn.pdf"
+    to:   "/files/fn.pdf"
 
   - from: "sites/scholar.harvard.edu/files/gking/files/baby0s.pdf"
     to:   "/files/baby0s.pdf"

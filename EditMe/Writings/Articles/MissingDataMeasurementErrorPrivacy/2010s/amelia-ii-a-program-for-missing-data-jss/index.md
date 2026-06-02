@@ -11,7 +11,7 @@ authors:
 date: "2011-01-01"
 links:
   - type: pdf
-    url: https://gking.harvard.edu/sites/g/files/omnuum7116/files/gking/files/amelia_jss.pdf
+    url: files/amelia_jss.pdf
 publication: Journal of Statistical Software, 45, 7, Pp. 1-47
 publication_types:
   - journal_article
