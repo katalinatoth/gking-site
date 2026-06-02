@@ -6,7 +6,7 @@ authors:
 publication_types:
   - "presentation"
 abstract: |-
-  [This video](https://gking-projects.iq.harvard.edu/Overseers-20120205.mov) (with my talk beginning at 1:11) builds on one article about teaching ([*How Social Science Research Can Improve Teaching*](/publication/how-social-science-research-can-improve-teaching/)*)* and one about universities ([*The Troubled Future of Colleges and Universities*](/publication/the-troubled-future-of-colleges-and-universities-with-comments-from-five-scholar-administrators/)*), *both with Maya Sen.
+  [This video](https://github.com/iqss-research/gking-site/releases/download/assets/Overseers-20120205.mov) (with my talk beginning at 1:11) builds on one article about teaching ([*How Social Science Research Can Improve Teaching*](/publication/how-social-science-research-can-improve-teaching/)*)* and one about universities ([*The Troubled Future of Colleges and Universities*](/publication/the-troubled-future-of-colleges-and-universities-with-comments-from-five-scholar-administrators/)*), *both with Maya Sen.
 links:
   - type: pdf
     url: "files/innovt.pdf"
