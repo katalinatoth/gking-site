@@ -8,10 +8,7 @@ type: "contact"
 
 ### Gary King
 
-**Institute for Quantitative Social Science**
-1737 Cambridge Street
-Harvard University
-Cambridge, MA 02138
+**Institute for Quantitative Social Science**, 1737 Cambridge Street, Harvard University, Cambridge, MA 02138
 
 **Web:** [GaryKing.org](http://garyking.org/)
 
