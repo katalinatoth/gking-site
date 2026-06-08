@@ -18,7 +18,7 @@ Cambridge, MA 02138
 **Twitter:** [@KingGary](https://twitter.com/kinggary)
 
 **Assistant:** Maria Martins, (617) 495-9271<br>
-**Email:** [king-assist@iq.harvard.edu](mailto:king-assist@iq.harvard.edu)
+[king-assist@iq.harvard.edu](mailto:king-assist@iq.harvard.edu)
 
 **Signal, Phone:** 617, five hundred, 75 seventy
 
