@@ -7,7 +7,7 @@ authors:
   - Musashi Hinck
   - Gary King
   - Kentaro Nakamura
-  - Brandon Stewart
+  - Brandon M. Stewart
 publication_types:
   - working_paper
 abstract: |-
