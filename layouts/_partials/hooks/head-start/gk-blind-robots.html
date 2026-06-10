@@ -1,0 +1,13 @@
+{{/* Blind-link robots tag.
+
+     Pages with `blind: true` in front matter are "blind links": reachable
+     only by people who already know the URL. They must never be indexed or
+     crawled, and crawlers must not follow links out of them (so any blind
+     PDFs/assets they point to stay undiscovered too).
+
+     This emits a single, strong robots meta. Pair `blind: true` with
+     `_build.list: never` (keeps the page out of every page collection:
+     section lists, related-paper finders, the homepage, and the sitemap). */}}
+{{- if .Params.blind -}}
+  <meta name="robots" content="noindex, nofollow, noarchive">
+{{- end -}}
