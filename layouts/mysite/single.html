@@ -217,30 +217,25 @@
       <p class="section-sub">This section is all you need. Just follow the steps — it takes about 15 minutes. Click any step to expand it.</p>
     </div>
 
-    <details class="step" open>
+    <details class="step" name="howto">
       <summary><span class="num dot">★</span> Before you begin — what you'll need <span class="chev" aria-hidden="true">&#9662;</span></summary>
       <div class="body">
         <ul>
-          <li><b>An AI assistant.</b> Any capable one works — for example
+          <li><b>An AI agent.</b> Use
             <a href="https://cursor.com" target="_blank" rel="noopener">Cursor</a> (recommended),
-            Claude Code, OpenAI Codex, or
-            <a href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT</a> /
-            <a href="https://claude.ai" target="_blank" rel="noopener">Claude</a> in your browser.
+            Claude Code, or OpenAI Codex.
+            Don't use an LLM in your browser (like ChatGPT or Claude on the web) — it won't be able to do the editing for you.
             If you use Cursor, create a free account and pick a plan that includes Claude (Pro or above).</li>
           <li><b>A GitHub account</b> — sign up at <a href="https://github.com" target="_blank" rel="noopener">github.com</a> if you don't have one.</li>
           <li><b>A few files</b> (optional) — your CV PDF, a headshot, and any paper PDFs you'd like hosted.</li>
         </ul>
-        <div class="note">
-          <span class="tag">Which tool should I use?</span>
-          <b>Tools that run on your computer</b> (Cursor, Claude Code, Codex) are easiest — they do every step for you, including a private local preview, and publish your site automatically. <b>Browser chatbots</b> (ChatGPT, or Claude on the web) work too, with nothing to install: the assistant writes your files and walks you through adding them to GitHub, which publishes the site. The steps below note where the two paths differ — look for the <b>"In a browser chatbot?"</b> notes.
-        </div>
       </div>
     </details>
 
-    <details class="step">
-      <summary><span class="num">1</span> Get your prompt document <span class="chev" aria-hidden="true">&#9662;</span></summary>
+    <details class="step" name="howto">
+      <summary><span class="num">1</span> Get your information form <span class="chev" aria-hidden="true">&#9662;</span></summary>
       <div class="body">
-        <p>Download the prompt that fits where you are in your career, then fill it in:</p>
+        <p>Download the form that fits where you are in your career, then fill in your details:</p>
         <div class="dl-row">
           {{ range $prompts }}
           <a class="dl-btn" href="{{ $.RelPermalink }}{{ .file }}" download>
@@ -250,83 +245,70 @@
           </a>
           {{ end }}
         </div>
-        <p>You have two options:</p>
+        <p>The form asks for information about you. You have two options:</p>
         <ul>
-          <li><b>Building from scratch:</b> fill in the "Who I Am" section with your information, publications, software, etc.</li>
+          <li><b>Building from scratch:</b> fill in your information, publications, software, etc.</li>
           <li><b>Migrating an existing site:</b> just paste the URL of your current website — the assistant will pull the content from it.</li>
         </ul>
       </div>
     </details>
 
-    <details class="step">
+    <details class="step" name="howto">
       <summary><span class="num">2</span> Create a GitHub repository <span class="chev" aria-hidden="true">&#9662;</span></summary>
       <div class="body">
         <p>Go to <a href="https://github.com" target="_blank" rel="noopener">github.com</a>, click the <b>+</b> icon in the top right, and select <b>New repository</b>. Name it something like <code>yourname-site</code> or <code>yourusername.github.io</code>. Set it to <b>Public</b>. Don't add any files — leave it empty.</p>
       </div>
     </details>
 
-    <details class="step">
+    <details class="step" name="howto">
       <summary><span class="num">3</span> Open your AI assistant and start a chat <span class="chev" aria-hidden="true">&#9662;</span></summary>
       <div class="body">
         <p>Open whichever assistant you chose and start a new conversation:</p>
         <ul>
           <li><b>Cursor:</b> open it and press <code>Cmd+I</code> (Mac) or <code>Ctrl+I</code> (Windows).</li>
           <li><b>Claude Code or Codex:</b> open it in a new, empty folder on your computer.</li>
-          <li><b>ChatGPT or Claude in your browser:</b> just start a new chat.</li>
         </ul>
       </div>
     </details>
 
-    <details class="step">
-      <summary><span class="num">4</span> Give the assistant your prompt <span class="chev" aria-hidden="true">&#9662;</span></summary>
+    <details class="step" name="howto">
+      <summary><span class="num">4</span> Give the assistant your information form <span class="chev" aria-hidden="true">&#9662;</span></summary>
       <div class="body">
-        <p>Attach your filled-out prompt document (or paste its contents), along with any PDFs/photos, and say:</p>
+        <p>Attach your filled-out form (or paste its contents), along with any PDFs/photos, and say:</p>
         <div class="say">
           <span class="tag">Say this to your assistant</span>
-          "Create a new academic website for <b>[Your Name]</b>, using the website building instructions attached. The GitHub repository I'd like to use is at <b>https://github.com/YOURUSERNAME/REPONAME</b>. Build it and show me a preview before anything goes public."
+          "Create a new academic website for <b>[Your Name]</b> using the attached information form. The GitHub repository I'd like to use is at <b>https://github.com/YOURUSERNAME/REPONAME</b>. Build it and show me a preview before anything goes public."
         </div>
         <p>If migrating an existing site, say instead:</p>
         <div class="say">
           <span class="tag">If migrating</span>
-          "Create a new academic website for <b>[Your Name]</b> by migrating content from <b>[your existing site URL]</b>, using the website building instructions attached. My GitHub repository is at <b>[repo URL]</b>. Build it and show me a preview before anything goes public."
+          "Create a new academic website for <b>[Your Name]</b> by migrating content from <b>[your existing site URL]</b>, using the attached information form. My GitHub repository is at <b>[repo URL]</b>. Build it and show me a preview before anything goes public."
         </div>
-        <div class="note">
-          <span class="tag">In a browser chatbot?</span>
-          Add one line so it knows it can't run anything on your computer: <i>"I'm using [ChatGPT / Claude] in my browser, so write out all the files in full and give me click-by-click instructions to add them to my GitHub repository."</i>
-        </div>
-        <p>The assistant will build your site. This may take a few minutes for large sites.</p>
+        <p>The assistant will build your site — this may take a few minutes for large sites.</p>
       </div>
     </details>
 
-    <details class="step">
+    <details class="step" name="howto">
       <summary><span class="num">5</span> Preview and approve <span class="chev" aria-hidden="true">&#9662;</span></summary>
       <div class="body">
-        <p><b>On a computer tool</b> (Cursor, Claude Code, Codex): the assistant gives you a private preview link like <code>localhost:1313</code>. Open it to browse your site.</p>
+        <p>The assistant gives you a private preview link like <code>localhost:1313</code>. Open it to browse your site.</p>
         <div class="say">
           <span class="tag">Good to know</span>
           This preview runs <b>locally — only on your own computer</b>. No one else can see it and nothing is public yet. Your site doesn't go live on the internet until you publish it in the next step.
         </div>
-        <div class="note">
-          <span class="tag">In a browser chatbot?</span>
-          There's no local preview. Instead you'll see the real site right after you add the files to GitHub (next step) — it appears at your live link, usually within a minute or two.
-        </div>
-        <p>Either way, tell the assistant what to fix — layout, missing content, ordering, anything — and iterate until you're happy. You can talk to it like a person designing your site.</p>
+        <p>Tell the assistant what to fix — layout, missing content, ordering, anything — and iterate until you're happy. You can talk to it like a person designing your site.</p>
       </div>
     </details>
 
-    <details class="step">
+    <details class="step" name="howto">
       <summary><span class="num">6</span> Publish it <span class="chev" aria-hidden="true">&#9662;</span></summary>
       <div class="body">
-        <p><b>On a computer tool:</b> when you're happy, just say:</p>
+        <p>When you're happy, just say:</p>
         <div class="say">
           <span class="tag">Say this to your assistant</span>
           "Looks good. Commit and push to main."
         </div>
-        <div class="note">
-          <span class="tag">In a browser chatbot?</span>
-          The assistant gives you the files and tells you to add them to your repository — on GitHub, use <b>Add file → Upload files</b> (or <b>Create new file</b>) for each one. Adding them <i>is</i> publishing: GitHub builds and hosts the site automatically.
-        </div>
-        <p>Your site goes live within a few minutes. Want a nicer web address like <code>yourname.harvard.edu</code>? See <b>"Change your web address"</b> below.</p>
+        <p>The assistant publishes to GitHub, which builds and hosts the site automatically. Your site goes live within a few minutes. Want a nicer web address like <code>yourname.harvard.edu</code>? See <b>"Change your web address"</b> below.</p>
       </div>
     </details>
 
@@ -335,7 +317,7 @@
       <p class="section-sub">Optional — handy once your site is live. You don't need any of this to get started.</p>
     </div>
 
-    <details class="step">
+    <details class="step" name="howto">
       <summary><span class="num dot">@</span> Change your web address (use a custom URL) <span class="chev" aria-hidden="true">&#9662;</span></summary>
       <div class="body">
         <p>Your free site lives at an address like <code>yourusername.github.io</code>. You can point a nicer, custom address at it — two common options:</p>
@@ -352,7 +334,7 @@
       </div>
     </details>
 
-    <details class="step">
+    <details class="step" name="howto">
       <summary><span class="num dot">+</span> After it's live: common update prompts <span class="chev" aria-hidden="true">&#9662;</span></summary>
       <div class="body">
         <p>Open your assistant anytime to make updates. Some examples:</p>
@@ -365,7 +347,7 @@
       </div>
     </details>
 
-    <details class="step">
+    <details class="step" name="howto">
       <summary><span class="num dot">!</span> If something goes wrong <span class="chev" aria-hidden="true">&#9662;</span></summary>
       <div class="body">
         <ul>

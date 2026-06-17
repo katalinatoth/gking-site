@@ -12,14 +12,18 @@ build:
   render: always   # page still builds at /site-prompts/
   list: never      # but is excluded from every page list (tabs, related, homepage, sitemap)
 
-# --- Prompt documents (embedded inside the "Get your prompt" step). ---
+# --- Information forms (embedded inside the "Get your information form" step).
+#     These are short intake docs: the person fills in only the "Who I Am"
+#     section, and the form tells the agent to fetch the full build
+#     instructions (the *_SITE_PROMPT.md files, still hosted under files/)
+#     from the site itself. ---
 prompts:
-  - name: "Grad Student Prompt"
+  - name: "Grad Student Form"
     meta: "for PhD students, postdocs & fellows"
-    file: "files/GRAD_STUDENT_SITE_PROMPT.md"
-  - name: "Academic Prompt"
+    file: "files/GRAD_STUDENT_SITE_INTAKE.docx"
+  - name: "Academic Form"
     meta: "for faculty & senior researchers"
-    file: "files/ACADEMIC_SITE_PROMPT.md"
+    file: "files/ACADEMIC_SITE_INTAKE.docx"
 
 # --- Printable guides (shown at the bottom of the page). ---
 guides:
