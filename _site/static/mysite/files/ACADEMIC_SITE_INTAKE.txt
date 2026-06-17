@@ -1,0 +1,93 @@
+BUILD MY ACADEMIC WEBSITE — YOUR INFORMATION
+
+Fill in the fields below. The instructions at the end are for your AI
+assistant — you don't need to read them.
+
+
+WHO I AM
+
+(Replace this section with ONE of the following options.)
+
+
+OPTION A — UPLOAD YOUR MATERIALS
+
+Name:
+
+Title/Position:
+
+Institution:
+
+Homepage intro blurb (2-4 sentences for the hero section — who you are,
+what you work on, written in the third person):
+
+Full bio (longer narrative for the Bio/CV page — can be multiple
+paragraphs, covers career arc, research interests in depth, key
+contributions):
+
+Photo (attach file, or URL to your institutional headshot):
+
+Email / contact info:
+
+Publications list (attach BibTeX file, CV PDF, or paste here):
+
+Presentations/talks (attach or paste):
+
+Software projects (if any):
+
+Datasets (if any):
+
+Teaching history (if any):
+
+Research group / lab members (if any):
+
+Research areas / topics (list 3-8):
+
+Any other sections you want (startups, consulting, media, etc.):
+
+Important: The homepage intro and the bio page MUST use different text. The
+intro blurb is a brief orientation for first-time visitors; the bio is a
+full narrative. Never reuse the same text in both places — redundant text
+makes a site feel unfinished.
+
+
+OPTION B — SCRAPE MY EXISTING WEBSITE
+
+URL of my current academic website:
+
+Anything on the old site that should be changed, dropped, or reorganized:
+
+Any new content not on the old site (attach or paste):
+
+Homepage intro blurb (2-4 sentences for the hero section):
+
+Full bio (longer narrative for the Bio/CV page):
+
+Important: These two texts MUST be distinct — never reuse the same
+paragraph for both. If the person leaves these blank, check whether the old
+site has clearly different text for each. If the old site only has one bio
+paragraph, use it for the Bio page and either ask the person to write a
+separate short intro, or insert a [PLACEHOLDER] on the homepage and flag it
+for them. Do NOT silently duplicate the same text in both places.
+
+
+------------------------------------------------------------------------
+
+INSTRUCTIONS FOR THE AI ASSISTANT
+
+Build this website from the information above. Once the Who I Am section is
+filled in:
+
+1. Retrieve the full website-building instructions from this URL:
+   https://gking.harvard.edu/mysite/files/ACADEMIC_SITE_PROMPT.md
+
+2. Follow that document exactly to build the site, using the Who I Am
+   details above as the content. (That document repeats a blank Who I Am
+   template near its top — ignore it; the filled-in version above takes
+   precedence.)
+
+3. Build a local preview and show it to me before anything goes public.
+
+This requires an AI assistant with agent capabilities — it must be able to
+fetch a web page and create, build, and publish files on its own (for
+example Cursor, Claude Code, or OpenAI Codex). A plain browser chatbot that
+cannot retrieve the instructions above and build the files will not work.

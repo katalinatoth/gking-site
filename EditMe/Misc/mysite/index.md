@@ -20,10 +20,10 @@ build:
 prompts:
   - name: "Grad Student Form"
     meta: "for PhD students, postdocs & fellows"
-    file: "files/GRAD_STUDENT_SITE_INTAKE.docx"
+    file: "files/GRAD_STUDENT_SITE_INTAKE.txt"
   - name: "Academic Form"
     meta: "for faculty & senior researchers"
-    file: "files/ACADEMIC_SITE_INTAKE.docx"
+    file: "files/ACADEMIC_SITE_INTAKE.txt"
 
 # --- Printable guides (shown at the bottom of the page). ---
 guides:
