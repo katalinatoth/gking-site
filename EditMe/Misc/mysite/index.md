@@ -1,9 +1,9 @@
 ---
 title: "Build Your Academic Website in 15 Minutes"
-slug: "site-prompts"
-url: /site-prompts/
+slug: "mysite"
+url: /mysite/
 date: '2026-06-16'
-type: site-prompts
+type: mysite
 summary: "A startup guide for graduate students and senior researchers — build a full academic website with AI, hosted for free. No coding required."
 
 # --- Blind link (unlisted, not indexed). Remove these keys to publish. ---

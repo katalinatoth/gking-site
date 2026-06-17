@@ -71,11 +71,24 @@
       margin: 0 0 14px;
       font-weight: 800;
     }
-    .lede { font-size: 18px; color: var(--muted); margin: 0; max-width: 56ch; }
+    .byline { margin: 4px 0 18px; font-size: 16px; font-weight: 600; color: #333; }
+    .intro { font-size: 17px; line-height: 1.65; color: #3a3a3a; margin: 0; max-width: 66ch; }
+    .intro a { font-weight: 600; }
+
+    /* Big section titles. The first section is everything needed to launch;
+       the other two are optional, signalled by their subtitles. */
+    .section-head { margin: 36px 0 16px; }
+    .section-head.first { margin-top: 6px; }
+    .section-head.divided { border-top: 1px solid var(--line); padding-top: 32px; }
+    .section-title {
+      font-size: clamp(23px, 4.8vw, 30px);
+      font-weight: 800; letter-spacing: -0.015em; line-height: 1.15;
+      margin: 0;
+    }
+    .section-sub { margin: 8px 0 0; color: var(--muted); font-size: 15.5px; max-width: 54ch; }
 
     /* Steps accordion */
-    .steps { padding: 34px 0 12px; }
-    .hint { font-size: 14px; color: var(--muted); margin: 0 0 16px; }
+    .steps { padding: 30px 0 12px; }
     .step {
       background: var(--card);
       border: 1px solid var(--line);
@@ -120,13 +133,6 @@
       font-size: 0.86em; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
     }
 
-    /* Section divider for reference items */
-    .reference-label {
-      margin: 30px 0 4px;
-      font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em;
-      color: var(--muted); font-weight: 700;
-    }
-
     /* "Say this to Claude" callout */
     .say {
       margin: 14px 0;
@@ -162,16 +168,6 @@
     .dl-btn .t span { display: block; font-size: 13.5px; color: var(--muted); }
     .dl-btn .arrow { margin-left: auto; color: var(--muted); flex: none; }
 
-    /* Footer / guides */
-    .guides {
-      margin: 24px 0 0;
-      padding: 22px 0 0;
-      border-top: 1px solid var(--line);
-    }
-    .guides h2 {
-      font-size: 13px; text-transform: uppercase; letter-spacing: 0.1em;
-      color: var(--muted); margin: 0 0 12px;
-    }
     .foot {
       padding: 30px 0 56px;
       color: var(--muted);
@@ -192,12 +188,16 @@
     <div class="wrap">
       <p class="eyebrow">Academic Website Starter Kit</p>
       <h1>{{ .Title }}</h1>
-      <p class="lede">{{ .Params.summary }}</p>
+      <p class="byline">Gary King and Katalina Toth</p>
+      <p class="intro">Professional researchers are by definition public figures and essentially all have websites, usually beginning in graduate school. If you are either starting out your academic career and want a website like Katalina's (a post-bac at Harvard's IQSS), or have lots more material and need a more extensive website like <a href="https://gking.harvard.edu/">Gary's</a> (as a post-post-post-…bac. faculty member and director of IQSS), then this page provides the tools to build your first version in 15 minutes. You can also use our tools to improve your site as you like without any coding knowledge, friction, or annoyance. Really, it's easy. And hosting is free; the site is lightning fast; and, although it uses all the best modern tools, you don't need to know any of them.</p>
     </div>
   </header>
 
   <main class="wrap steps">
-    <p class="hint">Click any step to expand it. The whole process takes about 15 minutes.</p>
+    <div class="section-head first">
+      <h2 class="section-title">Get your site up and running</h2>
+      <p class="section-sub">This section is all you need. Just follow the steps — it takes about 15 minutes. Click any step to expand it.</p>
+    </div>
 
     <details class="step" open>
       <summary><span class="num dot">★</span> Before you begin — what you'll need <span class="chev" aria-hidden="true">&#9662;</span></summary>
@@ -266,6 +266,10 @@
       <summary><span class="num">5</span> Preview and approve <span class="chev" aria-hidden="true">&#9662;</span></summary>
       <div class="body">
         <p>Claude will give you a link like <code>localhost:1313</code>. Click it to browse your site. Tell Claude what to fix — layout, missing content, ordering, anything. Iterate until you're satisfied. You can speak to Claude like you would a person who is designing your site.</p>
+        <div class="say">
+          <span class="tag">Good to know</span>
+          This preview runs <b>locally — only on your own computer</b>. No one else can see it and nothing is public yet. Your site doesn't go live on the internet until you push it in the next step.
+        </div>
       </div>
     </details>
 
@@ -281,7 +285,27 @@
       </div>
     </details>
 
-    <p class="reference-label">Keep handy for later</p>
+    <div class="section-head divided">
+      <h2 class="section-title">Keep handy for later</h2>
+      <p class="section-sub">Optional — handy once your site is live. You don't need any of this to get started.</p>
+    </div>
+
+    <details class="step">
+      <summary><span class="num dot">@</span> Change your web address (use a custom URL) <span class="chev" aria-hidden="true">&#9662;</span></summary>
+      <div class="body">
+        <p>Your free site lives at an address like <code>yourusername.github.io</code>. You can point a nicer, custom address at it — two common options:</p>
+        <ul>
+          <li><b>Use your university's address.</b> Many universities will give you something like <code>yourname.harvard.edu</code>. Ask your department or IT group to set it up — they'll add a DNS record that points to your site.</li>
+          <li><b>Buy your own address.</b> Purchase a domain like <code>yourname.com</code> from a registrar such as Namecheap, Cloudflare, or Squarespace (usually about $10–15 a year).</li>
+        </ul>
+        <p>Either way, once you have the address, just tell Claude:</p>
+        <div class="say">
+          <span class="tag">Say this to Claude</span>
+          "Set up a custom domain for my site pointing to <b>[your address, e.g. yourname.harvard.edu]</b>, and tell me exactly which DNS records to add."
+        </div>
+        <p>Claude will configure the site and hand you the exact records to paste into your university's form or your registrar's dashboard.</p>
+      </div>
+    </details>
 
     <details class="step">
       <summary><span class="num dot">+</span> After it's live: common update prompts <span class="chev" aria-hidden="true">&#9662;</span></summary>
@@ -307,17 +331,18 @@
     </details>
 
     {{ with $guides }}
-    <div class="guides">
-      <h2>Prefer a printable version?</h2>
-      <div class="dl-row">
-        {{ range . }}
-        <a class="dl-btn" href="{{ $.RelPermalink }}{{ .file }}" download>
-          <span class="badge">{{ upper (strings.TrimPrefix "." (path.Ext .file)) }}</span>
-          <span class="t"><b>{{ .name }}</b><span>{{ .meta }}</span></span>
-          <span class="arrow" aria-hidden="true">&#8595;</span>
-        </a>
-        {{ end }}
-      </div>
+    <div class="section-head divided">
+      <h2 class="section-title">Prefer a printable version?</h2>
+      <p class="section-sub">The same instructions, as a PDF you can download or print.</p>
+    </div>
+    <div class="dl-row">
+      {{ range . }}
+      <a class="dl-btn" href="{{ $.RelPermalink }}{{ .file }}" download>
+        <span class="badge">{{ upper (strings.TrimPrefix "." (path.Ext .file)) }}</span>
+        <span class="t"><b>{{ .name }}</b><span>{{ .meta }}</span></span>
+        <span class="arrow" aria-hidden="true">&#8595;</span>
+      </a>
+      {{ end }}
     </div>
     {{ end }}
   </main>
