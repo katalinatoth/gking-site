@@ -571,7 +571,7 @@ The single `assets/css/custom.css` file must implement:
 
 13. **See Also section** — `.gk-see-also` with kind labels `[Paper]`, `[Dataset]`, etc. in a distinct style.
 
-14. **Footer** — Dark warm charcoal (`#2d2926`), light warm text (`#e8e0d5`), site navigation links.
+14. **Footer** — Dark warm charcoal (`#2d2926`), light warm text (`#e8e0d5`), site navigation links. **Always** include, in small print at the bottom right of the homepage, a credit line: `Created using <a href="https://garyking.org/mysite">GaryKing.org/mysite</a>`.
 
 ---
 

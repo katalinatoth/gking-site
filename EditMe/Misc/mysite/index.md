@@ -24,15 +24,6 @@ prompts:
   - name: "Academic Form"
     meta: "for faculty & senior researchers"
     file: "files/ACADEMIC_SITE_INTAKE.txt"
-
-# --- Printable guides (shown at the bottom of the page). ---
-guides:
-  - name: "Step-by-Step Guide"
-    meta: "the quick walkthrough on this page"
-    file: "files/Website-Prompt-Step-by-Step.pdf"
-  - name: "Detailed Guide"
-    meta: "the full explainer of how it all works"
-    file: "files/ACADEMIC_SITE_HUMAN_DOC.pdf"
 ---
 
 <!-- The step-by-step instructions live in layouts/site-prompts/single.html as a
