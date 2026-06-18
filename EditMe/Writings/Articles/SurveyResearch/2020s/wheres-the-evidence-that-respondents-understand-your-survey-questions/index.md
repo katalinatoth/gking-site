@@ -15,6 +15,9 @@ abstract: |-
 links:
   - type: pdf
     url: files/debrief.pdf
+  - type: appendix
+    url: files/debrief-supp.pdf
+    label: Appendix
 image:
   alt_text: "Distribution of respondent interpretations across survey questions"
 # --- Blind link (unlisted, not indexed). Remove these keys to publish. ---
