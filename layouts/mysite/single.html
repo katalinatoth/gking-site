@@ -130,11 +130,23 @@
     .step .body li { margin: 7px 0; }
     .step .body li::marker { color: var(--accent); }
 
-    /* Update-prompts list: each item is one option; the prompt box sits inside. */
-    .update-list { padding-left: 1.4em; }
-    .update-list > li { margin: 16px 0; }
+    /* Update-prompts: phase 1 = pick any one interchangeable option;
+       phase 2 = the publish step that always follows. */
+    .update-list { padding-left: 1.4em; margin: 6px 0 8px; }
+    .update-list > li { margin: 14px 0; }
     .update-list > li::marker { font-weight: 800; }
     .update-list .say { margin: 8px 0 4px; }
+    .update-phase {
+      display: flex; align-items: center; gap: 10px;
+      font-weight: 800; font-size: 16px; margin: 22px 0 6px;
+    }
+    .update-phase-num {
+      flex: none; width: 24px; height: 24px; border-radius: 50%;
+      background: var(--accent-soft); color: var(--accent);
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 800;
+    }
+    .update-foot { font-size: 14.5px; color: var(--muted); margin: 6px 0 2px; }
     .step .body code {
       background: #f0ede7; padding: 2px 6px; border-radius: 5px;
       font-size: 0.86em; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -327,8 +339,10 @@
     <details class="step" name="howto">
       <summary><span class="num dot">+</span> After it's live: common update prompts <span class="chev" aria-hidden="true">&#9662;</span></summary>
       <div class="body">
-        <p>Open your assistant anytime to make an update. Pick the option that matches what you want — each one shows you a preview first — then finish with the last step to publish.</p>
-        <ol class="update-list">
+        <p>Every update works the same way: <b>pick one</b> of the prompts below (they're interchangeable — use whichever fits, one at a time), then <b>always finish with the publish step</b>. Each prompt shows you a preview first.</p>
+
+        <p class="update-phase"><span class="update-phase-num">1</span> Choose an update — pick any one of these:</p>
+        <ul class="update-list">
           <li>
             <b>Add a journal article</b>
             <div class="say">"Add a new journal article to my site: Title: [title] · Authors: [names] · Venue: [e.g., American Political Science Review, 111, 3, Pp. 484–501] · Year: [year] · Abstract: [paste] · DOI or URL: [link] · Topic: [research area]. The article PDF is attached. Show me a preview first."</div>
@@ -349,12 +363,11 @@
             <b>Add a presentation or talk</b>
             <div class="say">"Add a new talk: Title: [title] · Event: [venue] · Date: [date] · Slides PDF attached. Show me a preview first."</div>
           </li>
-          <li>
-            <b>Publish your change</b> — once the preview looks right, say:
-            <div class="say">"Commit, pull, and push."</div>
-            This saves your change, pulls in any edits other people have made to <code>main</code> first, and then publishes — so no one's work gets overwritten.
-          </li>
-        </ol>
+        </ul>
+
+        <p class="update-phase"><span class="update-phase-num">2</span> Publish — for whichever option you chose above, once the preview looks right:</p>
+        <div class="say">"Commit, pull, and push."</div>
+        <p class="update-foot">This saves your change, pulls in any edits other people have made to <code>main</code> first, and then publishes — so no one's work gets overwritten.</p>
       </div>
     </details>
 
