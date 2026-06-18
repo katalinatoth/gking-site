@@ -893,6 +893,8 @@ Produce ALL of the following:
 
 For a new faculty/lab site, follow this order:
 
+> **Prerequisite — install Hugo first.** Building and previewing the site locally requires **Hugo (extended)** on the machine. Run `hugo version` to check; if it isn't installed, install it before continuing — `brew install hugo` (macOS), `winget install Hugo.Hugo.Extended` (Windows), or see <https://gohugo.io/installation/> (Linux/other). Without Hugo you can't build the local preview.
+
 1. `mkdir prof-site && cd prof-site && git init && gh repo create`
 2. `hugo new site hugo-site` (keep the `hugo-site/` subfolder)
 3. Add `hugo.yaml`, `go.mod`, `package.json` with Pagefind, and the Blox module import. Run `hugo mod vendor`.

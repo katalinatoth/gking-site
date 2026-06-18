@@ -488,6 +488,8 @@ All changes auto-deploy within ~2 minutes of pushing to main.
 
 For a new grad student site, follow this order:
 
+> **Prerequisite — install Hugo first.** Building and previewing the site locally requires **Hugo (extended)** on the machine. Run `hugo version` to check; if it isn't installed, install it before continuing — `brew install hugo` (macOS), `winget install Hugo.Hugo.Extended` (Windows), or see <https://gohugo.io/installation/> (Linux/other). Without Hugo you can't build the local preview.
+
 1. Create the repo: `username.github.io` (GitHub user site)
 2. `hugo new site . --force` in the repo root
 3. Add `hugo.yaml` with the student's info, menu, and params

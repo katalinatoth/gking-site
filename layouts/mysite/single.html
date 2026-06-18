@@ -125,9 +125,16 @@
     .step[open] > summary { border-bottom: 1px solid var(--line); }
     .step .body { padding: 6px 18px 20px; }
     .step .body p { margin: 14px 0; }
-    .step .body ul { padding-left: 1.15em; margin: 12px 0; }
+    .step .body ul,
+    .step .body ol { padding-left: 1.15em; margin: 12px 0; }
     .step .body li { margin: 7px 0; }
     .step .body li::marker { color: var(--accent); }
+
+    /* Update-prompts list: each item is one option; the prompt box sits inside. */
+    .update-list { padding-left: 1.4em; }
+    .update-list > li { margin: 16px 0; }
+    .update-list > li::marker { font-weight: 800; }
+    .update-list .say { margin: 8px 0 4px; }
     .step .body code {
       background: #f0ede7; padding: 2px 6px; border-radius: 5px;
       font-size: 0.86em; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -203,7 +210,6 @@
 
   <header class="hero">
     <div class="wrap">
-      <p class="eyebrow">Academic Website Starter Kit</p>
       <h1>{{ .Title }}</h1>
       <p class="byline">Gary King and Katalina Toth</p>
       <p class="intro">Professional researchers are by definition public figures and essentially all have websites, usually beginning in graduate school. If you are either starting out your academic career and want a website like Katalina's (a post-bac at Harvard's IQSS), or have lots more material and need a more extensive website like <a href="https://gking.harvard.edu/">Gary's</a> (as a post-post-post-…bac. faculty member and director of IQSS), then this page provides the tools to build your first version in 15 minutes. You can also use our tools to improve your site as you like without any coding knowledge, friction, or annoyance. Really, it's easy. And hosting is free; the site is lightning fast; and, although it uses all the best modern tools, you don't need to know any of them.</p>
@@ -223,7 +229,7 @@
           <li><b>An AI agent.</b> Any good AI agent will work. We use
             <a href="https://cursor.com" target="_blank" rel="noopener">Cursor</a>,
             but Claude Code, OpenAI's Codex, or others work too. You need an agent, not a browser chat window like ChatGPT. If you use Cursor, create a free account and pick a plan that includes Claude (Pro or above).</li>
-          <li><b>A GitHub account</b> — sign up at <a href="https://github.com" target="_blank" rel="noopener">github.com</a> if you don't have one.</li>
+          <li><b>A GitHub account</b> — sign up free at <a href="https://github.com" target="_blank" rel="noopener">github.com</a> if you don't have one. GitHub is a free service that stores and publishes your website. It uses <i>version control</i>, meaning every change is saved as a checkpoint you can revisit or undo — so nothing is ever lost, and several people can safely work on the same site without overwriting each other.</li>
           <li><b>A few files</b> (optional) — your CV PDF, a headshot, and any paper PDFs you'd like hosted.</li>
         </ul>
       </div>
@@ -242,6 +248,7 @@
           </a>
           {{ end }}
         </div>
+        <p>The forms are plain-text <code>.txt</code> files. You can open and edit them in any text editor — TextEdit, Notepad, Word, or anything else — and just save when you're done. No special software needed.</p>
         <p>The form asks for information about you. You have two options:</p>
         <ul>
           <li><b>Building from scratch:</b> fill in your information, publications, software, etc.</li>
@@ -258,22 +265,15 @@
     </details>
 
     <details class="step" name="howto">
-      <summary><span class="num">3</span> Open your AI assistant and start a chat <span class="chev" aria-hidden="true">&#9662;</span></summary>
+      <summary><span class="num">3</span> Open your AI assistant and give it your form <span class="chev" aria-hidden="true">&#9662;</span></summary>
       <div class="body">
         <p>Open whichever assistant you chose and start a new conversation:</p>
         <ul>
           <li><b>Cursor:</b> open it and press <code>Cmd+I</code> (Mac) or <code>Ctrl+I</code> (Windows).</li>
           <li><b>Claude Code or Codex:</b> open it in a new, empty folder on your computer.</li>
         </ul>
-      </div>
-    </details>
-
-    <details class="step" name="howto">
-      <summary><span class="num">4</span> Give the assistant your information form <span class="chev" aria-hidden="true">&#9662;</span></summary>
-      <div class="body">
-        <p>Attach your filled-out form (or paste its contents), along with any PDFs/photos, and say:</p>
+        <p>Then attach your filled-out form (or paste its contents), along with any PDFs/photos, and say:</p>
         <div class="say">
-          <span class="tag">Say this to your assistant</span>
           "Create a new academic website for <b>[Your Name]</b> using the attached information form, into the GitHub repository at <b>https://github.com/YOURUSERNAME/REPONAME</b>. Build it and show me a preview before anything goes public."
         </div>
         <p>The assistant will build your site — this may take a few minutes for large sites.</p>
@@ -281,7 +281,7 @@
     </details>
 
     <details class="step" name="howto">
-      <summary><span class="num">5</span> Preview and approve <span class="chev" aria-hidden="true">&#9662;</span></summary>
+      <summary><span class="num">4</span> Preview and approve <span class="chev" aria-hidden="true">&#9662;</span></summary>
       <div class="body">
         <p>The assistant gives you a private preview link like <code>localhost:1313</code>. Open it to browse your site.</p>
         <div class="say">
@@ -293,11 +293,10 @@
     </details>
 
     <details class="step" name="howto">
-      <summary><span class="num">6</span> Publish it <span class="chev" aria-hidden="true">&#9662;</span></summary>
+      <summary><span class="num">5</span> Publish it <span class="chev" aria-hidden="true">&#9662;</span></summary>
       <div class="body">
         <p>When you're happy, just say:</p>
         <div class="say">
-          <span class="tag">Say this to your assistant</span>
           "Looks good. Commit and push to main."
         </div>
         <p>The assistant publishes to GitHub, which builds and hosts the site automatically. Your site goes live within a few minutes. Want a nicer web address like <code>yourname.harvard.edu</code>? See <b>"Change your web address"</b> below.</p>
@@ -319,7 +318,6 @@
         </ul>
         <p>Either way, once you have the address, just tell your assistant:</p>
         <div class="say">
-          <span class="tag">Say this to your assistant</span>
           "Set up a custom domain for my site pointing to <b>[your address, e.g. yourname.harvard.edu]</b>, and tell me exactly which DNS records to add."
         </div>
         <p>It will configure the site and hand you the exact records to paste into your university's form or your registrar's dashboard.</p>
@@ -329,13 +327,34 @@
     <details class="step" name="howto">
       <summary><span class="num dot">+</span> After it's live: common update prompts <span class="chev" aria-hidden="true">&#9662;</span></summary>
       <div class="body">
-        <p>Open your assistant anytime to make updates. Some examples:</p>
-        <div class="say"><span class="tag">Add a journal article</span>"Add a new journal article to my site: Title: [title] · Authors: [names] · Venue: [e.g., American Political Science Review, 111, 3, Pp. 484–501] · Year: [year] · Abstract: [paste] · DOI or URL: [link] · Topic: [research area]. The article PDF is attached. Show me a preview first."</div>
-        <div class="say"><span class="tag">Add a custom short URL</span>"Add a new short URL redirect: Short path: /myproject (becomes yoursite.com/myproject) · Destination: [full URL or site path]. Publish when done."</div>
-        <div class="say"><span class="tag">Update a person's profile (group sites)</span>"Update [Name]'s profile: change their title to [new title] and replace their photo with the attached image. Publish when done."</div>
-        <div class="say"><span class="tag">Add a research area</span>"Add a new research area called '[Name]' with this description: [1–2 sentences]. Assign these existing publications to it: [list titles]. Publish when done."</div>
-        <div class="say"><span class="tag">Add a presentation or talk</span>"Add a new talk: Title: [title] · Event: [venue] · Date: [date] · Slides PDF attached. Publish when done."</div>
-        <p><b>If several people edit the site:</b> before starting, tell your assistant <i>"Pull any recent changes to main first."</i> This prevents conflicts.</p>
+        <p>Open your assistant anytime to make an update. Pick the option that matches what you want — each one shows you a preview first — then finish with the last step to publish.</p>
+        <ol class="update-list">
+          <li>
+            <b>Add a journal article</b>
+            <div class="say">"Add a new journal article to my site: Title: [title] · Authors: [names] · Venue: [e.g., American Political Science Review, 111, 3, Pp. 484–501] · Year: [year] · Abstract: [paste] · DOI or URL: [link] · Topic: [research area]. The article PDF is attached. Show me a preview first."</div>
+          </li>
+          <li>
+            <b>Add a custom short URL</b>
+            <div class="say">"Add a new short URL redirect: Short path: /myproject (becomes yoursite.com/myproject) · Destination: [full URL or site path]. Show me a preview first."</div>
+          </li>
+          <li>
+            <b>Update a person's profile (group sites)</b>
+            <div class="say">"Update [Name]'s profile: change their title to [new title] and replace their photo with the attached image. Show me a preview first."</div>
+          </li>
+          <li>
+            <b>Add a research area</b>
+            <div class="say">"Add a new research area called '[Name]' with this description: [1–2 sentences]. Assign these existing publications to it: [list titles]. Show me a preview first."</div>
+          </li>
+          <li>
+            <b>Add a presentation or talk</b>
+            <div class="say">"Add a new talk: Title: [title] · Event: [venue] · Date: [date] · Slides PDF attached. Show me a preview first."</div>
+          </li>
+          <li>
+            <b>Publish your change</b> — once the preview looks right, say:
+            <div class="say">"Commit, pull, and push."</div>
+            This saves your change, pulls in any edits other people have made to <code>main</code> first, and then publishes — so no one's work gets overwritten.
+          </li>
+        </ol>
       </div>
     </details>
 
