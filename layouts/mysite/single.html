@@ -147,6 +147,8 @@
       font-size: 13px; font-weight: 800;
     }
     .update-foot { font-size: 14.5px; color: var(--muted); margin: 6px 0 2px; }
+    /* Indent each step's content under its number so the two steps read clearly. */
+    .update-step-body { margin-left: 34px; }
     .step .body code {
       background: #f0ede7; padding: 2px 6px; border-radius: 5px;
       font-size: 0.86em; font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -223,8 +225,8 @@
   <header class="hero">
     <div class="wrap">
       <h1>{{ .Title }}</h1>
-      <p class="byline">Gary King and Katalina Toth</p>
-      <p class="intro">Professional researchers are by definition public figures and essentially all have websites, usually beginning in graduate school. If you are either starting out your academic career and want a website like <a href="https://katalinatoth.github.io/katalinatoth/">Katalina's</a> (a post-bac at Harvard's IQSS), or have lots more material and need a more extensive website like <a href="https://gking.harvard.edu/">Gary's</a> (as a post-post-post-…bac. faculty member and director of IQSS), then this page provides the tools to build your first version in 15 minutes — from scratch or starting with your existing page. You can also use our tools to improve your site as you like without any coding knowledge, friction, or annoyance. Really, it's easy. And hosting is free; the site is lightning fast; and, although it uses all the best modern tools, you don't need to know any of them.</p>
+      <p class="byline"><a href="https://GaryKing.org">Gary King</a> and <a href="https://katalinatoth.github.io/katalinatoth/">Katalina Toth</a></p>
+      <p class="intro">Professional researchers are by definition public figures and essentially all have websites, usually beginning in graduate school. If you are either starting out your academic career and want a website like <a href="https://katalinatoth.github.io/katalinatoth/">Katalina's</a> (a post-bac at Harvard's IQSS), or need a more extensive one like <a href="https://gking.harvard.edu/">Gary's</a> (as a post-post-post-…bac. faculty member and director of IQSS), then this page provides the tools to build your first version in 15 minutes — from scratch or starting with your existing page. Really, it's easy; hosting is free; the site is lightning fast; and, although it uses all the best modern tools, you don't need to know any of them. We built this for our own webpages; suggestions welcome.</p>
     </div>
   </header>
 
@@ -342,6 +344,7 @@
         <p>Every update works the same way: <b>pick one</b> of the prompts below or write one of your own, then <b>always finish with the publish step</b> once everything looks good. Each prompt shows you a preview first.</p>
 
         <p class="update-phase"><span class="update-phase-num">1</span> Choose an update:</p>
+        <div class="update-step-body">
         <ul class="update-list">
           <li>
             <b>Add a journal article</b>
@@ -364,10 +367,13 @@
             <div class="say">"Add a new talk: Title: [title] · Event: [venue] · Date: [date] · Slides PDF attached. Show me a preview first."</div>
           </li>
         </ul>
+        </div>
 
         <p class="update-phase"><span class="update-phase-num">2</span> Publish — for whichever option you chose above, once the preview looks right:</p>
+        <div class="update-step-body">
         <div class="say">"Commit, pull, and push."</div>
         <p class="update-foot">This saves your change, pulls in any edits other people have made to <code>main</code> first, and then publishes — so no one's work gets overwritten.</p>
+        </div>
       </div>
     </details>
 
