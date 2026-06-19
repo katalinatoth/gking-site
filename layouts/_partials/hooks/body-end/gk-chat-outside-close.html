@@ -1,0 +1,34 @@
+{{/* Close the GaryAI chat panel when the visitor clicks outside it.
+
+     The widget (static/js/gking-chat-widget.js) only closes via its own X
+     button or the launcher. This adds the common "click anywhere outside to
+     dismiss" behavior.
+
+     It calls the widget's public close() (window.GKingChat.close), which
+     just hides the panel (setOpen(false)) and never touches the textarea —
+     so any unsent draft the visitor typed is preserved and reappears when
+     they reopen the panel. Clicks inside the widget are ignored: events that
+     cross the open shadow boundary are retargeted to the host element, so a
+     click anywhere inside reports the host as its target. */}}
+<script>
+(function () {
+  var HOST_ID = "gking-chat-widget";
+
+  function host() { return document.getElementById(HOST_ID); }
+  function panelOpen() {
+    var h = host();
+    if (!h || !h.shadowRoot) return false;
+    var p = h.shadowRoot.querySelector(".panel");
+    return !!(p && !p.hasAttribute("hidden"));
+  }
+
+  document.addEventListener("click", function (e) {
+    if (!panelOpen()) return;
+    var h = host();
+    if (h && (e.target === h || h.contains(e.target))) return; // click inside the widget
+    if (window.GKingChat && typeof window.GKingChat.close === "function") {
+      window.GKingChat.close();
+    }
+  }, true);
+})();
+</script>
