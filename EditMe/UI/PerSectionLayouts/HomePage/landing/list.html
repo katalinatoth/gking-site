@@ -303,30 +303,23 @@
       </div>
     </div>
 
-    <!-- Books (4 most recent) -->
+    <!-- Books (3x3 grid of all covers) -->
+    {{ $allBooks := sort $bookPages ".Date" "desc" }}
     <div class="gk-hp-card">
       <h3 class="gk-hp-card__heading">Books</h3>
-      {{ range $recentBooks }}
-      <details class="gk-hp-item">
-        <summary class="gk-hp-item__summary">
-          <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span>
-          <span>{{ .Title }}</span>
-        </summary>
-        <div class="gk-hp-item__body">
-          {{ $authors := .Params.authors | default slice }}
-          {{ if gt (len $authors) 0 }}<div class="gk-hp-item__authors">{{ delimit $authors ", " }}</div>{{ end }}
-          {{ with .Params.publication }}<div class="gk-hp-item__pub">{{ . }}</div>{{ end }}
-          {{ $bpt := .Params.publication_types | default slice }}
-          {{- if or (in $bpt "book") (in $bpt "book_chapter") -}}
-            {{- with .Params.publisher -}}
-              <div class="gk-hp-item__pub">{{ . }}{{ with $.Params.address }}, {{ . }}{{ end }}</div>
-            {{- end -}}
-          {{- end -}}
-          {{ with .Params.abstract }}<div class="gk-hp-item__abs">{{ . | truncate 200 | markdownify }}</div>{{ end }}
-          <div class="gk-hp-item__more"><a href="{{ .RelPermalink }}">Read more &rarr;</a></div>
-        </div>
-      </details>
-      {{ end }}
+      <div class="gk-hp-book-grid">
+        {{ range $allBooks }}
+        {{ $cover := .Resources.GetMatch "featured.*" }}
+        <a class="gk-hp-book-cover" href="{{ .RelPermalink }}" title="{{ .Title }}">
+          {{ if $cover }}
+            {{ $thumb := $cover.Resize "300x webp q85" }}
+            <img src="{{ $thumb.RelPermalink }}" alt="{{ .Title }}" loading="lazy">
+          {{ else }}
+            <span class="gk-hp-book-cover__fallback">{{ .Title }}</span>
+          {{ end }}
+        </a>
+        {{ end }}
+      </div>
       <div class="gk-hp-card__footer">
         <a href="{{ "publication/#book" | relURL }}">All {{ $bookCount }} books &rarr;</a>
       </div>
@@ -344,7 +337,7 @@
       <h3 class="gk-hp-card__heading">Startups</h3>
       <details class="gk-hp-item">
         <summary class="gk-hp-item__summary">
-          <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span><span>Crimson Hexagon</span>
+          <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span><span style="display:inline-flex;align-items:center;gap:0.45rem;vertical-align:middle"><img class="gk-hp-startup-logo" src="{{ "startups/crimson-hexagon/logo.png" | relURL }}" alt="Crimson Hexagon" style="height:26px;width:auto;display:block"><span style="color:#be3a34;font-weight:600">Crimson Hexagon</span></span>
         </summary>
         <div class="gk-hp-item__body">
           <div class="gk-hp-item__pub">Merged with Brandwatch, acquired by Cision</div>
@@ -357,7 +350,7 @@
       </details>
       <details class="gk-hp-item">
         <summary class="gk-hp-item__summary">
-          <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span><span>Thresher</span>
+          <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span><img class="gk-hp-startup-logo" src="{{ "startups/thresher/logo.png" | relURL }}" alt="Thresher" style="height:26px;width:auto;max-width:200px;vertical-align:middle">
         </summary>
         <div class="gk-hp-item__body">
           <div class="gk-hp-item__pub">Acquired by Two Six Technologies, a Carlyle Company</div>
@@ -370,7 +363,7 @@
       </details>
       <details class="gk-hp-item">
         <summary class="gk-hp-item__summary">
-          <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span><span>Learning Catalytics</span>
+          <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span><img class="gk-hp-startup-logo" src="{{ "startups/learning-catalytics/logo.png" | relURL }}" alt="Learning Catalytics" style="height:26px;width:auto;max-width:200px;vertical-align:middle">
         </summary>
         <div class="gk-hp-item__body">
           <div class="gk-hp-item__pub">Acquired by Pearson</div>
@@ -383,7 +376,7 @@
       </details>
       <details class="gk-hp-item">
         <summary class="gk-hp-item__summary">
-          <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span><span>OpenScholar</span>
+          <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span><img class="gk-hp-startup-logo" src="{{ "startups/openscholar/logo.png" | relURL }}" alt="OpenScholar" style="height:26px;width:auto;max-width:200px;vertical-align:middle">
         </summary>
         <div class="gk-hp-item__body">
           <div class="gk-hp-item__pub">Acquired by Monomyth Group</div>
@@ -392,7 +385,7 @@
       </details>
       <details class="gk-hp-item">
         <summary class="gk-hp-item__summary">
-          <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span><span>Perusall</span>
+          <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span><img class="gk-hp-startup-logo" src="{{ "startups/perusall/logo.png" | relURL }}" alt="Perusall" style="height:26px;width:auto;max-width:200px;vertical-align:middle">
         </summary>
         <div class="gk-hp-item__body">
           <div class="gk-hp-item__more"><a href="https://www.perusall.com/" target="_blank" rel="noopener">Visit site &rarr;</a></div>
@@ -400,7 +393,7 @@
       </details>
       <details class="gk-hp-item">
         <summary class="gk-hp-item__summary">
-          <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span><span>QuickCode</span>
+          <span class="gk-hp-arrow" aria-hidden="true">&#9660;</span><img class="gk-hp-startup-logo" src="{{ "startups/quickcode/logo.png" | relURL }}" alt="QuickCode" style="height:26px;width:auto;max-width:200px;vertical-align:middle">
         </summary>
         <div class="gk-hp-item__body">
           <div class="gk-hp-item__more"><a href="https://www.quickcode.ai/" target="_blank" rel="noopener">Visit site &rarr;</a></div>
@@ -614,6 +607,44 @@
   .gk-hp-item__pub { font-style: italic; color: #595959; }
   .gk-hp-item__abs { margin-top: 4px; line-height: 1.4; color: #666; }
   .gk-hp-item__more { margin-top: 6px; }
+
+  /* Books card: 3x3 grid of clickable covers */
+  .gk-hp-book-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    align-items: stretch;
+  }
+  .gk-hp-book-cover {
+    display: block;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .gk-hp-book-cover img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border: 1px solid #e2e8f0;
+    border-radius: 2px;
+  }
+  .gk-hp-book-cover:hover,
+  .gk-hp-book-cover:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  }
+  .gk-hp-book-cover__fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 6px;
+    font-size: 0.7rem;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 2px;
+    color: #337ab7;
+  }
 
   @media (max-width: 900px) {
     .gk-hp-grid { grid-template-columns: 1fr; }
