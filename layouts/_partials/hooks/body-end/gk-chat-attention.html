@@ -1,0 +1,142 @@
+{{/* Attention-grabbing jiggle for the GaryAI chat launcher.
+
+     The launcher (.btn) lives inside the shadow root of the widget host
+     <div id="gking-chat-widget"> (see static/js/gking-chat-widget.js).
+     We nudge it to draw the eye in two situations:
+
+       1. The visitor has been idle (no movement/interaction) for 20s.
+       2. The visitor has reached the bottom of a scrollable page and not
+          clicked anything for 5s.
+
+     The jiggle is skipped while the chat panel is open, and disabled for
+     users who prefer reduced motion. Nothing here touches the widget's own
+     code, so it survives widget updates. */}}
+<script>
+(function () {
+  var HOST_ID   = "gking-chat-widget";
+  var IDLE_MS   = 5000;   // 5s with no interaction
+  var BOTTOM_MS = 5000;   // 5s at the bottom with no click
+  var JIGGLE_MS = 2700;   // how long the animation runs
+
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    return; // respect users who opt out of motion
+  }
+
+  var idleTimer = null, bottomTimer = null, bottomArmed = false, jiggling = false, done = false;
+
+  function host()  { return document.getElementById(HOST_ID); }
+  function root()  { var h = host(); return h && h.shadowRoot ? h.shadowRoot : null; }
+  function btn()   { var r = root(); return r ? r.querySelector(".btn") : null; }
+  function panelOpen() {
+    var r = root(); if (!r) return false;
+    var p = r.querySelector(".panel");
+    return !!(p && !p.hasAttribute("hidden"));
+  }
+
+  function ensureStyle() {
+    var r = root(); if (!r) return false;
+    if (r.getElementById("gk-attn-style")) return true;
+    var s = document.createElement("style");
+    s.id = "gk-attn-style";
+    s.textContent =
+      "@keyframes gk-attn-jiggle{" +
+      "0%,100%{transform:translateX(0) rotate(0) scale(1)}" +
+      "8%{transform:translateX(-7px) rotate(-20deg) scale(1.15)}" +
+      "18%{transform:translateX(7px) rotate(18deg) scale(1.15)}" +
+      "28%{transform:translateX(-7px) rotate(-16deg) scale(1.12)}" +
+      "38%{transform:translateX(6px) rotate(14deg) scale(1.12)}" +
+      "48%{transform:translateX(-5px) rotate(-11deg) scale(1.08)}" +
+      "58%{transform:translateX(4px) rotate(9deg) scale(1.06)}" +
+      "68%{transform:translateX(-3px) rotate(-6deg) scale(1.04)}" +
+      "78%{transform:translateX(2px) rotate(4deg) scale(1.02)}" +
+      "88%{transform:translateX(-1px) rotate(-2deg) scale(1.01)}}" +
+      ".btn.gk-attn-jiggle{animation:gk-attn-jiggle .85s ease-in-out 0s 3;transform-origin:center;}";
+    r.appendChild(s);
+    return true;
+  }
+
+  // Once it jiggles, it should never jiggle again for this page load.
+  // Tear down every trigger so a second jiggle is impossible (only a fresh
+  // page load re-arms it).
+  function teardown() {
+    clearTimeout(idleTimer);
+    clearTimeout(bottomTimer);
+    activity.forEach(function (ev) { window.removeEventListener(ev, armIdle); });
+    window.removeEventListener("scroll", evalBottom);
+    document.removeEventListener("click", onDocClick, true);
+  }
+
+  function jiggle() {
+    if (done || jiggling || panelOpen()) return;
+    var b = btn();
+    if (!b || !ensureStyle()) return;
+    done = true;        // first (and only) jiggle
+    teardown();
+    jiggling = true;
+    b.classList.add("gk-attn-jiggle");
+    setTimeout(function () {
+      if (b) b.classList.remove("gk-attn-jiggle");
+      jiggling = false;
+    }, JIGGLE_MS);
+  }
+
+  // --- Trigger 1: idle for 20s ---
+  function armIdle() {
+    if (done) return;
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(jiggle, IDLE_MS);
+  }
+
+  // --- Trigger 2: at the bottom of a scrollable page, no click for 5s ---
+  function isScrollable() {
+    return document.documentElement.scrollHeight > window.innerHeight + 8;
+  }
+  function atBottom() {
+    return isScrollable() &&
+      (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 4);
+  }
+  function evalBottom() {
+    if (done) return;
+    if (atBottom()) {
+      if (!bottomArmed) {
+        bottomArmed = true;
+        clearTimeout(bottomTimer);
+        bottomTimer = setTimeout(jiggle, BOTTOM_MS);
+      }
+    } else {
+      bottomArmed = false;
+      clearTimeout(bottomTimer);
+    }
+  }
+
+  var activity = ["mousemove", "mousedown", "keydown", "wheel", "touchstart", "touchmove", "pointermove"];
+  activity.forEach(function (ev) {
+    window.addEventListener(ev, armIdle, { passive: true });
+  });
+
+  window.addEventListener("scroll", evalBottom, { passive: true });
+
+  // A click anywhere counts as interaction: reset idle, and (if at the
+  // bottom) restart the 5s "didn't click on something" countdown.
+  function onDocClick() {
+    if (done) return;
+    armIdle();
+    if (atBottom()) {
+      bottomArmed = true;
+      clearTimeout(bottomTimer);
+      bottomTimer = setTimeout(jiggle, BOTTOM_MS);
+    }
+  }
+  document.addEventListener("click", onDocClick, true);
+
+  function start() {
+    armIdle();
+    evalBottom();
+  }
+  if (document.readyState === "complete" || document.readyState === "interactive") {
+    start();
+  } else {
+    window.addEventListener("DOMContentLoaded", start);
+  }
+})();
+</script>
