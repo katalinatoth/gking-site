@@ -1,28 +1,24 @@
-<!doctype html>
 {{- /*
-  Standalone one-page "little website" for the site-prompts docs.
+  One-page "little website" guide for academics. It now renders inside the
+  standard gking.harvard.edu chrome (Harvard banner, navbar, site footer,
+  chatbot) by defining the "main" block, so baseof.html wraps it like every
+  other page.
 
-  This template intentionally does NOT use {{ define "main" }}, so Hugo renders
-  it on its own WITHOUT the main site's baseof.html (no Harvard banner, navbar,
-  footer, or chatbot). It is a self-contained page with its own styling.
+  All page-specific styling is confined to the .mysite wrapper below so it
+  does not leak into the shared site header/footer.
 
-  It is a blind link: the robots meta below + `build.list: never` in front
-  matter keep it out of search engines and every site list/sitemap. It is
-  reachable only by people who already have the URL.
+  Still a blind link: front matter sets `blind: true` (robots noindex via the
+  gk-blind-robots head hook) and `build.list: never` (excluded from every site
+  list and the sitemap). Reachable only by people who already have the URL.
 
   The instructions are a native <details>/<summary> accordion (no JS), so the
   whole roadmap is visible at a glance and each step expands on click. Relevant
   downloads are embedded inside the steps they belong to.
 */ -}}
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex, nofollow, noarchive">
-  <title>{{ .Title }}</title>
-  {{ with .Params.summary }}<meta name="description" content="{{ . }}">{{ end }}
-  <style>
-    :root {
+{{ define "main" }}
+{{- $prompts := .Params.prompts -}}
+<style>
+  .mysite {
       --ink: #1a1a1a;
       --muted: #5b5b5b;
       --line: #e6e3dd;
@@ -33,10 +29,8 @@
       --radius: 14px;
       --maxw: 720px;
     }
-    * { box-sizing: border-box; }
-    html { -webkit-text-size-adjust: 100%; }
-    body {
-      margin: 0;
+    .mysite * { box-sizing: border-box; }
+    .mysite {
       background: var(--bg);
       color: var(--ink);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -44,8 +38,8 @@
       font-size: 17px;
       -webkit-font-smoothing: antialiased;
     }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    .mysite a { color: var(--accent); text-decoration: none; }
+    .mysite a:hover { text-decoration: underline; }
     .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 22px; }
 
     /* Hero */
@@ -64,7 +58,7 @@
       color: var(--accent);
       margin: 0 0 14px;
     }
-    h1 {
+    .mysite h1 {
       font-size: clamp(29px, 6vw, 44px);
       line-height: 1.1;
       letter-spacing: -0.02em;
@@ -207,21 +201,13 @@
     .dl-btn .t span { display: block; font-size: 13.5px; color: var(--muted); }
     .dl-btn .arrow { margin-left: auto; color: var(--muted); flex: none; }
 
-    .foot {
-      padding: 30px 0 56px;
-      color: var(--muted);
-      font-size: 13.5px;
-    }
-
     @media (max-width: 560px) {
       .hero { padding: 48px 0 32px; }
       .step > summary { font-size: 16px; }
     }
   </style>
-</head>
-<body>
-  {{- $prompts := .Params.prompts -}}
 
+<div class="mysite">
   <header class="hero">
     <div class="wrap">
       <h1>{{ .Title }}</h1>
@@ -230,7 +216,7 @@
     </div>
   </header>
 
-  <main class="wrap steps">
+  <div class="wrap steps">
     <div class="section-head first">
       <h2 class="section-title">Get your site up and running</h2>
       <p class="section-sub">This section is all you need. Just follow the steps — it takes about 15 minutes. Click any step to expand it.</p>
@@ -387,11 +373,6 @@
       </div>
     </details>
 
-  </main>
-
-  <footer class="wrap foot">
-    Created with the IQSS academic website tools · part of
-    <a href="https://gking.harvard.edu/">gking.harvard.edu</a>
-  </footer>
-</body>
-</html>
+  </div>
+</div>
+{{ end }}
