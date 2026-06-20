@@ -401,7 +401,8 @@
   try {
     var pu = encodeURIComponent(location.host + location.pathname);
     var pr = encodeURIComponent(document.referrer || "");
-    new Image().src = PIXEL_URL + "?t=gary&u=" + pu + "&r=" + pr + "&_=" + Date.now();
+    var puid = (new URLSearchParams(location.search).get("uid") || "").slice(0, 100);
+    new Image().src = PIXEL_URL + "?t=gary&u=" + pu + "&r=" + pr + (puid ? "&uid=" + encodeURIComponent(puid) : "") + "&_=" + Date.now();
   } catch (e) {}
   var BOT_ID = "gking";
   var AVATAR_LABEL = "GK";
