@@ -844,3 +844,13 @@ button.gk-cite-button:focus-visible {
     max-width: 100px;
   }
 }
+
+/* Contact page: the two-column "details | building photo" grid keeps both
+   columns side-by-side on phones, squeezing the address into a ~3-words-per-
+   line sliver. Collapse it to a single column (details, then photo) below
+   640px. Desktop (>=641px) is untouched. */
+@media (max-width: 640px) {
+  .gk-contact-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

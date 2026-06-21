@@ -3,7 +3,7 @@ title: "Contact"
 type: "contact"
 ---
 
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;">
+<div class="gk-contact-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;">
 <div>
 
 ### Gary King
