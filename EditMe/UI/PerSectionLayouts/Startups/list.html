@@ -62,6 +62,18 @@
       setTimeout(function() { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100);
     }
   }
+
+  /* Accordion behavior: never more than one dropdown open at a time. When
+     one opens, close any others that are currently open. */
+  var items = document.querySelectorAll('details.gk-startup-dropdown');
+  items.forEach(function(d) {
+    d.addEventListener('toggle', function() {
+      if (!d.open) return;
+      items.forEach(function(other) {
+        if (other !== d && other.open) other.open = false;
+      });
+    });
+  });
 })();
 </script>
 
