@@ -650,6 +650,37 @@
     .gk-hp-grid { grid-template-columns: 1fr; }
     section > div > div[style*="grid-template-columns: 1fr 1fr 1fr"] { grid-template-columns: 1fr !important; }
   }
+
+  {{/* ---- Phone-only refinements (<=640px) ----------------------------------
+       The homepage uses 5rem (80px) horizontal gutters and a few fixed
+       multi-column grids that look generous on a computer but choke content
+       on a narrow phone screen. Everything below is gated at 640px so any
+       viewport 641px and wider (i.e. every desktop/laptop) renders exactly
+       as before. We only pull in the horizontal padding and collapse the
+       grids; vertical rhythm and all desktop rules are untouched. */}}
+  @media (max-width: 640px) {
+    /* Hero bio text: 5rem side padding -> comfortable phone gutter. */
+    #hero > div > div:first-child { padding: 32px 1.25rem !important; }
+
+    /* Card sections (Papers/Presentations/Books, Startups/Patents/Software). */
+    .gk-hp-section {
+      padding-left: 1.25rem !important;
+      padding-right: 1.25rem !important;
+    }
+
+    /* Remaining homepage sections that set 5rem gutters inline
+       (Research Areas, "An Interview with Gary", "Video Conversations"). */
+    #main-content section[style*="5rem"] {
+      padding-left: 1.25rem !important;
+      padding-right: 1.25rem !important;
+    }
+
+    /* Research Areas: stack Methods/Applications and tighten the 60px gap. */
+    #research-areas > div[style*="grid-template-columns:1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+      gap: 28px !important;
+    }
+  }
   .gk-ra-abstract-details > summary { list-style: none; }
   .gk-ra-abstract-details > summary::-webkit-details-marker { display: none; }
   details.gk-ra-abstract-details[open] > summary .gk-ra-plus {
