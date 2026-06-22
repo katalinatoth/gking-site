@@ -60,6 +60,7 @@ aliases:
 - [How to write a publishable paper](/papers/)
 - [Advice to Junior Faculty](/files/advice-junior-faculty.pdf)
 - [Advice to Graduate Students](/publication/so-youre-a-grad-student-now-maybe-you-should-do-this/), (overlapping) [Dissertation advice](/files/advice-dissertation.pdf)
+- [Build Your Academic Website in 15 Minutes](https://gking.harvard.edu/mysite/)
 - [What to do if you want me to write you a letter of recommendation](/recs/)
 - [Are you applying to our Ph.D. program at Harvard?](/apply/)
 - [Should you use AI to write for you?](/aiwrite/)

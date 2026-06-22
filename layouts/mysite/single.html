@@ -201,6 +201,14 @@
     .dl-btn .t span { display: block; font-size: 13.5px; color: var(--muted); }
     .dl-btn .arrow { margin-left: auto; color: var(--muted); flex: none; }
 
+    /* Small "last updated" stamp at the foot of the guide. */
+    .last-updated {
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      margin: 30px 0 4px;
+    }
+
     @media (max-width: 560px) {
       .hero { padding: 48px 0 32px; }
       .step > summary { font-size: 16px; }
@@ -372,6 +380,8 @@
         </ul>
       </div>
     </details>
+
+    <p class="last-updated">Last updated {{ .Lastmod.Format "January 2, 2006" }}</p>
 
   </div>
 </div>
