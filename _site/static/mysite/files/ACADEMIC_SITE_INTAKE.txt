@@ -1,93 +1,92 @@
-BUILD MY ACADEMIC WEBSITE — YOUR INFORMATION
+============================================================
+  BUILD MY ACADEMIC WEBSITE — INFORMATION FORM
+============================================================
 
-Fill in the fields below. The instructions at the end are for your AI
-assistant — you don't need to read them.
+HOW TO FILL THIS OUT
+  - Type your answer on the line after each question (after the ">").
+  - Leave anything you don't have, or don't want, blank. That's fine.
+  - You don't need to delete or reword anything. Just fill in what you can.
+  - When you're done, save the file and hand it to your AI assistant
+    (the last few lines tell it what to do).
+
+There are two ways to fill this out — pick whichever is less work:
+  - STARTING FROM SCRATCH: answer the questions in Part 1.
+  - YOU ALREADY HAVE A WEBSITE: skip most of Part 1 — just put your
+    current website's address in Part 2, and your assistant will pull
+    your content from it. Use Part 1 only to add or correct things.
 
 
-WHO I AM
-
-(Replace this section with ONE of the following options.)
-
-
-OPTION A — UPLOAD YOUR MATERIALS
+------------------------------------------------------------
+  PART 1 — ABOUT YOU
+------------------------------------------------------------
 
 Name:
+>
 
-Title/Position:
+Title / position (e.g., "Assistant Professor of Political Science"):
+>
 
 Institution:
+>
 
-Homepage intro blurb (2-4 sentences for the hero section — who you are,
-what you work on, written in the third person):
+Short homepage intro — 2 to 4 sentences, written about you in the third
+person. This is the brief welcome at the very top of your homepage:
+>
 
-Full bio (longer narrative for the Bio/CV page — can be multiple
-paragraphs, covers career arc, research interests in depth, key
-contributions):
-
-Photo (attach file, or URL to your institutional headshot):
+Full bio — a longer narrative for your Bio / C.V. page (career, research
+interests, main contributions). Can be several paragraphs:
+>
 
 Email / contact info:
+>
 
-Publications list (attach BibTeX file, CV PDF, or paste here):
+Photo — attach the image file when you talk to your assistant, or paste
+a link to your institutional headshot:
+>
 
-Presentations/talks (attach or paste):
+Publications — attach a BibTeX file or your C.V. (PDF), or paste a list:
+>
+
+Presentations / talks — attach or paste:
+>
 
 Software projects (if any):
+>
 
 Datasets (if any):
+>
 
-Teaching history (if any):
+Teaching — courses you've taught (if any):
+>
 
-Research group / lab members (if any):
+Research group / lab members — names and roles, if you have a group:
+>
 
-Research areas / topics (list 3-8):
+Research areas / topics — list 3 to 8:
+>
 
-Any other sections you want (startups, consulting, media, etc.):
-
-Important: The homepage intro and the bio page MUST use different text. The
-intro blurb is a brief orientation for first-time visitors; the bio is a
-full narrative. Never reuse the same text in both places — redundant text
-makes a site feel unfinished.
-
-
-OPTION B — SCRAPE MY EXISTING WEBSITE
-
-URL of my current academic website:
-
-Anything on the old site that should be changed, dropped, or reorganized:
-
-Any new content not on the old site (attach or paste):
-
-Homepage intro blurb (2-4 sentences for the hero section):
-
-Full bio (longer narrative for the Bio/CV page):
-
-Important: These two texts MUST be distinct — never reuse the same
-paragraph for both. If the person leaves these blank, check whether the old
-site has clearly different text for each. If the old site only has one bio
-paragraph, use it for the Bio page and either ask the person to write a
-separate short intro, or insert a [PLACEHOLDER] on the homepage and flag it
-for them. Do NOT silently duplicate the same text in both places.
+Anything else you'd like on the site (media, consulting, startups, etc.):
+>
 
 
-------------------------------------------------------------------------
+------------------------------------------------------------
+  PART 2 — IF YOU ALREADY HAVE A WEBSITE (optional)
+------------------------------------------------------------
 
-INSTRUCTIONS FOR THE AI ASSISTANT
+Address of my current website:
+>
 
-Build this website from the information above. Once the Who I Am section is
-filled in:
+Anything on the old site to change, drop, or reorganize:
+>
 
-1. Retrieve the full website-building instructions from this URL:
-   https://gking.harvard.edu/mysite/files/ACADEMIC_SITE_PROMPT.md
 
-2. Follow that document exactly to build the site, using the Who I Am
-   details above as the content. (That document repeats a blank Who I Am
-   template near its top — ignore it; the filled-in version above takes
-   precedence.)
+============================================================
+  FOR YOUR AI ASSISTANT — you don't need to read this part
+============================================================
 
-3. Build a local preview and show it to me before anything goes public.
+Build instructions are here:
+https://gking.harvard.edu/mysite/files/ACADEMIC_SITE_PROMPT.md
 
-This requires an AI assistant with agent capabilities — it must be able to
-fetch a web page and create, build, and publish files on its own (for
-example Cursor, Claude Code, or OpenAI Codex). A plain browser chatbot that
-cannot retrieve the instructions above and build the files will not work.
+Fetch that page and follow it exactly, using my answers above as the
+content. Build a local preview and show it to me before anything goes
+public.

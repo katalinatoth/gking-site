@@ -2,7 +2,7 @@
 
 ## Who I Am
 
-[Replace this section with ONE of the following options.]
+[Replace this section with ONE of the following options. If the owner handed you a filled-in information form, that form is the source of truth — use it and ignore this blank template.]
 
 **Option A — Upload your materials:**
 - Name:
@@ -78,7 +78,7 @@ hugo-site/
 │   ├── publication/                # papers, books, datasets, reports
 │   ├── talk/                       # presentations
 │   ├── software/                   # tools, packages
-│   ├── authors/                    # people profiles
+│   ├── authors/                    # auto-generated profile per co-author + listed group members (this is the People page)
 │   ├── bio/                        # bio & CV
 │   ├── teaching/                   # courses
 │   ├── research-areas/             # topic landing pages
@@ -170,7 +170,7 @@ menu:
       url: /software/
       weight: 40
     - name: People
-      url: /authors/
+      url: /authors/       # People page = styled profile cards (override the term template); NEVER the raw name+publication-count list
       weight: 50
     - name: Teaching
       url: /teaching/
@@ -235,7 +235,7 @@ For every publication, **find its page on the publisher or journal website** and
    - For journal articles: use the journal's cover image for that issue, or the article's header/thumbnail if the publisher provides one.
    - For working papers/reports: use any thumbnail provided by the hosting platform (SSRN, NBER, etc.), or omit if none exists.
 
-3. **Provenance.** If the image is from a publisher, add `image_credit: "Cover image from [Publisher Name]"` in front matter for attribution.
+3. **Provenance.** If the image is from a publisher, add `image_credit: "Cover image from [Publisher Name]"` in front matter for attribution. Use this **only** for a clean publisher/journal attribution. Never use it to record where you found the file or that it came from a legacy/archive scrape (e.g. "Legacy thumbnail from the Princeton Scholar archive") — that is internal commentary, not attribution. If there is no clean publisher attribution, omit the field.
 
 This should be done during the initial build. The goal is that every publication page feels complete and visually grounded, with a direct path to the official published version.
 
@@ -249,19 +249,33 @@ dataverse_name: "Replication Data for: Paper Title"
 related_paper: "paper-slug"  # renders a "Replication data for:" banner
 ```
 
-### Authors / People
+### People — auto-generate co-author profiles, presented well
+
+**Auto-generate a profile page for every co-author** found in the publications' `authors:` lists, plus any group members (students, advisees, postdocs, alumni) the owner explicitly listed. Each co-author gets their own person page under `content/authors/<slug>/`:
 
 ```yaml
 # content/authors/jane-doe/_index.md
 ---
 title: "Jane Doe"
-role: "PhD Student"
-user_groups: ["Current Members"]
-website: "https://..."
+role: "Associate Professor, MIT"      # affiliation/title if known; omit if unknown
+user_groups: ["Collaborators"]         # e.g. "Current Members", "Alumni", "Collaborators"
+superuser: false
+# external link — see priority order below
+website: "https://janedoe.org"
 ---
 ```
 
-Avatar is `avatar.jpg` alongside the `_index.md`.
+Avatar is `avatar.jpg` alongside the `_index.md` (the layout shows a neutral monogram when missing).
+
+**Automatically find and link each person's best external page.** For every generated profile, search for the person and attach the first link you can verify, in this priority order:
+
+1. **Personal / academic website** (their own domain or department faculty page they maintain).
+2. **University / department directory page** (their official institutional listing).
+3. **LinkedIn** profile.
+
+Use the highest-priority link found; if none can be verified, leave the profile without an external link rather than guessing. Set it as `website:` so the person's name and card link out to it.
+
+**Presentation — this is the part that was broken before.** The People page (and each `/authors/<name>/` page) must be a clean, intentional layout: profile cards or rows showing avatar/monogram, name, affiliation, and the external link. It must **never** render as the raw Hugo Blox taxonomy term-list — an unstyled wall of names each trailed by a publication count (`Jane Doe 1`, `John Smith 13`). If the default `authors` taxonomy term page produces that, override its template (or point the "People" nav at a proper list page that ranges over the profiles and renders cards). Group the page by `user_groups` so the owner's own group reads first, with broader co-authors after. Co-author names on each publication link to these profile pages.
 
 ### Homepage
 
@@ -607,6 +621,16 @@ The 404 page shows the navbar and a search box, not just "page not found".
 - **Button labels centralized in `i18n/en.yaml`.** Never inline "Article" or "Publisher's Version" in a template.
 - **No redundant text anywhere.** If you find the same sentence, paragraph, or description appearing in two places on the site, one instance must be rewritten or removed. Every piece of text should have exactly one home.
 
+### 14.3.1 No Internal Notes, Process Commentary, or Filler Subtitles on the Site
+
+Everything that renders on the site is read by the public. Never let your own working notes, sourcing commentary, or generic auto-written descriptions leak into visible text.
+
+- **No process or sourcing commentary in content.** Lines like "drawn from the owner's C.V.", "public links included where a current page could be verified", "scraped from the legacy site", or "Legacy thumbnail from X's archive" describe *your* work, not the person. They must never appear in a page body, section subtitle, image caption, `summary`/`description` front matter, or `alt`/`image_credit`. Strip them.
+- **Section subtitles are optional and reader-facing.** Don't auto-write a subtitle that just restates the section name (e.g. "Dense, filterable list of publications, books, reports, and working papers." or "Software projects and packages associated with [Name]'s research."). Either write a genuinely useful one-liner in the owner's voice or leave it blank. A heading with no subtitle beats filler.
+- **Flags and TODOs go in non-rendering comments only.** When you need to flag a guess, a gap, or a legacy-site error for the owner, use an HTML comment `<!-- ... -->` in the Markdown, or a `[PLACEHOLDER]` the owner will obviously see and replace — never a sentence that ships as live copy.
+- **`image_credit` is a clean publisher attribution or nothing** (see above).
+- **Before declaring the site done, read every rendered page** and delete any text that explains how the site was built or where its content came from.
+
 ### 14.4 Stable, Meaningful URLs — Forever
 
 Academic pages are cited in papers that outlive the website. URLs are a contract.
@@ -638,7 +662,7 @@ Academic readers want **more on the screen**, not less. Reject marketing default
 
 - **Do not paraphrase the owner's content.** Fix only typos or ask. Paraphrased academic bios are almost always worse than the original.
 - **Match the legacy site's structure when migrating.** Same tab names, same category ordering, same color accent, same button labels. Surprise is a bug.
-- **When the legacy site is wrong, flag it, don't silently correct it.** Put a comment in the markdown.
+- **When the legacy site is wrong, flag it, don't silently correct it.** Put a non-rendering HTML comment (`<!-- ... -->`) in the markdown — never visible text on the page.
 
 ### 14.8 Longevity and Self-Sufficiency
 
@@ -847,6 +871,8 @@ This is a checklist of pain points discovered during real builds. Every one of t
 - [ ] Special-case pages: branch the template on a boolean front matter flag (e.g. `quest_replica: true`) rather than forking the template.
 - [ ] Write "See Also" as a single template-level partial using title-token + author + tag scoring. Do NOT introduce a Python script that writes `related_map.json` — it inevitably gets stale.
 - [ ] **Publication tabs MUST have JS click handlers that actually filter items.** Rendering tab buttons without attaching event listeners is the #1 most common failure. Every `<button class="tab-btn">` needs `addEventListener('click', ...)` and every `<article>` item needs a `data-tab` attribute. Test by clicking each tab and verifying the list changes.
+- [ ] **The People page is auto-populated with co-author profiles, and looks intentional.** A profile is generated for every co-author (plus any listed group members), each auto-linked to their website → university page → LinkedIn (first one found/verified). The page renders as styled profile cards grouped by `user_groups` — NOT the raw Blox taxonomy term list of names trailed by publication counts.
+- [ ] **No internal notes or filler text renders anywhere.** Read every page: no process/sourcing commentary ("drawn from the C.V.", "links verified where possible", "Legacy thumbnail from …"), and section subtitles are either useful and in the owner's voice or absent.
 - [ ] Pagefind must be built **after** Hugo in the Actions workflow, and before the upload-artifact step. Both against `public/`.
 - [ ] Commit `_vendor/` to the repo. It's the only way to reliably override Blox partials and keeps builds hermetic.
 - [ ] The `go.sum` must be checked in alongside `go.mod`, or Hugo mod verification will fail in CI.

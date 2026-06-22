@@ -1,112 +1,131 @@
-BUILD MY GRADUATE STUDENT WEBSITE — YOUR INFORMATION
+============================================================
+  BUILD MY GRADUATE STUDENT WEBSITE — INFORMATION FORM
+============================================================
 
-Fill in the fields below. The instructions at the end are for your AI
-assistant — you don't need to read them.
+HOW TO FILL THIS OUT
+  - Type your answer on the line after each question (after the ">").
+  - Leave anything you don't have, or don't want, blank. That's fine.
+  - You don't need to delete or reword anything. Just fill in what you can.
+  - When you're done, save the file and hand it to your AI assistant
+    (the last few lines tell it what to do).
+
+There are two ways to fill this out — pick whichever is less work:
+  - STARTING FROM SCRATCH: answer the questions in Part 1.
+  - YOU ALREADY HAVE A WEBSITE: skip most of Part 1 — just put your
+    current website's address in Part 2, and your assistant will pull
+    your content from it. Use Part 1 only to add or correct things.
 
 
-WHO I AM
-
-(Fill in the following fields. Leave blank any that don't apply to you.)
+------------------------------------------------------------
+  PART 1 — ABOUT YOU
+------------------------------------------------------------
 
 Name:
+>
 
 Department and program (e.g., "PhD Candidate, Department of Government,
 Harvard University"):
+>
 
 Year in program (e.g., "fourth-year PhD candidate"):
+>
 
 Advisor(s):
+>
 
 Committee members (if formed):
+>
 
-Institutional affiliations (centers, institutes, labs — e.g., "affiliate
-of the Institute for Quantitative Social Science"):
+Institutional affiliations — centers, institutes, labs (if any):
+>
 
 Email:
+>
 
-Photo (attach file or URL — a professional headshot or department photo):
+Photo — attach the image file when you talk to your assistant, or paste
+a link (a professional headshot or department photo):
+>
 
-One-line tagline (the single sentence under your name — e.g., "I study the
-political economy of conflict, post-conflict reconstruction, and migration"):
+One-line tagline — the single sentence under your name (e.g., "I study
+the political economy of conflict and migration"):
+>
 
-Homepage bio (2-4 paragraphs covering: what you study, your methods, your
-background before the PhD, and any notable achievements — written in first
-or third person, your choice):
+Homepage bio — 2 to 4 paragraphs: what you study, your methods, your
+background before the PhD, and any notable achievements:
+>
 
-Research interests (list 3-6 keywords or short phrases, e.g., "causal
-inference," "political communication," "time series methods"):
+Research interests — 3 to 6 keywords or short phrases:
+>
 
-Pre-PhD education (degrees, institutions, years — e.g., "B.S. in Computer
-Science, Columbia University, 2020"):
+Pre-PhD education — degrees, institutions, years:
+>
 
-Pre-PhD work experience (if relevant — industry, research positions,
-government, etc.):
+Pre-PhD work experience (if relevant):
+>
 
-Job market paper (if applicable):
-    - Title:
-    - Abstract (1 paragraph):
-    - PDF (attach or link):
-    - Status (e.g., "under review at AJPS," "working paper"):
+Job market paper (if applicable) — title, one-paragraph abstract, status
+(e.g., "under review at AJPS"), and attach or link the PDF:
+>
 
-Working papers (for each, provide: title, coauthors, one-sentence
-description or abstract, PDF link if available, status):
+Working papers — for each: title, coauthors, one-sentence description,
+status, and a PDF link if available:
+>
 
-Published papers (for each: title, coauthors, journal/venue, year, DOI or
-link):
+Published papers — for each: title, coauthors, journal/venue, year, link:
+>
 
-Software / tools / packages (if any — name, one-sentence description, link
-to repo or docs):
+Software / tools / packages (if any) — name, one-sentence description, link:
+>
 
-Datasets or data projects (if any — name, description, link):
+Datasets or data projects (if any) — name, description, link:
+>
 
-Teaching experience (for each: course name, role [TA/TF/Instructor],
-institution, term):
+Teaching experience — for each: course name, your role (TA/TF/Instructor),
+institution, term:
+>
 
-Fellowships, grants, and awards (list with year — e.g., "NSF Graduate
-Research Fellowship, 2023"):
+Fellowships, grants, and awards — list with year:
+>
 
-Presentations and talks (for each: title, venue/conference, date — only
-include if you want a dedicated section):
+Presentations and talks — for each: title, venue/conference, date:
+>
 
-Blog posts or analytical writing (if any — title, date, link or attach):
+Blog posts or analytical writing (if any) — title, date, link or attach:
+>
 
-News / recent updates (if you want a news feed — list recent items with
-dates, e.g., "Paper accepted at JCR, Aug 2025"):
+News / recent updates (if you want a news feed) — recent items with dates:
+>
 
-Other sections you want (personal interests, photography, media
-appearances, consulting, YouTube channel, etc. — describe what you'd like):
+CV — attach the PDF:
+>
 
-CV (attach PDF):
+Social links you'd like shown (GitHub, Twitter/X, Google Scholar,
+LinkedIn, ORCID, blog):
+>
 
-Social links (any you want displayed — GitHub, Twitter/X, Google Scholar,
-LinkedIn, ORCID, personal blog):
-
-
-Note on voice: Write your bio however feels natural to you. First person
-("I study...") is the norm for grad students and reads as direct and
-confident. Third person ("Jane studies...") is fine too, especially if
-you're on the job market. Either way, keep it factual and credit-sharing —
-name your advisors, coauthors, and funding sources.
+Anything else you'd like on the site (personal interests, photography,
+media, etc.):
+>
 
 
-------------------------------------------------------------------------
+------------------------------------------------------------
+  PART 2 — IF YOU ALREADY HAVE A WEBSITE (optional)
+------------------------------------------------------------
 
-INSTRUCTIONS FOR THE AI ASSISTANT
+Address of my current website:
+>
 
-Build this website from the information above. Once the Who I Am section is
-filled in:
+Anything on the old site to change, drop, or reorganize:
+>
 
-1. Retrieve the full website-building instructions from this URL:
-   https://gking.harvard.edu/mysite/files/GRAD_STUDENT_SITE_PROMPT.md
 
-2. Follow that document exactly to build the site, using the Who I Am
-   details above as the content. (That document repeats a blank Who I Am
-   template near its top — ignore it; the filled-in version above takes
-   precedence.)
+============================================================
+  FOR YOUR AI ASSISTANT — you don't need to read this part
+============================================================
 
-3. Build a local preview and show it to me before anything goes public.
+Build instructions are here:
+https://gking.harvard.edu/mysite/files/GRAD_STUDENT_SITE_PROMPT.md
 
-This requires an AI assistant with agent capabilities — it must be able to
-fetch a web page and create, build, and publish files on its own (for
-example Cursor, Claude Code, or OpenAI Codex). A plain browser chatbot that
-cannot retrieve the instructions above and build the files will not work.
+Fetch that page and follow it exactly, using my answers above as the
+content. Build a local preview and show it to me before anything goes
+public.

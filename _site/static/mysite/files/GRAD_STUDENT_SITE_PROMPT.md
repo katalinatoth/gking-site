@@ -2,7 +2,7 @@
 
 ## Who I Am
 
-[Fill in the following fields. Leave blank any that don't apply to you.]
+[Fill in the following fields. Leave blank any that don't apply to you. If the owner handed you a filled-in information form, that form is the source of truth — use it and ignore this blank template.]
 
 - **Name:**
 - **Department and program** (e.g., "PhD Candidate, Department of Government, Harvard University"): 
@@ -290,6 +290,15 @@ Every page (including blog posts) has navigation back to the homepage. The 404 p
 ### Understated tone
 
 State facts. Don't editorialize accomplishments. "NSF Graduate Research Fellowship, 2023" — not "prestigious NSF fellowship." Let the nouns carry their own weight. Name advisors and coauthors. The site signals seriousness through its clarity and completeness, not through self-promotion.
+
+### No internal notes or filler on the site
+
+Everything that renders is read by the public. Never let your own working notes or auto-written descriptions leak into visible text.
+
+- **No process or sourcing commentary.** Lines like "drawn from the owner's C.V.", "links verified where possible", or "scraped from the old site" describe *your* work, not the person — never put them in a heading, subtitle, body, caption, or `description` front matter.
+- **Subtitles are optional and reader-facing.** Don't auto-write a subtitle that just restates a section's name. Write a genuinely useful one-liner in the owner's voice, or leave it blank — a heading with no subtitle beats filler.
+- **Flags go in non-rendering comments only.** Use an HTML comment `<!-- ... -->` or an obvious `[PLACEHOLDER]` for anything you need the owner to review — never a sentence that ships as live copy.
+- **Before declaring the site done, read every page** and delete any text that explains how the site was built or where its content came from.
 
 ### Accessibility
 
