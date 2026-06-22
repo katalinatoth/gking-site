@@ -1,18 +1,53 @@
 <!-- Site-wide links bar -->
-<nav aria-label="Site links" style="background:#222;padding:18px 40px;">
-  <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;flex-wrap:wrap;gap:14px 24px;">
-    <div style="display:flex;flex-wrap:wrap;gap:24px;justify-content:center;flex:1 1 auto;">
-      <a href="{{ "teaching/#advice" | relURL }}" style="color:#e5e5e5;text-decoration:underline;text-underline-offset:2px;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.05em;">Advice and Suggestions</a>
-      <a href="{{ "miscellanea/" | relURL }}" style="color:#e5e5e5;text-decoration:underline;text-underline-offset:2px;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.05em;">Miscellanea</a>
-      <a href="https://www.iq.harvard.edu/" target="_blank" rel="noopener" style="color:#e5e5e5;text-decoration:underline;text-underline-offset:2px;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.05em;">IQSS <span class="sr-only">(opens in new tab)</span></a>
-      <a href="https://x.com/kinggary" target="_blank" rel="noopener" style="color:#e5e5e5;text-decoration:underline;text-underline-offset:2px;font-size:0.9rem;text-transform:uppercase;letter-spacing:0.05em;">@KingGary on X <span class="sr-only">(opens in new tab)</span></a>
+<nav aria-label="Site links" class="gk-sitelinks">
+  <div class="gk-sitelinks__inner">
+    <div class="gk-sitelinks__nav">
+      <a href="{{ "teaching/#advice" | relURL }}">Advice and Suggestions</a>
+      <a href="{{ "miscellanea/" | relURL }}">Miscellanea</a>
+      <a href="https://www.iq.harvard.edu/" target="_blank" rel="noopener">IQSS <span class="sr-only">(opens in new tab)</span></a>
+      <a href="https://x.com/kinggary" target="_blank" rel="noopener">@KingGary on X <span class="sr-only">(opens in new tab)</span></a>
     </div>
-    <span style="margin-left:auto;color:#bdbdbd;font-size:0.82rem;letter-spacing:0.03em;">Created using <a href="{{ "mysite/" | relURL }}" style="color:#bdbdbd;text-decoration:underline;text-underline-offset:2px;">GaryKing.org/mysite</a></span>
+    <span class="gk-sitelinks__credit">Created using <a href="{{ "mysite/" | relURL }}">GaryKing.org/mysite</a></span>
   </div>
 </nav>
 <style>
-nav[aria-label="Site links"] a:hover,
-nav[aria-label="Site links"] a:focus-visible { color: #fff !important; text-decoration: underline; }
+  .gk-sitelinks { background: #222; padding: 16px 40px; }
+  .gk-sitelinks__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+  }
+  .gk-sitelinks__nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 12px 24px;
+  }
+  .gk-sitelinks a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: currentColor;
+    transition: color 0.12s ease;
+  }
+  .gk-sitelinks__nav a { color: #ffffff; font-size: 0.92rem; font-weight: 600; }
+  .gk-sitelinks__credit {
+    color: #d6d6d6;
+    font-size: 0.85rem;
+  }
+  .gk-sitelinks__credit a { color: #ffffff; font-weight: 600; }
+  .gk-sitelinks a:hover,
+  .gk-sitelinks a:focus-visible {
+    color: #ffd6d6;
+  }
+  /* Phone: keep a comfortable gutter. */
+  @media (max-width: 640px) {
+    .gk-sitelinks { padding-left: 1.25rem; padding-right: 1.25rem; }
+  }
 </style>
 
 <footer class="container mx-auto flex flex-col justify-items-center text-sm leading-6 mt-4 mb-4 text-slate-700 dark:text-slate-200">
