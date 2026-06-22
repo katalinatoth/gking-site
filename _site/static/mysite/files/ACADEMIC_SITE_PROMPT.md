@@ -253,13 +253,18 @@ related_paper: "paper-slug"  # renders a "Replication data for:" banner
 
 The site **must always include a People page** at `/authors/`, linked from the main nav — even for a solo researcher with no lab. It is generated automatically and is not optional. Collect the unique set of co-authors across all publications/talks/software (everyone listed in any `authors:` field except the site owner). **Never build this page from the raw Hugo `author` taxonomy** — that emits one bland term page per name, an unstyled wall of names each trailed by a publication count (`Jane Doe 1`, `John Smith 13`). Either drop the `author: authors` taxonomy or render People from a dedicated section/template so you control the markup.
 
-**Automatically find and link each person's best external page.** For every co-author, search for the person and attach the first link you can verify, in this strict priority order:
+**Automatically find and link each person's best external page (best effort).** For every co-author, search for the person and attach the first link you can verify, in this order of preference:
 
 1. **Personal / academic website** (their own domain or department faculty page they maintain).
 2. **University / department directory page** (their official institutional listing).
 3. **LinkedIn** profile.
 
 Use the highest-priority link found; if none can be verified, list the person without a link rather than guessing (flag it in an HTML comment for the owner). Resolve these once and store them so the page regenerates as new papers add new co-authors.
+
+**This auto-resolution is fallible — do not present it as authoritative, and tell the owner to check it.** Name searches collide (e.g. recording "Jonathan Schell" when the co-author is "Julie Schell") and URLs go stale or point at the wrong person. Two requirements:
+
+- **Disambiguate using context** before recording a link — match on the co-author's field, institution, and the actual co-authored paper, not just the name string. When you are not confident, leave the link off and flag the name in an HTML comment rather than recording a likely-wrong URL.
+- **Warn the owner.** In your build summary/handoff and in the owner's `UPDATING.md`, state clearly that the People page is **auto-populated from co-authorship and its links were guessed by web search, so the owner should review every entry and fix or remove any wrong person or URL.** Keep this warning in the handoff and `UPDATING.md` — not as visible copy on the public page.
 
 Then choose **one of two presentations — pick based on the owner**:
 
@@ -312,6 +317,8 @@ The homepage hero **must** use a side-by-side layout:
 - On mobile (≤ 640px), stack vertically (photo on top, text below, centered).
 - The photo should be circular, approximately 200px, vertically aligned to the top of the text block.
 - This is the standard academic homepage layout. Do NOT center the photo above the text on desktop — that looks like a social media profile, not a professional academic page.
+- **The "Research Areas" nav link (`/#research-areas`) must scroll to the TOP of the research-areas section, not the bottom of the page.** Put `id="research-areas"` on the section's heading/wrapper and give it `scroll-margin-top` equal to the fixed navbar height so the section lands just below the navbar. A frequent bug is the anchor jumping to the page bottom (id placed after the section, or the fixed header not accounted for) — verify the click lands on the section heading.
+- **Style links and buttons consistently within a section.** Don't render some actions as buttons while their siblings are plain text links — e.g. don't make "Bio & C.V." a button while "View all →" is an unstyled link. Choose one treatment for primary actions and one for inline links and apply them uniformly, or the page looks half-finished.
 
 ### Navbar Layout Rules (DO NOT CHANGE)
 
@@ -321,7 +328,8 @@ The navbar **must** follow this structure:
 - **The brand name must be a clickable link to the homepage** (`href="/"`), present in the navbar on *every* page so a reader can always click the name to return home. Verify after building that the brand text actually appears and that clicking it loads the homepage — an empty or missing brand is a bug.
 - **Navigation links** flush to the RIGHT (no large gap between brand and nav items).
 - **Search** represented as a **plain magnifying glass icon only** — no text label, no button border/background. Just the icon, clickable.
-- On mobile, nav links collapse into a hamburger menu.
+- **The header's horizontal padding must match its vertical padding** on desktop, so the bar feels balanced — align the brand and nav with the page's content gutter rather than letting them sit flush against the window edges.
+- On mobile, nav links collapse into a hamburger menu. **Keep the brand top-left and the hamburger toggle aligned to the far RIGHT — never floating in the center of the bar.** When opened, it expands into a clean, full-width stacked menu (one link per row, generous tap targets), not a misaligned, half-width, or overlapping dropdown. Verify the collapsed and expanded states at 375px.
 
 ---
 
@@ -384,7 +392,7 @@ The `/publication/` page must be a **dense, client-side-filtered list** — NOT 
    - Text search input (searches title, author, venue, abstract)
    - **Research area dropdown** (collapsible `<select>` or custom dropdown listing research areas from `data/research_areas.json`; selecting an area filters to publications tagged with that area's subcategories)
    - Type sub-filter (checkboxes, shown only when a tab has subtypes)
-   - Year filter (checkboxes with scrollable container, max-height 200px)
+   - Year filter (checkboxes with scrollable container, max-height 200px). Lay each row out as `[checkbox] [label]` on one line — checkbox first, vertically centered with its year label, matching the type sub-filter checkboxes. A common bug is the checkbox drifting to the far right or misaligning with the label inside the scrollable container; pin them together (e.g. a flex row with a small gap) so every row reads cleanly.
    - Reset button
 
 3. **Sort controls**: dropdown with options — Newest first (default), Oldest first, Title A–Z, Title Z–A
@@ -601,7 +609,7 @@ The single `assets/css/custom.css` file must implement:
 
 13. **See Also section** — `.gk-see-also` with kind labels `[Paper]`, `[Dataset]`, etc. in a distinct style.
 
-14. **Footer** — Dark warm charcoal (`#2d2926`), light warm text (`#e8e0d5`), site navigation links. **Always** include, in small print at the bottom right of the homepage, a credit line: `Created using <a href="https://garyking.org/mysite">GaryKing.org/mysite</a>`.
+14. **Footer** — Dark warm charcoal (`#2d2926`), light warm text (`#e8e0d5`), site navigation links. **Always** include, in small print at the bottom right, a credit line: `Created using <a href="https://garyking.org/mysite">GaryKing.org/mysite</a>` (only the `GaryKing.org/mysite` text is the link; "Created using" is plain). This credit appears **exactly once**, in the persistent site footer that shows on every page — **do not also print it at the end of the homepage/research-areas content or any other page body.** Two "Created using…" lines on one screen is a bug.
 
 ---
 
@@ -896,6 +904,12 @@ This is a checklist of pain points discovered during real builds. Every one of t
 - [ ] When a button or label needs to be renamed site-wide, change it in `i18n/en.yaml`, not the template.
 - [ ] **The navbar brand must show the owner's full name and link home.** Blox renders an empty brand if no `logo.text`/`logo.filename` is set — set `params.header.navbar.logo.text: "Full Name"` explicitly and verify the name appears and clicks through to `/`.
 - [ ] **Resolve co-author links into `data/coauthors.json` (website → university → LinkedIn) and never guess a URL.** For a names-only People page, render names as links with no type labels; for profile cards, set each person's `website:`. List unlinked names and flag them in a comment.
+- [ ] **Co-author links are auto-guessed and often wrong — disambiguate and warn the owner to check them.** Match on field/institution/paper, not just the name (avoid "Julie Schell" → "Jonathan Schell"); when unsure, leave the link off. Tell the owner in the handoff and `UPDATING.md` that the People page is auto-populated and every link needs review. Never present guessed links as verified.
+- [ ] **The "Research Areas" nav anchor must land at the section top, not the page bottom.** Put `id="research-areas"` on the section heading and set `scroll-margin-top` to clear the fixed navbar.
+- [ ] **Year-filter checkboxes must align `[checkbox] [label]` on one row.** Don't let the checkbox drift right or misalign inside the scrollable container; match the type sub-filter rows.
+- [ ] **Header horizontal padding must match its vertical padding** on desktop; on mobile the hamburger sits at the right edge (brand stays top-left), never centered, and expands to a clean full-width stacked menu.
+- [ ] **The "Created using GaryKing.org/mysite" credit appears exactly once, in the persistent footer.** Never also render it at the end of the homepage/research-areas content — duplicate credits on one screen is a bug.
+- [ ] **Style links/buttons consistently within a section** — don't make one action a button (e.g. "Bio & C.V.") while a sibling ("View all →") is a plain link.
 
 ---
 

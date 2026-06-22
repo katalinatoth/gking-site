@@ -146,7 +146,7 @@ markup:
       unsafe: true
 ```
 
-Menu items link to sections on the homepage (anchor links) or to files. This keeps the single-page feel while maintaining navigability. Add a "Blog" or "News" menu item only if the student has that content.
+Menu items link to sections on the homepage (anchor links) or to files. This keeps the single-page feel while maintaining navigability. Add a "Blog" or "News" menu item only if the student has that content. Each anchor link must scroll to the **top** of its target section, not the page bottom — give section targets a `scroll-margin-top` equal to the sticky nav height so the heading lands just below the nav.
 
 ---
 
@@ -363,8 +363,8 @@ Adjust `--color-accent` to coordinate with the student's institution if desired 
 4. **Status badges:** Small inline labels (`font-size: 0.75rem`, uppercase, letter-spaced) next to paper titles — e.g., `UNDER REVIEW`, `R&R`, `WORKING PAPER`. Use `--color-text-muted` with a subtle background.
 5. **Job market paper card:** `--color-highlight` background, `1px` left border in `--color-accent`, `1.5rem` padding.
 6. **Hero photo:** `border-radius: 50%`, `width: 160px`, `height: 160px`, `object-fit: cover`.
-7. **Footer:** Minimal — name, year. Same `--color-text-muted`. **Always** include, in small print at the bottom right of the homepage, a credit line: `Created using <a href="https://garyking.org/mysite">GaryKing.org/mysite</a>`.
-8. **Nav:** Sticky top, `--color-bg` background, subtle bottom border. Name on left, links on right. On mobile: hamburger menu or a simple horizontal scroll.
+7. **Footer:** Minimal — name, year. Same `--color-text-muted`. **Always** include, in small print at the bottom right, a credit line: `Created using <a href="https://garyking.org/mysite">GaryKing.org/mysite</a>` (only the `GaryKing.org/mysite` text is the link; "Created using" is plain). This credit appears **exactly once**, in the persistent footer — never also at the end of the page content.
+8. **Nav:** Sticky top, `--color-bg` background, subtle bottom border. Name on left, links on right, with **horizontal padding that matches the vertical padding** so the bar feels balanced (don't sit flush against the window edges). On mobile: a hamburger toggle pinned to the far right (name stays on the left), never floating in the center, expanding to a clean full-width stacked menu — or a simple horizontal scroll. Test the collapsed and expanded states at 375px.
 9. **No dark mode.** Force light always. Grad student sites are viewed in professional contexts (committee meetings, browser tabs alongside papers). Consistency matters more than preference.
 10. **Favicon:** Student's initials on a square of `--color-accent`. E.g., "NK" for Nakamura Kentaro — white bold text centered on a filled square.
 
