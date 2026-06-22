@@ -249,9 +249,21 @@ dataverse_name: "Replication Data for: Paper Title"
 related_paper: "paper-slug"  # renders a "Replication data for:" banner
 ```
 
-### People — auto-generate co-author profiles, presented well
+### People — auto-generate from co-authorship, presented well
 
-**Auto-generate a profile page for every co-author** found in the publications' `authors:` lists, plus any group members (students, advisees, postdocs, alumni) the owner explicitly listed. Each co-author gets their own person page under `content/authors/<slug>/`:
+The site **must always include a People page** at `/authors/`, linked from the main nav — even for a solo researcher with no lab. It is generated automatically and is not optional. Collect the unique set of co-authors across all publications/talks/software (everyone listed in any `authors:` field except the site owner). **Never build this page from the raw Hugo `author` taxonomy** — that emits one bland term page per name, an unstyled wall of names each trailed by a publication count (`Jane Doe 1`, `John Smith 13`). Either drop the `author: authors` taxonomy or render People from a dedicated section/template so you control the markup.
+
+**Automatically find and link each person's best external page.** For every co-author, search for the person and attach the first link you can verify, in this strict priority order:
+
+1. **Personal / academic website** (their own domain or department faculty page they maintain).
+2. **University / department directory page** (their official institutional listing).
+3. **LinkedIn** profile.
+
+Use the highest-priority link found; if none can be verified, list the person without a link rather than guessing (flag it in an HTML comment for the owner). Resolve these once and store them so the page regenerates as new papers add new co-authors.
+
+Then choose **one of two presentations — pick based on the owner**:
+
+**Presentation A — profile cards (for labs, groups, or anyone with students / advisees / postdocs).** Auto-generate a profile page for every co-author plus any group members the owner explicitly listed. Each person gets their own page under `content/authors/<slug>/`:
 
 ```yaml
 # content/authors/jane-doe/_index.md
@@ -260,22 +272,25 @@ title: "Jane Doe"
 role: "Associate Professor, MIT"      # affiliation/title if known; omit if unknown
 user_groups: ["Collaborators"]         # e.g. "Current Members", "Alumni", "Collaborators"
 superuser: false
-# external link — see priority order below
-website: "https://janedoe.org"
+website: "https://janedoe.org"         # external link, from the priority order above
 ---
 ```
 
-Avatar is `avatar.jpg` alongside the `_index.md` (the layout shows a neutral monogram when missing).
+Avatar is `avatar.jpg` alongside the `_index.md` (the layout shows a neutral monogram when missing). The page must be a clean, intentional layout — profile cards or rows showing avatar/monogram, name, affiliation, and the external link — grouped by `user_groups` so the owner's own group reads first, broader co-authors after. Co-author names on each publication link to these profile pages.
 
-**Automatically find and link each person's best external page.** For every generated profile, search for the person and attach the first link you can verify, in this priority order:
+**Presentation B — names-only list (for a solo researcher with no lab).** Skip per-person profile pages entirely. Render the co-authors as a single clean, alphabetized list where **each entry is just the person's name, as a link** to their resolved external page. Store the resolved links in a data file so the page never goes stale — `data/coauthors.json`, keyed by exact author name:
 
-1. **Personal / academic website** (their own domain or department faculty page they maintain).
-2. **University / department directory page** (their official institutional listing).
-3. **LinkedIn** profile.
+```json
+{
+  "Gary King":    { "url": "https://gking.harvard.edu/", "type": "website" },
+  "Diana Mutz":   { "url": "https://web.sas.upenn.edu/mutz/", "type": "website" },
+  "Donald Green": { "url": "https://polisci.columbia.edu/content/donald-p-green", "type": "university" }
+}
+```
 
-Use the highest-priority link found; if none can be verified, leave the profile without an external link rather than guessing. Set it as `website:` so the person's name and card link out to it.
+The template auto-discovers the co-author set from content and looks up each name in this file. **Render only the names — as links. Do not print the link type ("Website", "University page", "LinkedIn") or any label, badge, or note beside the name**; the link itself is sufficient, and a visible label that isn't itself a link is just clutter. The preference order decides *where* the name points, not what is displayed.
 
-**Presentation — this is the part that was broken before.** The People page (and each `/authors/<name>/` page) must be a clean, intentional layout: profile cards or rows showing avatar/monogram, name, affiliation, and the external link. It must **never** render as the raw Hugo Blox taxonomy term-list — an unstyled wall of names each trailed by a publication count (`Jane Doe 1`, `John Smith 13`). If the default `authors` taxonomy term page produces that, override its template (or point the "People" nav at a proper list page that ranges over the profiles and renders cards). Group the page by `user_groups` so the owner's own group reads first, with broader co-authors after. Co-author names on each publication link to these profile pages.
+**Whichever presentation you use, the page copy reads like a website, not like these instructions.** The People intro (and every section intro/subtitle) must be natural prose a reader would expect on a personal academic site — e.g. "Libby's research is highly collaborative; these are her co-authors." Never describe the page's own mechanics or restate this prompt (no "each name links to their website, university page, or LinkedIn"). Describe the people, not the UI.
 
 ### Homepage
 
@@ -302,7 +317,8 @@ The homepage hero **must** use a side-by-side layout:
 
 The navbar **must** follow this structure:
 
-- **Brand name (uppercase, bold)** on the far LEFT.
+- **Brand = the owner's full name (uppercase, bold)** on the far LEFT. This is mandatory and automatic on every page — the brand is the owner's name (e.g. "LIBBY JENKE"), **not** a logo placeholder, not the word "Home", and never left blank. Set it explicitly (in Hugo Blox, `params.header.navbar.logo.text: "Full Name"`); do not rely on a theme default that renders an empty brand when no logo image is configured.
+- **The brand name must be a clickable link to the homepage** (`href="/"`), present in the navbar on *every* page so a reader can always click the name to return home. Verify after building that the brand text actually appears and that clicking it loads the homepage — an empty or missing brand is a bug.
 - **Navigation links** flush to the RIGHT (no large gap between brand and nav items).
 - **Search** represented as a **plain magnifying glass icon only** — no text label, no button border/background. Just the icon, clickable.
 - On mobile, nav links collapse into a hamburger menu.
@@ -724,6 +740,7 @@ Humans forget; scripts don't. Any recurring manual step is a bug.
 - **No academic hedging in interface copy.** Button says "Download PDF", not "You may wish to download the PDF".
 - **Dates are unambiguous:** `Jan 2, 2026`, never `1/2/26`.
 - **Author names spelled as the author spells them**, including diacritics, casing, and middle initials.
+- **Copy reads like a website, never like the build instructions.** Section intros and subtitles must be natural prose a visitor would expect on a personal academic site. Never restate this prompt or narrate the page's own mechanics — no "use the tabs to filter," no "each name links to their website or LinkedIn," no "this page lists…". Describe the content (e.g. "Published articles, work under review, and ongoing projects."), then stop. If an intro explains how the UI works, rewrite it.
 
 ### 14.15 Tone — Understated, Credit-Sharing, Never Braggy
 
@@ -877,6 +894,8 @@ This is a checklist of pain points discovered during real builds. Every one of t
 - [ ] Commit `_vendor/` to the repo. It's the only way to reliably override Blox partials and keeps builds hermetic.
 - [ ] The `go.sum` must be checked in alongside `go.mod`, or Hugo mod verification will fail in CI.
 - [ ] When a button or label needs to be renamed site-wide, change it in `i18n/en.yaml`, not the template.
+- [ ] **The navbar brand must show the owner's full name and link home.** Blox renders an empty brand if no `logo.text`/`logo.filename` is set — set `params.header.navbar.logo.text: "Full Name"` explicitly and verify the name appears and clicks through to `/`.
+- [ ] **Resolve co-author links into `data/coauthors.json` (website → university → LinkedIn) and never guess a URL.** For a names-only People page, render names as links with no type labels; for profile cards, set each person's `website:`. List unlinked names and flag them in a comment.
 
 ---
 

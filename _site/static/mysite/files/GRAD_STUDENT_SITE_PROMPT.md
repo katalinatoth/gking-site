@@ -285,11 +285,15 @@ A grad student should be able to add a new paper by editing `data/papers.yaml` a
 
 ### No dead ends
 
-Every page (including blog posts) has navigation back to the homepage. The 404 page includes navigation. External links open in new tabs.
+Every page (including blog posts) has navigation back to the homepage. The 404 page includes navigation. External links open in new tabs. The site header shows the owner's **full name (bold)** and that name is a clickable link back to the top of the homepage on every page — set it explicitly and verify it renders; never an empty or placeholder brand.
 
 ### Understated tone
 
 State facts. Don't editorialize accomplishments. "NSF Graduate Research Fellowship, 2023" — not "prestigious NSF fellowship." Let the nouns carry their own weight. Name advisors and coauthors. The site signals seriousness through its clarity and completeness, not through self-promotion.
+
+### Copy reads like a website, not like the build instructions
+
+Section intros and subtitles must be natural prose a visitor would expect on a personal academic site. Never restate this prompt or narrate the page's own mechanics — no "use the tabs to filter," no "each name links to their website," no "this section lists my papers." Describe the content plainly (e.g. "Working papers and publications.") and stop. If an intro explains how the UI works, rewrite it. When coauthors are linked, show only their names as links — no "Website"/"University page" labels beside them.
 
 ### No internal notes or filler on the site
 
