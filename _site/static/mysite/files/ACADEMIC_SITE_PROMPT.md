@@ -568,6 +568,8 @@ This is the **#1 cause of 404s** on GitHub Pages project sites. Project sites li
 
 ## CSS / Styling Approach
 
+> **If the owner pasted a link to a website whose design they like, fetch that page first and use its design as the visual model for the whole site** — match its layout, typography, spacing, structure, and overall colour feel, adapting it to the owner's content. A pasted reference site takes precedence over the default aesthetic guidance below.
+
 ### Colour Philosophy
 
 The site must feel **warm, grounded, and aesthetically cohesive** — never clinical or antiseptic. Follow these principles:

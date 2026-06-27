@@ -119,6 +119,15 @@ Anything on the old site to change, drop, or reorganize:
 >
 
 
+------------------------------------------------------------
+  A DESIGN YOU LIKE (optional)
+------------------------------------------------------------
+
+Paste a link to any website whose design you like — your assistant will
+use it as the visual model for your site:
+>
+
+
 ============================================================
   FOR YOUR AI ASSISTANT — you don't need to read this part
 ============================================================

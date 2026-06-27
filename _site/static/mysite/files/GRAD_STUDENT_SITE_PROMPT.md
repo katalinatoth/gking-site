@@ -263,6 +263,8 @@ The homepage is a single scrolling page with clearly delineated sections. This m
 
 ## Design Principles
 
+> **If the owner pasted a link to a website whose design they like, fetch that page first and use its design as the visual model for the whole site** — match its layout, typography, spacing, structure, and overall colour feel, adapting it to the owner's content. A pasted reference site takes precedence over the default design guidance below.
+
 ### Clean over dense
 
 Grad student sites have little content. The design challenge is making 3 papers and 2 teaching roles look intentional and professional, not empty. Use generous whitespace, clear typography, and confident simplicity. Do NOT try to fill space with decorative elements.
