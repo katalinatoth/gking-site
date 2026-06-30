@@ -12,6 +12,9 @@
 # here is the order shown.
 
 sites:
+  - name: "Gary King"
+    affiliation: "Harvard University, Institute for Quantitative Social Science"
+    url: "https://gking.harvard.edu/"
   - name: "Katalina Toth"
     affiliation: "Harvard University, Institute for Quantitative Social Science"
     url: "https://katalinatoth.github.io/katalinatoth/"
