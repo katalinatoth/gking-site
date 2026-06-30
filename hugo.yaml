@@ -2,7 +2,7 @@ baseURL: "https://gking.harvard.edu/"
 title: "Gary King"
 languageCode: en-us
 copyright: "Gary King"
-enableGitInfo: false
+enableGitInfo: true
 enableEmoji: true
 enableRobotsTXT: true
 hasCSSJSConfigInAssets: true
