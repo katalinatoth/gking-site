@@ -1,0 +1,17 @@
+# Directory of sites built with GaryKing.org/mysite.
+#
+# This is the "hand-raising" list. Only add sites you have approved
+# (e.g. from the sign-up form responses). To add one, copy a block
+# below, fill in the three fields, and save:
+#
+#   - name: "Their Name"
+#     affiliation: "Their University or Organization"
+#     url: "https://their-site-address"
+#
+# The list renders on the /mysite/ page, newest first is fine — order
+# here is the order shown.
+
+sites:
+  - name: "Katalina Toth"
+    affiliation: "Harvard University, Institute for Quantitative Social Science"
+    url: "https://katalinatoth.github.io/katalinatoth/"

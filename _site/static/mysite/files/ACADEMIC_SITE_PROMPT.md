@@ -611,7 +611,21 @@ The single `assets/css/custom.css` file must implement:
 
 13. **See Also section** — `.gk-see-also` with kind labels `[Paper]`, `[Dataset]`, etc. in a distinct style.
 
-14. **Footer** — Dark warm charcoal (`#2d2926`), light warm text (`#e8e0d5`), site navigation links. **Always** include, in small print at the bottom right, a credit line: `Created using <a href="https://garyking.org/mysite">GaryKing.org/mysite</a>` (only the `GaryKing.org/mysite` text is the link; "Created using" is plain). This credit appears **exactly once**, in the persistent site footer that shows on every page — **do not also print it at the end of the homepage/research-areas content or any other page body.** Two "Created using…" lines on one screen is a bug.
+14. **Footer** — Dark warm charcoal (`#2d2926`), light warm text (`#e8e0d5`), site navigation links. Include, in small print at the bottom right, a credit line: `Created using <a href="https://garyking.org/mysite">GaryKing.org/mysite</a>` (only the `GaryKing.org/mysite` text is the link; "Created using" is plain). This credit appears **exactly once**, in the persistent site footer that shows on every page — **do not also print it at the end of the homepage/research-areas content or any other page body.** Two "Created using…" lines on one screen is a bug. The credit is **on by default but opt-out**: gate it behind `params.mysite.credit` (defaulting to shown) so the owner can remove it now — via the "Footer credit" checkbox in their information form — or later by asking the agent. When the form's "Footer credit" box is unchecked, set `params.mysite.credit: false`.
+
+    **Also add invisible discovery metadata** in the `<head>` so a site can be found and added to the public GaryKing.org/mysite directory automatically. There is **no public submission form** — it was removed to avoid spam and gamed URLs; the directory is built entirely from this metadata. It renders nothing visible and collects nothing. Emit two things, both gated behind `params.mysite.discovery` (on by default):
+
+    - On **every page**, a findable marker that survives even if the footer credit is removed:
+      `<meta name="generator" content="Created using GaryKing.org/mysite (https://gking.harvard.edu/mysite)">`
+    - On the **homepage only**, a `schema.org` `Person` block carrying the owner's identity so the directory can list them — name, affiliation (institution), and site URL:
+
+      ```html
+      <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"Person","name":"<Full Name>","affiliation":{"@type":"Organization","name":"<Institution>"},"url":"<site URL>","isBasedOn":"https://gking.harvard.edu/mysite"}
+      </script>
+      ```
+
+    This is **opt-out**: when the form's "Directory listing" box is unchecked, set `params.mysite.discovery: false` and emit neither. Use JSON-LD, **not** visually-hidden keyword text — `display:none` text stuffed with keywords can be penalised by search engines, whereas JSON-LD is invisible to visitors, standard, and good for SEO.
 
 ---
 
@@ -910,7 +924,8 @@ This is a checklist of pain points discovered during real builds. Every one of t
 - [ ] **The "Research Areas" nav anchor must land at the section top, not the page bottom.** Put `id="research-areas"` on the section heading and set `scroll-margin-top` to clear the fixed navbar.
 - [ ] **Year-filter checkboxes must align `[checkbox] [label]` on one row.** Don't let the checkbox drift right or misalign inside the scrollable container; match the type sub-filter rows.
 - [ ] **Header horizontal padding must match its vertical padding** on desktop; on mobile the hamburger sits at the right edge (brand stays top-left), never centered, and expands to a clean full-width stacked menu.
-- [ ] **The "Created using GaryKing.org/mysite" credit appears exactly once, in the persistent footer.** Never also render it at the end of the homepage/research-areas content — duplicate credits on one screen is a bug.
+- [ ] **The "Created using GaryKing.org/mysite" footer credit is on by default, opt-out via `params.mysite.credit`, and appears exactly once.** Honor the form's "Footer credit" checkbox. Never also render it in a page body — duplicate credits on one screen is a bug.
+- [ ] **Invisible discovery metadata is present and gated by `params.mysite.discovery` (on by default, opt-out via the form's "Directory listing" box):** a `<meta name="generator" content="Created using GaryKing.org/mysite …">` on every page, plus a homepage `schema.org` Person block (name, affiliation, url). Visitor-invisible; lets the directory be auto-built with no submission form.
 - [ ] **Style links/buttons consistently within a section** — don't make one action a button (e.g. "Bio & C.V.") while a sibling ("View all →") is a plain link.
 
 ---

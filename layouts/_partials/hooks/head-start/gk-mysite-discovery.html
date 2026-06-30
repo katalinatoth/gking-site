@@ -1,0 +1,34 @@
+{{/* mysite discovery metadata.
+
+     Invisible-to-visitors metadata that lets a site built with
+     GaryKing.org/mysite be found and added to the public directory WITHOUT the
+     owner submitting any form (which avoids spam / gamed URLs). It collects
+     nothing and renders nothing visible:
+
+       1. A <meta name="generator"> marker on every page — the findable
+          signature, present even if the visible footer credit is removed.
+       2. A schema.org Person block on the homepage — name, affiliation, and
+          url — so the directory can be auto-built from the metadata of
+          discovered sites.
+
+     On by default. Owners opt out with `params.mysite.discovery: false`
+     (set in the intake form or later by asking their agent). */}}
+{{- $m := site.Params.mysite | default dict -}}
+{{- if ne $m.discovery false -}}
+  {{- $name := $m.owner_name | default (index site.Params.marketing.seo "org_name") | default site.Title -}}
+  {{- $affiliation := $m.affiliation | default "" -}}
+  {{- $url := "" | absURL -}}
+  <meta name="generator" content="Created using GaryKing.org/mysite (https://gking.harvard.edu/mysite)">
+  {{- if .IsHome -}}
+    {{- $person := dict
+          "@context" "https://schema.org"
+          "@type" "Person"
+          "name" $name
+          "url" $url -}}
+    {{- with $affiliation -}}
+      {{- $person = merge $person (dict "affiliation" (dict "@type" "Organization" "name" .)) -}}
+    {{- end -}}
+    {{- $person = merge $person (dict "isBasedOn" "https://gking.harvard.edu/mysite") -}}
+    <script type="application/ld+json">{{ $person | jsonify (dict "indent" "  ") | safeJS }}</script>
+  {{- end -}}
+{{- end -}}

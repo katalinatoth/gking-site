@@ -89,6 +89,24 @@ use it as the visual model for your site:
 >
 
 
+------------------------------------------------------------
+  VISIBILITY & CREDIT (optional — leave as-is to keep the defaults)
+------------------------------------------------------------
+
+By default, two small extras are added to your site. Both are optional, and
+you can change them now or later (just ask your assistant). To turn one off,
+change its [x] to [ ].
+
+  [x] Footer credit — a small "Created using GaryKing.org/mysite" line in the
+      bottom-right of every page.
+
+  [x] Directory listing — an invisible marker in your page's source code. It
+      shows nothing to visitors and collects nothing about you; it simply lets
+      us find your site and add it to our public directory at
+      GaryKing.org/mysite, which can help your site get discovered by search
+      engines.
+
+
 ============================================================
   FOR YOUR AI ASSISTANT — you don't need to read this part
 ============================================================
@@ -97,5 +115,7 @@ Build instructions are here:
 https://gking.harvard.edu/mysite/files/ACADEMIC_SITE_PROMPT.md
 
 Fetch that page and follow it exactly, using my answers above as the
-content. Build a local preview and show it to me before anything goes
-public.
+content. Honor the Visibility & credit choices above: if "Footer credit" is
+unchecked set params.mysite.credit: false; if "Directory listing" is
+unchecked set params.mysite.discovery: false. Build a local preview and show
+it to me before anything goes public.

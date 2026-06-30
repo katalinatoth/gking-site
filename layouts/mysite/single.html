@@ -201,6 +201,17 @@
     .dl-btn .t span { display: block; font-size: 13.5px; color: var(--muted); }
     .dl-btn .arrow { margin-left: auto; color: var(--muted); flex: none; }
 
+    /* Directory of sites built with the tool */
+    .sites { list-style: none; padding: 0; margin: 14px 0 4px; display: grid; gap: 9px; }
+    .sites li {
+      padding: 12px 15px; border: 1px solid var(--line); border-radius: 10px;
+      background: #fff;
+    }
+    .sites .s-name { font-weight: 700; }
+    .sites .s-name a { color: var(--accent); }
+    .sites .s-aff { color: var(--muted); font-size: 14.5px; }
+    .sites-soon { color: var(--muted); font-size: 14.5px; margin: 12px 0 2px; }
+
     /* Small "last updated" stamp at the foot of the guide. */
     .last-updated {
       text-align: center;
@@ -380,6 +391,27 @@
           <li><b>Site isn't updating after publishing:</b> go to your repository on GitHub, click the <b>Actions</b> tab. If there's a red X, copy the error and tell your assistant: <i>"The build failed. Here's the error: [paste]."</i></li>
           <li><b>You don't like a recent change:</b> tell your assistant <i>"Revert the last change and republish."</i> Everything is versioned, so nothing is lost forever.</li>
         </ul>
+      </div>
+    </details>
+
+    <div class="section-head divided">
+      <h2 class="section-title">Show off your site</h2>
+      <p class="section-sub">Choosing to add your website to our directory in your information form can help search engines discover it.</p>
+    </div>
+
+    <details class="step" name="howto">
+      <summary><span class="num dot">&#9733;</span> Our directory of sites <span class="chev" aria-hidden="true">&#9662;</span></summary>
+      <div class="body">
+        {{ with (index site.Data "mysite_sites").sites }}
+        <p style="margin-top:18px;"><b>Sites built with this tool</b></p>
+        <ul class="sites">
+          {{ range . }}
+          <li>
+            <span class="s-name"><a href="{{ .url }}" target="_blank" rel="noopener">{{ .name }}</a></span>{{ with .affiliation }}<span class="s-aff"> — {{ . }}</span>{{ end }}
+          </li>
+          {{ end }}
+        </ul>
+        {{ end }}
       </div>
     </details>
 

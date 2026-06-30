@@ -365,7 +365,21 @@ Adjust `--color-accent` to coordinate with the student's institution if desired 
 4. **Status badges:** Small inline labels (`font-size: 0.75rem`, uppercase, letter-spaced) next to paper titles — e.g., `UNDER REVIEW`, `R&R`, `WORKING PAPER`. Use `--color-text-muted` with a subtle background.
 5. **Job market paper card:** `--color-highlight` background, `1px` left border in `--color-accent`, `1.5rem` padding.
 6. **Hero photo:** `border-radius: 50%`, `width: 160px`, `height: 160px`, `object-fit: cover`.
-7. **Footer:** Minimal — name, year. Same `--color-text-muted`. **Always** include, in small print at the bottom right, a credit line: `Created using <a href="https://garyking.org/mysite">GaryKing.org/mysite</a>` (only the `GaryKing.org/mysite` text is the link; "Created using" is plain). This credit appears **exactly once**, in the persistent footer — never also at the end of the page content.
+7. **Footer:** Minimal — name, year. Same `--color-text-muted`. Include, in small print at the bottom right, a credit line: `Created using <a href="https://garyking.org/mysite">GaryKing.org/mysite</a>` (only the `GaryKing.org/mysite` text is the link; "Created using" is plain). This credit appears **exactly once**, in the persistent footer — never also at the end of the page content. The credit is **on by default but opt-out**: gate it behind `params.mysite.credit` (defaulting to shown) so the owner can remove it now — via the "Footer credit" checkbox in their information form — or later by asking the agent. When that box is unchecked, set `params.mysite.credit: false`.
+
+    **Also add invisible discovery metadata** in the `<head>` so a site can be found and added to the public GaryKing.org/mysite directory automatically. There is **no public submission form** — it was removed to avoid spam and gamed URLs; the directory is built entirely from this metadata. It renders nothing visible and collects nothing. Emit two things, both gated behind `params.mysite.discovery` (on by default):
+
+    - On **every page**, a findable marker that survives even if the footer credit is removed:
+      `<meta name="generator" content="Created using GaryKing.org/mysite (https://gking.harvard.edu/mysite)">`
+    - On the **homepage only**, a `schema.org` `Person` block carrying the owner's identity so the directory can list them — name, affiliation (institution/department), and site URL:
+
+      ```html
+      <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"Person","name":"<Full Name>","affiliation":{"@type":"Organization","name":"<Institution>"},"url":"<site URL>","isBasedOn":"https://gking.harvard.edu/mysite"}
+      </script>
+      ```
+
+    This is **opt-out**: when the form's "Directory listing" box is unchecked, set `params.mysite.discovery: false` and emit neither. Use JSON-LD, **not** visually-hidden keyword text — `display:none` text stuffed with keywords can be penalised by search engines, whereas JSON-LD is invisible to visitors, standard, and good for SEO.
 8. **Nav:** Sticky top, `--color-bg` background, subtle bottom border. Name on left, links on right, with **horizontal padding that matches the vertical padding** so the bar feels balanced (don't sit flush against the window edges). On mobile: a hamburger toggle pinned to the far right (name stays on the left), never floating in the center, expanding to a clean full-width stacked menu — or a simple horizontal scroll. Test the collapsed and expanded states at 375px.
 9. **No dark mode.** Force light always. Grad student sites are viewed in professional contexts (committee meetings, browser tabs alongside papers). Consistency matters more than preference.
 10. **Favicon:** Student's initials on a square of `--color-accent`. E.g., "NK" for Nakamura Kentaro — white bold text centered on a filled square.

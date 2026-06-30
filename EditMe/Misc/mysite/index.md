@@ -7,6 +7,12 @@ lastmod: '2026-06-22'
 type: mysite
 summary: "A startup guide for graduate students and senior researchers — build a full academic website with AI, hosted for free. No coding required."
 
+# The "Show off your site" directory is curated automatically from the
+# invisible discovery marker each generated site carries (see
+# layouts/_partials/hooks/head-start/gk-mysite-discovery.html). There is no
+# public sign-up form — that was removed to avoid spam and gamed URLs. Listed
+# sites live in data/mysite_sites.yaml.
+
 # --- Information forms (embedded inside the "Get your information form" step).
 #     These are short intake docs: the person fills in only the "Who I Am"
 #     section, and the form tells the agent to fetch the full build

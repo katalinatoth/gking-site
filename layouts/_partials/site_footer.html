@@ -7,7 +7,13 @@
       <a href="https://www.iq.harvard.edu/" target="_blank" rel="noopener">IQSS <span class="sr-only">(opens in new tab)</span></a>
       <a href="https://x.com/kinggary" target="_blank" rel="noopener">@KingGary on X <span class="sr-only">(opens in new tab)</span></a>
     </div>
+    {{- /* Visible attribution. On by default; owners opt out via
+           params.mysite.credit: false (set in the intake form or later by
+           asking the agent). */ -}}
+    {{- $mysite := site.Params.mysite | default dict -}}
+    {{- if ne $mysite.credit false }}
     <span class="gk-sitelinks__credit">Created using <a href="{{ "mysite/" | relURL }}">GaryKing.org/mysite</a></span>
+    {{- end }}
   </div>
 </nav>
 <style>
