@@ -400,10 +400,9 @@
     </div>
 
     <details class="step" name="howto">
-      <summary><span class="num dot">&#9733;</span> Our directory of sites <span class="chev" aria-hidden="true">&#9662;</span></summary>
+      <summary><span class="num dot">&#9733;</span> Sites built with this tool <span class="chev" aria-hidden="true">&#9662;</span></summary>
       <div class="body">
         {{ with (index site.Data "mysite_sites").sites }}
-        <p style="margin-top:18px;"><b>Sites built with this tool</b></p>
         <ul class="sites">
           {{ range . }}
           <li>
