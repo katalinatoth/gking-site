@@ -106,6 +106,13 @@ change its [x] to [ ].
       GaryKing.org/mysite, which can help your site get discovered by search
       engines.
 
+  To change this later, copy and paste the following for your agent, then
+  ask it to "preview," and "publish" once you're satisfied:
+    - "Turn the GaryKing.org/mysite footer credit off (set
+       params.mysite.credit to false)."   Say "on" / true to put it back.
+    - "Turn the GaryKing.org/mysite directory marker off (set
+       params.mysite.discovery to false)."   Say "on" / true to put it back.
+
 
 ============================================================
   FOR YOUR AI ASSISTANT — you don't need to read this part
