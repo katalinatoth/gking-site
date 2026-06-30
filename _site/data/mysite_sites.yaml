@@ -18,3 +18,6 @@ sites:
   - name: "Katalina Toth"
     affiliation: "Harvard University, Institute for Quantitative Social Science"
     url: "https://katalinatoth.github.io/katalinatoth/"
+  - name: "George Yean"
+    affiliation: "Harvard University, Department of Government"
+    url: "https://georgeyean.github.io/"
